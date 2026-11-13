@@ -1,0 +1,119 @@
+TLV803E, TLV809E, TLV810E Low Power 250-nA IQ and Small Size Supply Voltage
+Supervisors
+1 Features
+•
+Ensured RESET/RESET for VDD = 0.7 V to 6 V
+•
+Fixed time delay: 40 µs, 10 ms, 50 ms, 100 ms,
+200 ms, 400 ms
+•
+Supply current (IDD): 250 nA (typical)
+–
+1 µA (maximum for VDD = 3.3 V)
+•
+Output topology:
+–
+TLV809E: push-pull, active-low
+–
+TLV803E: open-drain, active-low
+–
+TLV810E: push-pull, active-high
+•
+Under voltage detection:
+–
+High accuracy: ±0.5% (typical)
+–
+(VIT–): 1.7 V, 1.8 V, 1.9 V, 2.25V, 2.4 V, 2.64 V,
+2.93 V, 3.08 V, 3.3V, 4.2V, 4.38 V, 4.55V, 4.63 V
+•
+Package:
+–
+SOT23-3 (DBZ) (with pin 1 = GND)
+–
+SOT23-3 (DBZ) (with pin 1 = RESET/RESET)
+–
+SOT23-3 (DBZ) (with pin 3 = GND)
+–
+SC-70 (DCK)
+–
+X2SON-5 (DPW)
+•
+Temperature range:  –40°C to +125°C
+•
+Pin-to-pin compatible with MAX803/809/810,
+APX803/809/810
+2 Applications
+•
+Electricity meters
+•
+Factory Automation
+•
+Portable, battery-powered equipment
+•
+Set-top boxes and TVs
+•
+Building automation
+•
+Notebook/desktop computers, servers
+3 Description
+The TLV803E, TLV809E, and TLV810E are enhanced
+alternatives to the TLV803, TLV853, TLV809, LM809,
+TPS3809 and TLV810. TLV80xE and TLV81xE offer
+low quiescent current IQ, higher accuracy, wider
+temperature range, and lower power-on-reset (VPOR)
+for increased system reliability.
+The TLV80xE and TLV81xE family are low IQ (250 nA
+typical, 1 µA max), voltage supervisory circuits (reset
+IC) that monitor VDD voltage level. These devices
+initiate a reset signal whenever supply voltage VDD
+drops below the factory programmed falling threshold
+voltage, VIT–. The reset output remains low for a fixed
+reset time delay tD after the VDD voltage rises above
+the rising voltage threshold (VIT+) which is equivalent
+to the falling threshold voltage (VIT-) plus hysteresis
+(VHYS).
+These devices have integrated glitch immunity to
+ignore fast transients on the VDD pin. The low
+IQ and high accuracy (±0.5% typical) makes these
+voltage supervisors ideal for use in low-power and
+portable applications. The TLV80xE and TLV81xE
+devices are specified to have the defined output logic
+state for supply voltages down to VPOR = 0.7 V.
+The TLV80xE and TLV81xE devices are available
+in industry standard 3-pin SOT23 (DBZ) and SC70
+(DCK) packages and very compact X2SON (DPW)
+package.
+Device Information (1)
+PART NUMBER
+PACKAGE
+BODY SIZE (NOM)
+TLV803E, TLV809E,
+TLV810E
+SOT-23 (3)
+2.90 mm × 1.30 mm
+SC-70 (3)
+2.00 mm × 1.25 mm
+X2SON (5)
+0.8 mm x 0.8 mm
+(1)
+For all available packages, see the orderable addendum at
+the end of the data sheet.
+TLV803E
+VDD
+GND
+FPGA, ASIC, DSP
+VDD
+LDO
+*Rpull-up
+GND
+*Pull-up resistor not required for TLV809E, TLV810E
+RESET
+RESET
+IN
+OUT
+Typical Application
+TLV803E, TLV809E, TLV810E
+SLVSES2J – AUGUST 2018 – REVISED MAY 2021
+An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,
+intellectual property matters and other important disclaimers. UNLESS OTHERWISE NOTED, this document contains PRODUCTION
+DATA.

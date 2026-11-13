@@ -1,0 +1,11 @@
+# MoBot V2 tay cầm · Rà điều kiện chốt bó dây và pin
+
+MM-HW-MOBOT-IF-001. Bổ sung [packet bó dây](mobot-v2-handset-b01-harness-review.md), SHA-256 `4145C01F95AF44A4DAAA115139B67125B1AC04FFB6876D58D63DE340F28AAD78`. Tổng hợp handoff mới của Box 02 và 03.
+
+1. Carrier dùng 11 dây trên JST GH 12 cực cắm ngang. Box 03 chọn ứng viên `SM12B-GHS-TB`, `GHR-12V-S`, 11 terminal `SSHL-002T-P0.2`, dây mềm AWG 28 có đường kính ngoài 0,76–1,00 mm. Miệng hướng khoang B01. Chừa vùng nhả khóa, rút housing song song carrier, uốn và giữ dây. Cỡ dây còn chờ kiểm sụt áp và đường hồi theo chiều dài thực. [JST GH](https://www.jst-mfg.com/product/index.php?lang=2&series=105).
+2. Box 02 đề xuất theo dõi riêng nhánh GND chức năng bằng kích AC ghép từ và đọc dòng đồng bộ. Mục tiêu phát hiện dây GND hở ngay cả khi USB vẫn nối mass. Cần chứng minh biên phân biệt vòng tốt và hở, độ trễ cắt, dòng hồi và nhiễu USB/ADC trên đúng cụm. Đây là ứng viên cấp khối. Rà liệu có cách đơn giản hơn đáp ứng cùng yêu cầu hoặc có thể chứng minh an toàn khi GND hở mà không cần thêm khối giám sát.
+3. JOY_VCC từ carrier mặc định tắt. Sau xác nhận RUN và GND hợp lệ, bật joystick, chờ ổn định, nối I/O rồi chờ ADC ổn định. Đường rail sense trở kháng cao phải báo lỗi khi hở/mất bias và có cận rò ở hai chiều mất nguồn. Mức áp, ngưỡng và thời gian chờ cần dữ liệu đúng B01 và joystick.
+4. Phiếu đo Box 03 dùng thước cặp, đồng hồ so hoặc đo hành trình, và oscilloscope hoặc logic analyzer. Ghi đúng SKU/revision B01, hình học cổng và phích, độ rơ, vùng thao tác, điểm đóng/nhả và hành trình dư từng tiếp điểm. Kiểm cắm hờ, rút lệch, nhầm cáp, đầu chụp kẹt, gá xê dịch và giữ đóng từng kênh. Cận hành trình nhả sau sai số phải vượt quãng đường rút trong thời gian ngắt xấu nhất. Xác nhận cơ khí phích vào đủ trước RUN, trạng thái điện USB hợp lệ sau RUN.
+5. Box 02 loại VARTA `56457 201 020` khỏi cấu hình giữ nguyên H3 do chưa chứng minh profile kết thúc và timer tương thích. Chỉ xét lại nếu có bằng chứng hãng hoặc revision sạc mới được duyệt. B15 LK37478 vẫn thiếu hồ sơ. [Hồ sơ pack](mobot-v2-r6-handset-pack-decision.md).
+
+Box 08 rà phần đã đủ để khóa, mức cần thiết của GND_PATH_OK, phương án đơn giản hóa và các đầu vào cần mẫu trước KiCad. Chưa có phép đo mẫu hoặc phê duyệt cấu hình triển khai trong packet này.

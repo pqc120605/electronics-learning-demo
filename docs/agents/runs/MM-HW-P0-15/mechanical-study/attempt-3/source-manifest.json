@@ -1,0 +1,25 @@
+{
+  "scope": "Existing manufacturer PDFs reused read-only; no new downloads",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/ti-ina152-SBOS184.pdf",
+      "sha256": "fca0d823495340ad8476821918326ec2b04bc36c586be288182a43377713a19a",
+      "bytes": 350732
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/panasonic-AQY21-ASCTB126E.pdf",
+      "sha256": "c4f533985988595908b678e7c03b80bdec5bca050bcef2e1f88674d8cfb6666c",
+      "bytes": 760016
+    },
+    {
+      "path": "docs/research/downloads/c11-r12/tps22916.pdf",
+      "sha256": "a4d81b70556d5564aaee9baf455b7651375a94c629448f3f7e7ced2f5c41b33f",
+      "bytes": 1385594
+    },
+    {
+      "path": "docs/research/downloads/p0-11/tps22919.pdf",
+      "sha256": "743c59b01fb0891d2d0f1faba779161cd2d2b6c18edf68e6d5b3279016240c84",
+      "bytes": 1454791
+    }
+  ]
+}

@@ -1,0 +1,2243 @@
+--- PAGE 1 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/ADR4533/
+ADR4540/ADR4550
+Ultralow Noise, High Accuracy Voltage References
+Rev. G
+DOCUMENT FEEDBACK
+ 
+TECHNICAL SUPPORT
+Information furnished by Analog Devices is believed to be accurate and reliable "as is". However, no responsibility is assumed by Analog Devices
+for its use, nor for any infringements of patents or other rights of third parties that may result from its use. Specifications subject to change
+without notice. No license is granted by implication or otherwise under any patent or patent rights of Analog Devices. Trademarks and registered
+trademarks are the property of their respective owners. All Analog Devices products contained herein are subject to release and availability.
+FEATURES
+►Maximum temperature coefficient (TCVOUT):
+►0.8 ppm/°C (D grade 0°C to 70°C)
+►1 ppm/°C (C grade 0°C to 70°C)
+►2 ppm/°C (B grade −40°C to +125°C)
+►4 ppm/°C (A grade −40°C to +125°C)
+►Output noise (0.1 Hz to 10 Hz):
+►1 μV p-p at VOUT of 2.048 V typical
+►Initial output voltage error:
+►B, C, D grade: ±0.02% (maximum)
+►Input voltage range: 3 V to 15 V
+►Operating temperature:
+►A grade and B grade: −40°C to +125°C
+►C grade and D grade: 0°C to +70°C
+►Output current: +10 mA source/−10 mA sink
+►Low quiescent current: 950 μA (maximum)
+►Low dropout voltage: 300 mV at 2 mA (VOUT ≥ 3 V)
+►8-lead SOIC and LCC packages
+►AEC-Q100 qualified for automotive applications
+►Long-term drift: 8 ppm typical at 4500 hours
+APPLICATIONS
+►Precision data acquisition systems
+►High resolution data converters
+►High precision measurement devices
+►Industrial instrumentation
+►Medical devices
+►Automotive battery monitoring
+PIN CONFIGURATIONS
+Figure 1. 8-Lead SOIC Pin Configuration
+Figure 2. 8-Lead LCC Pin Configuration
+GENERAL DESCRIPTION
+The ADR4520/ADR4525/ADR4530/ADR4533/ADR4540/ADR4550
+devices are high precision, low power, low noise voltage references
+featuring ±0.02% B, C, and D grade maximum initial error, excellent
+temperature stability, and low output noise.
+This family of voltage references uses an innovative core topology
+to achieve high accuracy while offering industry-leading tempera-
+ture stability and noise performance. The low, thermally induced
+output voltage hysteresis and low long-term output voltage drift of
+the devices also improve system accuracy over time and tempera-
+ture variations.
+A maximum operating current of 950 μA and a maximum low
+dropout voltage of 300 mV allow the devices to function very well in
+portable equipment.
+The ADR4520/ADR4525/ADR4530/ADR4533/ADR4540/ADR4550
+series of references are each provided in an 8-lead SOIC and
+are available in a wide range of output voltages, all of which are
+specified over the extended industrial temperature range of −40°C
+to +125°C.
+The ADR4525, ADR4540, and ADR4550 are also available in D,
+which are in 8 lead LCC package, and C grade with a temperature
+range of 0°C to 70°C. The ADR4525W, available in an 8‑lead SOIC
+package, is qualified for automotive applications.
+
+--- PAGE 2 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TABLE OF CONTENTS
+analog.com
+Rev. G | 2 of 41
+Features................................................................ 1
+Applications........................................................... 1
+Pin Configurations................................................. 1
+General Description...............................................1
+Specifications........................................................ 3
+ADR4520 Electrical Characteristics................... 3
+ADR4525 Electrical Characteristics................... 4
+ADR4530 Electrical Characteristics................... 5
+ADR4533 Electrical Characteristics................... 6
+ADR4540 Electrical Characteristics................... 7
+ADR4550 Electrical Characteristics................... 8
+Absolute Maximum Ratings.................................10
+Thermal Resistance......................................... 10
+ESD Caution.....................................................10
+Pin Configurations and Function Descriptions.....11
+Typical Performance Characteristics...................12
+ADR4520..........................................................12
+ADR4525..........................................................15
+ADR4530..........................................................19
+ADR4533..........................................................22
+ADR4540..........................................................25
+ADR4550..........................................................29
+Terminology......................................................... 33
+Applications Information...................................... 35
+Basic Voltage Reference Connection...............35
+Input and Output Capacitors............................ 35
+Location of Reference in System..................... 35
+Power Dissipation.............................................35
+Sample Applications.........................................35
+Long-Term Drift ................................................36
+Thermal Hysteresis.......................................... 37
+Humidity Sensitivity.......................................... 38
+Power Cycle Hysteresis................................... 39
+Selection Guide and Voltage Reference
+Choices.......................................................... 39
+Outline Dimensions............................................. 40
+Ordering Guide.................................................40
+Automotive Products........................................ 41
+REVISION HISTORY
+7/2025—Rev. F to Rev. G
+Changes to Figure 67.................................................................................................................................... 25
+Updated Outline Dimensions......................................................................................................................... 40
+Changes to Ordering Guide...........................................................................................................................40
+5/2024—Rev. E to Rev. F
+Changes to Figure 88.................................................................................................................................... 29
+5/2023—Rev. D to Rev. E
+Changes to Figure 2........................................................................................................................................ 1
+Changes to Figure 4 and Table 10.................................................................................................................11
+Changes to Figure 31 and Figure 34............................................................................................................. 17
+Changes to Figure 36 and Figure 38............................................................................................................. 18
+Change to Figure 61...................................................................................................................................... 23
+Changes to Figure 65 and Figure 67............................................................................................................. 25
+Changes to Figure 78 and Figure 81............................................................................................................. 27
+Changes to Figure 83 and Figure 85............................................................................................................. 28
+Changes to Figure 86 and Figure 88............................................................................................................. 29
+Changes to Figure 99 and Figure 102........................................................................................................... 31
+Changes to Figure 104 and Figure 106......................................................................................................... 32
+Added Selection Guide and Voltage Reference Choices Section..................................................................39
+Moved Table 12 and Table 13........................................................................................................................39
+
+--- PAGE 3 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+SPECIFICATIONS
+analog.com
+Rev. G | 3 of 41
+ADR4520 ELECTRICAL CHARACTERISTICS
+Unless otherwise noted, supply voltage (VIN) = 3 V to 15 V, IL = 0 mA, TA = 25°C.
+Table 1.
+Parameter
+Symbol
+Test Conditions/Comments
+Min
+Typ
+Max
+Unit
+OUTPUT VOLTAGE
+VOUT
+2.048
+V
+INITIAL OUTPUT VOLTAGE ERROR
+VOUT_ERR
+B Grade
+±0.02
+%
+410
+μV
+A Grade
+±0.04
+%
+820
+μV
+SOLDER HEAT RESISTANCE SHIFT
+±0.02
+%
+TEMPERATURE COEFFICIENT
+TCVOUT
+See Terminology section
+B Grade
+−40°C ≤ TA ≤ +125°C (box method)
+2
+ppm/°C
+−40°C ≤ TA ≤ +125°C (bowtie method)
+4
+ppm/°C
+A Grade
+−40°C ≤ TA ≤ +125°C (box method)
+4
+ppm/°C
+−40°C ≤ TA ≤ +125°C (bowtie method)
+8
+ppm/°C
+LINE REGULATION
+ΔVOUT/ΔVIN
+−40°C ≤ TA ≤ +125°C
+1
+10
+ppm/V
+LOAD REGULATION
+ΔVOUT/ΔIL
+IL = 0 mA to +10 mA source, −40°C ≤ TA ≤ +125°C
+30
+80
+ppm/mA
+IL = 0 mA to −10 mA sink, −40°C ≤ TA ≤ +125°C
+100
+120
+ppm/mA
+QUIESCENT CURRENT
+IQ
+−40°C ≤ TA ≤ +125°C, no load
+700
+950
+μA
+DROPOUT VOLTAGE
+VDO
+−40°C ≤ TA ≤ +125°C, no load
+1
+V
+−40°C ≤ TA ≤ +125°C, IL = 2 mA
+1
+V
+RIPPLE REJECTION RATIO
+RRR
+Input frequency (fIN) = 1 kHz
+90
+dB
+OUTPUT CURRENT CAPACITY
+IL
+Sinking
+−8
+mA
+Sourcing
+10
+mA
+OUTPUT VOLTAGE NOISE
+eNp-p
+0.1 Hz to 10.0 Hz
+1.0
+μV p-p
+OUTPUT VOLTAGE NOISE DENSITY
+eN
+1 kHz
+35.8
+nV/√Hz
+OUTPUT VOLTAGE HYSTERESIS
+ΔVOUT_HYS
+TA = temperature cycled from
++25°C to +125°C to −40°C to +25°C (full cycle)
+−13
+ppm
+25°C to 125°C to 25°C (half cycle)
+−97
+ppm
+25°C to 70°C to 0°C to 25°C (full cycle)
+−8
+ppm
+25°C to 70°C to 25°C (half cycle)
+−17
+ppm
+LONG-TERM DRIFT
+ΔVOUT_LTD
+TA = 25°C
+250 hours (early life drift)
+19
+ppm
+1000 hours
+25
+ppm
+4500 hours
+51
+ppm
+TURN-ON SETTLING TIME
+tR
+Output capacitor (COUT) = 1 µF, input capacitor (CIN) = 0.1
+µF, load resistance (RLOAD) = 1 kΩ
+90
+µs
+LOAD CAPACITANCE
+1
+100
+µF
+
+--- PAGE 4 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+SPECIFICATIONS
+analog.com
+Rev. G | 4 of 41
+ADR4525 ELECTRICAL CHARACTERISTICS
+Unless otherwise noted, VIN = 3 V to 15 V, IL = 0 mA, TA = 25°C.
+Table 2.
+Parameter
+Symbol
+Test Conditions/Comments
+Min
+Typ
+Max
+Unit
+OUTPUT VOLTAGE
+VOUT
+2.500
+V
+INITIAL OUTPUT VOLTAGE ERROR
+VOUT_ERR
+B, C, D Grade
+±0.02
+%
+500
+μV
+A Grade
+±0.04
+%
+1
+mV
+SOLDER HEAT RESISTANCE SHIFT
+A, B, C, D Grade
+±0.02
+%
+TEMPERATURE COEFFICIENT
+TCVOUT
+See Terminology section
+D Grade
+0°C ≤ TA ≤ 70°C (box method)
+0.8
+ppm/°C
+0°C ≤ TA ≤ 70°C (bowtie method)
+1.6
+ppm/°C
+C Grade
+0°C ≤ TA ≤ 70°C (box method)
+1
+ppm/°C
+0°C ≤ TA ≤ 70°C (bowtie method)
+2
+ppm/°C
+B Grade
+−40°C ≤ TA ≤ +125°C (box method)
+2
+ppm/°C
+−40°C ≤ TA ≤ +125°C (bowtie method)
+4
+ppm/°C
+A Grade
+−40°C ≤ TA ≤ +125°C (box method)
+4
+ppm/°C
+−40°C ≤ TA ≤ +125°C (bowtie method)
+8
+ppm/°C
+LINE REGULATION
+ΔVOUT/ΔVIN
+−40°C ≤ TA ≤ +125°C
+1
+10
+ppm/V
+LOAD REGULATION
+ΔVOUT/ΔIL
+A, B, C Grade
+IL = 0 mA to +10 mA source, −40°C ≤ TA ≤ +125°C
+30
+80
+ppm/mA
+IL = 0 mA to −10 mA sink, −40°C ≤ TA ≤ +125°C
+60
+120
+ppm/mA
+D Grade
+IL = 0 mA to +10 mA source, 0°C ≤ TA ≤ +70°C
+35
+45
+ppm/mA
+IL = 0 mA to −10 mA sink, 0°C ≤ TA ≤ +70°C
+4
+9
+ppm/mA
+QUIESCENT CURRENT
+IQ
+−40°C ≤ TA ≤ +125°C, no load
+700
+950
+μA
+DROPOUT VOLTAGE
+VDO
+−40°C ≤ TA ≤ +125°C, no load
+500
+mV
+−40°C ≤ TA ≤ +125°C, IL = 2 mA
+500
+mV
+RIPPLE REJECTION RATIO
+RRR
+fIN = 1 kHz
+90
+dB
+OUTPUT CURRENT CAPACITY
+IL
+Sinking
+−10
+mA
+Sourcing
+10
+mA
+OUTPUT VOLTAGE NOISE
+eNp-p
+0.1 Hz to 10.0 Hz
+1.25
+μV p-p
+OUTPUT VOLTAGE NOISE DENSITY
+eN
+1 kHz
+41.3
+nV/√Hz
+OUTPUT VOLTAGE HYSTERESIS
+ΔVOUT_HYS
+TA = temperature cycled from
+A, B, C Grade
++25°C to +125°C to −40°C to +25°C (full cycle)
+−13
+ppm
+25°C to 125°C to 25°C (half cycle)
+−97
+ppm
+25°C to 70°C to 0°C to 25°C (full cycle)
+−8
+ppm
+25°C to 70°C to 25°C (half cycle)
+−17
+ppm
+D Grade
+25°C to 70°C to 0°C to 25°C (full cycle)
+1
+ppm
+25°C to 70°C to 25°C (half cycle)
+5
+ppm
+LONG-TERM DRIFT
+ΔVOUT_LTD
+TA = 25°C
+A, B, C Grade
+250 hours (early life drift)
+19
+ppm
+1000 hours
+25
+ppm
+
+--- PAGE 5 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+SPECIFICATIONS
+analog.com
+Rev. G | 5 of 41
+Table 2. (Continued)
+Parameter
+Symbol
+Test Conditions/Comments
+Min
+Typ
+Max
+Unit
+4500 hours
+51
+ppm
+D Grade
+250 hours (early life drift)
+3
+ppm
+1000 hours
+5
+ppm
+4500 hours
+8
+ppm
+TURN-ON SETTLING TIME
+tR
+COUT = 1 µF, CIN = 0.1 µF, RLOAD = 1 kΩ
+125
+µs
+LOAD CAPACITANCE
+1
+100
+µF
+ADR4530 ELECTRICAL CHARACTERISTICS
+Unless otherwise noted, VIN = 3.1 V to 15 V, IL = 0 mA, TA = 25°C.
+Table 3.
+Parameter
+Symbol
+Test Conditions/Comments
+Min
+Typ
+Max
+Unit
+OUTPUT VOLTAGE
+VOUT
+3.000
+V
+INITIAL OUTPUT VOLTAGE ERROR
+VOUT_ERR
+B Grade
+±0.02
+%
+600
+μV
+A Grade
+±0.04
+%
+1.2
+mV
+SOLDER HEAT RESISTANCE SHIFT
+±0.02
+%
+TEMPERATURE COEFFICIENT
+TCVOUT
+See Terminology section
+B Grade
+−40°C ≤ TA ≤ +125°C (box method)
+2
+ppm/°C
+−40°C ≤ TA ≤ +125°C (bowtie method)
+4
+ppm/°C
+A Grade
+−40°C ≤ TA ≤ +125°C (box method)
+4
+ppm/°C
+−40°C ≤ TA ≤ +125°C (bowtie method)
+8
+ppm/°C
+LINE REGULATION
+ΔVOUT/ΔVIN
+−40°C ≤ TA ≤ +125°C
+1
+10
+ppm/V
+LOAD REGULATION
+ΔVOUT/ΔIL
+IL = 0 mA to +10 mA source, −40°C ≤ TA ≤ +125°C
+30
+80
+ppm/mA
+IL = 0 mA to −10 mA sink, −40°C ≤ TA ≤ +125°C
+60
+120
+ppm/mA
+QUIESCENT CURRENT
+IQ
+−40°C ≤ TA ≤ +125°C, no load
+700
+950
+μA
+DROPOUT VOLTAGE
+VDO
+−40°C ≤ TA ≤ +125°C, no load
+100
+mV
+−40°C ≤ TA ≤ +125°C, IL = 2 mA
+300
+mV
+RIPPLE REJECTION RATIO
+RRR
+fIN = 1 kHz
+90
+dB
+OUTPUT CURRENT CAPACITY
+IL
+Sinking
+−10
+mA
+Sourcing
+10
+mA
+OUTPUT VOLTAGE NOISE
+eNp-p
+0.1 Hz to 10.0 Hz
+1.6
+μV p-p
+OUTPUT VOLTAGE NOISE DENSITY
+eN
+1 kHz
+60
+nV/√Hz
+OUTPUT VOLTAGE HYSTERESIS
+ΔVOUT_HYS
+TA = temperature cycled from
++25°C to +125°C to −40°C to +25°C (full cycle)
+−13
+ppm
+25°C to 125°C to 25°C (half cycle)
+−97
+ppm
+25°C to 70°C to 0°C to 25°C (full cycle)
+−8
+ppm
+25°C to 70°C to 25°C (half cycle)
+−17
+ppm
+LONG-TERM DRIFT
+ΔVOUT_LTD
+TA = 25°C
+250 hours (early life drift)
+19
+ppm
+1000 hours
+25
+ppm
+4500 hours
+51
+ppm
+TURN-ON SETTLING TIME
+tR
+COUT = 0.1 µF, CIN = 0.1 µF, RLOAD = 1 kΩ
+130
+µs
+
+--- PAGE 6 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+SPECIFICATIONS
+analog.com
+Rev. G | 6 of 41
+Table 3. (Continued)
+Parameter
+Symbol
+Test Conditions/Comments
+Min
+Typ
+Max
+Unit
+LOAD CAPACITANCE
+0.1
+100
+µF
+ADR4533 ELECTRICAL CHARACTERISTICS
+Unless otherwise noted, VIN = 3.4 V to 15 V, IL = 0 mA, TA = 25°C.
+Table 4.
+Parameter
+Symbol
+Test Conditions/Comments
+Min
+Typ
+Max
+Unit
+OUTPUT VOLTAGE
+VOUT
+3.300
+V
+INITIAL OUTPUT VOLTAGE ERROR
+VOUT_ERR
+B Grade
+±0.02
+%
+660
+µV
+A Grade
+±0.04
+%
+1.32
+mV
+SOLDER HEAT RESISTANCE SHIFT
+±0.02
+%
+TEMPERATURE COEFFICIENT
+TCVOUT
+See Terminology section
+B Grade
+−40°C ≤ TA ≤ +125°C (box method)
+2
+ppm/°C
+−40°C ≤ TA ≤ +125°C (bowtie method)
+4
+ppm/°C
+A Grade
+−40°C ≤ TA ≤ +125°C (box method)
+4
+ppm/°C
+−40°C ≤ TA ≤ +125°C (bowtie method)
+8
+ppm/°C
+LINE REGULATION
+ΔVOUT/ΔVIN
+−40°C ≤ TA ≤ +125°C
+1
+10
+ppm/V
+LOAD REGULATION
+ΔVOUT/ΔIL
+IL = 0 mA to +10 mA source, −40°C ≤ TA ≤ +125°C
+30
+80
+ppm/mA
+IL = 0 mA to −10 mA sink, −40°C ≤ TA ≤ +125°C
+60
+120
+ppm/mA
+QUIESCENT CURRENT
+IQ
+−40°C ≤ TA ≤ +125°C, no load
+700
+950
+μA
+DROPOUT VOLTAGE
+VDO
+−40°C ≤ TA ≤ +125°C, no load
+100
+mV
+−40°C ≤ TA ≤ +125°C, IL = 2 mA
+300
+mV
+RIPPLE REJECTION RATIO
+RRR
+fIN =1 kHz
+90
+dB
+OUTPUT CURRENT CAPACITY
+IL
+Sinking
+−10
+mA
+Sourcing
+10
+mA
+OUTPUT VOLTAGE NOISE
+eNp-p
+0.1 Hz to 10.0 Hz
+2.1
+μV p-p
+OUTPUT VOLTAGE NOISE DENSITY
+eN
+1 kHz
+64.2
+nV/√Hz
+OUTPUT VOLTAGE HYSTERESIS
+ΔVOUT_HYS
+TA = temperature cycled from
++25°C to +125°C to −40°C to +25°C (full cycle)
+−13
+ppm
+25°C to 125°C to 25°C (half cycle)
+−97
+ppm
+25°C to 70°C to 0°C to 25°C (full cycle)
+−8
+ppm
+25°C to 70°C to 25°C (half cycle)
+−17
+ppm
+LONG-TERM DRIFT
+ΔVOUT_LTD
+TA = 25°C
+250 hours (early life drift)
+19
+ppm
+1000 hours
+25
+ppm
+4500 hours
+51
+ppm
+TURN-ON SETTLING TIME
+tR
+COUT = 0.1 µF, CIN = 0.1 µF, RLOAD = 1 kΩ
+135
+µs
+LOAD CAPACITANCE
+0.1
+100
+µF
+
+--- PAGE 7 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+SPECIFICATIONS
+analog.com
+Rev. G | 7 of 41
+ADR4540 ELECTRICAL CHARACTERISTICS
+Unless otherwise noted, VIN = 4.2 V to 15 V, IL = 0 mA, TA = 25°C.
+Table 5.
+Parameter
+Symbol
+Test Conditions/Comments
+Min
+Typ
+Max
+Unit
+OUTPUT VOLTAGE
+VOUT
+4.096
+V
+INITIAL OUTPUT VOLTAGE ERROR
+VOUT_ERR
+B, C, D Grade
+±0.02
+%
+820
+μV
+A Grade
+±0.04
+%
+1.64
+mV
+SOLDER HEAT RESISTANCE SHIFT
+A, B, C, D Grade
+±0.02
+%
+TEMPERATURE COEFFICIENT
+TCVOUT
+See Terminology section
+D Grade
+0°C ≤ TA ≤ +70°C (box method)
+0.8
+ppm/°C
+0°C ≤ TA ≤ +70°C (bowtie method)
+1.6
+ppm/°C
+C Grade
+0°C ≤ TA ≤ +70°C (box method)
+1
+ppm/°C
+0°C ≤ TA ≤ +70°C (bowtie method)
+2
+ppm/°C
+B Grade
+−40°C ≤ TA ≤ +125°C (box method)
+2
+ppm/°C
+−40°C ≤ TA ≤ +125°C (bowtie method)
+4
+ppm/°C
+A Grade
+−40°C ≤ TA ≤ +125°C (box method)
+4
+ppm/°C
+−40°C ≤ TA ≤ +125°C (bowtie method)
+8
+ppm/°C
+LINE REGULATION
+ΔVOUT/ΔVIN
+−40°C ≤ TA ≤ +125°C
+1
+10
+ppm/V
+LOAD REGULATION
+ΔVOUT/ΔIL
+A, B, C Grade
+IL = 0 mA to +10 mA source, −40°C ≤ TA ≤ +125°C
+25
+80
+ppm/mA
+IL = 0 mA to −10 mA sink, −40°C ≤ TA ≤ +125°C
+50
+120
+ppm/mA
+D Grade
+IL = 0 mA to +10 mA source, 0°C ≤ TA ≤ +70°C
+15
+25
+ppm/mA
+IL = 0 mA to −10 mA sink, 0°C ≤ TA ≤ +70°C
+5
+9
+ppm/mA
+QUIESCENT CURRENT
+IQ
+−40°C ≤ TA ≤ +125°C, no load
+700
+950
+μA
+DROPOUT VOLTAGE
+VDO
+−40°C ≤ TA ≤ +125°C, no load
+100
+mV
+−40°C ≤ TA ≤ +125°C, IL = 2 mA
+300
+mV
+RIPPLE REJECTION RATIO
+RRR
+fIN = 1 kHz
+90
+dB
+OUTPUT CURRENT CAPACITY
+IL
+Sinking
+−10
+mA
+Sourcing
+10
+mA
+OUTPUT VOLTAGE NOISE
+eNp-p
+0.1 Hz to 10.0 Hz
+2.7
+μV p-p
+OUTPUT VOLTAGE NOISE DENSITY
+eN
+1 kHz
+83.5
+nV/√Hz
+OUTPUT VOLTAGE HYSTERESIS
+ΔVOUT_HYS
+TA = temperature cycled from
+A, B, C Grade
++25°C to +125°C to −40°C to +25°C (full cycle)
+−13
+ppm
+25°C to 125°C to 25°C (half cycle)
+−97
+ppm
+25°C to 70°C to 0°C to 25°C (full cycle)
+−8
+ppm
+25°C to 70°C to 25°C (half cycle)
+−17
+ppm
+D Grade
+25°C to 70°C to 0°C to 25°C (full cycle)
+1
+ppm
+25°C to 70°C to 25°C (half cycle)
+5
+ppm
+LONG-TERM DRIFT
+ΔVOUT_LTD
+TA = 25°C
+A, B, C Grade
+250 hours (early life drift)
+19
+ppm
+1000 hours
+25
+ppm
+
+--- PAGE 8 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+SPECIFICATIONS
+analog.com
+Rev. G | 8 of 41
+Table 5. (Continued)
+Parameter
+Symbol
+Test Conditions/Comments
+Min
+Typ
+Max
+Unit
+4500 hours
+51
+ppm
+D Grade
+250 hours (early life drift)
+3
+ppm
+1000 hours
+5
+ppm
+4500 hours
+8
+ppm
+TURN-ON SETTLING TIME
+tR
+COUT = 0.1 µF, CIN = 0.1 µF, RLOAD = 1 kΩ
+155
+µs
+LOAD CAPACITANCE
+0.1
+100
+µF
+ADR4550 ELECTRICAL CHARACTERISTICS
+Unless otherwise noted, VIN = 5.1 V to 15 V, IL = 0 mA, TA = 25°C.
+Table 6.
+Parameter
+Symbol
+Test Conditions/Comments
+Min
+Typ
+Max
+Unit
+OUTPUT VOLTAGE
+VOUT
+5.000
+V
+INITIAL OUTPUT VOLTAGE ERROR
+VOUT_ERR
+B, C, D Grade
+±0.02
+%
+1
+mV
+A Grade
+±0.04
+%
+2
+mV
+SOLDER HEAT RESISTANCE SHIFT
+A, B, C, D Grade
+±0.02
+%
+TEMPERATURE COEFFICIENT
+TCVOUT
+See Terminology section
+D Grade
+0°C ≤ TA ≤ +70°C (box method)
+0.8
+ppm/°C
+0°C ≤ TA ≤ +70°C (bowtie method)
+1.6
+ppm/°C
+C Grade
+0°C ≤ TA ≤ +70°C (box method)
+1
+ppm/°C
+0°C ≤ TA ≤ +70°C (bowtie method)
+2
+ppm/°C
+B Grade
+−40°C ≤ TA ≤ +125°C (box method)
+2
+ppm/°C
+−40°C ≤ TA ≤ +125°C (bowtie method)
+4
+ppm/°C
+A Grade
+−40°C ≤ TA ≤ +125°C (box method)
+4
+ppm/°C
+−40°C ≤ TA ≤ +125°C (bowtie method)
+8
+ppm/°C
+LINE REGULATION
+ΔVOUT/ΔVIN
+−40°C ≤ TA ≤ +125°C
+1
+10
+ppm/V
+LOAD REGULATION
+ΔVOUT/ΔIL
+A, B, C Grade
+IL = 0 mA to +10 mA source, −40°C ≤ TA ≤ +125°C
+25
+80
+ppm/mA
+IL = 0 mA to −10 mA sink, −40°C ≤ TA ≤ +125°C
+35
+120
+ppm/mA
+D Grade
+IL = 0 mA to +10 mA source, 0°C ≤ TA ≤ +70°C
+6
+12
+ppm/mA
+IL = 0 mA to −10 mA sink, 0°C ≤ TA ≤ +70°C
+4
+9
+ppm/mA
+QUIESCENT CURRENT
+IQ
+−40°C ≤ TA ≤ +125°C, no load
+700
+950
+μA
+DROPOUT VOLTAGE
+VDO
+−40°C ≤ TA ≤ +125°C, no load
+100
+mV
+−40°C ≤ TA ≤ +125°C, IL = 2 mA
+300
+mV
+RIPPLE REJECTION RATIO
+RRR
+fIN = 1 kHz
+90
+dB
+OUTPUT CURRENT CAPACITY
+IL
+Sinking
+−10
+mA
+Sourcing
+10
+mA
+OUTPUT VOLTAGE NOISE
+eNp-p
+0.1 Hz to 10.0 Hz
+2.8
+μV p-p
+OUTPUT VOLTAGE NOISE DENSITY
+eN
+1 kHz
+95.3
+nV/√Hz
+OUTPUT VOLTAGE HYSTERESIS
+ΔVOUT_HYS
+TA = temperature cycled from
+A, B, C Grade
++25°C to +125°C to −40°C to +25°C (full cycle)
+−13
+ppm
+
+--- PAGE 9 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+SPECIFICATIONS
+analog.com
+Rev. G | 9 of 41
+Table 6. (Continued)
+Parameter
+Symbol
+Test Conditions/Comments
+Min
+Typ
+Max
+Unit
+25°C to 125°C to 25°C (half cycle)
+−97
+ppm
+25°C to 70°C to 0°C to 25°C (full cycle)
+−8
+ppm
+25°C to 70°C to 25°C (half cycle)
+−17
+ppm
+D Grade
+25°C to 70°C to 0°C to 25°C (full cycle)
+1
+ppm
+25°C to 70°C to 25°C (half cycle)
+5
+ppm
+LONG-TERM DRIFT
+ΔVOUT_LTD
+TA = 25°C
+A, B, C Grade
+250 hours (early life drift)
+19
+ppm
+1000 hours
+25
+ppm
+4500 hours
+51
+ppm
+D Grade
+250 hours (early life drift)
+3
+ppm
+1000 hours
+5
+ppm
+4500 hours
+8
+ppm
+TURN-ON SETTLING TIME
+tR
+COUT = 0.1 µF, CIN = 0.1 µF, RLOAD = 1 kΩ
+160
+µs
+LOAD CAPACITANCE
+0.1
+100
+µF
+
+--- PAGE 10 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+ABSOLUTE MAXIMUM RATINGS
+analog.com
+Rev. G | 10 of 41
+TA = 25°C, unless otherwise noted.
+Table 7.
+Parameter
+Rating
+Supply Voltage
+16 V
+Operating Temperature Range
+−40°C to +125°C
+ADR4525, ADR4540, ADR4550 C and D
+Grade Only
+0°C to 70°C
+Storage Temperature Range
+−65°C to +150°C
+Junction Temperature Range
+−65°C to +150°C
+Electrostatic Discharge (ESD) Human Body
+Model (HBM)
+6 kV
+Moisture Sensitivity Level Rating
+MSL-1
+Stresses at or above those listed under Absolute Maximum Ratings
+may cause permanent damage to the product. This is a stress
+rating only; functional operation of the product at these or any other
+conditions above those indicated in the operational section of this
+specification is not implied. Operation beyond the maximum operat-
+ing conditions for extended periods may affect product reliability.
+THERMAL RESISTANCE
+Thermal performance is directly linked to printed circuit board
+(PCB) design and operating environment. Close attention to PCB
+thermal design is required.
+Table 8. Thermal Resistance
+Package Type
+θJA
+θJC
+1
+Unit
+8-Lead SOIC2
+1-Layer JEDEC Board
+N/A3
+63
+°C/W
+2-Layer JEDEC Board
+120
+N/A3
+°C/W
+8- Lead LCC
+120
+N/A3
+°C/W
+1 For the θJC test, 100 μm thermal interface material (TIM) is used. TIM is
+assumed to have 3.6 W/mK.
+2 Thermal impedance simulated values are based on a JEDEC thermal test
+board. See JEDEC JESD51.
+3 N/A means not applicable.
+ESD CAUTION
+ESD (electrostatic discharge) sensitive device. Charged
+devices and circuit boards can discharge without detection.
+Although this product features patented or proprietary protec-
+tion circuitry, damage may occur on devices subjected to high
+energy ESD. Therefore, proper ESD precautions should be
+taken to avoid performance degradation or loss of functionality.
+
+--- PAGE 11 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+PIN CONFIGURATIONS AND FUNCTION DESCRIPTIONS
+analog.com
+Rev. G | 11 of 41
+Figure 3. 8-Lead SOIC Pin Configuration
+Table 9. 8-Lead SOIC Pin Function Descriptions
+Pin No.
+Mnemonic
+Description
+1
+NIC
+Not Internally Connected. This pin is not connected internally.
+2
+VIN
+Input Voltage Connection.
+3
+NIC
+Not Internally Connected. This pin is not connected internally.
+4
+GND
+Ground.
+5
+NIC
+Not Internally Connected. This pin is not connected internally.
+6
+VOUT
+Output Voltage.
+7
+NIC
+Not Internally Connected. This pin is not connected internally.
+8
+DNC
+Do Not Connect. Do not connect to this pin.
+Figure 4. 8-Lead LCC Pin Configuration
+Table 10. 8-Lead LCC Pin Function Descriptions
+Pin No.
+Mnemonic
+Description
+1
+NIC
+Not Internally Connected. This pin is not connected internally.
+2
+VIN
+Input Voltage Connection.
+3
+GNDFORCE
+Ground connection.
+4
+GNDSENSE
+Ground sensing connection. Connect directly to the ground connection of the load device.
+5
+NIC
+Not Internally Connected. This pin is not connected internally.
+6
+VOUTSENSE
+Reference Voltage Output sensing connection. Connect directly to the voltage input of the load device.
+7
+VOUTFORCE
+Reference Voltage Output.
+8
+DNC
+Do Not Connect. Do not connect to this pin.
+
+--- PAGE 12 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 12 of 41
+TA = 25°C, unless otherwise noted.
+ADR4520
+Figure 5. ADR4520 B Grade Output Voltage vs. Temperature
+Figure 6. ADR4520 Output Voltage Start-Up Response
+Figure 7. ADR4520 Dropout Voltage vs. Load Current
+Figure 8. ADR4520 Load Regulation vs. Temperature (Sourcing)
+Figure 9. ADR4520 Load Regulation vs. Temperature (Sinking)
+Figure 10. ADR4520 Line Regulation vs. Temperature
+
+--- PAGE 13 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 13 of 41
+Figure 11. ADR4520 Supply Current (ISY) vs. Supply Voltage
+Figure 12. ADR4520 Output Voltage Noise (Maximum Amplitude from 0.1 Hz
+to 10 Hz)
+Figure 13. ADR4520 Output Noise Spectral Density
+Figure 14. ADR4520 Ripple Rejection Ratio vs. Frequency
+Figure 15. ADR4520 Line Transient Response
+Figure 16. ADR4520 Output Impedance vs. Frequency
+
+--- PAGE 14 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 14 of 41
+Figure 17. ADR4520 Solder Heat Resistance Shift (3 × Reflow)
+
+--- PAGE 15 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 15 of 41
+ADR4525
+Figure 18. ADR4525 B Grade Output Voltage vs. Temperature
+Figure 19. ADR4525 C Grade Output Voltage vs. Temperature
+Figure 20. ADR4525 D Grade Output Voltage vs. Temperature
+Figure 21. ADR4525 Output Voltage Start-Up Response
+Figure 22. ADR4525 Dropout Voltage vs. Load Current
+Figure 23. ADR4525 Load Regulation vs. Temperature (Sourcing)
+
+--- PAGE 16 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 16 of 41
+Figure 24. ADR4525 Load Regulation vs. Temperature (Sinking)
+Figure 25. ADR4525 Line Regulation vs. Temperature
+Figure 26. ADR4525 Supply Current vs. Supply Voltage
+Figure 27. ADR4525 Output Voltage Noise (Maximum Amplitude from 0.1 Hz
+to 10 Hz)
+Figure 28. ADR4525 Output Noise Spectral Density
+Figure 29. ADR4525 Ripple Rejection Ratio vs. Frequency
+
+--- PAGE 17 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 17 of 41
+Figure 30. ADR4525 Line Transient Response
+Figure 31. ADR4525 A, B, and C Grades Load Transient Response (Sinking)
+Figure 32. ADR4525 Output Impedance vs. Frequency
+Figure 33. ADR4525 Solder Heat Resistance Shift (3 × Reflow)
+Figure 34. ADR4525 A, B, and C Grades Load Transient Response (Sourcing)
+Figure 35. ADR4525 D Grade Load Regulation vs. Temperature (Sinking)
+
+--- PAGE 18 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 18 of 41
+Figure 36. ADR4525 D Grade Load Transient Response (Sinking)
+Figure 37. ADR4525 D Grade Load Regulation vs. Temperature (Sourcing)
+Figure 38. ADR4525 D Grade Load Transient Response (Sourcing)
+
+--- PAGE 19 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 19 of 41
+ADR4530
+Figure 39. ADR4530 B Grade Output Voltage vs. Temperature
+Figure 40. ADR4530 Output Voltage Start-Up Response
+Figure 41. ADR4530 Dropout Voltage vs. Load Current
+Figure 42. ADR4530 Load Regulation vs. Temperature (Sourcing)
+Figure 43. ADR4530 Load Regulation vs. Temperature (Sinking)
+Figure 44. ADR4530 Line Regulation vs. Temperature
+
+--- PAGE 20 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 20 of 41
+Figure 45. ADR4530 Supply Current vs. Supply Voltage
+Figure 46. ADR4530 Output Voltage Noise (Maximum Amplitude from 0.1 Hz
+to 10 Hz)
+Figure 47. ADR4530 Output Noise Spectral Density
+Figure 48. ADR4530 Ripple Rejection Ratio vs. Frequency
+Figure 49. ADR4530 Line Transient Response
+Figure 50. ADR4530 Output Impedance vs. Frequency
+
+--- PAGE 21 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 21 of 41
+Figure 51. ADR4530 Solder Heat Resistance Shift (3 × Reflow)
+
+--- PAGE 22 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 22 of 41
+ADR4533
+Figure 52. ADR4533 B Grade Output Voltage vs. Temperature
+Figure 53. ADR4533 Output Voltage Start-Up Response
+Figure 54. ADR4533 Dropout Voltage vs. Load Current
+Figure 55. ADR4533 Load Regulation vs. Temperature (Sourcing)
+Figure 56. ADR4533 Load Regulation vs. Temperature (Sinking)
+Figure 57. ADR4533 Line Regulation vs. Temperature
+
+--- PAGE 23 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 23 of 41
+Figure 58. ADR4533 Supply Current vs. Supply Voltage
+Figure 59. ADR4533 Output Voltage Noise (Maximum Amplitude from 0.1 Hz
+to 10 Hz)
+Figure 60. ADR4533 Output Noise Spectral Density
+Figure 61. ADR4533 Ripple Rejection Ratio vs. Frequency
+Figure 62. ADR4533 Line Transient Response
+Figure 63. ADR4533 Output Impedance vs. Frequency
+
+--- PAGE 24 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 24 of 41
+Figure 64. ADR4533 Solder Heat Resistance Shift (3 × Reflow)
+
+--- PAGE 25 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 25 of 41
+ADR4540
+Figure 65. ADR4540 B Grade Output Voltage vs. Temperature
+Figure 66. ADR4540 C Grade Output Voltage vs. Temperature
+Figure 67. ADR4540 D Grade Output Voltage vs. Temperature
+Figure 68. ADR4540 Output Voltage Start-Up Response
+Figure 69. ADR4540 Dropout Voltage vs. Load Current
+Figure 70. ADR4540 Load Regulation vs. Temperature (Sourcing)
+
+--- PAGE 26 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 26 of 41
+Figure 71. ADR4540 Load Regulation vs. Temperature (Sinking)
+Figure 72. ADR4540 Line Regulation vs. Temperature
+Figure 73. ADR4540 Supply Current vs. Supply Voltage
+Figure 74. ADR4540 Output Voltage Noise (Maximum Amplitude from 0.1 Hz
+to 10 Hz)
+Figure 75. ADR4540 Output Noise Spectral Density
+Figure 76. ADR4540 Ripple Rejection Ratio vs. Frequency
+
+--- PAGE 27 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 27 of 41
+Figure 77. ADR4540 Line Transient Response
+Figure 78. ADR4540 A, B, and C Grades Load Transient Response (Sinking)
+Figure 79. ADR4540 Output Impedance vs. Frequency
+Figure 80. ADR4540 Solder Heat Resistance Shift (3 × Reflow)
+Figure 81. ADR4540 A, B, and C Grades Load Transient Response (Sourcing)
+Figure 82. ADR4540 D Grade Load Regulation vs. Temperature (Sinking)
+
+--- PAGE 28 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 28 of 41
+Figure 83. ADR4540 D Grade Load Transient Response (Sinking)
+Figure 84. ADR4540 D Grade Load Regulation vs. Temperature (Sourcing)
+Figure 85. ADR4540 D Grade Load Transient Response (Sourcing)
+
+--- PAGE 29 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 29 of 41
+ADR4550
+Figure 86. ADR4550 B Grade Output Voltage vs. Temperature
+Figure 87. ADR4550 C Grade Output Voltage vs. Temperature
+Figure 88. ADR4550 D Grade Output Voltage vs. Temperature
+Figure 89. ADR4550 Output Voltage Start-Up Response
+Figure 90. ADR4550 Dropout Voltage vs. Load Current
+Figure 91. ADR4550 Load Regulation vs. Temperature (Sourcing)
+
+--- PAGE 30 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 30 of 41
+Figure 92. ADR4550 Load Regulation vs. Temperature (Sinking)
+Figure 93. ADR4550 Line Regulation vs. Temperature
+Figure 94. ADR4550 Supply Current vs. Supply Voltage
+Figure 95. ADR4550 Output Voltage Noise (Maximum Amplitude from 0.1 Hz
+to 10 Hz)
+Figure 96. ADR4550 Output Noise Spectral Density
+Figure 97. ADR4550 Ripple Rejection Ratio vs. Frequency
+
+--- PAGE 31 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 31 of 41
+Figure 98. ADR4550 Line Transient Response
+Figure 99. ADR4550 A, B, and C Grades Load Transient Response (Sinking)
+Figure 100. ADR4550 Output Impedance vs. Frequency
+Figure 101. ADR4550 Solder Heat Resistance Shift (3 × Reflow)
+Figure 102. ADR4550 A, B, and C Grades Load Transient Response
+(Sourcing)
+Figure 103. ADR4550 D Grade Load Regulation (Sinking)
+
+--- PAGE 32 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TYPICAL PERFORMANCE CHARACTERISTICS
+analog.com
+Rev. G | 32 of 41
+Figure 104. ADR4550 D Grade Load Transient Response (Sinking)
+Figure 105. ADR4550 D Grade Load Regulation (Sourcing)
+Figure 106. ADR4550 D Grade Load Transient Response (Sourcing)
+
+--- PAGE 33 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TERMINOLOGY
+analog.com
+Rev. G | 33 of 41
+Dropout Voltage (VDO)
+Dropout voltage, sometimes referred to as supply voltage head-
+room or supply output voltage differential, is defined as the mini-
+mum voltage differential between the input and output such that the
+output voltage is maintained to within 0.1% accuracy.
+     VDO = (VIN − VOUT)min|IL = constant
+Because the dropout voltage depends on the current passing
+through the device, it is always specified for a given load current.
+In series mode devices, the dropout voltage typically increases
+proportionally to the load current (see Figure 7, Figure 22, Figure
+41, Figure 54, Figure 69, and Figure 90).
+Line Regulation
+Line regulation refers to the change in output voltage in response
+to a given change in input voltage and is expressed in percent
+per volt, ppm per volt, or μV per volt change in input voltage. This
+parameter accounts for the effects of self heating.
+Load Regulation
+Load regulation refers to the change in output voltage in response
+to a given change in load current and is expressed in μV per mA,
+ppm per mA, or ohms of dc output resistance. This parameter
+accounts for the effects of self heating.
+Solder Heat Resistance (SHR) Shift
+SHR shift refers to the permanent shift in output voltage that is
+induced by exposure to reflow soldering and is expressed as a
+percentage of the output voltage. This shift is caused by changes
+in the stress exhibited on the die by the package materials when
+these materials are exposed to high temperatures. This effect is
+more pronounced in lead-free soldering processes due to higher
+reflow temperatures. SHR is calculated after three solder reflow
+cycles to simulate the worst case conditions when assembling a
+two-sided PCB with surface mount components with one additional
+rework cycle. The reflow cycles use the JEDEC standard reflow
+temperature profile.
+Temperature Coefficient (TCVOUT)
+The temperature coefficient relates the change in the output voltage
+to the change in the ambient temperature of the device, as normal-
+ized by the output voltage at 25°C. The TCVOUT for the ADR4520/
+ADR4525/ADR4530/ADR4533/ADR4540/ADR4550 A grade and
+B grade is fully tested over three temperatures: −40°C, +25°C, and
++125°C. The TCVOUT for the C grade and D grade is fully tested
+over three temperatures: 0°C, +25°C, and +70°C. This parameter
+is specified using two methods. The box method is the most
+common method and accounts for the temperature coefficient over
+the full temperature range, whereas the bowtie method calculates
+the worst case slope from +25°C and is therefore more useful for
+systems which are calibrated at +25°C.
+Box Method
+The box method is represented by the following equation:
+TCVOUT = max VOUT T1, T2, T3
+−min VOUT T1, T2, T3
+VOUT T2 × T3 −T1
+× 106
+where:
+TCVOUT is expressed in ppm/°C.
+VOUT(TX) is the output voltage at Temperature TX.
+T1 = −40°C.
+T2 = +25°C.
+T3 = +125°C.
+This box method ensures that TCVOUT accurately portrays the
+maximum difference between any of the three temperatures at
+which the output voltage of the device is measured.
+Bowtie Method
+The bowtie method is represented by the following equation:
+      TCVOUT = |max{TCVOUT1, TCVOUT2}|
+where:
+TCVVOUT1 =
+max VOUT T1, T2
+−min VOUT T1, T2
+VOUT T2 × T2 −T1
+× 106
+TCVVOUT2 =
+max VOUT T2, T3
+−min VOUT T2, T3
+VOUT T2 × T3 −T2
+× 106
+where:
+TCVOUT is expressed in ppm/°C.
+VOUT(TX) is the output voltage at Temperature TX.
+T1 = 0°C.
+T2 = +25°C.
+T3 = +70°C.
+Thermally Induced Output Voltage Hysteresis
+(ΔVOUT_HYS)
+Thermally induced output voltage hysteresis represents the change
+in the output voltage after the device is exposed to a specified
+temperature cycle. This is expressed as a difference in ppm from
+the nominal output.
+ΔVOUT_HYS =
+VOUT1_25°C −VOUT2_25°C
+VOUT_25°C
+× 106[ppm]
+where:
+VOUT1_25°C is the output voltage at 25°C.
+VOUT2_25°C is the output voltage after temperature cycling.
+
+--- PAGE 34 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+TERMINOLOGY
+analog.com
+Rev. G | 34 of 41
+Long-Term Stability (ΔVOUT_LTD)
+Long-term stability refers to the shift in the output voltage versus
+time. This is expressed as a difference in ppm from the nominal
+output.
+ΔVOUT_LTD =
+VOUT(t1) −VOUT(t0)
+VOUT(t0)
+× 106 [ppm]
+where:
+VOUT(t0) is the VOUT at the starting time of the measurement.
+VOUT(t1) is the VOUT at the end time of the measurement.
+
+--- PAGE 35 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+APPLICATIONS INFORMATION
+analog.com
+Rev. G | 35 of 41
+BASIC VOLTAGE REFERENCE CONNECTION
+The circuit shown in Figure 107 shows the basic configuration for
+the ADR4520/ADR4525/ADR4530/ADR4533/ADR4540/ADR4550
+family of voltage references.
+Figure 107. ADR4520/ADR4525/ADR4530/ADR4533/ADR4540/ADR4550
+Simplified Schematic
+INPUT AND OUTPUT CAPACITORS
+Input Capacitors
+A 1 μF to 10 μF electrolytic or ceramic capacitor can be connected
+to the input to improve transient response in applications where
+the supply voltage may fluctuate. It is recommended to connect
+an additional 0.1 μF ceramic capacitor in parallel to reduce supply
+noise.
+Output Capacitors
+An output capacitor is required for stability and to filter out low level
+voltage noise. The minimum value of the output capacitor (COUT) is
+shown in Table 11.
+Table 11. Minimum COUT Value
+Part Number
+Minimum COUT Value
+ADR4520, ADR4525
+1.0 µF
+ADR4530, ADR4533, ADR4540,
+ADR4550
+0.1 µF
+An additional 1 μF to 10 μF electrolytic or ceramic capacitor can be
+added in parallel to improve transient performance in response to
+sudden changes in load current; however, doing so increases the
+turn-on time of the device.
+LOCATION OF REFERENCE IN SYSTEM
+It is recommended to place the ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550 reference as close to the load as
+possible to minimize the length of the output traces and, therefore,
+the error introduced by the voltage drop. Current flowing through a
+PCB trace produces a voltage drop; with longer traces, this drop
+can reach several millivolts or more, introducing considerable error
+into the output voltage of the reference. A 1-inch long, 5 mm wide
+trace of 1-ounce copper has a resistance of approximately 100 mΩ
+at room temperature; at a load current of 10 mA, this resistance can
+introduce a full millivolt of error.
+POWER DISSIPATION
+The ADR4520/ADR4525/ADR4530/ADR4533/ADR4540/ADR4550
+voltage references are capable of sourcing and sinking up to 10 mA
+of load current at room temperature across the rated input voltage
+range. However, when used in applications subject to high ambient
+temperatures, the input voltage and load current must be monitored
+carefully to ensure that the device does not exceeded its maximum
+power dissipation rating. The maximum power dissipation of the
+device can be calculated using the following equation:
+      PD =
+TJ −TA
+θJA
+where:
+PD is the device power dissipation.
+TJ is the device junction temperature.
+TA is the ambient temperature.
+θJA is the package (junction to air) thermal resistance.
+This relationship can cause acceptable load current in high temper-
+ature conditions to be less than the maximum current sourcing
+capability of the device. Do not operate the device outside of its
+maximum power rating, because doing so can result in premature
+failure or permanent damage to the device.
+SAMPLE APPLICATIONS
+Bipolar Output Reference
+Figure 108 shows a bipolar reference configuration. By connecting
+the output of the ADR4550 to the inverting terminal of an opera-
+tional amplifier, it is possible to obtain both positive and negative
+reference voltages. R1 and R2 must be matched as closely as
+possible to ensure minimal difference between the negative and
+positive outputs. Resistors with low temperature coefficients must
+also be used if the circuit is deployed in environments with large
+temperature swings; otherwise, a voltage difference develops be-
+tween the two outputs as the ambient temperature changes.
+
+--- PAGE 36 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+APPLICATIONS INFORMATION
+analog.com
+Rev. G | 36 of 41
+Figure 108. ADR4550 Bipolar Output Reference
+Boosted Output Current Reference
+Figure 109 shows a configuration for obtaining higher current
+drive capability from the ADR4520/ADR4525/ADR4530/ADR4533/
+ADR4540/ADR4550 references without sacrificing accuracy. The
+op amp regulates the current flow through the metal-oxide semicon-
+ductor field effect transistor (MOSFET) until VOUT equals the output
+voltage of the reference; current is then drawn directly from VIN
+instead of from the reference itself, allowing increased current drive
+capability.
+Figure 109. Boosted Output Current Reference
+Because the current sourcing capability of this circuit depends only
+on the current rating of the MOSFET, the output drive capability can
+be adjusted to the application simply by choosing an appropriate
+MOSFET. In all cases, tie the VOUT pin directly to the load device to
+maintain maximum output voltage accuracy.
+LONG-TERM DRIFT
+The stability of a precision signal path over its lifetime or between
+calibration procedures is dependent on the long-term stability of
+the analog components in the path, such as op amps, references,
+and data converters. To help system designers predict the long-
+term drift of circuits that use the ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550, Analog Devices measured the out-
+put voltage of multiple units for more than 4500 hours (more than 6
+months) using a high precision measurement system, including an
+ultrastable oil bath. To replicate real-world system performance, the
+devices under test (DUTs) were soldered onto an FR4 PCB using
+a standard reflow profile (as defined in the JEDEC J-STD-020D
+standard), rather than testing them in sockets. This manner of test-
+ing is important because expansion and contraction of the PCB can
+apply stress to the integrated circuit (IC) package and contribute to
+shifts in the offset voltage.
+Figure 110 shows the long-term drift of the ADR4520/ADR4525/
+ADR4530/ADR4533/ADR4540/ADR4550. Sample 1, Sample 2, and
+Sample 3 plot traces show sample units. The mean drift after 4500
+hours is 51 ppm. Note that the early life drift (0 hours to 250 hours)
+accounts for 40% of the total drift observed over 4500 hours, as
+shown in Figure 111. The first 1000 hours account for 50% of the
+total drift, and the remaining 3500 hours account for the remaining
+50% of the drift. Thus, the early life drift is the dominant contributor,
+whereas the drift after 1000 hours is significantly lower.
+Figure 110. Measured Long-Term Drift of the ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550 over 4,500 Hours
+Figure 111. Measured Early Life Drift of the ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+
+--- PAGE 37 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+APPLICATIONS INFORMATION
+analog.com
+Rev. G | 37 of 41
+Figure 112. Measured Long-Term Drift of the ADR4525D/ADR4540D/
+ADR4550D over 4,500 Hours
+THERMAL HYSTERESIS
+In addition to stability over time, as described in the Long-Term
+Drift section, it is useful to know the thermal hysteresis, that is, the
+stability vs. cycling of temperature. Thermal hysteresis is an impor-
+tant parameter because it tells the system designer how closely the
+signal returns to its starting amplitude after the ambient temperature
+changes and the subsequent return to room temperature. Figure
+113 shows the change in output voltage as the temperature cycles
+three times from room temperature to +125°C to −40°C and back to
+room temperature.
+In the three full cycles, the output hysteresis is typically −13 ppm.
+The histogram in Figure 114 shows that the hysteresis is larger
+when the device is cycled through only a half cycle, from room
+temperature to 125°C and back to room temperature, typically
+−97 ppm.
+Figure 113. Change in Output Voltage over Three Full Temperature Cycles
+(−40°C to +125°C)
+Figure 114. Histogram Showing the Temperature Hysteresis of the Output
+Voltage (−40°C to +125°C)
+Figure 115 shows the change in input offset voltage as the temper-
+ature cycles three times from room temperature to +70°C to 0°C
+and back to room temperature. In the three full cycles, the output
+hysteresis is typically −8 ppm. The histogram in Figure 116 shows
+that the hysteresis is larger when the device is cycled through only
+a half cycle, from room temperature to +70°C and back to room
+temperature, typically −17 ppm.
+Figure 115. Change in Output Voltage over Three Full Temperature Cycles
+(0°C to 70°C)
+
+--- PAGE 38 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+APPLICATIONS INFORMATION
+analog.com
+Rev. G | 38 of 41
+Figure 116. Histogram Showing the Temperature Hysteresis of the Output
+Voltage (0°C to 70°C)
+Figure 117. D Grade Change in Output Voltage over Three Full Temperature
+Cycles (0°C to 70°C)
+Figure 118. D Grade Histogram Showing the Temperature Hysteresis of the
+Output Voltage (0°C to 70°C)
+Measuring thermal hysteresis over the full operating temperature
+range is not reflective of a typical operating environment in most ap-
+plications. Instead, smaller temperature variations are more normal.
+The ADR4520/ADR4525/ADR4530/ADR4533/ADR4540/ADR4550
+were tested over 20 different temperature cycles of increasing
+magnitude, centered at +25°C, starting with +25°C ± 5°C and going
+up to the full operating temperature range of −40°C to +125°C. The
+results are shown in Figure 119.
+For a temperature delta of 100°C (that is, +25°C ± 50°C) the
+thermal hysteresis is less than 20 ppm for both the full cycle and
+the half cycle. Above this range, the thermal hysteresis increases
+significantly. These results show that the standard specification,
+which covers the full operating temperature range, is close to the
+worst case performance.
+Figure 119. Thermal Hysteresis for Increasing Temperature Range
+HUMIDITY SENSITIVITY
+The ADR4520/ADR4525/ADR4530/ADR4533/ADR4540/ADR4550
+is packaged in a SOIC plastic package and has a moisture sensi-
+tivity level of MSL-1, per the JEDEC standard. However, moisture
+absorption from the air into the package changes the internal
+mechanical stresses on the die causing shifts in the output voltage.
+Figure 120 shows the effects of a step change in relative humidity
+on the output voltage over time.
+The humidity chamber is maintained at an ambient temperature of
++25°C, while the relative humidity undergoes a step change from
+20% to 80% at time zero. The relative humidity is maintained at
+80% for the duration of the testing. Note that the output voltage
+shifts quickly compared to the overall settling time, following the
+step change in relative humidity.
+Figure 121 shows the effects of 10% increases in relative humidity
+from 30% to 70% and back to 30%. Note that after the relative
+humidity returns to 30%, the output voltage is settling back to its
+starting point.
+
+--- PAGE 39 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+APPLICATIONS INFORMATION
+analog.com
+Rev. G | 39 of 41
+Figure 120. Change in Output Voltage vs. Time After Humidity Step Change
+(20% to 80% Relative Humidity)
+Figure 121. Change in Output Voltage vs. Time for 10% Humidity Steps (30%
+to 70% to 30% Relative Humidity in 10% Steps)
+POWER CYCLE HYSTERESIS
+By power cycling large numbers of samples, the power cycle hyste-
+resis can be determined. To keep this measurement independent of
+other variables and environmental effects, the power cycle testing
+was performed using a high precision measurement system, includ-
+ing an ultrastable oil bath.
+Figure 122 shows the power cycle hysteresis. The units were
+powered down for approximately four hours and then powered up.
+The ADR4520/ADR4525/ADR4530/ADR4533/ADR4540/ADR4550
+do not have any power cycle hysteresis even after a long power-
+down period, making these devices very suitable for equipment
+which must maintain its calibration accuracy between power cycles.
+Figure 122. Power Cycle Hysteresis
+SELECTION GUIDE AND VOLTAGE
+REFERENCE CHOICES
+Table 12. Selection Guide
+Model
+Output Voltage (V)
+Grade
+ADR4520
+2.048
+A, B
+ADR4525
+2.5
+A, B, C, D
+ADR4525W
+2.5
+B
+ADR4530
+3.0
+A, B
+ADR4533
+3.3
+A, B
+ADR4540
+4.096
+A, B, C, D
+ADR4550
+5.0
+A, B, C, D
+Table 13. Voltage Reference Choices from Analog Devices, Inc.
+VOUT (V)
+Micropower
+Low Power
+Ultralow Noise
+2.048
+ADR3420
+ADR360
+ADR440
+LT6656
+LTC6652
+LTC6655
+LT6654
+2.5
+ADR3425
+ADR361
+ADR441
+LT1461
+LTC6652
+LTC6655
+LT6656
+LT6654
+5.0
+ADR3450
+ADR365
+ADR445
+LT1461
+LTC6652
+LTC6655
+LT6656
+LT6654
+
+--- PAGE 40 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+OUTLINE DIMENSIONS
+analog.com
+Rev. G | 40 of 41
+Package Drawing (Option)
+Package Type
+Package Description
+R-8
+SOIC_N
+8-Lead Standard Small Outline Package
+E-8-2
+LCC
+8-Terminal Ceramic Leadless Chip Carrier
+For the latest package outline information and land patterns (footprints), go to Package Index.
+ORDERING GUIDE
+Table 14.
+Model1, 2
+Temperature Range
+Package Description
+Packing Quantity
+Package
+Option
+ADR4520ARZ
+-40°C to +125°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4520ARZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4520BRZ
+-40°C to +125°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4520BRZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4525ARZ
+-40°C to +125°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4525ARZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4525BRZ
+-40°C to +125°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4525BRZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4525CRZ
+0°C to +70°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4525CRZ-R7
+0°C to +70°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4525DEZ
+0°C to +70°C
+LCC:CER LEADLESS CHIP CARR
+Tray, 576
+E-8-2
+ADR4525DEZ-R7
+0°C to +70°C
+LCC:CER LEADLESS CHIP CARR
+Reel, 1000
+E-8-2
+ADR4525WBRZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4530ARZ
+-40°C to +125°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4530ARZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4530BRZ
+-40°C to +125°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4530BRZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4533ARZ
+-40°C to +125°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4533ARZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4533BRZ
+-40°C to +125°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4533BRZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4540ARZ
+-40°C to +125°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4540ARZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4540BRZ
+-40°C to +125°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4540BRZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4540CRZ
+0°C to +70°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4540CRZ-R7
+0°C to +70°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4540DEZ
+0°C to +70°C
+LCC:CER LEADLESS CHIP CARR
+Tray, 576
+E-8-2
+ADR4540DEZ-R7
+0°C to +70°C
+LCC:CER LEADLESS CHIP CARR
+Reel, 1000
+E-8-2
+ADR4550ARZ
+-40°C to +125°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4550ARZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4550BRZ
+-40°C to +125°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4550BRZ-R7
+-40°C to +125°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4550CRZ
+0°C to +70°C
+8-Lead SOIC
+Tube, 98
+R-8
+ADR4550CRZ-R7
+0°C to +70°C
+8-Lead SOIC
+Reel, 1000
+R-8
+ADR4550DEZ
+0°C to +70°C
+LCC:CER LEADLESS CHIP CARR
+Tray, 576
+E-8-2
+
+--- PAGE 41 ---
+Data Sheet
+ADR4520/ADR4525/ADR4530/
+ADR4533/ADR4540/ADR4550
+OUTLINE DIMENSIONS
+©2012-2025 Analog Devices, Inc. All rights reserved. Trademarks and
+registered trademarks are the property of their respective owners.
+One Analog Way, Wilmington, MA 01887-2356, U.S.A.
+Rev. G | 41 of 41
+Table 14. (Continued)
+Model1, 2
+Temperature Range
+Package Description
+Packing Quantity
+Package
+Option
+ADR4550DEZ-R7
+0°C to +70°C
+LCC:CER LEADLESS CHIP CARR
+Reel, 1000
+E-8-2
+1 Z = RoHS Compliant Part.
+2 W = Qualified for Automotive Applications.
+Updated: July 23, 2025
+AUTOMOTIVE PRODUCTS
+The ADR4525W model is available with controlled manufacturing to support the quality and reliability requirements of automotive applications.
+Note that this automotive model may have specifications that differ from the commercial models; therefore, designers should review the
+Specifications section of this data sheet carefully. Only the automotive grade product shown is available for use in automotive applications.
+Contact your local Analog Devices account representative for specific product ordering information and to obtain the specific Automotive
+Reliability reports for this model.

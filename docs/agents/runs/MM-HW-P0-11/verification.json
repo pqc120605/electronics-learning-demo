@@ -1,0 +1,32 @@
+{
+  "commands": [
+    {
+      "command": "python docs/agents/runs/MM-HW-P0-11/calculate.py",
+      "exit_code": 0,
+      "scope": "conditional arithmetic only; QA independently reran and matched JSON"
+    },
+    {
+      "command": "node D:/StartupOS/docs/agents/validate.mjs",
+      "exit_code": 0,
+      "tasks": 57,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "command": "node --test D:/StartupOS/docs/agents/validate.test.mjs",
+      "exit_code": 0,
+      "tests": 61,
+      "pass": 61,
+      "fail": 0,
+      "note": "Validator code unchanged; tests ran during P0-11. Later changes were proposal documentation and queue history; queue validator reran after final registration."
+    }
+  ],
+  "r12_unchanged_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+  "gates_unchanged_OPEN": 7,
+  "verification_items_unchanged_count": 14,
+  "G_B_M_A": "Founder direction confirmed; no configuration/hash/MPN approval",
+  "CAD": "NOT_RUN",
+  "FE": "NOT_RUN",
+  "bench": "NOT_RUN",
+  "ADR45_download": "NOT_RUN after two timeouts; primary web source only"
+}

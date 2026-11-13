@@ -1,0 +1,11 @@
+{
+  "tasks": 58,
+  "capabilities": 143,
+  "dispatch_task": "MM-HW-MOBOT-REMOTE-KICAD-001",
+  "dispatch_eligible": false,
+  "warnings": [],
+  "errors": [
+    "MM-HW-MOBOT-REMOTE-KICAD-001: dispatch needs active task authorization",
+    "MM-HW-MOBOT-REMOTE-KICAD-001: dispatch builder mode missing"
+  ]
+}

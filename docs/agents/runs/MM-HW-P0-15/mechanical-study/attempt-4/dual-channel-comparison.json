@@ -1,0 +1,31 @@
+{
+  "scope": "Architectural count/allocation comparison, NOT validated load current or battery life",
+  "original_sense_leads": 6,
+  "alternative_sense_leads": 12,
+  "original_cassette_conductors": 8,
+  "alternative_cassette_conductors": 14,
+  "alternative_named_packages": {
+    "quad_comparator": 2,
+    "references": 4,
+    "photomos": 24
+  },
+  "LED_branch_current_allocation_A": [
+    0.12,
+    0.72
+  ],
+  "at_5V_independent_resistively_driven_LED_branches_W": [
+    0.6,
+    3.6
+  ],
+  "not_proven": [
+    "driver topology",
+    "LED forward-voltage/source limits",
+    "converter efficiency/input current",
+    "battery life",
+    "temperature",
+    "BOM",
+    "sufficiency of reference and comparator margins",
+    "complete fault domains"
+  ],
+  "disposition": "Do not adopt automatically: this is a materially larger, incomplete alternative, not a finished source design. Twenty-four PhotoMOS is a hypothesis implementation, not a Founder-imposed count."
+}

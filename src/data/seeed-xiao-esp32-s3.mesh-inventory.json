@@ -1,0 +1,95 @@
+{
+  "boardId": "seeed-xiao-esp32-s3",
+  "revision": "Seeed Studio XIAO ESP32-S3 · STEP chính hãng v2 · bản thường (không phải Sense/Plus)",
+  "sourceFile": "assets/boards/vendor/seeed-xiao-esp32s3/source/XIAO-ESP32S3 v2.step",
+  "sourceSha256": "870ad45c7af5d92324cec4c6ae65fbf86e3b049d5a97ab9ffd9039ebd73455dd",
+  "modelSha256": "866adb2f4068574976bd1b5f7763a07e1d800bbc2e489a3efdfe473dbf5424d2",
+  "sourceMeshCount": 37,
+  "mappedDesignatorCount": 0,
+  "units": "mm",
+  "transform": "Source STEP Y-up retained as viewer Y-up; translated by PCB-body center; identity rotation, no reflection.",
+  "pcbBodySizeMm": [
+    20.955,
+    1.25,
+    17.78
+  ],
+  "pcbBodyBoundsMm": {
+    "min": [
+      -8.673,
+      -0.25,
+      -15.001
+    ],
+    "max": [
+      12.282,
+      1.0,
+      2.779
+    ]
+  },
+  "nodes": [
+    {
+      "nodeName": "PCB",
+      "sourceName": "SOLID",
+      "sourceMeshes": 1,
+      "sourceMeshNames": [
+        "SOLID"
+      ]
+    },
+    {
+      "nodeName": "RF_SHIELD",
+      "sourceName": "Shield",
+      "sourceMeshes": 1,
+      "sourceMeshNames": [
+        "Shield"
+      ]
+    },
+    {
+      "nodeName": "UFL_CONNECTOR",
+      "sourceName": "U.FL-R-SMT-1_10_ v1",
+      "sourceMeshes": 1,
+      "sourceMeshNames": [
+        "U.FL-R-SMT-1_10_ v1"
+      ]
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_UNIDENTIFIED",
+      "sourceName": "CAD feature geometry without verified designators",
+      "sourceMeshes": 34,
+      "sourceMeshNames": [
+        "BOSS-EXTRUDE14_8_",
+        "BOSS-EXTRUDE7_4_",
+        "BOSS-EXTRUDE7_3_",
+        "BOSS-EXTRUDE14_4_",
+        "BOSS-EXTRUDE14_2_",
+        "BOSS-EXTRUDE14_11_",
+        "BOSS-EXTRUDE7_7_",
+        "BOSS-EXTRUDE14_9_",
+        "BOSS-EXTRUDE14_3_",
+        "BOSS-EXTRUDE14_7_",
+        "MIRROR2",
+        "BOSS-EXTRUDE14_5_",
+        "BOSS-EXTRUDE14_12_",
+        "BOSS-EXTRUDE7_8_",
+        "BOSS-EXTRUDE7_1_",
+        "BOSS-EXTRUDE14_10_",
+        "BOSS-EXTRUDE7_9_",
+        "BOSS-EXTRUDE14_6_",
+        "CHAMFER9",
+        "BOSS-EXTRUDE14_1_",
+        "BOSS-EXTRUDE7_6_",
+        "BOSS-EXTRUDE7_2_",
+        "CUT-EXTRUDE5",
+        "BOSS-EXTRUDE7_5_",
+        "Body",
+        "Unnamed mesh 27",
+        "Unnamed mesh 28",
+        "Unnamed mesh 29",
+        "Unnamed mesh 30",
+        "Body",
+        "Unnamed mesh 32",
+        "Unnamed mesh 33",
+        "Unnamed mesh 34",
+        "Unnamed mesh 35"
+      ]
+    }
+  ]
+}

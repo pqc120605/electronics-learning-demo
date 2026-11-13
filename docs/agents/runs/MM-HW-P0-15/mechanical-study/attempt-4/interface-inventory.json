@@ -1,0 +1,34 @@
+{
+  "scope": "Configuration-research interface inventory; not pin assignment, netlist or approved wiring",
+  "status": "proposed; exact physical conductor count not yet closed",
+  "sources": [
+    "docs/hardware/mobot-v2-p0-11-selected-interface-contract.md",
+    "docs/hardware/mobot-v2-p0-14-aa-founder-direction.json",
+    "docs/hardware/mobot-v2-p0-15-aa-design-closure.md",
+    "docs/mission-control/hardware-config-mobot-v2-typec-r12-handset.json"
+  ],
+  "role_policy": "Retain G-B16 and E1-E4; no GPIO assigned. RELEASE_REQUEST retained as a reserved role until a reviewed product decision changes it.",
+  "signal_roles": [
+    "JOY_X", "JOY_Y", "JOY_SW", "BTN1", "BTN2",
+    "RUN_REQUEST", "FRESH_ARM_REQUEST", "WATCHDOG_SOFTWARE_FEED_WDI", "RELEASE_REQUEST",
+    "LOCK_POSITION", "SAFETY_STATUS", "SECOND_POSITION_OBSERVATION",
+    "E1", "E2", "E3", "E4"
+  ],
+  "power_and_return_roles": [
+    {"role":"RUN_SOURCE_5V", "interface":"RUN power via B01 USB-C; do not silently replace with VIN/3V3 header injection", "source":"carrier protected power", "target":"B01", "physical_conductor_count":"TBD after captive RUN connection definition"},
+    {"role":"POWER_AND_SIGNAL_RETURN", "interface":"USB RUN return and header signal return may be separate physical paths", "source":"bidirectional reference/return", "target":"all connected domains", "physical_conductor_count":"At least one logical role; enumerate every parallel physical path, do not merge cut obligations by net name"},
+    {"role":"JOY_VCC", "interface":"power branch, not GPIO leakage channel", "source":"B01-derived joystick rail per reviewed proposal; exact path TBD", "target":"carrier joystick/buttons", "physical_conductor_count":"TBD; capacitance/inrush/reverse current remain design obligations"}
+  ],
+  "functional_lower_bound":19,
+  "lower_bound_does_not_mean":"19 physical connector pins are sufficient or assigned",
+  "interfaces_to_close": [
+    {"id":"B01_HEADER_INTERFACE","contents":"16 retained roles, JOY power and actual return paths; all unused/header rails need an explicit connected/not-connected disposition","exact_position_mapping":"UNASSIGNED","VIN_3V3_policy":"No carrier source injection via VIN/3V3 inferred from connector capacity"},
+    {"id":"RUN_USB_C_INTERFACE","contents":"VBUS, every ground/shield/CC/data/SBU conductor actually present in the chosen RUN adapter or cable","policy":"Power-only intention is not proof that other conductors or shield are absent; enumerate from exact source drawing/continuity specification","exact_part":"TBD"},
+    {"id":"PC_PROGRAM_INTERFACE","contents":"B01 onboard USB-C with PC while every carrier/B01 source and I/O route is isolated","policy":"No simultaneous reconnect based only on handle position or remote collar-probe empty"},
+    {"id":"BATTERY_CASSETTE_INTERFACE","contents":"Main positive/negative plus every cell-sense and auxiliary route","count_formula":"2 + N_sense + N_aux; six differential sense leads are not four tap nodes","proposed_sense_leads":6,"result_if_no_aux":8},
+    {"id":"PARASITIC_OR_SERVICE_ROUTES","contents":"test/debug/charging/service cable, mounting metal, shield, clamp, reference, output and control returns","policy":"Must be explicitly absent or included in cut-set/energy analysis; no extra external service route permitted by this proposal"}
+  ],
+  "connector_capacity_rule":"A candidate with P contacts per breakpoint is adequate only if all actual physical routes assigned through it total <= P; other interfaces need their own accounted breaks. No spare pin count is claimed before that inventory is closed.",
+  "default_break_obligation":"Every connected carrier/B01 route must meet the accepted mode-isolation contract; implementation may use different domains/breaks only after design review. No two-break count is adopted as a Founder product decision.",
+  "not_proven":["complete actual wiring","connector sufficiency","clone continuity","two-endpoint gap","single-fault isolation","B1 readiness"]
+}

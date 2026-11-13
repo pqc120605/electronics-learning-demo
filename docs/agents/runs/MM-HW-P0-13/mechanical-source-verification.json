@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://www.ssab.com/en/brands-and-products/ssab-domex/product-offer/355mc",
+    "path": "docs/research/downloads/c11-r12/ssab-355mc.html",
+    "expected_sha256": "27bdcb157a0374303259d16f82efd44669507afe895493151e28668766d420ad",
+    "actual_sha256": "27bdcb157a0374303259d16f82efd44669507afe895493151e28668766d420ad",
+    "matches": true,
+    "kind": "previously pinned manufacturer source, current URL reread by HQ"
+  },
+  {
+    "url": "https://www.adafruit.com/product/2776",
+    "path": "docs/research/downloads/c11-r12/adafruit-2776.html",
+    "expected_sha256": "47f384eb2c033ee0b786f8ab53441ab235cce11399925a7b1cc086bfc6c5b68c",
+    "actual_sha256": "47f384eb2c033ee0b786f8ab53441ab235cce11399925a7b1cc086bfc6c5b68c",
+    "matches": true,
+    "kind": "previously pinned manufacturer source, current URL reread by HQ"
+  },
+  {
+    "url": "https://www.takaha.co.jp/product/ss/pdf/SSBH-0830.pdf",
+    "path": "docs/research/downloads/c11-r12/takaha-ssbh0830.pdf",
+    "expected_sha256": "9b68bfff718041eb509e55fa28420c8d247d78cc38f1da7ca9dade884de43a58",
+    "actual_sha256": "9b68bfff718041eb509e55fa28420c8d247d78cc38f1da7ca9dade884de43a58",
+    "matches": true,
+    "kind": "previously pinned manufacturer source, current URL reread by HQ"
+  }
+]

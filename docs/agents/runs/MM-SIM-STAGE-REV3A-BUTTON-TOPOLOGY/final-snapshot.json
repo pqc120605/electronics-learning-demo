@@ -1,0 +1,31 @@
+{
+  "taskId": "MM-SIM-STAGE-REV3A-BUTTON-TOPOLOGY",
+  "capturedAt": "2026-11-12",
+  "kind": "file-hashes",
+  "files": [
+    {
+      "path": "src/data/lessonCircuitDocs.ts",
+      "sha256": "4c9cdb503214ecf191d071261638f19ed686f6726e1d58491fc569a9aa4fef50"
+    },
+    {
+      "path": "src/lib/mountResolve.ts",
+      "sha256": "5771d2e7d7a14f13fc77d914d9ecbf186768b7664a347ce81485dc80a1634792"
+    },
+    {
+      "path": "tests/lesson-circuit-docs.test.mjs",
+      "sha256": "69ce6cda3baa5d2910a44ecb40de306dc7827a19d87e372f94a2faaca13c6dc3"
+    },
+    {
+      "path": "tests/circuit-doc-v2.test.mjs",
+      "sha256": "9c037a54cec1836e83b892949a725b9e08cd4440575946ab259b721293fe20e3"
+    },
+    {
+      "path": "tests/assembly-layout-v2.test.mjs",
+      "sha256": "4fd9c7bd00a8890b6254575e0cd16b896604618497568fac8b9b9fd96530dfd0"
+    },
+    {
+      "path": "tests/layout-2d.test.mjs",
+      "sha256": "cde8322c1590bc3ea62a963fbb133cc95ff77c05c28bdc32957cadcc72bd6bee"
+    }
+  ]
+}

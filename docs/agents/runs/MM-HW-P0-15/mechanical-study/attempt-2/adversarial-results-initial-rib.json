@@ -1,0 +1,665 @@
+{
+  "interval_unit_cases": 6,
+  "sensitivity": [
+    {
+      "pose": {
+        "lead": 3.5,
+        "roll": 0
+      },
+      "direction": "insert",
+      "last_reachable_d": 6.4,
+      "last_carriages": [
+        12,
+        12
+      ],
+      "stop": null,
+      "potential_contact_samples": 65,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 296,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "step": 0.1,
+      "interpolated_segments": {
+        "segment_pair_checks": 7920,
+        "interpenetration_segments": [
+          {
+            "d": [
+              -7.9,
+              -7.8
+            ],
+            "pair": [
+              "key0",
+              "ribA"
+            ],
+            "parameter_interval": [
+              9.999999999999947e-06,
+              0.8333316666666701
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "roll": 180
+      },
+      "direction": "insert",
+      "last_reachable_d": 6.4,
+      "last_carriages": [
+        12,
+        12
+      ],
+      "stop": null,
+      "potential_contact_samples": 65,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 296,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "step": 0.1,
+      "interpolated_segments": {
+        "segment_pair_checks": 7920,
+        "interpenetration_segments": [
+          {
+            "d": [
+              -7.9,
+              -7.8
+            ],
+            "pair": [
+              "key1",
+              "ribA"
+            ],
+            "parameter_interval": [
+              9.999999999999947e-06,
+              0.8333316666666687
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "z": 0.15,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "direction": "insert",
+      "last_reachable_d": -13.8,
+      "last_carriages": [
+        0,
+        0
+      ],
+      "stop": {
+        "kind": "frame",
+        "sample_bracket": [
+          -13.8,
+          -13.7
+        ],
+        "continuous_interval_boundary": -13.761466224452098,
+        "part": "key0"
+      },
+      "potential_contact_samples": 0,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 0,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "step": 0.1,
+      "interpolated_segments": {
+        "segment_pair_checks": 1860,
+        "interpenetration_segments": []
+      }
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "roll": 0
+      },
+      "direction": "insert",
+      "last_reachable_d": -7.9,
+      "last_carriages": [
+        2.399999999999998,
+        2.399999999999998
+      ],
+      "stop": {
+        "kind": "door_or_rib",
+        "sample_bracket": [
+          -7.9,
+          -7.85
+        ],
+        "parts": [
+          "key0",
+          "ribA"
+        ]
+      },
+      "potential_contact_samples": 0,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 18,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "step": 0.05,
+      "interpolated_segments": {
+        "segment_pair_checks": 7260,
+        "interpenetration_segments": []
+      }
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "roll": 180
+      },
+      "direction": "insert",
+      "last_reachable_d": -7.9,
+      "last_carriages": [
+        2.399999999999998,
+        2.399999999999998
+      ],
+      "stop": {
+        "kind": "door_or_rib",
+        "sample_bracket": [
+          -7.9,
+          -7.85
+        ],
+        "parts": [
+          "key1",
+          "ribA"
+        ]
+      },
+      "potential_contact_samples": 0,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 18,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "step": 0.05,
+      "interpolated_segments": {
+        "segment_pair_checks": 7260,
+        "interpenetration_segments": []
+      }
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "z": 0.15,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "direction": "insert",
+      "last_reachable_d": -13.8,
+      "last_carriages": [
+        0,
+        0
+      ],
+      "stop": {
+        "kind": "frame",
+        "sample_bracket": [
+          -13.8,
+          -13.75
+        ],
+        "continuous_interval_boundary": -13.761466224452098,
+        "part": "key0"
+      },
+      "potential_contact_samples": 0,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 0,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "step": 0.05,
+      "interpolated_segments": {
+        "segment_pair_checks": 3720,
+        "interpenetration_segments": []
+      }
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "roll": 0
+      },
+      "direction": "insert",
+      "last_reachable_d": -7.9,
+      "last_carriages": [
+        2.399999999999998,
+        2.399999999999998
+      ],
+      "stop": {
+        "kind": "door_or_rib",
+        "sample_bracket": [
+          -7.9,
+          -7.89
+        ],
+        "parts": [
+          "key0",
+          "ribA"
+        ]
+      },
+      "potential_contact_samples": 0,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 82,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "step": 0.01,
+      "interpolated_segments": {
+        "segment_pair_checks": 36300,
+        "interpenetration_segments": []
+      }
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "roll": 180
+      },
+      "direction": "insert",
+      "last_reachable_d": -7.9,
+      "last_carriages": [
+        2.399999999999998,
+        2.399999999999998
+      ],
+      "stop": {
+        "kind": "door_or_rib",
+        "sample_bracket": [
+          -7.9,
+          -7.89
+        ],
+        "parts": [
+          "key1",
+          "ribA"
+        ]
+      },
+      "potential_contact_samples": 0,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 82,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "step": 0.01,
+      "interpolated_segments": {
+        "segment_pair_checks": 36300,
+        "interpenetration_segments": []
+      }
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "z": 0.15,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "direction": "insert",
+      "last_reachable_d": -13.77,
+      "last_carriages": [
+        0,
+        0
+      ],
+      "stop": {
+        "kind": "frame",
+        "sample_bracket": [
+          -13.77,
+          -13.76
+        ],
+        "continuous_interval_boundary": -13.761466224452098,
+        "part": "key0"
+      },
+      "potential_contact_samples": 0,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 0,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "step": 0.01,
+      "interpolated_segments": {
+        "segment_pair_checks": 18690,
+        "interpenetration_segments": []
+      }
+    }
+  ],
+  "locked_cases": [
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "direction": "insert",
+      "last_reachable_d": -8.3,
+      "last_carriages": [
+        0,
+        0
+      ],
+      "stop": {
+        "kind": "locked_cam",
+        "sample_bracket": [
+          -8.3,
+          -8.2
+        ]
+      },
+      "potential_contact_samples": 0,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 2,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "rows": [],
+      "locked": [
+        0,
+        null
+      ]
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "direction": "insert",
+      "last_reachable_d": -8.3,
+      "last_carriages": [
+        0,
+        0
+      ],
+      "stop": {
+        "kind": "locked_cam",
+        "sample_bracket": [
+          -8.3,
+          -8.2
+        ]
+      },
+      "potential_contact_samples": 0,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 2,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "rows": [],
+      "locked": [
+        null,
+        0
+      ]
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "direction": "insert",
+      "last_reachable_d": 6.4,
+      "last_carriages": [
+        12,
+        12
+      ],
+      "stop": null,
+      "potential_contact_samples": 65,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 276,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "rows": [],
+      "locked": [
+        12,
+        null
+      ]
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "direction": "insert",
+      "last_reachable_d": 6.4,
+      "last_carriages": [
+        12,
+        12
+      ],
+      "stop": null,
+      "potential_contact_samples": 65,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 276,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "rows": [],
+      "locked": [
+        null,
+        12
+      ]
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "direction": "insert",
+      "last_reachable_d": 6.4,
+      "last_carriages": [
+        12,
+        12
+      ],
+      "stop": null,
+      "potential_contact_samples": 65,
+      "controlled_collar_probe_misses": [
+        0,
+        0
+      ],
+      "cam_touch_events": 256,
+      "carriage_frame_forbidden_intervals": [
+        [],
+        []
+      ],
+      "rows": [],
+      "locked": [
+        12,
+        12
+      ]
+    }
+  ],
+  "probe_contributors": [
+    {
+      "d": 0,
+      "baseline": false,
+      "hits": {
+        "probe0": {
+          "shell-outer": "separated",
+          "collar": "interpenetrating",
+          "crossbar": "separated",
+          "key0": "separated",
+          "key1": "separated"
+        },
+        "probe1": {
+          "shell-outer": "separated",
+          "collar": "interpenetrating",
+          "crossbar": "separated",
+          "key0": "separated",
+          "key1": "separated"
+        }
+      }
+    },
+    {
+      "d": 0,
+      "baseline": true,
+      "hits": {
+        "probe0": {
+          "shell-outer": "interpenetrating",
+          "collar": "separated",
+          "crossbar": "separated",
+          "key0": "separated",
+          "key1": "separated"
+        },
+        "probe1": {
+          "shell-outer": "interpenetrating",
+          "collar": "separated",
+          "crossbar": "separated",
+          "key0": "separated",
+          "key1": "separated"
+        }
+      }
+    },
+    {
+      "d": 4,
+      "baseline": false,
+      "hits": {
+        "probe0": {
+          "shell-outer": "separated",
+          "collar": "interpenetrating",
+          "crossbar": "separated",
+          "key0": "separated",
+          "key1": "separated"
+        },
+        "probe1": {
+          "shell-outer": "separated",
+          "collar": "interpenetrating",
+          "crossbar": "separated",
+          "key0": "separated",
+          "key1": "separated"
+        }
+      }
+    },
+    {
+      "d": 4,
+      "baseline": true,
+      "hits": {
+        "probe0": {
+          "shell-outer": "interpenetrating",
+          "collar": "separated",
+          "crossbar": "separated",
+          "key0": "separated",
+          "key1": "separated"
+        },
+        "probe1": {
+          "shell-outer": "interpenetrating",
+          "collar": "separated",
+          "crossbar": "separated",
+          "key0": "separated",
+          "key1": "separated"
+        }
+      }
+    },
+    {
+      "d": 6.4,
+      "baseline": false,
+      "hits": {
+        "probe0": {
+          "shell-outer": "separated",
+          "collar": "interpenetrating",
+          "crossbar": "separated",
+          "key0": "separated",
+          "key1": "separated"
+        },
+        "probe1": {
+          "shell-outer": "separated",
+          "collar": "interpenetrating",
+          "crossbar": "separated",
+          "key0": "separated",
+          "key1": "separated"
+        }
+      }
+    },
+    {
+      "d": 6.4,
+      "baseline": true,
+      "hits": {
+        "probe0": {
+          "shell-outer": "separated",
+          "collar": "interpenetrating",
+          "crossbar": "separated",
+          "key0": "separated",
+          "key1": "separated"
+        },
+        "probe1": {
+          "shell-outer": "separated",
+          "collar": "interpenetrating",
+          "crossbar": "separated",
+          "key0": "separated",
+          "key1": "separated"
+        }
+      }
+    }
+  ],
+  "synthetic_bypass": [
+    {
+      "both_carriages": 0,
+      "d": -3.5,
+      "static_blockers": [
+        "doorA"
+      ],
+      "path_blockers": [
+        "doorA"
+      ]
+    },
+    {
+      "both_carriages": 0,
+      "d": 6.4,
+      "static_blockers": [],
+      "path_blockers": [
+        "doorA",
+        "doorB"
+      ]
+    },
+    {
+      "both_carriages": 12,
+      "d": -3.5,
+      "static_blockers": [],
+      "path_blockers": []
+    },
+    {
+      "both_carriages": 12,
+      "d": 6.4,
+      "static_blockers": [],
+      "path_blockers": []
+    }
+  ],
+  "limits": "Fixed orientation and ideal sliders only. Finite paths; interpolation checked only for the listed sensitivity cases, not continuous pose/dynamics/hardware proof."
+}

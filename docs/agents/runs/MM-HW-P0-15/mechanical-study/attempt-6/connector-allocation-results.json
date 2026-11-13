@@ -1,0 +1,46 @@
+{
+  "scope": "Conditional calculation and source screening, no pin assignment or selected hardware",
+  "candidate": [
+    "SFM-110-T2-S-D-A",
+    "TFM-110-02-S-D-A"
+  ],
+  "contacts": 20,
+  "socket_length_reference_mm": 16.64,
+  "passive_cassette_route_count": 14,
+  "cassette_local_analog_route_lower_bound": 8,
+  "capacity_limits": "No contact-to-route allocation. Return, protection, auxiliary and power parallel routes need exact inventory.",
+  "conditional_last_cut_with_2mm_gap_mm": 15.658164081579464,
+  "modeled_own_tongue_release_mm": 16.799999999999997,
+  "conditional_axial_margin_mm": 1.141835918420533,
+  "scope_of_height_transfer": "Same lead/SMT section heights and same bounded conductive envelope, pivot, relative tilt, datum, assembly loss and protrusions. Not established on assembled cassette.",
+  "insulation_test_criterion_ohm": 1000000000.0,
+  "reported_qualification_value_ohm": 5000000000.0,
+  "previous_total_node_leak_budget_nA": 7.595538596863099,
+  "remaining_connector_leak_nA_if_board_and_wiring_use_2p5nA": 5.095538596863099,
+  "equivalent_connector_insulation_ohm_at_allocated_delta_v": 1413000777.6670444,
+  "test_floor_screen": [
+    {
+      "hypothetical_parallel_leak_paths": 1,
+      "allocated_voltage_v": 7.2,
+      "computed_sum_nA": 7.2,
+      "inside_measurement_budget": true
+    },
+    {
+      "hypothetical_parallel_leak_paths": 2,
+      "allocated_voltage_v": 7.2,
+      "computed_sum_nA": 14.4,
+      "inside_measurement_budget": false
+    },
+    {
+      "hypothetical_parallel_leak_paths": 3,
+      "allocated_voltage_v": 7.2,
+      "computed_sum_nA": 21.6,
+      "inside_measurement_budget": false
+    }
+  ],
+  "limitations": [
+    "Insulation test data does not guarantee distributed leakage at application voltages over temperature, humidity, wear and assembly contamination.",
+    "No assumption that all paths see 7.2 V simultaneously. Screening cannot establish actual connector leakage or prove failure of a measured sample.",
+    "The 2500-cycle report covers the exact 50-contact pair, not this 20-contact variant."
+  ]
+}

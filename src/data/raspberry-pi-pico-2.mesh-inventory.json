@@ -1,0 +1,274 @@
+{
+  "boardId": "raspberry-pi-pico-2",
+  "sourceFile": "public/cad/raspberry-pi-pico-2.step",
+  "sourceSha256": "d49ada10d893cfcb07cb4abced0a0a0cadca4c4150f153d874268ca06171a24f",
+  "meshCount": 426,
+  "componentCount": 53,
+  "nodes": [
+    {
+      "nodeName": "generic_capc0603x30",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_capc0603x30__02",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_resc0603x23",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_resc0603x23__02",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "bourns_srn2512-2r2mh",
+      "sourceMeshes": 2,
+      "sourceName": "Body"
+    },
+    {
+      "nodeName": "generic_capc0603x30__03",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_resc0603x23__03",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_resc1005x35",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_resc0603x23__04",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_capc2012x125",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_capc1005x50",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_capc1005x50__02",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_resc0603x23__05",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_capc0603x30__04",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "rpi_rp2350a",
+      "sourceMeshes": 5,
+      "sourceName": "Package"
+    },
+    {
+      "nodeName": "generic_resc0603x23__06",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "edac_690-005-298-486",
+      "sourceMeshes": 3,
+      "sourceName": "Chassis"
+    },
+    {
+      "nodeName": "generic_capc0603x30__05",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_resc0603x23__07",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_capc0603x30__06",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_resc0603x23__08",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_sodfl3517x100",
+      "sourceMeshes": 3,
+      "sourceName": "Package"
+    },
+    {
+      "nodeName": "generic_capc2012x125__02",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_capc1005x50__03",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_resc0603x23__09",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_resc1005x35__02",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_capc1005x50__04",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_capc0603x30__07",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_xtalcc320x250x80-4",
+      "sourceMeshes": 4,
+      "sourceName": "Body"
+    },
+    {
+      "nodeName": "generic_capc0603x30__08",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_capc0603x30__09",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_capc1005x50__05",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_sot50p160x80-3",
+      "sourceMeshes": 3,
+      "sourceName": "Package"
+    },
+    {
+      "nodeName": "generic_resc0603x23__10",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_capc0603x30__10",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "avago_qsme-c194",
+      "sourceMeshes": 3,
+      "sourceName": "Contacts"
+    },
+    {
+      "nodeName": "generic_capc1005x50__06",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "richtek_rt6150b-33gqw",
+      "sourceMeshes": 4,
+      "sourceName": "Package"
+    },
+    {
+      "nodeName": "generic_resc0603x23__11",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_resc0603x23__12",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_capc0603x30__11",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_resc0603x23__13",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "generic_resc0603x23__14",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "toneparts_tp-1221u-k9k5325",
+      "sourceMeshes": 4,
+      "sourceName": "Plastic_Body"
+    },
+    {
+      "nodeName": "generic_capc0603x30__12",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_capc0603x30__13",
+      "sourceMeshes": 2,
+      "sourceName": "CapacitorMainBody"
+    },
+    {
+      "nodeName": "generic_resc0603x23__15",
+      "sourceMeshes": 3,
+      "sourceName": "ResistorMainBody"
+    },
+    {
+      "nodeName": "abracon_aota-b201610s3r3-101-t",
+      "sourceMeshes": 3,
+      "sourceName": "Body"
+    },
+    {
+      "nodeName": "winbond_w25q32rvxhjq",
+      "sourceMeshes": 4,
+      "sourceName": "Package"
+    },
+    {
+      "nodeName": "rpi_pico2_pad",
+      "sourceMeshes": 241,
+      "sourceName": "rpi_pico2_pad"
+    },
+    {
+      "nodeName": "rpi_pico2_silkscreen",
+      "sourceMeshes": 51,
+      "sourceName": "rpi_pico2_silkscreen"
+    },
+    {
+      "nodeName": "rpi_pico2_soldermask",
+      "sourceMeshes": 2,
+      "sourceName": "rpi_pico2_soldermask"
+    },
+    {
+      "nodeName": "rpi_pico2_PCB",
+      "sourceMeshes": 1,
+      "sourceName": "rpi_pico2_PCB"
+    }
+  ]
+}

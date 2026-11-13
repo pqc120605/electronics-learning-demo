@@ -1,0 +1,117 @@
+INA152
+3
+SBOS184
+INA152EA
+PARAMETER
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+OFFSET VOLTAGE
+RTO(1) (2)
+Input Offset Voltage
+VCM = VOUT = 0V
+±250
+±1500
+µV
+vs Temperature
+TA = –40°C ≤ TA ≤ 85°C
+±3
+±15
+µV/°C
+INPUT VOLTAGE RANGE(3)
+Voltage Range, Common-Mode
+VIN+ – VIN– = 0V
+–2.5
++5.5
+V
+Common-Mode Rejection
+0V < VCM < +5V, RSRC = 0Ω
+80
+94
+dB
+OUTPUT
+Voltage
+(V+) – 0.2
+V
+(V–) + 0.2
+V
+RL = 10kΩ to GND
+(V–) + 0.05
+V
+SPECIFICATIONS: VS = +5V
+TA = +25°C, VS = +5V, Ref connected to VS/2, RL = 10kΩ connected to VS/2, unless otherwise noted.
+PIN CONFIGURATION
+ELECTROSTATIC
+DISCHARGE SENSITIVITY
+This integrated circuit can be damaged by ESD. Burr-Brown
+recommends that all integrated circuits be handled with
+appropriate precautions. Failure to observe proper handling
+and installation procedures can cause damage.
+ESD damage can range from subtle performance degradation
+to complete device failure. Precision integrated circuits may
+be more susceptible to damage because very small parametric
+changes could cause the device not to meet its published
+specifications.
+Top View
+MSOP-8
+Supply Voltage, V+ to V– .................................................................. +22V
+Signal Input Terminals .................................................. +20V Continuous
+Output Short-Circuit to GND Duration .................................... Continuous
+Operating Temperature ..................................................–55°C to +125°C
+Storage Temperature .....................................................–55°C to +125°C
+Junction Temperature .................................................................... +150°C
+Lead Temperature (soldering, 10s) ............................................... +300°C
+ABSOLUTE MAXIMUM RATINGS(1)
+PACKAGE
+SPECIFIED
+DRAWING
+TEMPERATURE
+PACKAGE
+ORDERING
+TRANSPORT
+PRODUCT
+PACKAGE
+NUMBER
+RANGE
+MARKING
+NUMBER(1)
+MEDIA
+INA152EA
+MSOP-8
+337
+–40°C to +85°C
+B52
+INA152EA/250
+Tape and Reel
+"
+"
+"
+"
+"
+INA152EA/2K5
+Tape and Reel
+NOTE: (1) Models with a slash (/) are available only in Tape and Reel in the quantities indicated (e.g., /2K5 indicates 2500 devices per reel). Ordering 2500 pieces
+of “INA152EA/2K5” will get a single 2500-piece Tape and Reel.
+PACKAGE/ORDERING INFORMATION
+Ref
+VIN–
+VIN+
+V–
+NC
+V+
+VO
+Sense
+1
+2
+3
+4
+8
+7
+6
+5
+INA152
+NC = No Internal Connection
+NOTES: (1) Referred to output in unity-gain difference configuration. Note that this circuit has a gain of 2 for the op amp’s offset voltage and noise voltage.
+(2) Includes effects of amplifier’s input bias and offset currents. (3) Limit IIN through 40kΩ resistors to 1mA.

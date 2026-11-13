@@ -1,0 +1,17 @@
+.input-output-challenge { display: grid; gap: 9px; margin: 14px 0; padding: 15px; border: 1px solid var(--line-dark); border-left: 3px solid var(--green); border-radius: 7px; background:var(--paper-bright); }
+.input-output-challenge-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.input-output-challenge-heading .eyebrow { margin: 0; color:var(--green); font: 700 9px/1.4 Consolas,monospace; letter-spacing: .08em; }
+.input-output-challenge-heading>span { color:var(--ink-soft); font-size: 10px; }
+.input-output-challenge h3 { margin: 0; color:var(--ink); font-size: 15px; }
+.input-output-challenge p { margin: 0; color:var(--ink-soft); font-size: 11px; line-height: 1.6; }
+.input-output-challenge .input-output-challenge-rule { color:var(--ink); font-weight: 650; }
+.input-output-challenge-state { display: flex; flex-wrap: wrap; gap: 8px; }
+.input-output-challenge-state span, .input-output-challenge-observations>div { display: flex; justify-content: space-between; gap: 10px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 5px; color:var(--ink-soft); font-size: 10px; }
+.input-output-challenge-state strong { color:var(--ink); }
+.input-output-challenge-observations { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+.input-output-challenge-observations strong { color:var(--ink); text-align: right; }
+.input-output-challenge-capture { width: fit-content; min-height: 44px; padding: 0 12px; border: 1px solid var(--line-dark); border-radius: 5px; color:var(--green); background:transparent; cursor: pointer; font-size: 11px; font-weight: 650; }
+.input-output-challenge-capture:disabled { opacity: .55; cursor: not-allowed; }
+.input-output-challenge>small { color:var(--ink-faint); font-size: 9px; line-height: 1.5; }
+.input-output-challenge .input-output-challenge-complete { padding: 8px 10px; border-radius: 5px; color:var(--green); background:#edf3e8; }
+@media (max-width: 520px) { .input-output-challenge { padding: 12px; } .input-output-challenge-observations { grid-template-columns: 1fr; } }

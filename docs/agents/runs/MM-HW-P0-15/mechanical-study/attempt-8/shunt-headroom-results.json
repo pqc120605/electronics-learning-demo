@@ -1,0 +1,35 @@
+{
+  "scope": "Conditional DC and headroom arithmetic, not approved thresholds or qualified timing",
+  "assumptions": [
+    "Bleeder sits directly across the monitored local input pair before conversion",
+    "Every alternate current path fits the 77.5611uA allocation",
+    "The two carrier shunts measure the actual distinct supply and return conductors"
+  ],
+  "direct_bleeder_current_min_a": 0.0005687802822835475,
+  "valid_intended_current_min_a": 0.0004912192775702249,
+  "lower_current_threshold_allocation_a": 0.00025,
+  "lower_threshold_output_v": 0.35562499999999997,
+  "bad_output_upper_with_allocated_error_v": 0.2882817254340433,
+  "valid_output_lower_with_allocated_error_v": 0.46578400028746497,
+  "min_lower_decision_margin_v": 0.06734327456595668,
+  "trial_current_max_a": 0.0065,
+  "nominal_amplifier_out_at_trial_max_v": 4.24625,
+  "nominal_ina_supply_floor_for_linear_output_v": 4.3462499999999995,
+  "max_two_shunt_drop_at_trial_current_v": 0.32402369999999997,
+  "remaining_input_before_other_drops_from_4p75_v": 4.4259763,
+  "alternative_1p8v_nominal_screen": {
+    "minimum_shunt_for_nonoverlap_ohm": 7.735853988606152,
+    "maximum_shunt_for_nominal_linear_output_ohm": 9.23076923076923,
+    "trial_shunt_ohm": 8.2,
+    "centered_threshold_current_a": 0.00028439014114177376,
+    "remaining_each_side_v": 0.002399972967832488,
+    "scope": "Fixed allocated errors and nominal output range only. Neither selection nor verified tolerance budget."
+  },
+  "dwell_margin_s_under_allocations": 0.019509816515867674,
+  "limits": [
+    "1.8V offset condition cannot be transferred to a 4.75V analog supply without bounding the change",
+    "Upper current comparator needs a separate error/overload budget and actual current envelope",
+    "An unintended return rejoining before the shunt can satisfy both current checks indefinitely",
+    "No measured timing or whole-matrix device max has been shown"
+  ]
+}

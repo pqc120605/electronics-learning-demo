@@ -1,0 +1,193 @@
+{
+  "id": "MOBOT-V2-CONFIG-r8",
+  "revision": 8,
+  "status": "proposed",
+  "document_kind": "configuration-proposal",
+  "approval_required_before_hardware_build": true,
+  "founder_record": "docs/hardware/mobot-v2-founder-decision-q1-q8.md",
+  "baseline": "docs/hardware/mobot-v2-config-2026-11-05-r7.md",
+  "inheritance": "Giữ các quyết định và yêu cầu r7 không xung đột. Không chuyển nguyên pinout, nguồn hoặc cơ khí DevKit cũ sang mẫu mới.",
+  "decisions": {
+    "Q1": "A — mẫu đã chụp cho cả hai carrier",
+    "Q2": "A — kiến trúc nguồn tay cầm B01 v1",
+    "Q3": "A — pack Jauch 250832",
+    "Q4": "B — tách verification_items theo D10",
+    "Q5": "B — PCB 4 lớp cho cả hai carrier",
+    "Q8": "ESP32 DevKit 30 chân USB-C, họ CH340. Mọi kích thước và điện nội bộ là ước lượng, không xác minh.",
+    "D1": "Robot carrier là lõi Starter, tay cầm là module riêng",
+    "D2": "Việt Nam, chưa ghi độ tuổi lên hộp",
+    "D3": "Lời chào và hướng dẫn phát sẵn, không mic, không quảng bá AI hoặc trò chuyện tự nhiên",
+    "D4": "Web Serial USB để kiểm chứng P1, Wi-Fi + WebSocket V1 sau khi thử",
+    "D6": "L3 = D3 trong feature-depth-register"
+  },
+  "board": {
+    "evidence": "docs/hardware/evidence/esp32-devkit-v1-type-c-sample.md",
+    "sku": "UNKNOWN",
+    "revision": "UNKNOWN",
+    "bridge_suffix": "UNKNOWN",
+    "dimensions": "TBD — ước lượng, không xác minh",
+    "internal_electrical": "TBD — ước lượng, không xác minh"
+  },
+  "handset": {
+    "reference": "docs/hardware/mobot-v2-handset-b01-architecture-v1.md",
+    "power_contract": "RUN OUT hoặc cáp PC luân phiên cấp qua USB-C onboard. VIN và 3V3 nằm ngoài đường cấp nguồn carrier. CHARGE riêng cưỡng bức tắt RUN OUT và cách ly I/O. PROGRAM + CHARGE giữ I/O cách ly. Mất điều kiện phải tắt và cần lệnh RUN mới.",
+    "q2_a_condition": "Rd danh nghĩa 5,1 kΩ trên CC1 và CC2 chưa xác minh. Kiểm chức năng C-to-C cả hai chiều cắm ở P0/P1 theo quyền tương ứng. A-to-C không thay phép thử. FAIL một chiều phải trình Founder quyết định Q2-A."
+  },
+  "q2_a_functional_verification": {
+    "preparation": "P0: ghi định danh B01, nguồn RUN C-to-C, cáp và trace; Rd 5,1 kΩ là tham chiếu, A-to-C không thay phép thử.",
+    "timing": "P1 khi có mẫu và quyền cấp điện; PROGRAM/Web Serial kiểm riêng, flash cần quyền riêng.",
+    "owner": "Box 02 tiêu chí, Box 03 định danh, Box 07 đo khi được phép",
+    "cases": [
+      {
+        "id": "B01-C2C-A",
+        "status": "NOT_RUN",
+        "pass": "Nguồn nhận attach, VBUS lên trong cận đã khóa và B01 boot ổn định.",
+        "fail": "Không attach, VBUS ngoài cận hoặc boot không ổn định."
+      },
+      {
+        "id": "B01-C2C-B",
+        "status": "NOT_RUN",
+        "pass": "Nguồn nhận attach, VBUS lên trong cận đã khóa và B01 boot ổn định.",
+        "fail": "Không attach, VBUS ngoài cận hoặc boot không ổn định."
+      }
+    ],
+    "on_failure": "Giữ Q2-A FAIL, lưu mẫu/cáp/nguồn/chiều và trace, trình Founder trước khi kết luận RUN tương thích."
+  },
+  "verification_items": [
+    {
+      "id": "USB",
+      "scope": "Dòng attach, boot và flash",
+      "pass_fail": "Trace từng pha trong giới hạn dòng, sụt áp và trạng thái đã review; FAIL nếu vượt giới hạn hoặc reset ngoài yêu cầu.",
+      "responsible": "Box 02 xác lập cận, Box 07 vận hành khi được phép",
+      "timing": "PCB mẫu sau quyền cấp điện; pha flash cần quyền riêng",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "UVLO",
+      "scope": "UVLO động và nội trở pack",
+      "pass_fail": "Cắt/phục hồi trong cửa sổ đã review qua cận nội trở, nhiệt và tải xung; FAIL nếu vượt cửa sổ, đóng ngắt lặp hoặc vượt cận pack.",
+      "responsible": "Box 02 xác lập cận, Box 07 vận hành khi được phép",
+      "timing": "PCB mẫu sau quyền thử pin riêng",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "VM",
+      "scope": "Xung VM, năng lượng hồi và điện tích lọt phía converter",
+      "pass_fail": "Đỉnh áp từng rail và ứng suất xung/nhiệt nằm trong cận đã review, kể cả mất bias và đường hồi; FAIL nếu vượt bất kỳ cận nào.",
+      "responsible": "Box 02 xác lập cận, Box 07 vận hành khi được phép",
+      "timing": "PCB mẫu sau quyền chạy motor riêng",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "THERMAL",
+      "scope": "Nhiệt thật",
+      "pass_fail": "Mọi linh kiện và bề mặt dưới giới hạn đã review trong vỏ và chu kỳ tải quy định; FAIL nếu vượt bất kỳ giới hạn nào.",
+      "responsible": "Box 07",
+      "timing": "Mẫu tích hợp sau quyền vận hành tương ứng",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "ADC",
+      "scope": "Độ ổn định ADC joystick",
+      "pass_fail": "Dải, sai số và thời gian ổn định đạt cận qua hành trình và tải radio; FAIL nếu có mẫu vượt tiêu chí nghiệm thu.",
+      "responsible": "Box 07",
+      "timing": "PCB tay cầm sau quyền cấp điện và flash tương ứng",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "CLONE",
+      "scope": "Kích thước và điện nội bộ bo clone",
+      "pass_fail": "Đúng mẫu khớp vùng lắp, kết nối và giả định điện đã review; FAIL nếu không vừa, sai chức năng hoặc vượt cận thiết kế.",
+      "responsible": "Box 03 cơ khí, Box 02 điện, người thao tác được phép",
+      "timing": "Sau PCB theo D10; cơ khí không cấp điện có thể kiểm khi có mẫu",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN"
+    }
+  ],
+  "blocking_unknowns": [
+    {
+      "id": "HANDSET-POWER-DESIGN",
+      "owner": "Box 02 + 03",
+      "milestone": "Trước review cấu hình tay cầm",
+      "scope": "Chứng minh đúng cáp RUN tại B01, rail hợp lệ, veto CHARGE, cách ly mất bias, cận rò và thứ tự ngắt."
+    },
+    {
+      "id": "CARRIER-INTERFACES",
+      "owner": "Box 02 + 03",
+      "milestone": "Trước đóng IF; chi tiết layout trước layout",
+      "scope": "Khóa hợp đồng điện có cận, đầu ghép và bó dây, chống kéo/cắm lệch, mặt chuẩn, vùng lắp và keepout cho từng carrier."
+    },
+    {
+      "id": "B01-SUPPLY",
+      "owner": "Box 03",
+      "milestone": "Trước khóa BOM",
+      "scope": "Chứng cứ truy xuất hàng giao đúng PCBA/revision so với ảnh; listing chỉ là tham chiếu."
+    },
+    {
+      "id": "HANDSET-PACK-H3",
+      "owner": "Box 03 + 02",
+      "milestone": "Trước khóa giao diện pin tay cầm",
+      "scope": "Hồ sơ Jauch 250832 đúng revision, cực tính theo mặt ghép, NTC qua dung sai, cận CV, termination và timer."
+    },
+    {
+      "id": "STACKUP-DRC",
+      "owner": "HQ + Box 02 + Box 03",
+      "milestone": "Trước layout",
+      "scope": "Đối chiếu stackup 4 lớp khả thi, đường hồi, bề dày bo/đồng, quy tắc trace, clearance, via, khoan và mép bo."
+    },
+    {
+      "id": "ROBOT-R1",
+      "owner": "Box 02 + 03",
+      "milestone": "Trước lease robot",
+      "scope": "BT-R1a hoặc bằng chứng tương đương cho đúng cụm motor; cận đỉnh qua blanking, xISEN và khởi động."
+    },
+    {
+      "id": "ROBOT-R2",
+      "owner": "Box 02",
+      "milestone": "Trước lease robot",
+      "scope": "Cơ chế phát hiện kẹt, cận thời gian/năng lượng, ngắt chốt lỗi và lệnh mới để tái chạy."
+    },
+    {
+      "id": "ROBOT-R3-B04",
+      "owner": "Box 03 + 02",
+      "milestone": "Trước khóa BOM và nguồn robot",
+      "scope": "Hồ sơ pack/PCM 2S đúng revision, bảo vệ/cân bằng, cận dòng và sạc, đầu ghép/cực tính; Q7 còn mở."
+    },
+    {
+      "id": "ROBOT-R4",
+      "owner": "Box 02",
+      "milestone": "Trước review thiết kế robot",
+      "scope": "Khóa topology PS/SYNC, đường hấp thụ khi pack không nhận dòng, cận rail khi mất VIN/bias và định mức bảo vệ."
+    },
+    {
+      "id": "ROBOT-R5",
+      "owner": "Box 02",
+      "milestone": "Trước review cấu hình robot",
+      "scope": "CE mặc định tắt qua ramp/mất bias, xử lý tụt về Default, giới hạn đầu vào và veto motor khi sạc."
+    },
+    {
+      "id": "ROBOT-R6",
+      "owner": "Box 02 + 03",
+      "milestone": "Trước lease robot",
+      "scope": "Khóa nguồn B01 RUN/PROGRAM, chống cấp đồng thời/cấp ngược và cách ly theo từng miền I/O Type-C."
+    }
+  ],
+  "gates": [
+    "Box 08 review exact bytes và từng verification_item trước layout",
+    "Founder duyệt SHA-256 riêng sau review",
+    "Giữ IF/BOM/KiCad dependencies, blocking inputs và preflight",
+    "Quyền riêng bằng văn bản trước sản xuất, cấp điện Li-ion hoặc chạy motor trên PCB đã lắp, flash và mua hàng",
+    "Giữ cổng chứng nhận đồ dùng trẻ em; số chưa đo không được tuyên bố an toàn hoặc hợp lệ"
+  ]
+}

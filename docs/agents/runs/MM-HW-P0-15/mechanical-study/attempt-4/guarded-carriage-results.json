@@ -1,0 +1,53 @@
+{
+  "scope": "Guarded replay of the nine reviewed reference paths",
+  "cases": [
+    {
+      "case": "parked reference",
+      "contact_samples": 65,
+      "checked_linear_segments": 264
+    },
+    {
+      "case": "A not parked",
+      "contact_samples": 0,
+      "checked_linear_segments": 118
+    },
+    {
+      "case": "B not parked",
+      "contact_samples": 0,
+      "checked_linear_segments": 125
+    },
+    {
+      "case": "historical12 sensitivity",
+      "contact_samples": 0,
+      "checked_linear_segments": 118
+    },
+    {
+      "case": "A not parked, upper barrier absent",
+      "contact_samples": 0,
+      "checked_linear_segments": 118
+    },
+    {
+      "case": "A not parked, lower barrier absent",
+      "contact_samples": 0,
+      "checked_linear_segments": 118
+    },
+    {
+      "case": "B not parked, upper barrier absent",
+      "contact_samples": 0,
+      "checked_linear_segments": 125
+    },
+    {
+      "case": "B not parked, lower barrier absent",
+      "contact_samples": 0,
+      "checked_linear_segments": 125
+    },
+    {
+      "case": "negative: both endpoint bodies absent",
+      "contact_samples": 65,
+      "checked_linear_segments": 264
+    }
+  ],
+  "checks_passed": 4,
+  "original_counterexample_rejected": true,
+  "total_checked_linear_segments": 1375
+}

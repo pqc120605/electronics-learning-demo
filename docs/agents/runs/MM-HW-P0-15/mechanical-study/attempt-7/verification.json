@@ -1,0 +1,13 @@
+{
+  "calculation_replay": "pass",
+  "prior_snapshot_files_unchanged": 16,
+  "queue_validator_exit": 0,
+  "queue_validator": {
+    "tasks": 61,
+    "capabilities": 143,
+    "warnings": [],
+    "errors": []
+  },
+  "independent_review": "NOT_RUN",
+  "physical": "NOT_RUN"
+}

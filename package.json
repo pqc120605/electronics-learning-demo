@@ -1,0 +1,45 @@
+{
+  "name": "mach-mo-learning-demo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "postinstall": "node scripts/prepare-spice-engine.mjs",
+    "dev": "vite",
+    "build": "npm run check:public-release && npm run build:local",
+    "build:local": "tsc -b && vite build",
+    "build:avr-demo": "node scripts/generate-atmega328p-d13-blink.mjs",
+    "generate:xiao-c3-pin-anchors": "node scripts/export-seeed-xiao-esp32c3-pin-anchors.mjs",
+    "generate:qtpy-c3-pin-anchors": "node scripts/export-adafruit-qtpy-esp32-c3-pin-anchors.mjs",
+    "generate:feather-s3-pin-anchors": "node scripts/export-adafruit-feather-esp32-s3-pin-anchors.mjs",
+    "audit:spice-engine": "node scripts/audit-spice-engine.mjs",
+    "audit:board-models": "node scripts/audit-board-models.mjs",
+    "audit:board-model-geometry": "node scripts/audit-step-board-body-geometry.mjs",
+    "check:public-release": "node scripts/check-public-release-gates.mjs",
+    "build:public": "npm run build",
+    "preview": "vite preview",
+    "typecheck": "node --max-old-space-size=4096 node_modules/typescript/bin/tsc -p tsconfig.app.json --noEmit",
+    "test": "node --test --test-concurrency=1 tests/*.test.mjs",
+    "test:e2e": "node scripts/run-browser-tests.mjs test",
+    "test:e2e:install": "node scripts/run-browser-tests.mjs install chromium"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "avr8js": "file:vendor/avr8js-0.21.1.tgz",
+    "eecircuit-engine": "1.8.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "occt-import-js": "file:vendor/occt-import-js-0.0.23.tgz",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

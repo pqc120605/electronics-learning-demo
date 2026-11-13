@@ -1,0 +1,54 @@
+{
+  "seated_id": "50c9e342-7ff4-54a0-9cf4-fdce47937c95",
+  "program_id": "8b8a5904-03ab-529a-b76a-6df47e745f6e",
+  "native_checks": [
+    {
+      "endpoint": "A",
+      "height_mm": 0.09,
+      "withdrawal_mm": 0,
+      "intersection_mm3": 0.0
+    },
+    {
+      "endpoint": "A",
+      "height_mm": 0.11,
+      "withdrawal_mm": 0,
+      "intersection_mm3": 0.005599999999999196
+    },
+    {
+      "endpoint": "A",
+      "height_mm": 16.2,
+      "withdrawal_mm": 16.79,
+      "intersection_mm3": 0.005599999999998868
+    },
+    {
+      "endpoint": "A",
+      "height_mm": 16.2,
+      "withdrawal_mm": 16.81,
+      "intersection_mm3": 0.0
+    },
+    {
+      "endpoint": "B",
+      "height_mm": 0.09,
+      "withdrawal_mm": 0,
+      "intersection_mm3": 0.0
+    },
+    {
+      "endpoint": "B",
+      "height_mm": 0.11,
+      "withdrawal_mm": 0,
+      "intersection_mm3": 0.007199999999997263
+    },
+    {
+      "endpoint": "B",
+      "height_mm": 16.2,
+      "withdrawal_mm": 16.79,
+      "intersection_mm3": 0.0071999999999985565
+    },
+    {
+      "endpoint": "B",
+      "height_mm": 16.2,
+      "withdrawal_mm": 16.81,
+      "intersection_mm3": 0.0
+    }
+  ]
+}

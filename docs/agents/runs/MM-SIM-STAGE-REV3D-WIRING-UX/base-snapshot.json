@@ -1,0 +1,27 @@
+{
+  "taskId": "MM-SIM-STAGE-REV3D-WIRING-UX",
+  "capturedAt": "2026-11-12",
+  "kind": "file-hashes",
+  "files": [
+    {
+      "path": "src/components/builder/BreadboardEditor.tsx",
+      "sha256": "78cccf22b1e96c21a097b2f48929e5fd62d3dd93b37ba2746d807dff1c976e5c"
+    },
+    {
+      "path": "src/components/builder/BreadboardEditor.css",
+      "sha256": "e36c96f8372d1f4ec2b8799e20fe94dd9523e6c57241dbf02df1fb494dfbe4fb"
+    },
+    {
+      "path": "src/components/lesson/ButtonLedLessonLab.tsx",
+      "sha256": "1e1f6a7bda520e6c92cfe26e716bce4a4146ea7d246344eb9403fe4367f5ca21"
+    },
+    {
+      "path": "src/components/lesson/ButtonLedLessonLab.css",
+      "sha256": "e2e729c441bdbd6e705ac42b6e2e80fd6844ac962d953fcd80d78b92f92e9229"
+    },
+    {
+      "path": "e2e/journeys.spec.mjs",
+      "sha256": "d38e35b7320121d07090dac6d4ef0ef417a0fff67730055ae29d2b1b86c065b2"
+    }
+  ]
+}

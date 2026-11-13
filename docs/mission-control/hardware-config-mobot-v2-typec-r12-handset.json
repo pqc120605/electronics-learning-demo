@@ -1,0 +1,1035 @@
+{
+  "id": "MOBOT-V2-CONFIG-r12-HANDSET",
+  "revision": 12,
+  "status": "proposed",
+  "document_kind": "configuration-proposal",
+  "approval_required_before_hardware_build": true,
+  "founder_record": "docs/hardware/mobot-v2-founder-decision-q1-q8.md",
+  "baseline": "docs/hardware/mobot-v2-config-2026-11-05-r7.md",
+  "inheritance": "Giữ các quyết định và yêu cầu r7 không xung đột. Không chuyển nguyên pinout, nguồn hoặc cơ khí DevKit cũ sang mẫu mới.",
+  "decisions": {
+    "Q1": "A — mẫu đã chụp cho cả hai carrier",
+    "Q2": "RUN → OFF → PROGRAM — giữ phích RUN đến khi xác nhận OFF thực",
+    "Q3": "A — pack Jauch 250832",
+    "Q4": "B — tách verification_items theo D10",
+    "Q5": "B — PCB 4 lớp cho cả hai carrier",
+    "Q8": "ESP32 DevKit 30 chân USB-C, họ CH340. Mọi kích thước và điện nội bộ là ước lượng, không xác minh.",
+    "D1": "Robot carrier là lõi Starter, tay cầm là module riêng",
+    "D2": "Việt Nam, chưa ghi độ tuổi lên hộp",
+    "D3": "Lời chào và hướng dẫn phát sẵn, không mic, không quảng bá AI hoặc trò chuyện tự nhiên",
+    "D4": "Web Serial USB để kiểm chứng P1, Wi-Fi + WebSocket V1 sau khi thử",
+    "D6": "L3 = D3 trong feature-depth-register"
+  },
+  "board": {
+    "evidence": "docs/hardware/evidence/esp32-devkit-v1-type-c-sample.md",
+    "sku": "UNKNOWN",
+    "revision": "UNKNOWN",
+    "bridge_suffix": "UNKNOWN",
+    "dimensions": "TBD — ước lượng, không xác minh",
+    "internal_electrical": "TBD — ước lượng, không xác minh"
+  },
+  "handset": {
+    "reference": "docs/hardware/mobot-v2-handset-b01-architecture-v1.md",
+    "mode_change_decision": "docs/hardware/mobot-v2-founder-decision-q2-off.md",
+    "service_release": "Khi hết pin hoặc mất bias, lẫy bảo trì chỉ tiếp cận được sau khi pack đã tách vật lý, các đường cấp ngoài đã tháo hoặc bị chặn và I/O vẫn cách ly. Trước khi tác động lẫy, xác nhận rail dư dưới ngưỡng tại điểm đo bảo trì hoặc chờ đủ thời gian xả thụ động đã định mức qua dung sai và dòng bơm lại. Xác minh trình tự và khả năng đi vòng trên đúng cụm.",
+    "power_contract": "RUN OUT hoặc cáp PC luân phiên cấp qua USB-C onboard. Chuyển RUN → OFF → PROGRAM: giữ phích RUN đến khi I/O thực sự cách ly, Source thực sự tắt và RUN OUT xuống dưới ngưỡng đã review. Mất bias hoặc chưa xác nhận OFF thì không cho nhả. VIN và 3V3 ngoài đường cấp carrier. CHARGE riêng cưỡng bức tắt RUN OUT và cách ly I/O. PROGRAM + CHARGE giữ I/O cách ly. Phục hồi cần lệnh RUN mới.",
+    "c_to_c_condition": "Rd danh nghĩa 5,1 kΩ trên CC1 và CC2 chưa xác minh. Kiểm chức năng C-to-C cả hai chiều cắm ở P0/P1 theo quyền tương ứng. A-to-C không thay phép thử. FAIL một chiều phải trình Founder xử lý.",
+    "pack_reference": "Jauch250832 Rev1.2 trang2–3, nguồn PDF D:/250832.pdf (3 trang), Jauch No.250832 Rev1.2; Codex đối chiếu văn bản ngày09/11/2026; SHA256 f591005fb42722eb8f55aba91425e920c23a288cc4d897114968968e0609609a: LI INR18650JC-26,1s1p,3,6V; typ2600mAh/rated2500mAh (0,2C/2,75V); CC-CV4,2V, chuẩn1250mA/max2500mA,0..45°C; xả cut2,80V, chuẩn1250mA/max3000mA,-20..60°C. PCM OC detect4,28±0,05V/release4,08±0,05V; OD detect/release đều2,80±0,10V (cần làm rõ); overcurrent6..12A; fusefast7A. Không coi các threshold bảo vệ là chế độ vận hành.",
+    "pack_design_implications": "UVLO thiết kế phải cao hơn toàn vùng PCM cắt2,80±0,10V, tính cả sai số/sag/trễ. PCM6..12A và fuse7A không thay bảo vệ ngắn mạch phía tay cầm; cần bảo vệ độc lập có cận. Cận CV charger/pack chưa xác minh, không được ghi an toàn.",
+    "candidate_configuration": {
+      "status": "proposed components; confirmed direction only; no MPN approval or physical PASS",
+      "id": "MOBOT-HANDSET-P0-CANDIDATE-r12",
+      "electrical_candidates": [
+        [
+          "boost",
+          "TPS61023DRLR"
+        ],
+        [
+          "USB-C Source",
+          "TPS25810RVCR"
+        ],
+        [
+          "additional VBUS barriers",
+          "2 x TPS22916CNYFPR"
+        ],
+        [
+          "I/O and JOY isolation",
+          "TMUX1511 two-stage signal isolation candidate; JOY_VCC separate power branch with inrush/reverse-bias analysis TBD; no approved quantity"
+        ],
+        [
+          "UVLO",
+          "TLV6710DDCR"
+        ],
+        [
+          "OFF sensing",
+          "2 x TLV6710DDCR"
+        ],
+        [
+          "supervisor",
+          "TPS3808G01DBVR"
+        ],
+        [
+          "RUN latch",
+          "SN74LVC1G74DCTR"
+        ],
+        [
+          "charger H3",
+          "BQ25170 family candidate; suffix/MPN/strap/setpoint/BOM not approved"
+        ]
+      ],
+      "source": "D:/StartupOS/docs/agents/runs/MM-HW-MOBOT-IF-001/p0-closure-candidate/box02-electrical.md",
+      "assembly_candidate": "MOBOT-HANDSET-OFF-ASM-v1: new proposal identity only; not a received/verified assembly",
+      "assembly_source": "D:/StartupOS/docs/agents/runs/MM-HW-MOBOT-IF-001/p0-closure-candidate/box03-assembly.md",
+      "supplier_candidate": "Beetrona02030089, not verified against photo PCBA; Q1/Q8 still binding",
+      "mechanical_candidates": "StarTech USB2CC30CMNCBR; Harwin M20-1060100/M20-1180042; JST SM12B-GHS-TB/GHR-12V-S/SSHL-002T-P0.2; AlphaWire5852; B01-CRADLE-r0/RUN-PLUG-CAP-r0/HOLD-A-r0/HOLD-B-r0 custom requirements only",
+      "lab_only_actuator_candidate": "2 x Adafruit2776, MeanWell GST25A05-P1J separately powered: candidate test arrangement only; not included in handset current budget or selected product BOM. Product/fixture equivalence, duty, shared failures and budget remain unproven.",
+      "historical_charger_screening": {
+        "status": "historical/superseded by H-C; not live charger selection",
+        "entries": [
+          [
+            "charger H3",
+            "MCP73833-FCI/MF; RPROG2.49kohm1%; nominal0.40A"
+          ]
+        ]
+      }
+    },
+    "power_design": {
+      "status": "proposed requirements, not measured or manufacturer guarantees",
+      "mode_sequence": "RUN -> OFF -> PROGRAM",
+      "run_output_nominal_v": 5,
+      "run_output_required_range_v": [
+        4.75,
+        5.25
+      ],
+      "run_output_total_current_max_a": 0.5,
+      "uvlo_candidate": "72/10kohm cut;83/10kohm recovery;0.1%;total sense leakage budget100nA;not approved",
+      "run_start_floor_v": 3.558,
+      "run_operating_floor_v": 3.2,
+      "start_dynamic_budget_mv": 26.391,
+      "cut_dynamic_budget_mv": 42.496,
+      "off_actual_voltage_max_v": 0.8,
+      "off_sensor_candidate": "Independent7.50/10.0kohm0.1% per channel;100nA total node budget; use conservative0.72412V upper trip across413mV rising case, plus50mV additional error =>0.77412V <0.80V;no pin assignment",
+      "source_off_current_requirement_ua": 10,
+      "other_backfeed_total_requirement_ua": 20,
+      "run_out_effective_capacitance_requirement_max_uf": 100,
+      "bleed_candidate": "2 x10kohm1%, each path adequate for one-open fault",
+      "qualification_window_requirement_min_ms": 100,
+      "off_timeout_requirement_ms": 4000,
+      "source_stop_acceptance_requirement_max_ms": 20,
+      "release_condition": "Actual IO isolation, Source current limit, both voltage channels and continuous qualification; uncertainty/bias loss/timeout retains plug; do not infer actual isolation from EN/SEL alone",
+      "no_physical_evidence": "All requirements need engineering coverage and authorized verification; numeric proposal is not a PASS or physical timing bound."
+    },
+    "whole_path_budget": {
+      "status": "proposed allocation, actual results TBD",
+      "run_out_power_allocation_max_w": 2.625,
+      "pack_floor_for_calculation_v": 3.2,
+      "converter_efficiency_requirement_min": 0.8,
+      "pack_auxiliary_current_requirement_max_a": 0.02,
+      "pack_run_current_calculated_requirement_a": 1.045390625,
+      "formula": "(5.25*0.50)/(3.20*0.80)+0.020; eta and auxiliary current are design requirements, not guaranteed measurements",
+      "pack_continuous_discharge_published_a": 3,
+      "source": "Jauch250832Rev1.2 p2 (Founder supplied); calculation Box02 handoff",
+      "calculated_allocation_margin_a": 1.954609375,
+      "load_partition": "RUN0.50A includes all B01/RUN loads; carrier sense/reset/logic in20mAaux must be proven. Separate lab actuator supply excluded; product actuator budget OPEN. No double-counting of ESP32/joystick/LED within B01.",
+      "peak_actual_a": "TBD; inrush, thermal, radio and sag remain verification or design coverage as applicable; no whole-board peak inferred from SoC typical."
+    },
+    "actuator_direction": {
+      "family": "passive mechanical lock; electricity grants permission",
+      "selected_mpn": null,
+      "fallback": "spring-return only after failure to prove geometry; stop and report Founder before selection",
+      "feedback": "physical position feedback; topology/channel count/TBD",
+      "power_budget": "TBD; not included as proven allocation",
+      "mechanical_limits": "TBD; force/travel/tolerance/wear/bypass/loss-of-bias proof required",
+      "fmea_reference": "docs/hardware/mobot-v2-p0-07-actuator-design-packet.md",
+      "additional_fault_cases": [
+        "drop/shock/vibration",
+        "forced pull/tamper",
+        "spring/material aging across temperature",
+        "jammed locked with controlled service release"
+      ],
+      "stop_rule": "Stop at proposal and report Founder if geometry/bypass/loss-bias/single-fault/force/stroke/timing/budget cannot be demonstrated; do not auto-select fallback."
+    },
+    "charger_proposal": {
+      "direction": "H-C",
+      "selected_mpn": null,
+      "candidate_mpn_options": [
+        "BQ25170 family; suffix TBD (J/non-J not selected)"
+      ],
+      "mpn_status": "Founder accepted family as primary candidate only; no MPN/suffix/setpoint/BOM/hash approval",
+      "comparison_reference": "docs/hardware/mobot-v2-p0-07-h3-design-packet.md",
+      "charge_current_target_a": 0.4,
+      "cv_target_v": "TBD pending suffix/strap/setpoint review; Founder accepts reduced-capacity direction at nominal4.05V",
+      "constraints": "BQ25170 family primary candidate; BQ25186 historical alternative; BQ25185 excluded. Pack ceiling4.200V unchanged. Full I/O isolation in CHARGE/PROGRAM; no I2C. CV4.05V strap is screening, not approved BOM/setpoint. Missing thermal/profile/fault bounds TBD.",
+      "primary_candidate": "BQ25170",
+      "excluded_candidates": [
+        {
+          "part": "BQ25185",
+          "status": "EXCLUDED by current Founder instruction",
+          "evidence": "SLUSF65B RevB tr24 changed timer720min to360min; tr8 tMAXCHG360min TYP; historical P0-06 comparison preserved"
+        }
+      ],
+      "cv_screening": {
+        "classification": "Conditional published limits, not complete pack terminal envelope",
+        "nominal_v": 4.05,
+        "full_temperature_accuracy_fraction": 0.008,
+        "conditional_min_v": 4.0176,
+        "conditional_max_v": 4.0824,
+        "headline_accuracy_fraction": 0.005,
+        "selected": null,
+        "strap_candidate_ohm": 47000,
+        "source": "docs/research/downloads/c11-r12/bq25170.pdf SLUSDJ8A p6 (full-temperature limits),p14 Table7-1 (strap); J suffix remains undecided",
+        "trip_max_allocation_v": 4.11,
+        "static_window_v": 0.0276,
+        "full_application_guarantee": "TBD"
+      },
+      "profile_evidence": {
+        "timer": "BQ25170 SLUSDJ8A p8: precharge28.5..31.5min; fastcharge9.5..10.5h. J suffix not selected; applicable profile/TS restart timing TBD. No register/I2C configuration.",
+        "ntc": "BQ25170 p7/15..18; BQ25170J SLUSEF8 p7/15..18 differ in thermal/JEITA behavior. Jauch full R-T/tolerance/lag and independent veto TBD. TS_EN register policy is historical BQ25186 only.",
+        "protection": "Independent OV/thermal/fault path must cover hardware strap misconfiguration, valid-but-wrong strap, OUT reverse/bypass and TS failures; exact threshold/error/delay TBD.",
+        "source": "docs/research/downloads/c11-r12/bq25170.pdf and bq25170j.pdf, SHA256 in sources.json; fullapplication guarantee TBD"
+      },
+      "selected_setpoint_v": null,
+      "pack_voltage_ceiling": {
+        "v": 4.2,
+        "scope": "Absolute pack-terminal ceiling under tolerance,line,load,temperature,sense,ripple,transient and protection delay",
+        "authority": "Founder explicit 09/11/2026; not a manufacturer tolerance statement",
+        "source": "docs/hardware/mobot-v2-founder-decision-q1-q8.md#p0-08",
+        "pcm_is_not_charging_limit": true
+      },
+      "historical_alternatives": [
+        {
+          "part": "BQ25186",
+          "status": "Historical alternative, not primary",
+          "screening": "docs/hardware/mobot-v2-p0-07-h3-design-packet.md",
+          "profile_evidence": {
+            "timer": "3/6/12h ordisabled settings; default6h per register; configuration not selected. Thermal/DPM/time bounds TBD.",
+            "ntc": "Jauch R25/B/R-T/tolerance/lag TBD; TS_EN=0 disables automatic TS charge control while TS monitoring remains enabled (SLUSF69A tr36); independent temperature protection coverage required.",
+            "protection": "Independent OV/temperature/fault path must bound register/default/I2C/MCU failure; exact part/trip/error/delay TBD.",
+            "source": "SLUSF69A tr6-8,24-25,32-36; source-excerpts and PDFs pinned"
+          }
+        }
+      ]
+    },
+    "mcu_resource_plan": {
+      "used_reference_gpio": [
+        34,
+        35,
+        32,
+        33,
+        25
+      ],
+      "unused_input_only_reference_gpio": [
+        36,
+        39
+      ],
+      "unused_output_capable_reference_gpio": [
+        4,
+        13,
+        18,
+        19,
+        21,
+        22,
+        23,
+        26,
+        27
+      ],
+      "conditional_module_memory_reference_gpio": [
+        16,
+        17
+      ],
+      "assignment_status": "UNASSIGNED; visible labels and historical references only, no verified clone continuity",
+      "veto_direction": "independent hardware latch/logic; firmware retained-HIGH cannot override veto",
+      "io_expander": "not selected; Founder prohibited I2C expander direction",
+      "pin_policy": "unchanged r7/current contract; no excluded pins released",
+      "new_requirements": "permission/actuator/feedback/veto resources and timing TBD",
+      "role_allocation_reference": "docs/hardware/mobot-v2-p0-07-mcu-design-packet.md",
+      "role_assignments": [
+        {
+          "role": "RUN_REQUEST",
+          "kind": "output",
+          "exact_gpio": "UNASSIGNED",
+          "reference_pool": "9 output-capable"
+        },
+        {
+          "role": "FRESH_ARM_REQUEST",
+          "kind": "output",
+          "exact_gpio": "UNASSIGNED",
+          "reference_pool": "9 output-capable"
+        },
+        {
+          "role": "RELEASE_REQUEST",
+          "kind": "output",
+          "exact_gpio": "UNASSIGNED",
+          "reference_pool": "9 output-capable"
+        },
+        {
+          "role": "LOCK_POSITION",
+          "kind": "input",
+          "exact_gpio": "UNASSIGNED",
+          "reference_pool": "2 input-only or9 output-capable"
+        },
+        {
+          "role": "SAFETY_STATUS",
+          "kind": "input",
+          "exact_gpio": "UNASSIGNED",
+          "reference_pool": "2 input-only or9 output-capable"
+        },
+        {
+          "role": "WATCHDOG_SOFTWARE_FEED_WDI",
+          "kind": "output",
+          "exact_gpio": "UNASSIGNED",
+          "reference_pool": "9 unused output-capable; no peripheral feed"
+        }
+      ],
+      "conditional_pool_rule": "GPIO16/17 remain conditional, not counted as assured output resources. GPIO36/39 input-only; no r7 exclusion policy change or exact assignment.",
+      "demand_bounds": {
+        "roles": [
+          {
+            "role": "RUN_REQUEST",
+            "min": 1,
+            "max": 1,
+            "kind": "output"
+          },
+          {
+            "role": "FRESH_ARM_REQUEST",
+            "min": 1,
+            "max": 1,
+            "kind": "output"
+          },
+          {
+            "role": "RELEASE_REQUEST",
+            "min": 1,
+            "max": 1,
+            "kind": "output"
+          },
+          {
+            "role": "LOCK_POSITION",
+            "min": 1,
+            "max": 1,
+            "kind": "input"
+          },
+          {
+            "role": "SAFETY_STATUS",
+            "min": 1,
+            "max": 1,
+            "kind": "input"
+          },
+          {
+            "role": "H3_DEDICATED_STATUS",
+            "min": 0,
+            "max": 1,
+            "kind": "input"
+          },
+          {
+            "role": "SECOND_POSITION_OBSERVATION",
+            "min": 0,
+            "max": 1,
+            "kind": "input"
+          },
+          {
+            "role": "E1_E4",
+            "min": 4,
+            "max": 4,
+            "kind": "direction TBD; four-channel planning assumption retained, not product count approval"
+          },
+          {
+            "role": "WATCHDOG_SOFTWARE_FEED_WDI",
+            "min": 1,
+            "max": 1,
+            "kind": "output; W limited fault model"
+          },
+          {
+            "role": "JOYSTICK_AND_BUTTON_BASELINE",
+            "min": 5,
+            "max": 5,
+            "kind": "baseline GPIO JOY_X/JOY_Y/JOY_SW/BTN1/BTN2, already outside unused pool; not five extra unused pins"
+          }
+        ],
+        "total_new_min": 10,
+        "total_new_max": 12,
+        "guaranteed_pool": 11,
+        "conditional_pool": 13,
+        "status": "Upper-bound demand17 exceeds assured total16 by1; mandatory15 fits with1 spare before optional statuses. No assignment; optional-role aggregation or combined RUN/ARM would need reviewed contract.",
+        "architecture_proposal": "docs/hardware/mobot-v2-p0-08-architecture-proposal.md",
+        "proposal_not_approved": true,
+        "E1_E4_authority": "Planning assumption only; founder has not fixed product count",
+        "total_min_including_baseline": 15,
+        "total_max_including_baseline": 17,
+        "baseline_gpio": 5,
+        "guaranteed_total_pool_including_baseline": 16,
+        "conditional_total_pool_including_baseline": 18
+      },
+      "fault_model": "W: software-only watchdog feed; valid heartbeat continuing during CPU hang is outside accepted detection guarantee. No challenge-response role."
+    },
+    "off_permission_contract": {
+      "run_allowed": "FRESH_PERMISSION AND LOCK_CONFIRMED AND BIAS_VALID AND NOT FAULT",
+      "release_allowed": "SOURCE_OFF_PROVEN AND IO_ISOLATED_PROVEN AND RAIL_LOW_QUALIFIED AND BIAS_VALID AND NOT FAULT",
+      "physical_release": "RELEASE_REQUEST AND RELEASE_ALLOWED",
+      "invalid_evidence": "Missing/invalid sense or position evidence asserts FAULT or invalidates its proof; never coerce unknown into a safe proof",
+      "truth_table": [
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": false,
+          "rail_low_qualified": false,
+          "bias_valid": false,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": false,
+          "rail_low_qualified": false,
+          "bias_valid": false,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": false,
+          "rail_low_qualified": false,
+          "bias_valid": true,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": false,
+          "rail_low_qualified": false,
+          "bias_valid": true,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": false,
+          "rail_low_qualified": true,
+          "bias_valid": false,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": false,
+          "rail_low_qualified": true,
+          "bias_valid": false,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": false,
+          "rail_low_qualified": true,
+          "bias_valid": true,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": false,
+          "rail_low_qualified": true,
+          "bias_valid": true,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": true,
+          "rail_low_qualified": false,
+          "bias_valid": false,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": true,
+          "rail_low_qualified": false,
+          "bias_valid": false,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": true,
+          "rail_low_qualified": false,
+          "bias_valid": true,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": true,
+          "rail_low_qualified": false,
+          "bias_valid": true,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": true,
+          "rail_low_qualified": true,
+          "bias_valid": false,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": true,
+          "rail_low_qualified": true,
+          "bias_valid": false,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": true,
+          "rail_low_qualified": true,
+          "bias_valid": true,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": false,
+          "io_isolated_proven": true,
+          "rail_low_qualified": true,
+          "bias_valid": true,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": false,
+          "rail_low_qualified": false,
+          "bias_valid": false,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": false,
+          "rail_low_qualified": false,
+          "bias_valid": false,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": false,
+          "rail_low_qualified": false,
+          "bias_valid": true,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": false,
+          "rail_low_qualified": false,
+          "bias_valid": true,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": false,
+          "rail_low_qualified": true,
+          "bias_valid": false,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": false,
+          "rail_low_qualified": true,
+          "bias_valid": false,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": false,
+          "rail_low_qualified": true,
+          "bias_valid": true,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": false,
+          "rail_low_qualified": true,
+          "bias_valid": true,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": true,
+          "rail_low_qualified": false,
+          "bias_valid": false,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": true,
+          "rail_low_qualified": false,
+          "bias_valid": false,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": true,
+          "rail_low_qualified": false,
+          "bias_valid": true,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": true,
+          "rail_low_qualified": false,
+          "bias_valid": true,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": true,
+          "rail_low_qualified": true,
+          "bias_valid": false,
+          "fault": false,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": true,
+          "rail_low_qualified": true,
+          "bias_valid": false,
+          "fault": true,
+          "release_allowed": false
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": true,
+          "rail_low_qualified": true,
+          "bias_valid": true,
+          "fault": false,
+          "release_allowed": true
+        },
+        {
+          "source_off_proven": true,
+          "io_isolated_proven": true,
+          "rail_low_qualified": true,
+          "bias_valid": true,
+          "fault": true,
+          "release_allowed": false
+        }
+      ],
+      "notes": "Boolean requirements only; circuit realization and timing remain unproven"
+    },
+    "joy_power_contract": {
+      "classification": "power branch, not GPIO or TMUX signal leakage",
+      "inrush_a": "TBD",
+      "capacitance_uf": "TBD",
+      "reverse_current_ua": "TBD",
+      "timing_max_ms": "TBD",
+      "signal_channels": 5
+    }
+  },
+  "c_to_c_functional_verification": {
+    "preparation": "P0: ghi định danh B01, nguồn RUN C-to-C, cáp và trace; Rd 5,1 kΩ là tham chiếu, A-to-C không thay phép thử.",
+    "timing": "P1 khi có mẫu và quyền cấp điện; PROGRAM/Web Serial kiểm riêng, flash cần quyền riêng.",
+    "owner": "Box 02 tiêu chí, Box 03 định danh, Box 07 đo khi được phép",
+    "cases": [
+      {
+        "id": "B01-C2C-A",
+        "status": "NOT_RUN",
+        "pass": "Nguồn nhận attach, VBUS lên trong cận đã khóa và B01 boot ổn định.",
+        "fail": "Không attach, VBUS ngoài cận hoặc boot không ổn định."
+      },
+      {
+        "id": "B01-C2C-B",
+        "status": "NOT_RUN",
+        "pass": "Nguồn nhận attach, VBUS lên trong cận đã khóa và B01 boot ổn định.",
+        "fail": "Không attach, VBUS ngoài cận hoặc boot không ổn định."
+      }
+    ],
+    "on_failure": "Giữ kết quả FAIL, lưu mẫu/cáp/nguồn/chiều và trace, trình Founder trước khi kết luận RUN tương thích."
+  },
+  "verification_items": [
+    {
+      "id": "USB",
+      "scope": "Dòng attach, boot và flash",
+      "pass_fail": "Trace từng pha trong giới hạn dòng, sụt áp và trạng thái đã review; FAIL nếu vượt giới hạn hoặc reset ngoài yêu cầu.",
+      "responsible": "Box 02 xác lập cận, Box 07 vận hành khi được phép",
+      "timing": "PCB mẫu sau quyền cấp điện; pha flash cần quyền riêng",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "UVLO",
+      "scope": "UVLO động và nội trở pack",
+      "pass_fail": "Cắt/phục hồi trong cửa sổ đã review qua cận nội trở, nhiệt và tải xung; FAIL nếu vượt cửa sổ, đóng ngắt lặp hoặc vượt cận pack.",
+      "responsible": "Box 02 xác lập cận, Box 07 vận hành khi được phép",
+      "timing": "PCB mẫu sau quyền thử pin riêng",
+      "limits": "TBD — khóa và Box 08 review trước layout TBD: ngưỡng nhả quá xả của PCM chưa rõ (Jauch 250832 Rev1.2 trang2: detect/release cùng2,80±0,10V); Box02 sở hữu làm rõ trước đóng gate UVLO/reset tương ứng, Box03 hỗ trợ hồ sơ; không suy hysteresis hay cho tự khởi động lại từ bảng này. Không bổ sung miễn trừ D10.",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "THERMAL",
+      "scope": "Nhiệt thật",
+      "pass_fail": "Mọi linh kiện và bề mặt dưới giới hạn đã review trong vỏ và chu kỳ tải quy định; FAIL nếu vượt bất kỳ giới hạn nào.",
+      "responsible": "Box 07",
+      "timing": "Mẫu tích hợp sau quyền vận hành tương ứng",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "ADC",
+      "scope": "Độ ổn định ADC joystick",
+      "pass_fail": "Dải, sai số và thời gian ổn định đạt cận qua hành trình và tải radio; FAIL nếu có mẫu vượt tiêu chí nghiệm thu.",
+      "responsible": "Box 07",
+      "timing": "PCB tay cầm sau quyền cấp điện và flash tương ứng",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "CLONE",
+      "scope": "Kích thước và điện nội bộ bo clone",
+      "pass_fail": "Đúng mẫu khớp vùng lắp, kết nối và giả định điện đã review; FAIL nếu không vừa, sai chức năng hoặc vượt cận thiết kế.",
+      "responsible": "Box 03 cơ khí, Box 02 điện, người thao tác được phép",
+      "timing": "Sau PCB theo D10; cơ khí không cấp điện có thể kiểm khi có mẫu",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "JAUCH-TERMINATION",
+      "scope": "D10 bổ sung 08/11/2026: Dòng kết thúc sạc",
+      "pass_fail": "PASS khi kết thúc/recharge tương thích giới hạn đúng pack và không vượt CV/nhiệt; FAIL nếu vượt cận hoặc không kết thúc theo yêu cầu.",
+      "responsible": "Box 02 điện/Box 03 cơ khí; người đo Box 07 hoặc người được Founder chỉ định trước phép thử (chưa chỉ định)",
+      "timing": "Sau PCB với pack thật, sau quyền thao tác tương ứng; Box 08 review tiêu chí trước layout",
+      "limits": "TBD; không suy ITERM từ dung lượng hay profile của pack khác. H3 0,40 A là mục tiêu thiết kế đã quyết, thấp hơn dòng chuẩn pack 1,25 A (Rev1.2 trang2); chưa chứng minh toàn profile.",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "JAUCH-TIMER",
+      "scope": "D10 bổ sung 08/11/2026: Timer sạc",
+      "pass_fail": "PASS khi chu kỳ sạc từ UVLO đến kết thúc đáp ứng thời gian và nhiệt được review; FAIL khi timeout sai hoặc quá thời gian cho phép.",
+      "responsible": "Box 02 điện/Box 03 cơ khí; người đo Box 07 hoặc người được Founder chỉ định trước phép thử (chưa chỉ định)",
+      "timing": "Sau PCB với pack thật, sau quyền thao tác tương ứng; Box 08 review tiêu chí trước layout",
+      "limits": "TBD về giới hạn pack; timer IC không phải giới hạn pack cho phép.",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "JAUCH-NTC",
+      "scope": "D10 bổ sung 08/11/2026: Loại, R–T và dung sai NTC",
+      "pass_fail": "PASS khi định danh/đặc tuyến/dung sai và trễ nhiệt cho phép duy trì cell 0–45 °C khi sạc, gồm lỗi hở/chập; FAIL khi không đạt hoặc chưa xác định cận.",
+      "responsible": "Box 02 điện/Box 03 cơ khí; người đo Box 07 hoặc người được Founder chỉ định trước phép thử (chưa chỉ định)",
+      "timing": "Sau PCB với pack thật, sau quyền thao tác tương ứng; Box 08 review tiêu chí trước layout",
+      "limits": "TBD; NTC được liệt kê ở trang2; không có bảng R–T trong Jauch250832 Rev1.2 (PDF250832.pdf,3trang). Không gán B3435/10k hay giả lập NTC thành dữ liệu pack.",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "JAUCH-PULSE",
+      "scope": "D10 bổ sung 08/11/2026: Dòng xả xung",
+      "pass_fail": "PASS khi tải xung và duty trong cận pack được review, không reset ngoài ý muốn hoặc tác động bảo vệ sai; FAIL khi vượt cận.",
+      "responsible": "Box 02 điện/Box 03 cơ khí; người đo Box 07 hoặc người được Founder chỉ định trước phép thử (chưa chỉ định)",
+      "timing": "Sau PCB với pack thật, sau quyền thao tác tương ứng; Box 08 review tiêu chí trước layout",
+      "limits": "TBD; 3 A là dòng xả tối đa công bố ở trang2, không là giấy phép xung 6–12 A từ PCM.",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "JAUCH-IR",
+      "scope": "D10 bổ sung 08/11/2026: Nội trở pack",
+      "pass_fail": "PASS khi sag qua nhiệt/SoC/nội trở đáp ứng ngân sách UVLO và rail; FAIL khi vượt ngân sách hoặc chattering/tự khởi động lại.",
+      "responsible": "Box 02 điện/Box 03 cơ khí; người đo Box 07 hoặc người được Founder chỉ định trước phép thử (chưa chỉ định)",
+      "timing": "Sau PCB với pack thật, sau quyền thao tác tương ứng; Box 08 review tiêu chí trước layout",
+      "limits": "TBD; sag=I_step×R_dynamic cộng quá độ, không có số giả định được duyệt. TBD: ngưỡng nhả quá xả của PCM chưa rõ (Jauch 250832 Rev1.2 trang2: detect/release cùng2,80±0,10V); Box02 sở hữu làm rõ trước đóng gate UVLO/reset tương ứng, Box03 hỗ trợ hồ sơ; không suy hysteresis hay cho tự khởi động lại từ bảng này. Không bổ sung miễn trừ D10.",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "JAUCH-CONNECTOR",
+      "scope": "D10 bổ sung 08/11/2026: Connector pack",
+      "pass_fail": "PASS khi đúng loại/revision, định mức, khóa ghép và tiếp xúc đáp ứng thiết kế được review; FAIL nếu không khớp hoặc vượt cận.",
+      "responsible": "Box 02 điện/Box 03 cơ khí; người đo Box 07 hoặc người được Founder chỉ định trước phép thử (chưa chỉ định)",
+      "timing": "Sau PCB với pack thật, sau quyền thao tác tương ứng; Box 08 review tiêu chí trước layout",
+      "limits": "TBD; JST XHP-3 chỉ có trong alternatives, không được datasheet pack xác nhận.",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "JAUCH-POLARITY",
+      "scope": "D10 bổ sung 08/11/2026: Cực tính theo mặt ghép pack",
+      "pass_fail": "PASS khi ánh xạ BAT+/BAT−/NTC được xác nhận trên đúng pack và chống ghép sai đạt yêu cầu; FAIL khi sai hoặc chưa xác minh.",
+      "responsible": "Box 02 điện/Box 03 cơ khí; người đo Box 07 hoặc người được Founder chỉ định trước phép thử (chưa chỉ định)",
+      "timing": "Sau PCB với pack thật, sau quyền thao tác tương ứng; Box 08 review tiêu chí trước layout",
+      "limits": "TBD; chưa cấp điện trước khi định danh khoang và kiểm riêng theo quyền.",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "JAUCH-MECHANICAL",
+      "scope": "D10 bổ sung 08/11/2026: Kích thước cơ khí pack",
+      "pass_fail": "PASS khi đúng pack/revision vừa bao lắp với khe/dung sai đã review, không ép dây/cell; FAIL khi không đạt.",
+      "responsible": "Box 02 điện/Box 03 cơ khí; người đo Box 07 hoặc người được Founder chỉ định trước phép thử (chưa chỉ định)",
+      "timing": "Sau PCB với pack thật, sau quyền thao tác tương ứng; Box 08 review tiêu chí trước layout",
+      "limits": "TBD, không suy từ tên cell thành kích thước pack.",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "FAB-STACKUP-DRC",
+      "scope": "D15(b) MỞ 08/11/2026: stackup, cận fab và DRC",
+      "pass_fail": "PASS khi Box08 duyệt option stackup4lớp, cận đồng/mạ/via/trace/clearance/package/đường hồi và ngân sách điện-nhiệt áp dụng; FAIL khi thiếu cận, chỉ có trung bình hoặc quy tắc không đáp ứng. Chưa chọn nhà fab.",
+      "responsible": "Box03 hồ sơ, Box02 ngân sách, HQ giữ gate; Box08 duyệt từng mục",
+      "timing": "Cổng mốc TRƯỚC LEASE LAYOUT; thiếu review thì chặn layout",
+      "limits": "TBD — khóa bằng hồ sơ fab áp dụng trước lease layout, không cần đo sau PCB để đóng cổng hồ sơ",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    }
+  ],
+  "blocking_unknowns": [
+    "D17-OFF-DESIGN: OPEN before schematic lease",
+    "D17-ACTUATOR-PRODUCT: OPEN before schematic lease",
+    "D17-H3-CV-PROTECTION: OPEN before schematic lease",
+    "MCU-RESET-VETO-RESOURCES: OPEN before schematic lease"
+  ],
+  "gates": [
+    "Box 08 review exact bytes và từng verification_item trước layout",
+    "Founder duyệt SHA-256 riêng sau review",
+    "Quyền riêng bằng văn bản trước sản xuất, cấp điện Li-ion hoặc chạy motor trên PCB đã lắp, flash và mua hàng",
+    "Giữ cổng chứng nhận đồ dùng trẻ em; số chưa đo không được tuyên bố an toàn hoặc hợp lệ",
+    "D10 bổ sung08/11: thông số Jauch thiếu được hoãn theo danh sách verification; mọi hạn chế khác giữ nguyên.",
+    "D15(b) MỞ: STACKUP-DRC/cận fab là cổng trước lease layout, Box08 duyệt từng mục.",
+    "Trước đóng gói/chứng nhận đồ dùng trẻ em: bắt buộc báo cáo UN38.3 và IEC62133-2 thật đúng pack; YES trên datasheet không thay báo cáo. UL YES/NO còn mơ hồ.",
+    "D17 được Founder duyệt: P0-02 chỉ là hồ sơ proposed; tất cả milestone_gates OPEN chặn đúng mốc, không nhập vào D10. Duyệt hash/lease/chế tạo/vận hành riêng.",
+    "Không cấp lease schematic khi D17-OFF-DESIGN, D17-ACTUATOR-PRODUCT hoặc D17-H3-CV-PROTECTION chưa PASS; không suy quyền từ blocking_unknowns rỗng hoặc validator xanh.",
+    "P0-03: MCU-RESET-VETO-RESOURCES OPEN before applicable schematic lease; documentation acceptance does not close it.",
+    "R-20261108-C02/F1: trước cấp lease, phải hoàn tất task kiểm tự động gate theo đúng mốc (MM-HW-GATE-PREFLIGHT-001); duyệt hash này không đóng gate nào."
+  ],
+  "carrier": "handset",
+  "split_decision": "docs/hardware/mobot-v2-founder-decision-d15-d16.md",
+  "split_from": "docs/mission-control/hardware-config-mobot-v2-typec-r8.json",
+  "milestone_gates": [
+    {
+      "id": "D17-OFF-DESIGN",
+      "owner": "Box 02 + 03; Box 08 review",
+      "milestone": "Trước lease schematic",
+      "scope": "Kiến trúc bảo vệ/cấp quyền OFF, veto, fail-off và lỗi đơn/lỗi chung của sản phẩm.",
+      "pass_fail": "PASS khi kiến trúc có cận và độ phủ lỗi được Box08 chấp nhận, không dựa firmware hoặc trạng thái lệnh làm bằng chứng cách ly; FAIL khi chưa chứng minh hoặc có lỗi nhả/cấp quyền sai.",
+      "status": "OPEN",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md#d17",
+      "evidence": "NOT_RUN / chưa có hồ sơ đóng gate",
+      "stage": "schematic",
+      "selected_direction": "O-A electrical candidate isolation family plus independent O-C mechanical retention, position feedback and RUN interlock. O-B not selected."
+    },
+    {
+      "id": "D17-ACTUATOR-PRODUCT",
+      "owner": "Box 02 + 03; Box 08 review",
+      "milestone": "Trước lease schematic",
+      "scope": "Nguồn, tải, duty/nhiệt, giao diện và ngân sách actuator sản phẩm; nguồn/solenoid lab không tự là sản phẩm.",
+      "pass_fail": "PASS khi ngân sách sản phẩm đầy đủ và đáp ứng các cận nguồn/điện/nhiệt/trạng thái đã review; FAIL nếu còn tải ngoài bảng, không đáp ứng cận hoặc chưa có giải pháp sản phẩm.",
+      "status": "OPEN",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md#d17",
+      "evidence": "NOT_RUN / chưa có hồ sơ đóng gate",
+      "stage": "schematic",
+      "selected_direction": "Passive mechanical lock; electricity grants permission only. Geometry must enforce RUN->OFF->PROGRAM; loss of bias stays locked; misalignment/bypass forbidden. No product MPN. Spring-return fallback only after stop/report to Founder if proof fails."
+    },
+    {
+      "id": "D17-H3-CV-PROTECTION",
+      "owner": "Box 02 + 03; Box 08 review",
+      "milestone": "Trước lease schematic",
+      "scope": "Phương án tương thích dung sai CV và bảo vệ độc lập H3/Jauch ngoài các mục D10 đã cho hoãn.",
+      "pass_fail": "PASS khi phương án CV/bảo vệ có căn cứ và được review phù hợp giới hạn pack; FAIL nếu suy PCM là giới hạn sạc cho phép, thiếu cận hoặc chưa được review.",
+      "status": "OPEN",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md#d17",
+      "evidence": "NOT_RUN / chưa có hồ sơ đóng gate",
+      "stage": "schematic",
+      "selected_direction": "BQ25170 family primary candidate; BQ25186 historical alternative; BQ25185 excluded. Pack ceiling4.200V unchanged. Full I/O isolation in CHARGE/PROGRAM; no I2C. CV4.05V strap is screening, not approved BOM/setpoint. Missing thermal/profile/fault bounds TBD."
+    },
+    {
+      "id": "D17-B01-TRACEABILITY",
+      "owner": "Box 03; HQ kiểm hồ sơ",
+      "milestone": "Trước khóa BOM",
+      "scope": "Đối chiếu hàng dự kiến giao với ảnh Q1/Q8, SKU/lô/revision/marking và tiêu chí nhận hàng.",
+      "pass_fail": "PASS khi hồ sơ truy xuất tương đương đủ nhận dạng đúng mẫu/biến thể được chọn; FAIL nếu listing chưa liên kết PCBA hoặc sai biến thể; không miễn xác minh clone theo D10.",
+      "status": "OPEN",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md#d17",
+      "evidence": "NOT_RUN / chưa có hồ sơ đóng gate",
+      "stage": "bom"
+    },
+    {
+      "id": "D17-OFF-ASSEMBLY",
+      "owner": "Box 02 + 03; người vận hành được chỉ định; Box 08 review",
+      "milestone": "Trước cho phép sử dụng chuyển mode",
+      "scope": "Bằng chứng OFF đúng cụm, giữ/nhả, timing, lỗi chung và trình tự bảo trì Q2-OFF.",
+      "pass_fail": "PASS khi phép kiểm được phép trên đúng cụm chứng minh các cận điện và biên timing dương sau sai số, mất bias/lỗi không gây nhả sai; FAIL nếu ca bắt buộc chưa chạy hoặc vượt cận.",
+      "status": "OPEN",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md#d17",
+      "evidence": "NOT_RUN / chưa có hồ sơ đóng gate",
+      "stage": "operation"
+    },
+    {
+      "id": "D15B-FAB-LAYOUT",
+      "owner": "Box 03 + 02; Box 08 duyệt từng mục",
+      "milestone": "Trước lease layout",
+      "scope": "Stackup/DRC và cận fab áp dụng; liên kết verification item FAB-STACKUP-DRC.",
+      "pass_fail": "PASS khi từng mục có cận áp dụng/đường hồi/package/via/đồng/mạ được Box08 duyệt; FAIL nếu chỉ có số trung bình/giả định chưa được chấp nhận hoặc chưa review.",
+      "status": "OPEN",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md#d17",
+      "evidence": "NOT_RUN / chưa có hồ sơ đóng gate",
+      "stage": "layout"
+    }
+  ],
+  "blocking_unknowns_scope": "r12 reconciles unresolved schematic design gates with registry. This does not move D10 physical verification_items back into blockers. Empty requires independent PASS for every trusted schematic gate; never implies later milestones passed.",
+  "mcu_contract": {
+    "reference": "docs/hardware/mobot-v2-esp32-mcu-contract.md",
+    "sha256": "8665a8cc41e8f53bac3f35ce6eaf2ac667f4d913185196b519668f9f0512e4f3",
+    "status": "PROPOSED / DOCUMENT ONLY; historical pin tables are not approved assignments"
+  },
+  "external_design_gates": [
+    {
+      "id": "MCU-RESET-VETO-RESOURCES",
+      "status": "OPEN",
+      "owner": "Box02 + Box01; Box08 review",
+      "milestone": "Before applicable schematic lease",
+      "scope": "Handset-only resource feasibility and independent reset/panic/watchdog/hang veto, retained driven output and loss of bias. Handset reference5used/11assured-unused (13unused only if conditional GPIO16/17 accepted), assignments UNASSIGNED. Robot OE_N/GPIO4/nSLEEP names are not evidence of handset nets.",
+      "pass_fail": "PASS only after independent review of resource feasibility and bounded default isolation/reset/panic/watchdog veto, including retained driven GPIO and loss of bias; FAIL if any path is unbounded or can re-enable without fresh permission. Missing design evidence remains OPEN, not PASS.",
+      "reference": "docs/hardware/mobot-v2-esp32-mcu-contract.md",
+      "evidence": "NOT_RUN / no design-closure evidence; pin allocation and topology remain TBD",
+      "stage": "schematic",
+      "selected_direction": "Independent hardware latch/logic using handset unused-reference pool; no I2C expander, no change to r7 pin policy; no GPIO assignment."
+    }
+  ],
+  "verification_evaluation_policy": {
+    "pass": "Only when numeric limits/conditions are fixed and reviewed at the required milestone, named operator and authorized setup recorded, all required cases executed and measured evidence satisfies every criterion.",
+    "fail": "Executed case exceeds a reviewed limit, violates required state or fits the explicit FAIL condition. Missing design criteria do not authorize execution.",
+    "unknown": "Missing bounds, operator assignment or setup means UNKNOWN; absent measurements remain NOT_RUN. Neither empty proposal blockers nor validator exit0 implies verification PASS.",
+    "responsibility": "Existing Box07 roles designate planned measurement responsibility, not a named human or permission. Founder assigns the operator before physical execution.",
+    "pre_layout": "Box08 reviews each verification item and applicable bounds before layout. FAB-STACKUP-DRC is a design milestone gate, not a post-PCB measurement or a D10 measurement waiver."
+  },
+  "open_questions": [
+    {
+      "id": "JAUCH-UL-STATUS",
+      "status": "OPEN",
+      "owner": "Box03 thu thập hồ sơ; Box08 review chứng nhận",
+      "milestone": "Trước đóng gói/chứng nhận sản phẩm; không thay cổng đồ dùng trẻ em",
+      "question": "Jauch250832 Rev1.2 trang2 ghi UL1642/UL2054 YES/NO; chưa xác định phạm vi cell/pack và báo cáo tương ứng. Không suy pack đạt UL.",
+      "resolution": "TBD — đúng báo cáo/chứng chỉ và phạm vi/revision được Box08 đối chiếu; thiếu hồ sơ giữ UNKNOWN. UN38.3 và IEC62133-2 thật vẫn bắt buộc theo quyết định Founder.",
+      "reference": "D:/250832.pdf, Rev1.2, trang2"
+    }
+  ],
+  "supersedes": {
+    "id": "MOBOT-V2-CONFIG-r11-HANDSET",
+    "sha256": "b4a7a5aedcd9012ca75df93a973f0517d86f28a13249632c1ea2a576f945e887",
+    "reference": "docs/mission-control/hardware-config-mobot-v2-typec-r11-handset.json"
+  },
+  "founder_direction_record": "docs/hardware/mobot-v2-founder-decision-c11-r12.md",
+  "selected_design_directions": {
+    "D17-ACTUATOR-PRODUCT": {
+      "direction": "Passive mechanical lock; electricity grants permission only. Geometry must enforce RUN->OFF->PROGRAM; loss of bias stays locked; misalignment/bypass forbidden. No product MPN. Spring-return fallback only after stop/report to Founder if proof fails.",
+      "decision_status": "founder-confirmed direction only; no component/hash/gate approval"
+    },
+    "D17-OFF-DESIGN": {
+      "direction": "O-A electrical candidate isolation family plus independent O-C mechanical retention, position feedback and RUN interlock. O-B not selected.",
+      "decision_status": "founder-confirmed direction only; no component/hash/gate approval"
+    },
+    "D17-H3-CV-PROTECTION": {
+      "direction": "BQ25170 family primary candidate; BQ25186 historical alternative; BQ25185 excluded. Pack ceiling4.200V unchanged. Full I/O isolation in CHARGE/PROGRAM; no I2C. CV4.05V strap is screening, not approved BOM/setpoint. Missing thermal/profile/fault bounds TBD.",
+      "decision_status": "founder-confirmed direction only; no component/hash/gate approval"
+    },
+    "MCU-RESET-VETO-RESOURCES": {
+      "direction": "Independent hardware latch/logic using handset unused-reference pool; no I2C expander, no change to r7 pin policy; no GPIO assignment.",
+      "decision_status": "founder-confirmed direction only; no component/hash/gate approval"
+    }
+  },
+  "required_gate_ids": {
+    "schematic": [
+      "D17-OFF-DESIGN",
+      "D17-ACTUATOR-PRODUCT",
+      "D17-H3-CV-PROTECTION",
+      "MCU-RESET-VETO-RESOURCES"
+    ],
+    "layout": [
+      "D17-OFF-DESIGN",
+      "D17-ACTUATOR-PRODUCT",
+      "D17-H3-CV-PROTECTION",
+      "MCU-RESET-VETO-RESOURCES",
+      "D15B-FAB-LAYOUT"
+    ],
+    "bom": [
+      "D17-B01-TRACEABILITY"
+    ],
+    "operation": [
+      "D17-OFF-ASSEMBLY"
+    ]
+  },
+  "gate_schema_contract": {
+    "stage_enum": [
+      "schematic",
+      "layout",
+      "bom",
+      "operation"
+    ],
+    "meaning": "required IDs by applicable milestone; layout also requires prior schematic gates. BOM and operation lists preserve their separate milestones; do not invent layout-before-BOM ordering.",
+    "enforcement_status": "MM-HW-GATE-PREFLIGHT-003 adds registry review byte pins, reviewer/relay and 8.3 rejection. All gates OPEN. No approval or lease.",
+    "pass_requirement": "Only independent reviewer may close gates with bounded evidence/review reference; hash approval alone never closes gates.",
+    "review_storage": "review_ref remains on PASS gate; matching review_ref/review_sha256 are pinned externally in tasks.json gate_reviews. Never embed review_sha256 in proposal."
+  },
+  "design_packages": [
+    {
+      "gate_id": "D17-OFF-DESIGN",
+      "task_id": "MM-HW-P0-08-OFF-001",
+      "reference": "docs/hardware/mobot-v2-p0-08-off-design-packet.md"
+    },
+    {
+      "gate_id": "D17-ACTUATOR-PRODUCT",
+      "task_id": "MM-HW-P0-08-ACTUATOR-001",
+      "reference": "docs/hardware/mobot-v2-p0-08-actuator-design-packet.md"
+    },
+    {
+      "gate_id": "D17-H3-CV-PROTECTION",
+      "task_id": "MM-HW-P0-08-H3-001",
+      "reference": "docs/hardware/mobot-v2-p0-08-h3-design-packet.md"
+    },
+    {
+      "gate_id": "MCU-RESET-VETO-RESOURCES",
+      "task_id": "MM-HW-P0-08-MCU-001",
+      "reference": "docs/hardware/mobot-v2-p0-08-mcu-design-packet.md"
+    }
+  ],
+  "blocking_unknowns_resolution": {
+    "rule": "Regenerate proposal and registry list from unresolved trusted schematic gates only after independent review; no manual deletion to obtain eligibility.",
+    "hash_order": "Changing gate state or blocker bytes changes proposal SHA256. Final status/blocker snapshot needs independent review rebound to its exact hash before founder hash approval.",
+    "registry_review_pins": "hardware_configurations.<id>.gate_reviews.<gate_id> contains review_ref and review_sha256 outside proposal bytes, per founder reply; avoids circular hashes."
+  },
+  "consolidation_packet": "docs/agents/runs/MM-HW-P0-10/RELAY-REVIEW_REQUEST.md",
+  "mechanical_analysis_proposal": {
+    "id": "C11-MECH-P1",
+    "reference": "docs/hardware/mobot-v2-c11-mechanical-canonical.md",
+    "status": "PROPOSED, not approved geometry or MPN; CAD/FE NOT_RUN"
+  }
+}

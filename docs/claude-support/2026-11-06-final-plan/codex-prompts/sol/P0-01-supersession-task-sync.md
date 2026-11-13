@@ -1,0 +1,9 @@
+Model: GPT-6.1 Sol
+Goal: Đồng bộ `tasks.json` với tài liệu hiện hành, lập tài liệu phân xử doc nào thay doc nào, và ghi biên bản chính thức cho Q1–Q5, Q8.
+Context: đọc trước `docs/claude-support/2026-11-06-final-plan/README.md`, `superseded.md`, `hw-v2-to-starter-gap.md` (mục mâu thuẫn), `docs/hardware/claude-support/2026-11-06-pcb-first-plan/founder-answers-q1-q5.md`, `docs/hardware/claude-support/2026-11-06-pcb-gate/gate-matrix.md` (dòng 38-60). Task: MM-HW-MOBOT-IF-001 (+ cập nhật hàng đợi). Quyết định đã chốt, không mở lại: UVLO robot 6,40–6,60 V, TLV6700 loại; ESP32 mẫu 30 chân USB-C họ CH340; Q1–Q5 = A, A, A, B, B; Q8 giữ 30 chân.
+Scope: allowed_paths `docs/hardware/supersession.md` (mới), `docs/hardware/mobot-v2-founder-decision-q1-q8.md` (mới), `docs/agents/tasks.json` (chỉ lead/Master ghi, đúng schema và `validate.mjs`). forbidden_paths: `docs/claude-support/**`, `docs/hardware/claude-support/**`, `.codex/**`, `src/**`.
+Constraints: local-first; không thêm dependency; giữ contract trong final-contracts; không cấp lease; không đặt `approved_by`; không sửa file duyệt đã có hash. `supersession.md` liệt kê từng doc hardware với trạng thái "hiện hành" hoặc "bị thay bởi …" kèm mtime. Biên bản Q1–Q8 chép đúng lựa chọn của founder và đánh dấu "chờ founder xác nhận văn bản".
+Approval boundaries: dừng và hỏi founder trước khi xoá file, thêm dependency, đổi schema dữ liệu, gửi PCB đi sản xuất, mua linh kiện, hoặc nếu hai doc mâu thuẫn mà không tự phân xử được bằng datasheet/code.
+Done when: `node docs/agents/validate.mjs` (từ `D:\StartupOS`) exit 0; `supersession.md` phủ mọi file `docs/hardware/mobot-*.md`; không còn mục MÂU THUẪN về `tasks.json` lệch doc (gate-matrix.md:59-60) và về r7-approval-record (:48) theo kiểm của bạn; biên bản Q1–Q8 tồn tại.
+Report: file đã đổi, lệnh + exit code, ghi vào `docs/agents/runs/MM-HW-MOBOT-IF-001/`.
+Claude review: KHÔNG

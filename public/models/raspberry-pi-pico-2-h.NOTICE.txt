@@ -1,0 +1,55 @@
+Raspberry Pi Pico 2 H (SC1632) — 3D model attribution and license
+
+Source product: Raspberry Pi Pico 2 H with headers, SC1632.
+Official source page: https://pip.raspberrypi.com/categories/1264-raspberry-pi-pico-2-h
+Official Pico-series design files and model-file guidance:
+https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html
+
+Source archive: public/cad/raspberry-pi-pico-2-h-step.zip
+Archive SHA-256: 024de65032d37f0ef55e0f11611ae67f85fd0cb5a3f79d2841440a7740f967e7
+Source STEP: public/cad/raspberry-pi-pico-2-h-step-source/rpi_pico2h.step
+STEP SHA-256: e1d6614bd8e5bb94aae2eef9452be244da56d48f4f1c363e71f19eff1fe69d4f
+Viewer GLB: public/models/raspberry-pi-pico-2-h.glb
+GLB SHA-256: b3ce57f26b5267be6d64ff899846b8c6db2bccb4c5186434317870e48e94395a
+
+The GLB is a local conversion of Raspberry Pi's STEP source using the project's
+OpenCascade-based converter. Geometry is grouped by source CAD names and placed
+in the viewer coordinate frame. The viewer applies educational display colors;
+it does not add electrical connectivity, pin behavior, or firmware simulation.
+
+The source ZIP contains the original LICENSE.txt. Its accuracy disclaimer and
+MIT License are reproduced below so this notice travels with the generated GLB.
+
+= Disclaimer =
+This 3D model is provided under the MIT license included below. The 3D model may
+incorporate individual 3D models that have been provided by third parties with
+permission to redistribute. No additional license terms are imposed by this use
+of third party provided 3D models, where applicable.
+
+The overall 3D model and any individual 3D models incorporated into the whole,
+whether created by a first or third party, are provided for guidance only and
+without guarantee of accuracy. Provided model data may not reflect the most
+current version(s). Anyone intending to use it for appearance or fitment must
+refer to manufacturer information and conduct suitable measurements of the
+physical product.
+
+= MIT License =
+Copyright (c) 2025 Raspberry Pi Ltd
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

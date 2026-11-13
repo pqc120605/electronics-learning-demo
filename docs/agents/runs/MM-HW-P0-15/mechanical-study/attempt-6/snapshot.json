@@ -1,0 +1,85 @@
+{
+  "scope": "P0-15 attempt-6 engineering candidate report, independent Box08 review pending",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/BOX02-DUAL-CUTOFF.md",
+      "bytes": 5902,
+      "sha256": "1f47fe4da2f807180d54ff1115a24a1d64f48172deb30bb8851cd8035e93468e"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/check_connector_allocation.py",
+      "bytes": 3553,
+      "sha256": "ca4ed55b9b2831defa8a1e2a68d6a8d2ca9afde7df8ba74729a7061f130674e1"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/check_cutoff_paths.py",
+      "bytes": 5205,
+      "sha256": "aadcd28cb323939c5d40fa366d3682b6319cc93dd1dbefdca2fcc7e21cd9f8ab"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/connector-allocation-results.json",
+      "bytes": 2126,
+      "sha256": "f94dbb54c66e9949b0d04dd5d4be19d70b34962e4f857c5ae8e7ffe8556d9aa5"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/cutoff-path-results.json",
+      "bytes": 4264,
+      "sha256": "f0fbb2c77d826e6fc94e330d0761555361d7c0a6d83419bfcd8a2381ab7e63ae"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/REPORT.md",
+      "bytes": 7202,
+      "sha256": "545aaf388bcfea35f8704f3f2e147c5d0ca619ca71baafa02f86da293a9d3586"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/RESUME.md",
+      "bytes": 1314,
+      "sha256": "2ec7cc30ae1fadbed422e4d67c156946529f2a7d9ad56b07bc041cac4e65dfef"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/source-manifest.json",
+      "bytes": 437,
+      "sha256": "4bb8b1d52dbfc636773ff001dadd5af1f627f081a214c62af6f63808e4cc2ea6"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/verification.json",
+      "bytes": 861,
+      "sha256": "bd5f292ca90ec977a60858f93d41a2055d1f9b33cb11ea2e0fbd2f8bbaff550e"
+    },
+    {
+      "path": "docs/research/downloads/p0-15/attempt-6/panasonic-tx-asctb18e.pdf",
+      "bytes": 770896,
+      "sha256": "03623b286421464bb546aa2a0e62546208f4856f0e438d7fe5b22c65522b61e1"
+    },
+    {
+      "path": "docs/research/downloads/p0-15/samtec-sfm-tfm-productspec.pdf",
+      "bytes": 660065,
+      "sha256": "5a37d9c4a1fe511011e24fb16190dedd1d4cd73e39377846aa477f1c3705ae84"
+    },
+    {
+      "path": "docs/research/downloads/p0-15/samtec-sfm-drawing.pdf",
+      "bytes": 564151,
+      "sha256": "b1e50a8c459289623b5991007ef65319fc21146099f6b13645f427e298e35ffe"
+    },
+    {
+      "path": "docs/research/downloads/p0-15/attempt-4/samtec-tfm-drawing.pdf",
+      "bytes": 3459889,
+      "sha256": "4e58e4227decf3e6e229b16ca7b711d9e672111ec1f53ea48887b822b292ede2"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/connector-bounds-results.json",
+      "bytes": 1311,
+      "sha256": "b612f8542dccef34b802c839a464ee676abf7188200976e28e5f559234b873d1"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/cassette-geometry-results.json",
+      "bytes": 5345,
+      "sha256": "6eab64033801545ffb285ff95a0bc8322294c91dbdda321b63279baf4524a5cd"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/sense-feasibility-results.json",
+      "bytes": 2206,
+      "sha256": "505e87fbb7765dbb681d58de993af74e9add0ab3723591af59c72e1effed3335"
+    }
+  ]
+}

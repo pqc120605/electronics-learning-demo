@@ -1,0 +1,2395 @@
+=== PDF PAGE 1 ===
+                                                                                       TLV3201, TLV3202
+                                                                            SBOS561C – MARCH 2012 – REVISED MAY 2024
+          TLV320x 40ns, microPOWER, Push-Pull Output Comparators
+
+1 Features                              3 Description
+
+•  Low Propagation Delay: 40ns                    The  TLV3201  and  TLV3202  are   single-  and
+•  Low Quiescent Current:                             dual-channel  comparators  that  offer  the  ultimate
+  40µA per Channel                                 combination  of high speed (40ns) and low-power
+•  Input Common-Mode Range Extends 200mV         consumption (40µA), all in extremely small packages
+   Beyond Either Rail                                    with features such as  rail-to-rail  inputs, low  offset
+•  Low Input Offset Voltage: 1mV                        voltage (1mV  ), and large output drive current. The
+•  Push-Pull Outputs                                  devices are also very easy to implement in a wide
+•  Supply Range: 2.7V to 5.5V                             variety of applications where response time is critical.
+•   Industrial Temperature Range:
+                                             The TLV320x family is available in single (TLV3201)
+   –40°C to 125°C
+                                              and  dual (TLV3202)  channel  versions,  both  with
+•  Small Packages:
+                                                         push-pull outputs. The TLV3201 is available in 5-pin
+   5-Pin SC70, 5-Pin SOT-23, 8-Pin SOIC, 8-Pin
+                                             SOT-23 and 5-pin SC70 packages. The TLV3202 is
+  VSSOP
+                                                           available in 8-pin SOIC and 8-pin VSSOP packages.
+2 Applications                                                All devices are specified  for operation across the
+                                               expanded industrial temperature range of –40°C to
+•  Inspection Equipment                                                   125°C.
+•  Test and Measurement
+•  High-Speed Sampling Systems                                  Device Information
+                                                                                                  (NOM)                                                                                                                                                                  (1)    BODY SIZE•  Telecom                                         PART NUMBER     PACKAGE                                                                                                                                                                                          (2)
+•  Portable Communications
+                                                                          SOT-23 (5)        2.90mm × 1.60mm
+                                                         TLV3201
+                                                                    SC70 (5)          2.00mm × 1.25mm
+
+                                                              VSSOP (8)        3.00mm × 3.00mm
+                                                         TLV3202
+                                                                      SOIC (8)          4.90mm × 3.91mm
+
+                                                                               (1)   For all available packages, see the orderable addendum at
+                                                                           the end of the data sheet.
+                                                                               (2)  The package size (length × width) is a nominal value and
+                                                                            includes pins, where applicable
+
+
+
+
+
+                                              VIN            VCC
+
+
+
+                                                  C1      C2                               R1
+
+
+                                                                               VOUT
+                               R2
+
+
+
+
+                                               VREF
+
+                                                Copyright © 2016, Texas Instruments Incorporated
+                                      Threshold Detector
+
+
+
+
+
+     An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,
+       intellectual property matters and other important disclaimers. UNLESS OTHERWISE NOTED, this document contains PRODUCTION
+     DATA.
+=== PDF PAGE 2 ===
+TLV3201, TLV3202
+SBOS561C – MARCH 2012 – REVISED MAY 2024                                                                    www.ti.com
+
+                                 Table of Contents
+
+ 1 Features............................................................................1      7.2 Functional Block Diagram......................................... 11
+ 2 Applications.....................................................................1      7.3 Feature Description...................................................11
+ 3 Description.......................................................................1      7.4 Device Functional Modes..........................................11
+ 4 Device Comparison Table...............................................3    8 Application and Implementation..................................12
+ 5 Pin Configuration and Functions...................................3      8.1 Application Information............................................. 12
+   Pin Functions: TLV3201....................................................3      8.2 Typical Applications.................................................. 16
+   Pin Functions: TLV3202....................................................3      8.3 Power Supply Recommendations.............................18
+ 6 Specifications.................................................................. 4      8.4 Layout....................................................................... 18
+   6.1 Absolute Maximum Ratings........................................ 4    9 Device and Documentation Support............................20
+   6.2 ESD Ratings............................................................... 4      9.1 Device Support......................................................... 20
+   6.3 Recommended Operating Conditions.........................4      9.2 Documentation Support............................................ 20
+   6.4 Thermal Information....................................................4      9.3 Receiving Notification of Documentation Updates....21
+   6.5 Electrical Characteristics: VCC = 5V............................5      9.4 Support Resources................................................... 21
+   6.6 Switching Characteristics: VCC = 5V...........................5      9.5 Trademarks...............................................................21
+   6.7 Electrical Characteristics: VCC = 2.7V.........................6      9.6 Electrostatic Discharge Caution................................21
+   6.8 Switching Characteristics: VCC = 2.7V........................6      9.7 Glossary....................................................................21
+   6.9 Typical Characteristics................................................7    10 Revision History.......................................................... 22
+ 7 Detailed Description......................................................11    11 Mechanical, Packaging, and Orderable
+   7.1 Overview................................................................... 11          Information.................................................................... 22
+
+
+
+
+
+2     Submit Document Feedback                                                                   Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 3 ===
+                                                                                        TLV3201, TLV3202
+www.ti.com                                                                  SBOS561C – MARCH 2012 – REVISED MAY 2024
+
+4 Device Comparison Table
+
+       DEVICE                                          DESCRIPTION
+
+                     5µA (maximum) open-drain, 1.8V to 5.5V with integrated voltage reference in 1.5mm × 1.5mm micro-sized
+        TLV3011
+                       packages
+
+       TLV3012       5µA (maximum) push-pull, 1.8V to 5.5V with integrated voltage reference in micro-sized packages
+
+       TLV3501         4.5ns, rail-to-rail, push-pull comparator in micro-sized packages
+
+       LMV7235        75ns, 65µA, 2.7V to 5.5V, rail-to-rail input comparator with open-drain output
+
+       REF3333       30ppm/°C drift, 3.9µA, SOT23-3, SC70-3 voltage reference
+
+5 Pin Configuration and Functions
+
+
+
+                                              OUT  1              5  VCC
+
+
+                                            GND  2
+
+
+
+                                                               IN+  3              4  IN-
+
+
+            Figure 5-1. TLV3201 DCK and DBV Packages 5-Pin SC70-5 and SOT-23 Top View
+
+Pin Functions: TLV3201
+
+         PIN
+                               I/O                                  DESCRIPTION
+ NAME       NO.
+
+ GND          2     —     Negative supply, ground
+
+ IN–           4                   I      Negative input
+
+ IN+           3                   I       Positive input
+
+ OUT           1      O     Output
+ VCC           5     —      Positive supply
+
+
+
+                                            1OUT   1                     8   VCC
+
+
+                                                         1IN-   2                     7  2OUT
+
+
+                                                        1IN+   3                     6   2IN-
+
+
+                                        GND   4                     5   2IN+
+
+
+               Figure 5-2. TLV3202 D and DGK Packages 8-Pin SOIC and VSSOP Top View
+
+Pin Functions: TLV3202
+
+         PIN
+                               I/O                                  DESCRIPTION
+ NAME       NO.
+
+ 1IN–          2                   I      Negative input, comparator 1
+
+ 1IN+          3                   I       Positive input, comparator 1
+
+ 1OUT          1      O      Output, comparator 1
+
+ 2IN–          6                   I      Negative input, comparator 2
+
+ 2IN+          5                   I       Positive input, comparator 2
+
+ 2OUT          7      O      Output, comparator 2
+
+ GND          4     —     Negative supply, ground
+ VCC           8     —      Positive supply
+
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                      Submit Document Feedback     3
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 4 ===
+TLV3201, TLV3202
+SBOS561C – MARCH 2012 – REVISED MAY 2024                                                                    www.ti.com
+
+6 Specifications
+ 6.1 Absolute Maximum Ratings
+
+ over operating free-air temperature range (unless otherwise noted)(1)
+                                                                     MIN         MAX         UNIT
+
+                       Supply voltage                                                            7
+ Voltage                                                                                   V
+                         Signal input pins(2)                                             –0.5           (VCC) + 0.5
+                         Signal input pins(2)                                        –10             10
+ Current                                                                         mA
+                       Output short circuit(3)                                                      100
+
+                        Operating                                               –55             125
+ Temperature            Junction, TJ                                                             150           °C
+                         Storage, Tstg                                             –65             150
+
+ (1)   Stresses beyond those listed under Absolute Maximum Ratings may cause permanent damage to the device. These are stress ratings
+       only, which do not imply functional operation of the device at these or any other conditions beyond those indicated under Section 6.3.
+      Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
+ (2)   Input pins are diode-clamped to the power-supply rails. Input signals that can swing more than 0.5V beyond the supply rails must be
+       current limited to 10 mA or less.
+ (3)   Short-circuit to ground.
+
+ 6.2 ESD Ratings
+
+                                                                                 VALUE   UNIT
+                           Human-body model (HBM), per ANSI/ESDA/JEDEC JS-001(1)                    ±2000
+ V(ESD)  Electrostatic discharge  Charged-device model (CDM),                        TLV3201              ±2000     V
+                                per JEDEC specification JESD22-C101(2)                TLV3202              ±1000
+
+ (1)  JEDEC document JEP155 states that 500V HBM allows safe manufacturing with a standard ESD control process.
+ (2)  JEDEC document JEP157 states that 250V CDM allows safe manufacturing with a standard ESD control process.
+
+ 6.3 Recommended Operating Conditions
+
+ over operating free-air temperature range (unless otherwise noted)
+                                                                            MIN        MAX    UNIT
+ VS      Supply voltage, VS = (VS+) – (VS–)                                                   2.7 (±1.35)       5.5 (±2.75)     V
+          Specified temperature                                                         –40           125     °C
+
+ 6.4 Thermal Information
+
+                                                             TLV3201                 TLV3202
+
+                                               DBV       DCK        D       DGK               THERMAL METRIC(1)                                                                   UNIT
+                                                              (SOT-23)      (SC70)       (SOIC)     (VSSOP)
+
+                                                          5 PINS       5 PINS       8 PINS      8 PINS
+ RθJA       Junction-to-ambient thermal resistance                    237.8         281.9         143.6        201.9      °C/W
+  RθJC(top)   Junction-to-case (top) thermal resistance                  108.7          97.6          97.2          92.5      °C/W
+ RθJB       Junction-to-board thermal resistance                       64.1          68.3          84.2         123.3      °C/W
+ ψJT        Junction-to-top characterization parameter                 12.1            2.6           45.5          23.0      °C/W
+ ψJB        Junction-to-board characterization parameter               63.3          67.3          83.7         212.6      °C/W
+
+ (1)   For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application
+       report.
+
+
+
+
+
+4     Submit Document Feedback                                                                   Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 5 ===
+                                                                                        TLV3201, TLV3202
+www.ti.com                                                                  SBOS561C – MARCH 2012 – REVISED MAY 2024
+
+ 6.5 Electrical Characteristics: VCC = 5V
+ at TA = 25°C and VCC = 5V (unless otherwise noted)
+                PARAMETER                         TEST CONDITIONS               MIN      TYP     MAX    UNIT
+
+ OFFSET VOLTAGE
+
+                                              VCM = VCC / 2                                             1          3
+  VIO-TLV3201   Input offset voltage TLV3201                                                                 mV
+                                                  TA = –40°C to 125°C                                                  4
+                                              VCM = VCC / 2                                             1          5
+  VIO-TLV3202   Input offset voltage TLV3202                                                                 mV
+                                                  TA = –40°C to 125°C                                                  6
+ dVOS/dT     Input offset voltage drift                    TA = –40°C to 125°C                                       1         10    µV/°C
+ PSRR      Power-supply rejection ratio               VCM = VCC / 2, VCC = 2.5V to 5.5V                 65         85              dB
+
+               Input hysteresis                                                                                                1.2           mV
+
+ INPUT BIAS CURRENT
+
+                                              VCM = VCC / 2                                             1         50    pA
+  IIB           Input bias current
+                                                  TA = –40°C to 125°C                                                  5    nA
+                                              VCM = VCC / 2                                             1         50    pA
+  IIO           Input offset current
+                                                  TA = –40°C to 125°C                                                          2.5    nA
+
+ INPUT VOLTAGE RANGE
+
+ VCM      Common-mode voltage                    TA = –40°C to 125°C                         (VEE) – 0.2              (VCC) + 0.2    V
+ CMRR     Common-mode rejection ratio               –0.2V < VCM < 5.2V                            60         70              dB
+
+ INPUT IMPEDANCE
+          Common mode                                                                                       1013 || 2           Ω ||pF
+                 Differential                                                                                           1013 || 4           Ω ||pF
+
+ OUTPUT
+
+                                                                     ISINK = 4mA                                            175        190
+ VOL         Voltage output swing from lower rail                                                             mV
+                                                  TA = –40°C to 125°C                                                225
+                                                        ISOURCE = 4mA                                          120        140
+ VOH         Voltage output swing from upper rail                                                            mV
+                                                  TA = –40°C to 125°C                                                170
+                                                               ISC sinking                                    40         48
+                                                  TA = –40°C to 125°C                           See Figure 6-14
+  ISC           Short-circuit current (per comparator)                                                            mA
+                                                               ISC sourcing                                  52         60
+                                                  TA = –40°C to 125°C                           See Figure 6-14
+
+ POWER SUPPLY
+
+ VCC         Specified voltage                                                                                  2.7                       5.5    V
+                                                  TA = 25°C                                               40         50
+  IQ          Quiescent current                                                                                      µA
+                                                  TA = –40°C to 125°C                                                 65
+
+ 6.6 Switching Characteristics: VCC = 5V
+ over operating free-air temperature range (unless otherwise noted)
+              PARAMETER                              TEST CONDITIONS                    MIN    TYP   MAX  UNIT
+
+                                                                             Input overdrive = 20mV , CL = 15pF                     47      50
+                                         Low to high         Input overdrive = 100mV , CL = 15pF                    43      50
+                                                             TA = –40°C to 125°C                                         55
+  tPD     Propagation delay time                                                                                                      ns
+                                                                             Input overdrive = 20mV , CL = 15pF                     45      50
+                                                 High to low         Input overdrive = 100mV , CL = 15pF                    42      50
+                                                             TA = –40°C to 125°C                                         55
+         Propagation delay skew                      Input overdrive = 20mV , CL = 15pF                                      2            ns
+  tR      Rise time                        10% to 90%                                                                  2.9            ns
+  tF        Fall time                         10% to 90%                                                                  3.7            ns
+
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                      Submit Document Feedback     5
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 6 ===
+TLV3201, TLV3202
+SBOS561C – MARCH 2012 – REVISED MAY 2024                                                                    www.ti.com
+
+ 6.7 Electrical Characteristics: VCC = 2.7V
+ at TA = 25°C and VCC = 2.7V (unless otherwise noted)
+                PARAMETER                         TEST CONDITIONS               MIN      TYP     MAX    UNIT
+
+ OFFSET VOLTAGE
+
+                                              VCM = VCC / 2                                            1          3
+  VIO-TLV3201   Input offset voltage TLV3201                                                                 mV
+                                                   TA = –40°C to 125°C                                                 4
+                                              VCM = VCC / 2                                            1          5
+  VIO-TLV3202   Input offset voltage TLV3202                                                                 mV
+                                                   TA = –40°C to 125°C                                                 6
+ dVOS/dT     Input offset voltage drift                    TA = –40°C to 125°C                                      1         10    µV/°C
+ PSRR      Power-supply rejection ratio               VCM = VCC / 2, VCC = 2.5V to 5.5V                65         85              dB
+
+               Input hysteresis                                                                                                1.2           mV
+
+ INPUT BIAS CURRENT
+
+                                              VCM = VCC / 2                                            1         50    pA
+  IIB           Input bias current
+                                                   TA = –40°C to 125°C                                                 5    nA
+                                              VCM = VCC / 2                                            1         50    pA
+  IIO           Input offset current
+                                                   TA = –40°C to 125°C                                                         2.5    nA
+
+ INPUT VOLTAGE RANGE
+
+ VCM      Common-mode voltage                    TA = –40°C to 125°C                        (VEE) – 0.2              (VCC) + 0.2    V
+ CMRR     Common-mode rejection ratio                –0.2V < VCM < 2.9V                            56         68              dB
+
+ INPUT IMPEDANCE
+          Common mode                                                                                       1013 || 2           Ω ||pF
+                 Differential                                                                                           1013 || 4           Ω ||pF
+
+ OUTPUT
+
+                                                                      ISINK = 4mA                                            230        260
+ VOL         Voltage output swing from lower rail                                                             mV
+                                                   TA = –40°C to 125°C                                               325
+                                                         ISOURCE = 4mA                                         210        250
+ VOH         Voltage output swing from upper rail                                                            mV
+                                                   TA = –40°C to 125°C                                               350
+                                                                ISC sinking                                   13         19
+                                                   TA = –40°C to 125°C                          See Figure 6-14
+  ISC           Short-circuit current (per comparator)                                                            mA
+                                                                ISC sourcing                                  15         21
+                                                   TA = –40°C to 125°C                          See Figure 6-14
+
+ POWER SUPPLY
+
+ VCC         Specified voltage                                                                                  2.7                       5.5    V
+                                                   TA = 25°C                                              36         46
+  IQ          Quiescent current                                                                                      µA
+                                                   TA = –40°C to 125°C                                                60
+
+ 6.8 Switching Characteristics: VCC = 2.7V
+
+ over operating free-air temperature range (unless otherwise noted)
+              PARAMETER                              TEST CONDITIONS                    MIN    TYP   MAX  UNIT
+
+                                                                             Input overdrive = 20mV , CL = 15pF                     47      50
+                                         Low to high         Input overdrive = 100mV , CL = 15pF                    42      50
+                                                             TA = –40°C to 125°C                                         55
+  tPD     Propagation delay time                                                                                                      ns
+                                                                             Input overdrive = 20mV , CL = 15pF                     40      50
+                                                 High to low         Input overdrive = 100mV , CL = 15pF                    38      50
+                                                             TA = –40°C to 125°C                                         55
+         Propagation delay skew                      Input overdrive = 20mV , CL = 15pF                                      2            ns
+  tR      Rise time                        10% to 90%                                                                  4.8            ns
+  tF        Fall time                         10% to 90%                                                                  5.2            ns
+
+
+
+
+
+6     Submit Document Feedback                                                                   Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 7 ===
+                                                                                        TLV3201, TLV3202
+www.ti.com                                                                  SBOS561C – MARCH 2012 – REVISED MAY 2024
+
+ 6.9 Typical Characteristics
+
+ at TA = 25°C, VCC = 5V, and input overdrive (VOD) = 20mV (unless otherwise noted)
+
+
+
+           26                                                                 30
+           24                                                                 27
+
+                                                                              24           (%)   2220                                                                                                         (%)
+           18                                                                 21
+           16                                                                 18                                     Amplifiers   14                                                                                                                                                                                                                                                                                                                                                             Amplifiers
+                                                                              15
+       of   12                                                                      of
+           10                                                                 12
+            8                                                                  9
+            6                                  Pecentage                                                                                                                                                                                                                                                                                                                                                   Pecentage    6
+            4
+            2                                                                  3
+            0                                                                  0
+                 −5−5 −4.5−4.5 −4−4 −3.5−3.5 −3−3 −2.5−2.5 −2−2 −1.5−1.5 −1−1 −0.5−0.5 00 0.50.5 11 1.51.5 22 2.52.5 33 3.53.5 44 4.54.5 55           00  0.20.2  0.40.4  0.60.6  0.80.8 11  1.21.2  1.41.4  1.61.6  1.81.8 22  2.22.2  2.42.4  2.62.6  2.82.8 33
+                                      Offset Voltage (mV)                         G000                                         Hysteresis (mV)                            G001
+              Figure 6-1. Offset Voltage Distribution                            Figure 6-2. Hysteresis Distribution
+
+            5                                                                  6
+                5 Typical Units Shown                                                VCC = 2.7 V                   5 Typical Units Shown
+            4                                                                  5
+
+            3                                                                  4
+               (mV)    2                                                                                                                                          (mV)     3
+            1                                                                  2
+
+            0                                                                  1                          Voltage                                                                                                                                                                                                                                                                     Voltage
+                      Offset   −1−2                                                                                                                                                                                                               Offset   −10
+
+           −3                                                               −2
+
+           −4                                                               −3
+
+           −5                                                               −4
+            −40 −25 −10  5   20  35  50  65  80  95  110 125                  −0.5     0      0.5     1      1.5     2      2.5     3
+                                 Temperature (°C)                           G002                         Common−Mode Voltage (V)                    G003
+            Figure 6-3. Offset Voltage vs Temperature                  Figure 6-4. Offset Voltage vs Common-Mode Voltage
+
+            6                                                                  5
+               VCC = 5.5 V                   5 Typical Units Shown                                                 8 Typical Units Shown
+            5                                                                  4
+
+            4                                                                  3
+             (mV)     3                                                                                                                                          (mV)     2
+            2                                                                  1
+
+            1                                                                  0                       Voltage                                                                                                                                                                                                                                                                        Voltage
+                    Offset   −10                                                                                                                                                                                                               Offset   −1−2
+
+           −2                                                               −3
+
+           −3                                                               −4
+
+           −4                                                               −5
+              −0.5 0  0.5  1  1.5  2  2.5  3  3.5  4  4.5  5  5.5  6                     2.5      3       3.5      4       4.5      5       5.5
+                       Common−Mode Voltage (V)                    G004                                    Supply Voltage (V)                          G005
+       Figure 6-5. Offset Voltage vs Common-Mode Voltage                 Figure 6-6. Offset Voltage vs Power Supply
+
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                      Submit Document Feedback     7
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 8 ===
+TLV3201, TLV3202
+SBOS561C – MARCH 2012 – REVISED MAY 2024                                                                    www.ti.com
+
+ 6.9 Typical Characteristics (continued)
+
+ at TA = 25°C, VCC = 5V, and input overdrive (VOD) = 20mV (unless otherwise noted)
+
+
+          110                                                              10000
+                                                                                                  −IB
+                                                                                                  +IB
+          100
+                                                                            1000          IOS
+               (dB)                                                                                                                                                       (pA)
+           90
+                                                                             100               PSRR           80                                                                                                                                                                                                                                                    Current
+           and                                                                                                                                                                          Bias   10
+           70
+               CMRR                                                                                                                                                                                            Input
+               CMRR at VCC = 2.7 V                                        1
+           60
+               CMRR at VCC = 5.0 V
+                PSRR
+           50                                                                             0.1
+            −40 −25 −10  5   20  35  50  65  80  95  110 125                −50    −25     0     25     50     75    100    125
+                                 Temperature (°C)                           G006                                    Temperature (°C)                           G002
+   Figure 6-7. Common-Mode Rejection Ratio and Power-Supply      Figure 6-8. Input Bias Current and Input Offset Current vs
+                 Rejection Ratio vs Temperature                                      Temperature
+
+           30                                                                 20
+           25   VS=2.7V                                        +IB                     VS= 5.5V                                        +IB
+                                                                  −IB                 15                                                   −IB
+           20
+                                                                          IOS                                                                                  IOS
+             (pA)    15                                                                                                                                          (pA)    10
+           10
+                                                                               5
+            5                       Current     0                                                                                                                                                                                                                                                 Current     0
+
+           −5             Bias                                                                                                                                                       Bias   −5
+                 Input  −10−15                                                                                                                                                                            Input  −10
+
+          −20
+                                                                           −15
+          −25
+
+          −30                                                               −20
+                   0.0      0.5      1.0      1.5      2.0      2.5                        0       1       2       3       4       5
+                     Common−Mode Input Voltage (V)                G006                       Common−Mode Input Voltage (V)                G006
+    Figure 6-9. Input Bias Current and Input Offset Current vs       Figure 6-10. Input Bias Current and Input Offset Current vs
+              Common-Mode Input Voltage                          Common-Mode Input Voltage
+
+           35                                                                 65
+                                                                                      −40°C
+           30                                                                          25°C
+           (%)                                                                     55        125°C
+           25                                                                                                                                         (µA)
+
+                                                                              45
+           20                                     Amplifiers                                                                                                                                                                                                                                                                    Current
+       of
+           15                                                                 35
+
+           10                                                                                                                                                                                                                                                                                                                                                                                         Quiescent                                  Pecentage                                                                     25
+            5
+
+            0                                                                 15
+                 3434 3535 3636 3737 3838 3939 4040 4141 4242 4343 4444 4545 4646 4747 4848 4949 5050                      2.5      3       3.5      4       4.5      5       5.5
+                                                                                                          Supply Voltage (V)                          G018
+                                 Supply Current (µA)                         G000           Figure 6-12. Quiescent Current vs Supply Voltage
+           Figure 6-11. Quiescent Current Distribution
+
+
+
+
+
+8     Submit Document Feedback                                                                   Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 9 ===
+                                                                                        TLV3201, TLV3202
+www.ti.com                                                                  SBOS561C – MARCH 2012 – REVISED MAY 2024
+
+ 6.9 Typical Characteristics (continued)
+
+ at TA = 25°C, VCC = 5V, and input overdrive (VOD) = 20mV (unless otherwise noted)
+
+
+                                                                              90
+                                                                                                                                                           ISC, Source: VCC = 5 V
+                                                                              80                                         ISC, Sink: VCC = 5 V
+                                                                                                                                                                          (mA)   70                                         ISC,ISC, Source:Sink: VCCVCC= 2.7= 2.7V V
+
+                                                                              60
+                                                                                                                                                                                                                                                                                                         Current
+                                                                              50
+                                                                                                                                                                                                                                                                                                         Circuit   40
+
+                                                                              30                                                                                                                                                                                                                    Short
+
+                                                                              20
+
+                                                                              10
+                                                                              −40    −15     10     35     60     85     110 125
+                                                                                                        Temperature (°C)                           G014
+                                                                     Figure 6-14. Short-Circuit Current vs Temperature
+     Figure 6-13. Quiescent Current vs Switching Frequency
+
+             2.8                                                                             5.9
+             2.4                                   Sourcing Current                       4.9                                  Sourcing Current
+            2
+                                                                                             3.7
+             1.6
+           (V)   1.2                                                                                                         (V)   2.5
+             0.8
+                                                                                             1.3
+             0.4        −40°C                                                            −40°C
+                                                                                             0.1        25°C            0        25°C                          Voltage                                                VCC = 2.7 V                                                          Voltage                                                                                                                VCC = 5.5 V                     75°C                                                                                       75°C           −0.4                                                                                      −1.1
+           −0.8        125°C                                                             125°C                      Output −1.2                                                                                                                                                                                                                 Output −2.3
+           −1.6                                                                       −3.5
+           −2
+                                                                                      −4.7                                    Sinking Current           −2.4                                     Sinking Current
+           −2.8                                                                       −5.9
+              0           5          10          15          20                 0      10      20      30      40      50      60
+                                 Output Current (mA)                         G015                                    Output Current (mA)                         G017
+          Figure 6-15. Output Voltage vs Output Current                  Figure 6-16. Output Voltage vs Output Current
+
+          140                                                  3                     140                                                  3
+          120                                    Output: VOD = 20 mV    2.6                   120                                                            2.6
+          100                                        Input: VOD = 20 mV     2.1                   100                                                            2.1
+           80                                    Output: VOD = 100 mV  1.7                    80                                                            1.7
+           60                                        Input: VOD = 100 mV    1.3     (V)                60                                                            1.3     (V)                (mV)   40                                                            0.9                                     (mV)   40                                                            0.9
+           20                                                            0.4                    20                                                            0.4            0                                                  0                 Voltage                 0                                                  0                 Voltage                            Voltage  −20                                                        −0.4                                                            Voltage  −20                                                        −0.4
+                    Input  −40−60                                                        −0.9−1.3      Output                                 Input  −40−60                                    Output: VOD = 20 mV   −0.9−1.3      Output
+          −80                                                        −1.7                  −80                                        Input: VOD = 20 mV     −1.7
+         −100                                                        −2.1                 −100                                    Output: VOD = 100 mV  −2.1
+         −120                                                        −2.6                 −120                                        Input: VOD = 100 mV    −2.6
+         −140                                                 −3                   −140                                                 −3
+              20   40   60   80  100  120  140  160  180  200  220                         20  40  60  80  100 120 140 160 180 200 220 240
+                                   Time (ns)                                           G000                                     Time (ns)                                           G019
+           Figure 6-17. Propagation Delay Falling Edge                    Figure 6-18. Propagation Delay Rising Edge
+
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                      Submit Document Feedback     9
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 10 ===
+TLV3201, TLV3202
+SBOS561C – MARCH 2012 – REVISED MAY 2024                                                                    www.ti.com
+
+ 6.9 Typical Characteristics (continued)
+
+ at TA = 25°C, VCC = 5V, and input overdrive (VOD) = 20mV (unless otherwise noted)
+
+
+          100                                                                 50
+                      PDHL: 5 V                                                                                                                      Falling Edge
+           90                                                                 48
+                      PDLH: 5 V                                                                                                           Rising Edge
+           80        PDHL: 2.7 V                                                46
+               (ns)   70        PDLH: 2.7 V                                                                                                   (ns)    44
+
+           60                                                                 42                   Delay                                                                                                                                                                                          Delay
+           50                                                                 40
+
+           40                                                                 38
+
+           30                                                                 36                                         Propagation                                                                                                                                                                                                                                                                                                                                                                                                                         Propagation
+           20                                                                 34
+
+           10                                                                 32
+
+            0                                                                 30
+             20    30    40    50    60    70    80    90   100                −40 −25 −10  5   20  35  50  65  80  95  110 125
+                                     Input Overdrive (mV)                        G003                                    Temperature (°C)                           G017
+        Figure 6-19. Propagation Delay vs Input Overdrive                Figure 6-20. Propagation Delay vs Temperature
+
+           60                                                                 60
+               VCC= 2.7V                                    Falling Edge                     VCC= 5.5V                                    Falling Edge
+           58                                                                 58
+                                                             Rising Edge                                                                    Rising Edge
+             (ns)    56                                                                                                                                          (ns)    56
+
+           54                                                                 54
+                 DELAY    52                                                                                                                                                                            DELAY    52
+
+           50                                                                 50
+
+           48                                                                 48
+
+           46                                                                 46
+
+           44                                                                 44                                    PROPAGATION                                                                                                                                                                                                                                                                                                                                                                                                                              PROPAGATION
+           42                                                                 42
+
+           40                                                                 40
+              −0.2    0.2    0.6    1     1.4    1.8    2.2    2.6   2.9                  −0.2  0.4   1    1.6   2.2   2.8   3.4   4    4.6   5.2  5.7
+                     Common−Mode Input Voltage (V)                G017                       Common−Mode Input Voltage (V)                G017
+    Figure 6-21. Propagation Delay vs Common-Mode Voltage       Figure 6-22. Propagation Delay vs Common-Mode Voltage
+
+           60                                                                 60
+                           Falling Edge                                                          PDLH:Vod = 20 mV
+           58
+                         Rising Edge                                                          PDHL:Vod = 20 mV
+           56                                                                 55        PDLH:Vod = 50 mV
+               (ns)   54                                                                                                                                           (ns)             PDHL:Vod = 50 mV
+
+           52                   Delay                                                                                                                                                                                            Delay
+           50
+
+           48                                                                 45
+
+           46                                         Propagation                                                                                                                                                                                                                                                                                                                                                                                                                              Propagation
+           44
+
+           42
+                                                                                                                    VCC= 5.5 V
+           40                                                                 35
+               2.5      3       3.5      4       4.5      5       5.5                 0          25          50          75         100
+                                 Supply Voltage (V)                          G005                                      Capacitive Load (pF)                        G024
+        Figure 6-23. Propagation Delay vs Supply Voltage               Figure 6-24. Propagation Delay vs Capacitive Load
+
+
+
+
+
+10    Submit Document Feedback                                                                   Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 11 ===
+                                                                                        TLV3201, TLV3202
+www.ti.com                                                                  SBOS561C – MARCH 2012 – REVISED MAY 2024
+
+7 Detailed Description
+ 7.1 Overview
+
+The TLV3201 and TLV3202 devices feature 40ns response time, and include 1.2mV of internal hysteresis for
+ improved noise immunity with an input common-mode range that extends 0.2V beyond the power-supply rails.
+
+ 7.2 Functional Block Diagram
+
+                                                            V+
+
+
+                                                         +IN    +
+
+
+                                                                OUT
+
+
+                                                           -IN    -
+
+
+
+                                                              V-
+                                                    Copyright © 2016, Texas Instruments Incorporated
+ 7.3 Feature Description
+ 7.3.1 Operating Voltage
+
+The TLV3201 and TLV3202 comparators are specified for use on a single supply from 2.7V to 5.5V (or a dual
+ supply from ±1.35V to ±2.75V) over a temperature range of −40°C to 125°C. The device continues to function
+ below this range, but performance is not specified.
+
+ 7.3.2 Input Overvoltage Protection
+
+The device inputs are protected by electrostatic discharge (ESD) diodes that conduct  if the input voltages
+ exceed the power supplies by more than approximately 300mV  . Momentary voltages greater than 300mV
+beyond the power supply can be tolerated  if the input current  is limited to 10mA. This limiting  is easily
+ accomplished with a small input resistor in series with the input to the comparator.
+
+ 7.4 Device Functional Modes
+
+The device is fully functional when powered by rail-to-rail supply voltage greater than 2.7V. The device is off at
+ any voltages below 2.7V.
+
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                      Submit Document Feedback    11
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 12 ===
+TLV3201, TLV3202
+SBOS561C – MARCH 2012 – REVISED MAY 2024                                                                    www.ti.com
+
+8 Application and Implementation
+
+                                           Note
+
+      Information in the following applications sections  is not part of the TI component specification,
+     and  TI does  not  warrant  its accuracy  or completeness.  TI’s customers  are  responsible  for
+     determining suitability of components for their purposes, as well as validating and testing their design
+     implementation to confirm system functionality.
+
+ 8.1 Application Information
+
+The TLV3201 and TLV3202 are single- and dual-supply (respectively), push-pull comparators featuring 40ns of
+ propagation delay on only 40µA of supply current. This combination of fast response time and minimal power
+ consumption make the TLV3201 and TLV3202 excellent comparators for portable, battery-powered applications
+ as well as fast-switching threshold detection such as pulse-width modulation (PWM) output monitors and zero-
+ cross detection.
+
+ 8.1.1 Comparator Inputs
+
+The TLV3201 and TLV3202 are rail-to-rail input comparators, with an input common-mode range that exceeds
+ the supply rails by 200mV for both positive and negative supplies. The devices are specified from 2.7V to 5.5V,
+ with room temperature operation from 2.5V to 5.5V. The TLV3201 and TLV3202 are designed to prevent phase
+ inversion when the input pins exceed the supply voltage. Figure 8-1 shows the TLV320x response when input
+ voltages exceed the supply, resulting in no phase inversion.
+
+                                           5
+                                                         Output Voltage
+                                           4
+                                                                Input Voltage
+                                           3
+
+                                           2
+                                                                 (V)    1
+
+                                           0
+                                                                                                                                                       Voltage   −1
+
+                                         −2
+
+                                         −3
+
+                                         −4
+
+                                         −5
+                                            0   20   40   60   80  100  120  140  160  180  200
+                                                                 Time (ns)                                G000
+
+   Figure 8-1. No Phase Inversion: Comparator Response to Input Voltage (Propagation Delay Included)
+
+The electrostatic discharge (ESD) protection input structure of two back-to-back diodes and 1kΩ series resistors
+ are used to limit the differential input voltage applied to the precision input of the comparator by clamping
+ input voltages that exceed VCC beyond the specified operating conditions.  If potential overvoltage conditions
+ that exceed absolute maximum ratings are present, the addition of external bypass diodes and resistors is
+recommended, as shown in Figure 8-2. Large differential voltages greater than the supply voltage must be
+ avoided to prevent damage to the input stage.
+
+
+
+                                                         1 kW
+                                                               Clamp
+                                                       +In
+
+                                                                               Core
+
+                                                         -In
+
+                                                         1 kW
+
+
+
+                                                    Copyright © 2016, Texas Instruments Incorporated
+
+                            Figure 8-2. TLV3201 Equivalent Input structure
+
+
+
+12    Submit Document Feedback                                                                   Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 13 ===
+                                                                                        TLV3201, TLV3202
+www.ti.com                                                                  SBOS561C – MARCH 2012 – REVISED MAY 2024
+
+ 8.1.2 External Hysteresis
+
+The TLV3201 and TLV3202 have a hysteresis transfer curve (shown in Figure 8-3) that is a function of three
+ components: VTH, VOS, and VHYST.
+ •  VTH: the actual set voltage or threshold trip voltage
+ •  VOS: the internal offset voltage between VIN+ and VIN–. This voltage is added to VTH to form the actual trip
+    point at which the comparator must respond to change output states.
+ •  VHYST: internal hysteresis (or trip window) that is designed to reduce comparator sensitivity to noise.
+
+
+
+
+
+                                 VTH + VOS - VHYST      VTH + VOS    V TH + VOS + VHYST
+
+                            Figure 8-3. TLV320x Hysteresis Transfer Curve
+
+ 8.1.2.1 Inverting Comparator with Hysteresis
+
+The inverting comparator with hysteresis requires a three-resistor network that is referenced to the comparator
+ supply voltage (VCC), as shown in Figure 8-4. When VIN at the inverting input is less than VA, the output voltage
+ is high (for simplicity, assume VO switches as high as VCC). The three network resistors can be represented as
+R1 || R3 in series with R2. The lower input trip voltage (VA1) is defined by Equation 1.
+
+                R2
+   V A1 = VCC ´
+              (R1 || R3) + R2                                                                                 (1)
+
+When VIN is greater than [VA × (VIN > VA)], the output voltage is low, very close to ground. In this case, the three
+ network resistors can be presented as R2  || R3 in series with R1. The upper trip voltage (VA2) is defined by
+ Equation 2.
+
+              R2 || R3
+   V A2 = VCC ´
+            R1 + (R2 || R3)                                                                                 (2)
+
+The total hysteresis provided by the network is defined by Equation 3.
+
+   DVA = VA1 - V A2                                                                                              (3)
+
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                      Submit Document Feedback    13
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 14 ===
+TLV3201, TLV3202
+SBOS561C – MARCH 2012 – REVISED MAY 2024                                                                    www.ti.com
+
+                            +VCC
+                              +5 V
+
+
+
+
+                      R1
+                         1 MW
+
+                 VIN
+                                                                         5 V
+
+                    VA                        R LOAD
+                                                     100 k W          VO
+
+                                                                                              VA2                 VA1
+                                                                         0 V
+                            R3                                                              1.67 V          3.33 V
+                                                                                                                      VIN
+                      R2    1 MW
+                         1 MW
+
+
+                                       VO High                               VO Low
+                                           +VCC                             +VCC
+
+
+
+
+                               R1            R3                  R1
+
+                                       VA1                                        VA2
+
+                               R2                                 R2            R3
+
+
+
+                                                                                        Copyright © 2016, Texas Instruments Incorporated
+
+                    Figure 8-4. TLV3201 in Inverting Configuration With Hysteresis
+
+ 8.1.2.2 Noninverting Comparator With Hysteresis
+
+A noninverting comparator with hysteresis requires a two-resistor network, as shown in Figure 8-5, and a voltage
+ reference (VREF) at the inverting input. When VIN is low, the output is also low. For the output to switch from low
+ to high, VIN must rise up to VIN1. VIN1 is calculated by Equation 4.
+
+                VREF
+   V IN1 = R1 ´     ´ VREF
+            R2                                                                                             (4)
+
+When VIN is high, the output is also high. In order for the comparator to switch back to a low state, VIN must
+ equal VREF before VA is again equal to VREF. VIN can be calculated by Equation 5.
+
+           VREF (R1 + R2) - VCC ´ R1
+   VIN2 =
+                R2                                                                                       (5)
+
+The hysteresis of this circuit is the difference between VIN1 and VIN2, as defined by Equation 6.
+
+
+             R1
+   DV IN = VCC ´
+             R2                                                                                             (6)
+
+
+
+
+
+14    Submit Document Feedback                                                                   Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 15 ===
+                                                                                        TLV3201, TLV3202
+www.ti.com                                                                  SBOS561C – MARCH 2012 – REVISED MAY 2024
+
+                                                       +VCC
+                                                            +5 V
+
+                                                    VREF
+                                                     +2.5 V                      VO
+
+                                                    VA
+                                                VIN                                            RLOAD
+                                          R1
+                                               330 kW
+
+
+                                                       R2
+                                                              1 MW
+
+                            VO High           VO Low
+                               +VCC                  VIN1
+
+
+
+                                                                     5 V
+                               R2              R1
+
+                              VA = VREF         VA = VREF     VO
+                                                                                                 VIN2             VIN1
+                               R1              R2                                                                     0 V
+                                                                                        1.675 V   3.325 V
+                                                                                                       VIN
+                                         VIN2
+
+                                                                    Copyright © 2016, Texas Instruments Incorporated
+
+                  Figure 8-5. TLV3201 in Noninverting Configuration With Hysteresis
+
+ 8.1.3 Capacitive Loads
+
+The TLV3201 and TLV3202 feature a push-pull output. When the output switches, there  is a direct path
+between VCC and ground, causing increased output sinking or sourcing current during the transition. Following
+ the transition the output current decreases and supply current returns to 40µA, thus maintaining low power
+ consumption. Under reasonable capacitive loads, the TLV3201 and TLV3202 maintain specified propagation
+ delay (see Section 6.9), but excessive capacitive loading under high switching frequencies may increase supply
+ current, propagation delay, or induce decreased slew rate.
+
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                      Submit Document Feedback    15
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 16 ===
+TLV3201, TLV3202
+SBOS561C – MARCH 2012 – REVISED MAY 2024                                                                    www.ti.com
+
+ 8.2 Typical Applications
+ 8.2.1 TLV3201 Configured as an AC-Coupled Comparator
+
+One of the benefits of AC coupling a single-supply comparator circuit is that it can block dc offsets induced by
+ ground-loop offsets that could potentially produce either a false trip or a common-mode input violation. Figure
+ 8-6 shows the TLV3201 configured as an ac-coupled comparator.
+
+                                                                    R9
+                                                                             866 W
+
+
+                                                      R3
+                           Cable                C1 1 m F      1 kW
+
+                                                                                                          VIN+
+                                                           R1
+                                                                                                                R10
+                                                                  1 kW                                                                                                                           50 W         VOUT
+
+                VM1
+                                                                                          3.3 V                          U2
+                                                           R2                                     TLV3201
+        VIN                                  C2 1 m F           1 kW                           3.3 V
+                                                                                                  +
+
+                                                      R4
+                                                              1 kW                                                                                           V2
+                                                                                                           VIN-           3.3 V
+
+    VCM 100 m
+             +
+
+
+                   Ground mismatch in signal source
+                     vs conditioning circuit                                                                       Copyright © 2016, Texas Instruments Incorporated
+
+              Figure 8-6. TLV3201 Configured as an AC-Coupled Comparator (Schematic)
+
+ 8.2.1.1 Design Requirements
+
+ Design requirements include:
+
+ •   Ability to tolerate up to ±100mV of common-mode signal.
+ •  Trigger only on AC signals (such as zero-cross detection).
+
+ 8.2.1.2 Detailed Design Procedure
+
+ Design analysis:
+
+ •  AC-coupled, high-pass frequency
+ •  Large capacitors require longer start-up time from device power on
+ •  Use 1µF capacitor to achieve high-pass frequency of approximately 159Hz
+ •  For high-pass equivalent, use CIN = 0.5µF, RIN = 2kΩ
+ 1.  Set up input dividers initially for one-half supply (to be in center of acceptable common-mode range).
+ 2.  Adjust either divider slightly upwards or downwards as desired to establish quiescent output condition.
+ 3.  Select coupling capacitors based on lowest expected frequency.
+
+
+
+
+
+16    Submit Document Feedback                                                                   Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 17 ===
+                                                                                        TLV3201, TLV3202
+www.ti.com                                                                  SBOS561C – MARCH 2012 – REVISED MAY 2024
+
+ 8.2.1.3 Application Curve
+
+                                        4
+                                                                                                      VIN
+                                                                               VCM
+                                        3                                             VOUT
+
+
+                                                                (V)  2
+                                                                                                                                                     Voltage  1
+
+
+
+                                        0
+
+
+
+                                                 -1
+                                          0                   100m                  200m
+                                                               Time (s)
+
+                             Figure 8-7. AC-Coupled Comparator Results
+
+ 8.2.2 TLV3201 and OPA320 Configured as a Fast-Response Output Current Monitor
+
+ Figure 8-8 shows a single-supply current monitor configured as a difference amplifier with a gain of 50. The
+OPA320 was chosen for this circuit because of  its gain bandwidth (20 MHz), which allows higher speed
+ triggering and monitoring of the current across the shunt resistor followed by the fast response of the TLV3201.
+
+
+
+       +
+                        R5
+           V3 5
+                            50 kW
+                                                       +
+                                    C3
+                                                         V2 5                                      100 pF
+                                                                           VF1
+                R4              R7                     U2
+                 1 kW              1 kW                     OPA320
+
+
+ VF2
+                                                                                                                                    VOUT
+
+
+                                                                                                 U4
+
+                                                                                                            TLV3201
+
+  R SHUNT             C1              R6
+   100 W            500 pF               1 kW                                                               +
+                                                  C2                       VT 2.6                    V1 5
+                                                        100 pF
+
+
+
+              R2                                   R1
+               1 kW                                      50 kW
+
+
+
+
+
+    IG1
+
+
+
+
+
+                                                                                                             Copyright © 2016, Texas Instruments Incorporated
+
+        Figure 8-8. TLV3201 and OPA320 Configured as a Fast-Response Output Current Monitor
+
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                      Submit Document Feedback    17
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 18 ===
+TLV3201, TLV3202
+SBOS561C – MARCH 2012 – REVISED MAY 2024                                                                    www.ti.com
+
+ 8.2.3 TLV3201 and TMP20 Configured as a Precision Analog Temperature Switch
+
+ Figure 8-9 shows the TMP20 and TLV3201 designed as a high-speed temperature switch. The TMP20 is an
+ analog output temperature sensor where output voltage decreases with temperature. The comparator output is
+ tripped when the output reaches a critical trip threshold.
+
+                              C2
+                                 100 nF          VCC
+
+
+
+
+
+                                              U2
+                                              TMP20              VIN                                               4
+
+                                        V+
+
+                              1
+                                     T(V)                   VOUT                                                    VOUT
+                           VTEMP                              3
+
+                             GND      GND                                 U1
+                                         2           5                                     TLV3201
+
+                                                                      +
+                                                      V T 1.85
+
+                             VCC                                     VCC
+
+
+
+                                      +
+
+                                      V3 5
+
+
+
+
+
+                                                                                   Copyright © 2016, Texas Instruments Incorporated
+
+         Figure 8-9. TLV3201 and TMP20 Configured as a Precision Analog Temperature Switch
+
+ 8.3 Power Supply Recommendations
+
+The TLV3201 and TLV3202 comparators are specified for use on a single supply from 2.7V to 5.5V (or a dual
+ supply from ±1.35V to ±2.75V) over a temperature range of −40°C to 125°C. The device continues to function
+ below this range, but performance is not specified. Place bypass capacitors close to the power-supply pins to
+ reduce noise coupling in from noisy or high-impedance power supplies. For more detailed information on bypass
+ capacitor placement, see Section 8.4.1.
+
+ 8.4 Layout
+ 8.4.1 Layout Guidelines
+
+The TLV3201 and TLV3202 are  fast-switching, high-speed comparators and  require high-speed  layout
+ considerations. For best results, maintain the following layout guidelines.
+
+ •  Use a printed-circuit board (PCB) with a good, unbroken low-inductance ground plane.
+ •  Place a decoupling capacitor (0.1µF ceramic, surface-mount capacitor) as close as possible to VCC.
+ •  On the inputs and the output, keep lead lengths as short as possible to avoid unwanted parasitic feedback
+   around the comparator. Keep inputs away from the output.
+ •  Solder the device directly to the PCB rather than using a socket.
+ •  For slow-moving input signals, take care to prevent parasitic feedback. A small capacitor (1000pF or less)
+   placed between the inputs can help eliminate oscillations in the transition region. This capacitor causes some
+    degradation to propagation delay when the impedance is low. The topside ground plane runs between the
+    output and inputs.
+ •  The ground pin ground trace runs under the device up to the bypass capacitor, shielding the inputs from the
+    outputs.
+
+
+
+
+
+18    Submit Document Feedback                                                                   Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 19 ===
+                                                                                        TLV3201, TLV3202
+www.ti.com                                                                  SBOS561C – MARCH 2012 – REVISED MAY 2024
+
+ 8.4.2 Layout Example
+
+
+
+
+
+                             Figure 8-10. TLV320x Board Layout Example
+
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                      Submit Document Feedback    19
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 20 ===
+TLV3201, TLV3202
+SBOS561C – MARCH 2012 – REVISED MAY 2024                                                                    www.ti.com
+
+9 Device and Documentation Support
+ 9.1 Device Support
+ 9.1.1 Development Support
+ 9.1.1.1 TINA-TI™ (Free Software Download)
+
+ TINA-TI™ is a simple, powerful, and easy-to-use circuit simulation program based on a SPICE engine. TINA-TI
+ is a free, fully-functional version of the TINA software, preloaded with a library of macro models in addition to
+a range of both passive and active models. TINA-TI provides all the conventional dc, transient, and frequency
+domain analysis of SPICE, as well as additional design capabilities.
+
+ Available as a free download from the Analog eLab Design Center, TINA-TI offers extensive post-processing
+ capability that allows users to format results in a variety of ways. Virtual instruments offer the ability to select
+ input waveforms and probe circuit nodes, voltages, and waveforms, creating a dynamic quick-start tool.
+
+                                           Note
+
+     These files require that either the TINA software (from DesignSoft™) or TINA-TI software be installed.
+     Download the free TINA-TI software from the TINA-TI folder.
+
+
+ 9.1.1.2 Universal Op Amp EVM
+
+The Universal Op Amp EVM is a series of general-purpose, blank circuit boards that simplify prototyping circuits
+ for a variety of IC package types. The evaluation module board design allows many different circuits to be
+ constructed easily and quickly. Five models are offered, with each model intended for a specific package type.
+ PDIP, SOIC, MSOP, TSSOP and SOT23 packages are all supported.
+
+                                           Note
+
+     These boards are unpopulated, so users must provide their own ICs. TI recommends requesting
+      several op amp device samples when ordering the Universal Op Amp EVM.
+
+
+ 9.1.1.3 TI Precision Designs
+
+ TI Precision Designs are analog solutions created by TI’s precision analog applications experts and offer the
+ theory of operation, component selection, simulation, complete PCB schematic and layout,  bill of materials,
+and measured performance  of many useful  circuits. TI Precision Designs are available online  at  http://
+ www.ti.com/ww/en/analog/precision-designs/.
+
+ 9.1.1.4 WEBENCH® Filter Designer
+
+WEBENCH® Filter Designer is a simple, powerful, and easy-to-use active filter design program. The WEBENCH
+ Filter Designer lets you create optimized filter designs using a selection of TI operational amplifiers and passive
+components from TI's vendor partners.
+
+ Available as a web-based tool from the WEBENCH® Design Center, WEBENCH® Filter Designer allows you to
+ design, optimize, and simulate complete multistage active filter solutions within minutes.
+
+ 9.2 Documentation Support
+ 9.2.1 Related Documentation
+
+The following documents are relevant to using the TLV320x, and recommended for reference. All are available
+ for download at www.ti.com unless otherwise noted.
+
+ •  Frequency Dithering With the UCC28950 and TLV3201 (SLUA646)
+ •  Frequency Dithering with the UCC28180 and TLV3201 (SLUA704)
+ •  Comparator with Hysteresis Reference Design (TIDU020)
+
+
+
+
+
+20    Submit Document Feedback                                                                   Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 21 ===
+                                                                                        TLV3201, TLV3202
+www.ti.com                                                                  SBOS561C – MARCH 2012 – REVISED MAY 2024
+
+ 9.3 Receiving Notification of Documentation Updates
+
+ To receive notification of documentation updates, navigate to the device product folder on ti.com. In the upper
+ right corner, click on Alert me to register and receive a weekly digest of any product information that has
+ changed. For change details, review the revision history included in any revised document.
+
+ 9.4 Support Resources
+
+ TI E2E™ support forums are an engineer's go-to source for fast, verified answers and design help — straight
+ from the experts. Search existing answers or ask your own question to get the quick design help you need.
+
+ Linked content is provided "AS IS" by the respective contributors. They do not constitute TI specifications and do
+ not necessarily reflect TI's views; see TI's Terms of Use.
+
+ 9.5 Trademarks
+ TINA-TI™ is a trademark of Texas Insturments and DesignSoft, Inc..
+ DesignSoft™ is a trademark of DesignSoft, Inc.
+ TI E2E™ is a trademark of Texas Instruments.
+WEBENCH® is a registered trademark of Texas Instruments.
+ All trademarks are the property of their respective owners.
+ 9.6 Electrostatic Discharge Caution
+                  This integrated circuit can be damaged by ESD. Texas Instruments recommends that all integrated circuits be handled
+                   with appropriate precautions. Failure to observe proper handling and installation procedures can cause damage.
+
+            ESD damage can range from subtle performance degradation to complete device failure. Precision integrated circuits may
+               be more susceptible to damage because very small parametric changes could cause the device not to meet its published
+                    specifications.
+
+ 9.7 Glossary
+
+ TI Glossary      This glossary lists and explains terms, acronyms, and definitions.
+
+
+
+
+
+Copyright © 2024 Texas Instruments Incorporated                                                      Submit Document Feedback    21
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 22 ===
+TLV3201, TLV3202
+SBOS561C – MARCH 2012 – REVISED MAY 2024                                                                    www.ti.com
+
+
+10 Revision History
+NOTE: Page numbers for previous revisions may differ from page numbers in the current version.
+
+Changes from Revision B (December 2016) to Revision C (June 2022)                        Page
+ •  Corrected transposed TLV3202 D and DGK columns in Thermal Metric table.................................................. 4
+ •  Corrected typo in DGK Tja from 146.3 to 143.6 for DGK in Thermal Metric table............................................. 4
+ •  Added Input Offset Voltage for TLV3201 for 5V................................................................................................. 5
+ •  Added 5V Switching Specifications table........................................................................................................... 5
+ •  Added Input Offset Voltage for TLV3201 for 2.7V.............................................................................................. 6
+
+
+
+Changes from Revision A (June 2012) to Revision B (December 2016)                        Page
+ •  Added ESD Ratings table, Feature Description section, Device Functional Modes, Application and
+   Implementation section, Power Supply Recommendations section, Layout section, Device and
+   Documentation Support section, and Mechanical, Packaging, and Orderable Information section ..................1
+ •  Deleted Ordering Information table; see Package Option Addendum at the end of the data sheet...................1
+
+
+
+Changes from Revision * (March 2012) to Revision A (June 2012)                            Page
+ •  Changed product status from Production Data to Mixed Status.........................................................................1
+ •  Added dual channel device................................................................................................................................ 1
+
+
+11 Mechanical, Packaging, and Orderable Information
+
+The following pages include mechanical, packaging, and orderable information. This information is the most
+ current data available for the designated devices. This data is subject to change without notice and revision of
+ this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+
+
+
+
+
+22    Submit Document Feedback                                                                   Copyright © 2024 Texas Instruments Incorporated
+
+                                              Product Folder Links: TLV3201 TLV3202
+=== PDF PAGE 23 ===
+                                                         PACKAGE OPTION ADDENDUM
+
+
+    www.ti.com                                                                                                                                                                   20-Aug-2026
+
+
+PACKAGING INFORMATION
+
+   Orderable part number     Status   Material type    Package | Pins    Package qty | Carrier    RoHS        Lead finish/       MSL rating/       Op temp (°C)           Part marking
+                                                      (1)                 (2)                                                                                          (3)            Ball material        Peak reflow                                                              (6)
+                                                                                                                                                                                                    (4)                                (5)
+     TLV3201AIDBVR          Active     Production    SOT-23 (DBV) | 5    3000 | LARGE T&R      Yes           SN          Level-1-260C-UNLIM        -40 to 125               RAI
+     TLV3201AIDBVR.B         Active     Production    SOT-23 (DBV) | 5    3000 | LARGE T&R      Yes           SN          Level-1-260C-UNLIM        -40 to 125               RAI
+      TLV3201AIDBVT          Active     Production    SOT-23 (DBV) | 5     250 | SMALL T&R       Yes           SN          Level-1-260C-UNLIM        -40 to 125               RAI
+     TLV3201AIDBVT.B         Active     Production    SOT-23 (DBV) | 5     250 | SMALL T&R       Yes           SN          Level-1-260C-UNLIM        -40 to 125               RAI
+     TLV3201AIDCKR          Active     Production     SC70 (DCK) | 5     3000 | LARGE T&R      Yes     NIPDAU | SN | POST-  Level-2-260C-1 YEAR       -40 to 125            SDP
+                                                                                           PLAT AG SPOT
+     TLV3201AIDCKR.B         Active     Production     SC70 (DCK) | 5     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            SDP
+    TLV3201AIDCKRG4        Active     Production     SC70 (DCK) | 5     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            SDP
+   TLV3201AIDCKRG4.B       Active     Production     SC70 (DCK) | 5     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            SDP
+     TLV3201AIDCKT          Active     Production     SC70 (DCK) | 5      250 | SMALL T&R       Yes      NIPDAU | POST-    Level-2-260C-1 YEAR       -40 to 125            SDP
+                                                                                           PLAT AG SPOT
+     TLV3201AIDCKT.B         Active     Production     SC70 (DCK) | 5      250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            SDP
+       TLV3202AID            Active     Production      SOIC (D) | 8          50 | TUBE          Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             TL3202
+       TLV3202AID.B           Active     Production      SOIC (D) | 8          50 | TUBE          Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             TL3202
+      TLV3202AIDGK           Active     Production    VSSOP (DGK) | 8        80 | TUBE          Yes        NIPDAUAG      Level-1-260C-UNLIM        -40 to 125           VUDC
+     TLV3202AIDGK.B          Active     Production    VSSOP (DGK) | 8        80 | TUBE          Yes        NIPDAUAG      Level-1-260C-UNLIM        -40 to 125           VUDC
+     TLV3202AIDGKR          Active     Production    VSSOP (DGK) | 8    2500 | LARGE T&R      Yes        NIPDAUAG      Level-1-260C-UNLIM        -40 to 125           VUDC
+     TLV3202AIDGKR.B         Active     Production    VSSOP (DGK) | 8    2500 | LARGE T&R      Yes        NIPDAUAG      Level-1-260C-UNLIM        -40 to 125           VUDC
+       TLV3202AIDR           Active     Production      SOIC (D) | 8      2500 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             TL3202
+      TLV3202AIDR.B          Active     Production      SOIC (D) | 8      2500 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             TL3202
+     TLV3202AIDRG4          Active     Production      SOIC (D) | 8      2500 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             TL3202
+     TLV3202AIDRG4.B         Active     Production      SOIC (D) | 8      2500 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             TL3202
+
+(1) Status: For more details on status, see our product life cycle.
+
+(2) Material type: When designated, preproduction parts are prototypes/experimental devices, and are not yet approved or released for full production. Testing and final process, including without limitation quality assurance,
+reliability performance testing, and/or process qualification, may not yet be complete, and this item is subject to further changes or possible discontinuation. If available for ordering, purchases will be subject to an additional
+waiver at checkout, and are intended for early internal evaluation purposes only. These items are sold without warranties of any kind.
+
+(3) RoHS values: Yes, No, RoHS Exempt. See the TI RoHS Statement for additional information and value definition.
+
+
+
+                                                                               Addendum-Page 1
+=== PDF PAGE 24 ===
+                                                         PACKAGE OPTION ADDENDUM
+
+
+    www.ti.com                                                                                                                                                                   20-Aug-2026
+
+
+
+(4) Lead finish/Ball material: Parts may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum
+column width.
+
+(5) MSL rating/Peak reflow: The moisture sensitivity level ratings and peak solder (reflow) temperatures. In the event that a part has multiple moisture sensitivity ratings, only the lowest level per JEDEC standards is shown.
+Refer to the shipping label for the actual reflow temperature that will be used to mount the part to the printed circuit board.
+
+(6) Part marking: There may be an additional marking, which relates to the logo, the lot trace code information, or the environmental category of the part.
+
+Multiple part markings will be inside parentheses. Only one part marking contained in parentheses and separated by a "~" will appear on a part. If a line is indented then it is a continuation of the previous line and the two
+combined represent the entire part marking for that device.
+
+Important Information and Disclaimer:The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and
+makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative
+and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals. TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers
+and other limited information may not be available for release.
+
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis.
+
+OTHER QUALIFIED VERSIONS OF TLV3201, TLV3202 :
+• Automotive : TLV3201-Q1, TLV3202-Q1
+
+
+NOTE: Qualified Version Definitions:
+       • Automotive - Q100 devices qualified for high-reliability automotive applications targeting zero defects
+
+
+
+
+
+                                                                               Addendum-Page 2
+=== PDF PAGE 25 ===
+                         PACKAGE MATERIALS INFORMATION
+
+
+www.ti.com                                                                                                                        7-Nov-2026
+
+TAPE AND REEL INFORMATION
+
+     REEL DIMENSIONS                                  TAPE DIMENSIONS
+                                                       K0    P1
+
+
+                                                   W                                                                               B0
+                                      Reel
+                                    Diameter
+                                                                         Cavity       A0
+                                         A0  Dimension designed to accommodate the component width
+                                           B0  Dimension designed to accommodate the component length
+                                         K0  Dimension designed to accommodate the component thickness
+                           W   Overall width of the carrier tape
+                                               P1   Pitch between successive cavity centers
+
+                                      Reel Width (W1)
+                  QUADRANT ASSIGNMENTS FOR PIN 1 ORIENTATION IN TAPE
+                                                                                         Sprocket Holes
+
+
+                                  Q1  Q2     Q1  Q2
+
+                                  Q3  Q4     Q3  Q4             User Direction of Feed
+
+
+                                                      Pocket Quadrants
+
+
+*All dimensions are nominal
+        Device        Package Package Pins  SPQ     Reel     Reel    A0    B0    K0    P1   W     Pin1
+                       Type   Drawing               Diameter  Width  (mm)  (mm)  (mm)  (mm)  (mm) Quadrant
+                                                 (mm)  W1 (mm)
+    TLV3201AIDBVR     SOT-23   DBV    5    3000    180.0      8.4      3.2     3.2     1.4     4.0     8.0    Q3
+    TLV3201AIDBVT     SOT-23   DBV    5     250     180.0      8.4      3.2     3.2     1.4     4.0     8.0    Q3
+    TLV3201AIDCKR     SC70   DCK    5    3000    178.0      8.4     2.25   2.45    1.2     4.0     8.0    Q3
+    TLV3201AIDCKR     SC70   DCK    5    3000    178.0      9.0      2.4     2.5     1.2     4.0     8.0    Q3
+    TLV3201AIDCKR     SC70   DCK    5    3000    180.0      8.4      2.3    2.55    1.2     4.0     8.0    Q3
+  TLV3201AIDCKRG4    SC70   DCK    5    3000    178.0      9.0      2.4     2.5     1.2     4.0     8.0    Q3
+    TLV3201AIDCKT     SC70   DCK    5     250     178.0      8.4      2.4     2.5     1.2     4.0     8.0    Q3
+    TLV3201AIDCKT     SC70   DCK    5     250     180.0      8.4      2.3    2.55    1.2     4.0     8.0    Q3
+    TLV3202AIDGKR    VSSOP  DGK    8    2500    330.0     12.4     5.3     3.4     1.4     8.0    12.0    Q1
+    TLV3202AIDRG4     SOIC    D      8    2500    330.0     12.4     6.4     5.2     2.1     8.0    12.0    Q1
+
+
+
+
+
+                                                  Pack Materials-Page 1
+=== PDF PAGE 26 ===
+                         PACKAGE MATERIALS INFORMATION
+
+
+www.ti.com                                                                                                                        7-Nov-2026
+
+
+ TAPE AND REEL BOX DIMENSIONS
+
+
+
+
+
+                                                                                                   Width (mm)     H
+
+
+
+
+
+     W             L
+
+
+
+
+
+*All dimensions are nominal
+         Device          Package Type  Package Drawing  Pins   SPQ    Length (mm)  Width (mm)   Height (mm)
+    TLV3201AIDBVR         SOT-23         DBV         5     3000        210.0         185.0          35.0
+    TLV3201AIDBVT         SOT-23         DBV         5      250        210.0         185.0          35.0
+    TLV3201AIDCKR         SC70         DCK         5     3000        208.0         191.0          35.0
+    TLV3201AIDCKR         SC70         DCK         5     3000        190.0         190.0          30.0
+    TLV3201AIDCKR         SC70         DCK         5     3000        210.0         185.0          35.0
+   TLV3201AIDCKRG4        SC70         DCK         5     3000        190.0         190.0          30.0
+    TLV3201AIDCKT         SC70         DCK         5      250        190.0         190.0          30.0
+    TLV3201AIDCKT         SC70         DCK         5      250        210.0         185.0          35.0
+    TLV3202AIDGKR       VSSOP        DGK         8     2500        364.0         364.0          27.0
+    TLV3202AIDRG4         SOIC          D          8     2500        353.0         353.0          32.0
+
+
+
+
+
+                                                  Pack Materials-Page 2
+=== PDF PAGE 27 ===
+                         PACKAGE MATERIALS INFORMATION
+
+
+www.ti.com                                                                                                                        7-Nov-2026
+
+TUBE
+
+   T - Tube
+      height                           L - Tube length
+
+
+      W - Tube
+              width
+
+
+     B - Alignment groove width
+
+
+*All dimensions are nominal
+         Device         Package Name  Package Type   Pins     SPQ    L (mm)  W (mm)   T (µm)    B (mm)
+      TLV3202AID          D          SOIC        8        50       507        8       3940        4.32
+      TLV3202AID          D          SOIC        8        50       506.6       8       3940        4.32
+     TLV3202AID.B          D          SOIC        8        50       506.6       8       3940        4.32
+     TLV3202AID.B          D          SOIC        8        50       507        8       3940        4.32
+    TLV3202AIDGK        DGK       VSSOP        8        80       330       6.55      500         2.88
+    TLV3202AIDGK.B        DGK       VSSOP        8        80       330       6.55      500         2.88
+
+
+
+
+
+                                                  Pack Materials-Page 3
+=== PDF PAGE 28 ===
+                                 PACKAGE OUTLINE
+DBV0005A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           SCALE 4.000           SOT-23 - 1.45 mm max height
+                                                                        SMALL OUTLINE TRANSISTOR
+
+
+                                           3.0                                         C
+                                           2.6
+                                                                                                       0.1 C                                        1.75                                         B             A                                        1.45
+            PIN 1
+     INDEX AREA
+
+                   1                                  5
+
+          2X 0.95                                                 (0.1)
+                                                                          3.05
+                                                                          2.75
+        1.9                                                            1.9
+                   2
+                                                                    (0.15)
+
+
+
+                                                      4
+                     3              0.5        5X              0.3
+                                                                                                                   0.15
+               0.2   C A B                          NOTE 5     4X 0 -15               (1.1)           0.00 TYP
+                                                                                                     1.45
+                                                                                                     0.90
+                                              4X 4 -15
+
+
+          0.25
+ GAGE PLANE                                                       0.22                                                        TYP                                                                     0.08
+
+
+   8    TYP                        0.6   0                           TYP        SEATING PLANE                                  0.3
+
+
+
+
+
+                                                                                                    4214839/K  08/2024
+NOTES:
+
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+  per ASME Y14.5M.
+2. This drawing is subject to change without notice.
+3. Refernce JEDEC MO-178.
+4. Body dimensions do not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not
+  exceed 0.25 mm per side.
+5. Support pin may differ or may not be present.
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 29 ===
+                             EXAMPLE BOARD LAYOUT
+DBV0005A                                 SOT-23 - 1.45 mm max height
+                                                                        SMALL OUTLINE TRANSISTOR
+
+
+
+
+
+                                             PKG
+                                       5X (1.1)
+                                      1
+                                                                             5
+                           5X (0.6)
+
+
+                                                          SYMM
+                                                                                                                    (1.9)
+                                       2
+                        2X (0.95)
+
+                                       3                                     4
+
+                             (R0.05) TYP                             (2.6)
+
+                             LAND PATTERN EXAMPLE
+                                      EXPOSED METAL SHOWN
+                                                  SCALE:15X
+
+
+
+
+
+                                                                         SOLDER MASK             SOLDER MASK                           METAL UNDER                                   METAL                                   OPENING             OPENING                              SOLDER MASK
+
+
+      EXPOSED METAL                         EXPOSED METAL
+
+                                       0.07 MAX                                          0.07 MIN
+                          ARROUND                           ARROUND
+
+                     NON SOLDER MASK                        SOLDER MASK
+                             DEFINED                                DEFINED
+                           (PREFERRED)
+
+                              SOLDER MASK DETAILS
+
+
+
+
+                                                                                                    4214839/K  08/2024
+NOTES: (continued)
+
+6. Publication IPC-7351 may have alternate designs.
+7. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 30 ===
+                            EXAMPLE STENCIL DESIGN
+DBV0005A                                 SOT-23 - 1.45 mm max height
+                                                                        SMALL OUTLINE TRANSISTOR
+
+
+
+
+
+                                           PKG
+                                     5X (1.1)
+                                     1
+                                                                           5
+                          5X (0.6)
+
+
+                                                         SYMM
+                                     2                                                              (1.9)
+                             2X(0.95)
+
+                                     3                                     4
+
+                            (R0.05) TYP                                                                          (2.6)
+
+                           SOLDER PASTE EXAMPLE
+                                  BASED ON 0.125 mm THICK STENCIL
+                                                 SCALE:15X
+
+
+
+
+
+                                                                                                     4214839/K  08/2024
+NOTES: (continued)
+
+8. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+   design recommendations.
+9. Board assembly site may have different recommendations for stencil design.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 31 ===
+                                 PACKAGE OUTLINE
+DGK0008A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            SCALE 4.000             VSSOP - 1.1 mm max height
+                                                                           SMALL OUTLINE PACKAGE
+
+
+
+
+
+                                                                       C
+                                         5.05                                  TYP        A                             4.75                                                                                                         0.1 C
+                                        PIN 1 INDEX AREA                                                                                            SEATING
+                                                                                        PLANE
+                                                                6X 0.65                                                                8
+              1
+
+
+                                                                  2X
+          3.1                                                                                   1.95          2.9
+     NOTE 3
+
+
+              4
+                                                               5                                                                                     0.38                                                                 8X                                                                                     0.25
+                                              3.1                                        0.13   C A B               B                                              2.9
+                             NOTE 4
+
+
+
+
+
+                                                                                0.23
+                                                                                0.13
+
+
+
+                             SEE DETAIL A
+                                                                                         0.25
+                                                            GAGE PLANE
+
+                                                                                                                              1.1 MAX
+
+
+
+                                                                                                                          0.15                                                                                                   0.7                                                                  0 -8                                           0.05                                                                                                   0.4                                                                                                                                                                              A 20
+                                                                      DETAIL A
+                                                                                       TYPICAL
+
+                                                                                                    4214862/A  04/2023
+                                                                    PowerPAD is a trademark of Texas Instruments.NOTES:
+
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+  per ASME Y14.5M.
+2. This drawing is subject to change without notice.
+3. This dimension does not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not
+  exceed 0.15 mm per side.
+4. This dimension does not include interlead flash. Interlead flash shall not exceed 0.25 mm per side.
+5. Reference JEDEC registration MO-187.
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 32 ===
+                             EXAMPLE BOARD LAYOUT
+                                                                                             TM VSSOP - 1.1 mm max heightDGK0008A
+                                                                          SMALL OUTLINE PACKAGE
+
+
+
+
+
+                                        SYMM
+                             8X (1.4)                                                              (R0.05) TYP
+
+
+               8X (0.45)  1                                                          8
+
+
+                                                                 SYMM
+
+
+                 6X (0.65)
+                                                                                     5
+                          4
+
+
+                                                                        SEE DETAILS
+
+                                                                         (4.4)
+                             LAND PATTERN EXAMPLE
+                                     EXPOSED METAL SHOWN
+                                                 SCALE: 15X
+
+
+
+
+            SOLDER MASK            METAL            METAL UNDER          SOLDER MASK                 OPENING                             SOLDER MASK           OPENING
+
+
+       EXPOSED METAL                                                          EXPOSED METAL
+
+                                    0.05 MAX                                               0.05 MIN
+                              ALL AROUND                                   ALL AROUND
+                     NON-SOLDER MASK                            SOLDER MASK
+                           DEFINED                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    15.000                        DEFINED
+                         (PREFERRED)    SOLDER MASK DETAILS
+
+
+
+                                                                                                    4214862/A  04/2023
+NOTES: (continued)
+
+ 6. Publication IPC-7351 may have alternate designs.
+ 7. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+ 8. Vias are optional depending on application, refer to device data sheet. If any vias are implemented, refer to their locations shown
+   on this view. It is recommended that vias under paste be filled, plugged or tented.
+ 9. Size of metal pad may vary due to creepage requirement.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 33 ===
+                            EXAMPLE STENCIL DESIGN
+                                                                                             TM VSSOP - 1.1 mm max heightDGK0008A
+                                                                          SMALL OUTLINE PACKAGE
+
+
+
+
+
+                                         SYMM
+
+                              8X (1.4)                                                              (R0.05) TYP
+
+                8X (0.45)  1                                                         8
+
+
+                                                                  SYMM
+
+
+                  6X (0.65)
+                                                                                      5
+                            4
+
+
+
+                                                                           (4.4)
+
+
+                            SOLDER PASTE EXAMPLE
+                                                  SCALE: 15X
+
+
+
+
+
+                                                                                                    4214862/A  04/2023
+NOTES: (continued)
+
+11. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+   design recommendations.
+12. Board assembly site may have different recommendations for stencil design.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 34 ===
+                                 PACKAGE OUTLINE
+DCK0005A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         SCALE 5.600               SOT - 1.1 max height
+                                                                        SMALL OUTLINE TRANSISTOR
+
+
+
+
+
+                                                                         C
+                                                2.4
+                                                1.8                                                               0.1 C
+                                                1.4                                            B              A                       1.1 MAX                   PIN 1                    1.1
+           INDEX AREA
+
+                          1                            5
+
+                                             NOTE 4                2X 0.65
+                                                                               2.15                 1.3                                             (0.15)         1.3                          2                                                1.85
+                                                                          (0.1)
+
+                                                        4
+                            3                     0.33              5X                     0.15
+            0.10.1   CC AA BB                                                                  4X 0 -12               (0.9)            0.1 TYP            NOTENOTE 55                                                                                                     0.0
+
+
+
+
+
+                                                 4X 4 -15
+
+
+
+                  0.15
+                                                                        0.22      GAGE PLANE                                        TYP                                                                        0.08
+
+
+                                         0.46          8                                  TYP           TYP                                         0.26          0                                             SEATING PLANE
+
+
+
+
+
+                                                                                                  4214834/G  11/2024
+NOTES:
+
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+  per ASME Y14.5M.
+2. This drawing is subject to change without notice.
+3. Refernce JEDEC MO-203.
+4. Support pin may differ or may not be present.
+5. Lead width does not comply with JEDEC.
+6. Body dimensions do not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not exceed
+  0.25mm per side
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 35 ===
+                             EXAMPLE BOARD LAYOUT
+DCK0005A                                  SOT - 1.1 max height
+                                                                        SMALL OUTLINE TRANSISTOR
+
+
+
+
+
+                                             PKG                                      5X (0.95)
+                                      1
+                                                                             5
+                           5X (0.4)
+
+                                                          SYMM
+                                                                                                                    (1.3)                                      2
+                       2X (0.65)
+
+                                      3                                      4
+
+                             (R0.05) TYP                             (2.2)
+
+                             LAND PATTERN EXAMPLE
+                                       EXPOSED METAL SHOWN
+                                                   SCALE:18X
+
+
+
+
+
+                                                                         SOLDER MASK             SOLDER MASK                           METAL UNDER                                   METAL                                   OPENING             OPENING                              SOLDER MASK
+
+
+        EXPOSED METAL                        EXPOSED METAL
+
+                                       0.07 MAX                                          0.07 MIN
+                          ARROUND                           ARROUND
+
+                     NON SOLDER MASK                        SOLDER MASK
+                             DEFINED                                DEFINED
+                           (PREFERRED)
+                              SOLDER MASK DETAILS
+
+
+
+
+
+                                                                                                  4214834/G  11/2024
+NOTES: (continued)
+
+7. Publication IPC-7351 may have alternate designs.
+8. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 36 ===
+                            EXAMPLE STENCIL DESIGN
+DCK0005A                                  SOT - 1.1 max height
+                                                                        SMALL OUTLINE TRANSISTOR
+
+
+
+
+
+                                           PKG
+                                     5X (0.95)
+                                     1
+                                                                            5
+                          5X (0.4)
+
+                                                         SYMM
+                                                                                                                  (1.3)
+                                     2
+                             2X(0.65)
+
+                                     3                                      4
+
+                           (R0.05) TYP                                                                          (2.2)
+
+                           SOLDER PASTE EXAMPLE
+                                   BASED ON 0.125 THICK STENCIL
+                                                 SCALE:18X
+
+
+
+
+
+                                                                                                  4214834/G  11/2024
+NOTES: (continued)
+
+9. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+   design recommendations.
+10. Board assembly site may have different recommendations for stencil design.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 37 ===
+                                 PACKAGE OUTLINE
+D0008A                                                                                                                                                                                                                                                                                 SCALE 2.800            SOIC - 1.75 mm max height
+                                                                 SMALL OUTLINE INTEGRATED CIRCUIT
+
+
+                                                                           C
+
+                                                                         SEATING PLANE
+                                  .228-.244 TYP
+                                     [5.80-6.19]                                                                                                    .004 [0.1] C
+       A                                    PIN 1 ID AREA
+                                                        6X .050
+                                                                                       [1.27]
+                                                       8
+              1
+
+
+
+                                                         2X     .189-.197
+      [4.81-5.00]                                                       .150
+    NOTE 3                                                                  [3.81]
+
+
+                                                                      4X (0 -15 )
+
+              4
+                                                       5
+                                                        8X .012-.020
+              B               .150-.157                                [0.31-0.51]                                                                                                           .069 MAX
+                                        [3.81-3.98]                        .010 [0.25]   C A B                     [1.75]
+                          NOTE 4
+
+
+
+
+
+                                                                          .005-.010 TYP
+                                                                               [0.13-0.25]
+
+
+                            4X (0 -15 )
+
+             SEE DETAIL A
+                                                                   .010
+                                                                              [0.25]
+
+
+
+                                                                                                                   .004-.010                                                        0 - 8                                                                                                                            [0.11-0.25]
+                                                                        .016-.050
+                                                                             [0.41-1.27]              DETAIL A
+                                                                                                (.041)        TYPICAL
+                                                                                                    [1.04]
+
+                                                                                                   4214825/C  02/2019
+NOTES:
+
+1. Linear dimensions are in inches [millimeters]. Dimensions in parenthesis are for reference only. Controlling dimensions are in inches.
+  Dimensioning and tolerancing per ASME Y14.5M.
+2. This drawing is subject to change without notice.
+3. This dimension does not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not
+  exceed .006 [0.15] per side.
+4. This dimension does not include interlead flash.
+5. Reference JEDEC registration MS-012, variation AA.
+
+
+
+
+                                                    www.ti.com
+=== PDF PAGE 38 ===
+                             EXAMPLE BOARD LAYOUT
+D0008A                                    SOIC - 1.75 mm max height
+                                                                 SMALL OUTLINE INTEGRATED CIRCUIT
+
+
+
+
+
+                         8X (.061  )
+                                        [1.55]
+                                        SYMM               SEE
+                                                                       DETAILS
+                                    1
+                                                                          8
+
+                       8X (.024)
+                                        [0.6]                                  SYMM
+
+
+
+                                                                                        (R.002  ) TYP
+                                                                                                            [0.05]                                                                          5
+                                     4
+                   6X (.050  )
+                                 [1.27]
+                                                                    (.213)
+                                                                             [5.4]
+
+                            LAND PATTERN EXAMPLE
+                                    EXPOSED METAL SHOWN
+                                                SCALE:8X
+
+
+
+
+
+                                SOLDER MASK      SOLDER MASK
+               METAL             OPENING              OPENING               METAL UNDER                                                                         SOLDER MASK
+
+
+        EXPOSED
+           METAL                                EXPOSED
+                                                   METAL
+                                 .0028 MAX                                              .0028 MIN
+                                       [0.07]                                                             [0.07]
+                            ALL AROUND                                    ALL AROUND
+
+                  NON SOLDER MASK                            SOLDER MASK
+                         DEFINED                                      DEFINED
+
+                              SOLDER MASK DETAILS
+
+
+
+
+                                                                                                   4214825/C  02/2019
+
+NOTES: (continued)
+
+6. Publication IPC-7351 may have alternate designs.
+7. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+
+
+
+
+
+                                                    www.ti.com
+=== PDF PAGE 39 ===
+                            EXAMPLE STENCIL DESIGN
+D0008A                                    SOIC - 1.75 mm max height
+                                                                 SMALL OUTLINE INTEGRATED CIRCUIT
+
+
+
+
+
+                           8X (.061  )
+                                            [1.55]              SYMM
+
+                                        1
+                                                                             8
+
+                         8X (.024)
+                                            [0.6]                                                            SYMM
+
+
+
+                                                                                            (R.002  ) TYP
+                                                                                                                [0.05]                                                                             5
+                                        4
+                      6X (.050  )
+                                     [1.27]
+                                                                         (.213)
+                                                                                  [5.4]
+
+                              SOLDER PASTE EXAMPLE
+                                BASED ON .005 INCH [0.125 MM] THICK STENCIL
+                                                   SCALE:8X
+
+
+
+
+
+                                                                                                   4214825/C  02/2019
+
+NOTES: (continued)
+
+8. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+  design recommendations.
+9. Board assembly site may have different recommendations for stencil design.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 40 ===
+                 IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATASHEETS), DESIGN RESOURCES (INCLUDING REFERENCE
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS”
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable
+standards, and any other safety, security, regulatory or other requirements.
+
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you fully
+indemnify TI and its representatives against any claims, damages, costs, losses, and liabilities arising out of your use of these resources.
+
+TI’s products are provided subject to TI’s Terms of Sale, TI’s General Quality Guidelines, or other applicable terms available either on
+ti.com or provided in conjunction with such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable
+warranties or warranty disclaimers for TI products. Unless TI explicitly designates a product as custom or customer-specified, TI products
+are standard, catalog, general purpose devices.
+
+TI objects to and rejects any additional or different terms you may propose.
+
+IMPORTANT NOTICE
+
+                                         Copyright © 2026, Texas Instruments Incorporated
+
+                                                       Last updated 10/2025

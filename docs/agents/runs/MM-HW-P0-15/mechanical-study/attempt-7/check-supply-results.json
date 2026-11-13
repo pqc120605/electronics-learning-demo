@@ -1,0 +1,47 @@
+{
+  "scope": "Conditional rail energy bound. No selected components, relay timing or hardware qualification.",
+  "max_ingress_current_a_from_guard_model": 7.75610047133226e-05,
+  "allocated_max_guard_voltage_drop_v": 7.2,
+  "allocated_max_driving_voltage_per_unmonitored_source_loop_v": 7.2,
+  "max_ingress_power_w_if_all_supply_loops_cross_guards": 0.0005584392339359227,
+  "rail_valid_min_allocation_v": 2.7,
+  "total_usable_stored_energy_allocation_j": 0.00033275,
+  "cases": [
+    {
+      "bleeder_nominal_ohm": 10000,
+      "direct_injection_dc_ceiling_v": 0.7833661476045582,
+      "power_bounded_dc_ceiling_v": 2.3749181591694524,
+      "max_continuous_time_at_or_above_threshold_s": 2.0371250283436546,
+      "two_bleeders_current_at_5v_a": 0.00101010101010101,
+      "steady_intended_loop_current_floor_a": 2.268652003915267e-05,
+      "conditional_return_detection_margin_a": -5.487448467416993e-05
+    },
+    {
+      "bleeder_nominal_ohm": 4700,
+      "direct_injection_dc_ceiling_v": 0.3681820893741424,
+      "power_bounded_dc_ceiling_v": 1.6281618603486034,
+      "max_continuous_time_at_or_above_threshold_s": 0.34049018348413235,
+      "two_bleeders_current_at_5v_a": 0.002149151085321298,
+      "steady_intended_loop_current_floor_a": 0.00013573160114300773,
+      "conditional_return_detection_margin_a": 5.8170596429685134e-05
+    }
+  ],
+  "counterexample": {
+    "description": "An alternate return that bypasses guards can sustain the rail despite the bleed.",
+    "bleeder_only_sustain_current_at_2p7v_a": 0.0005687802822835475
+  },
+  "wire_budget": {
+    "two_main": 2,
+    "two_monitor_supplies_and_returns": 4,
+    "two_floating_status_loops": 4,
+    "functional_lower_bound": 10
+  },
+  "limits": [
+    "Current times resistance applies only when current is directly bounded at the bleeder node.",
+    "Power bound includes every independently energized path and assumes every alternate loop crosses accounted guards.",
+    "The energy limit covers all reservoirs able to sustain this rail, including upstream and shared capacitors.",
+    "The return-detection comparison is steady-state only. It assumes every unmonitored supply loop fits the same power cap and the monitor measures the intended loop current without a bypass.",
+    "Continuous above-threshold interval is not a total trip deadline or proof against later re-arming.",
+    "Rail-invalid must force local permit off with a separately verified circuit."
+  ]
+}

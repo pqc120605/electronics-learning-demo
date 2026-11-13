@@ -1,0 +1,164 @@
+{
+  "scope": "Ideal path contract for high-current routes. Contains no component or independent-fault qualification.",
+  "cases": [
+    {
+      "case": "fresh authorized RUN",
+      "stages": [
+        "ON",
+        "ON"
+      ],
+      "main_power_path": true,
+      "reverse_power_path": true,
+      "unbounded_auxiliary_path": false
+    },
+    {
+      "case": "weak cell, both trip",
+      "stages": [
+        "OFF",
+        "OFF"
+      ],
+      "main_power_path": false,
+      "reverse_power_path": false,
+      "unbounded_auxiliary_path": false
+    },
+    {
+      "case": "weak cell, A falsely healthy",
+      "stages": [
+        "ON",
+        "OFF"
+      ],
+      "main_power_path": false,
+      "reverse_power_path": false,
+      "unbounded_auxiliary_path": false
+    },
+    {
+      "case": "weak cell, B falsely healthy",
+      "stages": [
+        "OFF",
+        "ON"
+      ],
+      "main_power_path": false,
+      "reverse_power_path": false,
+      "unbounded_auxiliary_path": false
+    },
+    {
+      "case": "weak cell, A body diode reverse only",
+      "stages": [
+        "REV",
+        "OFF"
+      ],
+      "main_power_path": false,
+      "reverse_power_path": false,
+      "unbounded_auxiliary_path": false
+    },
+    {
+      "case": "weak cell, B body diode reverse only",
+      "stages": [
+        "OFF",
+        "REV"
+      ],
+      "main_power_path": false,
+      "reverse_power_path": false,
+      "unbounded_auxiliary_path": false
+    },
+    {
+      "case": "negative, shared bias makes both healthy",
+      "stages": [
+        "ON",
+        "ON"
+      ],
+      "main_power_path": true,
+      "reverse_power_path": true,
+      "unbounded_auxiliary_path": false
+    },
+    {
+      "case": "negative, bypass around both",
+      "stages": [
+        "OFF",
+        "OFF"
+      ],
+      "main_power_path": true,
+      "reverse_power_path": true,
+      "unbounded_auxiliary_path": false
+    },
+    {
+      "case": "negative, independent auxiliary left on",
+      "stages": [
+        "OFF",
+        "OFF"
+      ],
+      "main_power_path": false,
+      "reverse_power_path": false,
+      "unbounded_auxiliary_path": true
+    }
+  ],
+  "cross_gated_coil_cases": [
+    {
+      "case": "RUN",
+      "load_connected": true,
+      "powered_coils": {
+        "A": true,
+        "B": true
+      }
+    },
+    {
+      "case": "A false healthy",
+      "load_connected": false,
+      "powered_coils": {
+        "A": false,
+        "B": false
+      }
+    },
+    {
+      "case": "B false healthy",
+      "load_connected": false,
+      "powered_coils": {
+        "A": false,
+        "B": false
+      }
+    },
+    {
+      "case": "A contact welded",
+      "load_connected": false,
+      "powered_coils": {
+        "A": false,
+        "B": false
+      }
+    },
+    {
+      "case": "one post-gate coil branch bridged to pack",
+      "load_connected": false,
+      "powered_coils": {
+        "A": true,
+        "B": false
+      }
+    },
+    {
+      "case": "negative, shared coil feed bypass",
+      "load_connected": true,
+      "powered_coils": {
+        "A": true,
+        "B": true
+      }
+    }
+  ],
+  "opposite_polarity_interface_trial": {
+    "A_valid_low_max_v": 0.4,
+    "B_valid_high_min_v": 1.4,
+    "ground_difference_allocation_v": 0.2,
+    "same_voltage_cannot_grant_both_if": "Vhigh_min - Vlow_max > max(GND_A - GND_B)",
+    "loss_of_reference_counterexample": {
+      "tied_outputs_v": 1.4,
+      "ground_a_v": 1.1,
+      "ground_b_v": 0.0
+    }
+  },
+  "implementation_obligations": [
+    "Each UV channel has separate tap routing, reference, valid supply, latch and direct authority over one series stage",
+    "A healthy stage can block in both directions at any relevant input and output voltage",
+    "Lost or partial bias, backfeed, and rail ramp cannot maintain stage enable",
+    "AON, coil/gate driver and monitor supply currents have separate OFF bounds",
+    "Cell-to-cell and ground/connector paths are independently inventoried. The passive-sense current is not zero.",
+    "A local fault must not drive both stages ON or bridge across both in the physical implementation"
+  ]
+}

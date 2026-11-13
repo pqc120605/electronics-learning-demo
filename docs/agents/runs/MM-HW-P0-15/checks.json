@@ -1,0 +1,37 @@
+{
+  "kind": "documentary checks, not hardware validation",
+  "old_snapshot_files": 37,
+  "old_snapshot_unchanged": true,
+  "pinned_new_sources": 9,
+  "source_failures": [
+    {
+      "path": "docs/research/downloads/p0-15/amphenol-10171746.pdf",
+      "reason": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "conditional_arithmetic": {
+    "detector_threshold_min_V_25C": 1.088,
+    "detector_threshold_max_V_25C": 1.112,
+    "conditional_threshold_min_V_full_T": 1.0615450000000002,
+    "conditional_threshold_max_V_full_T": 1.138455,
+    "release_min_V_25C": 1.13152,
+    "release_max_V_25C": 1.1787200000000002,
+    "conditional_detector_uAh_per_day_each_at_0_9uA": 21.6,
+    "conditional_detector_mAh_per_30_days_each_at_0_9uA": 0.648,
+    "M4_proposed_probe_force_N": 0.185,
+    "M4_proposed_remaining_engagement_mm": 2.0,
+    "M4_nominal_pawl_stress_MPa": 3.90625,
+    "conditional_generic_exposed_shell_margin_mm": 0.10999999999999943,
+    "conditional_controlled_collar_margin_mm": 6.1,
+    "gpio_role_conductors_if_all_connected": 16,
+    "bridge_conductors_without_aux": 19
+  },
+  "r12_unchanged": true,
+  "conditional_budget": {
+    "VND_limit": 1000000,
+    "one_specific_out_of_stock_charger_bundle_VND": 800000,
+    "remaining_if_that_bundle_were_selected_VND": 200000,
+    "meaning": "Not an approved BOM or a claim that every charger costs this amount"
+  },
+  "hardware": "NOT_RUN"
+}

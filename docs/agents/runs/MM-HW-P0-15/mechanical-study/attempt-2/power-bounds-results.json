@@ -1,0 +1,40 @@
+{
+  "scope": "Arithmetic under explicit conditional assumptions only; no accepted threshold, timing or hardware topology",
+  "assumptions": {
+    "guard_Ohm_each": 499,
+    "guard_count_per_line": 2,
+    "guard_tolerance": 0.001,
+    "test_R_Ohm": 100000,
+    "test_R_tolerance": 0.001,
+    "INA_internal_nominal_Ohm": 40000,
+    "INA_absolute_R_tolerance": 0.2,
+    "test_rail_V": [
+      4.75,
+      5.25
+    ],
+    "node_C_upper_F": 1e-09,
+    "healthy_source_upper_Ohm_each": 2000,
+    "reference": "0V for these formulas; not portable unchanged to midrail"
+  },
+  "calculated": {
+    "test_current_upper_uA_at_abs_delta5_4V": 54.05405405405406,
+    "guard_one_resistor_shorted_upper_mA_at_abs_delta5_4V": 10.832475762335482,
+    "open_H_unclipped_delta_lower_V": 1.8525289457647776,
+    "open_L_unclipped_delta_lower_V": 1.1506434519303559,
+    "healthy_pair_delta_upper_V_if_each_source2kOhm": 0.20608439646712462,
+    "passive_tau_upper_us_if_C_le1nF": 49.00356960734318,
+    "passive_settling_to0_1percent_us": 338.5046666440935,
+    "stuck_sense_nominal_uA_at3_6V": 44.44554186523124,
+    "stuck_sense_nominal_mAh_per_day": 1.0666930047655496
+  },
+  "not_proven": [
+    "clipped output separation",
+    "cell reverse",
+    "DCIR guarantee",
+    "settling MAX of amplifier/comparator",
+    "all-temperature leakage",
+    "single stuck-on containment",
+    "total monitor current",
+    "physical fault timing"
+  ]
+}

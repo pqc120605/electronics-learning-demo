@@ -1,0 +1,77 @@
+{
+  "/models/adafruit-feather-esp32-s3-5323.glb": {
+    "sha256": "b655f774699e598c7f9102ecb8832b73eb503a0ea5ed0b6e118ac1f9102dda36",
+    "bytes": 1575952,
+    "version": "b655f774699e"
+  },
+  "/models/adafruit-feather-esp32-s3-tft-5483.glb": {
+    "sha256": "f4136a50fb5621bbc5546fbc1c32adaf65f6de24acb23dea68db6b461200184b",
+    "bytes": 1407296,
+    "version": "f4136a50fb56"
+  },
+  "/models/adafruit-qtpy-esp32-c3-5405.glb": {
+    "sha256": "75030f7cdca39c06a58baed253b8b23e146a20f6797f224e45d2ab0107ced974",
+    "bytes": 762424,
+    "version": "75030f7cdca3"
+  },
+  "/models/arduino-mega-2560-r3.glb": {
+    "sha256": "7b1211ca97181e62b33978f0cc3d121b3bd338f885a8fb25dd6b931ff3577745",
+    "bytes": 9733596,
+    "version": "7b1211ca9718"
+  },
+  "/models/arduino-nano-classic.glb": {
+    "sha256": "9c424d96e1d0677cd3c6e7b0e615d0da0f94dd1d455f35677d45e7490e87c798",
+    "bytes": 3475000,
+    "version": "9c424d96e1d0"
+  },
+  "/models/arduino-uno-r3.glb": {
+    "sha256": "b499c0764e77f8e6ae3915243db4e672eb507d10ea56227b1481f42e231dc6bb",
+    "bytes": 6337136,
+    "version": "b499c0764e77"
+  },
+  "/models/esp32-devkit-v1-30pin.glb": {
+    "sha256": "b3d0a6b0be0900f4ec6dc2e23ec2bd3a180ab78c359ade9a52b9604723c82f21",
+    "bytes": 1425076,
+    "version": "b3d0a6b0be09"
+  },
+  "/models/esp32-led-assembly.glb": {
+    "sha256": "129265213475c1ad1e49373012ec90d493cd75bc83036470d16457a3a7f9c3d2",
+    "bytes": 1675712,
+    "version": "129265213475"
+  },
+  "/models/esp32-s3-devkitc-1-v1.1.glb": {
+    "sha256": "abf7b557d1356ae5d545f5529203eed80f5f5469d5c2f864a7727db3d314bb85",
+    "bytes": 8226076,
+    "version": "abf7b557d135"
+  },
+  "/models/raspberry-pi-pico-2-h.glb": {
+    "sha256": "b3ce57f26b5267be6d64ff899846b8c6db2bccb4c5186434317870e48e94395a",
+    "bytes": 3964776,
+    "version": "b3ce57f26b52"
+  },
+  "/models/raspberry-pi-pico-2.glb": {
+    "sha256": "38ba3e6ddefb82bc71a5cf7d610f799876bfc866022ee02e8a0ee44788992846",
+    "bytes": 4369996,
+    "version": "38ba3e6ddefb"
+  },
+  "/models/raspberry-pi-pico-w.glb": {
+    "sha256": "28757a63380a94c2a9492f8c12fb9a2663d2d0db3b8d441403c2aafc477f7acb",
+    "bytes": 1440680,
+    "version": "28757a63380a"
+  },
+  "/models/raspberry-pi-pico.glb": {
+    "sha256": "aa1b6f4bb7b95187569451feb6f5d1f0ff4eb2b5ab42791d68a25c9e320f2671",
+    "bytes": 449196,
+    "version": "aa1b6f4bb7b9"
+  },
+  "/models/seeed-xiao-esp32-c3.glb": {
+    "sha256": "1c9ddcc5d43ab72af3bf44808cde942365c5e863a3c63c566e6df0c3ac42e9ab",
+    "bytes": 4920452,
+    "version": "1c9ddcc5d43a"
+  },
+  "/models/seeed-xiao-esp32-s3.glb": {
+    "sha256": "866adb2f4068574976bd1b5f7763a07e1d800bbc2e489a3efdfe473dbf5424d2",
+    "bytes": 466300,
+    "version": "866adb2f4068"
+  }
+}

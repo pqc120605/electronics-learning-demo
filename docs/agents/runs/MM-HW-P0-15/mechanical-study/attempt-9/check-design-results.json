@@ -1,0 +1,54 @@
+{
+  "scope": "Conditional component candidate arithmetic and directed return-path contract, no physical implementation",
+  "alternative_current_cap_allocation_a": 8.25610047133226e-05,
+  "valid_current_min_a": 0.0004862192775702249,
+  "nominal_thresholds_v": [
+    0.246875,
+    1.559375
+  ],
+  "decision_margins_after_allocated_error_v": [
+    0.014394811616252015,
+    0.027291114544417197,
+    0.11862500000000023,
+    0.02487499999999978
+  ],
+  "linear_output_headroom_at_7p5mA_v": 0.09400000000000033,
+  "loop_shunt_drop_upper_v": 0.09789,
+  "supply_after_shunt_drop_from_4p75_v": 4.65211,
+  "rail_valid_time_upper_s": 0.3535126730928869,
+  "dwell_margin_after_allocated_latency_s": 0.0064873269071131015,
+  "return_paths": [
+    {
+      "case": "normal A return",
+      "low_impedance_return_reaches_star": true,
+      "low_impedance_return_can_reach_A_shunt": true
+    },
+    {
+      "case": "open A return",
+      "low_impedance_return_reaches_star": false,
+      "low_impedance_return_can_reach_A_shunt": false
+    },
+    {
+      "case": "status or shield tied to source-side star",
+      "low_impedance_return_reaches_star": true,
+      "low_impedance_return_can_reach_A_shunt": false
+    },
+    {
+      "case": "return transfers to B pre-shunt",
+      "low_impedance_return_reaches_star": true,
+      "low_impedance_return_can_reach_A_shunt": false
+    },
+    {
+      "case": "negative, shield rejoins A pre-shunt",
+      "low_impedance_return_reaches_star": true,
+      "low_impedance_return_can_reach_A_shunt": true
+    }
+  ],
+  "limits": [
+    "Edges assume current return direction and source-side star without a second upstream injection.",
+    "A shunt only sees current through its own conductor. A path to star can still sustain current and must be counted.",
+    "Caps, clamp, shield, test pads and optical breakdown must be inventoried in actual layout.",
+    "Allocation 5uA for unguarded paths and 40ms latency need qualified evidence.",
+    "Component ratings, transient recovery, load budget and physical fault separation remain open."
+  ]
+}

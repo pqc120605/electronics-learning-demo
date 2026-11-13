@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.ablic.com/en/doc/datasheet/voltage_detector/S1009_E.pdf",
+    "path": "docs/research/downloads/p0-15/ablic-s1009.pdf",
+    "date": "2026-11-10",
+    "expected_format": "pdf",
+    "content_type": "application/pdf",
+    "status": "PINNED",
+    "sha256": "23b02c10fd1342807efb735e1db0569dfb818dac1074c769504ad37bae13c3b1",
+    "bytes": 669311
+  },
+  {
+    "url": "https://www.ti.com/lit/ds/symlink/lm66100.pdf",
+    "path": "docs/research/downloads/p0-15/ti-lm66100.pdf",
+    "date": "2026-11-10",
+    "expected_format": "pdf",
+    "content_type": "application/pdf",
+    "status": "PINNED",
+    "sha256": "83c17370a97b85ecebe20605da0b955d4ff6f9a474e9692b611a6685d7ad0f00",
+    "bytes": 2105188
+  },
+  {
+    "url": "https://suddendocs.samtec.com/productspecs/sfm-tfm.pdf",
+    "path": "docs/research/downloads/p0-15/samtec-sfm-tfm-productspec.pdf",
+    "date": "2026-11-10",
+    "expected_format": "pdf",
+    "content_type": "application/pdf",
+    "status": "PINNED",
+    "sha256": "5a37d9c4a1fe511011e24fb16190dedd1d4cd73e39377846aa477f1c3705ae84",
+    "bytes": 660065
+  },
+  {
+    "url": "https://suddendocs.samtec.com/prints/sfm-1xx-xx-xxx-d-xxx-x-xx-mkt.pdf",
+    "path": "docs/research/downloads/p0-15/samtec-sfm-drawing.pdf",
+    "date": "2026-11-10",
+    "expected_format": "pdf",
+    "content_type": "application/pdf",
+    "status": "PINNED",
+    "sha256": "b1e50a8c459289623b5991007ef65319fc21146099f6b13645f427e298e35ffe",
+    "bytes": 564151
+  },
+  {
+    "url": "https://suddendocs.samtec.com/prints/xfm%20mated%20document-mkt.pdf",
+    "path": "docs/research/downloads/p0-15/samtec-xfm-mated.pdf",
+    "date": "2026-11-10",
+    "expected_format": "pdf",
+    "content_type": "application/pdf",
+    "status": "PINNED",
+    "sha256": "3223a80cec477ee5531b86674ec3145e7637ec4adb5f53c89d59e89b1263005e",
+    "bytes": 908562
+  },
+  {
+    "url": "https://cdn.amphenol-cs.com/media/wysiwyg/files/drawing/10171746.pdf",
+    "path": "docs/research/downloads/p0-15/amphenol-10171746.pdf",
+    "date": "2026-11-10",
+    "expected_format": "pdf",
+    "status": "NOT_RUN",
+    "reason": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.usb.org/sites/default/files/USB%20Type-C%20Spec%20R2.0%20-%20August%202019.pdf",
+    "path": "docs/research/downloads/p0-15/usb-typec-r20-reference.pdf",
+    "date": "2026-11-10",
+    "expected_format": "pdf",
+    "content_type": "application/pdf",
+    "status": "PINNED",
+    "sha256": "87d15160bf8bd25129b27e0b7c5e261ed0b1806b3b0d3a7b5d8b1eb783dc9981",
+    "bytes": 10980886
+  }
+]

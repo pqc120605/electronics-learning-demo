@@ -1,0 +1,3584 @@
+
+--- PDF PAGE 1 ---
+100 NŸ
+(1%)
+6 x 100 NŸ
+(optional)
+2.9 V ± 5.5V
+Control Signals
+Auxiliary Power
+Power Switch
+Status Signals
+Type- C DFP
+Status Signals
+USB Type-C
+Connector
+VBUS
+IN1
+IN2
+EN
+CHG
+CHG_HI
+REF
+GND
+OUT
+FAULT
+LD_DET
+CC1
+CC2
+UFP
+POL
+AUDIO
+DEBUG
+Power Pad
+TPS25810
+AUX
+CC Power
+4.5 V ± 5.5V
+120PF
+6.8PF
+REF_RTN
+4.5 V ± 6.5V
+Bus Power
+Copyright © 2016, Texas Instruments Incorporated
+Copyright © 2016, Texas Instruments Incorporated
+Product
+Folder
+Order
+Now
+Technical
+Documents
+Tools &
+Software
+Support &
+Community
+An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,
+intellectual property matters and other important disclaimers. PRODUCTION DATA.
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+TPS25810 USB Type-C DFP Controller and Power Switch with Load Detection
+1
+(1)
+CC pins are IEC-61000-4-2 rated
+1
+Features
+1•
+USB Type-C Rev. 1.2 Compliant DFP Controller
+•
+Connector Attach/Detach Detection
+•
+STD/1.5-A/3-A Capability Advertisement on CC
+•
+Super Speed Polarity Determination
+•
+VBUS Application and Discharge
+•
+VCONN Application to Electronically Marked Cable
+•
+Audio and Debug Accessory Identification
+•
+0.7-µA (typ) IDDQ When Port Unattached
+•
+Three Input Supply Options
+–
+IN1: USB Charging Supply
+–
+IN2: VCONN Supply
+–
+AUX: Device Power Supply
+•
+Power Wake Supports Low Power in System
+Hibernate (S4) and OFF (S5) Power States
+•
+34-mΩ(typ) High-Side MOSFET
+•
+1.7/3.4-A ILimit (±7.1%) - Programmable
+•
+Port Power Management Enables Power
+Resource Optimization Across Multi-Ports
+•
+Package: 20-Pin WQFN (3 x 4) (1)
+•
+UL Listed – File No. E169910
+2
+Applications
+•
+USB Type C Host Port in Notebook for Sleep
+Charging
+•
+LCD Monitor/Docking Station and Charging
+Cradles
+•
+Type C USB Wall Chargers
+3
+Description
+The TPS25810 is a USB Type-C Downstream Facing
+Port (DFP) controller with an integrated 3-A rated
+USB power switch. The TPS25810 monitors the
+Type-C
+Configuration
+Channel
+(CC)
+lines
+to
+determine when an USB device is attached. If an
+Upstream Facing Port (UFP) device is attached, the
+TPS25810 applies power to VBUS and communicates
+the selectable VBUS current sourcing capability to the
+UFP via the passthrough CC line. If the UFP is
+attached using an electronically marked cable, the
+TPS25810 also applies VCONN power to the cable CC
+pin. The TPS25810 also identifies when Type-C
+audio or debug accessories are attached.
+The TPS25810 draws less than 0.7 uA (typ) when no
+device is attached. Additional system power saving is
+achievable in S4/S5 system power states by using
+the UFP output to disable the high power 5-V supply
+when no UFP is attached. In this mode the device is
+capable of running from an auxiliary supply (AUX)
+which can be a lower voltage supply (3.3 V), typically
+powering the system uC in low power states (S4/S5).
+The
+TPS25810
+34-mΩ
+power
+switch
+has
+two
+selectable fixed current limits that align with the Type-
+C current levels. The FAULT output signals when the
+switch is in an over current or over temperature
+condition.
+The
+LD_DET
+output
+controls
+power
+management to multiple high current Type-C ports in
+an environment where all ports cannot simultaneously
+provide high current (3 A).
+Device Information(1)
+PART NUMBER
+PACKAGE
+BODY SIZE (NOM)
+TPS25810
+WQFN (20)
+3.00 mm x 4.00 mm
+(1) For all available packages, see the orderable addendum at
+the end of the data sheet.
+Simplified Schematic
+
+--- PDF PAGE 2 ---
+2
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Table of Contents
+1
+Features.................................................................. 1
+2
+Applications ........................................................... 1
+3
+Description ............................................................. 1
+4
+Revision History..................................................... 2
+5
+Pin Configuration and Functions......................... 3
+6
+Specifications......................................................... 4
+6.1
+Absolute Maximum Ratings ...................................... 4
+6.2
+ESD Ratings ............................................................ 4
+6.3
+Recommended Operating Conditions....................... 4
+6.4
+Thermal Information.................................................. 5
+6.5
+Electrical Characteristics........................................... 5
+6.6
+Switching Characteristics.......................................... 7
+6.7
+Typical Characteristics.............................................. 9
+7
+Detailed Description ............................................ 11
+7.1
+Overview ................................................................. 11
+7.2
+Functional Block Diagram ....................................... 13
+7.3
+Feature Description................................................. 13
+7.4
+Device Functional Modes........................................ 21
+8
+Application and Implementation ........................ 22
+8.1
+Application Information............................................ 22
+8.2
+Typical Applications ................................................ 22
+9
+Power Supply Recommendations...................... 27
+10
+Layout................................................................... 28
+10.1
+Layout Guidelines ................................................. 28
+10.2
+Layout Example .................................................... 29
+11
+Device and Documentation Support ................. 30
+11.1
+Device Support .................................................... 30
+11.2
+Documentation Support ....................................... 30
+11.3
+Receiving Notification of Documentation Updates 30
+11.4
+Community Resources.......................................... 30
+11.5
+Trademarks........................................................... 30
+11.6
+Electrostatic Discharge Caution............................ 30
+11.7
+Glossary................................................................ 30
+12
+Mechanical, Packaging, and Orderable
+Information ........................................................... 30
+4
+Revision History
+Changes from Revision B (May 2016) to Revision C
+Page
+•
+Changed Feature From: USB Type-C Rev. 1.1 Compliant DFP Controller To: USB Type-C Rev. 1.2 Compliant DFP
+Controller ............................................................................................................................................................................... 1
+•
+Changed text From: Type-C spec revision 1.1 To: Type-C spec revision 1.2 in the Overview section............................... 11
+•
+Replaced Figure 15 ............................................................................................................................................................. 18
+Changes from Revision A (September 2015) to Revision B
+Page
+•
+Added CC pins IEC-61000-4-2 rated footnote ....................................................................................................................... 1
+•
+Changed from UL and CB Tests Underway to UL Listed – File No. E169910 in Features ................................................... 1
+•
+Changed 10µF to 6.8µF in Simplified Schematic................................................................................................................... 1
+•
+Added text to REF description ............................................................................................................................................... 3
+•
+Added IEC information to ESD Ratings ................................................................................................................................. 4
+•
+Changed IN2 II parameter description in Electrical Characteristics ...................................................................................... 7
+•
+Changed tres to tios in Switching Characteristics .................................................................................................................... 8
+•
+Added text to Detecting a Connection section .................................................................................................................... 12
+•
+Changed Rp to Rds in Figure 12 ......................................................................................................................................... 12
+•
+Changed loss to drop in Figure 14 ...................................................................................................................................... 16
+•
+Added text and Figure 15 to Plug Polarity Detection ........................................................................................................... 18
+•
+Added last sentence to Input and Output Capacitance ....................................................................................................... 23
+•
+Added ESD Considerations to Layout Guidelines................................................................................................................ 28
+•
+Added Protecting the TPS25810 from High Voltage DFPs to Related Documentation ....................................................... 30
+Changes from Original (September 2015) to Revision A
+Page
+•
+Changed from Product Preview to Production Data............................................................................................................... 1
+
+--- PDF PAGE 3 ---
+Thermal 
+Pad
+7
+2
+3
+6
+8
+9
+10
+11
+12
+13
+14
+20
+1
+19
+18
+17
+15
+16
+4
+5
+FAULT
+IN1
+IN1
+IN2
+AUX
+EN
+CHG
+CHG_HI
+REF
+CC1
+CC2
+GND
+OUT
+OUT
+DEBUG
+AUDIO
+POL
+UFP
+LD_DET
+REF_RTN
+3
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+5
+Pin Configuration and Functions
+RVC Package
+20-Pin WQFN
+Top View
+Pin Functions
+PIN
+I/O
+DESCRIPTION
+NAME
+NUMBER
+FAULT
+1
+O
+Fault event indicator. Open-drain logic output that asserts low to indicate current limit or thermal shutdown event
+due to over temperature.
+IN1
+2, 3
+I
+VBUS input supply. Internal power switch connects IN1 to OUT.
+IN2
+4
+I
+VCONN input supply. Internal power switch connects IN2 to CC1 or CC2. Short to IN1 if only one supply is used.
+AUX
+5
+I
+Auxiliary input supply. Connect to always alive system rail to use the Power Wake feature. Short to IN1 and IN2 if
+only one supply is used.
+EN
+6
+I
+Enable logic input to turn the device on and off.
+CHG
+7
+I
+Charge logic input to select between standard USB (500 mA for a Type C receptacle supporting only USB 2.0 and
+900 mA for Type C receptacle supporting USB 3.1) or Type-C current sourcing ability.
+CHG_HI
+8
+I
+High-charge logic input to select between 1.5-A and 3-A Type-C current sourcing capability. Valid when CHG is
+set to Type-C current.
+REF_RTN
+9
+I
+Precision signal reference return. Connect to REF pin via 100-kΩ, 1% resistor.
+REF
+10
+I
+Analog input used to generate internal current reference. Connect a 1% or better, 100 ppm, 100-kΩresistor
+between this pin and REF_RTN.
+CC1
+11
+I/O
+Analog input/output that connects to the Type-C receptacle CC1 pin
+GND
+12
+–
+Power ground
+CC2
+13
+I/O
+Analog input/output that connects to the Type-C receptacle CC2 pin.
+OUT
+14,15
+O
+Power switch output.
+DEBUG
+16
+O
+Open-drain logic output that asserts when a Type-C Debug accessory is identified on the CC lines.
+AUDIO
+17
+O
+Open-drain logic output that asserts when a Type-C Audio accessory is identified on the CC lines.
+POL
+18
+O
+Polarity open-drain logic output that signals which Type-C CC pin is connected to the CC line. This gives the
+information needed to mux the super speed lines. Asserted when the CC2 pin is connected to the CC line in
+cable.
+UFP
+19
+O
+Open-drain logic output that asserts when a Type-C UFP is identified on the CC lines.
+LD_DET
+20
+O
+Load-detect open-drain logic output that signals when a device set to source Type-C 3 A current is sourcing over
+1.95 A nominal.
+Thermal Pad
+–
+–
+Thermal pad on bottom of package.
+
+--- PDF PAGE 4 ---
+4
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+(1)
+Stresses beyond those listed under Absolute Maximum Ratings may cause permanent damage to the device. These are stress ratings
+only, which do not imply functional operation of the device at these or any other conditions beyond those indicated under Recommended
+Operating Conditions. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
+6
+Specifications
+6.1
+Absolute Maximum Ratings
+over operating free-air temperature range, voltages are respect to GND (unless otherwise noted) (1)
+MIN
+MAX
+UNIT
+Pin voltage, V
+IN1, IN2, AUX, EN, CHG, CHG_HI, REF, OUT, LD_DET,
+FAULT, CC1, CC2, UFP, POL, AUDIO, DEBUG
+–0.3
+7
+V
+REF_RTN
+Internally
+connected
+to GND
+V
+Pin positive source current, ISRC
+OUT, REF, CC1, CC2
+Internally
+limited
+A
+Pin positive sink current, ISNK
+OUT (while applying VBUS)
+5
+A
+CC1, CC2 (while applying VCONN)
+1
+A
+LD_DET, FAULT, UFP, POL, AUDIO, DEBUG
+Internally
+limited
+mA
+Operating junction temperature, TJ
+–40
+180
+°C
+Storage temperature range, Tstg
+–65
+150
+°C
+(1)
+Electrostatic discharge (ESD) to measure device sensitivity/immunity to damage caused by assembly line electrostatic discharges into
+the device.
+(2)
+JEDEC document JEP155 states that 500-V HBM allows safe manufacturing with a standard ESD control process.
+(3)
+JEDEC document JEP157 states that 250-V CDM allows safe manufacturing with a standard ESD control process.
+(4)
+Surges per IEC61000-402, 1999 applied between CC1/CC2 and output ground of the TPS25810EVM-745.
+6.2
+ESD Ratings
+VALUE
+UNIT
+V(ESD)(1)
+Electrostatic
+discharge
+Human-body model (HBM), per ANSI/ESDA/JEDEC JS-001(2)
+±2000
+V
+Charged-device model (CDM), per JEDEC specification JESD22-C101(3)
+±500
+IEC(4)
+IEC61000-4-2 contact discharge, CC1 and CC2
+±8000
+IEC61000-4-2 air discharge, CC1 and CC2
+±15000
+6.3
+Recommended Operating Conditions
+Voltages are with respect to GND (unless otherwise noted)
+MIN
+NOM
+MAX
+UNIT
+VI
+Supply voltage
+IN1
+4.5
+6.5
+V
+IN2
+4.5
+5.5
+AUX
+2.9
+5.5
+VI
+Input voltage
+EN, CHG, CHG_HI
+0
+5.5
+V
+VIH
+High-level input voltage
+EN, CHG, CHG_HI
+1.17
+V
+VIL
+Low-level voltage
+EN, CHG, CHG_HI
+0.63
+V
+VPU
+Pull-up voltage
+Used on LD_DET, FAULT, UFP, POL, AUDIO,
+DEBUG
+0
+5.5
+V
+ISRC
+Positive source current
+OUT
+3
+A
+CC1 or CC2 when supplying VCONN
+250
+mA
+ISNK
+Positive sink current (10 ms moving
+average)
+LD_DET, FAULT, UFP, POL, AUDIO, DEBUG
+10
+mA
+ISNK_PULSE
+Positive repetitive pulse sink current
+LD_DET, FAULT, UFP, POL, AUDIO, DEBUG
+Internally
+Limited
+mA
+RREF
+Reference Resistor
+98
+100
+102
+kΩ
+TJ
+Operating junction temperature
+–40
+125
+°C
+
+--- PDF PAGE 5 ---
+5
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+(1)
+For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application
+report.
+6.4
+Thermal Information
+THERMAL METRIC(1)
+TPS25810
+UNIT
+RVC (WQFN)
+20 PINS
+RθJA
+Junction-to-ambient thermal resistance
+39.3
+°C/W
+RθJC(top)
+Junction-to-case (top) thermal resistance
+43.4
+°C/W
+RθJB
+Junction-to-board thermal resistance
+13
+°C/W
+ψJT
+Junction-to-top characterization parameter
+0.7
+°C/W
+ψJB
+Junction-to-board characterization parameter
+13
+°C/W
+RθJC(bot)
+Junction-to-case (bottom) thermal resistance
+4.2
+°C/W
+(1)
+Pulse-testing techniques maintain junction temperature close to ambient temperature; thermal effects must be taken into account
+separately.
+(2)
+These parameters are provided for reference only and do not constitute part of TI’s published specifications for purposes of TI’s product
+warranty.
+6.5
+Electrical Characteristics
+–40°C ≤TJ ≤125°C, 4.5 V ≤VIN1 ≤6.5 V, 4.5 V ≤VIN2 ≤5.5 V, 2.9 V ≤VAUX ≤5.5 V; VEN = VCHG = VCHG_HI = VAUX, RREF = 100
+kΩ. Typical values are at 25°C. All voltages are with respect to GND. IOUT and IOS defined positive out of the indicated pin
+(unless otherwise noted)
+PARAMETER
+TEST CONDITIONS
+MIN
+TYP
+MAX
+UNIT
+OUT - POWER SWITCH
+RDS(on)
+On resistance(1)
+TJ = 25°C, IOUT = 3 A
+34
+37
+mΩ
+–40°C ≤TJ ≤85°C, IOUT = 3 A
+34
+46
+–40°C ≤TJ ≤125°C, IOUT = 3 A
+34
+55
+IREV
+OUT to IN reverse leakage current
+VOUT = 6.5 V, VIN1 = VEN = 0 V,
+–40°C ≤TJ ≤85°C,
+IREV is current out of IN1 pin
+0
+3
+µA
+OUT - CURRENT LIMIT
+IOS
+Short circuit current limit (1)
+VCHG = 0 V or VCHG = VAUX and VCHG_HI = 0
+V
+1.58
+1.7
+1.82
+A
+VCHG = VAUX and VCHG_HI = VAUX
+3.16
+3.4
+3.64
+RREF = 10 Ω
+7
+OUT - DISCHARGE
+Discharge resistance
+VOUT = 4 V, UFP signature removed from
+CC lines, time < tw_DCHG
+400
+500
+600
+Ω
+Bleed discharge resistance
+VOUT = 4 V, No UFP signature on CC lines,
+time > tw_DCHG
+100
+150
+250
+kΩ
+REF
+VO
+Output voltage
+0.78
+0.8
+0.82
+V
+IOS
+Short circuit current
+RREF = 10 Ω
+9.5
+15.3
+µA
+FAULT
+VOL
+Output low voltage
+IFAULT = 1 mA
+350
+mV
+IOFF
+Off-state leakage
+VFAULT = 5.5 V
+1
+µA
+LD_DET
+VOL
+Output low voltage
+ILD_DET = 1 mA
+350
+mV
+IOFF
+Off-state leakage
+VLD_DET = 5.5 V
+1
+µA
+ITH
+OUT sourcing, rising threshold
+current for load detect
+1.8
+1.95
+2.1
+A
+Hysteresis(2)
+125
+mA
+
+--- PDF PAGE 6 ---
+6
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Electrical Characteristics (continued)
+–40°C ≤TJ ≤125°C, 4.5 V ≤VIN1 ≤6.5 V, 4.5 V ≤VIN2 ≤5.5 V, 2.9 V ≤VAUX ≤5.5 V; VEN = VCHG = VCHG_HI = VAUX, RREF = 100
+kΩ. Typical values are at 25°C. All voltages are with respect to GND. IOUT and IOS defined positive out of the indicated pin
+(unless otherwise noted)
+PARAMETER
+TEST CONDITIONS
+MIN
+TYP
+MAX
+UNIT
+CC1/CC2 - VCONN POWER SWITCH
+RDS(on)
+On resistance
+TJ = 25°C, IOUT = 250 mA
+365
+420
+mΩ
+-40°C ≤TJ ≤85°C, IOUT = 250 mA
+365
+530
+-40°C ≤TJ ≤125°C, IOUT = 250 mA
+365
+600
+CC1/CC2 - VCONN POWER SWITCH - CURRENT LIMIT
+IOS
+Short circuit current limit(1)
+300
+355
+410
+mA
+RREF = 10 Ω
+800
+CC1/CC2 – CONNECT MANAGEMENT – DANGLING ELECTRONICALLY MARKED CABLE MODE
+ISRC
+Sourcing current on the pass-
+through CC Line
+0 V ≤VCCx ≤1.5 V
+64
+80
+96
+µA
+Sourcing current on the Ra CC
+line
+0 V ≤VCCx ≤1.5 V
+64
+80
+96
+µA
+CC1/CC2 – CONNECT MANAGEMENT – ACCESSORY MODE
+ISRC
+CCx Sourcing current
+(CC2- Audio, CC1-Debug)
+0 V ≤VCCx ≤1.5 V
+64
+80
+96
+µA
+CCx Sourcing current
+(CC1- Audio, CC2-Debug) (2)
+0 V ≤VCCx ≤1.5 V
+0
+µA
+CC1/CC2 – CONNECT MANAGEMENT – UFP MODE
+ISRC
+Sourcing current with either IN1 or
+IN2 in UVLO
+0 V ≤VCCx ≤1.5 V
+VIN1 < VTH_UVLO_IN1 or VIN2 < VTH_UVLO_IN2
+64
+80
+96
+µA
+ISRC
+Sourcing current
+VCHG = 0 V and VCHG_HI = 0 V
+0 V ≤VCCx ≤1.5 V
+75
+80
+85
+µA
+VCHG = VAUX and VCHG_HI = 0 V
+0 V ≤VCCx ≤1.5 V
+170
+180
+190
+VCHG = VAUX and VCHG_HI = VAUX
+0 V ≤VCCx ≤2.45 V
+312
+330
+348
+UFP, POL, AUDIO, DEBUG
+VOL
+Output low voltage
+ISNK_PIN = 1 mA
+250
+mV
+IOFF
+Off-state leakage
+VPIN = 5.5 V
+1
+µA
+EN, CHG, CHG_HI - LOGIC INPUTS
+VTH
+Rising threshold voltage
+0.925
+1.15
+V
+VTH
+Falling threshold voltage
+0.65
+0.875
+V
+Hysteresis(2)
+50
+mV
+IIN
+Input current
+VEN = 0 V or 6.5 V
+–0.5
+0.5
+µA
+OVER TEMPERATURE SHUT DOWN
+TTH_OTSD2
+Rising threshold temperature for
+device shutdown
+155
+°C
+Hysteresis(2)
+20
+°C
+TTH_OTSD1
+Rising threshold temperature for
+OUT/ VCONN switch shutdown in
+current limit
+135
+°C
+Hysteresis(2)
+20
+°C
+IN1
+VTH_UVLO_IN1
+Rising threshold voltage for UVLO
+3.9
+4.1
+4.3
+V
+Hysteresis(2)
+100
+mV
+
+--- PDF PAGE 7 ---
+7
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Electrical Characteristics (continued)
+–40°C ≤TJ ≤125°C, 4.5 V ≤VIN1 ≤6.5 V, 4.5 V ≤VIN2 ≤5.5 V, 2.9 V ≤VAUX ≤5.5 V; VEN = VCHG = VCHG_HI = VAUX, RREF = 100
+kΩ. Typical values are at 25°C. All voltages are with respect to GND. IOUT and IOS defined positive out of the indicated pin
+(unless otherwise noted)
+PARAMETER
+TEST CONDITIONS
+MIN
+TYP
+MAX
+UNIT
+II
+Disabled supply current
+VEN = 0 V, -40°C ≤TJ ≤85°C
+1
+µA
+Enabled supply current with CC
+lines open
+-40°C ≤TJ ≤85°C
+1
+µA
+Enabled supply current with
+accessory or dangling
+electronically marked cable
+signature on CC lines
+2
+µA
+Enabled supply current with UFP
+attached
+VCHG = 0 V, or VCHG = VAUX and VCHG_HI =
+0 V
+75
+100
+µA
+85
+110
+IN2
+VTH_UVLO_IN2
+Rising threshold voltage for UVLO
+3.9
+4.1
+4.3
+V
+Hysteresis(2)
+100
+mV
+II
+Disabled supply current
+VEN = 0 V, -40°C ≤TJ ≤85°C
+1
+µA
+Enabled supply current with CC
+lines open
+-40°C ≤TJ ≤85°C
+1
+µA
+II
+Enabled supply current with
+accessory or dangling
+electronically marked cable
+signature on CC lines
+2
+µA
+II
+Enabled supply current with UFP
+signature on CC lines
+(Includes IN current that provides
+the CC output current to the UFP
+Rd resistor)
+VCHG = 0 V, 0 V ≤VCCx ≤1.5 V
+98
+110
+µA
+VCHG = VIN and VCHG_HI = 0 V, 0 V ≤VCCx ≤
+1.5 V
+198
+215
+0 V ≤VCCx ≤2.45 V
+348
+373
+AUX
+VTH_UVLO_AUX Rising threshold voltage for UVLO
+2.65
+2.75
+2.85
+V
+Hysteresis(2)
+100
+mV
+II
+Disabled supply current
+VEN = 0 V, -40°C ≤TJ ≤85°C
+1
+µA
+II
+Enabled internal supply current
+with CC lines open
+-40°C ≤TJ ≤85°C
+0.7
+3
+µA
+II
+Enabled supply current with
+accessory or dangling active cable
+signature on CC lines
+140
+185
+µA
+II
+Enabled supply current with UFP
+termination on CC lines and with
+either IN1 or IN2 in UVLO
+VIN1 < VTH_UVLO_IN1 or VIN2 < VTH_UVLO_IN2
+145
+190
+µA
+II
+Enabled supply current with UFP
+termination on CC lines
+55
+82
+µA
+6.6
+Switching Characteristics
+–40°C ≤TJ ≤125°C, 4.5 V ≤VIN1 ≤6.5 V, 4.5 V ≤VIN2 ≤5.5 V, 2.9 V ≤VAUX ≤5.5 V; VEN = VCHG = VCHG_HI = VAUX, RREF = 100
+kΩ. Typical values are at 25°C. All voltages are with respect to GND. IOUT and IOS defined positive out of the indicated pin
+(unless otherwise noted)
+PARAMETER
+TEST CONDITIONS
+MIN
+TYP
+MAX
+UNIT
+OUT - POWER SWITCH
+tr
+Output voltage rise time
+VIN1 = 5 V, CL = 1 µF, RL = 100 Ω
+(measured from 10% to 90% of final
+value)
+1.2
+1.8
+2.5
+ms
+tf
+Output voltage fall time
+0.35
+0.55
+0.75
+ms
+ton
+Output voltage turn-on time
+VIN1 = 5 V, CL = 1 µF, RL = 100 Ω
+2.5
+3.5
+5
+ms
+toff
+Output voltage turn-off time
+2
+3
+4.5
+ms
+
+--- PDF PAGE 8 ---
+tios
+IOS
+IOUT
+8
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Switching Characteristics (continued)
+–40°C ≤TJ ≤125°C, 4.5 V ≤VIN1 ≤6.5 V, 4.5 V ≤VIN2 ≤5.5 V, 2.9 V ≤VAUX ≤5.5 V; VEN = VCHG = VCHG_HI = VAUX, RREF = 100
+kΩ. Typical values are at 25°C. All voltages are with respect to GND. IOUT and IOS defined positive out of the indicated pin
+(unless otherwise noted)
+PARAMETER
+TEST CONDITIONS
+MIN
+TYP
+MAX
+UNIT
+(1)
+These parameters are provided for reference only and do not constitute part of TI’s published specifications for purposes of TI’s product
+warranty.
+OUT - CURRENT LIMIT
+tios
+Current limit response time to short
+circuit
+VIN1 - VOUT = 1 V, RL = 10 mΩ, see
+Figure 1
+1.5
+4
+µs
+FAULT
+tDEGA
+Asserting deglitch due to over
+current
+5.5
+8.2
+10.7
+ms
+tDEGA
+Asserting deglitch due to over
+temperature in current limit(1)
+0
+ms
+tDEGD
+De-asserting deglitch
+5.5
+8.2
+10.7
+ms
+LD_DET
+tDEGA
+Asserting deglitch
+45
+65
+85
+ms
+tDEGD
+De-asserting deglitch
+1.45
+2.15
+2.9
+s
+OUT - DISCHARGE
+RDCHG discharge time
+VOUT = 1 V, time ISNK_OUT > 1 mA
+after UFP signature removed from
+CC lines
+39
+65
+96
+ms
+CC1/CC2 - VCONN POWER SWITCH
+tr
+Output voltage rise time
+VIN2 = 5 V, CL = 1 µF, RL = 100 Ω
+(measured from 10% to 90% of final
+value)
+0.15
+0.25
+0.35
+ms
+tf
+Output voltage fall time
+0.18
+0.22
+0.26
+ms
+ton
+Output voltage turn-on time
+VIN2 = 5 V, CL = 1 µF, RL = 100 Ω
+1
+1.5
+2
+ms
+toff
+Output voltage turn-off time
+0.3
+0.4
+0.55
+ms
+CC1/CC2 - VCONN POWER SWITCH - CURRENT LIMIT
+tres
+Current limit response time to short
+circuit
+VIN2 – VCONN = 1 V, R = 10 mΩ, see
+Figure 1
+1
+3
+µs
+UFP, POL, AUDIO, DEBUG
+tDEGR
+Asserting deglitch
+100
+150
+200
+ms
+tDEGF
+De-asserting deglitch
+7.9
+12.5
+17.7
+ms
+Figure 1. Output Short Circuit Parameter Diagram
+
+--- PDF PAGE 9 ---
+TJ - Junction Temperature (oC)
+LD_DET Threshold (mA)
+-40
+-25
+-10
+5
+20
+35
+50
+65
+80
+95
+110
+125
+1750
+1770
+1790
+1810
+1830
+1850
+1870
+1890
+1910
+1930
+1950
+1970
+1990
+2010
+D001
+LD_DET Threshold Rising
+LD_DET Threshold Falling
+TJ - Junction Temperature (oC)
+Sourcing Current (PA)
+-40
+-25
+-10
+5
+20
+35
+50
+65
+80
+95
+110
+125
+50
+100
+150
+200
+250
+300
+350
+D001
+UFP 3 A
+UFP 1.5 A
+UFP 0.5 A/0.9 A
+TJ - Junction Temperature (oC)
+IREV - Reverse Leakage Current (µA)
+-40
+-25
+-10
+5
+20
+35
+50
+65
+80
+95
+110
+125
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+D001
+TJ - Junction Temperature (oC)
+ILIM - Limit Current (mA)
+-40
+-25
+-10
+5
+20
+35
+50
+65
+80
+95
+110
+125
+0
+500
+1000
+1500
+2000
+2500
+3000
+3500
+4000
+D001
+VBUS ILIM 3 A
+VBUS ILIM 1.5 A
+VCONN_ILIM
+TJ - Junction Temperature (oC)
+RDS(ON) - On Resistance (m:)
+-40
+-25
+-10
+5
+20
+35
+50
+65
+80
+95
+110
+125
+0
+10
+20
+30
+40
+50
+D001
+TJ - Junction Temperature (oC)
+RDS(ON) - On Resistance (m:)
+-40
+-25
+-10
+5
+20
+35
+50
+65
+80
+95
+110
+125
+250
+300
+350
+400
+450
+500
+D001
+9
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+6.7
+Typical Characteristics
+Figure 2. VBUS Current Limiting Switch On Resistance vs
+Temperature
+Figure 3. VCONN Current Limiting Switch On Resistance vs
+Temperature
+Device = Disabled; (VOUT-VIN) =6.5V
+Figure 4. OUT Reverse Leakage Current vs Temperature
+Figure 5. ILIM for VBUS and VCON vs Temperature
+Figure 6. LD_DET Threshold vs Temperature
+Figure 7. CC Sourcing Current to UFP vs Temperature
+
+--- PDF PAGE 10 ---
+TJ - Junction Temperature (oC)
+IIN_ON - Enabled IN Supply Current (µA)
+-40
+-25
+-10
+5
+20
+35
+50
+65
+80
+95
+110
+125
+40
+45
+50
+55
+60
+65
+70
+D001
+TJ - Junction Temperature (oC)
+IIN_ON - Enabled IN Supply Current (PA)
+-40
+-25
+-10
+5
+20
+35
+50
+65
+80
+95
+110
+125
+70
+75
+80
+85
+90
+95
+100
+D001
+IN1 UFP 3 A
+IN1 UFP 0.5 A/1.5 A
+TJ - Junction Temperature (oC)
+IIN_ON - Enabled IN Supply Current (PA)
+-40
+-25
+-10
+5
+20
+35
+50
+65
+80
+95
+110
+125
+50
+100
+150
+200
+250
+300
+350
+400
+D001
+IN2 UFP 3 A
+IN2 UFP 1.5 A
+IN2 UFP 0.5 A
+10
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Typical Characteristics (continued)
+Figure 8. IN1 Current with UFP vs Temperature
+Figure 9. IN2 Current with UFP vs Temperature
+VAUX = 5 V
+Figure 10. AUX Current with UFP vs Temperature
+
+--- PDF PAGE 11 ---
+11
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+(1)
+This may be automatic or manually driven.
+7
+Detailed Description
+7.1
+Overview
+The TPS25810 is a highly integrated USB Type-C Downstream Facing Port (DFP) controller with built-in power
+switch developed for the new USB Type-C connector and cable. The part provides all functionality needed to
+support a USB Type C DFP in a system where USB power delivery (PD) source capabilities (for example, VBUS
+> 5 V) are not implemented. The device is designed to be compliant to Type-C spec revision 1.2.
+7.1.1
+USB Type C Basic
+For a detailed description of the Type-C spec refer to the USB-IF website to download the latest released
+version. Some of the basic concepts of the Type-C spec that pertains to understanding the operation of the
+TPS25810 (a DFP device) are described as follows.
+USB Type-C removes the need for different plug and receptacle types for host and device functionality. The
+Type-C receptacle replaces both Type-A and Type-B receptacle since the Type-C cable is plug-able in either
+direction between host and device. A host-to-device logical relationship is maintained via the configuration
+channel (CC). Optionally hosts and devices can be either providers or consumers of power when USB PD
+communication is used to swap roles.
+All USB Type-C ports operate in one of below three data modes:
+•
+Host mode: the port can only be host (provider of power)
+•
+Device mode: the port can only be device (consumer of power)
+•
+Dual-Role mode: the port can be either host or device
+Port types:
+•
+DFP (Downstream Facing Port): Host
+•
+UFP (Upstream Facing Port): Device
+•
+DRP (Dual-Role Port): Host or Device
+Valid DFP-to-UFP connections:
+•
+Table 1 describes valid DFP-to-UFP connections
+•
+Host to Host or Device to Device have no functions
+Table 1. DFP-to-UFP Connections
+HOST-MODE PORT
+DEVICE-MODE
+PORT
+DUAL-ROLE PORT
+Host-Mode Port
+No Function
+Works
+Works
+Device-Mode Port
+Works
+No Function
+Works
+Dual-Role Port
+Works
+Works
+Works(1)
+7.1.2
+Configuration Channel
+The function of the configuration channel is to detect connections and configure the interface across the USB
+Type-C cables and connectors.
+Functionally the Configuration Channel (CC) is used to serve the following purposes:
+•
+Detect connect to the USB ports
+•
+Resolve cable orientation and twist connections to establish USB data bus routing
+•
+Establish DFP and UFP roles between two connected ports
+•
+Discover and configure power: USB Type-C current modes or USB Power Delivery
+•
+Discovery and configure optional Alternate and Accessory modes
+•
+Enhances flexibility and ease of use
+Typical flow of DFP to UFP configuration is shown in Figure 11:
+
+--- PDF PAGE 12 ---
+Rp
+Rp
+CC
+Rds
+Rds
+Ra
+Ra
+Cable
+DFP monitors for 
+connection
+DFP monitors for 
+connection
+UFP monitors for
+connection
+UFP monitors for
+connection
+12
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Figure 11. Flow of DFP to UFP Configuration
+7.1.3
+Detecting a Connection
+DFPs and DRPs fulfill the role of detecting a valid connection over USB Type-C. Figure 12 shows a DFP to UFP
+connection made with Type C cable. As shown in Figure 12, the detection concept is based on being able to
+detect terminations in the product which has been attached. A pull-up and pull-down termination model is used. A
+pull-up termination can be replaced by a current source.
+•
+In the DFP-UFP connection the DFP monitors both CC pins for a voltage lower than the unterminated
+voltage.
+•
+An UFP advertises Rd on both its CC pins (CC1 and CC2).
+•
+A powered cable advertises Ra on only one of CC pins of the plug. Ra is used to inform the source to apply
+VCONN.
+•
+An analog audio device advertises Ra on both CC pins of the plug, which identifies it as an analog audio
+device. VCONN is not applied on either CC pin in this case.
+Figure 12. DFP-UFP Connection
+
+--- PDF PAGE 13 ---
+Charge 
+Pump
+Current
+Limit
+OTSD
+Thermal
+Sense
+IN1
+Current Sense
+IN2
+Current Sense
+Current Sense
+AUX
+EN
+OUT
+CC1
+CC2
+Gate
+Control
+LD_DET
+FAULT
+UFP
+POL
+AUDIO
+DEBUG
+Control
+Logic
+CC
+Monitor
+CHG
+CHG_HI
+REF_RTN
+REF
+UVLO
+UVLO
+UVLO
+Copyright © 2016, Texas Instruments Incorporated
+13
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+7.2
+Functional Block Diagram
+7.3
+Feature Description
+The TPS25810 is a DFP Type C port controller with integrated power switch for VCONN and VBUS. The
+TPS25810 does not support BC1.2 charging modes since it does not interact with USB D+/D- data lines. It can
+be used in conjunction with a BC 1.2 device like the TPS2514A, to support BC1.2 and Type C charging modes in
+a single Type C DFP port. See the TPS25810 EVM user's guide (SLVUAI0) and Application and Implementation
+section of this data sheet for more details. The TPS25810 can be used in a USB 2.0 only or USB 3.1 port
+implementation. When used in a USB 3.1 port, the TPS25810 can control an external super speed MUX to
+handle the Type C flippable feature.
+
+--- PDF PAGE 14 ---
+14
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Feature Description (continued)
+(1)
+POL, UFP, AUDIO, and DEBUG are open drain outputs; pull high with 100 kΩto AUX when used. Tie to GND or leave open when not
+used.
+7.3.1
+Configuration Channel Pins CC1 and CC2
+The TPS25810 has two pins, CC1 and CC2 that serve to detect an attachment to the port and resolve cable
+orientation. These pins are also used to establish current broadcast to a valid UFP, configure VCONN, and
+detect Debug or Audio Adapter Accessory attachment.
+Table 2 lists TPS25810 response to various attachments to its port.
+Table 2. TPS25810 Response
+TPS25810 TYPE C PORT
+CC1
+CC2
+TPS25810 RESPONSE(1)
+OUT
+VCONN
+On CC1 or
+CC2
+POL
+UFP
+AUDIO
+DEBUG
+Nothing Attached
+OPEN
+OPEN
+OPEN
+NO
+Hi-Z
+Hi-Z
+Hi-Z
+Hi-Z
+UFP Connected
+Rd
+OPEN
+IN1
+NO
+Hi-Z
+LOW
+Hi-Z
+Hi-Z
+UFP Connected
+OPEN
+Rd
+IN1
+NO
+LOW
+LOW
+Hi-Z
+Hi-Z
+Powered Cable/No UFP
+Connected
+OPEN
+Ra
+OPEN
+NO
+Hi-Z
+Hi-Z
+Hi-Z
+Hi-Z
+Powered Cable/No UFP
+Connected
+Ra
+OPEN
+OPEN
+NO
+Hi-Z
+Hi-Z
+Hi-Z
+Hi-Z
+Powered Cable/UFP
+Connected
+Rd
+Ra
+IN1
+CC2
+Hi-Z
+LOW
+Hi-Z
+Hi-Z
+Powered Cable/UFP
+Connected
+Ra
+Rd
+IN1
+CC1
+LOW
+LOW
+Hi-Z
+Hi-Z
+Debug Accessory Connected
+Rd
+Rd
+OPEN
+NO
+Hi-Z
+Hi-Z
+Hi-Z
+LOW
+Audio Adapter Accessory
+Connected
+Ra
+Ra
+OPEN
+NO
+Hi-Z
+Hi-Z
+LOW
+Hi-Z
+7.3.2
+Current Capability Advertisement and Overload Protection
+The TPS25810 supports all three Type-C current advertisements as defined by the USB Type C standard.
+Current broadcast to a connected UFP is controlled by the CHG and CHG_HI pins. For each broadcast level the
+device protects itself from a UFP that draws current in excess of the port’s USB Type-C Current advertisement
+by setting the current limit as shown in Table 3.
+Table 3. USB Type-C Current Advertisement
+CHG
+CHG_HI
+CC CAPABILITY
+BROADCAST
+CURRENT LIMIT (typ)
+LOAD DETECT
+THRESHOLD (typ)
+0
+0
+STD
+1.7 A
+NA
+0
+1
+STD
+1.7 A
+NA
+1
+0
+1.5 A
+1.7 A
+NA
+1
+1
+3 A
+3.4 A
+1.95 A
+Under overload conditions, the internal current-limit regulator limits the output current to selected ILIM for OUT
+and fixed internal VCONN current limit as shown in the Electrical Characteristics. When an overload condition is
+present, the device maintains a constant output current, with the output voltage determined by (iOS x RLOAD).
+Two possible overload conditions can occur. The first overload condition occurs when either: 1) input voltage is
+first applied, enable is true, and a short circuit is present (load which draws IOUT > iOS), or 2) input voltage is
+present and the TPS25810 is enabled into a short circuit. The output voltage is held near zero potential with
+respect to ground and the TPS25810 ramps the output current to iOS. The TPS25810 limits the current to iOS until
+the overload condition is removed or the device begins to thermal cycle. This is demonstrated in Figure 24 where
+the device was enabled into a short, and subsequently cycles current off and on as the thermal protection
+engages.
+
+--- PDF PAGE 15 ---
+VIN
+0 V
+0 A
+IOUT
+VOUT
+Slope = -rDSON
+IOS 
+15
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+The second condition is when an overload occurs while the device is enabled and fully turned on. The device
+responds to the overload condition within time iOS (see Figure 1) when the specified overload (per Electrical
+Characteristics) is applied. The response speed and shape vary with the overload level, input circuit, and rate of
+application. The current-limit response varies between simply settling to iOS or turnoff and controlled return to iOS.
+Similar to the previous case, the TPS25810 limits the current to iOS until the overload condition is removed or the
+device begins to thermal cycle.
+The TPS25810 thermal cycles if an overload condition is present long enough to activate thermal limiting in any
+of the above cases. This is due to the relatively large power dissipation [(VIN – VOUT) x iOS] driving the junction
+temperature up. The device turns off when the junction temperature exceeds 135°C (min) while in current limit.
+The device remains off until the junction temperature cools 20°C and then restarts. The TPS25810 current limit
+profile is shown in Figure 13.
+Figure 13. Current Limit Profile
+7.3.3
+Undervoltage Lockout (UVLO)
+The undervoltage lockout (UVLO) circuit disables the power switch until the input voltage reaches the UVLO turn-
+on threshold. Built-in hysteresis prevents unwanted on/off cycling due to input voltage droop during turn on.
+7.3.3.1
+Device Power Pins (IN1, IN2, AUX, OUT, and GND)
+The device has multiple input power pins; IN1, IN2 and AUX. IN1 is connected to OUT by the internal power FET
+and serves the supply for the Type-C charging current. IN2 is the supply for VCONN and ties directly between
+the VCONN power switch on its input and CC1 or CC2 on its output. AUX or auxiliary input supply provides
+power to the chip. Refer to Functional Block Diagram.
+In the simplest implementation where multiple supplies are not available; IN1, IN2, and AUX can be tied together.
+However in mobile systems (battery powered) where system power savings is paramount, IN1 and IN2 can be
+powered by the high power DC-DC supply (>3-A capability) while AUX can be connected to the low power supply
+that typically powers the system uC when the system is in hibernate or sleep power state. Unlike IN1 and IN2,
+AUX can operate directly from a 3.3-V supply commonly used to power the uC when the system is put in low
+power mode. A ceramic bypass capacitor close to the device from IN/AUX to GND is recommended to alleviate
+bus transients.
+The recommended operating voltage range for IN1/IN2 is 4.5 V to 5.5 V while AUX can be operated from 2.9 V
+to 5.5 V. However IN1, the high power supply, can operate up to 6.5 V. This higher input voltage affords a larger
+IR drop budget in systems where a long cable harness is used and results in high IR drops with 3-A charging
+current. Increasing IN1 beyond 5.5 V enables longer cable/board trace lengths between the device and Type C
+receptacle while meeting the USB spec for VBUS at connector ≥4.75 V.
+Figure 14 illustrates the point. In this example IN1 is at 5 V which restricts the IR drop budget from DC-DC to
+connector to 250 mV.
+
+--- PDF PAGE 16 ---
+V_TPS25810
+5 V DC-DC
+Type C
+MaxRds_On
+= 55 mŸ
+165 mV drop at 3 A
+82.5 mV drop at 1.5 A
+V_DC-DC = 5 V
+V_Connector
+= 4.75 V (MIN)
+V_Trace1
+V_Trace2
+IN1
+OUT
+Total IR loss Budget = 250 mV
+Trace IR drop Budget at 3 A 
+= 250-165 = 85 mV
+16
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Figure 14. Total IR Loss Budget
+7.3.3.2
+FAULT Response
+The FAULT pin is an open drain output that asserts (active low) when device OUT current exceeds its
+programmed value and the over temperature threshold is crossed (TTH_OTSD1). Refer to the Electrical
+Characteristics for over current and temperature values. The FAULT signal remains asserted until the fault
+condition is removed and the device resumes normal operation. The TPS25810 is designed to eliminate false
+overcurrent fault reporting by using an internal deglitch circuit.
+Connect FAULT with a pull-up resistor to AUX. FAULT can be left open or tied to GND when not used.
+7.3.3.3
+Thermal Shutdown
+The device has two internal over temperature shutdown thresholds, TTH_OTSD1 and TTH_OTSD2, to protect the
+internal FET from damage and overall safety of the system. TTH_OTSD2 > TTH_OTSD1. FAULT is asserted low to
+signal a fault condition when device temperature exceeds TTH_OTSD1 and the current limit switch is disabled.
+However when TTH_OTSD2 is exceeded all open drain outputs are left open and the device is disabled such that
+minimum power/heat is dissipated. The device attempts to power-up when die temperature decreases by 20°C.
+7.3.3.4
+REF
+A 100-kΩ(1% or better recommended) resistor is connected from this pin to REF_RTN. This pin sets the
+reference current required to bias the internal circuitry of the device. The overload current limit tolerance and CC
+currents depend upon the accuracy of this resistor, using a ±1% low tempco resistor, or better, yields the best
+current limit accuracy and overall device performance.
+7.3.3.5
+Audio Accessory Detection
+The USB Type-C spec defines an audio adapter decode state which allows implementation of an analog USB
+Type-C to 3.5-mm headset adapter. The TPS25810 detects an audio accessory device when both CC1 and CC2
+pins sees VRa voltage (when pulled to ground by Ra resistor). The device asserts the open drain AUDIO pin low
+to indicate the detection of such a device.
+
+--- PDF PAGE 17 ---
+17
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Table 4. Audio Accessory Detection
+CC1
+CC2
+AUDIO
+STATE
+Ra
+Ra
+Asserted (pulled low)
+Audio Adapter Accessory Connected
+Platforms supporting this extension can trigger off of the AUDIO pin to enable accessory mode circuits to support
+the audio function. When the Ra pull-down is removed from the CC2 pin, AUDIO is de-asserted or pulled high.
+The TPS25810 monitors the CC2 pin for audio device detach. When this function is not needed (for example in a
+data-less port) AUDIO can be tied to GND or left open.
+7.3.3.6
+Debug Accessory Detection
+The Type-C spec supports an optional Debug Accessory mode used for debug only and must not be used for
+communicating with commercial products. When the TPS25810 detects VRd voltage on both CC1 and CC2 pins
+(when pulled to ground by an Rd resistor), it asserts DEBUG low. With DEBUG is asserted, the system can enter
+debug mode for factory testing or a similar functional mode. DEBUG de-asserts or pulls high when Rd is
+removed from CC1. The TPS25810 monitors the CC1 pin for Debug Accessory detach.
+If Debug accessory mode is not used, tie DEBUG to GND or leave it open.
+Table 5. Debug Accessory Detection
+CC1
+CC2
+POL
+STATE
+Rd
+Rd
+Asserted (pulled low)
+Debug Accessory Mode connected
+7.3.3.7
+Plug Polarity Detection
+Reversible Type-C plug orientation is reported by the POL pin when a UFP is connected. However when no UFP
+is attached, POL remains de-asserted irrespective of cable plug orientation. Table 6 describes the POL state
+based on which device CC pin detects VRD from an attached UFP pull-down.
+Table 6. Plug Polarity Detection
+CC1
+CC2
+POL
+STATE
+Rd
+Open
+Hi-z
+UFP connected
+Open
+Rd
+Asserted (pulled low)
+UFP connected with reverse plug orientation
+
+--- PDF PAGE 18 ---
+USB Host
+SSTXp
+SSTXn
+SSRXp
+SSRXn
+SSRXn1
+SSRXp2
+SSRXn2
+SSTXp1
+SSTXn1
+SSTXp2
+SSTXn2
+GND
+GND
+GND
+GND
+USB C
+SSRXp1
+IN1
+IN2
+AUX
+EN
+CHG
+CHG
+_
+HI
+REF
+OUT
+OUT
+FAULT
+LD_DET
+CC1
+CC2
+UFP
+POL
+Thermal Pad
+GND
+REF_RTN
+IN1
+DEBUG
+VBUS
+CC1
+CC2
+TPS25810
+3.3 V
+3.3 V
+5 V
+5 V
+Dp
+Dm
+Dp
+Dm
+Dp2
+Dm1
+Dp
+Dm
+Dm2
+Dp1
+AUDIO
+A0–
+A1+
+A1–
+OEn
+SEL
+B0+
+B0–
+C0+
+C0–
+B1+
+B1–
+C1+
+C1–
+GND
+GND
+GND
+VCC
+A0+
+HD3SS3212
+0.1 µF
+0.1 µF
+0.1 µF
+0.1 µF
+Copyright © 2016, Texas Instruments Incorporated
+18
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Figure 15 shows an example implementation which utilizes the POL terminal to control the SEL terminal on the
+HD3SS3212. The HD3SS3212 provides switching on the differential channels between Port B and Port C to Port
+A depending on cable orientation.
+Figure 15. Example Implementation
+7.3.3.8
+Device Enable Control
+The logic enable pin controls the power switch and device supply current. The supply current is reduced to less
+than 1 μA when a logic low is present on EN. The EN pin provides a convenient way to turn on or turn off the
+device while it is powered. The enable input threshold has hysteresis built-in. When this pin is pulled high, the
+device is turned on or enabled. When the device is disabled (EN pulled low) the internal FETs tied to IN1 and
+IN2 are disconnected, all open drain outputs are left open (Hi-Z), and the CC1/CC2 monitor block is turned off.
+The EN terminal should not be left floating.
+7.3.3.9
+Load Detect
+The load detect function in the device is enabled when it is set to broadcast high current VBUS charging (CHG =
+CHG_HI = High) on the CC pin. In this mode the device monitors the current to a UFP; if the current exceeds
+1.95 A (TYP) the LD_DET pin asserts. Since LD_DET is an open drain output, pull it high with 100 kΩto AUX
+when used; tie it to GND or leave open when not used.
+
+--- PDF PAGE 19 ---
+TPS54620
+Buck 
+Converter
+TPS25810
+#1
+LP2950-33
+LDO
+USB Type-C 
+Connector
+CHG
+CHG_HI
+IN1
+OUT
+CC1
+CC2
+/UFP_1
+AUX
+TPS25810
+#2
+USB Type-C 
+Connector
+CHG
+CHG_HI
+IN1
+OUT
+CC1
+CC2
+/UFP_2
+AUX
+12V
+/UFP_1
+(High)
+/UFP_2
+(High)
+EN
+IN2
+IN2
+No UFP 
+Attached
+No UFP 
+Attached
+Both /UFP High 
+Converter 
+Disabled
+TPS54620
+Buck 
+Converter
+TPS25810
+#1
+LP2950-33
+LDO
+USB Type-C 
+Connector
+CHG
+CHG_HI
+IN1
+OUT
+CC1
+CC2
+/UFP_1
+AUX
+TPS25810
+#2
+USB Type-C 
+Connector
+CHG
+CHG_HI
+IN1
+OUT
+CC1
+CC2
+/UFP_2
+AUX
+12V
+/UFP_1
+(Low)
+/UFP_2
+(High)
+EN
+IN2
+IN2
+UFP
+Attached
+No UFP 
+Attached
+One /UFP Low 
+Converter 
+Enabled
+Copyright © 2016, Texas Instruments Incorporated
+19
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+7.3.3.10
+Power Wake
+The power wake feature supported in the TPS25810 offers the mobile systems designer a way to save on
+system power when no UFP is attached to the Type-C port. Refer to Figure 16. To enable power wake the UFP
+from device #1 and #2 are tied together (each with its own 100-kΩpull-up) to the enable pin of a 5 V/6 A dc-dc
+buck converter. When no UFP is detected on both Type-C ports, the EN pin of the dc-dc is pulled high thereby
+disabling it. Since both TPS25810s are powered by an always-on 3.3-V LDO, turning off the IN1/IN2 supply does
+not affect its operation in detach state. Anytime a UFP is detected on either port, the corresponding TPS25810
+UFP pin is pulled low enabling the dc-dc to provide charging current to the attached UFP. Turning off the high
+power dc-dc when ports are unattached saves on system power. This method can save a significant amount of
+power considering the TPS25810 only requires < 5 µA when no UFP device is connected.
+Figure 16. Power Wake Implementation
+
+--- PDF PAGE 20 ---
+TPS54620
+Buck 
+Converter
+TPS25810
+#1
+LP2950-33
+LDO
+USB Type-C 
+Connector
+CHG
+CHG_HI
+IN1
+OUT
+CC1
+CC2
+/LD_DET_1
+/UFP_1
+AUX
+TPS25810
+#2
+USB Type-C 
+Connector
+CHG
+CHG_HI
+IN1
+OUT
+CC1
+CC2
+/LD_DET_2
+/UFP_2
+AUX
+/UFP_1
+/UFP_2
+12V
+3.0A Broadcast
+EN
+IN2
+IN2
+Copyright © 2016, Texas Instruments Incorporated
+20
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+7.3.3.11
+Port Power Management (PPM)
+PPM is the intelligent and dynamic allocation of power made possible with the use of the LD_DET pin. It is for
+systems that have multiple charging ports but cannot power them all at their maximum charging current
+simultaneously.
+Goals of PPM are:
+1. Enhances user experience since user does not have to search for high current charging port.
+2. Lowered cost and size of power supply needed for implementing high current charging in a multi-port system.
+7.3.3.12
+Implementing PPM in a System with Two Type-C Ports
+Figure 17 shows PPM and power wake implemented in a system with two Type C ports both initially set to
+broadcast high current charging (3 A, CHG and CHG_HI pulled high via a 100 kΩto AUX). To enable PPM tie
+the LD_DET pin from TPS25810 #1 to CHG_HI of TPS25810 #2 and vice versa as shown in Figure 17. Each
+device independently monitors charging current drawn by its attached UFP.
+IN1, IN2 are connected to a TPS54620; a 6-A synchronous step-down converter. AUX is powered by a LP2950-
+33; a low quiescent current 3.3-V LDO. With no UFP attached to either Type C port the TPS25810 is powered by
+the LP2950-33. This method saves a significant amount of power considering the TPS25810 requires less than 2
+µA when no USB device is connected.
+Figure 17. PPM and Power Wake Implemented
+7.3.3.13
+PPM Operation
+When no UFP is attached, or either of the two attached UFP is drawing current less than the LD_DET threshold
+(1.95 A typical), the LD_DET output for both devices is high (shown in blue in Figure 18). Now when a UFP is
+attached to device #1 that draws a charging current higher than the LD_DET threshold (1.95 A), this causes
+LD_DET to assert or pull-low (shown in red in Figure 18). Since the LD-DET pins of the #1 and #2 devices are
+connected to the other devices CHG_HI pin, a high current detection on device #1 forces device #2 to broadcast
+1.5 A or medium charging current capability on its CC pin. The Type C specification requires a UFP to monitor
+the CC pins continuously and adjust its current consumption (within 60 ms) to remain within the value advertised
+by the DFP.
+Figure 19 shows the case when a UFP attached to Device 1 reduces its charging current below the LD_DET
+threshold, which causes LD-DET to de-assert, thereby toggling device #2 CH_HI pin from low to high.
+This scheme:
+•
+Delivers a better user experience as the user does not have to worry about the maximum charging current
+rating of the host ports, both ports initially advertise high current charging.
+
+--- PDF PAGE 21 ---
+TPS54620
+Buck 
+Converter
+TPS25810
+#1
+LP2950-33
+LDO
+USB Type-C 
+Connector
+CHG
+CHG_HI
+IN1
+OUT
+CC1
+CC2
+/LD_DET_1
+/UFP_1
+AUX
+TPS25810
+#2
+USB Type-C 
+Connector
+CHG
+CHG_HI
+IN1
+OUT
+CC1
+CC2
+/LD_DET_2
+/UFP_2
+AUX
+12V
+3.0A Broadcast
+1.5A USB Device Connected
+/UFP_1
+/UFP_2
+EN
+IN2
+IN2
+Copyright © 2016, Texas Instruments Incorporated
+TPS54620
+Buck 
+Converter
+TPS25810
+#1
+LP2950-33
+LDO
+USB Type-C 
+Connector
+CHG
+CHG_HI
+IN1
+OUT
+CC1
+CC2
+/LD_DET_1
+/UFP_1
+AUX
+TPS25810
+#2
+USB Type-C 
+Connector
+CHG
+CHG_HI
+IN1
+OUT
+CC1
+CC2
+/LD_DET_2
+/UFP_2
+AUX
+12V
+1.5A Broadcast
+3.0A USB Device Connected
+/UFP_1
+/UFP_2
+EN
+IN2
+IN2
+Copyright © 2016, Texas Instruments Incorporated
+21
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+•
+Enables a smaller and lower cost power supply as the loading is controlled and never allowed to exceed 5 A.
+Figure 18. 3-A USB Device Connected
+Figure 19. 1.5-A USB Device Connected
+7.4
+Device Functional Modes
+The TPS25810 is a Type-C controller with integrated power switch that supports all Type-C functions in a
+downstream facing port. It is also used to manage current advertisement and protection to a connected UFP and
+active cable. The device starts its operation by monitoring the AUX bus. When VAUX exceeds the under voltage-
+lockout threshold, the device samples the EN pin. A high level on this pin enables the device and normal
+operation begins. Having successfully completed its start-up sequence, the device now actively monitors its CC1
+and CC2 pins for attachment to a UFP. When a UFP is detected on either the CC1 or CC2 pin the internal
+MOSFET starts to turn-on after the required de-bounce time is met. The internal MOSFET starts conducting and
+allows current to flow from IN1 to OUT. If Ra is detected on the other CC pin (not connected to UFP), VCONN is
+applied to allow current to flow from IN2 to the CC pin connected to Ra. For a complete listing of various device
+operational modes refer to Table 2.
+
+--- PDF PAGE 22 ---
+IN1
+IN2
+AUX
+EN
+CHG
+CHG_HI
+REF
+REF_RTN
+PAD
+GND
+DEBUG
+AUDIO
+POL
+UFP
+LD_DET
+FAULT
+CC2
+CC1
+OUT
+OUT
+2
+3
+4
+5
+6
+7
+8
+10
+9
+21
+12
+16
+17
+18
+19
+20
+1
+11
+13
+15
+14
+TPS25810RVC
+100 NŸ
+(1%)
+USB Type C
+Receptacle
+47uF
+10uF
+5V
+VBUS
+47uF
+47uF
+0.1uF
+IN1
+Copyright © 2016, Texas Instruments Incorporated
+22
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+8
+Application and Implementation
+NOTE
+Information in the following applications sections is not part of the TI component
+specification, and TI does not warrant its accuracy or completeness. TI’s customers are
+responsible for determining suitability of components for their purposes. Customers should
+validate and test their design implementation to confirm system functionality.
+8.1
+Application Information
+The TPS25810 is a Type-C DFP controller that supports all Type-C DFP required functions. The TPS25810 only
+applies power to VBUS when it detects that a UFP is attached and removes power when it detects the UFP is
+detached. The device exposes its identity via its CC pin advertising its current capability based on CHG and
+CHG_HI pin settings. The TPS25810 also limits its advertised current internally and provides robust protection to
+a fault on the system VBUS power rail.
+After a connection is established by the TPS25810, the device is capable of providing VCONN to power circuits in
+the cable plug on the CC pin that is not connected to the CC wire in the cable. VCONN is internally current limited
+and has its own supply pin IN2. Apart from providing charging current to a UFP, the TPS25810 also supports
+Audio and Debug accessory modes.
+The following design procedure can be used to implement a full featured Type-C DFP.
+NOTE
+BC 1.2 is not supported in the TPS25810. To support BC1.2 with Type-C charging modes
+in a single C connector, a device like a TPS2514A will need to be used.
+8.2
+Typical Applications
+8.2.1
+Type C DFP Port Implementation without BC 1.2 Support
+Figure 20 shows a minimal Type-C DFP implementation capable of supporting 5-V and 3-A charging.
+Figure 20. Type-C DFP Port Implementation without BC 1.2 Support
+
+--- PDF PAGE 23 ---
+23
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Typical Applications (continued)
+8.2.1.1
+Design Requirements
+8.2.1.1.1
+Input and Output Capacitance
+Input and output capacitance improves the performance of the device. The actual capacitance should be
+optimized for the particular application. For all applications, a 0.1-μF or greater ceramic bypass capacitor
+between IN and GND is recommended as close to the device as possible for local noise de-coupling.
+All protection circuits such as the TPS25810 have the potential for input voltage overshoots and output voltage
+undershoots. Input voltage overshoots can be caused by either of two effects. The first cause is an abrupt
+application of input voltage in conjunction with input power bus inductance and input capacitance when the IN
+terminal is high impedance (before turn on). Theoretically, the peak voltage is 2 times the applied. The second
+cause is due to the abrupt reduction of output short circuit current when the TPS25810 turns off and energy
+stored in the input inductance drives the input voltage high. Input voltage droops may also occur with large load
+steps and as the TPS25810 output is shorted. Applications with large input inductance (for instance connecting
+the evaluation board to the bench power-supply through long cables) may require large input capacitance to
+reduce the voltage overshoot from exceeding the absolute maximum voltage of the device.
+The fast current-limit speed of the TPS25810 to hard output short circuits isolate the input bus form faults.
+However, ceramic input capacitance in the range of 1 μF to 22 μF adjacent to the TPS25810 input aids in both
+response time and limiting the transient seen on the input power bus. Momentary input transients to 6.5 V are
+permitted. Output voltage undershoot is caused by the inductance of the output power bus just after a short has
+occurred and the TPS25810 has abruptly reduced OUT current. Energy stored in the inductance drives the OUT
+voltage down and potentially negative as it discharges. An application with large output inductance (such as from
+a cable) benefits from use of a high-value output capacitor to control voltage undershoot.
+When implementing a USB standard application, 120 μF minimum output capacitance is required. Typically a
+150-μF electrolytic capacitor is used, which is sufficient to control voltage undershoots. Since in Type-C DFP is a
+cold socket when no UFP is attached, the output capacitance should be placed at the IN pin versus OUT as is
+used in USB Type A ports. It is also recommended to put a 10-μF ceramic capacitor on the OUT pin for better
+voltage bypass.
+8.2.1.2
+Detailed Design Procedure
+The TPS25810 device supports three different input voltages based on the application. In the simplest
+implementation all input supplies are tied to a single voltage source as shown in Figure 20 which is set to 5 V.
+However, it is recommended to set a slightly higher (100 mV to 200 mV) input voltage, when possible, to
+compensate for IR drop from the source to the Type C connector.
+Other design considerations are listed below:
+•
+Place at least 120 µF of bypass capacitance close to the IN pins versus OUT as Type C is a cold socket
+connector.
+•
+A 10-µF bypass capacitor is recommended placed near a Type-C receptacle VBUS pin to handle load
+transients.
+•
+Depending on the max current level advertisement supported by the Type-C port in the system, set CHG and
+CHG_HI levels accordingly. 3 A advertisement is shown in Figure 20.
+•
+EN, CHG, and CHG_HI pins can be tied directly to GND or VAUX without a pull-up resistor.
+–
+CHG and CHG_HI can also be dynamically controlled by a µC to change the current advertisement level
+to the UFP.
+•
+When an open drain output of the TPS25810 is not used, it can be left as NC or tied to GND.
+•
+Use a 1% 100-kΩresistor to connect between the REF and REF_RTN pins placing it close to the device pin
+and isolated from switching noise on the board.
+
+--- PDF PAGE 24 ---
+Time 20 ms/div
+2 A/div
+2 V/div
+2 V/div
+2 V/div
+VBUS
+CC1
+VIN
+IN
+Time 20 ms/div
+2 V/div
+2 V/div
+2 V/div
+2 V/div
+VOUT
+CC1
+VIN
+CC2
+Time 200
+s/div
+m
+500 mA/div
+2 V/div
+2 V/div
+2 V/div
+VBUS
+CC1
+VIN
+IN
+Time 50 ms/div
+2 A/div
+2 V/div
+2 V/div
+2 V/div
+VBUS
+CC1
+VIN
+IN
+Time 50 ms/div
+2 V/div
+2 V/div
+2 V/div
+2 V/div
+VBUS
+CC1
+VIN
+CC2
+Time 20 ms/div
+2 V/div
+2 V/div
+2 V/div
+2 A/div
+IN
+VBUS
+CC1
+VIN
+24
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Typical Applications (continued)
+8.2.1.3
+Application Curves
+Basic Start-Up: IN1 = IN2 = AUX = EN = CHG = CHG_HI = 5 V,
+CC1 = Rd, CC2 = Open
+Figure 21. Basic Start-Up
+IN1 = IN2 = AUX = EN = CHG = CHG_HI = 5 V, CC1 = Open,
+CC2 = Open then Rd
+Figure 22. Start-Up
+IN1 = IN2 = AUX = EN = 5 V; CHG = CHG_HI = 0 V, CC1 =
+Open, CC2 = Rd, OUT = Open→5 Ω
+Figure 23. Load Step
+IN1 = IN2 = AUX = EN = CHG = CHG_HI = 5 V, CC1 = Rd, CC2
+= Open, OUT = Shorted
+Figure 24. Hot-Plug to Short
+IN1 = IN2 = AUX = EN = CHG = CHG_HI = 5 V, CC1 = Short,
+CC2 = Rd
+Figure 25. Short On CC1
+IN1 = IN2 = AUX = EN = CHG = CHG_HI = 5 V, CC1 = Open,
+CC2 = Rd→Open
+Figure 26. Remove Rd
+
+--- PDF PAGE 25 ---
+Time 50 ms/div
+2 V/div
+2 V/div
+2 V/div
+2 V/div
+VBUS
+CC1
+VIN
+CC2
+25
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Typical Applications (continued)
+VIN 5 V→3.5 V (100 ms)→5 V (1 V/ms),
+IN1 = IN2 = AUX = EN = CHG = CHG_HI = 5 V,
+CC1 = Rd,
+CC2 = Ra
+Figure 27. Brown-Out Test
+
+--- PDF PAGE 26 ---
+IN1
+IN1
+IN2
+AUX
+EN
+CHG
+CHG_HI
+REF
+REF_RTN
+PAD
+GND
+DEBUG
+AUDIO
+POL
+UFP
+LD_DET
+FAULT
+CC2
+CC1
+OUT
+OUT
+2
+3
+4
+5
+6
+7
+8
+10
+9
+21
+12
+16
+17
+18
+19
+20
+1
+11
+13
+15
+14
+TPS25810RVC
+100 NŸ
+(1%)
+USB Type C
+Receptacle
+47uF
+10uF
+5V
+VBUS
+DM1
+DP1
+IN
+GND
+NC
+NC
+TPS2514ADBV
+0.1uF
+Dn
+Dp
+47uF
+47uF
+0.1uF
+Copyright © 2016, Texas Instruments Incorporated
+26
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Typical Applications (continued)
+8.2.2
+Type-C DFP Port Implementation with BC 1.2 (DCP Mode) Support
+Figure 28 shows a Type-C DFP implementation capable of supporting 5 V and 3 A charging in a Type-C port that
+is also able to support charging of legacy devices when used with a Type C – µB cable assembly for charging
+phones and handheld devices equipped with µB connector.
+This implementation requires the use of a TPS2514A, a USB dedicated charging port (DCP) controller with auto-
+detect feature to charge not only BC1.2 compliant handheld devices but also popular phones and tablets that
+incorporate their own propriety charging algorithm. Refer to TPS2514A specifications available at www.ti.com for
+more details.
+Figure 28. Type C DFP Port Implementation with BC 1.2 (DCP Mode) Support
+8.2.2.1
+Design Requirements
+Refer to Design Requirements for the Design Requirements.
+8.2.2.2
+Detailed Design Procedure
+Refer to Detailed Design Procedure for the Detailed Design Procedure.
+8.2.2.3
+Application Curves
+Refer to Application Curves for the Application Curves.
+
+--- PDF PAGE 27 ---
+27
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+9
+Power Supply Recommendations
+The device has three power supply inputs; IN1, which is directly connected to OUT via the power MOSFET, is
+tied to the VBUS pin in the Type-C receptacle. IN2 also has a current limiting switch and is MUXed either to the
+CC1 or CC2 pin in the Type-C receptacle depending on cable plug polarity. AUX is the chip supply. In most
+applications all three supplies are tied together. In a special implementation like power wake IN1/IN2 are tied to a
+single supply while AUX is powered by a supply that is always ON and can be as low as 2.9 V.
+USB Specification Revisions 2.0 and 3.1 require VBUS voltage at the connector to be between 4.75 V to 5.5 V.
+Depending on layout and routing from supply to the connector the voltage droop on VBUS has to be tightly
+controlled. Locate the input supply close to the device. For all applications, a 10-μF or greater ceramic bypass
+capacitor between OUT and GND is recommended as close to the Type-C connector of the device as possible
+for local noise decoupling. The power supply should be rated higher than the current limit set to avoid voltage
+droops during over current and short-circuit conditions.
+
+--- PDF PAGE 28 ---
+28
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+10
+Layout
+10.1
+Layout Guidelines
+Layout best practices as it applies to the TPS25810 are listed below.
+•
+For all applications a 10-µF ceramic capacitor is recommended near the Type-C receptacle and another 120-
+µF ceramic capacitor close to IN1 pin.
+–
+The optimum placement of the 120-µF capacitor is closest to the IN1 and GND pins of the device.
+–
+Care must be taken to minimize the loop area formed by the bypass-capacitor connection, the IN1 pin,
+and the GND pin of the IC. See Figure 29 for a PCB layout example.
+•
+High current carrying power path connections to the device should be as short as possible and should be
+sized to carry at least twice the full-load current.
+–
+Have the input and output traces as short as possible. The most common cause of voltage drop failure in
+USB power delivery is the resistance associated with the VBUS trace. Trace length, maximum current
+being supplied for normal operation, and total resistance associated with the VBUS trace must be taken
+into account while budgeting for voltage drop.
+–
+For example, a power carrying trace that supplies 3 A, at a distance of 20 inches, 0.100-in. wide, with 2-
+oz. copper on the outer layer will have a total resistance of approximately 0.046 Ω and voltage drop of
+0.14 V. The same trace at 0.050-in.-wide will have a total resistance of approximately 0.09 Ω and voltage
+drop of 0.28 V.
+–
+Make power traces as wide as possible.
+•
+The resistor attached to the REF pin of the device has several requirements:
+–
+It is recommended to use a 1% 100-kΩlow tempco resistor.
+–
+It should be connected to pins REF and REF_RTN (pin 9 and pin 10 respectively).
+–
+The REF_RTN pin should be isolated from the GND plane. See Figure 29.
+–
+The trace routing between the REF and REF_RTN pins of the device should be as short as possible to
+reduce parasitic effects on current limit and current advertisement accuracy. These traces should not have
+any coupling to switching signals on the board.
+•
+Locate all TPS25810 pull-up resistors for open-drain outputs close to their connection pin. Pull up resistors
+should be 100 kΩ.
+–
+When a particular open drain output is not used/needed in the system leave the associated pin open or
+tied to GND.
+•
+Keep the CC lines close to the same length.
+•
+Thermal Considerations:
+–
+When properly mounted, the thermal pad package provides significantly greater cooling ability than an
+ordinary package. To operate at rated power, the thermal pad must be soldered to the board GND plane
+directly under the device. The thermal pad is at GND potential and can be connected using multiple vias
+to inner layer GND. Other planes, such as the bottom side of the circuit board can be used to increase
+heat sinking in higher current applications. Refer to Technical Briefs: PowerPad™Thermally Enhanced
+Package (TI literature Number SLMA002) and PowerPAD™Made Easy (TI Literature Number SLMA004)
+or more information on using this thermal pad package.
+–
+The thermal via land pattern specific to the TPS25810 can be downloaded from the device web page at
+www.ti.com.
+–
+Obtaining acceptable performance with alternate layout schemes is possible; however the layout example
+in the following section has been shown to produce good results and is intended as a guideline.
+•
+ESD Considerations
+–
+TPS25810 has built in ESD protection for CC1 and CC2. Keep trace length to a minimum from the type-C
+receptacle to the TPS25810 on CC1 and CC2.
+–
+10-uF output cap should be placed near Type-C receptacle
+–
+Refer to the TPS25810EVM-745 Evaluation Module for an example of a double layer board that passes
+IEC61000-4-2 testing
+–
+Do not create stubs or test points on the CC lines. Keep the traces short if possible and use minimal via
+along the traces (1-2 inches or less).
+–
+Refer to ESD Protection Layout Guide for additional information (TI Literature Number SLVA680)
+
+--- PDF PAGE 29 ---
+ 
+ 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+IN1
+IN2
+AUX
+AUX
+EN
+CHG
+CHG_HI
+REF_RTN
+REF
+CC1
+CC2
+GND
+Thermal
+Pad
+OUT
+/DEBUG
+/AUDIO
+/POL
+/UFP
+/LD_DET
+/FAULT
+Signal Ground
+Top Layer
+Signal Ground
+Bottom Layer
+Bottom Layer Signal Trace
+Top Layer Signal Trace
+Top Layer Signal Ground Plane
+Bottom Layer Signal Ground Plane
+Via to Bottom Layer Signal Ground Plane
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx Via to Bottom Layer Signal
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxx
+xxxxx
+xxxxx
+xxxxx
+xxxxx
+xxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+xxxxxx
+29
+TPS25810
+www.ti.com
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+Layout Guidelines (continued)
+–
+Have a dedicated ground plane layer if possible to avoid differential voltage buildup
+10.2
+Layout Example
+Figure 29. Layout Example
+
+--- PDF PAGE 30 ---
+30
+TPS25810
+SLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017
+www.ti.com
+Product Folder Links: TPS25810
+Submit Documentation Feedback
+Copyright © 2015–2017, Texas Instruments Incorporated
+11
+Device and Documentation Support
+11.1
+Device Support
+11.1.1
+Third-Party Products Disclaimer
+TI'S PUBLICATION OF INFORMATION REGARDING THIRD-PARTY PRODUCTS OR SERVICES DOES NOT
+CONSTITUTE AN ENDORSEMENT REGARDING THE SUITABILITY OF SUCH PRODUCTS OR SERVICES
+OR A WARRANTY, REPRESENTATION OR ENDORSEMENT OF SUCH PRODUCTS OR SERVICES, EITHER
+ALONE OR IN COMBINATION WITH ANY TI PRODUCT OR SERVICE.
+11.2
+Documentation Support
+11.2.1
+Related Documentation
+PowerPad™Thermally Enhanced Package (TI literature Number SLMA002)
+PowerPAD™Made Easy (TI Literature Number SLMA004)
+TPS25810EVM-745 User's Guide (SLVUAI0)
+Protecting the TPS25810 from High Voltage DFPs (SLVA751)
+11.3
+Receiving Notification of Documentation Updates
+To receive notification of documentation updates, navigate to the device product folder on ti.com. In the upper
+right corner, click on Alert me to register and receive a weekly digest of any product information that has
+changed. For change details, review the revision history included in any revised document.
+11.4
+Community Resources
+The following links connect to TI community resources. Linked contents are provided "AS IS" by the respective
+contributors. They do not constitute TI specifications and do not necessarily reflect TI's views; see TI's Terms of
+Use.
+TI E2E™Online Community TI's Engineer-to-Engineer (E2E) Community. Created to foster collaboration
+among engineers. At e2e.ti.com, you can ask questions, share knowledge, explore ideas and help
+solve problems with fellow engineers.
+Design Support TI's Design Support Quickly find helpful E2E forums along with design support tools and
+contact information for technical support.
+11.5
+Trademarks
+E2E is a trademark of Texas Instruments.
+All other trademarks are the property of their respective owners.
+11.6
+Electrostatic Discharge Caution
+These devices have limited built-in ESD protection. The leads should be shorted together or the device placed in conductive foam
+during storage or handling to prevent electrostatic damage to the MOS gates.
+11.7
+Glossary
+SLYZ022 — TI Glossary.
+This glossary lists and explains terms, acronyms, and definitions.
+12
+Mechanical, Packaging, and Orderable Information
+The following pages include mechanical, packaging, and orderable information. This information is the most
+current data available for the designated devices. This data is subject to change without notice and revision of
+this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+
+--- PDF PAGE 31 ---
+PACKAGE OPTION ADDENDUM
+www.ti.com
+10-Nov-2025
+PACKAGING INFORMATION
+Orderable part number
+Status
+(1)
+Material type
+(2)
+Package | Pins
+Package qty | Carrier
+RoHS
+(3)
+Lead finish/
+Ball material
+(4)
+MSL rating/
+Peak reflow
+(5)
+Op temp (°C)
+Part marking
+(6)
+TPS25810RVCR
+Active
+Production
+WQFN (RVC) | 20
+3000 | LARGE T&R
+Yes
+NIPDAU | NIPDAUAG Level-2-260C-1 YEAR
+-40 to 125
+25810
+TPS25810RVCR.A
+Active
+Production
+WQFN (RVC) | 20
+3000 | LARGE T&R
+Yes
+NIPDAU
+Level-2-260C-1 YEAR
+-40 to 125
+25810
+TPS25810RVCR.B
+Active
+Production
+WQFN (RVC) | 20
+3000 | LARGE T&R
+Yes
+NIPDAU
+Level-2-260C-1 YEAR
+-40 to 125
+25810
+TPS25810RVCT
+Active
+Production
+WQFN (RVC) | 20
+250 | SMALL T&R
+Yes
+NIPDAU
+Level-2-260C-1 YEAR
+-40 to 125
+25810
+TPS25810RVCT.A
+Active
+Production
+WQFN (RVC) | 20
+250 | SMALL T&R
+Yes
+NIPDAU
+Level-2-260C-1 YEAR
+-40 to 125
+25810
+TPS25810RVCT.B
+Active
+Production
+WQFN (RVC) | 20
+250 | SMALL T&R
+Yes
+NIPDAU
+Level-2-260C-1 YEAR
+-40 to 125
+25810
+TPS25810RVCTG4
+Active
+Production
+WQFN (RVC) | 20
+250 | SMALL T&R
+Yes
+NIPDAU
+Level-1-260C-UNLIM
+-40 to 125
+25810
+TPS25810RVCTG4.A
+Active
+Production
+WQFN (RVC) | 20
+250 | SMALL T&R
+Yes
+NIPDAU
+Level-1-260C-UNLIM
+-40 to 125
+25810
+TPS25810RVCTG4.B
+Active
+Production
+WQFN (RVC) | 20
+250 | SMALL T&R
+Yes
+NIPDAU
+Level-1-260C-UNLIM
+-40 to 125
+25810
+ 
+(1) Status:  For more details on status, see our product life cycle.
+ 
+(2) Material type:  When designated, preproduction parts are prototypes/experimental devices, and are not yet approved or released for full production. Testing and final process, including without limitation quality assurance,
+reliability performance testing, and/or process qualification, may not yet be complete, and this item is subject to further changes or possible discontinuation. If available for ordering, purchases will be subject to an additional
+waiver at checkout, and are intended for early internal evaluation purposes only. These items are sold without warranties of any kind.
+ 
+(3) RoHS values:  Yes, No, RoHS Exempt. See the TI RoHS Statement for additional information and value definition.
+ 
+(4) Lead finish/Ball material:  Parts may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum
+column width.
+ 
+(5) MSL rating/Peak reflow:  The moisture sensitivity level ratings and peak solder (reflow) temperatures. In the event that a part has multiple moisture sensitivity ratings, only the lowest level per JEDEC standards is shown.
+Refer to the shipping label for the actual reflow temperature that will be used to mount the part to the printed circuit board.
+ 
+(6) Part marking:  There may be an additional marking, which relates to the logo, the lot trace code information, or the environmental category of the part.
+ 
+Multiple part markings will be inside parentheses. Only one part marking contained in parentheses and separated by a "~" will appear on a part. If a line is indented then it is a continuation of the previous line and the two
+combined represent the entire part marking for that device.
+ 
+Important Information and Disclaimer:The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and
+makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative
+Addendum-Page 1
+
+--- PDF PAGE 32 ---
+PACKAGE OPTION ADDENDUM
+www.ti.com
+10-Nov-2025
+and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals. TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers
+and other limited information may not be available for release.
+ 
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis.
+ 
+ OTHER QUALIFIED VERSIONS OF TPS25810 :
+• Automotive : TPS25810-Q1
+ NOTE: Qualified Version Definitions:
+• Automotive - Q100 devices qualified for high-reliability automotive applications targeting zero defects
+Addendum-Page 2
+
+--- PDF PAGE 33 ---
+PACKAGE MATERIALS INFORMATION
+ 
+ 
+www.ti.com
+3-Sep-2026
+TAPE AND REEL INFORMATION
+Reel Width (W1)
+REEL DIMENSIONS
+A0
+B0
+K0
+W
+Dimension designed to accommodate the component length
+Dimension designed to accommodate the component thickness
+Overall width of the carrier tape
+Pitch between successive cavity centers
+Dimension designed to accommodate the component width
+TAPE DIMENSIONS
+K0
+ P1
+B0 W
+A0
+Cavity
+QUADRANT ASSIGNMENTS FOR PIN 1 ORIENTATION IN TAPE
+Pocket Quadrants
+Sprocket Holes
+Q1
+Q1
+Q2
+Q2
+Q3
+Q3
+Q4
+Q4
+User Direction of Feed
+P1
+Reel
+Diameter
+ 
+*All dimensions are nominal
+Device
+Package
+Type
+Package
+Drawing
+Pins
+SPQ
+Reel
+Diameter
+(mm)
+Reel
+Width
+W1 (mm)
+A0
+(mm)
+B0
+(mm)
+K0
+(mm)
+P1
+(mm)
+W
+(mm)
+Pin1
+Quadrant
+TPS25810RVCR
+WQFN
+RVC
+20
+3000
+330.0
+12.4
+3.3
+4.3
+1.1
+8.0
+12.0
+Q1
+TPS25810RVCR
+WQFN
+RVC
+20
+3000
+330.0
+12.4
+3.3
+4.3
+1.1
+8.0
+12.0
+Q1
+TPS25810RVCT
+WQFN
+RVC
+20
+250
+180.0
+12.4
+3.3
+4.3
+1.1
+8.0
+12.0
+Q1
+TPS25810RVCT
+WQFN
+RVC
+20
+250
+180.0
+12.4
+3.3
+4.3
+1.1
+8.0
+12.0
+Q1
+TPS25810RVCTG4
+WQFN
+RVC
+20
+250
+180.0
+12.4
+3.3
+4.3
+1.1
+8.0
+12.0
+Q1
+Pack Materials-Page 1
+
+--- PDF PAGE 34 ---
+PACKAGE MATERIALS INFORMATION
+ 
+ 
+www.ti.com
+3-Sep-2026
+TAPE AND REEL BOX DIMENSIONS
+Width (mm)
+W
+L
+H
+ 
+*All dimensions are nominal
+Device
+Package Type
+Package Drawing
+Pins
+SPQ
+Length (mm)
+Width (mm)
+Height (mm)
+TPS25810RVCR
+WQFN
+RVC
+20
+3000
+360.0
+360.0
+36.0
+TPS25810RVCR
+WQFN
+RVC
+20
+3000
+346.0
+346.0
+33.0
+TPS25810RVCT
+WQFN
+RVC
+20
+250
+210.0
+185.0
+35.0
+TPS25810RVCT
+WQFN
+RVC
+20
+250
+210.0
+185.0
+35.0
+TPS25810RVCTG4
+WQFN
+RVC
+20
+250
+210.0
+185.0
+35.0
+Pack Materials-Page 2
+
+--- PDF PAGE 35 ---
+
+--- PDF PAGE 36 ---
+www.ti.com
+PACKAGE OUTLINE
+C
+SEE TERMINAL
+DETAIL
+20X 0.25
+0.15
+1.6
+0.1
+20X 0.45
+0.35
+0.8 MAX
+(0.2) TYP
+0.05
+0.00
+16X 0.5
+2X
+2.5
+2X 1.5
+2.6
+0.1
+B
+3.1
+2.9
+A
+4.1
+3.9
+0.25
+0.15
+0.45
+0.35
+WQFN - 0.8 mm max height
+RVC0020A
+PLASTIC QUAD FLATPACK - NO LEAD
+4219150/B   03/2017
+PIN 1 INDEX AREA
+0.08
+SEATING PLANE
+1
+6
+11
+16
+7
+10
+20
+17
+(OPTIONAL)
+PIN 1 ID
+0.1
+C A B
+0.05
+EXPOSED
+THERMAL PAD
+21
+SYMM
+SYMM
+NOTES:
+ 
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+    per ASME Y14.5M. 
+2. This drawing is subject to change without notice. 
+3. The package thermal pad must be soldered to the printed circuit board for optimal thermal and mechanical performance.
+SCALE  3.700
+DETAIL
+OPTIONAL TERMINAL
+TYPICAL
+
+--- PDF PAGE 37 ---
+www.ti.com
+EXAMPLE BOARD LAYOUT
+0.07 MIN
+ALL AROUND
+0.07 MAX
+ALL AROUND
+20X (0.2)
+20X (0.6)
+(
+0.2) TYP
+VIA
+16X (0.5)
+(3.8)
+(2.8)
+(1)
+TYP
+(1.6)
+(R0.05)
+TYP
+(2.6)
+(1 TYP)
+WQFN - 0.8 mm max height
+RVC0020A
+PLASTIC QUAD FLATPACK - NO LEAD
+4219150/B   03/2017
+SYMM
+1
+6
+7
+10
+11
+16
+17
+20
+SYMM
+LAND PATTERN EXAMPLE
+EXPOSED METAL SHOWN
+SCALE:18X
+21
+NOTES: (continued)
+ 
+4. This package is designed to be soldered to a thermal pad on the board. For more information, see Texas Instruments literature
+    number SLUA271 (www.ti.com/lit/slua271).
+5. Vias are optional depending on application, refer to device data sheet. If any vias are implemented, refer to their locations shown
+    on this view. It is recommended that vias under paste be filled, plugged or tented.
+SOLDER MASK
+OPENING
+METAL UNDER
+SOLDER MASK
+SOLDER MASK
+DEFINED
+EXPOSED METAL
+METAL
+SOLDER MASK
+OPENING
+SOLDER MASK DETAILS
+NON SOLDER MASK
+DEFINED
+(PREFERRED)
+EXPOSED METAL
+
+--- PDF PAGE 38 ---
+www.ti.com
+EXAMPLE STENCIL DESIGN
+20X (0.6)
+20X (0.2)
+16X (0.5)
+(2.8)
+(3.8)
+2X (1.47)
+(0.675)
+TYP
+(R0.05) TYP
+2X
+(1.15)
+WQFN - 0.8 mm max height
+RVC0020A
+PLASTIC QUAD FLATPACK - NO LEAD
+4219150/B   03/2017
+NOTES: (continued)
+ 
+6. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+   design recommendations.
+SYMM
+METAL
+TYP
+SOLDER PASTE EXAMPLE
+BASED ON 0.1 mm THICK STENCIL
+ 
+EXPOSED PAD X
+81% PRINTED SOLDER COVERAGE BY AREA UNDER PACKAGE
+SCALE:20X
+SYMM
+1
+6
+7
+10
+11
+16
+17
+20
+21
+
+--- PDF PAGE 39 ---
+IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATASHEETS), DESIGN RESOURCES (INCLUDING REFERENCE 
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS” 
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY 
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD 
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate 
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable 
+standards, and any other safety, security, regulatory or other requirements.
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an 
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license 
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you fully 
+indemnify TI and its representatives against any claims, damages, costs, losses, and liabilities arising out of your use of these resources.
+TI’s products are provided subject to TI’s Terms of Sale, TI’s General Quality Guidelines, or other applicable terms available either on 
+ti.com or provided in conjunction with such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable 
+warranties or warranty disclaimers for TI products. Unless TI explicitly designates a product as custom or customer-specified, TI products 
+are standard, catalog, general purpose devices.
+TI objects to and rejects any additional or different terms you may propose.
+IMPORTANT NOTICE
+Copyright © 2026, Texas Instruments Incorporated
+Last updated 10/2025

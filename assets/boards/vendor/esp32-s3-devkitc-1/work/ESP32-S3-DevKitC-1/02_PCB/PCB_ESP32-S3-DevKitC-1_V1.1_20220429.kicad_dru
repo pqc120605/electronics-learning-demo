@@ -1,0 +1,9 @@
+(version 1)
+
+(rule "DiffPair_D1_gap"
+  (condition "A.NetName == 'D+' && B.NetName == 'D-'")
+  (constraint clearance (min 0.14224mm)))
+
+(rule "DiffPair_D2_gap"
+  (condition "A.NetName == 'GPIO19' && B.NetName == 'GPIO20'")
+  (constraint clearance (min 0.14224mm)))

@@ -1,0 +1,37 @@
+{
+  "scope": "Conditional sense architecture only. Main load cutoff, AON and safe storage duration are separate.",
+  "guard_each_nominal_ohm": 604000.0,
+  "guard_tolerance": 0.001,
+  "assumed_delta_v_max": 7.2,
+  "sense_routes": 12,
+  "per_route_normal_a": 5.966231131794046e-06,
+  "aggregate_intact_a": 7.159477358152855e-05,
+  "aggregate_one_guard_short_a": 7.75610047133226e-05,
+  "aggregate_one_guard_open_a": 6.56285424497345e-05,
+  "sense_only_remaining_to_research_100uA_a": 2.2438995286677406e-05,
+  "charge_per_day_sense_only_mAh": 1.8614641131197425,
+  "normal_trip_corner_count": 256,
+  "normal_trip_v": [
+    1.0623984105286717,
+    1.1376768679287288
+  ],
+  "hypothetical_allocations": {
+    "comparator_voltage_error_excluding_input_bias_v": 0.01,
+    "input_bias_a": 1.2e-09,
+    "board_leakage_per_input_a": 2.5e-09,
+    "max_rth_ohm": 604603.9999999999,
+    "equivalent_insulation_ohm_at_7p2v": 2880000000.0
+  },
+  "fault_examples": {
+    "cell_0p8_one_high_guard_short_delta_v": 0.18333333333333313,
+    "P_node_forced_3p3_delta_v": 1.7499999999999998
+  },
+  "obligations": [
+    "Each route must cross both passive guards at the cell before exposed routing",
+    "7.2V must cover rail transients, clamps and stored energy during faults",
+    "A guard bridge that bypasses both resistors is outside the one-resistor-short model",
+    "Independent UV channels must detect faults that make one input falsely healthy",
+    "Board leakage, full-domain bias/offset and settling need evidence",
+    "No absolute safe storage time follows from this current limit"
+  ]
+}

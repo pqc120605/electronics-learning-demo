@@ -1,0 +1,23 @@
+{
+  "archive": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\handoffs\\2026-11-10\\MACH-MO-HARDWARE-PAUSED-2026-11-10.zip",
+  "archive_sha256": "e9fb3e3083d42a6a4b5c33d72e9c56b7711cb3c20ae1cb783195bdc5e886c30a",
+  "archive_bytes": 108588387,
+  "entries_including_manifest": 685,
+  "zip_CRC_check": "PASS",
+  "all_entry_hashes_match": true,
+  "pause_queue_validation": {
+    "tasks": 58,
+    "capabilities": 143,
+    "warnings": [],
+    "errors": []
+  },
+  "source_r12_unchanged": true,
+  "no_hardware_resume": true,
+  "unfinished": [
+    "P0-12 independent QA",
+    "preflight001/002/003 registry reconciliation",
+    "fullH3/OFF/MCU/mechanical evidence",
+    "r13",
+    "B1 authorization/preflight"
+  ]
+}

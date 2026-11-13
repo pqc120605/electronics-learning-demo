@@ -1,0 +1,142 @@
+{
+  "classification": "Conditional calculations, no engineering PASS",
+  "RUN_OUT_single_bleed_open": {
+    "V0_V": 5.25,
+    "target_V": 0.643404,
+    "Rmax_ohm": 10100,
+    "Cmax_F": 0.0001,
+    "Imax_A": 3e-05,
+    "plateau_V": 0.303,
+    "time_to_target_s": 2.7031674983533764,
+    "reachable": true
+  },
+  "RUN_timeout_allocation_s": 2.8231674983533765,
+  "RUN_additional_allocation_margin_s": 1.1768325016466235,
+  "RUN_allowed_total_injection_at4s_A": 5.3701036294457904e-05,
+  "JOY_proposed_2x22k_one_open": {
+    "V0_V": 3.6,
+    "target_V": 0.643404,
+    "Rmax_ohm": 22220,
+    "Cmax_F": 1e-05,
+    "Imax_A": 2e-05,
+    "plateau_V": 0.4444,
+    "time_to_target_s": 0.6140739211767384,
+    "reachable": true
+  },
+  "JOY_both_bleeds_run_current_at3_3V_A": 0.0003,
+  "JOY_old100k_at12uA_plateau_V": 1.2,
+  "watchdog_followon_allocation_ms": 7.35,
+  "geometry_direction_sensitivity": [
+    {
+      "stroke_mm": 0.8,
+      "angular_error_deg": 5,
+      "loss_max_mm": 0.3,
+      "separation_min_mm": 0.4969557584733965,
+      "margin_to_half_mm": -0.003044241526603486
+    },
+    {
+      "stroke_mm": 0.85,
+      "angular_error_deg": 5,
+      "loss_max_mm": 0.3,
+      "separation_min_mm": 0.5467654933779837,
+      "margin_to_half_mm": 0.04676549337798375
+    },
+    {
+      "stroke_mm": 0.9,
+      "angular_error_deg": 5,
+      "loss_max_mm": 0.3,
+      "separation_min_mm": 0.5965752282825709,
+      "margin_to_half_mm": 0.09657522828257092
+    },
+    {
+      "stroke_mm": 1.0,
+      "angular_error_deg": 5,
+      "loss_max_mm": 0.3,
+      "separation_min_mm": 0.6961946980917455,
+      "margin_to_half_mm": 0.1961946980917455
+    }
+  ],
+  "gpio_options": {
+    "omit_optional_total": 15,
+    "one_optional_total": 16,
+    "aggregate_two_total": 16,
+    "all_separate_total": 17,
+    "assured_total": 16
+  },
+  "hardware_MAX_chain": "TBD",
+  "physical_checks": "NOT_RUN",
+  "qualification_timing_caveat": "100ms is existing MIN only; RUN_timeout_allocation/margin and53.701uA sensitivity assume actual100ms and are not MAX bounds. Additional sensing/logic delays need separate bounds.",
+  "qualification_proposal": {
+    "min_s": 0.1,
+    "max_target_s": 0.25,
+    "component_proven": false,
+    "conditional_RUN_total_s": 2.9731674983533765,
+    "remaining_sensing_logic_margin_s": 1.0268325016466235
+  },
+  "selected_G_B": {
+    "total": 16,
+    "baseline_inputs": 5,
+    "control_outputs": 4,
+    "E_reserved_worst_case_outputs": 4,
+    "mandatory_status_inputs": 2,
+    "optional_second_position_input": 1,
+    "optional_charger_export": 0,
+    "unused_output_capable_needed": 9,
+    "unused_input_only_needed": 2,
+    "hardware_sensors_veto_preserved": true,
+    "pin_assignments": "UNASSIGNED",
+    "diagnostic_fault_coverage": "TBD; direction approval not designPASS"
+  },
+  "neutral_selector_clearance_example": {
+    "nominal_clearance_mm": 0.5,
+    "tolerance_stack_max_mm": 0.15,
+    "assembly_deflection_max_requirement_mm": 0.05,
+    "wear_allowance_mm": 0.05,
+    "other_debris_cable_allowance_mm": null,
+    "calculated_clearance_mm": 0.25,
+    "classification": "hypothetical envelope requirements, not measured or proven finite geometry"
+  },
+  "H3_precision_proposal": {
+    "Rt_nominal_ohm": 6384.8,
+    "Rb_nominal_ohm": 10000,
+    "resistor_error_bound_requirement": 0.00015,
+    "Kmin": 1.638288484727291,
+    "Kmax": 1.6386715727359105,
+    "reference_error_ppm_before_shift": 651.2,
+    "partial_intervals": [
+      {
+        "reference_extra_allowance_ppm": 0,
+        "input_CMRR_error_V": 0.00012662800000000018,
+        "input_PSRR_error_V": 0.00014058533129758727,
+        "trip_partial_min_V": 4.085392647141952,
+        "trip_partial_max_V": 4.107009754901587,
+        "low_margin_V": 0.0029926471419523537,
+        "high_margin_V": 0.002990245098413169,
+        "full_bound_proven": false
+      },
+      {
+        "reference_extra_allowance_ppm": 200,
+        "input_CMRR_error_V": 0.0001271279999999999,
+        "input_PSRR_error_V": 0.00014058533129758727,
+        "trip_partial_min_V": 4.084572683755346,
+        "trip_partial_max_V": 4.107829910023741,
+        "low_margin_V": 0.002172683755346405,
+        "high_margin_V": 0.002170089976258893,
+        "full_bound_proven": false
+      }
+    ],
+    "cutoff_requirement_us_new_ratio": 55.92205056081429,
+    "cutoff_requirement_us_with_1mV_guard": 51.733589022352746,
+    "REF33_reference_only_error_at4_0962V": 0.02642049,
+    "missing": [
+      "hysteresisMAX",
+      "full-temperatureCMRR/PSRR",
+      "aging/thermalhistory",
+      "ripple",
+      "chosen resistor lifetime bounds",
+      "complete fault topology",
+      "reference ready veto",
+      "actual cell-side C/ESR topology"
+    ]
+  }
+}

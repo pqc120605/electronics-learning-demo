@@ -1,0 +1,11 @@
+{
+  "path": "docs/research/downloads/p0-15/attempt-4/ti-tlv3502.pdf",
+  "url": "https://www.ti.com/lit/ds/symlink/tlv3502.pdf",
+  "publisher": "Texas Instruments",
+  "document": "TLV3501/TLV3502, SBOS321E, April 2016",
+  "access_date": "2026-11-11",
+  "sha256": "fcfbeffce874629849fe7b2324fa40731a41453b587b8f50782f0ff42311b946",
+  "bytes": 1074854,
+  "pages_used": [5, 6],
+  "limitations": "Comparator offset/temperature, input bias/common-mode and hysteresis limits do not prove the complete 10 mV input-error allocation. Propagation MAX applies only under the manufacturer's stated test conditions. Candidate is not adopted."
+}

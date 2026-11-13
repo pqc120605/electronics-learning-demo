@@ -1,0 +1,124 @@
+{
+  "id": "MOBOT-HWCFG-001",
+  "revision": 1,
+  "document_kind": "configuration-proposal",
+  "prepared_on": "2026-11-05",
+  "approval_required_before_hardware_build": true,
+  "confirmed_requirements": {
+    "audience": "beginner electronics learners",
+    "product_direction": "MoBot Starter shared core: rover and mini-robot, DIY remote, face/audio/buttons, obstacle mission and Mach Mo learning",
+    "primary_controller": "ESP32 DevKit V1",
+    "pcb_max_mm": {
+      "width": 100,
+      "height": 100
+    },
+    "smaller_preferred": true,
+    "motors": {
+      "count": 4,
+      "type": "brushed DC / geared motors",
+      "confirmation": "explicit user reply in current chat"
+    },
+    "requested_expansion": [
+      "LCD",
+      "ultrasonic",
+      "infrared",
+      "speaker",
+      "additional modules where resource budget permits"
+    ]
+  },
+  "reference": {
+    "url": "https://claude.ai/artifact/NKzoyN5pcRE3WyC5xBxWPz",
+    "title": "MởBot Starter",
+    "read_authorized_by_user": true,
+    "reference_type": "product/concept brief, not an electrical design or manufacturing BOM"
+  },
+  "proposed_configuration": {
+    "robot_main_pcb": {
+      "preferred_target_mm": {
+        "width": 90,
+        "height": 90
+      },
+      "target_is_unvalidated": true,
+      "form": "socketed ESP32 carrier; modular/reparable first prototype",
+      "mcu_footprint": "exact DevKit variant/dimensions unresolved"
+    },
+    "motor_control_primary": {
+      "candidate": "two dual-H-bridge TB6612-style channels, exact parts/modules not selected",
+      "channel_count": 4,
+      "pwm": "four native ESP32 hardware-PWM signals",
+      "direction": "eight slow direction outputs via MCP23017 candidate",
+      "enable": "native independent enable; hardware-default OFF and defined stop/reset/link-timeout behavior",
+      "conditions": "motor supply/stall/thermal/module documentation must determine final driver"
+    },
+    "motor_control_alternative": {
+      "candidate": "two DRV8833 devices/modules only if motor/power/thermal conditions fit",
+      "interface": "separate two-control-signals-per-motor architecture; not drop-in replacement for fourPWM/eightstaticDIR",
+      "conditions": "exact package/current sensing/thermal design required"
+    },
+    "io": {
+      "expander": "MCP23017 candidate; Rev D GPA7/GPB7 output-only; timing-sensitive inputs/PWM remain native",
+      "display": "graphical SPI face display as core; separate optional I2C teaching LCD port",
+      "sensors": "one ultrasonic timing interface; two IR teaching inputs proposed; later line-follow array via a defined expansion interface",
+      "audio": "speaker/amplifier path for sounds/prerecorded speech; microphone/PTT allocation proposed pending voice scope",
+      "expansion": "I2C expansion and UART/service interface only after simultaneous GPIO/bus/voltage budget"
+    },
+    "remote": {
+      "form": "separate DIY controller PCB, also <=100x100mm",
+      "controller": "ESP32-family candidate; exact module and controls unresolved",
+      "transport_candidates": [
+        "ESP-NOW local paired control",
+        "local web drive; coexistence/link-loss behavior must be validated"
+      ]
+    },
+    "power": {
+      "motor_domain": "separate motor supply distribution, not through DevKit regulation",
+      "logic_audio_domain": "regulated compatible rails chosen after source/load budget",
+      "protection": "polarity/current protection and reset-safe enable; details after approved source/load specification",
+      "battery_charging": "not selected; no charger/BMS design assumed"
+    },
+    "voice": {
+      "scope": "unresolved",
+      "minimum_candidate": "prerecorded Vietnamese prompts plus face; no speech recognition claim",
+      "advanced_candidate": "push-to-talk via explicitly selected local/phone/service processing; microphone mute/privacy and offline limits explicit"
+    }
+  },
+  "blocking_unknowns": [
+    "exact DevKit manufacturer/30-or38-pin variant/dimensions",
+    "motor rated voltage and stall current or exact model",
+    "power source/battery/charging/runtime target and simultaneous-load budget",
+    "graphical display module/size and teaching-LCD simultaneous requirement",
+    "ultrasonic/IR exact module/count/voltage interfaces",
+    "speaker impedance/power and amplifier choice",
+    "voice V1 scope: playback versus recognition/conversation and processing location",
+    "DIY remote controls/module/pairing scope",
+    "budget and module-versus-integrated preference"
+  ],
+  "build_state": "NOT_STARTED; no pin map, schematic, PCB, CAD, or physical firmware artifact authorized",
+  "electrical_review": {
+    "reviewer": "native electronics_firmware_engineer",
+    "result": "plausible configuration proposal with conditions only",
+    "physical_or_fit_validation": false
+  },
+  "sources": [
+    {
+      "title": "ESP32 datasheet",
+      "url": "https://documentation.espressif.com/esp32_datasheet_en.html"
+    },
+    {
+      "title": "MCP23017 Rev D",
+      "url": "https://ww1.microchip.com/downloads/aemDocuments/documents/APID/ProductDocuments/DataSheets/MCP23017-Data-Sheet-DS20001952.pdf"
+    },
+    {
+      "title": "TI DRV8833",
+      "url": "https://www.ti.com/lit/ds/symlink/drv8833.pdf"
+    },
+    {
+      "title": "Toshiba TB6612FNG",
+      "url": "https://toshiba-semicon-storage.com/info/TB6612FNG_datasheet_en_20141001.pdf?did=10660&prodName=TB6612FNG"
+    },
+    {
+      "title": "Espressif ESP-NOW",
+      "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/network/esp_now.html"
+    }
+  ]
+}

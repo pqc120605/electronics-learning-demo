@@ -1,0 +1,18 @@
+ESP32-S3-DevKitC-1 V1.1 educational reconstruction
+
+Board source and attribution
+- Board layout and BOM are derived from Espressif Systems' ESP32-S3-DevKitC-1 V1.1 reference-design package.
+- Official guide: https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp32-s3-devkitc-1/user_guide_v1.1.html
+- Official reference-design terms: https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32s3/disclaimer-and-copyright.html
+- The Espressif reference-design terms permit use in product development subject to verification/testing, do not grant Espressif trademark rights, and require removal/replacement of Espressif marks on commercialized modified designs. This viewer is not affiliated with Espressif.
+
+3D package models
+- Most component bodies use generic package models from the KiCad 3D model library; they are not manufacturer-specific part scans. The ESP32-S3-WROOM-1 body represents the module package family, not a specific memory variant.
+- KiCad 3D package models are licensed under CC BY-SA 4.0 with the official design-file exception. See https://github.com/KiCad/kicad-packages3D/blob/master/LICENSE.md. Attribution/share-alike obligations apply to the package-model material as specified by that license.
+- This GLB combines the board visualization with those package models for browser viewing. Retain this notice and the cited sources when copying the asset; review the source terms before redistribution or commercial use.
+
+Accuracy and safety
+- This model was derived from imported PADS ASCII/BOM data and has not been checked against a physical board.
+- The PADS-to-KiCad import has DRC findings and unconnected items. This model is not suitable for PCB fabrication, electrical sign-off, or as a validated netlist.
+- Generic package mesh, imported net labels, and the 44 selectable header anchors are educational reference data. Confirm exact revision, module variant, datasheet, voltage limits, and wiring before hardware use.
+- Outline height from the source PADS conversion is 62.865 mm, differing by 0.125 mm from the official dimension PDF (62.74 mm); the converted source outline is kept aligned to the imported PCB geometry.

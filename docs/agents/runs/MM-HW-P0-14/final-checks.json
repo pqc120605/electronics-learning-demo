@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-10",
+  "source_arithmetic_check": {
+    "exit_code": 0,
+    "sources": 6,
+    "r12_unchanged": true
+  },
+  "review_packet_hash_check": {
+    "exit_code": 0,
+    "files": 8
+  },
+  "queue_validate": {
+    "command": "node D:/StartupOS/docs/agents/validate.mjs",
+    "exit_code": 0,
+    "tasks": 61,
+    "capabilities": 143,
+    "errors": [],
+    "warnings": []
+  },
+  "hardware": "NOT_RUN",
+  "product_source_checks": "NOT_RUN: docs/research and queue only",
+  "B1": "NOT_READY"
+}

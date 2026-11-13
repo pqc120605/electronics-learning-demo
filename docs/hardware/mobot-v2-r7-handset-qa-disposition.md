@@ -1,0 +1,17 @@
+# MoBot r7 · Kết luận QA tay cầm
+
+Box 08, turn `01a1ac93-f570-7bd1-887b-f975fadbd005`. HQ giữ task KiCad ở scoped. B15 và revision interposer vẫn thiếu tài liệu. Box02 tiếp tục ma trận chuyển nguồn; hồ sơ hãng và kết quả bench sẽ được theo dõi riêng.
+
+**`changes_requested` — chưa cấp lease KiCad riêng cho tay cầm r7.** Native QA đã review độc lập và xác nhận SHA‑256 của handoff khớp `93f4c6cee52b7341a72192889ceea0768816e15b9f47bfaeb608c8d5b5c676ff`. Bảng `00/10/01/11` và nguyên tắc chỉ bật tải khi đủ điều kiện có thể dùng làm đầu vào thiết kế. [Handoff QA](/D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-r7-handset-qa-handoff.md)
+
+| Khối | Kết luận và đầu vào nhỏ nhất để đóng |
+|---|---|
+| **TPS259474A** | **Chấp nhận làm ứng viên.** Hai FET đối lưng xử lý đường dẫn qua diode thân của LM66100 đơn. EF cần chứng minh giới hạn dòng ngược và điện áp rail tắt khi VIN dưới 2,7 V, mất bias hoặc còn điện tích trên tụ. Nếu lỗi đòi hỏi lệnh bật mới, quyền bật phải bị xóa trước khi biến thể A tự thử lại. [TI TPS25947 Rev. C](https://www.ti.com/lit/ds/symlink/tps25947.pdf) |
+| **TPS3808G01** | **PASS phép tính tĩnh, OPEN đáp ứng động.** Ngưỡng falling **3,266–3,417 V** để lại **65,8 mV** tới 3,20 V ở góc thấp. Datasheet cho **20 µs điển hình** tại bước thử quy định. EF cần cận trễ từ lúc phát hiện đến lúc tải ngừng, cộng sụt áp xung của đúng B15. Chốt riêng ngưỡng và thời gian cho phép bật lại, đồng thời giữ OFF khi supervisor dưới POR. [TI TPS3808 Rev. N](https://www.ti.com/lit/ds/symlink/tps3808.pdf) |
+| **Interposer và raw VBUS** | **OPEN.** Chưa xác minh được đường jumper VBUS theo revision. Box03 cần bản vẽ hoặc bản đồ thông mạch đúng revision và cách che cổng DevKit gốc. EF cần chứng minh tín hiệu khóa tải đến trước khi USB cấp DevKit. Đứt dây sense trong khi VBUS vẫn thông phải giữ tải OFF. [eLabGuy](https://www.elabguy.com/USB_PT.php) |
+| **TMUX1574** | **Chấp nhận làm ứng viên cho tối đa bốn đường.** Hai trục analog chỉ để lại hai kênh nút. EN thả nổi có thể nối kênh khi VDD còn hợp lệ do pull-down nội. Mức bảo vệ 3,6 V áp dụng tại **VDD = 0 V**. EF cần đếm từng đường và pull-up, bảo đảm EN giữ OFF qua mất bias và ramp, rồi kiểm trình tự ngắt I/O, dòng rò tổng và ADC settling. [TI TMUX1574 Rev. C](https://www.ti.com/lit/ds/symlink/tmux1574.pdf) |
+| **H3 · Timer và NTC** | **PASS setpoint danh nghĩa, OPEN tương thích pack và lỗi.** `2,49 kΩ` cho khoảng **0,402 A**. Mốc **1,93 Ah** chỉ là phép tính ở dòng không đổi trước cận timer **5,4 giờ**, chưa tính taper hay giảm dòng do nhiệt. Timeout trong pha CV và kết thúc theo dòng giảm có cùng báo `Charge Complete`. Box03 cần profile sạc và đặc tuyến NTC của B15. EF cần chứng minh xử lý NTC hở/ngắn, pack vắng hoặc PCM mở, kể cả khả năng test LDO cấp VBAT. [Microchip DS20002005C](https://ww1.microchip.com/downloads/aemDocuments/documents/APID/ProductDocuments/DataSheets/MCP73833-4-Stand-Alone-Linear-Li-Ion-Li-Polymer-Charge-Management-Controller-DS20002005.pdf) |
+
+**Bước tiếp theo:** Box03 xác minh cell/PCM của **LK37478** và revision interposer. EF lập một ma trận chuyển nguồn bao gồm đứt sense, mất bias và retry. **Jauch vẫn là ứng viên.** Nếu chọn thay pack, cần trình revision và hash mới cùng bằng chứng tương thích đầu nối, cơ khí và timer.
+
+Sau khi các cận thiết kế được chốt, bench xác minh dòng ngược, xung EN, sụt áp UVLO, ADC settling, nhiệt và taper/timeout. Kết quả đo hiện `UNKNOWN`.

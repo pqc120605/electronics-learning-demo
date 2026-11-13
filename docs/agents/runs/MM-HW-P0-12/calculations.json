@@ -1,0 +1,113 @@
+{
+  "classification": "Conditional worksheet. Missing MAX and topology remain unknown; not gate closure.",
+  "H3_candidates": {
+    "TLV9031": {
+      "partial_intervals": [
+        {
+          "extra_reference_allowance_ppm": 0,
+          "trip_partial_min_V": 4.084935774922564,
+          "trip_partial_max_V": 4.107466733953363,
+          "low_margin_V": 0.0025357749225642934,
+          "high_margin_V": 0.0025332660466377277,
+          "CMRR_input_error_V": 0.002501628,
+          "PSRR_input_error_V": 4.445698525097307e-05,
+          "full_bound_proven": false
+        },
+        {
+          "extra_reference_allowance_ppm": 200,
+          "trip_partial_min_V": 4.084115811535957,
+          "trip_partial_max_V": 4.108286889075516,
+          "low_margin_V": 0.0017158115359574566,
+          "high_margin_V": 0.00171311092448434,
+          "CMRR_input_error_V": 0.002502128,
+          "PSRR_input_error_V": 4.445698525097307e-05,
+          "full_bound_proven": false
+        }
+      ],
+      "internal_hysteresis": "manufacturer states none",
+      "input_bias_MAX_A": null,
+      "propagation_delay_MAX_s": null,
+      "supply_condition": "CMRRmin at5V, PSRRmin over1.8..5V;4.75..5.25V not fully covered",
+      "verdict": "conditional static candidate only"
+    },
+    "LTC6702H": {
+      "rising_offset_min_V": -0.0052,
+      "rising_offset_max_V": 0.010100000000000001,
+      "rising_only_ref_divider_min_V": 4.08453497804451,
+      "rising_only_ref_divider_max_V": 4.1158972720448235,
+      "rising_interval_width_mV": 31.36229400031354,
+      "allowed_window_mV": 27.6,
+      "rejected_for_existing_window": true
+    }
+  },
+  "H3_tradeoff_sensitivity": [
+    {
+      "trip_max_V": 4.11,
+      "Cmin_F": 0.01,
+      "ESRmax_ohm": 0.01,
+      "voltage_headroom_after_allocations_V": 0.013351453761075955,
+      "allowable_time_us": 55.92205056081429,
+      "model_has_positive_headroom": true,
+      "timing_chain_proven": false
+    },
+    {
+      "trip_max_V": 4.11,
+      "Cmin_F": 0.02,
+      "ESRmax_ohm": 0.01,
+      "voltage_headroom_after_allocations_V": 0.013351453761075955,
+      "allowable_time_us": 111.84410112162858,
+      "model_has_positive_headroom": true,
+      "timing_chain_proven": false
+    },
+    {
+      "trip_max_V": 4.12,
+      "Cmin_F": 0.01,
+      "ESRmax_ohm": 0.01,
+      "voltage_headroom_after_allocations_V": 0.0033514537610761647,
+      "allowable_time_us": 14.037435176199782,
+      "model_has_positive_headroom": true,
+      "timing_chain_proven": false
+    },
+    {
+      "trip_max_V": 4.125,
+      "Cmin_F": 0.01,
+      "ESRmax_ohm": 0.001,
+      "voltage_headroom_after_allocations_V": 0.019839057066861395,
+      "allowable_time_us": 83.09512748389253,
+      "model_has_positive_headroom": true,
+      "timing_chain_proven": false
+    }
+  ],
+  "bleed": {
+    "connection": "continuous passive proposal, no BOM approval",
+    "RUN_current_MAX_A": 0.0010606060606060607,
+    "RUN_power_MAX_W": 0.0055681818181818185,
+    "JOY_current_MAX_A": 0.00033057851239669424,
+    "JOY_power_MAX_W": 0.0011900826446280992,
+    "RUN_other_load_remaining_A": 0.49893939393939396,
+    "RUN_fixed_envelope_MAX_W": 2.625,
+    "pack_run_requirement_if_bleed_reserved_inside500mA_A": 1.0453906249999998,
+    "pack_run_requirement_if_extra_bleed_outside500mA_A": 1.047565696022727,
+    "extra_bleed_outside500mA_is_allowed": false,
+    "JOY_double_count_rule": "JOY supplied via B01 belongs within total RUN envelope; conversion efficiency is stillTBD"
+  },
+  "H3_bias_budget_if_simultaneously_powered": {
+    "two_ADR4525_IQ_MAX_A": 0.0019,
+    "two_TLV9031_IQ_MAX_A": 7e-05,
+    "total_IC_IQ_MAX_A": 0.00197,
+    "power_at_assumed5V_W": 0.00985,
+    "pack_equivalent_at3_2V_eta0_8_A": 0.003847656249999999,
+    "mode_topology_coverage": "TBD. No proof devices actually share5V/RUN/pack branch; otherICloads not included."
+  },
+  "gpio": {
+    "total_roles": 16,
+    "baseline": 5,
+    "new_control_outputs": 4,
+    "E_output_reserve": 4,
+    "new_status_inputs": 3,
+    "new_output_capable_pool": 9,
+    "new_input_only_pool": 2,
+    "spare": 0,
+    "actual_GPIO_assignments": "UNASSIGNED"
+  }
+}

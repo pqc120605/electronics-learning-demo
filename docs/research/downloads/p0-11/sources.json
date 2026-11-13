@@ -1,0 +1,81 @@
+[
+  {
+    "part": "adr45-revg",
+    "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/adr4520_4525_4530_4533_4540_4550.pdf",
+    "date": "2026-11-10",
+    "status": "NOT_RUN",
+    "reason": "The read operation timed out",
+    "attempts": 2,
+    "stop_reason": "Two local download failures; stop retries, source visible via web only"
+  },
+  {
+    "part": "tps22919",
+    "url": "https://www.ti.com/lit/ds/symlink/tps22919.pdf",
+    "date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/p0-11/tps22919.pdf",
+    "sha256": "743c59b01fb0891d2d0f1faba779161cd2d2b6c18edf68e6d5b3279016240c84",
+    "cover": "\n--- PDF PAGE 1 ---\nProduct\nFolder\nOrder\nNow\nTechnical\nDocuments\nTools &\nSoftware\nSupport &\nCommunity\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,\nintellectual property matters and other important disclaimers. PRODUCTION DATA.\nTPS22919\nSLVSEN5B –OCTOBER 2018–REVISED MAY 2019\nTPS22919 5.5 V, 1.5 A, 90-mΩ Self-Protected Load Switch with Controlled Rise Time\n1\n1\nFeatures\n1•\nInput operating voltage range (VIN):\n1.6 V to 5.5 V\n•\nMaximum continuous current (IMAX): 1.5 A\n•\nOn-Resistance (RON):\n–\n5-V VIN: 89 mΩ(typical)\n–\n3.6-V VIN: 90 mΩ(typical)\n–\n1.8-V VIN: 105 mΩ(typical)\n•\nOutput short protection (ISC): 3 A (typical)\n•\nLow power consumption:\n–\nON state (IQ): 8 µA (typical)\n–\nOFF state (ISD): 2 nA (typical)\n•\nSmart ON pin pull down (RPD):\n–\nON ≥VIH (ION): 100 nA (maximum)\n–\nON ≤VIL (RPD): 530 kΩ (typical)\n•\nSlow Turn ON timing to limit inrush current (tON):\n–\n5.0 V Turn ON time (tON):\n1.95 ms at 3.2 mV/μs\n–\n3.6 V Turn ON time (tON):\n1.75 ms at 2.7 mV/μs\n–\n1.8 V Turn ON time (tON):\n1.5 ms at 1.8 mV/μs\n•\nAdjustable output discharge and fall time:\n–\nInternal QOD resistance = 24 Ω (typical)\n2\nApplications\n•\nPersonal electronics\n•\nSet top box\n•\nHDTV\n•\nMulti function printer\n3\nDescription\nThe TPS22919 device is a small, single channel load\nswitch with controlled slew rate. The device contains\nan N-channel MOSFET that can operate over an\ninput voltage range of 1.6 V to 5.5 V and can support\na maximum continuous current of 1.5 A.\nThe switch ON state is controlled by a digital input\nthat is capable of interfacing directly with low-voltage\ncontrol signals. When power is first applied, a Smart\nPull Down is used to keep the ON pin from floating\nuntil system sequencing is complete. Once the pin is\ndeliberately driven High (>VIH), the Smart Pull Down\nwill be disconnected to prevent unnecessary power\nloss.\nThe TPS22919 load switch is also self-protected,\nmeaning that it will protect itself from short circuit\nevents on the output of the device. It also has thermal\nshutdown to prevent any damage from overheating.\nTPS22919 is available in a standard SC-70 package\ncharacterized\nfor\noperation\nover\na\njunction\ntemperature range of –40°C to 125°C.\nDevice Information(1)\nPART NUMBER\nPACKAGE\nBODY SIZE (NOM)\nTPS22919DCK\nSC-70 (6)\n2.1 mm × 2.0 mm\n(1) For all available packages, see the orderable addendum at\nthe end of the data sheet.\nSimplified Schematic\n",
+    "page_images": [
+      {
+        "path": "docs/research/downloads/p0-11/tps22919-p1.png",
+        "sha256": "e922317e4761e78350cc45c154590ed85c8c7ba3fffe53e7ae730da2bbdcdc8e"
+      },
+      {
+        "path": "docs/research/downloads/p0-11/tps22919-p2.png",
+        "sha256": "817c164d6d2d2a0d4919487f233bd9c0590cdf64808d555609cc9dff659ee9d9"
+      },
+      {
+        "path": "docs/research/downloads/p0-11/tps22919-p5.png",
+        "sha256": "ff69547e2b0ed94468926dfec6fff99efc087c1b6ef20876abce5eaf62617a10"
+      },
+      {
+        "path": "docs/research/downloads/p0-11/tps22919-p6.png",
+        "sha256": "cb9587f6f0efdcc573e9b155dadf1d83e12cfcc3c94c2a745f4313f962f1a133"
+      },
+      {
+        "path": "docs/research/downloads/p0-11/tps22919-p13.png",
+        "sha256": "339aa49fd01ab799217637940e988e7e2360c9532c7a64d7da44a4f6df352a02"
+      }
+    ]
+  },
+  {
+    "part": "tps22990",
+    "url": "https://www.ti.com/lit/ds/symlink/tps22990.pdf",
+    "date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/p0-11/tps22990.pdf",
+    "sha256": "ea198776524544eb3e4a130f1f6a6e5c8e80ca8164eebf387a8fd6b4b7dde2a3",
+    "cover": "\n--- PDF PAGE 1 ---\nInput Voltage (V)\nOn-Resistance (m:)\n0.5\n1\n1.5\n2\n2.5\n3\n3.5\n4\n4.5\n5\n3\n3.25\n3.5\n3.75\n4\n4.25\n4.5\n4.75\n5\n5.25\n5.5\nD008\n-40°C\n25°C\n85°C\n105°C\nOFF\nON\nTPS22990\nVOUT\nON\nGND\nCIN\nPower Supply\nCT\nCT\nPG\nVOUT\nVOUT\nVOUT\nNC\nVIN\nVBIAS\nRL\nCL\nRPU\nCopyright © 2016, Texas Instruments Incorporated\nProduct\nFolder\nOrder\nNow\nTechnical\nDocuments\nTools &\nSoftware\nSupport &\nCommunity\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,\nintellectual property matters and other important disclaimers. PRODUCTION DATA.\nTPS22990\nSLVSDK1C –MAY 2016–REVISED SEPTEMBER 2017\nTPS22990 5.5-V, 10-A, 3.9-mΩ On-Resistance Load Switch\n1\n1\nFeatures\n1•\nIntegrated Single Channel Load Switch\n•\nVBIAS Voltage Range: 2.5 V to 5.5 V\n•\nVIN Voltage Range: 0.6 V to VBIAS\n•\nOn-Resistance\n–\nRON = 3.9 mΩ(typical) at VIN = 5 V\n(VBIAS = 5 V)\n–\nRON = 3.9 mΩ(typical) at VIN = 3.3 V\n(VBIAS = 3.3 V)\n•\n10-A Maximum Continuous Switch Current\n•\nQuiescent Current\n–\nIQ,VBIAS = 63 µA at VBIAS = 5 V\n•\nShutdown Current\n–\nISD,VBIAS = 5.5 µA at VBIAS = 5 V\n–\nISD,VIN = 4 nA at VBIAS = 5 V, VIN = 5 V\n•\nControlled and Adjustable Slew Rate through CT\n•\nPower Good (PG) Indicator\n•\nQuick Output Discharge (QOD) (TPS22990 Only)\n•\n3-mm × 2-mm SON 10-pin Package with Thermal\nPad\n•\nESD Performance Tested per JESD 22\n–\n2-kV HBM and 1-kV CDM\n2\nApplications\n•\nNotebooks, Chromebooks and Tablets\n•\nDesktop PC and Industrial PC\n•\nSolid State Drives (SSDs)\n•\nServers\n•\nTelecom systems\n3\nDescription\nThe\nTPS22990\nproduct\nfamily\nconsists\nof\ntwo\ndevices: TPS22990 and TPS22990N. Each device is\na\n3.9-mΩ,\nsingle-channel\nload\nswitch\nwith\na\ncontrolled and adjustable turn on and integrated PG\nindicator.\nThe devices contain an N-channel MOSFET that can\noperate over an input voltage range of 0.6 V to 5.5 V\nand can support a maximum continuous current of\n10 A. The wide input voltage range and high current\ncapability enable the devices to be used across\nmultiple designs and end equipments. 3.9-mΩOn-\nresistance minimizes the voltage drop across the load\nswitch and power loss from the load switch.\nThe controlled rise time for the device greatly reduces\ninrush\ncurrent\ncaused\nby\nlarge\nbulk\nload\ncapacitances, thereby reducing or eliminating power\nsupply droop. The adjustable slew rate through CT\nprovides the design flexibility to trade off inrush\ncurrent and power up timing requirements. Integrated\nPG indicator notifies the system about the status of\nthe\nload\nswitch\nto\nfacilitate\nseamless\npower\nsequencing.\nThe\nTPS22990\nhas\nan\noptional\n218-Ω\nOn-chip\nresistor for quick discharge of the output when switch\nis disabled to avoid any unknown state caused by\nfloating supply to the downstream load.\nThe TPS22990 is available in a small, space-saving\n3-mm × 2-mm 10-SON package with integrated\nthermal pad allowing for high power dissipation. The\ndevice is characterized for operation over the free-air\ntemperature range of –40°C to +105°C.\nDevice Information(1)\nPART NUMBER\nPACKAGE\nBODY SIZE (NOM)\nTPS22990\nTPS22990N\nWSON (10)\n3.00 mm × 2.00 mm\n(1) For all available packages, see the orderable addendum at\nthe end of the data sheet.\nTypical Application\nOn-Resistance vs Input Voltage\nVBIAS = 5 V, IOUT = –200 mA\n",
+    "page_images": [
+      {
+        "path": "docs/research/downloads/p0-11/tps22990-p1.png",
+        "sha256": "2b2a855597a083436f7b4e6eaa805c1ba731738774b08afbd70c9b84cafd724e"
+      },
+      {
+        "path": "docs/research/downloads/p0-11/tps22990-p2.png",
+        "sha256": "3d15b4acc54d3204f8829d7eeb78190aa6b2183c41c3dcc1f9a7800c0b73b287"
+      },
+      {
+        "path": "docs/research/downloads/p0-11/tps22990-p5.png",
+        "sha256": "e40f887d3a1856db45b56248d26a65f22012658bccbea7e4ddda00fc64b285b1"
+      },
+      {
+        "path": "docs/research/downloads/p0-11/tps22990-p6.png",
+        "sha256": "ef8a29d386139076bc5e839f4bd0bb802b04a1568dd650e1bfecb9ddc7692b1a"
+      },
+      {
+        "path": "docs/research/downloads/p0-11/tps22990-p7.png",
+        "sha256": "4bedcd3ff1a5d0849ae67bdd709f75ac1efbef958da9dc7ba1b92396a6382085"
+      },
+      {
+        "path": "docs/research/downloads/p0-11/tps22990-p8.png",
+        "sha256": "43f52f82b169400c59b6f6fa5259f8e076a60756650707e3d6f3610048a151e2"
+      },
+      {
+        "path": "docs/research/downloads/p0-11/tps22990-p19.png",
+        "sha256": "fb751aa5f0fe210b5b326a48ef905960b12b3412c787eee82911d3c5ecdd2197"
+      }
+    ]
+  }
+]

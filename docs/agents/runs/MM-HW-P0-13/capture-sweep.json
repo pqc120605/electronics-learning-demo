@@ -1,0 +1,25 @@
+{
+  "classification": "Arithmetic of candidate requirements, not actual capture proof",
+  "corners": 128,
+  "worst_corner": {
+    "mass_kg": 0.003,
+    "v0_m_s": 0.02,
+    "force_N": 0.45,
+    "delay_s": 0.001,
+    "extra_stored_work_after_delay_J": 4.5e-05,
+    "return_N": 0.25,
+    "residual_N": 0.1,
+    "delay_distance_mm": 0.09499999999999999,
+    "kinetic_after_delay_uJ": 43.34999999999999,
+    "total_advance_mm": 0.684
+  },
+  "allocated_distance_mm": 0.8,
+  "allocation_margin_mm": 0.11599999999999999,
+  "energy_accounting_requirement": "extra_stored_work_after_delay excludes any coupling work already included in force during delay; actual disjoint partition remains unproven",
+  "exclusions": [
+    "follower motion and100N hand work",
+    "actual decay timing and spring/drive data",
+    "fault envelope",
+    "near-throat counterexample"
+  ]
+}

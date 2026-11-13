@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-10",
+  "task": "MM-HW-P0-14",
+  "reviewer": "Box08 read-only",
+  "kind": "AA research architecture; no gate approval",
+  "files": [
+    {
+      "path": "docs/hardware/mobot-v2-p0-14-aa-manual-interlock-proposal.md",
+      "sha256": "53f5f3bc95b6406ab58a623fc9924619c45889b677c200d5d659f530c71537c4"
+    },
+    {
+      "path": "docs/hardware/mobot-v2-p0-14-aa-founder-direction.json",
+      "sha256": "903a63669918b6211f0835f1bde53ed432539667da095923a94fab923c15eab8"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/integration-contract.md",
+      "sha256": "d2d83f0b0ad177fc6705905939c7b7809f562ea7c571b1a2d1b3d934a04cf752"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/REVIEW-SCOPE.md",
+      "sha256": "8d82536df79ba3116739adcea2359785358639bb207fa84e23a7a42643d50d99"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/BOX02-CELL-PROTECTION-REFINEMENT.md",
+      "sha256": "559b06ef6b4bb9db9efbb06b652d8351f2d51cdb520e6f8a9b11501bb9c9c624"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/BOX03-M3-PORT-REFINEMENT.md",
+      "sha256": "453db9c4c0de1be4eae89b9d96a6943723f7ff3dd01155ef697d6b4afc16d915"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/evidence-check.json",
+      "sha256": "7749a0354294fa5dff776df9223a3fad203b736861bc126d3397c5f02aa61dce"
+    },
+    {
+      "path": "docs/research/downloads/p0-14/sources.json",
+      "sha256": "dfa7e2bce1f481579be8e3d67deb7f180183c07d05129d1046c61d22f0ac1ce9"
+    }
+  ]
+}

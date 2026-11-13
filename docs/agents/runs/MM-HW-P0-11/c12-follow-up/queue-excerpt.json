@@ -1,0 +1,688 @@
+{
+  "captured_date": "2026-11-10",
+  "source_path": "D:\\StartupOS\\docs\\agents\\tasks.json",
+  "source_sha256_at_capture": "5c187992f379f2b2059afe029453b1fd56c0399c7fc4ecf6d0dda3462a4390dd",
+  "kind": "frozen relevant queue excerpt, not live registry or authority to dispatch",
+  "tasks": [
+    {
+      "kind": "implementation",
+      "priority": "P1",
+      "owner_role": "hardware_kit_designer",
+      "writer": "codex_lead",
+      "reviewer_role": "qa_safety_reviewer",
+      "tester_role": "tester",
+      "advisory_roles": [
+        "electronics_firmware_engineer"
+      ],
+      "capability_ids": [
+        "KIT-05",
+        "KIT-06"
+      ],
+      "module_ids": [
+        "M12"
+      ],
+      "legacy_task_ids": [],
+      "forbidden_paths": [
+        "app/**",
+        "electronics-learning-demo/src/**",
+        "electronics-learning-demo/docs/hardware/claude-support/**"
+      ],
+      "authorization": "Founder confirmed Q1–Q5/Q8/D10 as configuration inputs. Exact new configuration hash and separate KiCad lease pending.",
+      "attempt": 0,
+      "review": null,
+      "verification": null,
+      "waiting": {
+        "owner": "codex_lead",
+        "reason": "r11 proposed, four schematic gates OPEN; resource/geometry STOP and new architecture awaits founder choice. Validator003/manual reviews and exact final hash/MPN approval required; no lease.",
+        "resume_condition": "Independent reviews close all required design gates on exact final snapshot; reconcile blockers, founder exact-hash/material approvals, validated bounded B1 lease.",
+        "resume_state": "scoped"
+      },
+      "completion_summary": null,
+      "snapshot": {
+        "kind": "pending",
+        "reference": null
+      },
+      "required_gates": [],
+      "id": "MM-HW-MOBOT-REMOTE-KICAD-001",
+      "title": "MoBot CH340 Type-C 30-pin · KiCad carrier tay cầm",
+      "status": "waiting",
+      "depth_change": "Prototype design artifacts and ERC/DRC evidence. Physical verification separate.",
+      "depends_on": [
+        "MM-HW-MOBOT-IF-001",
+        "MM-HW-GATE-PREFLIGHT-003",
+        "MM-HW-P0-08",
+        "MM-HW-P0-08-OFF-001",
+        "MM-HW-P0-08-ACTUATOR-001",
+        "MM-HW-P0-08-H3-001",
+        "MM-HW-P0-08-MCU-001"
+      ],
+      "input_refs": [
+        "electronics-learning-demo/docs/hardware/mobot-v2-founder-decision-q1-q8.md",
+        "electronics-learning-demo/docs/hardware/supersession.md",
+        "electronics-learning-demo/docs/hardware/evidence/esp32-devkit-v1-type-c-sample.md",
+        "electronics-learning-demo/docs/hardware/mobot-v2-handset-b01-architecture-v1.md",
+        "electronics-learning-demo/docs/hardware/mobot-v2-config-2026-11-05-r7.md",
+        "electronics-learning-demo/docs/hardware/mobot-v2-r7-box08-review-packet.md",
+        "electronics-learning-demo/docs/hardware/claude-support/2026-11-05-mobot-r6/kicad-input-spec.md",
+        "electronics-learning-demo/docs/hardware/claude-support/2026-11-05-mobot-r6/bench-test-plan.md",
+        "electronics-learning-demo/docs/hardware/mobot-v2-r5-kicad-preflight.md",
+        "electronics-learning-demo/docs/hardware/mobot-next-revision-doit-board-decision.md",
+        "electronics-learning-demo/docs/research/downloads/snapeda-doit-esp32-cad-sources.md",
+        "electronics-learning-demo/docs/hardware/evidence/esp32-devkit-v1-type-c-front.png",
+        "electronics-learning-demo/docs/hardware/evidence/esp32-devkit-v1-type-c-back.png",
+        "electronics-learning-demo/docs/hardware/mobot-v2-founder-decision-d15-d16.md",
+        "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r8-handset.json",
+        "electronics-learning-demo/docs/hardware/mobot-v2-founder-decision-q2-off.md",
+        "electronics-learning-demo/docs/hardware/mobot-v2-esp32-mcu-contract.md"
+      ],
+      "allowed_paths": [
+        "hardware/mobot-v2/handset-carrier/**",
+        "docs/hardware/mobot-v2/handset-carrier/**"
+      ],
+      "proposed_write_scope": [
+        "hardware/mobot-v2/handset-carrier/**",
+        "docs/hardware/mobot-v2/handset-carrier/**"
+      ],
+      "hardware_config_id": "MOBOT-V2-CONFIG-r11-HANDSET",
+      "deliverables": [
+        "hardware/mobot-v2/handset-carrier/ (KiCad project, schematic and layout)",
+        "docs/hardware/mobot-v2/handset-carrier/ (refdes BOM, ERC/DRC, hashes and handoff)"
+      ],
+      "acceptance": [
+        "Use photographed 30-pin USB-C CH340-family board and four-layer stackup under exact approved new configuration. Bound interface assumptions and preserve D10 measurements as TBD verification items; Box08 reviews each item before layout.",
+        "ERC/DRC 0 lỗi hoặc waiver được box08 chấp nhận. BOM refdes khớp schematic/layout, ghi MPN hoặc chưa chốt. Bề rộng net theo bảng đã review và stackup thực.",
+        "Bảng bốn trạng thái USB qua review schematic trước layout, box02 review pin map; bàn giao hash và phiên bản công cụ.",
+        "Đóng mọi đầu vào H1–H4 cần trước KiCad; BT-H2/H3/H4 chờ bench riêng."
+      ],
+      "verification_plan": [
+        "Box02 review pin map và nguồn; box08 review schematic trước layout, rồi ERC/DRC, BOM và snapshot."
+      ],
+      "readiness": {
+        "scope_complete": true,
+        "inputs_available": false,
+        "acceptance_defined": true,
+        "missing": [
+          "D17-OFF-DESIGN",
+          "D17-ACTUATOR-PRODUCT",
+          "D17-H3-CV-PROTECTION",
+          "separate Founder exact-hash approval",
+          "preflight and explicit lease",
+          "MCU-RESET-VETO-RESOURCES",
+          "MM-HW-GATE-PREFLIGHT-001"
+        ]
+      },
+      "execution_requested": false,
+      "history": [
+        {
+          "event": "imported_snapshot",
+          "from": null,
+          "to": "scoped",
+          "attempt": 0,
+          "at": "2026-11-05",
+          "actor": "codex_lead",
+          "reason": "User authorized scope registration only. No lease issued."
+        },
+        {
+          "event": "transition",
+          "from": "scoped",
+          "to": "waiting",
+          "attempt": 0,
+          "at": "2026-11-08",
+          "actor": "codex_lead",
+          "reason": "D17 approval explicitly retains OPEN schematic gates and separate exact-hash approval; P0 completion cannot authorize KiCad."
+        }
+      ],
+      "gates": {
+        "software": "not_applicable",
+        "public": "not_applicable",
+        "hardware": "unknown"
+      }
+    },
+    {
+      "id": "MM-HW-GATE-PREFLIGHT-001",
+      "title": "Hardware gate dispatch preflight · R-20261108-C02/F1",
+      "kind": "implementation",
+      "status": "scoped",
+      "priority": "P0",
+      "owner_role": "software_engineer",
+      "writer": "codex_lead",
+      "reviewer_role": "qa_safety_reviewer",
+      "tester_role": "tester",
+      "advisory_roles": [
+        "electronics_firmware_engineer",
+        "product_system_architect"
+      ],
+      "capability_ids": [
+        "KIT-05",
+        "KIT-06"
+      ],
+      "module_ids": [
+        "M12"
+      ],
+      "legacy_task_ids": [],
+      "depth_change": "Process safety enforcement only; no hardware implementation approval",
+      "depends_on": [
+        "MM-HW-P0-04"
+      ],
+      "input_refs": [
+        "docs/agents/validate.mjs",
+        "docs/agents/validate.test.mjs",
+        "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r8-handset.json",
+        "electronics-learning-demo/docs/hardware/mobot-v2-founder-decision-q1-q8.md",
+        "electronics-learning-demo/docs/hardware/mobot-v2-esp32-mcu-contract.md"
+      ],
+      "allowed_paths": [
+        "docs/agents/validate.mjs",
+        "docs/agents/validate.test.mjs",
+        "docs/agents/runs/MM-HW-GATE-PREFLIGHT-001/**"
+      ],
+      "forbidden_paths": [
+        "app/**",
+        "electronics-learning-demo/docs/claude-support/**",
+        "electronics-learning-demo/.codex/**",
+        "electronics-learning-demo/hardware/**"
+      ],
+      "deliverables": [
+        "Stage-aware fail-closed dispatch gate validation and regression fixtures"
+      ],
+      "acceptance": [
+        "Reject hardware dispatch for applicable unresolved milestone/external design gates read from exact proposal and registry; OPEN/UNKNOWN/FAIL/missing/malformed status must not bypass.",
+        "Bind task stage and gate milestone explicitly; reject unknown stage/milestone ambiguity rather than guess; preserve Founder ordering (BOM/layout/operation gates do not block earlier stage unless actually applicable).",
+        "Test approved exact-hash configuration with empty proposal and registry blockers still rejected for applicable OPEN gate; test proposal-only and registry-only gates, missing/malformed metadata, and applicable PASS; retain all existing approval/hash/lease protections.",
+        "Review exact code snapshot independently; validator and validator tests exit0. Never set hardware gate PASS or user approval based on test fixture."
+      ],
+      "verification_plan": [
+        "node docs/agents/validate.mjs",
+        "node --test docs/agents/validate.test.mjs"
+      ],
+      "readiness": {
+        "scope_complete": true,
+        "inputs_available": true,
+        "acceptance_defined": true,
+        "missing": []
+      },
+      "authorization": "Register scoped remediation per user-pasted external REVIEW_RESULT. Not execution_requested; requires separate bounded execution scope before validator edits. Must complete before any new hardware lease.",
+      "execution_requested": false,
+      "attempt": 0,
+      "review": null,
+      "verification": null,
+      "waiting": null,
+      "completion_summary": null,
+      "snapshot": {
+        "kind": "pending",
+        "reference": null
+      },
+      "required_gates": [],
+      "gates": {
+        "software": "unknown",
+        "public": "not_applicable",
+        "hardware": "not_applicable"
+      },
+      "history": [
+        {
+          "event": "imported_snapshot",
+          "from": null,
+          "to": "scoped",
+          "attempt": 0,
+          "at": "2026-11-09",
+          "actor": "codex_lead",
+          "reason": "F1 remediation scoped from accepted P0-04 external review; no validator edits or lease authorized by this record."
+        }
+      ]
+    },
+    {
+      "id": "MM-HW-GATE-PREFLIGHT-002",
+      "title": "Preflight002 · typed stages/trusted gates/hash-bound review refs",
+      "kind": "process",
+      "status": "waiting",
+      "priority": "P0",
+      "owner_role": "software_engineer",
+      "writer": "codex_lead",
+      "reviewer_role": "qa_safety_reviewer",
+      "tester_role": "tester",
+      "advisory_roles": [],
+      "capability_ids": [
+        "KIT-05",
+        "KIT-06"
+      ],
+      "module_ids": [
+        "M12"
+      ],
+      "legacy_task_ids": [],
+      "depth_change": "Administrative safety/preflight code; no product hardware output or lease",
+      "depends_on": [],
+      "input_refs": [
+        "docs/agents/validate.mjs",
+        "docs/agents/validate.test.mjs"
+      ],
+      "allowed_paths": [
+        "docs/agents/validate.mjs",
+        "docs/agents/validate.test.mjs",
+        "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/**"
+      ],
+      "forbidden_paths": [
+        "app/**",
+        "electronics-learning-demo/src/**",
+        "electronics-learning-demo/.codex/**",
+        "**/*.kicad_*"
+      ],
+      "deliverables": [
+        "docs/agents/validate.mjs"
+      ],
+      "acceptance": [
+        "Exact stage enums and trusted required gate IDs cannot be bypassed by deleting proposal metadata.",
+        "PASS requires existing structured REVIEW_RESULT bound to configuration hash; prototype milestones rejected.",
+        "Nonbuilder hardware/KiCad output blocked; default loader and fixture injection remain fail-closed.",
+        "Validator exit0 and regression suite PASS; manual review relay prepared."
+      ],
+      "verification_plan": [
+        "node D:/StartupOS/docs/agents/validate.mjs",
+        "node --test D:/StartupOS/docs/agents/validate.test.mjs"
+      ],
+      "readiness": {
+        "scope_complete": true,
+        "inputs_available": true,
+        "acceptance_defined": true,
+        "missing": []
+      },
+      "authorization": "Current Founder request explicitly authorizes r10, four proposed design packages and Luna-authored preflight hardening; lead applies canonical edits. No hash/MPN approval or hardware lease.",
+      "execution_requested": true,
+      "attempt": 1,
+      "review": null,
+      "verification": {
+        "verdict": "pass",
+        "scope": "Validator software checks only; not hardware gate PASS",
+        "reference": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/lead-checks.json"
+      },
+      "waiting": {
+        "owner": "Codex lead — successor review closure",
+        "reason": "C08/C09 reviews received; historical baseline retained. Current execution proceeds under PREFLIGHT003/P0-08; do not request duplicate review for this snapshot.",
+        "resume_condition": "Lead closes historical document scope after successor disposition/review is settled; hardware gates require current exact snapshot.",
+        "resume_state": "in_review"
+      },
+      "completion_summary": null,
+      "snapshot": {
+        "kind": "file-hashes",
+        "reference": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/snapshot.json"
+      },
+      "required_gates": [],
+      "gates": {
+        "software": "not_applicable",
+        "public": "not_applicable",
+        "hardware": "unknown"
+      },
+      "history": [
+        {
+          "event": "imported_snapshot",
+          "from": null,
+          "to": "scoped",
+          "at": "2026-11-09",
+          "attempt": 1,
+          "actor": "codex_lead",
+          "reason": "Founder explicitly scoped current work."
+        },
+        {
+          "event": "transition",
+          "from": "scoped",
+          "to": "ready",
+          "at": "2026-11-09",
+          "attempt": 1,
+          "actor": "codex_lead",
+          "reason": "Current request supplies authorization and proposed inputs; no hardware implementation."
+        },
+        {
+          "event": "transition",
+          "from": "ready",
+          "to": "in_progress",
+          "at": "2026-11-09",
+          "attempt": 1,
+          "actor": "codex_lead",
+          "reason": "Lead executes administrative/document-only scope; specialists use bounded staged copies."
+        },
+        {
+          "event": "transition",
+          "from": "in_progress",
+          "to": "in_review",
+          "at": "2026-11-09",
+          "attempt": 1,
+          "actor": "codex_lead",
+          "reason": "Snapshot prepared for independent verification."
+        },
+        {
+          "event": "transition",
+          "from": "in_review",
+          "to": "waiting",
+          "at": "2026-11-09",
+          "attempt": 1,
+          "actor": "codex_lead",
+          "reason": "Manual external/Box08 review required; no direct Claude call."
+        }
+      ]
+    },
+    {
+      "id": "MM-HW-GATE-PREFLIGHT-003",
+      "title": "P0-08 MM-HW-GATE-PREFLIGHT-003 — bounded document/validator design; no lease or gate approval",
+      "kind": "process",
+      "status": "waiting",
+      "priority": "P0",
+      "owner_role": "software_engineer",
+      "writer": "codex_lead",
+      "reviewer_role": "qa_safety_reviewer",
+      "tester_role": "tester",
+      "advisory_roles": [],
+      "capability_ids": [
+        "KIT-05",
+        "KIT-06"
+      ],
+      "module_ids": [
+        "M12"
+      ],
+      "legacy_task_ids": [],
+      "depth_change": "Process/document-only; no hardware implementation or validation claim",
+      "depends_on": [],
+      "input_refs": [
+        "electronics-learning-demo/docs/claude-support/2026-11-09-relay-R20261109-PREFLIGHT-002/review-result.md",
+        "electronics-learning-demo/docs/claude-support/2026-11-09-relay-R20261109-P0-07-R10/review-result.md"
+      ],
+      "allowed_paths": [
+        "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/**",
+        "docs/agents/validate.mjs",
+        "docs/agents/validate.test.mjs"
+      ],
+      "forbidden_paths": [
+        "app/**",
+        "electronics-learning-demo/src/**",
+        "electronics-learning-demo/.codex/**",
+        "**/*.kicad_*"
+      ],
+      "deliverables": [
+        "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r10-handset.json"
+      ],
+      "acceptance": [
+        "Exact scoped artifacts and verification evidence; no gate PASS/hash/MPN approval.",
+        "All unknown engineering bounds TBD and physical checks NOT_RUN; ready for independent review, not hardware execution."
+      ],
+      "verification_plan": [
+        "node D:/StartupOS/docs/agents/validate.mjs",
+        "Exact hashes and independent internal QA; manual review pending"
+      ],
+      "readiness": {
+        "scope_complete": true,
+        "inputs_available": true,
+        "acceptance_defined": true,
+        "missing": []
+      },
+      "authorization": "Current Founder request explicitly authorizes r10, four proposed design packages and Luna-authored preflight hardening; lead applies canonical edits. No hash/MPN approval or hardware lease.",
+      "execution_requested": true,
+      "attempt": 1,
+      "review": null,
+      "verification": {
+        "verdict": "pass",
+        "scope": "Canonical validator software tests only, 61/61; not hardware gate PASS",
+        "reference": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/lead-checks.json"
+      },
+      "waiting": {
+        "reason": "Validator003 software checks complete; manual exact-snapshot review pending.",
+        "owner": "Founder manual review transfer / Box08; lead handles findings",
+        "resume_condition": "Receive exact-snapshot independent REVIEW_RESULT; founder chooses architecture if required; lead verifies before closure/approval/lease.",
+        "resume_state": "in_review"
+      },
+      "completion_summary": null,
+      "snapshot": {
+        "kind": "file-hashes",
+        "reference": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/snapshot.json"
+      },
+      "required_gates": [],
+      "gates": {
+        "software": "not_applicable",
+        "public": "not_applicable",
+        "hardware": "unknown"
+      },
+      "history": [
+        {
+          "event": "imported_snapshot",
+          "from": null,
+          "to": "scoped",
+          "at": "2026-11-09",
+          "actor": "codex_lead",
+          "reason": "New explicit founder task scope and model routing.",
+          "attempt": 1
+        },
+        {
+          "event": "transition",
+          "from": "scoped",
+          "to": "ready",
+          "at": "2026-11-09",
+          "actor": "codex_lead",
+          "reason": "Inputs and source/review contracts available; scope is proposals/validator only.",
+          "attempt": 1
+        },
+        {
+          "event": "transition",
+          "from": "ready",
+          "to": "in_progress",
+          "at": "2026-11-09",
+          "actor": "codex_lead",
+          "reason": "Current founder request authorizes this bounded internal work.",
+          "attempt": 1
+        },
+        {
+          "event": "transition",
+          "from": "in_progress",
+          "to": "in_review",
+          "at": "2026-11-09",
+          "actor": "codex_lead",
+          "reason": "Artifacts prepared; independent internal static review returned; no hardware approval.",
+          "attempt": 1
+        },
+        {
+          "event": "transition",
+          "from": "in_review",
+          "to": "waiting",
+          "at": "2026-11-09",
+          "actor": "codex_lead",
+          "reason": "Exact-snapshot external review and founder architecture choice pending; four hardware gates remain OPEN.",
+          "attempt": 1
+        }
+      ],
+      "execution_mode": "lead",
+      "write_lease": null
+    },
+    {
+      "id": "MM-HW-P0-10",
+      "title": "C11 r12 documentary consolidation and pinned evidence",
+      "kind": "design",
+      "status": "in_review",
+      "priority": "P0",
+      "owner_role": "hardware_kit_designer",
+      "writer": "codex_lead",
+      "reviewer_role": "qa_safety_reviewer",
+      "tester_role": "tester",
+      "advisory_roles": [],
+      "capability_ids": [
+        "KIT-05",
+        "KIT-06"
+      ],
+      "module_ids": [
+        "M12"
+      ],
+      "legacy_task_ids": [],
+      "depth_change": "Process/document-only; no hardware implementation or validation claim",
+      "depends_on": [],
+      "input_refs": [
+        "electronics-learning-demo/docs/claude-support/2026-11-09-b1-readiness-checkpoint/review-result.md"
+      ],
+      "allowed_paths": [
+        "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/**",
+        "electronics-learning-demo/docs/hardware/mobot-v2-c11-*",
+        "electronics-learning-demo/docs/hardware/mobot-v2-founder-decision-c11-r12.md",
+        "electronics-learning-demo/docs/research/downloads/c11-r12/**",
+        "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r12-handset.json"
+      ],
+      "forbidden_paths": [
+        "app/**",
+        "electronics-learning-demo/src/**",
+        "electronics-learning-demo/.codex/**",
+        "**/*.kicad_*"
+      ],
+      "deliverables": [
+        "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/RELAY-REVIEW_REQUEST.md"
+      ],
+      "acceptance": [
+        "Exact scoped artifacts and verification evidence; no gate PASS/hash/MPN approval.",
+        "All unknown engineering bounds TBD and physical checks NOT_RUN; ready for independent review, not hardware execution."
+      ],
+      "verification_plan": [
+        "node D:/StartupOS/docs/agents/validate.mjs",
+        "Exact hashes and independent internal QA; manual review pending"
+      ],
+      "readiness": {
+        "scope_complete": true,
+        "inputs_available": true,
+        "acceptance_defined": true,
+        "missing": []
+      },
+      "authorization": "Current HQ C11 consolidation request; lead writer, advisors read-only. No build/CAD/FE/device/approval/lease inference.",
+      "execution_requested": true,
+      "attempt": 1,
+      "review": null,
+      "verification": null,
+      "waiting": null,
+      "completion_summary": null,
+      "snapshot": {
+        "kind": "file-hashes",
+        "reference": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/packet-snapshot.json"
+      },
+      "required_gates": [],
+      "gates": {
+        "software": "not_applicable",
+        "public": "not_applicable",
+        "hardware": "unknown"
+      },
+      "history": [
+        {
+          "event": "imported_snapshot",
+          "from": null,
+          "to": "in_review",
+          "at": "2026-11-10",
+          "actor": "codex_lead",
+          "attempt": 1,
+          "reason": "Founder explicitly authorized C11 documentary consolidation; gates OPEN, no builder lease."
+        }
+      ],
+      "execution_mode": "lead",
+      "write_lease": null
+    },
+    {
+      "id": "MM-HW-P0-11",
+      "title": "Bounded H3/OFF analysis and GPIO/mechanical alternatives after C11",
+      "kind": "design",
+      "status": "in_review",
+      "priority": "P0",
+      "owner_role": "hardware_kit_designer",
+      "writer": "codex_lead",
+      "reviewer_role": "qa_safety_reviewer",
+      "tester_role": "tester",
+      "advisory_roles": [],
+      "capability_ids": [
+        "KIT-05",
+        "KIT-06"
+      ],
+      "module_ids": [
+        "M12"
+      ],
+      "legacy_task_ids": [],
+      "depth_change": "Process/document-only; no hardware implementation or validation claim",
+      "depends_on": [],
+      "input_refs": [
+        "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/REPORT.md",
+        "electronics-learning-demo/docs/hardware/mobot-v2-p0-11-founder-directions.json"
+      ],
+      "allowed_paths": [
+        "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/**",
+        "electronics-learning-demo/docs/hardware/mobot-v2-p0-11-*",
+        "electronics-learning-demo/docs/research/downloads/p0-11/**"
+      ],
+      "forbidden_paths": [
+        "app/**",
+        "electronics-learning-demo/src/**",
+        "electronics-learning-demo/.codex/**",
+        "**/*.kicad_*"
+      ],
+      "deliverables": [
+        "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/REPORT.md"
+      ],
+      "acceptance": [
+        "Exact scoped artifacts and verification evidence; no gate PASS/hash/MPN approval.",
+        "All unknown engineering bounds TBD and physical checks NOT_RUN; ready for independent review, not hardware execution."
+      ],
+      "verification_plan": [
+        "node D:/StartupOS/docs/agents/validate.mjs",
+        "Exact hashes and independent internal QA; manual review pending"
+      ],
+      "readiness": {
+        "scope_complete": true,
+        "inputs_available": true,
+        "acceptance_defined": true,
+        "missing": []
+      },
+      "authorization": "Founder ok làm đi after lead proposed H3/OFF paper analysis plus GPIO/mechanical alternatives; no config/gate/MPN/lease/build/CAD/device changes.",
+      "execution_requested": true,
+      "attempt": 1,
+      "review": null,
+      "verification": null,
+      "waiting": null,
+      "completion_summary": null,
+      "snapshot": {
+        "kind": "file-hashes",
+        "reference": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/packet-snapshot.json"
+      },
+      "required_gates": [],
+      "gates": {
+        "software": "not_applicable",
+        "public": "not_applicable",
+        "hardware": "unknown"
+      },
+      "history": [
+        {
+          "event": "imported_snapshot",
+          "from": null,
+          "to": "in_progress",
+          "at": "2026-11-10",
+          "actor": "codex_lead",
+          "attempt": 1,
+          "reason": "Explicit founder continuation authorizes lead documentary design; frozen r12, no builder lease."
+        },
+        {
+          "event": "transition",
+          "from": "in_progress",
+          "to": "in_review",
+          "at": "2026-11-10",
+          "actor": "codex_lead",
+          "attempt": 1,
+          "reason": "Bounded evidence and alternatives ready; engineering gaps remain, no design gate closure."
+        },
+        {
+          "event": "transition",
+          "from": "in_review",
+          "to": "in_progress",
+          "at": "2026-11-10",
+          "actor": "codex_lead",
+          "attempt": 1,
+          "reason": "Founder selected G-B and M-A analysis direction in HQ; implement documentary proposal details, no config/hash approval."
+        },
+        {
+          "event": "transition",
+          "from": "in_progress",
+          "to": "in_review",
+          "at": "2026-11-10",
+          "actor": "codex_lead",
+          "attempt": 1,
+          "reason": "Bounded evidence and alternatives ready; engineering gaps remain, no design gate closure."
+        }
+      ],
+      "execution_mode": "lead",
+      "write_lease": null
+    }
+  ]
+}

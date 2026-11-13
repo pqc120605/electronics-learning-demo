@@ -1,0 +1,80 @@
+{
+  "scope": "Attempt-9 research and B1 gap disposition",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-9/BOX02-COMPONENT-CANDIDATE.md",
+      "bytes": 6941,
+      "sha256": "9f8cdeaeb6ee720576ef66d2b89ccf635941359fd408592d06f84d649de5fdd2"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-9/BOX03-GUIDE-PROPOSAL.md",
+      "bytes": 7242,
+      "sha256": "4edb8ddb3ea31de8158ee900b3c1441628ff1ab428afa91c8aeea8809326cb3a"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-9/budget-screen.json",
+      "bytes": 1893,
+      "sha256": "78cc3734795eb2c2c7a6e7dde544adec3f1dd6b12e06307bbb813898cd9f55ea"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-9/check-design-results.json",
+      "bytes": 2121,
+      "sha256": "a945bbb9f7b3462d124d9c052246d368d718e4b20f5c0ab3c1214661c608d956"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-9/check_design_contract.py",
+      "bytes": 4188,
+      "sha256": "180fa59ac0a71683569c6085144096cbf4a270fa0f385eff1858334d1de15045"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-9/guide-native-results.json",
+      "bytes": 1239,
+      "sha256": "6925017c81c8f3e77af31812d6fabca4b6de848407812863a301aab705722884"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-9/guide-sweep-before-relief.json",
+      "bytes": 199934,
+      "sha256": "20d7256d8fabb37796995d89ddeafdb5df4879e525e9acfe7cbccc0b6ad0f85c"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-9/guide-sweep-results.json",
+      "bytes": 223731,
+      "sha256": "d97f25e82ff23a32e8a9558bf741c6981148e753175ea9d86f3437ca5fd01314"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-9/guide_geometry.py",
+      "bytes": 6176,
+      "sha256": "fc6bae4cb6f149175af9f0ac3ca5a1122d9170e13f3bcc28b5c6fd80953d8165"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-9/guided-cassette.png",
+      "bytes": 29011,
+      "sha256": "8916e1625f5732b6b4374407f0e4d6362cadfafdf475327b6643d83f59b2263a"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-9/m5_guided_cassette.py",
+      "bytes": 2269,
+      "sha256": "c398eb356cc8ca0f1ad8bce5a0693e3bc2ae698c79e8e6d36d348c4e654ec786"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-9/READINESS.md",
+      "bytes": 7339,
+      "sha256": "1cb582e33484102e6aefd4857dd911fc4b4de25874c14cccbec1051c851d86fd"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-8/snapshot.json",
+      "bytes": 4455,
+      "sha256": "603fbe16419e66613fe64b8d74e20ce9231b6d482b4717e75dc67e0b1ca5e8a5"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/connector-allocation-results.json",
+      "bytes": 2126,
+      "sha256": "f94dbb54c66e9949b0d04dd5d4be19d70b34962e4f857c5ae8e7ffe8556d9aa5"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-7/check-supply-results.json",
+      "bytes": 2497,
+      "sha256": "27dbcd06bdfb577dd0eacc46308d5d5137bb7ea53630de1d40b2b3b6575d1dc1"
+    }
+  ]
+}

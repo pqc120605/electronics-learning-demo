@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-10",
+  "source": "Founder downloaded official PDF and placed it in workspace; local bytes verified",
+  "manufacturer": "Analog Devices",
+  "title": "ADR4520/ADR4525/ADR4530/ADR4533/ADR4540/ADR4550",
+  "revision": "G",
+  "revision_date": "July2025, page2",
+  "pages": 41,
+  "path": "docs/research/downloads/p0-11/adr4520_4525_4530_4533_4540_4550.pdf",
+  "sha256": "de2dca59e24477c2e186440e3d768cc06b7e3742448929a9f5721d5817247b34",
+  "official_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/adr4520_4525_4530_4533_4540_4550.pdf",
+  "status": "PINNED",
+  "supersedes_download_status_only": "docs/research/downloads/p0-11/sources.json ADR45 entry NOT_RUN is historical; do not rewrite sealed packet",
+  "review_source_sha256": "7311bc7cabc7d6bed70a66e6bcfb6cd76082f69051702030b204948b11a7ed99",
+  "page_images": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p1.png",
+      "sha256": "0c433d11099854f7b4d69cb8f0dc1f725cb3d4e2db2dd22ff51bd23b1514f099"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p2.png",
+      "sha256": "557ba66c2f8a2cc2a851f4ab7a57cc7e5274ea655cd4f91cd37155664ec508eb"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p33.png",
+      "sha256": "2f301b5b2ab81987602447c06eded8ebcdaefa07dc077e72784ff9b30b894d3b"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p36.png",
+      "sha256": "61cf333e0cfd3dc97bdaa6357fbf8b335b2cf4eddfebad335ca3dc75f65a1b1f"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p37.png",
+      "sha256": "7a41b26959d4a1f7ed64834569d7a7bb0c31f951e1210d0a3fd286d691118820"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p38.png",
+      "sha256": "9cceef817e3df6141fee5518673cb2f2860030088801a14869203044a8d603d2"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p39.png",
+      "sha256": "cb14f4dae17dd2b7cb42a2e9543338d7616c80ac6477bf30fdfe1cd54f86eab5"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p4.png",
+      "sha256": "f21e39bf99e73b6eb6df44acee91724167b2f5751df2bf9fd89ad95456bad132"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p5.png",
+      "sha256": "d9cb8f185752696e6a4043fb4643a15381c549775fbdbd20fe6b8d12bc2e5234"
+    }
+  ],
+  "page4_visually_checked": true,
+  "confirmed": {
+    "B_initial_error_max_ppm": 200,
+    "B_TC_box_max_ppm_per_degC": 2,
+    "full_temperature_line_regulation_max_ppm_per_V": 10,
+    "source_load_max_ppm_per_mA": 80,
+    "sink_load_max_ppm_per_mA": 120,
+    "solder_heat_shift_typ_ppm": 200,
+    "solder_heat_shift_max_ppm": null,
+    "reference_thermal_hysteresis_max_ppm": null,
+    "reference_aging_max_ppm": null
+  }
+}

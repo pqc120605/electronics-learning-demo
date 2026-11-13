@@ -1,0 +1,3429 @@
+{
+  "date": "2026-11-10",
+  "scope": "Hardware checkpoint only; USER_PAUSED, no auto-resume",
+  "configuration_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+  "queue_sha256_at_pause": "611431c849d262046210e7393f7748e7ac450490a44dc8383a417753fa2bec13",
+  "files": [
+    {
+      "archive_entry": ".github/instructions/mach-mo.instructions.md",
+      "sha256": "e0caa2bd01dc7aeb6d2c3f8aa51fa0c576d052834f1c558f10a033dd4f3c091e",
+      "bytes": 2162
+    },
+    {
+      "archive_entry": "AGENTS.md",
+      "sha256": "d2072c417d2831582e40f40a53cbb657c05ab0ce29265c6b525b5901ece20da3",
+      "bytes": 2440
+    },
+    {
+      "archive_entry": "docs/agents/README.md",
+      "sha256": "8c419c2a8bb1968fe14434f868ca1adbd162f7553bb979cb2cac14ca9c10199f",
+      "bytes": 23444
+    },
+    {
+      "archive_entry": "docs/agents/roles.md",
+      "sha256": "aeab7d349b92c61f51fde855a52d29791fb6b78cced2c4442f28a9cf0e65f324",
+      "bytes": 9564
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-001/RELAY-REVIEW_REQUEST.md",
+      "sha256": "d51432996be4557c14e095c6148aaddc661bc13bbe76b8af342c3934ab0dd41b",
+      "bytes": 1179
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-001/REPORT.md",
+      "sha256": "c9c0b4e2af10d25c6d279843bc246d88213dd6320e62366faab5ccd8beed8a6e",
+      "bytes": 2688
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-001/checks.json",
+      "sha256": "6531274f4a09a284069dbd9b70449cdfaf12308a3735a38e9c361375e4738d57",
+      "bytes": 485
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-001/snapshot.json",
+      "sha256": "03fa4600f3250fd627409de9ecbc23f9a6a98d84578aaa21aad2f9033fae6ca8",
+      "bytes": 687
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/DESIGN-NOTES.md",
+      "sha256": "418ecfa65d92b27567a71c6f4a50ddd32dfe7d37847317e4220b21b63f23c8ce",
+      "bytes": 3555
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/DISPOSITION-C03-C04-C05-C07.md",
+      "sha256": "cc8348067f2293ed37bc47b14143930ce53980a024d87a923e48eb7bd81c164b",
+      "bytes": 8418
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/INDEPENDENT-REVIEW.md",
+      "sha256": "35360b9550ea9c34c4669b07caaff384d7eea07351618526131e44df5872a266",
+      "bytes": 506
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/checks.json",
+      "sha256": "695e03cf31b8f5249bedec333b0fc9be71b448e46d203454ba0334ac74cc5fd7",
+      "bytes": 685
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/lead-checks.json",
+      "sha256": "5f6e165990b894e16b3beb69e7627b5f86e2ecda3bdb82a2dd33c034d1c8eab4",
+      "bytes": 1444
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/lead-test-output-summary.txt",
+      "sha256": "1d6d2615e56015530047bb738cb382d6aa4737fd80c5388233463c6ffa539688",
+      "bytes": 191
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/lead-validation-output.txt",
+      "sha256": "b96a1e8fcaf2ec651e15c32edbb5aa39b5a14c9d43d2bf91455033bea3bcd0cd",
+      "bytes": 81
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/proposed-validate.mjs",
+      "sha256": "a0da4cdfbc486f54e3d077145c60c74f5823fe80018b8bb762a65d8c448b28ed",
+      "bytes": 20179
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/proposed-validate.test.mjs",
+      "sha256": "dfe4a696cff3f4886177dce960fcb53c9cbe31ed725ba33953c06985027a7d08",
+      "bytes": 22124
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/queue-validation-output.txt",
+      "sha256": "b96a1e8fcaf2ec651e15c32edbb5aa39b5a14c9d43d2bf91455033bea3bcd0cd",
+      "bytes": 81
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/review-request.md",
+      "sha256": "55a31c09330fb144316da0351ec6fbe42e45e5475076ff813e38960ee0d0f267",
+      "bytes": 1790
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/snapshot.json",
+      "sha256": "7913566002fea4f9a5f1b63af34e6cbf1606fa270ef787482712c444fd8ce6c2",
+      "bytes": 1116
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/test-output.txt",
+      "sha256": "1514161be197561cf9d674beffa90bf53706f2195985009b8a0d4db7ceeaf991",
+      "bytes": 3750
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-002/validate.mjs",
+      "sha256": "a0da4cdfbc486f54e3d077145c60c74f5823fe80018b8bb762a65d8c448b28ed",
+      "bytes": 20179
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/DESIGN-NOTES.md",
+      "sha256": "4a97405207b92b75da73475493e1b7e6b5e4778785ed16bb93f9d1969459b8e6",
+      "bytes": 5799
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/INDEPENDENT-REVIEW.md",
+      "sha256": "fa9c24c77e66a7e858fca428156d19c899de9c0e0de8705bd1612465d955ba2f",
+      "bytes": 424
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/b1-dispatch-refused.txt",
+      "sha256": "7f32e21485e3ebabf753fbaad6c08eece19368cf1095348943b6adb6f0f97f86",
+      "bytes": 314
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/checks.json",
+      "sha256": "c42fcf94f73db75fc802d3eea8238afe4b741595001fe3a7bf80b89c1702c44e",
+      "bytes": 766
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/lead-checks.json",
+      "sha256": "6efcc1cd8bd0d84b49e454d06eebd2cb8783a99c6be73e9ad8974ca3b7baf47e",
+      "bytes": 1018
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/lead-test-output.txt",
+      "sha256": "0e2b6207c23e95701a403a24027e774ed88c64112ca9a368a2a4bf7eb70c42d3",
+      "bytes": 4467
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/lead-validation-output.txt",
+      "sha256": "fea875ad382f34c626914438ae96a2c3ffd500669f3dcbaa0747786daaf4b8e4",
+      "bytes": 81
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/proposed-validate.mjs",
+      "sha256": "c03af0c170eb1eb894852921b6899331a8434e4c1b833ff089d479e4fe064bd7",
+      "bytes": 21181
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/proposed-validate.test.mjs",
+      "sha256": "dd380346fe4140870d186aadc7d6aae1481240f921eeead5d345d9ef2845f2c6",
+      "bytes": 26811
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/queue-validation-output.txt",
+      "sha256": "fea875ad382f34c626914438ae96a2c3ffd500669f3dcbaa0747786daaf4b8e4",
+      "bytes": 81
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/review-request.md",
+      "sha256": "3bdf5a0e842f57d5646f3235e5663b5fc5aa268e1152f39b3371431a044fe7e9",
+      "bytes": 1636
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/snapshot.json",
+      "sha256": "835f80568a71d6d567c5b1a7c0eef33a11c1d03d2f26ffd215a580c2284f0fe2",
+      "bytes": 1101
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/task.md",
+      "sha256": "a31cec58357db9b7cf2649457d8faf0e755582235d1d5bab5cd5371f847316e4",
+      "bytes": 404
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/test-output.txt",
+      "sha256": "8b494d96e93d0fe1a3edf51517c3a00c8708165d0443cf814a54743d88b9b73a",
+      "bytes": 4465
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-GATE-PREFLIGHT-003/validate.mjs",
+      "sha256": "c03af0c170eb1eb894852921b6899331a8434e4c1b833ff089d479e4fe064bd7",
+      "bytes": 21181
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/artifact-hashes.json",
+      "sha256": "de962247feb6082f3ae06b5abfd797da78e986a8b93219825252fd967c4c922b",
+      "bytes": 1171
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/attempt-2/DISPOSITION.md",
+      "sha256": "e6e483a0f5b07d1c963b1d9e88acb1419041ed8089687d0a55d746d7735a8915",
+      "bytes": 2998
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/attempt-2/before.json",
+      "sha256": "070fae4fbdc81182c92e3d2c6ed79e1c9fef54fe0184c9beef449aa533644d79",
+      "bytes": 3559
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/attempt-2/checks.json",
+      "sha256": "bd29b0ea6cbd84ebcb6e874bfcc94e3d1146fa6d4cbc779dac6a0a8888fe5c84",
+      "bytes": 2673
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/attempt-2/closure-before.md",
+      "sha256": "b10a6f66b3cd23708e06b46f8fbedb36afdec9ed09d487324f1d2fb123c296f6",
+      "bytes": 5242
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/attempt-2/execution-report.md",
+      "sha256": "dbc13ebc034a19ab88a60a8f8dd1b90c3eadfbf5d541712c268d46b38b77212d",
+      "bytes": 1930
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/attempt-2/handset-before.json",
+      "sha256": "7da44e908838020072a226ec260d330d0bba717a5f828bb8cbae1076576b7554",
+      "bytes": 27356
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/attempt-2/pdf-source-check.txt",
+      "sha256": "f4c61cf497ff8e5510d810a7e3d6e31c44a8bc31f913216606d58c434675e2b4",
+      "bytes": 10600
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/attempt-2/review-result.md",
+      "sha256": "04340cfc9fd4a5e7ba7f022d192d3c65e9edc613bc13f7a5330d497b3b9d31d9",
+      "bytes": 7428
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/attempt-2/review.md",
+      "sha256": "3d9acaf5bf27f62eb422ab917edd029e10ab3b66639ddaffd4d3bc748b15c4ed",
+      "bytes": 1220
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/attempt-2/snapshot.json",
+      "sha256": "2e8109b3037a47b2e4f8e074bddb40ab7c78f6f79d2bdaab68d6661b9f39ecb8",
+      "bytes": 479
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/attempt-2/verify-snapshot.mjs",
+      "sha256": "e6db5b15364a1fd1758267500a43ed8ef1a9834c4a5191d39f4c0f22af674a81",
+      "bytes": 2589
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/before.json",
+      "sha256": "677554568d6320a3a2de8247976482cb4554ab3c587eb7eb5a7580a42acd94fe",
+      "bytes": 3744
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/checks.json",
+      "sha256": "f82ef743a2758449f93a8ef0df059dbc3f1e3d20e36c2427330de75f35d83226",
+      "bytes": 3460
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/execution-report.md",
+      "sha256": "27b8978c3c716b06a44f22852091eb5782add842936388d436b0ce661c95a580",
+      "bytes": 2261
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/handset-before.json",
+      "sha256": "b8f356c666fcb3b06d1efa9a0d89304355d04021e3d66da50b2c13bdf3019920",
+      "bytes": 25112
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/review-request.md",
+      "sha256": "6dba3d3a59abdd49a0627c98b3f456b1793c55c23684ce5cd4a99a6f387cdb52",
+      "bytes": 2143
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/review.md",
+      "sha256": "9b3e3d5f7015d3873e474b2bbd34abc92b422b6d857cbed05c38821e6a8ce63f",
+      "bytes": 1230
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/snapshot.json",
+      "sha256": "bc0c070de02a80f991442b979feb8b1c4f5b183d16e408009d8dc2cd1e542b72",
+      "bytes": 463
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/task.md",
+      "sha256": "ee34ce7222d5b2416c8f227a8313a7569b288f16dae9e390d30243fb2cba3244",
+      "bytes": 576
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-04/verify-snapshot.mjs",
+      "sha256": "02abcff37db77d33a8dc48030a1596c69a9c5f386e19c6f3d3384abcf3a5031f",
+      "bytes": 2499
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/BOX08-REVIEW-PACKET.md",
+      "sha256": "28ecf064886f935b42a75a896458397981e2fab8e28cdeddce652f0bc17c97d0",
+      "bytes": 2225
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/REPORT.md",
+      "sha256": "4cb3487462d2d9e316f848d67c33afcf33afd650c9de408ca3a4058366a1a995",
+      "bytes": 3390
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/BOX08-REVIEW-PACKET.md",
+      "sha256": "21cfabca70814b327ea72a73ad4658de07826961f85183f66592606530f4c727",
+      "bytes": 1243
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/DISPOSITION-C06.md",
+      "sha256": "554a7dd18572c94df4b420e7afa34d95b5ea9de5f73001bae9736bf8219cfde8",
+      "bytes": 3439
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/REPORT.md",
+      "sha256": "c024178442ed0c9c875bc5651d588487011c610788b520d9774bcef1742bbf66",
+      "bytes": 2585
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/checks.json",
+      "sha256": "2311f0fcf05419f49748f6703b4162f1c465b2f85f1af30239ab5f50c0e13f9d",
+      "bytes": 1607
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/dossier-before.md",
+      "sha256": "28ddd8823efcf8382282c5651db1bb20e8387ba2c2e448bca888a8152fd7d152",
+      "bytes": 21671
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/input-snapshot.json",
+      "sha256": "5814e8ad8035ab5a5c7ecf5b0b3bfc6b2b4fdfd8ee026660780462e412ef0b53",
+      "bytes": 3965
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/review.md",
+      "sha256": "e8dc630005e027cd10285a4df1520b0eb9545b226b386cfe6f7942f1c75b1ba8",
+      "bytes": 572
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/snapshot.json",
+      "sha256": "8221aab816207401871f01084d9909f19e363a84d6dd7250b3b6ae367d0a6b9d",
+      "bytes": 3411
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/source-excerpts-addendum.txt",
+      "sha256": "6b6eaa73d2667c6128772c0faba2e1aa186a76752f9c3ce351a78d0b3883c6f1",
+      "bytes": 56509
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/source-excerpts.txt",
+      "sha256": "86f2f2902c14b84ae8d74063577235605c3ec33fdd89ae0039592950201a11f0",
+      "bytes": 78353
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/source-manifest.json",
+      "sha256": "303b5a7038eeacf247588b7ce3a788043db177e3a558c8a7536687bb82ebe565",
+      "bytes": 5048
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/sources/adafruit-2776.html",
+      "sha256": "bc60030b1af820c3c26506b3ec5e95da89f96327b1e20366679c04349c97e517",
+      "bytes": 92808
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/sources/drv8833-slvsar1e.pdf",
+      "sha256": "3e400e333f08f1b93ec99a2d52a6af2a864e88462cc892282208548d9e9f0de4",
+      "bytes": 1009440
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/sources/esp32-series-v5.3.pdf",
+      "sha256": "a7917e6b47528c9dcab06837a49d452e582751335797db879f1cf2d17cd29adf",
+      "bytes": 989523
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/sources/mcp73833-ds20002005c.pdf",
+      "sha256": "814b6082bd5076dbf72637e5b370ebb17c2113350734dcfe48488c8a7ae07fc5",
+      "bytes": 1189356
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/sources/sn74lvc1g11-revi.pdf",
+      "sha256": "ffd953703273b43844eae23cfbf31cfc801a3b9443f2c863d49dde62f5a9232b",
+      "bytes": 2242255
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/attempt-2/validate-output.txt",
+      "sha256": "cfffb4356800bc0a4f1d532ef492c84b9e29f1d534b03e157ec6984d2041e38a",
+      "bytes": 81
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/checks.json",
+      "sha256": "cee37eb25e916fadfec55bc4c61ac0bc961999736dad0dd85210f9810b3e9075",
+      "bytes": 1592
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/input-snapshot.json",
+      "sha256": "f3c949730e860fe209b5e3619cf3bafca13c635a10835f005b753cbfe8d6526b",
+      "bytes": 2025
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/snapshot.json",
+      "sha256": "7937b5ad181c6c31ff27f6db6a6d196e5c06f8bc8c326d4770cbb8429cae0420",
+      "bytes": 1381
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/source-excerpts.txt",
+      "sha256": "d81f8693b39c3a99f39793ce61a0cf45d873b02b816abd4c72d362c2bd0a14f8",
+      "bytes": 17410
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-05/validate-output.txt",
+      "sha256": "cfffb4356800bc0a4f1d532ef492c84b9e29f1d534b03e157ec6984d2041e38a",
+      "bytes": 81
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/BOX08-REVIEW-PACKET.md",
+      "sha256": "e10cafe3fe244e17098ebc6225b577b00c47704c7ec623ff95e42a02a3cce7cb",
+      "bytes": 2625
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/REPORT.md",
+      "sha256": "32f8e84fc11229acd02385b072360c72cd7324b959f8612f51ef5ef876be7845",
+      "bytes": 4393
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/before-hardware-config-mobot-v2-typec-r8-handset.json",
+      "sha256": "c5d342db0db6c3cb419078bd9342c1766b7f537df87f590077aef73f083dc626",
+      "bytes": 29100
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/before-hardware-config-mobot-v2-typec-r8-robot.json",
+      "sha256": "2fb61b4fa3074f4da83c604e4e9fb1ae08cc557eb50be67efec72bcef36674fc",
+      "bytes": 7632
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/before-mobot-v2-founder-decision-q1-q8.md",
+      "sha256": "482ad7592c1111fe2e65db51cbaee34e7fc2b6ed8d1d494aabb995e2495b0c8e",
+      "bytes": 8569
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/before-mobot-v2-p0-05-handset-gates-closure.md",
+      "sha256": "a365167f6169c065d1d446c39b38ae6be0bb8f9af00372eb79ff3bc3d2ef4287",
+      "bytes": 27124
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/before-tasks.json",
+      "sha256": "e246fafba748c11c03ac9dc31ca9143c5833b0ff31e35af3d1eeafbaeef4400a",
+      "bytes": 259373
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/before.json",
+      "sha256": "bfb216975847af26bfd3f4bb83f1286982736a2473e03ad9804de888dcc086e8",
+      "bytes": 1001
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/checks.json",
+      "sha256": "ec58ab68de5d236262fbd9d719cafcfdfb265f0858c713be1856a783d35ec401",
+      "bytes": 839
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/configuration-sha256.txt",
+      "sha256": "1adadb91022ea865e354729977a8dc98186541a4b01fb91aa006b08c3d5ff7f7",
+      "bytes": 174
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/founder-confirmation.txt",
+      "sha256": "94e7ee029c9a96477e8552d3cfa04d1c888a2b3c5d6aae01224b07f643ab1ac0",
+      "bytes": 1943
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/p0-05-completion-snapshot.json",
+      "sha256": "c83bd07daf1cfe6ebf4c5d9e054ad210da45bc4d9994aa6fead121e837d45127",
+      "bytes": 567
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/review-request.md",
+      "sha256": "e10cafe3fe244e17098ebc6225b577b00c47704c7ec623ff95e42a02a3cce7cb",
+      "bytes": 2625
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/review.md",
+      "sha256": "e6f290b0ce49224c6056bebf8441d3ee2afc88f71b5e643d4ed3f94302383db3",
+      "bytes": 628
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/snapshot.json",
+      "sha256": "7b0662ae0d3f84f11e1e45c5a37f096e18e1433c4e6005f9eb05fc349ce5f82f",
+      "bytes": 4921
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/source-excerpts.txt",
+      "sha256": "76a77aa9530f0d6b9298bf4415dce4559fb3c4c24e6c3903f0194a2f0d48106d",
+      "bytes": 69249
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/source-manifest.json",
+      "sha256": "fef94494a9f51139ddef6560766764ec20abaf88f77ccb3eadc7cefec73fc2f0",
+      "bytes": 3017
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/sources/bq25185.pdf",
+      "sha256": "c73ed7d63e6532bb05e26df30edd37c6ac2de310c1222a84a77625e15e133684",
+      "bytes": 1544774
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/sources/bq25186.pdf",
+      "sha256": "96834a4566939677cf084cef87d88f1534b9369ae80171ee004a7ac6572791c9",
+      "bytes": 2093032
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/task.md",
+      "sha256": "ac5b77a6cdc9f0ea2567aac3f0d70598cb43e02e6b6615a62d49187f68abaf53",
+      "bytes": 696
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-06/validate-output.txt",
+      "sha256": "5a06918f6694f1d201f29d010ca5f942f28bb5c077264d42a4e257b8fa1ed05a",
+      "bytes": 81
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07-ACTUATOR-001/snapshot.json",
+      "sha256": "bde0f3a832d4439ad2a9148c762511fc77f340e5c71bd8a0365a87fcfd791982",
+      "bytes": 540
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07-ACTUATOR-001/task.md",
+      "sha256": "e01351dd31477c09b98cb7aef9174be5261a0549d0728a761febfd4306c5d664",
+      "bytes": 389
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07-H3-001/snapshot.json",
+      "sha256": "ab0551d2a67ec9500488112679a76dbd8e49afdd95d3597a5133f8227a6ba90d",
+      "bytes": 528
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07-H3-001/task.md",
+      "sha256": "6d0f55ac7580ae4614bcd28a862987a0866f131e3031ecaca4073ced02590731",
+      "bytes": 385
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07-MCU-001/snapshot.json",
+      "sha256": "d3421e9d8e0a4eef92366d2f85587d7e97dae991bf9fbc79cae7b8e8494185d4",
+      "bytes": 534
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07-MCU-001/task.md",
+      "sha256": "c328fbc759c34bc829efcf902c34c1af150cecf816d0e2b5e8e279af67538221",
+      "bytes": 387
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07-OFF-001/snapshot.json",
+      "sha256": "b5f7bbc52321233578c05153478a7fc31a12e012e87400debb52856f71a4b55c",
+      "bytes": 524
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07-OFF-001/task.md",
+      "sha256": "198faff0bc6747699f72cf388806375b9e20a68f25e0d30e121daf0365ef0ee0",
+      "bytes": 387
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/REPORT.md",
+      "sha256": "234e813d49eb73b890e98a2bfc3bf05eacefef408b090335fdf5b79ce4d2ad82",
+      "bytes": 4698
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/before-hardware-config-mobot-v2-typec-r8-robot.json",
+      "sha256": "2fb61b4fa3074f4da83c604e4e9fb1ae08cc557eb50be67efec72bcef36674fc",
+      "bytes": 7632
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/before-hardware-config-mobot-v2-typec-r9-handset.json",
+      "sha256": "e8a1d0d319f11d71d0b5040731664f72076396eb5f39d968d8df45e6039510a3",
+      "bytes": 35448
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/before-mobot-v2-founder-decision-q1-q8.md",
+      "sha256": "55ee091bea39a155d24068b76a0b524b60a67aaf84e488be2c14ad0045d0299b",
+      "bytes": 10886
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/before-registry.md",
+      "sha256": "138c12488e27d937d68b687a88b4d74b8495f540fd8b6bd550955b9c1981aa61",
+      "bytes": 7508
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/before-tasks.json",
+      "sha256": "d32d1e65fbdb06432b8bc437b0178d84051750d8fc541eddc444416f387877c4",
+      "bytes": 275370
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/before-validate.mjs",
+      "sha256": "69540e83846431968bed418ec0953500121fd57cb370d8794ec17fc68947816c",
+      "bytes": 15153
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/before-validate.test.mjs",
+      "sha256": "a4fcc857a968531e938320effe69d5fb7ec745e94a9c68d537cb806fd66ddb1b",
+      "bytes": 12596
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/before.json",
+      "sha256": "4b94c1db4e681bd6c7185d1a12ba9b45a3186fa8332c4e692da7e062591c5c3a",
+      "bytes": 1284
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/configuration-sha256.txt",
+      "sha256": "8d4a390f7eee75791b89d1ebf72a7bc62c673d75df9e65f85c320b664321a207",
+      "bytes": 66
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/design-package-index.json",
+      "sha256": "13d919b76d8438a35af3bd6b464cb76f1f3a98208f42477af48ba3314c280a21",
+      "bytes": 785
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/final-audit.json",
+      "sha256": "8639f4eb101e9df3abc4dff722f2e7f10119ea5b3d6a2278997731d333113899",
+      "bytes": 347
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/snapshot.json",
+      "sha256": "e68c6114b3597311f9430edd50abaf164681f55d2bd07f8af51c2c9722d135e5",
+      "bytes": 2208
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/source-excerpts.txt",
+      "sha256": "ead06c1e3b81df54c3dabf269caf16491187964f98fcca0b7679197d015faacc",
+      "bytes": 66831
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/source-manifest.json",
+      "sha256": "cfb31f105bc03dc9dbec9e57add12c40089160704b053a772d233d4b22361330",
+      "bytes": 659
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/sources/bq25185-page-7.png",
+      "sha256": "641a111344a315d36c7a2ee4559d5b6e729d6c5cedd61b9db6ba8cfe2311f40b",
+      "bytes": 199103
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/sources/bq25185-page-9.png",
+      "sha256": "8a11b970779c2e6db0abf04af79782b88c0dde66814157c1e4a791be449470dc",
+      "bytes": 123744
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/sources/bq25185.pdf",
+      "sha256": "c73ed7d63e6532bb05e26df30edd37c6ac2de310c1222a84a77625e15e133684",
+      "bytes": 1544774
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/sources/bq25186-page-10.png",
+      "sha256": "e4023d9198ef2f0ac9dc4fa02c1ac4e7b3007ba1b7568c285be0480076fe5559",
+      "bytes": 124115
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/sources/bq25186-page-6.png",
+      "sha256": "e251c9d280f906651e29508ca35f2445c05c05272be25374bb2f130c69ed8342",
+      "bytes": 195005
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-07/sources/bq25186.pdf",
+      "sha256": "96834a4566939677cf084cef87d88f1534b9369ae80171ee004a7ac6572791c9",
+      "bytes": 2093032
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08-ACTUATOR-001/review-request.md",
+      "sha256": "6ba0574880a57329b4bdfe963f2e032d6a35c2c04e72d63b3a3d7d207624a153",
+      "bytes": 1977
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08-ACTUATOR-001/snapshot.json",
+      "sha256": "b1464afa91bd8f279cb509966983dbd6cee4c5822e77a14c59a0d6744f56d706",
+      "bytes": 1150
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08-ACTUATOR-001/task.md",
+      "sha256": "26bbe3c739fea9657c6765faea4ed790cf9f93b4e24d0b6ca1b7c351a3ae1dbf",
+      "bytes": 404
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08-H3-001/review-request.md",
+      "sha256": "5a0c2901c54d81de1c9f002f41d03fc5ad36df5687d188a199b4e6ebfe50674b",
+      "bytes": 1959
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08-H3-001/snapshot.json",
+      "sha256": "07f93aa04fa5d4077b597a76cec7f88e3ae078cb76c26f133b27e208f8d64101",
+      "bytes": 1132
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08-H3-001/task.md",
+      "sha256": "f8cb64faa70f4e441f3ac41a265e73bd84a02d1e851f92949d9d3aa7ba3ef930",
+      "bytes": 398
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08-MCU-001/review-request.md",
+      "sha256": "5299c8d31a40afb05dd8f67364b8cca74e893ba04eb400ac53c670bde1993ab7",
+      "bytes": 1970
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08-MCU-001/snapshot.json",
+      "sha256": "cf9d81a60c76488c4f3800a0b77c2fe0c82be68663a75446f3aa9a6f36fa544f",
+      "bytes": 1139
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08-MCU-001/task.md",
+      "sha256": "984192590c413cf9a2567cc3a8d4d2e23a523cbf1e1606f8229b53c9bc3b2045",
+      "bytes": 399
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08-OFF-001/review-request.md",
+      "sha256": "f1f54e88c65ccae3dd16761ce2e8d7aa48749619f1a3d6229f44166d7f5c1cf1",
+      "bytes": 1950
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08-OFF-001/snapshot.json",
+      "sha256": "5fb614db608c39627bdce7be9d341fac239d4c53eb54df25b40f0a82620981a2",
+      "bytes": 1129
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08-OFF-001/task.md",
+      "sha256": "f82b830c3b6e3a9c23c10900e483ce8e3b299ed5fca98d4b1c3f262efb4633f5",
+      "bytes": 399
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/DISPOSITION-C08-C09.md",
+      "sha256": "ba7fcf51ebdca7a4ad101b0d92ebc8a61c5408e374a0c41bdcef9f7bf89a0131",
+      "bytes": 5152
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/INDEPENDENT-REVIEW.md",
+      "sha256": "efcad0c0781709eaca644f77e269720aa6414bb37d34ec5035a8249a3982208d",
+      "bytes": 518
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/RELAY-INDEX.md",
+      "sha256": "91499d6fe5c34aca0e71f5261f08db0720f87352029bd76e384d2aa753e22662",
+      "bytes": 818
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/REPORT.md",
+      "sha256": "74141584b1ddc5d9792c87364a3c9793c4b320ddc0e6f1d9c1edb42e4bcc1dcd",
+      "bytes": 4791
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/before-hardware-config-mobot-v2-typec-r10-handset.json",
+      "sha256": "95abdd2762e6f739557a83a5f62f1240510aa4ca326f317738b5eb59196770a4",
+      "bytes": 41370
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/before-mobot-v2-founder-decision-q1-q8.md",
+      "sha256": "cf4574a47811f8f58caa6c3361c55bbd5b66524691f9f539db7c7a890696ee30",
+      "bytes": 11927
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/before-tasks.json",
+      "sha256": "41fff95be48978eb99d2c882749de8e308ec5724ce2cf79559effaff65f4961c",
+      "bytes": 310615
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/before-validate.mjs",
+      "sha256": "a0da4cdfbc486f54e3d077145c60c74f5823fe80018b8bb762a65d8c448b28ed",
+      "bytes": 20179
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/before-validate.test.mjs",
+      "sha256": "dfe4a696cff3f4886177dce960fcb53c9cbe31ed725ba33953c06985027a7d08",
+      "bytes": 22124
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/before.json",
+      "sha256": "7724a86802b329166116dc6002f2828757c3e7a0524152c81bc757e48e352d8d",
+      "bytes": 885
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/final-audit.json",
+      "sha256": "68c2a0f5adaae5b1dd7eabfb38cddf8e7336962a089ce3e038e5432679bf5225",
+      "bytes": 494
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/founder-request-original.txt",
+      "sha256": "c2ffbd3c12965976e9872fadfd67f2e80fc376ebb27da4233da373036a0eb216",
+      "bytes": 6685
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/review-request-r11.md",
+      "sha256": "7d881bd8fe6f0024b148c6637ea3784f7a61bcf5d7274c76102e4f89b75801d8",
+      "bytes": 1678
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/snapshot.json",
+      "sha256": "db3173d7481f83ccbb9a623dfcf131187adb6a595d47717cf08c75fbb441be98",
+      "bytes": 2970
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-08/task.md",
+      "sha256": "9056e5454f7b050b44b1510c8dce67a3de2fbecec590095934dc8708cfaf8b8f",
+      "bytes": 391
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/HANDOFF.md",
+      "sha256": "6b10beb7eedaf508300c6bdc5f94b89a600795940e4733bd15ae61f71e95fddf",
+      "bytes": 1422
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/DATA-REQUEST-DRAFT.md",
+      "sha256": "be27c2683ca75b9fc7c15a2e2cdfb5d53865ac60ec873f479ec4b7443cde13f7",
+      "bytes": 4195
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/REPORT.md",
+      "sha256": "cf4892f1b91710bcd5ca0ede7285ecc5c253e2ff3ffdfd72ae417a64af10bcc6",
+      "bytes": 4227
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/before-mobot-v2-founder-decision-q1-q8.md",
+      "sha256": "9ab5239ffad7d66e7bf0f82e6a530a10034bd043369e6d2870aaae810299db3b",
+      "bytes": 14818
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/before-tasks.json",
+      "sha256": "e5d55ad5a48cf8fa212577bf236b8aacc055ab738551a623bdf2a193d0374584",
+      "bytes": 353346
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box01-cassette-review.md",
+      "sha256": "0f35ced19693b2dfa7ff50a56dba9ae84e7aa53d161fdd842c926aaeebc9e8a9",
+      "bytes": 6383
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box01-product-convergence-review.md",
+      "sha256": "7932def5468f430b52315ec12964d8fa1a58d5a44f9ecb60c919060d10198edb",
+      "bytes": 5608
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box02-crossings-and-ti-request.md",
+      "sha256": "4ff0e5c4dcf683a126913cb69117f5ce84c4103714f0773050d9052515082df2",
+      "bytes": 10452
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box02-direct-return-power.md",
+      "sha256": "b4e78e7e5fc4b0d84046cb72cc09e9f635fb777b6fb577b01083fbcdbca4e150",
+      "bytes": 3048
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box02-electrical-counterproposal.md",
+      "sha256": "4280cefcdb57aa309113fa058b98ea2fad6bf38e21a079c7145fd0735defc42d",
+      "bytes": 13295
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box02-functional-interface-energy-path.md",
+      "sha256": "56fd1b2153ea220e7d0b7ae2b6c9b60802cf03a2c4b912bd5eee3a2eccd48b94",
+      "bytes": 10229
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box02-hardware-configured-charger-candidates.md",
+      "sha256": "59b68cafef52b5d85043f3ca2c9d38909abf814827cfbc9f77d3800a2b45b059",
+      "bytes": 6580
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box02-state-timing-kcl-correction.md",
+      "sha256": "b91bab46efd8926d87965340368d18980ee25e26b05365fbc50ffd99615e8100",
+      "bytes": 10762
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box03-cassette-advisory.md",
+      "sha256": "1c0d96f92510a96d0b812b5764c13fea15159545feb7af9ebed3b75b24e31097",
+      "bytes": 11565
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box03-cassette-supplement.md",
+      "sha256": "850e9548a7c4994a8fadfd764f7fe4f264d43af571e7d773c35943de2573adf7",
+      "bytes": 12968
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box03-contact-dogleg-100N.md",
+      "sha256": "144d7b59fb44ec12a5b59ef083331fa0af481ee8c56a3cce14630c6280bbf99c",
+      "bytes": 11371
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box03-direct-return-geometry.md",
+      "sha256": "47d7b22b2fae085b0a970e2b7fb9a9f895ff3860163512eb6a4da97d0d604867",
+      "bytes": 11415
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box03-direct-return-proposal.md",
+      "sha256": "50bb9f62c4d46ef9857f597398d2a0939b9d131bb3874094b9476078b0aec010",
+      "bytes": 11570
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box03-fit-and-rfq-spec.md",
+      "sha256": "c358808c6de93eb928ba39dd27cbb4ed79cedb2f63dc21fe176a21263f12da28",
+      "bytes": 9322
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box08-charger-candidate-review.md",
+      "sha256": "4dbe5f7c89f85f0cb1cbd895f74254a76d20e42c194e51754048d3fe59f6b1b0",
+      "bytes": 2640
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box08-closure-review.md",
+      "sha256": "4a21d2747738359b54a63870d2ce7a541b64fc0ad4ad63cecd2cefaa74b29b04",
+      "bytes": 3988
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box08-direction-review.md",
+      "sha256": "ca83d4006cf2427abf4d9fda65b4dd4643e1266fc771bc2f527ebbf8a83448cf",
+      "bytes": 3140
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box08-electrical-review.md",
+      "sha256": "ab339b1e90bab970b1440dabc879f2b97c41c5c257a80b6ed946add79d7bd7b9",
+      "bytes": 3749
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box08-final-checkpoint-review.md",
+      "sha256": "9ef94c63a35021679780be20d25207d3b6170ebd651e8caa27723d5fed839f15",
+      "bytes": 3106
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box08-mechanical-review.md",
+      "sha256": "eb7a17b5831bac43bd86197c92ced8905f2c3464016f43f267ba4498535ad006",
+      "bytes": 4845
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box09-actuator-shortlist.md",
+      "sha256": "b6d352dcf5d38794c808eeb0ea9415fcead684320b80fb1a1ebfee8e1129aebd",
+      "bytes": 5155
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/box09-public-cost-envelope.md",
+      "sha256": "8bd11676b809442b5c0808f3b21a61fbc45c7eb72f2f7b9a187f7dd47f7a97a3",
+      "bytes": 4513
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/calculate.py",
+      "sha256": "700967e2124103555b9e83ab67f873b3827b3a677cfbd90ca43ed858bb338af7",
+      "bytes": 885
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/checkpoint-validation.json",
+      "sha256": "38813e603bc88061e96a52dd2cdbc75a7d0d0826572c21a93413fad13f19430f",
+      "bytes": 201
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/founder-input.json",
+      "sha256": "1d3b3754f0eb0f9e9acef66c3374e71dda77fa31864d02281834135d324ef8ea",
+      "bytes": 691
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/packet-snapshot.json",
+      "sha256": "a2503027afdd3c1730205b0039af35c1547aac14a83cbcdda10dff8a8a7afb75",
+      "bytes": 5947
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/b1-readiness/snapshot.json",
+      "sha256": "e3fca0e48ad719790ffee551d6daccce090a432608c146169f175275e0bb0a62",
+      "bytes": 1069
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/before-hardware-config-mobot-v2-typec-r11-handset.json",
+      "sha256": "b4a7a5aedcd9012ca75df93a973f0517d86f28a13249632c1ea2a576f945e887",
+      "bytes": 65020
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/before-mobot-v2-founder-decision-q1-q8.md",
+      "sha256": "800e040c59b24a8227c3078ab315bf2bcac22752a1f9de10af4a7f11e4078740",
+      "bytes": 13621
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/before-mobot-v2-p0-08-architecture-proposal.md",
+      "sha256": "eb0ed196421db5df263d448285d318386162b35f5084a9c4ed4fc8b4e170adf2",
+      "bytes": 5019
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/before-tasks.json",
+      "sha256": "ca9ddb29efded9973b59ca448fed2e23b93a78e2dcfea9f893f54472ab2c04e8",
+      "bytes": 348213
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/before.json",
+      "sha256": "ef80c48cbba1da8a827c3e0ae2ecbf342d2e13ccd55ff2c18fc4a9edfd101abd",
+      "bytes": 785
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/checks.json",
+      "sha256": "b9b6a5d73e89cd13b3aaa2e9ebc9775dd3dcfb6f0595f6a21364d334604689a3",
+      "bytes": 482
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/founder-direction-approval.json",
+      "sha256": "f00c113c5a8ee99c6942a46a0be4f10fa7b30b1bc7647baab1767a842a8e40f8",
+      "bytes": 823
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/snapshot.json",
+      "sha256": "ac553e0919d608faf06764633639dfbf6730054b9c884c1df368bc6e95f89f4b",
+      "bytes": 1234
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/task.md",
+      "sha256": "455545d633919e93b6e31443f90afb9e0976c2a475d6dd17553b12ba42bb57af",
+      "bytes": 417
+    },
+    {
+      "archive_entry": "docs/agents/runs/MM-HW-P0-09/validation-output.txt",
+      "sha256": "55a68d32e3eb7358d85419732b414ec330e38f85944efd945c0412d44ab16383",
+      "bytes": 81
+    },
+    {
+      "archive_entry": "docs/agents/tasks.json",
+      "sha256": "611431c849d262046210e7393f7748e7ac450490a44dc8383a417753fa2bec13",
+      "bytes": 385161
+    },
+    {
+      "archive_entry": "docs/agents/validate.mjs",
+      "sha256": "c03af0c170eb1eb894852921b6899331a8434e4c1b833ff089d479e4fe064bd7",
+      "bytes": 21181
+    },
+    {
+      "archive_entry": "docs/agents/validate.test.mjs",
+      "sha256": "dd380346fe4140870d186aadc7d6aae1481240f921eeead5d345d9ef2845f2c6",
+      "bytes": 26811
+    },
+    {
+      "archive_entry": "docs/mach-mo-product-master-2026-11-05.md",
+      "sha256": "838c1868523ae0500e7a345ae2e58621a0bb1fc919627673dfcd1f73f8955706",
+      "bytes": 10274
+    },
+    {
+      "archive_entry": "electronics-learning-demo/AGENTS.md",
+      "sha256": "9112940eb2bd6b15fd89e38824599880bcc324bc218bd84ce24c4683a5aa5475",
+      "bytes": 4225
+    },
+    {
+      "archive_entry": "electronics-learning-demo/README.md",
+      "sha256": "938aa8d2a2b09ed4286a9ee22ef64a18adc6ac10e645be9a6d2293215c667d52",
+      "bytes": 34008
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/DATA-REQUEST-DRAFT.md",
+      "sha256": "fbe0aa3b653f3602fffd70ea0a2fc0f8eb8ca51773f5ecb3b55169af92e72265",
+      "bytes": 1457
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/DISPOSITION-C11.md",
+      "sha256": "4d0eb5b9da632cd8f547bba8c7f3be2381ae1efd13744f0137de941c4811d592",
+      "bytes": 4116
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/FINAL-CONSISTENCY-REVIEW.md",
+      "sha256": "c86847073e10cdb69a9322105fedb7bcf2874f7fc970e46e7d97de7bb169b9dc",
+      "bytes": 1041
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/RELAY-REVIEW_REQUEST.md",
+      "sha256": "3cbe161bdb6401d6f239ee008b718a14a8704f78fade8884b6981875e8128c02",
+      "bytes": 3004
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/REPORT.md",
+      "sha256": "6d0b532464f6e4700efc1ba491068d761b0950f298df431f1c36337e8919d12b",
+      "bytes": 3224
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/RFQ-DRAFT.md",
+      "sha256": "4d4aa7ab09a381961d69dbe367d18ad87a9668a0d0883603482da6d07dc57b2b",
+      "bytes": 997
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/SUPERSESSION.md",
+      "sha256": "1c085e81384d111002469da0c727836f1d8f61467277d089a32a0de3727cc201",
+      "bytes": 2570
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/before-snapshot.json",
+      "sha256": "b6e978effb63861f2e7de0805050eea0982c0d213e0052dc1401ce612fd0476e",
+      "bytes": 6510
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/calculate.py",
+      "sha256": "12e4253323438b6ef5edb0bd935471de716978cf603d49bc13f52cd5f2c852ad",
+      "bytes": 2199
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/calculations.json",
+      "sha256": "ad24b91ef157cfdc70b0b79d246992643028c9eb8947a2c7d894372b885a8642",
+      "bytes": 3500
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/consolidate.py",
+      "sha256": "22815e2e1c8bec65e103af7f9bcde4f12bde7ee1f3fa0584d9007acd2ffc3840",
+      "bytes": 12332
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/finalize.py",
+      "sha256": "155e5030c29200d6c7789ce371ebb493a281ac3d281e088b42dab99c0f3c2e9e",
+      "bytes": 7903
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/founder-input.json",
+      "sha256": "a0cde23f40e838acfeedf031d17a3dca567384c4adedb44f89619fafed1c0b4d",
+      "bytes": 3926
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/invariants.json",
+      "sha256": "3eb7096262805688622d3eeff563e97c66b0ec4a7344373a0fd3d81b54ca6b10",
+      "bytes": 381
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/package-evidence.py",
+      "sha256": "95ae39c30cd43ebf060d9588e11bc69d6c23c4dbd807a2709ba676fb92148162",
+      "bytes": 4907
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/packet-snapshot.json",
+      "sha256": "a7a444cab53c5fc3397642cf4b2d6d40285222c81f359b99e497f829ef004f89",
+      "bytes": 49535
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/pin-mechanical-sources.py",
+      "sha256": "ed9b7e82f8516928a6c016f5e63b69e3d65eb2f2254c1e650015ac81e5991566",
+      "bytes": 1307
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/pin-sources.py",
+      "sha256": "8bdb7ea139f0930b6b14bd96ef18e769f9f95758cfc237d18d762c7c041b298c",
+      "bytes": 2308
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/reissued/box08-charger-candidate-review.md",
+      "sha256": "236f7504c48200a785dac465e29cab89b33501537d4b784979b937efd6f569b7",
+      "bytes": 3582
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/reissued/box08-final-checkpoint-review.md",
+      "sha256": "fbcd1c1ba8d8102b052d66fef2420c2565e81f3300f161e252135d13d8303531",
+      "bytes": 4117
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/reissued/box08-mechanical-review.md",
+      "sha256": "aabf8ee8375f8ddf9eeb03c1f065c9c2c38bb6fcc87e1c872e5a8f7a7746aa35",
+      "bytes": 5990
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/source-index.md",
+      "sha256": "c7b4e9592696ed6dc4625cc2c095d8a1764ab923454e1e1d2243c59cf6cffafc",
+      "bytes": 3953
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/validate-tests.txt",
+      "sha256": "c20a0b255017361c3c37df36ce1ec3c832f58dbfb23f64a887499ec928cb5c2e",
+      "bytes": 4466
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/validate.json",
+      "sha256": "1432c32c0466479f2ca7613125cd50fa7a1c5ae94265767c499e4ddda65233b6",
+      "bytes": 81
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/QA-REVIEW.md",
+      "sha256": "afeeed2cbc16b431c307a3d152de276d4801a2bff23290480131aeff688f099b",
+      "bytes": 1811
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/RELAY-REVIEW_REQUEST.md",
+      "sha256": "db804e8b3f261185d8c13a4c8a5b81b4bbf83484a4cab74629254720a96a0183",
+      "bytes": 1915
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/REPORT.md",
+      "sha256": "db3850c43d046101df27d948aad7543224b083c8b0e098d0dca439b95643625a",
+      "bytes": 4221
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/before-snapshot.json",
+      "sha256": "caab66a0635bfae4f0706c5b99ad02dba8b2f2c2299e1c7aa3c1362651cf910b",
+      "bytes": 279
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/DISPOSITION-C12.md",
+      "sha256": "5dd688890933302edf8cfbfffb92f1bc5dc6c81252a866a72d2f77ce0a04d8d6",
+      "bytes": 9667
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/REVIEW_RESULT-C12.md",
+      "sha256": "7311bc7cabc7d6bed70a66e6bcfb6cd76082f69051702030b204948b11a7ed99",
+      "bytes": 13349
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-extracted.txt",
+      "sha256": "8db94c28ce5c73eda7cf1640c6173678ac80670da7b7b153bbbca51aba526d0d",
+      "bytes": 56280
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p1.png",
+      "sha256": "0c433d11099854f7b4d69cb8f0dc1f725cb3d4e2db2dd22ff51bd23b1514f099",
+      "bytes": 237993
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p2.png",
+      "sha256": "557ba66c2f8a2cc2a851f4ab7a57cc7e5274ea655cd4f91cd37155664ec508eb",
+      "bytes": 177971
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p33.png",
+      "sha256": "2f301b5b2ab81987602447c06eded8ebcdaefa07dc077e72784ff9b30b894d3b",
+      "bytes": 264630
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p36.png",
+      "sha256": "61cf333e0cfd3dc97bdaa6357fbf8b335b2cf4eddfebad335ca3dc75f65a1b1f",
+      "bytes": 281237
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p37.png",
+      "sha256": "7a41b26959d4a1f7ed64834569d7a7bb0c31f951e1210d0a3fd286d691118820",
+      "bytes": 203247
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p38.png",
+      "sha256": "9cceef817e3df6141fee5518673cb2f2860030088801a14869203044a8d603d2",
+      "bytes": 237990
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p39.png",
+      "sha256": "cb14f4dae17dd2b7cb42a2e9543338d7616c80ac6477bf30fdfe1cd54f86eab5",
+      "bytes": 221874
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p4.png",
+      "sha256": "f21e39bf99e73b6eb6df44acee91724167b2f5751df2bf9fd89ad95456bad132",
+      "bytes": 157846
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p5.png",
+      "sha256": "d9cb8f185752696e6a4043fb4643a15381c549775fbdbd20fe6b8d12bc2e5234",
+      "bytes": 152911
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/calculations.json",
+      "sha256": "f7d2fd926bf73f0e6ae33db8095ceacd70a160f31a7896011d71c59b94071595",
+      "bytes": 1383
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/intake.py",
+      "sha256": "73075a81de1a4495e7c73fe8307737e787b399f2850419b01ae0f3d537c8ec42",
+      "bytes": 4293
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/packet-snapshot.json",
+      "sha256": "7150a9fd4270ae390d00cfcdd1fb194236d5c825784e36e7ac92691b6ec0422a",
+      "bytes": 3944
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/queue-excerpt.json",
+      "sha256": "eb4896ac293ecc6d2ec53f0c3ec25bf575dc2690b5394aa00ac42d0748cd2282",
+      "bytes": 27527
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/source-verification.json",
+      "sha256": "8acc5b5f00f72a7c4c274f2c764ec2c1bb8d66eb559281ab8d806b7c9ef45e1b",
+      "bytes": 2878
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/calculate.py",
+      "sha256": "8f62c6aafc541d4a1115cce88098029b2c9235df57792ddaac45514b3efae3c0",
+      "bytes": 4472
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/calculations.json",
+      "sha256": "bc415a556ff64b521d90edf1b2b4b8e522887751f1908d794dfede60dd1a26ca",
+      "bytes": 4837
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/packet-snapshot.json",
+      "sha256": "88cbefe0026d04c928ea503746d3b3a10bac2368b4b082e34cb32bbe6e14a6da",
+      "bytes": 8671
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/pin-sources.py",
+      "sha256": "60bc50ed6b94b9f1a3adffc3eb085d0282564ffb92bb6d06cac0cd592865a602",
+      "bytes": 1855
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/seal-packet.py",
+      "sha256": "e17ee124fedfd534d5150d6636e1b978840389ec448c97b85eadaffe4274f8f5",
+      "bytes": 4715
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/update-queue.py",
+      "sha256": "6a529849b3bc2d406d8224673e9d8bd72eb37073e686f85f35169f43915ff366",
+      "bytes": 2868
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/validate-tests.txt",
+      "sha256": "f6282d9f41220941ca13cf442357b7ce6cfd5d1b2533fb1736bd557db2d2ef57",
+      "bytes": 4481
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/validate.json",
+      "sha256": "b408d13decc9cfac4613ab8050da6f73d28af3ea7419a5a6bdbdc5a227696dea",
+      "bytes": 81
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/verification.json",
+      "sha256": "e607c9758267ad32e436d3ec422e3210446de413847cff8d59246b10b05165da",
+      "bytes": 1123
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/b1-dispatch-refused.json",
+      "sha256": "c8d31f8b38bf4df467a1dad23e9a3c45ff9541be47bebbc5887d696307f17692",
+      "bytes": 314
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/before-founder-pause-tasks.json",
+      "sha256": "24a4fdc60647688fbef6cd4b4dcba8f01544606ba20f5f4e7525ed5b24bc3dbb",
+      "bytes": 383830
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/before-tasks.json",
+      "sha256": "5c187992f379f2b2059afe029453b1fd56c0399c7fc4ecf6d0dda3462a4390dd",
+      "bytes": 380431
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/calculate.py",
+      "sha256": "364e619b54957c7591a41d0a2b30da33e991a848a08fa7c6cd93a39e826618b1",
+      "bytes": 3552
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/calculations.json",
+      "sha256": "48832ffcaee5743c77d470aa7b18177ff724a830473f7636c8c16998ff232b9c",
+      "bytes": 4240
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/package-hardware.py",
+      "sha256": "cf53e61292b9cd36d37d106fa7b90c2253f5d50b804b226f167b1039d977e224",
+      "bytes": 6370
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/pause-chat-status.json",
+      "sha256": "c7faa7bae53f7fb7f4e17a92b212ad101bff1b17e3410688a1c7a93088c24bb2",
+      "bytes": 915
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/pause-hardware.py",
+      "sha256": "6ced31dc23ab231a294af0c8adb5ebb4f5e42d6e0966748244c08cf1b42d0fd0",
+      "bytes": 2061
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/pause-queue-validation.json",
+      "sha256": "aa60c4b5876cd175eb3956689cdc1f7eef6422e4b3925d8972b494eeda45cb87",
+      "bytes": 81
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/pin-sources.py",
+      "sha256": "8f0379999a3dadbd249da1755a7b74dca4484ae38575aec940f5cf3aa04fa521",
+      "bytes": 1987
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/update-queue.py",
+      "sha256": "3e7c1831b84ab706aa927b07f5a4d846c782dedfa56341c8f6b09a1b602fd970",
+      "bytes": 2719
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/validate-before-reconcile.json",
+      "sha256": "aa60c4b5876cd175eb3956689cdc1f7eef6422e4b3925d8972b494eeda45cb87",
+      "bytes": 81
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/validate-tests.txt",
+      "sha256": "a5ed28f2fee59ab25f0e9b0e86eee53b3d06c147fbc8da78977553e30fdcae35",
+      "bytes": 4466
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/claude-support/2026-11-09-b1-readiness-checkpoint/review-result.md",
+      "sha256": "9d5e996e93fc28966bd11597f4afd4e778b56b0b9f5581aa0db3e0d8c15fd2dc",
+      "bytes": 14678
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/claude-support/2026-11-09-relay-R20261109-01/review-result.md",
+      "sha256": "5ce6288a63e4e2f2cb9e6a6e929e08e3f72c2c9f7b255c11f3f5dd3eb9fa440a",
+      "bytes": 11137
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/claude-support/2026-11-09-relay-R20261109-PREFLIGHT-002/review-result.md",
+      "sha256": "afe7544f475c921701472cb164cc4d9e1d0c1f4d608124b431053a3a2f40f056",
+      "bytes": 11249
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/claude-support/2026-11-09-relay-R20261109-PREFLIGHT-003/review-result.md",
+      "sha256": "80c9453f529cc39928c16d1c4ae2c6de02093312e50c30d846efb97db26c4964",
+      "bytes": 8186
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/HARDWARE-HANDOFF-2026-11-10.md",
+      "sha256": "18c72f21e92cfb745ee9bd0b29a57ef7f6024b72e36e3bce61e219dd80b51bf8",
+      "bytes": 9158
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-b1-closure-matrix.md",
+      "sha256": "58f017690b90778bb3a8fd89ea5e1cff4a281bc9549b15e1208bde65d60a6474",
+      "bytes": 3534
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-b1-handoff-2026-11-09.md",
+      "sha256": "6bac9e7eeb327b4124253bf6b2ca483ddec0f4047d8136472801b1110f3995ab",
+      "bytes": 12286
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-b1-readiness-resolution.md",
+      "sha256": "4a42e528310c51ebf8cdac98c6c51f2559fc95a7ba14d3e3758dd1fd10efd550",
+      "bytes": 8671
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-b1-required-decisions.md",
+      "sha256": "7d51447f8e9b03879ce73c825a10250b3c6ee38f5410c303d48be9a83f690291",
+      "bytes": 3530
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-bom-review-2026-11-05-r1.csv",
+      "sha256": "27991615d6d3ea64430e48e6fc9438815f96800897b121ff569bd2b81a42eee7",
+      "bytes": 6955
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-bom-review-2026-11-05-r1.md",
+      "sha256": "08fccc48affe7734847da6aa2f5bd3085f2d8b4d10c7c7bf34359609b71f6dcf",
+      "bytes": 19977
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-bom-review-2026-11-05-r2-handoff.md",
+      "sha256": "be5bed1b7945e107badf6c20c593b73fde68d1e278f19f7c2f61657ca850931a",
+      "bytes": 6411
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-bom-review-2026-11-05-r2.xlsx",
+      "sha256": "c88fa4c1ec4f634df96d2fed57d1d7054c06ee72e96b6198b07b892f6d97442a",
+      "bytes": 12208
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-bom-review-2026-11-05-r2.xlsx.inspect.ndjson",
+      "sha256": "ff0d720b0c7ecab0b8b44a03402f6e51f4f17906cbdfc3f15f4d17f0015d9fa6",
+      "bytes": 139876
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-c11-electrical-consolidation.md",
+      "sha256": "b72c56b40d6c04ca16067d580680858f63e09cbbddcbc0fcfabf58068e25e042",
+      "bytes": 9090
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-c11-mechanical-canonical.md",
+      "sha256": "f6aacff8af84497cd9d40cc1f00929b65408ef12154e3884780b5a2d2318d9ce",
+      "bytes": 8701
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-config-2026-11-05-r3.md",
+      "sha256": "217f1c78933b637e27aab84d0e9becb8658de4e076aecdd0efa8a20dc6c30f0f",
+      "bytes": 5572
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-config-2026-11-05-r4.md",
+      "sha256": "1abc20679372b4df9926ca01c58d401eb727ff68a57e258774fe8e9fb8009bc5",
+      "bytes": 2951
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-config-2026-11-05-r5.md",
+      "sha256": "491dd8d033038dc695c914b52259e00e8582e5d9af9b060daa86249891bb27e2",
+      "bytes": 2341
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-config-2026-11-05-r6.md",
+      "sha256": "54657f1518a435701b8b3dde21e40c9dd7ca624aff64cfcb0487d7512fe7d104",
+      "bytes": 5489
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-config-2026-11-05-r7.md",
+      "sha256": "9ef75eb96829669e730717eb8565290485f75ad8ca673a87b66c729cd4661d5d",
+      "bytes": 2426
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-config-r8-notes.md",
+      "sha256": "aefac752d09cafde77f00bb375514f9047ef4c3e444d9e0ae7478ed396fbb1c7",
+      "bytes": 22052
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-esp32-mcu-contract.md",
+      "sha256": "8665a8cc41e8f53bac3f35ce6eaf2ac667f4d913185196b519668f9f0512e4f3",
+      "bytes": 38332
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-founder-decision-c11-r12.md",
+      "sha256": "03990ac885f967a564408c10937d47b3f0f45ec1c9441ab2c4d7fcfeb6fcd861",
+      "bytes": 1759
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-founder-decision-d15-d16.md",
+      "sha256": "69be600db129ae68449e99825cde2b2de13e4cc10d979f92f10eb413333a1a15",
+      "bytes": 1000
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-founder-decision-q1-q8.md",
+      "sha256": "dfe9bd6933b1d23d6534446007c152435a31d5b855d6b6d0878bde0f213a48e3",
+      "bytes": 19020
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-founder-decision-q2-off.md",
+      "sha256": "8084cff89ec5a535bdd0cf5335ce1192baa5d599ace2447554d750fcc2befff5",
+      "bytes": 1228
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-b01-architecture-v1.md",
+      "sha256": "81a3ddddaead94214564e548b9faf944c4011e3979d9c1c86fdd3a93da59d430",
+      "bytes": 3989
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-b01-b15-documented-alternatives.md",
+      "sha256": "2c0f31dd3db405f5e65ab7f051d598776fb719edc37a11a822d478d628d5c7cc",
+      "bytes": 2147
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-b01-harness-closure-review.md",
+      "sha256": "42870cfedfb0c644bb8fa7e68a7cf1bdae709e9d5c6ab4e0b081ca7960768026",
+      "bytes": 2833
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-b01-harness-review.md",
+      "sha256": "4145c01f95af44a4daaa115139b67125b1ac04ffb6876d58d63de340f28aad78",
+      "bytes": 2494
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-b01-online-design-draft.md",
+      "sha256": "b47b2f8b90617a96ce5444238a6bb6a92cd793df5cda16d0b0e64966a44e24db",
+      "bytes": 2517
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-b01-pre-kicad-closeout.md",
+      "sha256": "da8c0e1a6068f03ab8d991c12e156737247e740a8ae7768726e549602389f48a",
+      "bytes": 4014
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-b01-pre-kicad-review.md",
+      "sha256": "edc38ce80484f2c1df847f3c21e35a1b7904e336d856415fdf3c1ad37368051f",
+      "bytes": 3507
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-b01-run-sense-review.md",
+      "sha256": "3a950d7e6971f64c6203241427004eb7ae96d2779d49efe3c58fda43c93f1d11",
+      "bytes": 2444
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-component-selection-v1-approval.md",
+      "sha256": "43a013221dfd776b86ad547b2c7b764b6cda3ff5c35cc80e4a8e0fe917b578c0",
+      "bytes": 754
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-component-selection-v1.md",
+      "sha256": "27adc3163ef54c7adcf3e0d04f22b62dfb7558d2be6510597942ad6ec25d44aa",
+      "bytes": 1753
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-final-gates-review.md",
+      "sha256": "f0b6bb42479cc8bc5a7eb9d7c2a7ee7e9414136852bd88afb1f77ca075563acd",
+      "bytes": 3006
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-ps3-aa-pre-kicad-v1.md",
+      "sha256": "c498a447cb1401e7d16bfb502c488aa9681d746d60851b81dff09e2eea5d3630",
+      "bytes": 2398
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-ps3-aa-v1-qa-packet.md",
+      "sha256": "5e881e8497e0b211146368742f8fcf70fb0151963db3bf2c6df8f8a7b0423cfa",
+      "bytes": 2958
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-ps3-style-aa-proposal.md",
+      "sha256": "0d4bdf492e26dd76e7e0430c4ede89f01a158bdd7b962ddb897efa615a6c06af",
+      "bytes": 2006
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-usb-wired-scope-v1.md",
+      "sha256": "b7297a137153e9f6e356f052971a67af6fa078a557e7f7ef9c0e54254231ebf8",
+      "bytes": 1584
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-wrl20168-jauch250832-review.md",
+      "sha256": "3772b6c759a19e3461549ba4a41e90f327b88d807c240e259bd1f1d1bd4dae57",
+      "bytes": 2830
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-handset-wrl20168-jauch250832-verification.md",
+      "sha256": "e0c68c5518c94e17cd354047d7b253b2f6e6478c3e185c36c1332e1442fa3a26",
+      "bytes": 2203
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-hardware-pause-2026-11-07.md",
+      "sha256": "75e0d02aa2c52281bcd444f80578f49d9fa207b5b301206a79507f5c8c9b78f3",
+      "bytes": 5483
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-module-first-v1.md",
+      "sha256": "90265c34cc99dd56b73703660a620d7a1431833b946dd0a79c68341303c275f9",
+      "bytes": 2493
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-off-fixture-requirements-r0.md",
+      "sha256": "055d1137285b3f46f58fe6ccffedde80a04a90fa99023b80d4e421b40de6df88",
+      "bytes": 12553
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-box02-2026-11-08.md",
+      "sha256": "73be329a2b3d43d3afff9dd4e7615958f87ef56523a8aef9501cc21e3f503ec9",
+      "bytes": 18729
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-box03-2026-11-08.md",
+      "sha256": "fc63fa75c4c6298e21237d5cec283457cd5db8f616f457156672269dd1a6bfa0",
+      "bytes": 8509
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-box08-2026-11-08.md",
+      "sha256": "9bb84be871d209180da905f677f48fff79ff2626197bdfbb9f60a728c00dfd42",
+      "bytes": 12305
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-closure-review.md",
+      "sha256": "2769772d8d18c269f57694d14ff174deb912b93877abeaf04a5e2babeff49e4b",
+      "bytes": 3910
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-conclusion-2026-11-08.md",
+      "sha256": "52b5a5b159bdc71d16299f5e001420a71b728822779797371a9648e0f8c946c1",
+      "bytes": 4848
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-deepseek-prompt.md",
+      "sha256": "03bdaa296444eecac1bf7636b780670a6019c2406299f389284e987dc03724ab",
+      "bytes": 4997
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-deepseek-review-2026-11-07.md",
+      "sha256": "671ef1397f7a4c944b7fb44b7c87f9f8fa488d4439935cebbc7d51e3f84e15f7",
+      "bytes": 21045
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-handoff-2026-11-07.md",
+      "sha256": "653b31f82cc04e0fc3b2c365baebe9a1726082ba6020455ecab30936fa037b2e",
+      "bytes": 8759
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-interface-fab-proposal-v1.md",
+      "sha256": "94b24478d6cbc3e07c28fa9a6be0369b35757adb99afc568d244ce73434b8f39",
+      "bytes": 8668
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-layout-harness-review.md",
+      "sha256": "5cfc0dec6e63e5d5b5e62f8b2287d5348c70cc691c116f48c916408b1cdd9a6a",
+      "bytes": 3863
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-resume-2026-11-08.md",
+      "sha256": "0f175dde31590796536edc3b8f1e252fb32eb8052f65207335fe7b4dddcfe051",
+      "bytes": 2994
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-review-packet-2026-11-08.md",
+      "sha256": "73b9e4204af714d3ab7f63733bedde0c13c79d1c113df906b2e01216ee6af624",
+      "bytes": 3270
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-solutions-v1-review.md",
+      "sha256": "0f9d125a66d7fe5f45fe2e5be835654a5802ac2e145b5b66393c9f848b47d222",
+      "bytes": 4639
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-02-supplier-evidence-request.md",
+      "sha256": "876ca51d3c328ed962b5cb984c2aaff67052a95c7e84ac04e085af5328f51bd5",
+      "bytes": 3867
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-04-handset-closure.md",
+      "sha256": "79319c1891a7c7160dc1436a3a0cebb1bb86c0c5bb59586bc9574b5e2095ef0e",
+      "bytes": 7321
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-05-handset-gates-closure.md",
+      "sha256": "a29c1d19661b96ae6d0a2bc3a1a2e2579cf07a0c3db6b3bc8bfa0f86c1113968",
+      "bytes": 31823
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-06-handset-charger-candidates.md",
+      "sha256": "b153411de89effc204a11957406a919f9deb677adb0062fdc3bfe31f493e1f5f",
+      "bytes": 5892
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-07-actuator-design-packet.md",
+      "sha256": "516199eed9a277a0796bb714c680d0a7ae54f54484a17fe5995716851072bb61",
+      "bytes": 3846
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-07-h3-design-packet.md",
+      "sha256": "2240930df011b4cb3d884b7e520290bd103bdd538014cd77994ee62f61484fdd",
+      "bytes": 4046
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-07-mcu-design-packet.md",
+      "sha256": "8458ee4d3aa3a88ef5178ed815ad3cab8ce35ce731d5c11d999e100d50a7c350",
+      "bytes": 4691
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-07-off-design-packet.md",
+      "sha256": "6f2df5a0df8c04b4d37485e0e65eaf63ebbd375dc94c938a64590d88b31e96ae",
+      "bytes": 3680
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-07-review-packet.md",
+      "sha256": "fed0ccf58f3e657b0a0dc7fbce875e68755722eb3001624f34213fb15b1d78e3",
+      "bytes": 3635
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-08-actuator-design-packet.md",
+      "sha256": "daf1cb0a0c84d48e49e2fc9c350d7918d8cef560a9f1b584850aafe9cb2e2a32",
+      "bytes": 3639
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-08-architecture-proposal.md",
+      "sha256": "eb0ed196421db5df263d448285d318386162b35f5084a9c4ed4fc8b4e170adf2",
+      "bytes": 5019
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-08-h3-design-packet.md",
+      "sha256": "509ab6a992a0b78e56e0c223d1afc8740e7b059f3e4252a67fc4488805739498",
+      "bytes": 5022
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-08-mcu-design-packet.md",
+      "sha256": "d6e778bf8d0baf5ed8a433ebd319cb27663985e900e9fb2a41043ef9b77c594c",
+      "bytes": 4467
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-08-off-design-packet.md",
+      "sha256": "fdb27bc3cc61400d5e7f73c86db6c1004df34a4deabde15567f7418374b06a47",
+      "bytes": 4640
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-08-r11-notes.md",
+      "sha256": "30f6e6e934caec1ac15f889a0bfe2b7b3b9d4ce93a480aa4aa6ede874c589ad3",
+      "bytes": 2579
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-08-source-bounds.md",
+      "sha256": "16760fe1e6f5d3d316262801b6aafa19622a94f76d5a675c82f97a89bf5a959f",
+      "bytes": 5683
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-09-a-survey.md",
+      "sha256": "418fae7dc83fb42f0ac1ed2be883123e67ab21bc916544c2366f5be8fcddc0bc",
+      "bytes": 8274
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-10-p0-11-consolidated-report-2026-11-10.evidence.json",
+      "sha256": "8bf270de096a976612092f0c7158648b2edd394a1d9180e6dee26b09b7533f87",
+      "bytes": 1095
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-10-p0-11-consolidated-report-2026-11-10.md",
+      "sha256": "eb59cd58c4d96255cd4b1a0b31b5b476a0363405ee5e4e26bb37af9313efb0c4",
+      "bytes": 17996
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-11-founder-directions.json",
+      "sha256": "014e35bb9af4c7e695557fc27b2b74264746d51ea5f9492bc7b468106b5e5506",
+      "bytes": 1114
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-11-gpio-mechanical-options.md",
+      "sha256": "f1309bc15a1dbfac74d530da466c6845941766b15cd1b22c2c25cb7bd73d7979",
+      "bytes": 6598
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-11-h3-off-analysis.md",
+      "sha256": "7d1dbbe91ec61d37d115449fc9ab70e73714c7ac1c4f2a3fa0359a83796502a8",
+      "bytes": 9391
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-11-selected-interface-contract.md",
+      "sha256": "c22022971893481671c62f3922f47586d3417a0db807720dbcd7fb4d22a511c0",
+      "bytes": 5264
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-12-gpio-constraints.md",
+      "sha256": "5a8890f5ec335cbeb4c6a95a8ab450cc7b338a1727d5eb9b331a619ddd98e9e2",
+      "bytes": 6200
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-12-h3-candidate-verdict.md",
+      "sha256": "7f7a72d4d48a8452290d29d64f74a38f4bd7fc4300ebaf163c250e5baeaa62bb",
+      "bytes": 5021
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-12-mode-power-budget.md",
+      "sha256": "0d598a5fd2a978242ca1a109e98eedf37281b37722d4f54bbfadeddf2a6ed7f8",
+      "bytes": 3795
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-p0-12-preflight-disposition.md",
+      "sha256": "b1143c00a08211bcd0023fbb53a1881fbd2ca810aa3b9ba5984b624ade46c9bf",
+      "bytes": 4716
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-ps3-aa-pcb-execution.md",
+      "sha256": "2dc446a08e69ed3cd55cd93a2989d3bda312594eb61f9b8d0085b32da10a1293",
+      "bytes": 1810
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r5-kicad-preflight.md",
+      "sha256": "e839254d257a378658a819e015ec959b5e4cd0baddb2e5d1053741074c4a18fe",
+      "bytes": 2484
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r6-handset-b15-evidence.md",
+      "sha256": "d65148a08e3bed40f769ada408340d870b59ea83e8727523f4f589932217ad91",
+      "bytes": 7236
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r6-handset-pack-decision.md",
+      "sha256": "6d7556dbd2ef202f49063afb7b89d27fae5420de150009e5c6f0c99f50d57956",
+      "bytes": 4683
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r6-interface-review-packet.md",
+      "sha256": "f96b07c5850742569332c074d0afe94e48b4d2c16ca2f33eec10386ada28a37b",
+      "bytes": 12304
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r6-kicad-handoff.md",
+      "sha256": "18b9c15adfa31d3e003f9795053788ba9e96b8872ed09795d5dec77e279b88e6",
+      "bytes": 2824
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r6-readiness-review.md",
+      "sha256": "dce2fe18ab1c465ff9fb484dbed89e9600e2d4ca573bd65a6caf1fb2097b5aa2",
+      "bytes": 11234
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r7-box08-review-packet.md",
+      "sha256": "bf4ecd7e2560d4ea01197eb72937292135d96324ceec1a5bde50be1008717a70",
+      "bytes": 10994
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r7-founder-decision.md",
+      "sha256": "894564ee1ac156d26edcba6fa7939de07dd83c94d92e100837083b444ea24122",
+      "bytes": 1724
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r7-handset-closure-brief.md",
+      "sha256": "81fd111b67c68da979252ed5c5f669b949403473e8a7e9f391d0dd0acfd1be4a",
+      "bytes": 1458
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r7-handset-qa-disposition.md",
+      "sha256": "0e68e062b220c24b0db0bce7743c6a380c102946bd2ef8460998b71ca4648570",
+      "bytes": 4058
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r7-handset-qa-handoff.md",
+      "sha256": "93f4c6cee52b7341a72192889ceea0768816e15b9f47bfaeb608c8d5b5c676ff",
+      "bytes": 9883
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r7-handset-transition-matrix.md",
+      "sha256": "0aeb8c21cd2a416ce75b6c7400e07b1c9d29b790d8bef6a7f921abdd9fbc038b",
+      "bytes": 7516
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r8-handset-off-release-review.md",
+      "sha256": "8bc6fc2d825d095b21b2aa382cbd830c3fc4875549226ef3b45dfe402cd242ea",
+      "bytes": 2814
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-r8-handset-uvlo-review.md",
+      "sha256": "f8a875a3583ed16d131c5d6260851ec7f4a7376b6f5e13de78bbd762fc1923eb",
+      "bytes": 2925
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-robot-pack-d16-shortlist.md",
+      "sha256": "0bc4849dfd10d8957c98d6f68dda44e7e4fe17c5ef318175a98c0f2f27311f4d",
+      "bytes": 1852
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/hardware/mobot-v2-typec-ch340-conditional-interface-proposal.md",
+      "sha256": "e102b96454c426daa0ca1e7c4022666d95cf8659319d7b89f8b9bfeeba0c147b",
+      "bytes": 10201
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/mission-control/README.md",
+      "sha256": "c57492e78d53dc2b35d25baf3af51f17e9e40003e1f6aec091d2588130bbd95b",
+      "bytes": 9408
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r10-handset.json",
+      "sha256": "95abdd2762e6f739557a83a5f62f1240510aa4ca326f317738b5eb59196770a4",
+      "bytes": 41370
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r11-handset.json",
+      "sha256": "b4a7a5aedcd9012ca75df93a973f0517d86f28a13249632c1ea2a576f945e887",
+      "bytes": 65020
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r12-handset.json",
+      "sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+      "bytes": 54491
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r8-handset.json",
+      "sha256": "c5d342db0db6c3cb419078bd9342c1766b7f537df87f590077aef73f083dc626",
+      "bytes": 29100
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r8-robot.json",
+      "sha256": "2fb61b4fa3074f4da83c604e4e9fb1ae08cc557eb50be67efec72bcef36674fc",
+      "bytes": 7632
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r8.json",
+      "sha256": "f0ad573daf614453d59f753b32e5ad60f449f9edb1e9eaeae7b797ad94073b00",
+      "bytes": 9993
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r9-handset.json",
+      "sha256": "e8a1d0d319f11d71d0b5040731664f72076396eb5f39d968d8df45e6039510a3",
+      "bytes": 35448
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/mission-control/parallel-build-policy.md",
+      "sha256": "18eee7b696b4df411018bf1a26d44458f3b10a98d10efe302022365d73e13897",
+      "bytes": 9805
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/README.md",
+      "sha256": "0d76037a2705448bbae36886f62a2e1c7b05a6a12cfadfa3e5dd2eb63acf6a86",
+      "bytes": 1471
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/250832.pdf",
+      "sha256": "f591005fb42722eb8f55aba91425e920c23a288cc4d897114968968e0609609a",
+      "bytes": 545969
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/adafruit-2776.html",
+      "sha256": "47f384eb2c033ee0b786f8ab53441ab235cce11399925a7b1cc086bfc6c5b68c",
+      "bytes": 92673
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p1.png",
+      "sha256": "3227525dafb925ca5b0f1ec1c8a7e8cc6c905938bf310e59acd999014b073388",
+      "bytes": 171589
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p10.png",
+      "sha256": "85eab4120ae0ebb1b592c32b6c68460b5ffdbf3ef1e6400d75ece8e5ef742b8e",
+      "bytes": 127685
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p11.png",
+      "sha256": "d203b494c4b1b86b152d033df040d4190f0cc2c0fbd0ead70d3f1785cf1dac59",
+      "bytes": 144908
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p13.png",
+      "sha256": "9a815143cc3d23c7a2aa2de3d5df26f21400f771481bbce62116447706d215a1",
+      "bytes": 67856
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p14.png",
+      "sha256": "8f4989bfd20dfcf3f9945554e47e7349c245897d2cb32ac79954e26ac5f17adc",
+      "bytes": 127481
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p15.png",
+      "sha256": "bd2f407bc3197facbf1bcf23c6c2bc8fc25b018db0679c6f9164d8201d33a0f4",
+      "bytes": 148533
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p16.png",
+      "sha256": "ba9ce4086776668b1a3769870e55a8f62e3519991abbb6f41ff990d92f35b70a",
+      "bytes": 173164
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p17.png",
+      "sha256": "ecc94b76822f6f4d551f9306151539cebf0735d68ed3f793a0e2e842c823e386",
+      "bytes": 142981
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p18.png",
+      "sha256": "3f141e43493b39c551f97834bd319c6ed991e705a3be7a04e755bb5400f34e9b",
+      "bytes": 130620
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p19.png",
+      "sha256": "0a73a4c676321d8d3313ce3ff594f003cead5198831a7f78404251d2af97e635",
+      "bytes": 39766
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p2.png",
+      "sha256": "595e3b9f00cd8b4b919521daec079ec2888216800a3f8d778a6f99b9265f247f",
+      "bytes": 77758
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p20.png",
+      "sha256": "e59cb88a28f44538438bcdd342626582aef36b6b4ea2778a06e137932419ca44",
+      "bytes": 139837
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p21.png",
+      "sha256": "5170abc9d399d343c8ce68839b685a42c37ce77d4a85396d57891df3fb2ce57c",
+      "bytes": 36998
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p23.png",
+      "sha256": "feb1e1aad9b9ae6b51aca5c54180c4a357e6e5035262dcfe72e705e25a393ec0",
+      "bytes": 196680
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p24.png",
+      "sha256": "9133270be44ca6af969ffe56786f6cf0bea4f66c0b297375cb5b4b7dd8738224",
+      "bytes": 80246
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p25.png",
+      "sha256": "1d10931564b24b8cbbb04e0f86d3903a49f4bd2db109e5b0ba9e50d503de717d",
+      "bytes": 95192
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p3.png",
+      "sha256": "125461a50d16bbf3c6510e4e5a51d954e1acd112d382ea67e5e23473be6a76fe",
+      "bytes": 96773
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p4.png",
+      "sha256": "76b9ce64f325b498ccdde40eca4617532ad423d26d8c1849dd84feb3e6cc2b84",
+      "bytes": 105862
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p6.png",
+      "sha256": "292c3f0ed51dfd2d806a637dccf224cfc55b44cab2e26958a67783bbeaf4b4fe",
+      "bytes": 146299
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p7.png",
+      "sha256": "fa0640bb0116d207417ff07675e6d8759154f3934dae451018ab8e49478449a4",
+      "bytes": 162035
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p8.png",
+      "sha256": "4af3a3ec2b8f4a4fc4efc8ab1b000f8c06085e82f65e18dbf3e9ccefcc673fe2",
+      "bytes": 37187
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p9.png",
+      "sha256": "10e2b8fa005692bed8426b9173eb793bff19cf535508e4f0f2a14bb73dfaa8ad",
+      "bytes": 92447
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170.pdf",
+      "sha256": "90ddfdb38e001e2b528a3b7605acad04ba7bfd36bc5594d27cff002076c7b545",
+      "bytes": 2842264
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170.txt",
+      "sha256": "a1b292718d7582eee38118232a413db400f27ea5650de3e5359d4e389313d4e6",
+      "bytes": 58135
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p1.png",
+      "sha256": "0ee656871519aa0425f1457d8ed6d9482131dddd78989d85279a4371f3717baf",
+      "bytes": 176449
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p11.png",
+      "sha256": "16dd0038ed2bc2fa8cf0cd861ec78921585391d9327a042c70d27ed4e8782304",
+      "bytes": 144490
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p14.png",
+      "sha256": "098ea85c47b85add2efb4620d48e0736d75ce8d402e69e89bf105520bda14245",
+      "bytes": 127080
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p15.png",
+      "sha256": "1be37880a6a9e69a432966f914595d0efe386de34d2d0cbdb6f62186d2f5dbb2",
+      "bytes": 148866
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p16.png",
+      "sha256": "ba2dd7efe1ed12af047cad1a236fd5d652c2043ab903db6066b53814315ff10f",
+      "bytes": 181286
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p17.png",
+      "sha256": "750db3d42d76e6086fb8c052027c9928a24a5e118ca8648732cac00cfa01bfa8",
+      "bytes": 152718
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p18.png",
+      "sha256": "b53919fe886e2ab0735c58674f0f1e7b9143f86fbad8be88de4deabafedac7a0",
+      "bytes": 130145
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p19.png",
+      "sha256": "a1eaa6540f318a246919858baa78a452bd1f5897b5581305d463752c9c095e42",
+      "bytes": 39371
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p2.png",
+      "sha256": "190c65356b771ec2ca8ea78b768b1fc140ce665760fd5ec9ce0a436f4648a420",
+      "bytes": 68030
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p20.png",
+      "sha256": "8022516e2bcd7732b2a04bd2522363ec41eb14a5334a8d9227a27a78743dd0f6",
+      "bytes": 140400
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p22.png",
+      "sha256": "a7bea033fc4bab87e3df5667f7f39e43993b0269f7971beec9f1d6caf4fdf483",
+      "bytes": 205478
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p23.png",
+      "sha256": "9ef6862c573eef8226061ebdfcd89c763295d1aba4f7df2733940cf69cc10fe3",
+      "bytes": 94821
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p3.png",
+      "sha256": "4b8c9a6faaffa237095d2badf7c62421bff5988e9133fbd529ccda21a29f23b6",
+      "bytes": 96216
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p4.png",
+      "sha256": "a048d932671b919563b0bf87c616d141ee1c74d8501f9029240f0ba74d6509d0",
+      "bytes": 101494
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p6.png",
+      "sha256": "6477e4c1c9acf83373cc0294eb3913bf8dc94512ee3bd920a2fa2ce7827d08fb",
+      "bytes": 145949
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p7.png",
+      "sha256": "dd67971a02f657823baadf05d7ae8639ec30b95df00aa0e730bf2961efe4ac5b",
+      "bytes": 147339
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p8.png",
+      "sha256": "d558b7f70d14db8b691fddff5663bd3e5e75aa75138b539c1ab41698b56c0ef6",
+      "bytes": 101690
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p9.png",
+      "sha256": "2ae50117103fac02e08839f736b252ba7a5e4417c1b634a76fd7b080e54ab937",
+      "bytes": 125849
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j.pdf",
+      "sha256": "9a4a9e3f7a024a02c1552979aa8a6e9af7a7c5d680c9e3c57207bcbb4d1a171e",
+      "bytes": 2890661
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j.txt",
+      "sha256": "1f41f7318e1570e2e04bc9defcebcd7a6fb8b0602d6c44caebd5776310eafee3",
+      "bytes": 55616
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/csd25402q3a-p1.png",
+      "sha256": "4b16fedd1fa0b6a9a1b53fc740cd9b00946e0cf88d302429294814ab3f3919b7",
+      "bytes": 147417
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/csd25402q3a-p2.png",
+      "sha256": "8621458abe0c11e38df6c71069c85c9343854b14135fc501520ae82477621f59",
+      "bytes": 93115
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/csd25402q3a-p3.png",
+      "sha256": "7e23f8d86d7dd88bc65f622640867f0de21a07e40f435f858be98aa9d6744950",
+      "bytes": 120121
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/csd25402q3a.pdf",
+      "sha256": "c012fd83328e7fae2186d13a13d9fe184ba7f00ec98f1061dca7118c39abdcd2",
+      "bytes": 748811
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/csd25402q3a.txt",
+      "sha256": "3b50de895a1b18f28f394384090eeabe8150e72a9ce48dc2177642764bb19772",
+      "bytes": 26769
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/mechanical-sources.json",
+      "sha256": "7444a9b98798dc1eb07dacd504575eb19c6f9e71699831a00a957ccb21189dce",
+      "bytes": 870
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p1.png",
+      "sha256": "bed6a2fd03d782491d97d0f9dd0b04527554693d0bb6ef5b76972c16b31332fd",
+      "bytes": 132566
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p10.png",
+      "sha256": "46adcb2547f99b8082acbbd482981aa8699a6e724ddcdd7a373e6bc0b2d0759b",
+      "bytes": 74266
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p12.png",
+      "sha256": "1f4e6210be883db5cdc4d835c731bc42efafc261aa0f2c794160b37743457a35",
+      "bytes": 92226
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p13.png",
+      "sha256": "c2dc3cf2e1bbd645b060b49c8318f5caa161aae890c0cfcaa6a2a503a3d4f9fd",
+      "bytes": 113012
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p14.png",
+      "sha256": "a097775bac26b32068acbf3dee2dcb888fa17dea2c5de3df354039cf63bf7f22",
+      "bytes": 117105
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p16.png",
+      "sha256": "edfcf6e8df597e128774bb3a610d57b68ad3cd1e49569eb4f9795632195ab2ff",
+      "bytes": 132838
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p19.png",
+      "sha256": "29a4e2f4f149da0b465021960adc8769e541b2608b8573de8759f9d9bcf651f2",
+      "bytes": 146320
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p2.png",
+      "sha256": "eb79146fe9bf0accd9ab2d46c66d4d5a062135be44dfe0ca731c008b42e8a2a6",
+      "bytes": 62813
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p6.png",
+      "sha256": "98322bdffa3a261b2717e529523747a9f660b94a22ca331f2b30733ad5115f1a",
+      "bytes": 111152
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p7.png",
+      "sha256": "32ecc1605937a1f762e6766e8f07251b68ad9d26b1613d04350903ca3e4c722f",
+      "bytes": 55517
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p8.png",
+      "sha256": "1a0dc5ef0ee7911c72b3ebdb402498df40c334b5e17274a7872e7ee62ae01e20",
+      "bytes": 92982
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p9.png",
+      "sha256": "4975895e2e1521cc2820cb55654365df27a760cad29eabc8e69cdd3890f521be",
+      "bytes": 108694
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33.pdf",
+      "sha256": "39839abc9bf09417d0a4b446c6e922679f6dc63b19072e284169dd23007e65fe",
+      "bytes": 1512901
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ref33.txt",
+      "sha256": "a93436093a55db86b56677bfe38f9b954a2258da24f81eb72af09f0a964dfa6f",
+      "bytes": 60787
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74-p1.png",
+      "sha256": "f0a61848cf7686608d5b44ce73b563256d3715ebdb514e13af3dc0e811197f00",
+      "bytes": 144621
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74-p10.png",
+      "sha256": "36b6af00e109e536f25c5833578dde0f5946eb315a5abed4ec0a325dad1ef32e",
+      "bytes": 80404
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74-p11.png",
+      "sha256": "30a00eab41f5357f47b7963bcf6a719fdcc5cbca9e8a74988fec81021353195c",
+      "bytes": 112998
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74-p2.png",
+      "sha256": "f04cbcb9688a3fa7736242cc44a1a7f5a61cddc7c374f9f1cd406f6fe9e55b0e",
+      "bytes": 173905
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74-p7.png",
+      "sha256": "66d6ef0d068110f4875ed432ae1be024d5d5722778e577e23e6db3eb6ed026d9",
+      "bytes": 113064
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74-p8.png",
+      "sha256": "320b8b3a7bdd07294e7f4c4c01f04c06d0a01cf7f74233e57f679e3cad64e691",
+      "bytes": 66319
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74.pdf",
+      "sha256": "e46a5a867fec742290000dca5ed3b291535f3c4418ef2ae267acc4ab51b26d8a",
+      "bytes": 1427201
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74.txt",
+      "sha256": "c679da4e2edd249b9b39d82309dc807a352073bb05a751031e2722fb137e0930",
+      "bytes": 47448
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/sources.json",
+      "sha256": "48bc4e19378a56619ff27cc4072c9233751333cd91e576639d1230b142fc45c5",
+      "bytes": 87803
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/ssab-355mc.html",
+      "sha256": "27bdcb157a0374303259d16f82efd44669507afe895493151e28668766d420ad",
+      "bytes": 650646
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/takaha-ssbh0830-p1.png",
+      "sha256": "17f8fc19fd89be3ec8dbbedd148c4d24088dc654de507e265b67303123ebbb9d",
+      "bytes": 110858
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/takaha-ssbh0830.pdf",
+      "sha256": "9b68bfff718041eb509e55fa28420c8d247d78cc38f1da7ca9dade884de43a58",
+      "bytes": 159333
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p1.png",
+      "sha256": "0fb09c8f86fd3e46790ecc225b0e47b6ac6979b5f8aa9b3e48f714ade38af965",
+      "bytes": 135520
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p10.png",
+      "sha256": "7388e4d673c291444c6241487a5febbe5b2aff8216121cb6ac520468c860b098",
+      "bytes": 103866
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p11.png",
+      "sha256": "40c4c350ffc37e9af414df30e96cd7c44b443ad588009f540edc5d67b4621356",
+      "bytes": 88221
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p12.png",
+      "sha256": "e3da68821489ff2d0c3fd068e14281b535c7955847c416893b57dc2ba046476f",
+      "bytes": 144345
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p2.png",
+      "sha256": "02d21e4a002011ca2a802babee09f45f3ccbc2c06c1ad859927f8690f04782fd",
+      "bytes": 68513
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p22.png",
+      "sha256": "26e3fd7ca2d66ac2ff4d242515b0e1a5a6cddf9ce132747ed70d25b58514dc94",
+      "bytes": 104207
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p5.png",
+      "sha256": "be471591116088ce5957782ab282eefc0fe51ea20582f806d5549d539ce94dea",
+      "bytes": 112242
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p6.png",
+      "sha256": "6a73254036d57f3f59b32ef127e71793b5d4ff298e02361f1b7ce00f0b319c84",
+      "bytes": 112300
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p7.png",
+      "sha256": "4bdc71925c2110d31691c61a1a77fa226bb2924ea8eca2e4b956239be62cf9fe",
+      "bytes": 104696
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p8.png",
+      "sha256": "d0a95657f7ef1d06f006613108aa205943ac5f910002a364e7e0838c7a55077f",
+      "bytes": 104897
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p9.png",
+      "sha256": "6b7e89b815e098b1e026d58897c6eb8a2f6fd85dad5688861654ce56bc4e9289",
+      "bytes": 141215
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201.pdf",
+      "sha256": "358c30340b482fc4b8fb2a5ae8a32543ff758acbbce2b9c1556ac703df118f1b",
+      "bytes": 1756021
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201.txt",
+      "sha256": "1242ded79f2b313c5ef8ff8722d71a86d51574bea1ad88d0e4c67410a455ae11",
+      "bytes": 63349
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p1.png",
+      "sha256": "6e38002bcfc0a735a1fdb9fa20b1ba356f12e2320abc672f5e5b5c92a194bd9d",
+      "bytes": 133502
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p10.png",
+      "sha256": "ee5104756139b73b05c7e23a061ac802076051bd97b924c559b406fd7d51d2f9",
+      "bytes": 87113
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p11.png",
+      "sha256": "09a4cc51ce5d5cdf7c3467ba2c1d34dcfca1e510e142c93e1053fdf2f2a1e9af",
+      "bytes": 165620
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p12.png",
+      "sha256": "ef2b4c88ad2440c19a5b58bd0d24e89246665a393a64f17dff2a03a651a500d2",
+      "bytes": 96261
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p13.png",
+      "sha256": "f28cb2e58b7a6369a19ec0a08011944bcabb5aace5067d33ad5e356ede42fd91",
+      "bytes": 111166
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p14.png",
+      "sha256": "d080b1f47dd4d8b29406e637bc28b3e7b277e65125bbf8147c6b5ac407879967",
+      "bytes": 44080
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p15.png",
+      "sha256": "9e3daba19d62673812b7cddb5d805cb4f8b6270c74b6ab0ec3789d4b3a2e711e",
+      "bytes": 67068
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p2.png",
+      "sha256": "47e42453632edf62220eebf70b2ab8db9aad8bfe51aff4c81c32e2d9bf100dee",
+      "bytes": 89097
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p5.png",
+      "sha256": "4f6d0cc8f2b06ef3c5e958c9f84145aff0e268785dd6076fd6d3212357827d98",
+      "bytes": 90076
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p7.png",
+      "sha256": "3b567d52d9a10906b6678a2577bf7bacb34848d3d6a96addda9d4752b8a5ad1f",
+      "bytes": 123092
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p8.png",
+      "sha256": "8f31d9af7c4cad03dece250ad8704f793dc5b471f80fc4f9f7b2ab64b3a4aab9",
+      "bytes": 98608
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p9.png",
+      "sha256": "baf7556f5d7f2cdf7b21dc9f74fe6eef994877416795692236f6e6c4c8a0a8f8",
+      "bytes": 103171
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710.pdf",
+      "sha256": "f068d52942be7b00e5fb0f891f0cb022fdfe37c7971601334f7195ebe08e3600",
+      "bytes": 733441
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710.txt",
+      "sha256": "07d2440135276ec5241b6cfd1fd5be3daddbef2e681bd11a9273194c0ad19da4",
+      "bytes": 47150
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p1.png",
+      "sha256": "e5a32e627f69031bf5299081ca1738cb925ed422da11aa0bf24895c58498c9f0",
+      "bytes": 160749
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p2.png",
+      "sha256": "5047afe5e5a30325dd5370388bb6ad31f1b6147468072f98e62c0474e348b939",
+      "bytes": 82327
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p21.png",
+      "sha256": "3bbd6d3a38d1d6113724e35d258242ee9a4808600e3d043b7d4dce63d7adeab7",
+      "bytes": 166135
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p22.png",
+      "sha256": "f1a1713853a0be4b23080f97dd9a17fe1b7bc12e4cbbc9b255b896470c15448b",
+      "bytes": 176725
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p23.png",
+      "sha256": "bd5a8194870f0d3152339b9c96addd60ee152ceefb159853a3bb9696d5e89eae",
+      "bytes": 124505
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p6.png",
+      "sha256": "59666b11c8e85f2a6a424575c3d318d8a37f11733603f5d50a1c947b248eda39",
+      "bytes": 100142
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p8.png",
+      "sha256": "952e05eaf12314e7a1d2cc702dd55406579aa954c03ef9bc5e0bc14d87500932",
+      "bytes": 82511
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511.pdf",
+      "sha256": "04291b41a68347fedbbb0776aa44f500eaca65f2ca3af0e022ee60d41c7b1e9f",
+      "bytes": 2548204
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511.txt",
+      "sha256": "195414f53e0d9bf7bb902a24f99a5afeac9d1f4c01f08fd76c9160fe92288ba9",
+      "bytes": 67651
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p1.png",
+      "sha256": "ef666ce3f01eab8d2c835640d049845afc830edb35a180479b80f1b2428dafd8",
+      "bytes": 186434
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p16.png",
+      "sha256": "af4cd7b0647c146e6d765c6e13d9eada732ae3bff9c2e0927ad2cf3ce9d7ac08",
+      "bytes": 114004
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p17.png",
+      "sha256": "1f841995e597ac9cd58eb6d49730a91a230d8d99ad65d6ef4d5e8d7d50f0c2bf",
+      "bytes": 112894
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p18.png",
+      "sha256": "299dfce4485e85d73b7aea4d41cb490ef4033bc1e298565bad328d1ca368bc99",
+      "bytes": 112248
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p2.png",
+      "sha256": "2179862cfb734e0ec28af906e7b744c7435c72f3b7162e4201a2384d9323063b",
+      "bytes": 125005
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p5.png",
+      "sha256": "aa8c83d6be3c1275730ed8085249cf8f6faaa4a120905c5419e8ad26fb98b8bb",
+      "bytes": 106442
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p6.png",
+      "sha256": "f7a9ba0757aa19c7532f0fa5a9be1c778bd05966821912ee154456a256cc3713",
+      "bytes": 58780
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p7.png",
+      "sha256": "2a4d3bd68d2bc61fbbef6ff9f02a3dc092f4e9cb5004e129bbbf2b103c22c989",
+      "bytes": 71004
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p8.png",
+      "sha256": "57c33eb14b49f00870d8f4e425b9fbcd14c6932a2ab724a39ecacfb0e481d4af",
+      "bytes": 116225
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p9.png",
+      "sha256": "4d85d62f1f6407ed7202b76947633fceb411193dd66c17aff47744dcfc69615f",
+      "bytes": 51955
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps22916.pdf",
+      "sha256": "a4d81b70556d5564aaee9baf455b7651375a94c629448f3f7e7ced2f5c41b33f",
+      "bytes": 1385594
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps22916.txt",
+      "sha256": "3df623a9c1d8fe8331c931ec504d3700e15c6f2cc44461e470c92281c19d8183",
+      "bytes": 47466
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p1.png",
+      "sha256": "cc59e192933d8952b47fe6968711cac170c3ec38f8b4fe4ff8c0f4f47bbd713f",
+      "bytes": 178300
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p10.png",
+      "sha256": "97a40e52d6e1d5805ad2324fa24296f9af3a04d020a9b5971d46e1b2291ef1ee",
+      "bytes": 95971
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p11.png",
+      "sha256": "3e356396f8ad522b78a6ebef463c1da44c93b5544c5e4af22ff5383e80b172c5",
+      "bytes": 41249
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p12.png",
+      "sha256": "abf9bf6cc464a085ff56b64b80ce447bbd3703633b3339f345e4c814e0d58ee2",
+      "bytes": 62939
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p14.png",
+      "sha256": "d1add24c077ec84f49d01f393c168746b1aac00b0cb055abcc3a617afd3bedb2",
+      "bytes": 167856
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p16.png",
+      "sha256": "d31c2bef76f2796c08efe612d952debc869432f252979f3783a93e3673483495",
+      "bytes": 198689
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p18.png",
+      "sha256": "598b3b38d2d2828440b12859d5e9d6072953e768d4cfca65ce6eaa5c557bbad4",
+      "bytes": 189580
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p2.png",
+      "sha256": "50b6e39ae48bf8f7566854189c96efbbdd7bd182720039a3df61c18420bc0cbe",
+      "bytes": 66238
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p25.png",
+      "sha256": "a51bd63505cd1c48ecdcab1ac3e47e5ada595251500945e4df6cc4a2fc623eac",
+      "bytes": 132394
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p27.png",
+      "sha256": "bcf4e23ad0d843b35f4f1506d10585248aa64a5f210a57f362b15e308ccb16eb",
+      "bytes": 176882
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p6.png",
+      "sha256": "03e329c8b00b1a590db8cc999dc4be2fd559e27966ef151c2cd37de251d8b891",
+      "bytes": 121873
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p8.png",
+      "sha256": "a57bae8a7682c36f1b1f87d3134f476f7939d2347801e22c1294c3d82023dba6",
+      "bytes": 143627
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p9.png",
+      "sha256": "bf3f5bba3f0d7dd454d3b3b102fedbf2dcd4a804e4056aa5677928634fe087e8",
+      "bytes": 159792
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553.pdf",
+      "sha256": "edd76d150b073ae8d4addbf85f6845b8c722fbd0b35ef025ac3c9e704a6a3385",
+      "bytes": 2472498
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps2553.txt",
+      "sha256": "c07712f79da9cc1d5cbf5ba2dcab2dfae193a1b97bfc3ce54fe4a28e78c548b5",
+      "bytes": 88446
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p1.png",
+      "sha256": "b78e6735fedf7498750aeff985ca986c7476ecdfb4ee709c621201c8d0a2e047",
+      "bytes": 177227
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p10.png",
+      "sha256": "edd32535c7bf2fac9617b36d51bee9d7b33d4d439c1ec8b9f38e20190d70e7e4",
+      "bytes": 56521
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p11.png",
+      "sha256": "94f68259e9be352d5852900ab25d16895e40df9a3642b65d93d01c7469e46c4f",
+      "bytes": 149872
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p14.png",
+      "sha256": "4d14afc243e6888ab961e892f5a7a4d551e534de0b02726c2856121329da080b",
+      "bytes": 143053
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p2.png",
+      "sha256": "db4ceb715bfb806dc06422880a61f3385f77a91a2ac4a41b79262f66a8d9e382",
+      "bytes": 138988
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p21.png",
+      "sha256": "285a0d85e259bd02ea54b95dd994ab3f394b63390beba4096e9948f3c23f2739",
+      "bytes": 130075
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p22.png",
+      "sha256": "7c7cbaa9cadb0bae497627d6c33a1940137c30125cbb9fe71f7a76dd63ca8b26",
+      "bytes": 125148
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p5.png",
+      "sha256": "213a99614a2cf344c5cb623219a37f98cd6a538df7d6ba18d4e06b46c5740b75",
+      "bytes": 129234
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p6.png",
+      "sha256": "21bd8665065a0c85ce8373308e24afdd555a74196dbe880969a6046f4125ef44",
+      "bytes": 131488
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p7.png",
+      "sha256": "e908d46af47a66caf371b0adbe52e5aee7f555dc5082d3fc435adc63c660bd5d",
+      "bytes": 141700
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p9.png",
+      "sha256": "2aadcad9ddf771d07a8906754fa63021123bf8c65fd8a4b20c6709aea5790dd1",
+      "bytes": 98371
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810.pdf",
+      "sha256": "ccc31e3ad8b7970005e23ba8b6a165694f712e86fd337b9ba2fe117a98a2e13e",
+      "bytes": 1085725
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25810.txt",
+      "sha256": "91a828c9bf52589b3eea2352aaf6f3a4d2fb1cc880003ef86503971de0316590",
+      "bytes": 84953
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p1.png",
+      "sha256": "fba05d458df01291db9f0ccc518b45ff85936f3a08563ef66d0cfda68301c0b0",
+      "bytes": 190428
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p10.png",
+      "sha256": "e41909b98240237d859f0b8e39976aa80930a69d6dbde02f0d35466fb2eac059",
+      "bytes": 147871
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p11.png",
+      "sha256": "6b7fa61ed31930f2f6593bae416e5040356ef90dc138ab1983943e5728d0a719",
+      "bytes": 141177
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p13.png",
+      "sha256": "095f106ff5bb577feee6a98e470a124456b36cdd089270d13422ca2bd20d8eb4",
+      "bytes": 107988
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p14.png",
+      "sha256": "f0ce74cce771a7af95f59b0f0826575453f5362329775638adaa78edb5541da0",
+      "bytes": 92745
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p15.png",
+      "sha256": "1f13fea3b29a54c2ab9e4372fc52a622c2573ab7a00c5a4953118f9f2a7aa5c2",
+      "bytes": 93762
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p16.png",
+      "sha256": "38faed5737866394c683e5d5f20f7bafdf0cf43739d664ed231959fe591883f8",
+      "bytes": 109329
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p17.png",
+      "sha256": "906a74337e326ed5a84fde976b7e89e305f82aeb014fdac117e7a28f783ce645",
+      "bytes": 109258
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p18.png",
+      "sha256": "ddb0d45a52d2fba4df63468cdd806197e9d0b000f35cc5f9e31c77c68ea77a76",
+      "bytes": 101679
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p19.png",
+      "sha256": "2fb651face9175b3ccbaefa23b84bbf0cf92a611d942f651429e8fde1e8550a9",
+      "bytes": 220209
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p20.png",
+      "sha256": "12f62f920f40aa482d28de9d8527d276e25d367fe5980a2a254835a42a4b002a",
+      "bytes": 206144
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p21.png",
+      "sha256": "c48bdb20d35e336621a952a91aecd4d2a9bc98c38db526513bead50f29a16cd9",
+      "bytes": 223453
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p22.png",
+      "sha256": "dfaef9a329d6973eeb6cbd21dca7e09e0cb4a1385b78c08197ec5c0a8624edae",
+      "bytes": 110393
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p3.png",
+      "sha256": "123b11c506cf818093f4c8601d13b19fa484cac9c1d3c2c2342d3cc2c8012dc0",
+      "bytes": 63569
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p41.png",
+      "sha256": "c9250032ca50975f9c5242e5ab288c8903f0378761a7fc849ab3fe7d06b164bc",
+      "bytes": 107778
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p42.png",
+      "sha256": "8d60543ceb4b5181f94f72bf1be453e20b3267e07792d174ff5530c4a9f0ee1a",
+      "bytes": 118530
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p8.png",
+      "sha256": "eb37c7ea005caa4630810cc0b1df06323d4268cfbc9c73b622c6657b0848302d",
+      "bytes": 143420
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p9.png",
+      "sha256": "cf00ea8dcccc7019c134f5b55231f414be84e4590facd4d8ae392c5d2931c93d",
+      "bytes": 157040
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947.pdf",
+      "sha256": "8f96de389903091650d4f462dcfad3210071c3ae7093623a7978f34baf8a65b4",
+      "bytes": 5316794
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps25947.txt",
+      "sha256": "1de29222ff08448d7a1a128d4770ccee9fa14738a4f360201a25452552a39629",
+      "bytes": 128794
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p1.png",
+      "sha256": "d2b89ad958e6583325bb9189227a17691c772e7e635b714be920224bc7c7c98c",
+      "bytes": 135452
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p10.png",
+      "sha256": "dbbc4a812ac83abf80b98d5bf73781758a82a300c29adbb6d54e5031f29641d7",
+      "bytes": 118225
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p15.png",
+      "sha256": "067f544f0a2b0963b713dd46d16c5cd2ba17ea8727120f13a31b5f919a6a5519",
+      "bytes": 88055
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p16.png",
+      "sha256": "4c5177ef102a409a9e27581ad4db8374b981eb916e7a1198d9c7e9a201a02e07",
+      "bytes": 136797
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p2.png",
+      "sha256": "1c2a8b340826870f59e045753c8075b5e31d8afe7a3be789dd3e7f9934d8dc58",
+      "bytes": 140426
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p4.png",
+      "sha256": "67b69c4929a0ca75c0747c7eafb34bcc9bf58a35e30acf8932dc4511766c4066",
+      "bytes": 129888
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p5.png",
+      "sha256": "ed6c0d9f50977ec9f9b706cb25ec13ffeb081b1ba6869851742e94c2ae128f0c",
+      "bytes": 96978
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p6.png",
+      "sha256": "a5fdb293dbb5cd8120c0b2a87bdacc15894f42e308cfef995c631fb2291a4d1f",
+      "bytes": 123234
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p9.png",
+      "sha256": "1e152bd10fd87ef19275f7994f549b57806b7171180d661ee92d7474ada245b6",
+      "bytes": 88700
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3430.pdf",
+      "sha256": "f9887a28788bac6ae6743e211ae50dddd809e3ff7bf0d6a3447c8d71f62c6b4d",
+      "bytes": 1967713
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3430.txt",
+      "sha256": "838c5cf3ae081757c646653ea54970b10464328ce9ba1c7c8fc0d0f52f6c9285",
+      "bytes": 67460
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p1.png",
+      "sha256": "5a34749a76e3b5d0bb807b6827efdd5a4e75acd30512af160ed68b3d12bd80c9",
+      "bytes": 151370
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p10.png",
+      "sha256": "f48b39ca9f14c2695ffd1f457c8ce03646995e2c04615cba0e1e7f17cd92c0dc",
+      "bytes": 128440
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p12.png",
+      "sha256": "571b867d6fd02e5febb51f7ca1425dab2642ebbb0f04a6348751a58a14b93665",
+      "bytes": 108625
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p14.png",
+      "sha256": "6fceb05cb0e52d59d4ceff44fdd1a3a3cc84e804c389bee338c659b783254b4e",
+      "bytes": 140671
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p2.png",
+      "sha256": "b09ea6a41bef3ee70db658e2b08c31db651d6ab83e0930ee3f0b3652b0ad9349",
+      "bytes": 60264
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p6.png",
+      "sha256": "9498e103489b3e64878cd54283e1cd15bbbcb2921e38c4095066372966dc52c8",
+      "bytes": 95095
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p8.png",
+      "sha256": "d43266d3cd603fe7502d9d92693a2cccb5631cbc899b2b95e34741551acc2d6b",
+      "bytes": 106553
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p9.png",
+      "sha256": "4d3db585b9bb168c08d299339023714800291e09ad0bab9226d4d3203f967e9c",
+      "bytes": 43054
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3808.pdf",
+      "sha256": "74d889c0f68af88032f1633c26381817cc03e10d9fd3b4c177a044ad3ed86eed",
+      "bytes": 2046179
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3808.txt",
+      "sha256": "f5d0f70df94db35b0a42d93feccec12d4f8d8909c07c139e99e309a1abcb8f48",
+      "bytes": 69280
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p1.png",
+      "sha256": "12fb7706d9a9e4d47aa0cd4dcdc8267f7e91fe5ddbfad41c378a0e5e5e1533c5",
+      "bytes": 147335
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p10.png",
+      "sha256": "40ae49dd9075e1e0280bed3ed5b83b06c2dd01f638f02b3f5945c2601fb2abb6",
+      "bytes": 73669
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p11.png",
+      "sha256": "e2c0d9f2e3fe1d35b7f0fa551f2a7e7af088186baffbbae3737bfb92b7857560",
+      "bytes": 133034
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p14.png",
+      "sha256": "e620c117be92a7f83778897b54886847a0c21cf10a9d3f2cadc7bc8c48f25ac0",
+      "bytes": 86200
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p15.png",
+      "sha256": "9219b0ac6cf45e1eecedf7ede6f3434bee82930d80eff57cbd80039ab809e91f",
+      "bytes": 150902
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p2.png",
+      "sha256": "81c8fdd73f3c4a8faee487e01d5eb25d4ac013a701607e24a2d651a8973aec60",
+      "bytes": 77041
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p5.png",
+      "sha256": "986321512ccc7596c5187573625a3a78fd6651ed8d00ed89725ebf45b63c685e",
+      "bytes": 126372
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p7.png",
+      "sha256": "4733e03df440880ce08a96968d51248bda8d737fbcf9e7ef01ee59eeb3686077",
+      "bytes": 93003
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p8.png",
+      "sha256": "0f19b4f7a8f5a88803440452365241a2c2824bd556904f6bd5b045508a700482",
+      "bytes": 113168
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p9.png",
+      "sha256": "5ce5f5c201b1a2c5df7157c437bc203484f6915cb8f8b948f18a2760427bcb78",
+      "bytes": 118400
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3890.pdf",
+      "sha256": "ee79599730e7606ba9718d9820b411020e3dcd9ff7d44572f8ee63fead15b9d0",
+      "bytes": 1203677
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps3890.txt",
+      "sha256": "e4a0c99fd0ee11cbde5a342a56487cb9b3a897fe3aaaa5a756ab16c3f08729b9",
+      "bytes": 50360
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p1.png",
+      "sha256": "0e62236b409fd0ae3e7c7b09d45a6c29727abc66f8343515252839eb1d6e46d8",
+      "bytes": 157048
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p10.png",
+      "sha256": "896cd382436ee7ade877c5734c0fa856f8e6a2a42d07100c3d79a35c9b7267d7",
+      "bytes": 174716
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p12.png",
+      "sha256": "220e3a6fdce996652954e9e5e9c2b1a87ee72629d4658f86f49809e8c7ff4e4c",
+      "bytes": 118541
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p2.png",
+      "sha256": "ea4b66f47be9c847c954e33072df42e44373f6a8b26aa0ee3feb3a63a1d053bf",
+      "bytes": 97876
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p5.png",
+      "sha256": "255b65dc9703e87227238cc471269e1a9e5be0196a45ea029c6013d7482703b4",
+      "bytes": 106252
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p6.png",
+      "sha256": "1fe5942d5145be895a2681df5c5ce3ec7aac7e037f44bcdfdc5c00fdfb92be52",
+      "bytes": 117246
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p8.png",
+      "sha256": "fc9e154b51086f41984a565ca3650d896c51c2271453f8769e01ceda7d426d06",
+      "bytes": 93380
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps61023.pdf",
+      "sha256": "1bfe4e5e4d284c752725fbcef7492b5f85449a7d537f24958cfcef7699d2899d",
+      "bytes": 2392725
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/c11-r12/tps61023.txt",
+      "sha256": "26b256bdf14d266566b925466b0038653013e67e0d68cf137af1894a032ca441",
+      "bytes": 54285
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/bq25186-slusf69a-text.txt",
+      "sha256": "4d273371eda1d3a135ffa71de0415c1f98676673e68c7d1e02ed1d471044d81f",
+      "bytes": 181725
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/bq25186-slusf69a.pdf",
+      "sha256": "96834a4566939677cf084cef87d88f1534b9369ae80171ee004a7ac6572791c9",
+      "bytes": 2093032
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/csd25402q3a-p3.png",
+      "sha256": "4bcf43db1be0700051df6e03d246d7af7c2615f1d0a5171125056546742a3b67",
+      "bytes": 167895
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/csd25402q3a-text.txt",
+      "sha256": "eb5137eb9395f89c37cfc7d3172cac9ac32fb671dfce35508efaf0d1d47890e8",
+      "bytes": 60585
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/csd25402q3a.pdf",
+      "sha256": "c012fd83328e7fae2186d13a13d9fe184ba7f00ec98f1061dca7118c39abdcd2",
+      "bytes": 748811
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/esp32-series-v5.3-text.txt",
+      "sha256": "ba4e2550b3b9fcf8dce7655103c08d7a4d55ef08d3815841af1c2fffd75f4cb1",
+      "bytes": 245154
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/esp32-series-v5.3.pdf",
+      "sha256": "a7917e6b47528c9dcab06837a49d452e582751335797db879f1cf2d17cd29adf",
+      "bytes": 989523
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/jauch-250832-rev1.2-text.txt",
+      "sha256": "b0c01fe204cc38d4af250e8191ffa60316d1e850332662af43d7a88c939bcf6d",
+      "bytes": 13694
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/jauch-250832-rev1.2.pdf",
+      "sha256": "f591005fb42722eb8f55aba91425e920c23a288cc4d897114968968e0609609a",
+      "bytes": 545969
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/sn74lvc1g74-p7.png",
+      "sha256": "7dbd9f3cdb382c8585e595bc34c754898b7fe1a7bc81eea71434fdd68d62489b",
+      "bytes": 157633
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/sn74lvc1g74-text.txt",
+      "sha256": "24896e84e644e10674174d7feecaf771598414ad8952b0b93edcd1766d3c58ed",
+      "bytes": 99886
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/sn74lvc1g74.pdf",
+      "sha256": "e46a5a867fec742290000dca5ed3b291535f3c4418ef2ae267acc4ab51b26d8a",
+      "bytes": 1427201
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/source-manifest.json",
+      "sha256": "92e2bf368ddd6f81aee36934ed294bc8642b182c5cf805239f98cb89292423bb",
+      "bytes": 7719
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tlv6710-p5.png",
+      "sha256": "6e55db77e88f320c5e11dbc307bae5061fcc9a8b5a3111335092752d19dadce8",
+      "bytes": 128093
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tlv6710-text.txt",
+      "sha256": "79cf50120fa7e8b842506fe10735fe20a00986cad7ef5e3caad24f63697943c0",
+      "bytes": 89053
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tlv6710.pdf",
+      "sha256": "f068d52942be7b00e5fb0f891f0cb022fdfe37c7971601334f7195ebe08e3600",
+      "bytes": 733441
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tmux1511-p6.png",
+      "sha256": "42c7258018aca5b708c84b515dad5da4f4a410141c2f06a78689d4da0153b31d",
+      "bytes": 138773
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tmux1511-p7.png",
+      "sha256": "94155a397cb5b6ca0ef44746399d0ac2295f71112db69d6c469ef328def230fa",
+      "bytes": 159852
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tmux1511-text.txt",
+      "sha256": "6299281014cbc4624a6aaa25f39f3f7d79eeb6576f31aed4b128b129c1f49247",
+      "bytes": 150354
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tmux1511.pdf",
+      "sha256": "04291b41a68347fedbbb0776aa44f500eaca65f2ca3af0e022ee60d41c7b1e9f",
+      "bytes": 2548204
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tps22916-text.txt",
+      "sha256": "e1f03c2abd8e5f3e0f88f8582fdbf15b54ebc365aa8fb4c37053ee19b18617fe",
+      "bytes": 97969
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tps22916.pdf",
+      "sha256": "a4d81b70556d5564aaee9baf455b7651375a94c629448f3f7e7ced2f5c41b33f",
+      "bytes": 1385594
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tps25810-text.txt",
+      "sha256": "0a2ca73d238bb8baf3bc1399a6cac1c4a720cd96623a2745a23bf7a9d75422bb",
+      "bytes": 157913
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tps25810.pdf",
+      "sha256": "ccc31e3ad8b7970005e23ba8b6a165694f712e86fd337b9ba2fe117a98a2e13e",
+      "bytes": 1085725
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tps3430-p6.png",
+      "sha256": "52732843825c88957c97853ef21a1d4880ae1a479330c8c19a104a5fff548ce0",
+      "bytes": 174395
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tps3430-text.txt",
+      "sha256": "09e188b3c5162b160253f66f979f8e830f4b02e55103f76e52c0b17c9140a29b",
+      "bytes": 113939
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tps3430.pdf",
+      "sha256": "f9887a28788bac6ae6743e211ae50dddd809e3ff7bf0d6a3447c8d71f62c6b4d",
+      "bytes": 1967713
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tps3808-text.txt",
+      "sha256": "97768078e4420d3cd6e0bf46a3975aca9b96c54cba77d94333d6a7b8848f9300",
+      "bytes": 129487
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tps3808.pdf",
+      "sha256": "74d889c0f68af88032f1633c26381817cc03e10d9fd3b4c177a044ad3ed86eed",
+      "bytes": 2046179
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tps61023-text.txt",
+      "sha256": "5aa9832d0bd1d1c763e30d1120668273e82eb1ebef99f5c2b01d339efed8e555",
+      "bytes": 94865
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-08-2026-11-09/tps61023.pdf",
+      "sha256": "1bfe4e5e4d284c752725fbcef7492b5f85449a7d537f24958cfcef7699d2899d",
+      "bytes": 2392725
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/adr4520_4525_4530_4533_4540_4550.pdf",
+      "sha256": "de2dca59e24477c2e186440e3d768cc06b7e3742448929a9f5721d5817247b34",
+      "bytes": 7475766
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/sources.json",
+      "sha256": "e83b537f9334dd950b064865a7216fb6eeb271a58d025b9ca3b55f4bd72e57eb",
+      "bytes": 9244
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22919-p1.png",
+      "sha256": "e922317e4761e78350cc45c154590ed85c8c7ba3fffe53e7ae730da2bbdcdc8e",
+      "bytes": 157503
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22919-p13.png",
+      "sha256": "339aa49fd01ab799217637940e988e7e2360c9532c7a64d7da44a4f6df352a02",
+      "bytes": 135247
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22919-p2.png",
+      "sha256": "817c164d6d2d2a0d4919487f233bd9c0590cdf64808d555609cc9dff659ee9d9",
+      "bytes": 93213
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22919-p5.png",
+      "sha256": "ff69547e2b0ed94468926dfec6fff99efc087c1b6ef20876abce5eaf62617a10",
+      "bytes": 136469
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22919-p6.png",
+      "sha256": "cb9587f6f0efdcc573e9b155dadf1d83e12cfcc3c94c2a745f4313f962f1a133",
+      "bytes": 52344
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22919.pdf",
+      "sha256": "743c59b01fb0891d2d0f1faba779161cd2d2b6c18edf68e6d5b3279016240c84",
+      "bytes": 1454791
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22919.txt",
+      "sha256": "c747b978d6741ee617540d6d3c3694859eaaf5eae5f8a9b953aef79c53578f0d",
+      "bytes": 40942
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22990-p1.png",
+      "sha256": "2b2a855597a083436f7b4e6eaa805c1ba731738774b08afbd70c9b84cafd724e",
+      "bytes": 191003
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22990-p19.png",
+      "sha256": "fb751aa5f0fe210b5b326a48ef905960b12b3412c787eee82911d3c5ecdd2197",
+      "bytes": 146396
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22990-p2.png",
+      "sha256": "3d15b4acc54d3204f8829d7eeb78190aa6b2183c41c3dcc1f9a7800c0b73b287",
+      "bytes": 113494
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22990-p5.png",
+      "sha256": "e40f887d3a1856db45b56248d26a65f22012658bccbea7e4ddda00fc64b285b1",
+      "bytes": 112967
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22990-p6.png",
+      "sha256": "ef8a29d386139076bc5e839f4bd0bb802b04a1568dd650e1bfecb9ddc7692b1a",
+      "bytes": 125967
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22990-p7.png",
+      "sha256": "4bedcd3ff1a5d0849ae67bdd709f75ac1efbef958da9dc7ba1b92396a6382085",
+      "bytes": 162057
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22990-p8.png",
+      "sha256": "43f52f82b169400c59b6f6fa5259f8e076a60756650707e3d6f3610048a151e2",
+      "bytes": 112136
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22990.pdf",
+      "sha256": "ea198776524544eb3e4a130f1f6a6e5c8e80ca8164eebf387a8fd6b4b7dde2a3",
+      "bytes": 4760542
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-11/tps22990.txt",
+      "sha256": "402c700200db183bc88f3025f6558330d5415138616e6c7085e7890335e87d1b",
+      "bytes": 59698
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/esp32-v5_3-p19.png",
+      "sha256": "8ea2d3b969d9beb7d93db640bfd09d830621dfaab93375d67406273f255eb778",
+      "bytes": 132372
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/esp32-v5_3-p22.png",
+      "sha256": "1b7e9c783c40e971639d7d2d310a9e4d343eaca1c1295b3336dc533cc91046b2",
+      "bytes": 116797
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/esp32-v5_3-p23.png",
+      "sha256": "8382f1d988d6b387f884fbdc20477a6cd305288b2a417e14f9ec510847d59de2",
+      "bytes": 79403
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/esp32-v5_3-p61.png",
+      "sha256": "a5d03ae8deac843858d8dcc4237d9c597a3e187f58a613cc8ccb003894e80b09",
+      "bytes": 132431
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/esp32-v5_3-p62.png",
+      "sha256": "dad786ab20d02d74669dd8002ab3242f5f5778dcf015d5f555f296f8c7ab4014",
+      "bytes": 151357
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/esp32-v5_3-p69.png",
+      "sha256": "098eb23b5e1bac6733093c1fe222cfe0deec9d3adb7438c5ebf9e11025a9257e",
+      "bytes": 125783
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/sources.json",
+      "sha256": "346a555ec0970a044e23415609405b7f0ea97d61169bc94239bf1053d3685a8a",
+      "bytes": 3987
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p1.png",
+      "sha256": "aed1db497b1aa510d86250f10142c767a3b7024748e414fa74db0c9d0a4542e1",
+      "bytes": 179890
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p10.png",
+      "sha256": "0a4d187250cdc7669ce9eadbf2a97c38c67ea7dd8126fb6440541fd0887ae695",
+      "bytes": 81167
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p11.png",
+      "sha256": "dd7f0a791b298f092fa3f5855165b9acaddbc3eb8cea850ca3bd73b0a2afd8a6",
+      "bytes": 139298
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p12.png",
+      "sha256": "a1adc83894b2871c865463c8196b8616892b1072a0300b13c92b6d99d32112f4",
+      "bytes": 80350
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p13.png",
+      "sha256": "ae32464c6a6c2042b40c860bb350ba66275213cc2e7d544486b5db579707fe89",
+      "bytes": 150436
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p14.png",
+      "sha256": "877cf3644a5489281cc33b151220d14655b1ec16e352530e93f5c9fd97c89c27",
+      "bytes": 81399
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p18.png",
+      "sha256": "1e6d816028a31af381232c0a29f5cd131df554b55c3680847f4dc51222e78ac3",
+      "bytes": 152410
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p2.png",
+      "sha256": "2090d8673b3f624fbbe79c93101a3419fd5cce4d29aa95c1d6f98794aea45056",
+      "bytes": 108418
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p22.png",
+      "sha256": "97e12d15767e1cac2cbcfdcb49c8cbf28f82c436f0a5fb38f6b82568366833eb",
+      "bytes": 202673
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p23.png",
+      "sha256": "8ac23eab1039778de793aef2095eba32e53065d4b9d78ca769726fe69feda526",
+      "bytes": 143311
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p24.png",
+      "sha256": "220d8c05f798e4a24287b2a1a41a82e9fa687a848a897e06d7409ca01689ca49",
+      "bytes": 125354
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p25.png",
+      "sha256": "debce2017dcfd8e060223493457e6d7c74e5a9ef6c12fdd483815ece3fdaa0ac",
+      "bytes": 140288
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p26.png",
+      "sha256": "8eb461d4b739c5ade9fa4e6a23191aad63c08273da442304c0ce9bac959a6f24",
+      "bytes": 112210
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p27.png",
+      "sha256": "fab5c6c470b64344cf120bbff70eb94e63fae112ed333792758c92e0833662bf",
+      "bytes": 138266
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p29.png",
+      "sha256": "3bac830e7afc8efedb8b0ff78a2b077f461fd9a6297dfa6ce3b75947e227b5f2",
+      "bytes": 152099
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p31.png",
+      "sha256": "c717387611d72126f5f058cf68144af6d319d34a09902ba6abfcf62516174671",
+      "bytes": 138336
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p33.png",
+      "sha256": "c4508845dbdfd9fbfa77347a816dccdde48291da817070fb57cceb159058b037",
+      "bytes": 142500
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p36.png",
+      "sha256": "f91377d1790f20589d099122530a22c5294e7e267bb53354e80cea632999c50c",
+      "bytes": 194482
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family-p9.png",
+      "sha256": "6919eeb3e2bf67648a4347798dcd5addbfd583b6b35f038a21f8e8b1ccddd4bb",
+      "bytes": 138325
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family.pdf",
+      "sha256": "874c1d4f5ec1c1b4bf6c714d3fe8623d57ad6bff18b83930e3894061a0701c8a",
+      "bytes": 6298513
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/p0-12/tlv9021-family.txt",
+      "sha256": "4677cbb33572f1ce5ea2a4f9337b08f9d4234fe6ca10e07c05e0208342691279",
+      "bytes": 124222
+    },
+    {
+      "archive_entry": "electronics-learning-demo/docs/research/downloads/ti-tps25947.pdf",
+      "sha256": "8f96de389903091650d4f462dcfad3210071c3ae7093623a7978f34baf8a65b4",
+      "bytes": 5316794
+    },
+    {
+      "archive_entry": "README-PACKAGE.md",
+      "sha256": "0598bd49d3216d7de19ebc0fb953e6c0ddef9530df9cd0ca1afbcb1e6591aeed",
+      "bytes": 1474
+    },
+    {
+      "archive_entry": "QUEUE-SNAPSHOT.json",
+      "sha256": "611431c849d262046210e7393f7748e7ac450490a44dc8383a417753fa2bec13",
+      "bytes": 385161
+    }
+  ],
+  "self_exclusion": "manifest.json not self-hashed; ZIP hash is in SHA256SUMS.txt"
+}

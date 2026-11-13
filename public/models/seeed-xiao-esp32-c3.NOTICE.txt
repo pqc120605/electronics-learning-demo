@@ -1,0 +1,26 @@
+Seeed Studio XIAO ESP32-C3 v1.3 — educational CAD reconstruction
+
+Attribution
+- PCB and schematic source: Seeed Studio, XIAO ESP32-C3 KiCad project v1.3.
+- Generic package meshes: KiCad Libraries Contributors, KiCad 3D Packages library.
+
+Source references
+- https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/
+- https://files.seeedstudio.com/wiki/XIAO_WiFi/Resources/XIAO_ESP32C3_v1.3_KiCad_260116.zip
+- https://wiki.seeedstudio.com/License/
+- https://gitlab.com/kicad/libraries/kicad-packages3D
+- https://www.kicad.org/libraries/license/
+- https://creativecommons.org/licenses/by-sa/4.0/
+
+License and rights note
+The source schematic marks CC BY-SA 4.0. Seeed's license page applies CC BY-SA 4.0 to product documents, tutorials and associated images. The downloaded KiCad archive has no standalone LICENSE file; this project therefore preserves attribution and share-alike for the derived educational viewer and records the archive-specific license ambiguity for review before broader redistribution. The KiCad package library is CC BY-SA 4.0 with an exception for electronic designs and generated files using its library data; the source library collection itself remains under its stated terms.
+
+Modifications
+- The board GLB was exported with KiCad CLI from the v1.3 PCB source.
+- 47 front-side component footprints were given standard KiCad 3D package shapes matched by footprint family. These package meshes are reference shapes at package-family level, not exact manufacturer-part models, markings, or verified component builds.
+- 68 PCB footprints are included in the selectable inventory. The BOM has 67 component entries; the additional back-side U$2 item is a Seeed logo graphic, not an assembled part.
+- Four populated footprint families without a verified shape (button, PMOS, USB-C connector, and X4 crystal) are listed without a fabricated mesh. DNP footprints are also identified and not rendered as installed parts.
+- Source hashes and the generation script are in the project inventory and `scripts/generate-seeed-xiao-esp32c3-model.mjs`.
+
+Limitations
+This is a browser reference model, not a physical scan, manufacturing model, or fit-check. Board revision has not been checked against a physical sample. The model has no pin picking, net coloring, firmware execution, or electrical simulation. Consult the source schematic and datasheets before wiring hardware.

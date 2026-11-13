@@ -1,0 +1,2205 @@
+[
+  {
+    "id": "battery",
+    "file": "/models/components/battery.glb",
+    "bytes": 24292,
+    "sha256": "5992493ebed087d1e168a110f1e1d7bab189d1b39574da7a52a8284b3a640de7",
+    "sizeMm": [
+      77.5,
+      16.7,
+      32
+    ],
+    "boundsMm": {
+      "min": [
+        -28.5,
+        0,
+        -16
+      ],
+      "max": [
+        49,
+        16.7,
+        16
+      ]
+    },
+    "triangles": 588,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "positive": [
+        49,
+        2,
+        -6
+      ],
+      "negative": [
+        49,
+        2,
+        6
+      ]
+    },
+    "legsMm": []
+  },
+  {
+    "id": "bmp280",
+    "file": "/models/components/bmp280.glb",
+    "bytes": 7892,
+    "sha256": "68d5dfa2c6f7048e432d0e6f8e2f1c53ef52da5c9c5359be85ece7b7f95fe3a8",
+    "sizeMm": [
+      24,
+      9,
+      16
+    ],
+    "boundsMm": {
+      "min": [
+        -12,
+        -4,
+        -8
+      ],
+      "max": [
+        12,
+        5,
+        8
+      ]
+    },
+    "triangles": 96,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "vcc": [
+        -6.35,
+        2,
+        -7.62
+      ],
+      "gnd": [
+        -3.81,
+        2,
+        -7.62
+      ],
+      "scl": [
+        -1.27,
+        2,
+        -7.62
+      ],
+      "sda": [
+        1.27,
+        2,
+        -7.62
+      ],
+      "csb": [
+        3.81,
+        2,
+        -7.62
+      ],
+      "sdo": [
+        6.35,
+        2,
+        -7.62
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "Minh họa breakout cảm biến áp suất; không phân biệt chính xác BMP280/BME280 hay pinout module cụ thể."
+  },
+  {
+    "id": "boost-converter",
+    "file": "/models/components/boost-converter.glb",
+    "bytes": 33596,
+    "sha256": "94311d245f1f7dbd0b30293dc25159f7c4b4dcf44790ad6a267b4dd637c6a9b2",
+    "sizeMm": [
+      36,
+      6.4,
+      17
+    ],
+    "boundsMm": {
+      "min": [
+        -18,
+        0,
+        -8.5
+      ],
+      "max": [
+        18,
+        6.4,
+        8.5
+      ]
+    },
+    "triangles": 888,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "inPlus": [
+        -16,
+        1.7,
+        -6.5
+      ],
+      "inMinus": [
+        -16,
+        1.7,
+        6.5
+      ],
+      "outPlus": [
+        16,
+        1.7,
+        -6.5
+      ],
+      "outMinus": [
+        16,
+        1.7,
+        6.5
+      ]
+    },
+    "legsMm": []
+  },
+  {
+    "id": "breadboard",
+    "file": "/models/components/breadboard.glb",
+    "bytes": 267272,
+    "sha256": "f9f5d6e523ae9560739c7cc7d156e77f954ced6eeaaadd4495f090531e02530a",
+    "sizeMm": [
+      83,
+      8.51,
+      55
+    ],
+    "boundsMm": {
+      "min": [
+        -41.5,
+        0,
+        -27.5
+      ],
+      "max": [
+        41.5,
+        8.51,
+        27.5
+      ]
+    },
+    "triangles": 4872,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {},
+    "legsMm": [],
+    "gridMm": {
+      "pitch": 2.54,
+      "columns": 30,
+      "topY": 8.5,
+      "firstColumnX": -36.83,
+      "rows": [
+        -13.97,
+        -11.43,
+        -8.89,
+        -6.35,
+        -3.81,
+        3.81,
+        6.35,
+        8.89,
+        11.43,
+        13.97
+      ],
+      "rails": [
+        -22.86,
+        -20.32,
+        20.32,
+        22.86
+      ]
+    }
+  },
+  {
+    "id": "buck-converter",
+    "file": "/models/components/buck-converter.glb",
+    "bytes": 64684,
+    "sha256": "9afadb3e5385145081f6858e4c0dd0ad3422f04c36c4988028300c7b5de70d63",
+    "sizeMm": [
+      43,
+      12.3,
+      21
+    ],
+    "boundsMm": {
+      "min": [
+        -21.5,
+        0,
+        -10.5
+      ],
+      "max": [
+        21.5,
+        12.3,
+        10.5
+      ]
+    },
+    "triangles": 1828,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "inPlus": [
+        -20,
+        1.7,
+        -8.5
+      ],
+      "inMinus": [
+        -20,
+        1.7,
+        8.5
+      ],
+      "outPlus": [
+        20,
+        1.7,
+        -8.5
+      ],
+      "outMinus": [
+        20,
+        1.7,
+        8.5
+      ]
+    },
+    "legsMm": []
+  },
+  {
+    "id": "button",
+    "file": "/models/components/button.glb",
+    "bytes": 119312,
+    "sha256": "51ef8e120f36cd9f74b789c5f924616825bb2fade1337a54747e5a424f626ba2",
+    "sizeMm": [
+      7.17,
+      7.8,
+      6
+    ],
+    "boundsMm": {
+      "min": [
+        -0.437,
+        -3.5,
+        -0.75
+      ],
+      "max": [
+        6.737,
+        4.3,
+        5.25
+      ]
+    },
+    "triangles": 2244,
+    "kind": "source-cad-mesh",
+    "packageName": "Nút nhấn 6 mm",
+    "sourceFile": "Button_Switch_THT.3dshapes/SW_PUSH_6mm.step",
+    "sourceSha256": "eb2ba2737299cc764145d8d10ea26d992f819ff5522fb3c0dfa2605b8221f9d6",
+    "footprint": "Button_Switch_THT.pretty/SW_PUSH_6mm.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "contactB": [
+        0,
+        0,
+        4.5
+      ],
+      "contactA": [
+        0,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "contactA",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "contactA",
+        "x": 6.5,
+        "z": 0
+      },
+      {
+        "pinId": "contactB",
+        "x": 0,
+        "z": 4.5
+      },
+      {
+        "pinId": "contactB",
+        "x": 6.5,
+        "z": 4.5
+      }
+    ]
+  },
+  {
+    "id": "buzzer",
+    "file": "/models/components/buzzer.glb",
+    "bytes": 222692,
+    "sha256": "24071cc6ca40b8780fc8aade6b3615c139a6fdecb183efc34b5849e45b17326d",
+    "sizeMm": [
+      11.99,
+      12.53,
+      11.99
+    ],
+    "boundsMm": {
+      "min": [
+        -2.188,
+        -3,
+        -5.997
+      ],
+      "max": [
+        9.8,
+        9.53,
+        5.997
+      ]
+    },
+    "triangles": 4336,
+    "kind": "source-cad-mesh",
+    "packageName": "Buzzer Ø12 mm, chân 7,6 mm",
+    "sourceFile": "Buzzer_Beeper.3dshapes/Buzzer_12x9.5RM7.6.step",
+    "sourceSha256": "89359e7649ee81e9ccf6c41ffe8c31d53c6d65b85ac4f4c12c5b4a07ba02e956",
+    "footprint": "Buzzer_Beeper.pretty/Buzzer_12x9.5RM7.6.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "gnd": [
+        7.6,
+        0,
+        0
+      ],
+      "signal": [
+        0,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "signal",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "gnd",
+        "x": 7.6,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "capacitor",
+    "file": "/models/components/capacitor.glb",
+    "bytes": 380132,
+    "sha256": "bca5c0d4eeecaa33308dfb5b22bfc42142a3a663f68d82665d1725f72e31f864",
+    "sizeMm": [
+      8,
+      10,
+      8
+    ],
+    "boundsMm": {
+      "min": [
+        -1.5,
+        -2,
+        -4
+      ],
+      "max": [
+        6.5,
+        8,
+        3.999
+      ]
+    },
+    "triangles": 5056,
+    "kind": "source-cad-mesh",
+    "packageName": "Tụ hóa Ø8 mm, chân 5 mm",
+    "sourceFile": "Capacitor_THT.3dshapes/CP_Radial_D8.0mm_P5.00mm.step",
+    "sourceSha256": "8ad0e28738ea6814b22ec31802ee0883d6f88dff2b8fc8883e81d7d70653ccb5",
+    "footprint": "Capacitor_THT.pretty/CP_Radial_D8.0mm_P5.00mm.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "minus": [
+        5,
+        0,
+        0
+      ],
+      "plus": [
+        0,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "plus",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "minus",
+        "x": 5,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "dc-motor",
+    "file": "/models/components/dc-motor.glb",
+    "bytes": 20324,
+    "sha256": "e6240ccf0a36b30b41f9c21c91391beda8c429b3b2eefe384eab2598173d411d",
+    "sizeMm": [
+      36,
+      15.2,
+      20
+    ],
+    "boundsMm": {
+      "min": [
+        -8,
+        0,
+        -10
+      ],
+      "max": [
+        28,
+        15.2,
+        10
+      ]
+    },
+    "triangles": 528,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "positive": [
+        26.5,
+        11,
+        -5
+      ],
+      "negative": [
+        26.5,
+        11,
+        5
+      ]
+    },
+    "legsMm": []
+  },
+  {
+    "id": "dht22",
+    "file": "/models/components/dht22.glb",
+    "bytes": 7844,
+    "sha256": "a3241a1400b77cf8a19e8abc72521b354512550e4bcb4af7a9e811504cb3692a",
+    "sizeMm": [
+      15,
+      19,
+      18
+    ],
+    "boundsMm": {
+      "min": [
+        -7.5,
+        -4,
+        -9
+      ],
+      "max": [
+        7.5,
+        15,
+        9
+      ]
+    },
+    "triangles": 96,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "vcc": [
+        -2.54,
+        2,
+        -7.62
+      ],
+      "data": [
+        0,
+        2,
+        -7.62
+      ],
+      "gnd": [
+        2.54,
+        2,
+        -7.62
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "Minh họa module cảm biến nhiệt độ/độ ẩm dạng phổ biến; không phải CAD AM2302 của hãng. Số chân và kích thước breakout thay đổi theo phiên bản."
+  },
+  {
+    "id": "diode",
+    "file": "/models/components/diode.glb",
+    "bytes": 132212,
+    "sha256": "70e17788275b85ed5813f53c8dfa4ff24affe82cd92542a3097ad2e7fd03055f",
+    "sizeMm": [
+      10.96,
+      5.71,
+      2.72
+    ],
+    "boundsMm": {
+      "min": [
+        -0.4,
+        -2.5,
+        -1.36
+      ],
+      "max": [
+        10.56,
+        3.21,
+        1.36
+      ]
+    },
+    "triangles": 2156,
+    "kind": "source-cad-mesh",
+    "packageName": "Diode DO-41",
+    "sourceFile": "Diode_THT.3dshapes/D_DO-41_SOD81_P10.16mm_Horizontal.step",
+    "sourceSha256": "c3e23d4b276811b74eecb329bd4480209ad3dbc8cf6e6e3f2a5b542c5ca343c1",
+    "footprint": "Diode_THT.pretty/D_DO-41_SOD81_P10.16mm_Horizontal.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "anode": [
+        10.16,
+        0,
+        0
+      ],
+      "cathode": [
+        0,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "cathode",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "anode",
+        "x": 10.16,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "h-bridge",
+    "file": "/models/components/h-bridge.glb",
+    "bytes": 66632,
+    "sha256": "1c1d38ac442ee0e1e93a966ed4bec393e3734f15abf7256ebb62252807fd1c17",
+    "sizeMm": [
+      48,
+      25.5,
+      43.25
+    ],
+    "boundsMm": {
+      "min": [
+        -24,
+        0,
+        -21.5
+      ],
+      "max": [
+        24,
+        25.5,
+        21.75
+      ]
+    },
+    "triangles": 1716,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "in1": [
+        -9,
+        8,
+        8
+      ],
+      "in2": [
+        -6.46,
+        8,
+        8
+      ],
+      "ena": [
+        -3.92,
+        8,
+        8
+      ],
+      "motorVcc": [
+        -5,
+        9.5,
+        18
+      ],
+      "gnd": [
+        0,
+        9.5,
+        18
+      ],
+      "logicVcc": [
+        5,
+        9.5,
+        18
+      ],
+      "out1": [
+        -21.5,
+        9.5,
+        -6
+      ],
+      "out2": [
+        -16.5,
+        9.5,
+        -6
+      ]
+    },
+    "legsMm": []
+  },
+  {
+    "id": "ir-receiver",
+    "file": "/models/components/ir-receiver.glb",
+    "bytes": 5908,
+    "sha256": "0b3c3677dfaae6ae5ae410b3744624b54e773ce5c76bcc368e96f222d474c2df",
+    "sizeMm": [
+      5.68,
+      12,
+      10.22
+    ],
+    "boundsMm": {
+      "min": [
+        -2.84,
+        -4,
+        -7.92
+      ],
+      "max": [
+        2.84,
+        8,
+        2.3
+      ]
+    },
+    "triangles": 60,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "out": [
+        -2.54,
+        2,
+        -7.62
+      ],
+      "gnd": [
+        0,
+        2,
+        -7.62
+      ],
+      "vcc": [
+        2.54,
+        2,
+        -7.62
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "Minh họa bộ thu IR 3 chân dạng package; thứ tự chân phụ thuộc đúng mã và hướng nhìn datasheet."
+  },
+  {
+    "id": "ir-sensor",
+    "file": "/models/components/ir-sensor.glb",
+    "bytes": 25372,
+    "sha256": "824665d70980164589faf848ded325f5e5c3e1a300fb7a58397969e1fed97e2b",
+    "sizeMm": [
+      48.5,
+      7.1,
+      14
+    ],
+    "boundsMm": {
+      "min": [
+        -23,
+        0,
+        -7
+      ],
+      "max": [
+        25.5,
+        7.1,
+        7
+      ]
+    },
+    "triangles": 576,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "out": [
+        -23,
+        3,
+        -2.54
+      ],
+      "gnd": [
+        -23,
+        3,
+        0
+      ],
+      "vcc": [
+        -23,
+        3,
+        2.54
+      ]
+    },
+    "legsMm": []
+  },
+  {
+    "id": "lcd1602",
+    "file": "/models/components/lcd1602.glb",
+    "bytes": 32452,
+    "sha256": "07eece6c21e60e4b62255f642352b494e5db442b211e8198681ebc7e71e17c75",
+    "sizeMm": [
+      80,
+      10.45,
+      41.32
+    ],
+    "boundsMm": {
+      "min": [
+        -40,
+        -4,
+        -18.32
+      ],
+      "max": [
+        40,
+        6.45,
+        23
+      ]
+    },
+    "triangles": 492,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "gnd": [
+        -3.81,
+        2,
+        -18
+      ],
+      "vcc": [
+        -1.27,
+        2,
+        -18
+      ],
+      "sda": [
+        1.27,
+        2,
+        -18
+      ],
+      "scl": [
+        3.81,
+        2,
+        -18
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "Minh họa LCD ký tự 16×2 có backpack I²C; controller, địa chỉ, pinout và điện áp tùy module."
+  },
+  {
+    "id": "ldr",
+    "file": "/models/components/ldr.glb",
+    "bytes": 66964,
+    "sha256": "d3ea65400fe4311eb25de88979902b13e02d4b3c6923c2c491ee4f8e0525fc92",
+    "sizeMm": [
+      4.9,
+      7,
+      4.2
+    ],
+    "boundsMm": {
+      "min": [
+        -1.18,
+        -3,
+        -2.1
+      ],
+      "max": [
+        3.72,
+        4,
+        2.1
+      ]
+    },
+    "triangles": 864,
+    "kind": "source-cad-mesh",
+    "packageName": "LDR 4,9 × 4,2 mm",
+    "sourceFile": "OptoDevice.3dshapes/R_LDR_4.9x4.2mm_P2.54mm_Vertical.step",
+    "sourceSha256": "566f74c18e760263b8d7a97ab905776c70a781bdd4194039cf9f0230b5bfb8d8",
+    "footprint": "OptoDevice.pretty/R_LDR_4.9x4.2mm_P2.54mm_Vertical.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "b": [
+        2.54,
+        0,
+        0
+      ],
+      "a": [
+        0,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "a",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "b",
+        "x": 2.54,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "led",
+    "file": "/models/components/led.glb",
+    "bytes": 42640,
+    "sha256": "76a9d35388a352390752aad25b8eafa944e617a9395e9a579259dfeb0d3053b9",
+    "sizeMm": [
+      5.39,
+      14.1,
+      5.8
+    ],
+    "boundsMm": {
+      "min": [
+        -1.23,
+        -2.5,
+        -2.9
+      ],
+      "max": [
+        4.162,
+        11.6,
+        2.9
+      ]
+    },
+    "triangles": 1039,
+    "kind": "source-cad-mesh",
+    "packageName": "LED tròn 5 mm",
+    "sourceFile": "LED_THT.3dshapes/LED_D5.0mm.step",
+    "sourceSha256": "7cc5086e6ee1fb4853d1fb74675a61a436c8811204094823b31f04ce788e5d40",
+    "footprint": "LED_THT.pretty/LED_D5.0mm.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "anode": [
+        2.54,
+        0,
+        0
+      ],
+      "cathode": [
+        0,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "cathode",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "anode",
+        "x": 2.54,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "limit-switch",
+    "file": "/models/components/limit-switch.glb",
+    "bytes": 18524,
+    "sha256": "83d37daba455e6f56444c42b4bb856692d8acbf577a58331adf2808e6728cd69",
+    "sizeMm": [
+      20,
+      15.6,
+      19.3
+    ],
+    "boundsMm": {
+      "min": [
+        -10,
+        0,
+        -6.6
+      ],
+      "max": [
+        10,
+        15.6,
+        12.7
+      ]
+    },
+    "triangles": 408,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "com": [
+        -5,
+        2,
+        -6
+      ],
+      "no": [
+        0,
+        2,
+        -6
+      ],
+      "nc": [
+        5,
+        2,
+        -6
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "Microswitch cần gạt minh họa với COM/NO/NC. Kích thước, lực nhấn, hành trình và sơ đồ chân cần đối chiếu đúng mã linh kiện thật."
+  },
+  {
+    "id": "mosfet",
+    "file": "/models/components/mosfet.glb",
+    "bytes": 23864,
+    "sha256": "71e6e0bcfe7ef983a8a0eeffc910eadb8776551e2092d42bbd37d529170b6828",
+    "sizeMm": [
+      10.25,
+      28.52,
+      4.46
+    ],
+    "boundsMm": {
+      "min": [
+        -2.585,
+        -9.75,
+        -3.16
+      ],
+      "max": [
+        7.665,
+        18.775,
+        1.295
+      ]
+    },
+    "triangles": 324,
+    "kind": "source-cad-mesh",
+    "packageName": "Vỏ TO-220-3",
+    "sourceFile": "Package_TO_SOT_THT.3dshapes/TO-220-3_Vertical.step",
+    "sourceSha256": "7cb065d935df5771f0ba6e48ddd180863a121af76483dad7f18e667a7b68204a",
+    "footprint": "Package_TO_SOT_THT.pretty/TO-220-3_Vertical.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "source": [
+        5.08,
+        0,
+        0
+      ],
+      "drain": [
+        2.54,
+        0,
+        0
+      ],
+      "gate": [
+        0,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "gate",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "drain",
+        "x": 2.54,
+        "z": 0
+      },
+      {
+        "pinId": "source",
+        "x": 5.08,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "mpu6050",
+    "file": "/models/components/mpu6050.glb",
+    "bytes": 8636,
+    "sha256": "d025b0a7bdf20eec32d6197136db0afb18013f0ffa196aae892ebd6791bf90b2",
+    "sizeMm": [
+      20,
+      9.2,
+      16
+    ],
+    "boundsMm": {
+      "min": [
+        -10,
+        -4,
+        -8
+      ],
+      "max": [
+        10,
+        5.2,
+        8
+      ]
+    },
+    "triangles": 96,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "vcc": [
+        -5.08,
+        2,
+        -7.62
+      ],
+      "gnd": [
+        -2.54,
+        2,
+        -7.62
+      ],
+      "sda": [
+        0,
+        2,
+        -7.62
+      ],
+      "scl": [
+        2.54,
+        2,
+        -7.62
+      ],
+      "int": [
+        5.08,
+        2,
+        -7.62
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "Minh họa breakout IMU loại nhỏ; không xác nhận chip, regulator, mức điện áp hoặc pinout của một board MPU-6050 cụ thể."
+  },
+  {
+    "id": "oled",
+    "file": "/models/components/oled.glb",
+    "bytes": 9364,
+    "sha256": "c1494ed6e848cbc62a8ecea68a2b227096739e1530d543a756a51918204c6eb2",
+    "sizeMm": [
+      27.3,
+      16.6,
+      27.8
+    ],
+    "boundsMm": {
+      "min": [
+        -13.65,
+        -6,
+        -1.3
+      ],
+      "max": [
+        13.65,
+        10.6,
+        26.5
+      ]
+    },
+    "triangles": 96,
+    "kind": "parametric-mesh",
+    "mount": "breadboard",
+    "pinsMm": {
+      "vcc": [
+        -3.81,
+        0,
+        0
+      ],
+      "gnd": [
+        -1.27,
+        0,
+        0
+      ],
+      "sda": [
+        1.27,
+        0,
+        0
+      ],
+      "scl": [
+        3.81,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "vcc",
+        "x": -3.81,
+        "z": 0
+      },
+      {
+        "pinId": "gnd",
+        "x": -1.27,
+        "z": 0
+      },
+      {
+        "pinId": "sda",
+        "x": 1.27,
+        "z": 0
+      },
+      {
+        "pinId": "scl",
+        "x": 3.81,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "photoresistor-module",
+    "file": "/models/components/photoresistor-module.glb",
+    "bytes": 25944,
+    "sha256": "1f1d146a70080f4bf15d6b868111af614cbdcd5c1a532ddc0dbdb18a187df8c7",
+    "sizeMm": [
+      22,
+      11,
+      18
+    ],
+    "boundsMm": {
+      "min": [
+        -11,
+        -4,
+        -9
+      ],
+      "max": [
+        11,
+        7,
+        9
+      ]
+    },
+    "triangles": 588,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "vcc": [
+        -3.81,
+        2,
+        -7.62
+      ],
+      "gnd": [
+        -1.27,
+        2,
+        -7.62
+      ],
+      "ao": [
+        1.27,
+        2,
+        -7.62
+      ],
+      "do": [
+        3.81,
+        2,
+        -7.62
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "Minh họa breakout LDR với comparator và chân AO/DO; không đại diện một sơ đồ hoặc kích thước module cụ thể."
+  },
+  {
+    "id": "pir",
+    "file": "/models/components/pir.glb",
+    "bytes": 27176,
+    "sha256": "3fd615ed83a69ea3379fb460411453fe6a33bba3d64123f27b5361bf02ce47e3",
+    "sizeMm": [
+      32,
+      14,
+      24
+    ],
+    "boundsMm": {
+      "min": [
+        -16,
+        -4,
+        -12
+      ],
+      "max": [
+        16,
+        10,
+        12
+      ]
+    },
+    "triangles": 688,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "vcc": [
+        -2.54,
+        2,
+        -10.16
+      ],
+      "out": [
+        0,
+        2,
+        -10.16
+      ],
+      "gnd": [
+        2.54,
+        2,
+        -10.16
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "Minh họa module PIR phổ biến có chụp cảm biến và biến trở; không đại diện mã HC-SR501 hay pinout cụ thể."
+  },
+  {
+    "id": "potentiometer",
+    "file": "/models/components/potentiometer.glb",
+    "bytes": 23792,
+    "sha256": "c5d221e8f5390569d8deecade1c3757d6a200f38e8cf6addfda71cbfd09d0261",
+    "sizeMm": [
+      13,
+      22.6,
+      13
+    ],
+    "boundsMm": {
+      "min": [
+        -6.5,
+        -3.5,
+        -12
+      ],
+      "max": [
+        6.5,
+        19.1,
+        1
+      ]
+    },
+    "triangles": 564,
+    "kind": "parametric-mesh",
+    "mount": "breadboard",
+    "pinsMm": {
+      "vcc": [
+        -2.54,
+        0,
+        0
+      ],
+      "wiper": [
+        0,
+        0,
+        0
+      ],
+      "gnd": [
+        2.54,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "vcc",
+        "x": -2.54,
+        "z": 0
+      },
+      {
+        "pinId": "wiper",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "gnd",
+        "x": 2.54,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "relay",
+    "file": "/models/components/relay.glb",
+    "bytes": 31088,
+    "sha256": "b83c3cb8ad17a0d0d3176f31dbc5646fb9ee884bbf9a3640df32489e963b0fb5",
+    "sizeMm": [
+      58.5,
+      17.1,
+      26
+    ],
+    "boundsMm": {
+      "min": [
+        -31,
+        0,
+        -13
+      ],
+      "max": [
+        27.5,
+        17.1,
+        13
+      ]
+    },
+    "triangles": 756,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "in": [
+        -31,
+        3,
+        -2.54
+      ],
+      "vcc": [
+        -31,
+        3,
+        0
+      ],
+      "gnd": [
+        -31,
+        3,
+        2.54
+      ],
+      "com": [
+        15,
+        9.5,
+        0
+      ],
+      "no": [
+        20,
+        9.5,
+        0
+      ],
+      "nc": [
+        25,
+        9.5,
+        0
+      ]
+    },
+    "legsMm": []
+  },
+  {
+    "id": "resistor",
+    "file": "/models/components/resistor.glb",
+    "bytes": 135880,
+    "sha256": "6f9f889377cef2570d05d985499e8d0abf0e8370db8ebda9e957ed63b90b9fb7",
+    "sizeMm": [
+      10.76,
+      5.5,
+      2.5
+    ],
+    "boundsMm": {
+      "min": [
+        -0.3,
+        -3,
+        -1.25
+      ],
+      "max": [
+        10.46,
+        2.5,
+        1.25
+      ]
+    },
+    "triangles": 3452,
+    "kind": "source-cad-mesh",
+    "packageName": "Điện trở trục DIN 0207",
+    "sourceFile": "Resistor_THT.3dshapes/R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.step",
+    "sourceSha256": "85bdadc9190739c38429da06b1d9c76ccf33aef9a0794a2e7a9dd5b58d9d05fe",
+    "footprint": "Resistor_THT.pretty/R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "b": [
+        10.16,
+        0,
+        0
+      ],
+      "a": [
+        0,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "a",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "b",
+        "x": 10.16,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "rfid",
+    "file": "/models/components/rfid.glb",
+    "bytes": 13240,
+    "sha256": "3e04f6dca5508447af6ead12846d508d45892f7155a89410f90ae8bdceae77fe",
+    "sizeMm": [
+      40,
+      9.4,
+      60
+    ],
+    "boundsMm": {
+      "min": [
+        -20,
+        -4,
+        -30
+      ],
+      "max": [
+        20,
+        5.4,
+        30
+      ]
+    },
+    "triangles": 180,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "sda": [
+        -8.89,
+        2,
+        -15.24
+      ],
+      "sck": [
+        -6.35,
+        2,
+        -15.24
+      ],
+      "mosi": [
+        -3.81,
+        2,
+        -15.24
+      ],
+      "miso": [
+        -1.27,
+        2,
+        -15.24
+      ],
+      "irq": [
+        1.27,
+        2,
+        -15.24
+      ],
+      "gnd": [
+        3.81,
+        2,
+        -15.24
+      ],
+      "rst": [
+        6.35,
+        2,
+        -15.24
+      ],
+      "vcc": [
+        8.89,
+        2,
+        -15.24
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "Minh họa breakout RFID với anten vòng và header; không phải CAD RC522 cụ thể, không xác nhận chip, anten hay pinout."
+  },
+  {
+    "id": "rgb-led",
+    "file": "/models/components/rgb-led.glb",
+    "bytes": 42612,
+    "sha256": "bc7ba81887b658ec83bdcc300759e3eba47f9cc1222c0db1f312f6fa8258abf7",
+    "sizeMm": [
+      6.88,
+      13.6,
+      5.8
+    ],
+    "boundsMm": {
+      "min": [
+        -0.188,
+        -2.8,
+        -2.899
+      ],
+      "max": [
+        6.688,
+        10.8,
+        2.899
+      ]
+    },
+    "triangles": 1387,
+    "kind": "source-cad-mesh",
+    "packageName": "LED RGB 5 mm 4 chân",
+    "sourceFile": "LED_THT.3dshapes/LED_D5.0mm-4_RGB_Wide_Pins.step",
+    "sourceSha256": "c265e3f29e3c2aceb143e8d888f7f1e2443a6af3441dfcd28f23c34cb155e163",
+    "footprint": "LED_THT.pretty/LED_D5.0mm-4_RGB_Wide_Pins.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "blue": [
+        6.477,
+        0,
+        0
+      ],
+      "green": [
+        4.318,
+        0,
+        0
+      ],
+      "common": [
+        2.159,
+        0,
+        0
+      ],
+      "red": [
+        0,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "red",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "common",
+        "x": 2.159,
+        "z": 0
+      },
+      {
+        "pinId": "green",
+        "x": 4.318,
+        "z": 0
+      },
+      {
+        "pinId": "blue",
+        "x": 6.477,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "rotary-encoder",
+    "file": "/models/components/rotary-encoder.glb",
+    "bytes": 23736,
+    "sha256": "bdc93e9ee38768b68addb51be8e0adda89f264668c4244d4f4973d79055361b9",
+    "sizeMm": [
+      24,
+      32,
+      18
+    ],
+    "boundsMm": {
+      "min": [
+        -12,
+        -4,
+        -9
+      ],
+      "max": [
+        12,
+        28,
+        9
+      ]
+    },
+    "triangles": 576,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "clk": [
+        -5.08,
+        2,
+        -7.62
+      ],
+      "dt": [
+        -2.54,
+        2,
+        -7.62
+      ],
+      "sw": [
+        0,
+        2,
+        -7.62
+      ],
+      "vcc": [
+        2.54,
+        2,
+        -7.62
+      ],
+      "gnd": [
+        5.08,
+        2,
+        -7.62
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "Minh họa encoder xoay breakout phổ biến; không xác nhận sơ đồ chân hoặc kích thước KY-040 của một nhà sản xuất cụ thể."
+  },
+  {
+    "id": "servo",
+    "file": "/models/components/servo.glb",
+    "bytes": 24440,
+    "sha256": "2959eb43bd67f46847e6efd84cafcf6b49e1f9fbe20684a7f4ee33b5f25d6f6d",
+    "sizeMm": [
+      37.1,
+      31,
+      11.8
+    ],
+    "boundsMm": {
+      "min": [
+        -16.1,
+        0,
+        -5.9
+      ],
+      "max": [
+        21,
+        31,
+        5.9
+      ]
+    },
+    "triangles": 576,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "gnd": [
+        21,
+        3,
+        -1.3
+      ],
+      "vcc": [
+        21,
+        3,
+        0
+      ],
+      "signal": [
+        21,
+        3,
+        1.3
+      ]
+    },
+    "legsMm": []
+  },
+  {
+    "id": "seven-segment",
+    "file": "/models/components/seven-segment.glb",
+    "bytes": 162472,
+    "sha256": "365621bd6803432210bb29c5fd9007d3fa7ecbc5437eec05df5f5d1cdc9817b7",
+    "sizeMm": [
+      19.05,
+      11.96,
+      12.6
+    ],
+    "boundsMm": {
+      "min": [
+        -1.905,
+        -3.76,
+        -1.22
+      ],
+      "max": [
+        17.145,
+        8.2,
+        11.38
+      ]
+    },
+    "triangles": 1912,
+    "kind": "source-cad-mesh",
+    "packageName": "LED 7 đoạn 0,56 inch, gói LTS-6760",
+    "sourceFile": "Display_7Segment.3dshapes/7SegmentLED_LTS6760_LTS6780.step",
+    "sourceSha256": "f511ff4a5085fd1b69ace29be1336b5d8f0789b827180abff3973f608960d7ba",
+    "footprint": "Display_7Segment.pretty/7SegmentLED_LTS6760_LTS6780.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "g": [
+        15.24,
+        0,
+        0
+      ],
+      "f": [
+        15.24,
+        0,
+        2.54
+      ],
+      "com2": [
+        15.24,
+        0,
+        5.08
+      ],
+      "a": [
+        15.24,
+        0,
+        7.62
+      ],
+      "b": [
+        15.24,
+        0,
+        10.16
+      ],
+      "dp": [
+        0,
+        0,
+        10.16
+      ],
+      "c": [
+        0,
+        0,
+        7.62
+      ],
+      "com1": [
+        0,
+        0,
+        5.08
+      ],
+      "d": [
+        0,
+        0,
+        2.54
+      ],
+      "e": [
+        0,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "e",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "d",
+        "x": 0,
+        "z": 2.54
+      },
+      {
+        "pinId": "com1",
+        "x": 0,
+        "z": 5.08
+      },
+      {
+        "pinId": "c",
+        "x": 0,
+        "z": 7.62
+      },
+      {
+        "pinId": "dp",
+        "x": 0,
+        "z": 10.16
+      },
+      {
+        "pinId": "b",
+        "x": 15.24,
+        "z": 10.16
+      },
+      {
+        "pinId": "a",
+        "x": 15.24,
+        "z": 7.62
+      },
+      {
+        "pinId": "com2",
+        "x": 15.24,
+        "z": 5.08
+      },
+      {
+        "pinId": "f",
+        "x": 15.24,
+        "z": 2.54
+      },
+      {
+        "pinId": "g",
+        "x": 15.24,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "slide-switch",
+    "file": "/models/components/slide-switch.glb",
+    "bytes": 49044,
+    "sha256": "fabb365ddf149567071647abb6b3a49946ea2a6352b338530dc4cbe5275f21ec",
+    "sizeMm": [
+      8.6,
+      11.5,
+      4.3
+    ],
+    "boundsMm": {
+      "min": [
+        -2.3,
+        -2.8,
+        -2.15
+      ],
+      "max": [
+        6.3,
+        8.7,
+        2.15
+      ]
+    },
+    "triangles": 1104,
+    "kind": "source-cad-mesh",
+    "packageName": "Công tắc gạt SPDT OS102011MS2Q",
+    "sourceFile": "Button_Switch_THT.3dshapes/SW_Slide_SPDT_Straight_CK_OS102011MS2Q.step",
+    "sourceSha256": "bd8972b9b48a9ebf0234677fa76b5f752cb354283e07e409ddb81b9a3d9cac25",
+    "footprint": "Button_Switch_THT.pretty/SW_Slide_SPDT_Straight_CK_OS102011MS2Q.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "b": [
+        4,
+        0,
+        0
+      ],
+      "common": [
+        2,
+        0,
+        0
+      ],
+      "a": [
+        0,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "a",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "common",
+        "x": 2,
+        "z": 0
+      },
+      {
+        "pinId": "b",
+        "x": 4,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "soil",
+    "file": "/models/components/soil.glb",
+    "bytes": 8008,
+    "sha256": "ac5eb5dc2a1b61e20e085c2b64d12ec1ec50a35ac016a8fd2231750b0538c068",
+    "sizeMm": [
+      16,
+      7,
+      66
+    ],
+    "boundsMm": {
+      "min": [
+        -8,
+        -4,
+        -33
+      ],
+      "max": [
+        8,
+        3,
+        33
+      ]
+    },
+    "triangles": 84,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "pinsMm": {
+      "vcc": [
+        -2.54,
+        2,
+        -7.62
+      ],
+      "gnd": [
+        0,
+        2,
+        -7.62
+      ],
+      "aout": [
+        2.54,
+        2,
+        -7.62
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "Minh họa đầu dò độ ẩm đất điện dung dạng bảng; hình học, lớp phủ và mạch đầu ra tùy nhà sản xuất."
+  },
+  {
+    "id": "tb6612",
+    "file": "/models/components/tb6612.glb",
+    "bytes": 16472,
+    "sha256": "754d89ada9129e1934eb77ec5f3b705e72c4b7d08aa6d31c6ad8067573cf97fc",
+    "sizeMm": [
+      20.3,
+      11.4,
+      20.3
+    ],
+    "boundsMm": {
+      "min": [
+        -10.15,
+        -6,
+        -10.15
+      ],
+      "max": [
+        10.15,
+        5.4,
+        10.15
+      ]
+    },
+    "triangles": 240,
+    "kind": "parametric-mesh",
+    "mount": "breadboard",
+    "pinsMm": {
+      "vm": [
+        -8.89,
+        0,
+        -8.89
+      ],
+      "vcc": [
+        -6.35,
+        0,
+        -8.89
+      ],
+      "gnd": [
+        -3.81,
+        0,
+        -8.89
+      ],
+      "a01": [
+        -1.27,
+        0,
+        -8.89
+      ],
+      "a02": [
+        1.27,
+        0,
+        -8.89
+      ],
+      "stby": [
+        -1.27,
+        0,
+        8.89
+      ],
+      "ain1": [
+        1.27,
+        0,
+        8.89
+      ],
+      "ain2": [
+        3.81,
+        0,
+        8.89
+      ],
+      "pwma": [
+        6.35,
+        0,
+        8.89
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "vm",
+        "x": -8.89,
+        "z": -8.89
+      },
+      {
+        "pinId": "vcc",
+        "x": -6.35,
+        "z": -8.89
+      },
+      {
+        "pinId": "gnd",
+        "x": -3.81,
+        "z": -8.89
+      },
+      {
+        "pinId": "a01",
+        "x": -1.27,
+        "z": -8.89
+      },
+      {
+        "pinId": "a02",
+        "x": 1.27,
+        "z": -8.89
+      },
+      {
+        "pinId": "stby",
+        "x": -1.27,
+        "z": 8.89
+      },
+      {
+        "pinId": "ain1",
+        "x": 1.27,
+        "z": 8.89
+      },
+      {
+        "pinId": "ain2",
+        "x": 3.81,
+        "z": 8.89
+      },
+      {
+        "pinId": "pwma",
+        "x": 6.35,
+        "z": 8.89
+      },
+      {
+        "pinId": "nc-a5",
+        "x": 3.8099999999999987,
+        "z": -8.89
+      },
+      {
+        "pinId": "nc-a6",
+        "x": 6.35,
+        "z": -8.89
+      },
+      {
+        "pinId": "nc-a7",
+        "x": 8.89,
+        "z": -8.89
+      },
+      {
+        "pinId": "nc-b0",
+        "x": -8.89,
+        "z": 8.89
+      },
+      {
+        "pinId": "nc-b1",
+        "x": -6.3500000000000005,
+        "z": 8.89
+      },
+      {
+        "pinId": "nc-b2",
+        "x": -3.8100000000000005,
+        "z": 8.89
+      },
+      {
+        "pinId": "nc-b7",
+        "x": 8.89,
+        "z": 8.89
+      }
+    ]
+  },
+  {
+    "id": "thermistor",
+    "file": "/models/components/thermistor.glb",
+    "bytes": 11864,
+    "sha256": "91d4aab9a2c96716698a27cddb03c7fe93bb4d76f3023a8157915bfd90ba058a",
+    "sizeMm": [
+      4.2,
+      12.6,
+      4.2
+    ],
+    "boundsMm": {
+      "min": [
+        -2.1,
+        -2,
+        -2.1
+      ],
+      "max": [
+        2.1,
+        10.6,
+        2.1
+      ]
+    },
+    "triangles": 304,
+    "kind": "parametric-mesh",
+    "mount": "breadboard",
+    "pinsMm": {
+      "a": [
+        -1.27,
+        0,
+        0
+      ],
+      "b": [
+        1.27,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "a",
+        "x": -1.27,
+        "z": 0
+      },
+      {
+        "pinId": "b",
+        "x": 1.27,
+        "z": 0
+      }
+    ],
+    "modelNote": "Hạt NTC 2 chân dạng epoxy để minh họa hình dáng. Không gắn mã B, dải nhiệt, đường cong R/T hay kích thước của một nhà sản xuất cụ thể."
+  },
+  {
+    "id": "transistor",
+    "file": "/models/components/transistor.glb",
+    "bytes": 15080,
+    "sha256": "d062237c7ae39c9509b335102cad587d8d7434547963552a00aba0de28317309",
+    "sizeMm": [
+      5.58,
+      10,
+      3.74
+    ],
+    "boundsMm": {
+      "min": [
+        -0.25,
+        -2.7,
+        -2.415
+      ],
+      "max": [
+        5.33,
+        7.3,
+        1.33
+      ]
+    },
+    "triangles": 200,
+    "kind": "source-cad-mesh",
+    "packageName": "Vỏ TO-92, chân 2,54 mm",
+    "sourceFile": "Package_TO_SOT_THT.3dshapes/TO-92_Inline_Wide.step",
+    "sourceSha256": "85b7de23bf92112c1cc60ca5fdb644f1a44e150a99f8c6f4f5f29010f50282b9",
+    "footprint": "Package_TO_SOT_THT.pretty/TO-92_Inline_Wide.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "emitter": [
+        5.08,
+        0,
+        0
+      ],
+      "base": [
+        2.54,
+        0,
+        0
+      ],
+      "collector": [
+        0,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "collector",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "base",
+        "x": 2.54,
+        "z": 0
+      },
+      {
+        "pinId": "emitter",
+        "x": 5.08,
+        "z": 0
+      }
+    ]
+  },
+  {
+    "id": "ultrasonic",
+    "file": "/models/components/ultrasonic.glb",
+    "bytes": 30308,
+    "sha256": "8ed9017261941788f515e6b514ffc5068b326d24512bcb12714216dca0a25c77",
+    "sizeMm": [
+      45,
+      28.5,
+      14.2
+    ],
+    "boundsMm": {
+      "min": [
+        -22.5,
+        -6,
+        -1.25
+      ],
+      "max": [
+        22.5,
+        22.5,
+        12.95
+      ]
+    },
+    "triangles": 756,
+    "kind": "parametric-mesh",
+    "mount": "breadboard",
+    "pinsMm": {
+      "vcc": [
+        -3.81,
+        0,
+        0
+      ],
+      "trig": [
+        -1.27,
+        0,
+        0
+      ],
+      "echo": [
+        1.27,
+        0,
+        0
+      ],
+      "gnd": [
+        3.81,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "vcc",
+        "x": -3.81,
+        "z": 0
+      },
+      {
+        "pinId": "trig",
+        "x": -1.27,
+        "z": 0
+      },
+      {
+        "pinId": "echo",
+        "x": 1.27,
+        "z": 0
+      },
+      {
+        "pinId": "gnd",
+        "x": 3.81,
+        "z": 0
+      }
+    ]
+  }
+]

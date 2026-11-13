@@ -1,0 +1,62 @@
+[
+  {
+    "url": "https://www.fdk.com/product_e/nimh_e/tech_info/HR-3UTG.pdf",
+    "path": "docs/research/downloads/p0-14/fdk-hr3utg.pdf",
+    "date": "2026-11-10",
+    "expected_format": "pdf",
+    "content_type": "application/pdf",
+    "status": "PINNED",
+    "sha256": "35274e4301054f1acee56855f05f537b6f9bf92d362c0f3c3122e5f038876919",
+    "bytes": 286834
+  },
+  {
+    "url": "https://www.fdk.com/whatsnew-e/release20260327-e.html",
+    "path": "docs/research/downloads/p0-14/fdk-20260327-material-update.html",
+    "date": "2026-11-10",
+    "expected_format": "html",
+    "content_type": "text/html",
+    "status": "PINNED",
+    "sha256": "29ca51fd89b51ef194e653c215e7e98e4c90c9d34bb6f74c4b4340ca9677d348",
+    "bytes": 14471
+  },
+  {
+    "url": "https://www.batteryholders.com/uploads/parts/BA3AAW/datasheets/BA3AAW-datasheet.pdf",
+    "path": "docs/research/downloads/p0-14/mpd-ba3aaw-revg.pdf",
+    "date": "2026-11-10",
+    "expected_format": "pdf",
+    "content_type": "application/pdf",
+    "status": "PINNED",
+    "sha256": "6fe659fd0c4c8fc0fccfa84f75515da4c824e5562a21279d6ddf81a5c6ae992b",
+    "bytes": 272545
+  },
+  {
+    "url": "https://www.pololu.com/product/2123/specs",
+    "path": "docs/research/downloads/p0-14/pololu-s7v8f5-specs.html",
+    "date": "2026-11-10",
+    "expected_format": "html",
+    "content_type": "text/html; charset=utf-8",
+    "status": "PINNED",
+    "sha256": "353d70a71b7c638439c88105319b8dbcbdadc1f36e63001803b4f9239dce1901",
+    "bytes": 53808
+  },
+  {
+    "url": "https://www.pololu.com/file/0J791/s7v8x-schematic.pdf",
+    "path": "docs/research/downloads/p0-14/pololu-s7v8x-reference.pdf",
+    "date": "2026-11-10",
+    "expected_format": "pdf",
+    "content_type": "application/pdf",
+    "status": "PINNED",
+    "sha256": "eddb2e28d0a6eed110981988b52767911cddc8f22e276410e57bd739b318e42e",
+    "bytes": 192030
+  },
+  {
+    "url": "https://www.keyelco.com/pdfs/prod04-plasticholders.pdf",
+    "path": "docs/research/downloads/p0-14/keystone-aa-holder-catalogue.pdf",
+    "date": "2026-11-10",
+    "expected_format": "pdf",
+    "content_type": "application/pdf",
+    "status": "PINNED",
+    "sha256": "90b8be61f8f213366bb8a2560ec00545bc318ab620460e6c986ed3ccca6f152c",
+    "bytes": 1315197
+  }
+]

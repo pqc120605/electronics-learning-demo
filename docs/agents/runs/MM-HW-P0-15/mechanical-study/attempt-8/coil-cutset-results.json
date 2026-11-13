@@ -1,0 +1,109 @@
+{
+  "scope": "Ideal low-impedance power paths only. The coil, clamp and regulator stay local to each isolated pair.",
+  "cases": [
+    {
+      "case": "authorized RUN",
+      "unintended_fixed_returns": [],
+      "split_cut_powered_coils": {
+        "A": true,
+        "B": true
+      },
+      "feed_only_powered_coils": {
+        "A": true,
+        "B": true
+      }
+    },
+    {
+      "case": "healthy trip",
+      "unintended_fixed_returns": [],
+      "split_cut_powered_coils": {
+        "A": false,
+        "B": false
+      },
+      "feed_only_powered_coils": {
+        "A": false,
+        "B": false
+      }
+    },
+    {
+      "case": "A falsely keeps permission",
+      "unintended_fixed_returns": [],
+      "split_cut_powered_coils": {
+        "A": false,
+        "B": false
+      },
+      "feed_only_powered_coils": {
+        "A": false,
+        "B": false
+      }
+    },
+    {
+      "case": "B falsely keeps permission",
+      "unintended_fixed_returns": [],
+      "split_cut_powered_coils": {
+        "A": false,
+        "B": false
+      },
+      "feed_only_powered_coils": {
+        "A": false,
+        "B": false
+      }
+    },
+    {
+      "case": "one coil positive bridged to pack positive",
+      "unintended_fixed_returns": [],
+      "split_cut_powered_coils": {
+        "A": false,
+        "B": false
+      },
+      "feed_only_powered_coils": {
+        "A": true,
+        "B": false
+      }
+    },
+    {
+      "case": "one coil negative bridged to pack return",
+      "unintended_fixed_returns": [],
+      "split_cut_powered_coils": {
+        "A": false,
+        "B": false
+      },
+      "feed_only_powered_coils": {
+        "A": false,
+        "B": false
+      }
+    },
+    {
+      "case": "negative, both conductors bridged",
+      "unintended_fixed_returns": [],
+      "split_cut_powered_coils": {
+        "A": true,
+        "B": false
+      },
+      "feed_only_powered_coils": {
+        "A": true,
+        "B": false
+      }
+    },
+    {
+      "case": "negative, auxiliary return defeats low-side cut",
+      "unintended_fixed_returns": [
+        "A"
+      ],
+      "split_cut_powered_coils": {
+        "A": true,
+        "B": false
+      },
+      "feed_only_powered_coils": {
+        "A": true,
+        "B": false
+      }
+    }
+  ],
+  "limits": [
+    "Independent feed and return cuts need verified default-off and reverse blocking.",
+    "Clamp, enable, scope/debug, shield, or regulator ground connections must not restore the cut return.",
+    "The stored energy of the coil and capacitors can keep a contact closed after both cuts.",
+    "The model does not bound leakage, switch failures other than the stated paths, or common physical faults."
+  ]
+}

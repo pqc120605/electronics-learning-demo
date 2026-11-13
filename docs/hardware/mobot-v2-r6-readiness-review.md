@@ -1,0 +1,47 @@
+# MoBot V2 r6 · Tổng hợp review trước KiCad
+
+HQ giữ hai carrier ở trạng thái chờ. Phê duyệt của người dùng áp dụng cho r6. Box03 xử lý các đầu vào dưới đây và box08 tái review trước khi HQ cấp quyền ghi.
+
+## Box 08 · Review kỹ thuật
+
+Turn `01a1aaef-850f-7103-be04-f4a159418494`
+
+**`changes_requested` — MoBot V2 r6 chưa đủ điều kiện cấp lease KiCad cho hai carrier.** Native `qa_safety_reviewer` đã review độc lập. Tôi đối chiếu lại SHA‑256 của cả hai cấu hình và xác nhận chúng khớp hồ sơ. Phê duyệt của người dùng đã được ghi cho đúng r6, còn gate kỹ thuật đang ở `pending_technical_review`. [Cấu hình r6](/D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-config-2026-11-05-r6.md) · [Registry](/D:/StartupOS/docs/agents/tasks.json:2036)
+
+| Điểm chặn trước layout | Cần chốt để mở lease |
+|---|---|
+| **Giới hạn dòng motor** | DRV8833 với điện trở sense cố định không đạt đồng thời **0,40 A danh nghĩa** và **0,45 A tối đa**. Với 0,50 Ω, ngưỡng trip có thể lên **0,48 A** trước dung sai điện trở và thời gian blanking. Cần chứng minh cơ chế giới hạn chính xác đạt cả hai ngưỡng và ngắt khi kẹt kéo dài. Đổi driver hoặc mục tiêu dòng cần duyệt revision mới. [TI DRV8833 Rev. E, §6.5](https://www.ti.com/lit/ds/symlink/drv8833.pdf) · [Pololu #992](https://www.pololu.com/product/992/specs) |
+| **Tải đồng thời, pack và UVLO** | Ngân sách tính được **1,762 A** cho robot, còn khoảng **88 mA** tới mục tiêu 1,85 A. Tay cầm cần **0,977 A** trước tải phụ. Cần thông số của đúng cell/BMS B04 và B15 về dòng liên tục, dòng xung, nội trở và ngưỡng cắt/phục hồi. Chốt tải đỉnh Wi‑Fi, audio, inrush, hiệu suất converter và hysteresis tại **6,50 V / 3,20 V**. [TPS54302 Rev. C](https://www.ti.com/lit/ds/symlink/tps54302.pdf) · [TPS61023 Rev. B](https://www.ti.com/lit/ds/symlink/tps61023.pdf) · [MAX98357A/B](https://www.analog.com/media/en/technical-documentation/data-sheets/max98357a-max98357b.pdf) |
+| **Nhiệt và năng lượng trả về** | TPS63070 cho phép dòng từ đầu ra về đầu vào. Cần xác định đường hấp thụ khi pack đầy, BMS mở hoặc converter tắt. Chốt chế độ phanh/đảo chiều, ngân sách năng lượng, tụ và đường kẹp để giữ VM trong dải vận hành **≤10,8 V**, đồng thời đáp ứng giới hạn của các linh kiện khác. Hai converter robot có thể tỏa khoảng **2,23 W** tại tải thiết kế và hiệu suất 80%, chưa tính driver. [TPS63070 Rev. B, §8.3](https://www.ti.com/lit/ds/symlink/tps63070.pdf) · [DRV8833 Rev. E, §9.1](https://www.ti.com/lit/ds/symlink/drv8833.pdf) |
+| **Raw VBUS, boot/reset và cách ly I/O** | Chốt giao diện nạp lấy VBUS trước D1, truyền dữ liệu và không thể bỏ qua điểm sense khi carrier vận hành. Detector phải hoạt động khi pack cạn hoặc BMS mở. Cần khóa tải mặc định tắt bằng phần cứng, chặn dòng ngược ở đường DevKit, cách ly I/O sang miền mất nguồn và xác định trạng thái an toàn cho cả hai thứ tự cắm/rút USB. [Preflight BrijModi](/D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-r5-kicad-preflight.md) · [Schematic BrijModi](https://github.com/BrijModi/ESP32-Dev-Kit-Clone/blob/main/View/Schematic_View.pdf) |
+| **Sạc USB‑C khi pack cạn** | Chốt cách nhận diện nguồn từ lúc chưa có bias và giới hạn dòng trước khi nhận diện xong. Mục tiêu sạc **0,50 A × 8,4 V = 4,2 W** vượt **2,5 W** của nguồn 5 V/500 mA. Có thể giữ mục tiêu 0,50 A khi nguồn đủ và hạ dòng ở nguồn mặc định. Cần bảo đảm đường SYS của BQ25886 không bật tải carrier khi chỉ sạc, đồng thời chốt NTC và tản nhiệt cho charger 1S. [TUSB320LAI Rev. D](https://www.ti.com/lit/ds/symlink/tusb320lai.pdf) · [BQ25886 Rev. A](https://www.ti.com/lit/ds/symlink/bq25886.pdf) · [MCP73833/4 DS20002005](https://ww1.microchip.com/downloads/aemDocuments/documents/APID/ProductDocuments/DataSheets/MCP73833-4-Stand-Alone-Linear-Li-Ion-Li-Polymer-Charge-Management-Controller-DS20002005.pdf) |
+
+**Xác minh trên mẫu sau khi chốt thiết kế** gồm đo dòng khởi động/kẹt/đảo chiều, đỉnh VM khi phanh, sụt áp và nhiệt dưới tải đồng thời, dòng ngược và rail ngoại vi khi cắm/rút USB hoặc reset, cùng độ vừa của DevKit thực tế. Review này dựa trên hồ sơ và datasheet. Số đo mẫu vẫn đang chờ.
+
+SHA‑256 đã đối chiếu:
+
+- **r6** `54657f1518a435701b8b3dde21e40c9dd7ca624aff64cfcb0487d7512fe7d104` · [Tệp r6](/D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-config-2026-11-05-r6.md)
+- **r5** `491dd8d033038dc695c914b52259e00e8582e5d9af9b060daa86249891bb27e2` · [Tệp r5](/D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-config-2026-11-05-r5.md)
+
+## Box 01 · Ranh giới và trình tự
+
+Turn `01a1aaf2-8198-7340-8f93-e4deaae390df`
+
+**HQ nên giữ cả hai carrier ở `waiting`.** Tôi đã tính lại SHA‑256 của tệp r6 và xác nhận khớp bản người dùng duyệt, `54657f1518a435701b8b3dde21e40c9dd7ca624aff64cfcb0487d7512fe7d104`. Registry đã ghi phê duyệt và đang ở `pending_technical_review`. Box08 đã trả `changes_requested`. Vì các blocker nguồn và USB ảnh hưởng đến cả hai thiết kế, bước tiếp theo là đóng review kỹ thuật, chưa cấp lease schematic. [Cấu hình r6](D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-config-2026-11-05-r6.md) · [Registry](D:/StartupOS/docs/agents/tasks.json:2036)
+
+**Ranh giới thiết kế.** Hai carrier dùng chung *hợp đồng giao diện*, gồm hình học và hướng lắp DevKit BrijModi, Micro‑USB nạp giữ đường dữ liệu và cảm nhận VBUS trước D1, USB‑C sạc riêng, bảng bốn trạng thái USB, cùng yêu cầu tải mặc định tắt khi reset. Hợp đồng cần chỉ rõ miền nguồn nào sống, đường cấp DevKit nào bị ngắt, I/O nào cần cách ly khi ngoại vi mất nguồn và điều kiện phần cứng cho phép tải bật lại. Hai thiết kế hiện thực riêng theo nguồn của mình: robot dùng 2S với nhánh motor 6 V và logic/loa 5 V, tay cầm dùng 1S với nhánh 5 V. Dùng tọa độ đầy đủ từ PCB BrijModi, gồm cả độ lệch dọc giữa hai hàng header. [Bảng trạng thái r6](D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-config-2026-11-05-r6.md:16) · [Preflight BrijModi](D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-r5-kicad-preflight.md:5)
+
+| Mã task đề xuất | Owner chịu trách nhiệm | Phạm vi ghi và điều kiện bàn giao |
+|---|---|---|
+| `MM-HW-MOBOT-IF-001` | Box03 / `hardware_kit_designer` | Advisory, không có lease ghi. Trả một packet giao diện chung và hai phụ lục nguồn 2S/1S. Gắn từng mục `changes_requested` của box08 với phương án, nguồn đúng revision và tiêu chí đóng. HQ lưu quyết định sau review. |
+| `MM-HW-MOBOT-ROBOT-KICAD-001` | Box03 / `hardware_kit_designer` | Lease đề xuất chỉ `hardware/mobot-v2/robot-carrier/**` và `docs/hardware/mobot-v2/robot-carrier/**`. Bàn giao project KiCad, BOM theo refdes và bằng chứng ERC/DRC riêng của robot. |
+| `MM-HW-MOBOT-REMOTE-KICAD-001` | Box03 / `hardware_kit_designer` | Lease đề xuất chỉ `hardware/mobot-v2/handset-carrier/**` và `docs/hardware/mobot-v2/handset-carrier/**`. Cùng bộ deliverable cho tay cầm. Hai lease đọc chung đầu vào đã khóa. Symbol, footprint hoặc script phát sinh thuộc thư mục của từng carrier. |
+
+**Trình tự và gate nghiệm thu**
+
+1. **Đóng đầu vào trước lease.** Box03 trả phương án xử lý các finding của box08 về giới hạn dòng motor, tải đồng thời và pack/BMS, UVLO, nhiệt và năng lượng trả về, cùng USB‑C nhận diện nguồn và dòng sạc. Riêng giao diện chung, packet phải chứng minh trên thiết kế cách lấy raw VBUS khi pack cạn hoặc BMS mở, chặn dòng ngược qua cả supply lẫn I/O, và giữ trạng thái an toàn qua reset và hai thứ tự cắm/rút. Box08 tái review. Nếu phương án đổi lựa chọn vật chất đã duyệt, HQ ghi revision/hash mới và lấy phê duyệt chính xác trước khi cấp lease.
+2. **Khóa snapshot rồi cấp một lease hardware.** Pin hash cấu hình được duyệt, hồ sơ closure, schematic/PCB nguồn BrijModi, BOM r2 làm mốc, datasheet đúng mã và revision của linh kiện được chọn, cùng KiCad `10.0.7` và thư viện dùng để chạy kiểm tra. HQ đối chiếu quyền ghi, base manifest và chạy validator trước dispatch. `MM-DATA-ID-001` đang có lease phần mềm riêng, vì vậy xếp hai carrier tuần tự khi lease đó còn hoạt động. [Quy tắc lease](D:/StartupOS/electronics-learning-demo/docs/mission-control/parallel-build-policy.md:16) · [Handoff KiCad](D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-r6-kicad-handoff.md)
+3. **Schematic → review → layout → BOM và kiểm tra cuối.** Review schematic theo bảng trạng thái USB, nguồn/reset, pinout và footprint trước layout. Freeze quyền ghi khi chuyển review, rồi HQ cấp lại đúng phạm vi cho layout. BOM cuối đối chiếu refdes giữa schematic và PCB, ghi MPN hoặc trạng thái chưa chốt, package/footprint, số lượng và DNP. Handoff từng carrier gồm hash snapshot, báo cáo ERC/DRC, tool version và sai lệch có giải trình. Mục tiêu là không còn lỗi chưa xử lý hay waiver ảnh hưởng yêu cầu r6. KiCad mới có bằng chứng kiểm phiên bản, nên cần kết quả chạy ERC/DRC thực tế trên snapshot bàn giao.
+4. **Để riêng các phép kiểm trên mẫu.** Độ vừa của DevKit thực tế, dòng và nhiệt dưới tải đồng thời, đỉnh rail khi phanh, ngưỡng cắt/phục hồi thực, dòng ngược và hành vi cắm/rút là bằng chứng bench. ERC/DRC và review thiết kế chỉ xác nhận các phần tương ứng. Mua hàng, chế tạo và vận hành thiết bị cần quyền riêng.
+
+Box01 giữ review ranh giới và thứ tự gate. Box03 sở hữu phương án và công việc KiCad khi có lease. Box08 sở hữu verdict kỹ thuật độc lập. HQ giữ registry, approval, validator và chuyển trạng thái. Chỉ kéo box02 vào nếu box03/08 xác định còn gap cụ thể về trạng thái chân lúc boot/reset, đường backfeed qua peripheral hoặc hợp đồng firmware với tín hiệu enable/fault. Quyết định HQ cần xử lý ngay là giao packet đóng blocker cho box03 và yêu cầu box08 tái review trước khi mở task KiCad đầu tiên.

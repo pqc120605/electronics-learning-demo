@@ -1,0 +1,29 @@
+{
+  "classification": "Conditional arithmetic and rejected candidate screening, no gate proof",
+  "monitor_partial_trip_V": [
+    4.093101789475106,
+    4.186925464925985
+  ],
+  "monitor_exceeds_existing_trip_max": true,
+  "monitor_nominal_plusminus1pct_width_V": 0.0828,
+  "OFF_time_if_isolation20ms_qualifier420ms_s": 3.143167,
+  "OFF_remaining_if_above_s": 0.856833,
+  "watchdog_remaining_if12_65ms_ms": 7.35,
+  "coil_sensitivity_NOT_manufacturer_bound": {
+    "assumed_Rtolerance": 0.1,
+    "min_rail_V": 4.75,
+    "max_rail_V": 5.25,
+    "two_coil_current_A": [
+      1.1515151515151516,
+      1.5555555555555556
+    ],
+    "energy_3s_J_MAX": 24.5,
+    "pack_current_A_assuming3_2V_eta0_8_aux20mA": 3.2101041666666656
+  },
+  "missing": [
+    "device MAX for intended conditions",
+    "full topology and fault bounds",
+    "actual coil Rmin/force/duty",
+    "mode bias/aux partition"
+  ]
+}

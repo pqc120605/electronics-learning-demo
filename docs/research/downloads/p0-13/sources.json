@@ -1,0 +1,31 @@
+[
+  {
+    "url": "https://www.ti.com/lit/ds/symlink/iso6741.pdf",
+    "manufacturer": "TI",
+    "revision_expected": "SLLSFJ6G",
+    "access_date": "2026-11-10",
+    "path": "docs/research/downloads/p0-13/iso674x-revg.pdf",
+    "status": "PINNED",
+    "sha256": "18282cc8e701676eb7c2a283dad8bfc84b220ed4d2e9bb855f0c54fdb5f38805",
+    "bytes": 3389464
+  },
+  {
+    "url": "https://www.ti.com/lit/ds/symlink/tps3760.pdf",
+    "manufacturer": "TI",
+    "revision_expected": "SBVS420A",
+    "access_date": "2026-11-10",
+    "path": "docs/research/downloads/p0-13/tps3760-reva.pdf",
+    "status": "PINNED",
+    "sha256": "eb7d626587f369ade98d55b60823ed28e4b4d955b41181c4443763cf0eef5e7d",
+    "bytes": 2072991
+  },
+  {
+    "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/ltc4079.pdf",
+    "manufacturer": "Analog Devices",
+    "revision_expected": "Rev A",
+    "access_date": "2026-11-10",
+    "path": "docs/research/downloads/p0-13/ltc4079-reva.pdf",
+    "status": "NOT_RUN",
+    "reason": "The read operation timed out"
+  }
+]

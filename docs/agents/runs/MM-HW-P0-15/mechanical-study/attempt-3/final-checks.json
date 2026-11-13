@@ -1,0 +1,41 @@
+{
+  "at": "2026-11-11T01:03:40.924002+07:00",
+  "scope": "P0-15 bounded research checkpoint, not B1 readiness or physical proof",
+  "old_attempt2_files_verified": 58,
+  "current_packet_files_verified": 21,
+  "reused_manufacturer_PDFs_verified": 4,
+  "source_and_result_provenance_matches": true,
+  "r12_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+  "hardware_registry_unchanged": true,
+  "task": {
+    "id": "MM-HW-P0-15",
+    "status": "in_progress",
+    "write_lease": null
+  },
+  "queue_sha256": "a29729d49b2bc7d68a01b54c22a551fb7a7673da43a7b1185b9c81d2f8b73732",
+  "queue_validation": {
+    "exit_code": 0,
+    "stdout": "{\n  \"tasks\": 61,\n  \"capabilities\": 143,\n  \"warnings\": [],\n  \"errors\": []\n}\n",
+    "stderr": ""
+  },
+  "executed_this_attempt": {
+    "sense_cutsets.py": 0,
+    "functional_witness.py via cad.cmd": 0,
+    "thin_tail.py": 0,
+    "thin_tail_kernel.py via cad.cmd": 0,
+    "supply_allocation.py": 0
+  },
+  "not_run": [
+    "physical/bench",
+    "FE/force/materials",
+    "firmware/device",
+    "schematic/PCB/B1",
+    "application/browser tests; source unchanged"
+  ],
+  "scope_matrix_sha256": "2036d4c07f97551a66aba6ee796882cb25c4ae042152977567325fb70166a039",
+  "review_file_hashes": {
+    "BOX08-RESEARCH-REVIEW.md": "1a196f730d5167759984cb1a63ce763f8d50c0e0629828f62e788d398e3b5486",
+    "BOX01-SCOPE-AUDIT.md": "48830bd85f52b2de73f8580483ee1be38512c95f9eb20c612c1ef47ba541f05c",
+    "BOX08-SCOPE-DISPOSITION.md": "4d15a13e0e5d75c49f56ec6938d333014c1ba29de17973c0bf7bfcc9ef33568d"
+  }
+}

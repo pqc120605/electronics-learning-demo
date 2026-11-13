@@ -1,0 +1,9 @@
+{
+  "scope": "Interface bookkeeping only, not physical conductor count closure",
+  "retained_signal_roles": 16,
+  "logical_lower_bound": 19,
+  "battery_paths_if_six_sense_no_aux": 8,
+  "physical_pin_assignment": "UNASSIGNED",
+  "physical_conductor_count": "TBD, not inferred from 19 logical roles",
+  "inventory_sha256": "82feb6e3a87b457393e06aa867e4360e1981ad72aaf162ed8a4b4c65ba33922c"
+}

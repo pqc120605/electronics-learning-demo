@@ -1,0 +1,79 @@
+{
+  "captured_at": "2026-11-04 20:58:38 UTC",
+  "source": "native list_threads after explicit rename; master move_thread_to_project returned target ID twice; read-back is authoritative",
+  "expected_project_id": "0932abd7-7bd0-43c8-9fba-08776abdfeb3",
+  "chats": [
+    {
+      "id": "01a1a858-a54b-7eb1-a7c8-bf039a639757",
+      "title": "08 | QA & Safety Review",
+      "status": "idle",
+      "projectId": "0932abd7-7bd0-43c8-9fba-08776abdfeb3",
+      "cwd": "D:\\StartupOS\\electronics-learning-demo",
+      "hostId": "local"
+    },
+    {
+      "id": "01a1a858-0ede-7221-84b1-fcfc1876a4a9",
+      "title": "07 | Testing & Validation",
+      "status": "idle",
+      "projectId": "0932abd7-7bd0-43c8-9fba-08776abdfeb3",
+      "cwd": "D:\\StartupOS\\electronics-learning-demo",
+      "hostId": "local"
+    },
+    {
+      "id": "01a1a856-f10d-7d93-9684-5be471523aa6",
+      "title": "06 | UI/UX Design",
+      "status": "idle",
+      "projectId": "0932abd7-7bd0-43c8-9fba-08776abdfeb3",
+      "cwd": "D:\\StartupOS\\electronics-learning-demo",
+      "hostId": "local"
+    },
+    {
+      "id": "01a1a856-6b8b-7220-be8e-8dfe7248c780",
+      "title": "05 | Software Development",
+      "status": "idle",
+      "projectId": "0932abd7-7bd0-43c8-9fba-08776abdfeb3",
+      "cwd": "D:\\StartupOS\\electronics-learning-demo",
+      "hostId": "local"
+    },
+    {
+      "id": "01a1a855-8689-7941-bf01-e4bff1213834",
+      "title": "04 | Learning Experience",
+      "status": "idle",
+      "projectId": "0932abd7-7bd0-43c8-9fba-08776abdfeb3",
+      "cwd": "D:\\StartupOS\\electronics-learning-demo",
+      "hostId": "local"
+    },
+    {
+      "id": "01a1a855-14f9-7d32-9d27-118e8a50627e",
+      "title": "03 | Hardware & Kit Design",
+      "status": "idle",
+      "projectId": "0932abd7-7bd0-43c8-9fba-08776abdfeb3",
+      "cwd": "D:\\StartupOS\\electronics-learning-demo",
+      "hostId": "local"
+    },
+    {
+      "id": "01a1a854-2163-70f2-a167-db281ef2ad08",
+      "title": "02 | Electronics & Firmware",
+      "status": "idle",
+      "projectId": "0932abd7-7bd0-43c8-9fba-08776abdfeb3",
+      "cwd": "D:\\StartupOS\\electronics-learning-demo",
+      "hostId": "local"
+    },
+    {
+      "id": "01a1a853-d232-7460-8d00-3312362df34a",
+      "title": "01 | Product & System Architecture",
+      "status": "idle",
+      "projectId": "0932abd7-7bd0-43c8-9fba-08776abdfeb3",
+      "cwd": "D:\\StartupOS\\electronics-learning-demo",
+      "hostId": "local"
+    },
+    {
+      "id": "01a1a84b-49b8-7dd0-b5ef-bd06feb4670e",
+      "title": "00 | Mạch Mở HQ — Master",
+      "status": "active",
+      "projectId": null,
+      "cwd": "D:\\StartupOS\\electronics-learning-demo",
+      "hostId": "local"
+    }
+  ]
+}

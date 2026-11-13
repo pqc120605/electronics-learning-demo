@@ -1,0 +1,28 @@
+{
+  "classification": "Screening arithmetic only; NOT actual capture, physical timing or design acceptance",
+  "results": {
+    "weak_guard_return_time_ms_at1g_1_2mm_net0_06N": 6.324555320336759,
+    "weak_guard_even_if0_18N_gross_no_drag_time_ms": 3.6514837167011076,
+    "force_for1g_1_2mm_in1ms_N": 2.4,
+    "force_for1g_1_2mm_in0_5ms_N": 9.6,
+    "max_mass_kg_if0_06N_1_2mm_1ms": 2.5e-05,
+    "max_travel_mm_if0_06N_1g_1ms": 0.03,
+    "strong_spring_work_mJ": 79.19999999999999,
+    "average_cocking_force_N_with10mJloss_eta0_6_3mm": 49.55555555555555,
+    "strong_guard_free_travel_ms": 0.34641016151377546,
+    "trigger_free_travel_ms": 0.2,
+    "impact_screening_work_mJ": 86.39999999999999,
+    "average_arrest_force_N_if0_2mm_stop": 431.99999999999994,
+    "old_actuator_net_work_mJ": 0.36,
+    "follower_sensitivity_mm_in1ms_if3g_0_1m_s_100N": 16.766666666666666,
+    "strong_free_motion_budget_ms": 0.8964101615137754
+  },
+  "unresolved": [
+    "source of opening work over full phase cycle",
+    "guard approach when follower occupies throat",
+    "bounded follower history/energy",
+    "actual decay/seat/return bounds",
+    "impact rebound/shared datum faults",
+    "fit/cost"
+  ]
+}

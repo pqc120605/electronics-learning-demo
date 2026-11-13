@@ -1,0 +1,2370 @@
+{
+  "boardId": "esp32-s3-devkitc-1",
+  "revision": "Espressif ESP32-S3-DevKitC-1 · PCB V1.1 · PADS reference import",
+  "sourceFile": "assets/boards/vendor/esp32-s3-devkitc-1/work/kicad-import/ESP32-S3-DevKitC-1_V1.1.kicad_pcb",
+  "sourcePcbSha256": "b6c9a8a0ab751a7d1c1b2dde48345b11a23f7a6a87dab373fd45da2da1280176",
+  "sourceArchiveSha256": "25b16b894c4e104ad62640ceaf60ba7ead356105567f9471da4ce3c66ddb871a",
+  "sourcePadsSha256": "61e3f8202ee518eb014845c81650ac03c2ae128e430729e12f7f647c3688cbfc",
+  "sourceBomSha256": "7939c7d5223664aca116f52c85287e30761362e0668777ca53c262a72658d3fb",
+  "derivedPcbFile": "assets/boards/vendor/esp32-s3-devkitc-1/derived/ESP32-S3-DevKitC-1_V1.1-educational.kicad_pcb",
+  "modelSha256": "abf7b557d1356ae5d545f5529203eed80f5f5469d5c2f864a7727db3d314bb85",
+  "units": "mm",
+  "boardOutline": {
+    "widthMm": 25.4,
+    "heightMm": 62.865,
+    "cornerRadiusMm": 0.666667,
+    "sourceNativeWidthMm": 38.1,
+    "sourceNativeHeightMm": 94.2975,
+    "officialDimensionPdfHeightMm": 62.74,
+    "heightDifferenceMm": 0.125,
+    "note": "Rounded outline converted from Espressif PADS ASCII at the KiCad importer 2/3 scale; differs by 0.125 mm from the dimension PDF."
+  },
+  "components": [
+    {
+      "reference": "C1",
+      "label": "Tụ SMD · C0603",
+      "role": "Capacitor · 10uF/25V(20%) · MLCC, X5R, H0.8, -55℃~85℃ · muRata GRM188R61E106MA73D",
+      "description": "Capacitor · 10uF/25V(20%) · MLCC, X5R, H0.8, -55℃~85℃ · muRata GRM188R61E106MA73D",
+      "value": "10uF/25V(20%)",
+      "manufacturerPartNumber": "GRM188R61E106MA73D",
+      "manufacturer": "muRata",
+      "alternates": [],
+      "partType": "Capacitor",
+      "bomDescription": "MLCC, X5R, H0.8, -55℃~85℃",
+      "footprint": "C0603",
+      "x": -264.586588,
+      "y": 199.644,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C1"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "C10",
+      "label": "Tụ SMD · C0603",
+      "role": "Capacitor · 10uF/25V(20%) · MLCC, X5R, H0.8, -55℃~85℃ · muRata GRM188R61E106MA73D",
+      "description": "Capacitor · 10uF/25V(20%) · MLCC, X5R, H0.8, -55℃~85℃ · muRata GRM188R61E106MA73D",
+      "value": "10uF/25V(20%)",
+      "manufacturerPartNumber": "GRM188R61E106MA73D",
+      "manufacturer": "muRata",
+      "alternates": [],
+      "partType": "Capacitor",
+      "bomDescription": "MLCC, X5R, H0.8, -55℃~85℃",
+      "footprint": "C0603",
+      "x": -263.824588,
+      "y": 201.93,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C10"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "C11",
+      "label": "Tụ SMD · C0603",
+      "role": "Capacitor · 10uF/25V(20%) · MLCC, X5R, H0.8, -55℃~85℃ · muRata GRM188R61E106MA73D",
+      "description": "Capacitor · 10uF/25V(20%) · MLCC, X5R, H0.8, -55℃~85℃ · muRata GRM188R61E106MA73D",
+      "value": "10uF/25V(20%)",
+      "manufacturerPartNumber": "GRM188R61E106MA73D",
+      "manufacturer": "muRata",
+      "alternates": [],
+      "partType": "Capacitor",
+      "bomDescription": "MLCC, X5R, H0.8, -55℃~85℃",
+      "footprint": "C0603",
+      "x": -263.875388,
+      "y": 216.8906,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C11"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "C12",
+      "label": "Tụ SMD · C0402",
+      "role": "Capacitor · 1uF/16V(10%) · MLCC, X6S, H0.5, -55℃~105℃ · muRata GRM155C81C105KE11D",
+      "description": "Capacitor · 1uF/16V(10%) · MLCC, X6S, H0.5, -55℃~105℃ · muRata GRM155C81C105KE11D",
+      "value": "1uF/16V(10%)",
+      "manufacturerPartNumber": "GRM155C81C105KE11D",
+      "manufacturer": "muRata",
+      "alternates": [],
+      "partType": "Capacitor",
+      "bomDescription": "MLCC, X6S, H0.5, -55℃~105℃",
+      "footprint": "C0402",
+      "x": -262.859388,
+      "y": 218.7956,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C12"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "N17688270"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "C13",
+      "label": "Linh kiện · C0402",
+      "role": "Linh kiện · C0402",
+      "description": "Linh kiện · C0402",
+      "value": "C0402",
+      "manufacturerPartNumber": "",
+      "manufacturer": "",
+      "alternates": [],
+      "partType": "",
+      "bomDescription": "",
+      "footprint": "C0402",
+      "x": -264.865988,
+      "y": 227.8602,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": false,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C13"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "GPIO0"
+        }
+      ],
+      "evidence": "unverified"
+    },
+    {
+      "reference": "C14",
+      "label": "Linh kiện · C0402",
+      "role": "Linh kiện · C0402",
+      "description": "Linh kiện · C0402",
+      "value": "C0402",
+      "manufacturerPartNumber": "",
+      "manufacturer": "",
+      "alternates": [],
+      "partType": "",
+      "bomDescription": "",
+      "footprint": "C0402",
+      "x": -252.038988,
+      "y": 227.8602,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": false,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C14"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "CHIP_PU"
+        }
+      ],
+      "evidence": "unverified"
+    },
+    {
+      "reference": "C15",
+      "label": "Linh kiện · C0603",
+      "role": "Linh kiện · C0603",
+      "description": "Linh kiện · C0603",
+      "value": "C0603",
+      "manufacturerPartNumber": "",
+      "manufacturer": "",
+      "alternates": [],
+      "partType": "",
+      "bomDescription": "",
+      "footprint": "C0603",
+      "x": -258.388988,
+      "y": 224.4852,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": false,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C15"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_5V"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "unverified"
+    },
+    {
+      "reference": "C2",
+      "label": "Tụ SMD · C0402",
+      "role": "Capacitor · 0.1uF/50V(10%) · MLCC, X5R, H0.5, -55℃~85℃ · EYANG C0402X5R104K500NTC",
+      "description": "Capacitor · 0.1uF/50V(10%) · MLCC, X5R, H0.5, -55℃~85℃ · EYANG C0402X5R104K500NTC",
+      "value": "0.1uF/50V(10%)",
+      "manufacturerPartNumber": "C0402X5R104K500NTC",
+      "manufacturer": "EYANG",
+      "alternates": [
+        {
+          "partType": "Capacitor",
+          "description": "MLCC, X5R, H0.5, -55℃~85℃",
+          "manufacturer": "Sumsang",
+          "manufacturerPartNumber": "CL05A104KB5NNNC"
+        },
+        {
+          "partType": "Capacitor",
+          "description": "MLCC, X7R, H0.5, -55℃~125℃",
+          "manufacturer": "muRata",
+          "manufacturerPartNumber": "GRM155R71H104KE14D"
+        }
+      ],
+      "partType": "Capacitor",
+      "bomDescription": "MLCC, X5R, H0.5, -55℃~85℃",
+      "footprint": "C0402",
+      "x": -264.078588,
+      "y": 203.708,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C2"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "C3",
+      "label": "Tụ SMD · C0603",
+      "role": "Capacitor · 10uF/25V(20%) · MLCC, X5R, H0.8, -55℃~85℃ · muRata GRM188R61E106MA73D",
+      "description": "Capacitor · 10uF/25V(20%) · MLCC, X5R, H0.8, -55℃~85℃ · muRata GRM188R61E106MA73D",
+      "value": "10uF/25V(20%)",
+      "manufacturerPartNumber": "GRM188R61E106MA73D",
+      "manufacturer": "muRata",
+      "alternates": [],
+      "partType": "Capacitor",
+      "bomDescription": "MLCC, X5R, H0.8, -55℃~85℃",
+      "footprint": "C0603",
+      "x": -258.388988,
+      "y": 226.2602,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C3"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_5V"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "C6",
+      "label": "Tụ SMD · C0402",
+      "role": "Capacitor · 1uF/16V(10%) · MLCC, X6S, H0.5, -55℃~105℃ · muRata GRM155C81C105KE11D",
+      "description": "Capacitor · 1uF/16V(10%) · MLCC, X6S, H0.5, -55℃~105℃ · muRata GRM155C81C105KE11D",
+      "value": "1uF/16V(10%)",
+      "manufacturerPartNumber": "GRM155C81C105KE11D",
+      "manufacturer": "muRata",
+      "alternates": [],
+      "partType": "Capacitor",
+      "bomDescription": "MLCC, X6S, H0.5, -55℃~105℃",
+      "footprint": "C0402",
+      "x": -258.617588,
+      "y": 198.882,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C6"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "CHIP_PU"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "C7",
+      "label": "Tụ SMD · C0603",
+      "role": "Capacitor · 10uF/25V(20%) · MLCC, X5R, H0.8, -55℃~85℃ · muRata GRM188R61E106MA73D",
+      "description": "Capacitor · 10uF/25V(20%) · MLCC, X5R, H0.8, -55℃~85℃ · muRata GRM188R61E106MA73D",
+      "value": "10uF/25V(20%)",
+      "manufacturerPartNumber": "GRM188R61E106MA73D",
+      "manufacturer": "muRata",
+      "alternates": [],
+      "partType": "Capacitor",
+      "bomDescription": "MLCC, X5R, H0.8, -55℃~85℃",
+      "footprint": "C0603",
+      "x": -263.824588,
+      "y": 205.486,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C7"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_5V"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "C8",
+      "label": "Tụ SMD · C0402",
+      "role": "Capacitor · 0.1uF/50V(10%) · MLCC, X5R, H0.5, -55℃~85℃ · EYANG C0402X5R104K500NTC",
+      "description": "Capacitor · 0.1uF/50V(10%) · MLCC, X5R, H0.5, -55℃~85℃ · EYANG C0402X5R104K500NTC",
+      "value": "0.1uF/50V(10%)",
+      "manufacturerPartNumber": "C0402X5R104K500NTC",
+      "manufacturer": "EYANG",
+      "alternates": [
+        {
+          "partType": "Capacitor",
+          "description": "MLCC, X5R, H0.5, -55℃~85℃",
+          "manufacturer": "Sumsang",
+          "manufacturerPartNumber": "CL05A104KB5NNNC"
+        },
+        {
+          "partType": "Capacitor",
+          "description": "MLCC, X7R, H0.5, -55℃~125℃",
+          "manufacturer": "muRata",
+          "manufacturerPartNumber": "GRM155R71H104KE14D"
+        }
+      ],
+      "partType": "Capacitor",
+      "bomDescription": "MLCC, X5R, H0.5, -55℃~85℃",
+      "footprint": "C0402",
+      "x": -262.808588,
+      "y": 203.708,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C8"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_5V"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "C9",
+      "label": "Tụ SMD · C0402",
+      "role": "Capacitor · 0.1uF/50V(10%) · MLCC, X5R, H0.5, -55℃~85℃ · EYANG C0402X5R104K500NTC",
+      "description": "Capacitor · 0.1uF/50V(10%) · MLCC, X5R, H0.5, -55℃~85℃ · EYANG C0402X5R104K500NTC",
+      "value": "0.1uF/50V(10%)",
+      "manufacturerPartNumber": "C0402X5R104K500NTC",
+      "manufacturer": "EYANG",
+      "alternates": [
+        {
+          "partType": "Capacitor",
+          "description": "MLCC, X5R, H0.5, -55℃~85℃",
+          "manufacturer": "Sumsang",
+          "manufacturerPartNumber": "CL05A104KB5NNNC"
+        },
+        {
+          "partType": "Capacitor",
+          "description": "MLCC, X7R, H0.5, -55℃~125℃",
+          "manufacturer": "muRata",
+          "manufacturerPartNumber": "GRM155R71H104KE14D"
+        }
+      ],
+      "partType": "Capacitor",
+      "bomDescription": "MLCC, X5R, H0.5, -55℃~85℃",
+      "footprint": "C0402",
+      "x": -264.967588,
+      "y": 203.708,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "C9"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "D1",
+      "label": "Schottky diode · SOD-123",
+      "role": "Part family from BOM; generic package mesh.",
+      "description": "Part family from BOM; generic package mesh.",
+      "value": "1N5819HW-7-F",
+      "manufacturerPartNumber": "1N5819HW-7-F",
+      "manufacturer": "Diodes Incorporated",
+      "alternates": [],
+      "partType": "Diode",
+      "bomDescription": "Schottky Barrier Diodes,Vrms=40V,If=1.0A,Vf=0.45V,Ifsm=25A, H1.35, Tj-65℃~+125℃",
+      "footprint": "SOD123",
+      "x": -260.674988,
+      "y": 230.3688,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Diode_SMD.3dshapes/D_SOD-123.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "D1"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VBUS"
+        },
+        {
+          "number": "2",
+          "net": "VCC_5V"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "D10",
+      "label": "ESD protection diode · SOD-523",
+      "role": "BOM identifies a 5 V ESD diode; generic package mesh.",
+      "description": "BOM identifies a 5 V ESD diode; generic package mesh.",
+      "value": "LESD5D5.0CT1G",
+      "manufacturerPartNumber": "LESD5D5.0CT1G",
+      "manufacturer": "LRC",
+      "alternates": [],
+      "partType": "Diode",
+      "bomDescription": "ESD,Bidirectional,Vrwm=5.0V,Vbr=7.8V,Cd=15pF, H0.7, -40℃~+125℃",
+      "footprint": "SOD523",
+      "x": -251.024388,
+      "y": 230.3188,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Diode_SMD.3dshapes/D_SOD-523.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "D10"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "GPIO20"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "D2",
+      "label": "ESD protection diode · SOD-523",
+      "role": "BOM identifies a 5 V ESD diode; generic package mesh.",
+      "description": "BOM identifies a 5 V ESD diode; generic package mesh.",
+      "value": "LESD5D5.0CT1G",
+      "manufacturerPartNumber": "LESD5D5.0CT1G",
+      "manufacturer": "LRC",
+      "alternates": [],
+      "partType": "Diode",
+      "bomDescription": "ESD,Bidirectional,Vrwm=5.0V,Vbr=7.8V,Cd=15pF, H0.7, -40℃~+125℃",
+      "footprint": "SOD523",
+      "x": -266.524388,
+      "y": 230.3188,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Diode_SMD.3dshapes/D_SOD-523.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "D2"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "VBUS"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "D3",
+      "label": "ESD protection diode · SOD-523",
+      "role": "BOM identifies a 5 V ESD diode; generic package mesh.",
+      "description": "BOM identifies a 5 V ESD diode; generic package mesh.",
+      "value": "LESD5D5.0CT1G",
+      "manufacturerPartNumber": "LESD5D5.0CT1G",
+      "manufacturer": "LRC",
+      "alternates": [],
+      "partType": "Diode",
+      "bomDescription": "ESD,Bidirectional,Vrwm=5.0V,Vbr=7.8V,Cd=15pF, H0.7, -40℃~+125℃",
+      "footprint": "SOD523",
+      "x": -265.119988,
+      "y": 230.3188,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Diode_SMD.3dshapes/D_SOD-523.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "D3"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "D-"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "D4",
+      "label": "ESD protection diode · SOD-523",
+      "role": "BOM identifies a 5 V ESD diode; generic package mesh.",
+      "description": "BOM identifies a 5 V ESD diode; generic package mesh.",
+      "value": "LESD5D5.0CT1G",
+      "manufacturerPartNumber": "LESD5D5.0CT1G",
+      "manufacturer": "LRC",
+      "alternates": [],
+      "partType": "Diode",
+      "bomDescription": "ESD,Bidirectional,Vrwm=5.0V,Vbr=7.8V,Cd=15pF, H0.7, -40℃~+125℃",
+      "footprint": "SOD523",
+      "x": -264.103988,
+      "y": 230.3188,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Diode_SMD.3dshapes/D_SOD-523.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "D4"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "D+"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "D5",
+      "label": "Red indicator LED",
+      "role": "Red indicator LED per BOM; do not infer electrical behavior beyond the CAD/BOM.",
+      "description": "Red indicator LED per BOM; do not infer electrical behavior beyond the CAD/BOM.",
+      "value": "RED LED",
+      "manufacturerPartNumber": "FC-DA1608HRK-620D",
+      "manufacturer": "NationStar",
+      "alternates": [
+        {
+          "partType": "Diode",
+          "description": "Light-Emitting Diode:Red LED, IF=20mA, VR=5V, 50mW, H0.6, -40℃~85℃",
+          "manufacturer": "贝益达电子",
+          "manufacturerPartNumber": "BD-PT0603R6C-C01-4T"
+        }
+      ],
+      "partType": "Diode",
+      "bomDescription": "Light-Emitting Diode:Red LED, IF=25mA, VR=5V, 65mW, H0.6, -30℃~85℃",
+      "footprint": "LED0603",
+      "x": -252.013588,
+      "y": 204.343,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "LED_SMD.3dshapes/LED_0603_1608Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "D5"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "N17692194"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "D6",
+      "label": "Addressable RGB LED · GPIO38",
+      "role": "V1.1 board guide identifies the RGB LED on GPIO38; package mesh is a 3.5 mm generic outline.",
+      "description": "V1.1 board guide identifies the RGB LED on GPIO38; package mesh is a 3.5 mm generic outline.",
+      "value": "SK68XXMINI-HS",
+      "manufacturerPartNumber": "WS2812B-Mini-V3",
+      "manufacturer": "Worldsemi",
+      "alternates": [],
+      "partType": "Diode",
+      "bomDescription": "Light-Emitting Diode: 1-wire RGB: Intelligent Control LED Integrated Light Source, 3535, H1.9, -25℃~85℃",
+      "footprint": "LED3535B",
+      "x": -263.621388,
+      "y": 210.2358,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "LED_SMD.3dshapes/LED_WS2812B-Mini_PLCC4_3.5x3.5mm.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "D6"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "RGB_CTRL"
+        },
+        {
+          "number": "3",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "4",
+          "net": null
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "D7",
+      "label": "Schottky diode · SOD-123",
+      "role": "Part family from BOM; generic package mesh.",
+      "description": "Part family from BOM; generic package mesh.",
+      "value": "1N5819HW-7-F",
+      "manufacturerPartNumber": "1N5819HW-7-F",
+      "manufacturer": "Diodes Incorporated",
+      "alternates": [],
+      "partType": "Diode",
+      "bomDescription": "Schottky Barrier Diodes,Vrms=40V,If=1.0A,Vf=0.45V,Ifsm=25A, H1.35, Tj-65℃~+125℃",
+      "footprint": "SOD123",
+      "x": -256.229988,
+      "y": 230.3688,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Diode_SMD.3dshapes/D_SOD-123.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "D7"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VBUSB"
+        },
+        {
+          "number": "2",
+          "net": "VCC_5V"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "D8",
+      "label": "ESD protection diode · SOD-523",
+      "role": "BOM identifies a 5 V ESD diode; generic package mesh.",
+      "description": "BOM identifies a 5 V ESD diode; generic package mesh.",
+      "value": "LESD5D5.0CT1G",
+      "manufacturerPartNumber": "LESD5D5.0CT1G",
+      "manufacturer": "LRC",
+      "alternates": [],
+      "partType": "Diode",
+      "bomDescription": "ESD,Bidirectional,Vrwm=5.0V,Vbr=7.8V,Cd=15pF, H0.7, -40℃~+125℃",
+      "footprint": "SOD523",
+      "x": -253.564388,
+      "y": 230.3188,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Diode_SMD.3dshapes/D_SOD-523.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "D8"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "VBUSB"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "D9",
+      "label": "ESD protection diode · SOD-523",
+      "role": "BOM identifies a 5 V ESD diode; generic package mesh.",
+      "description": "BOM identifies a 5 V ESD diode; generic package mesh.",
+      "value": "LESD5D5.0CT1G",
+      "manufacturerPartNumber": "LESD5D5.0CT1G",
+      "manufacturer": "LRC",
+      "alternates": [],
+      "partType": "Diode",
+      "bomDescription": "ESD,Bidirectional,Vrwm=5.0V,Vbr=7.8V,Cd=15pF, H0.7, -40℃~+125℃",
+      "footprint": "SOD523",
+      "x": -252.044388,
+      "y": 230.3188,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Diode_SMD.3dshapes/D_SOD-523.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "D9"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "GPIO19"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "J1",
+      "label": "Header J1 · 22 pins",
+      "role": "One of the two 1×22 2.54 mm breakout headers.",
+      "description": "One of the two 1×22 2.54 mm breakout headers.",
+      "value": "CON22X1",
+      "manufacturerPartNumber": "-",
+      "manufacturer": "-",
+      "alternates": [],
+      "partType": "Connector",
+      "bomDescription": "Male Pin Header, 单排排针, 22Pins, 间距 2.54mm, 镀金 1U",
+      "footprint": "CON22X1_2P54_OBLATE",
+      "x": -269.844388,
+      "y": 178.0188,
+      "rotation": -90,
+      "side": "back",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x22_P2.54mm_Vertical.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "J1"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "ESP_3V3"
+        },
+        {
+          "number": "2",
+          "net": "ESP_3V3"
+        },
+        {
+          "number": "3",
+          "net": "CHIP_PU"
+        },
+        {
+          "number": "4",
+          "net": "GPIO4"
+        },
+        {
+          "number": "5",
+          "net": "GPIO5"
+        },
+        {
+          "number": "6",
+          "net": "GPIO6"
+        },
+        {
+          "number": "7",
+          "net": "GPIO7"
+        },
+        {
+          "number": "8",
+          "net": "GPIO15"
+        },
+        {
+          "number": "9",
+          "net": "GPIO16"
+        },
+        {
+          "number": "10",
+          "net": "GPIO17"
+        },
+        {
+          "number": "11",
+          "net": "GPIO18"
+        },
+        {
+          "number": "12",
+          "net": "GPIO8"
+        },
+        {
+          "number": "13",
+          "net": "GPIO3"
+        },
+        {
+          "number": "14",
+          "net": "GPIO46"
+        },
+        {
+          "number": "15",
+          "net": "GPIO9"
+        },
+        {
+          "number": "16",
+          "net": "GPIO10"
+        },
+        {
+          "number": "17",
+          "net": "GPIO11"
+        },
+        {
+          "number": "18",
+          "net": "GPIO12"
+        },
+        {
+          "number": "19",
+          "net": "GPIO13"
+        },
+        {
+          "number": "20",
+          "net": "GPIO14"
+        },
+        {
+          "number": "21",
+          "net": "VCC_5V"
+        },
+        {
+          "number": "22",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "J2",
+      "label": "Micro-USB connector J2",
+      "role": "USB-to-UART connector; generic package mesh, not an exact manufacturer-specific body.",
+      "description": "USB-to-UART connector; generic package mesh, not an exact manufacturer-specific body.",
+      "value": "MICRO USB",
+      "manufacturerPartNumber": "1110-205001",
+      "manufacturer": "敏乐",
+      "alternates": [
+        {
+          "partType": "Connector",
+          "description": "Micro USB 5P,Female, B Type, 插板7.2有柱, 脚长1.1, 四脚全插, 加长0.75（卷边）, H2.61, -30℃~+80℃",
+          "manufacturer": "U-wilcome",
+          "manufacturerPartNumber": "I42-0531-3121"
+        }
+      ],
+      "partType": "Connector",
+      "bomDescription": "Micro USB 5P,Female, 4-DipLeg, H3.0, -30℃~+85℃",
+      "footprint": "USB_5P_MICRO_F_ML",
+      "x": -265.114388,
+      "y": 234.35147,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Connector_USB.3dshapes/USB_Micro-B_Molex_47346-0001.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "J2"
+      ],
+      "pads": [
+        {
+          "number": "",
+          "net": null
+        },
+        {
+          "number": "",
+          "net": null
+        },
+        {
+          "number": "1",
+          "net": "VBUS"
+        },
+        {
+          "number": "2",
+          "net": "D-"
+        },
+        {
+          "number": "3",
+          "net": "D+"
+        },
+        {
+          "number": "4",
+          "net": null
+        },
+        {
+          "number": "5",
+          "net": "GND"
+        },
+        {
+          "number": "6",
+          "net": "GND"
+        },
+        {
+          "number": "7",
+          "net": "GND"
+        },
+        {
+          "number": "8",
+          "net": "GND"
+        },
+        {
+          "number": "9",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "J3",
+      "label": "Header J3 · 22 pins",
+      "role": "One of the two 1×22 2.54 mm breakout headers.",
+      "description": "One of the two 1×22 2.54 mm breakout headers.",
+      "value": "CON22X1",
+      "manufacturerPartNumber": "-",
+      "manufacturer": "-",
+      "alternates": [],
+      "partType": "Connector",
+      "bomDescription": "Male Pin Header, 单排排针, 22Pins, 间距 2.54mm, 镀金 1U",
+      "footprint": "CON22X1_2P54_OBLATE",
+      "x": -246.984388,
+      "y": 178.0188,
+      "rotation": -90,
+      "side": "back",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x22_P2.54mm_Vertical.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "J3"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "U0TXD"
+        },
+        {
+          "number": "3",
+          "net": "U0RXD"
+        },
+        {
+          "number": "4",
+          "net": "GPIO1"
+        },
+        {
+          "number": "5",
+          "net": "GPIO2"
+        },
+        {
+          "number": "6",
+          "net": "GPIO42"
+        },
+        {
+          "number": "7",
+          "net": "GPIO41"
+        },
+        {
+          "number": "8",
+          "net": "GPIO40"
+        },
+        {
+          "number": "9",
+          "net": "GPIO39"
+        },
+        {
+          "number": "10",
+          "net": "GPIO38"
+        },
+        {
+          "number": "11",
+          "net": "GPIO37"
+        },
+        {
+          "number": "12",
+          "net": "GPIO36"
+        },
+        {
+          "number": "13",
+          "net": "GPIO35"
+        },
+        {
+          "number": "14",
+          "net": "GPIO0"
+        },
+        {
+          "number": "15",
+          "net": "GPIO45"
+        },
+        {
+          "number": "16",
+          "net": "GPIO48"
+        },
+        {
+          "number": "17",
+          "net": "GPIO47"
+        },
+        {
+          "number": "18",
+          "net": "GPIO21"
+        },
+        {
+          "number": "19",
+          "net": "GPIO20"
+        },
+        {
+          "number": "20",
+          "net": "GPIO19"
+        },
+        {
+          "number": "21",
+          "net": "GND"
+        },
+        {
+          "number": "22",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "J4",
+      "label": "Micro-USB connector J4",
+      "role": "Native USB connector; generic package mesh, not an exact manufacturer-specific body.",
+      "description": "Native USB connector; generic package mesh, not an exact manufacturer-specific body.",
+      "value": "MICRO USB",
+      "manufacturerPartNumber": "1110-205001",
+      "manufacturer": "敏乐",
+      "alternates": [
+        {
+          "partType": "Connector",
+          "description": "Micro USB 5P,Female, B Type, 插板7.2有柱, 脚长1.1, 四脚全插, 加长0.75（卷边）, H2.61, -30℃~+80℃",
+          "manufacturer": "U-wilcome",
+          "manufacturerPartNumber": "I42-0531-3121"
+        }
+      ],
+      "partType": "Connector",
+      "bomDescription": "Micro USB 5P,Female, 4-DipLeg, H3.0, -30℃~+85℃",
+      "footprint": "USB_5P_MICRO_F_ML",
+      "x": -251.714388,
+      "y": 234.35147,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Connector_USB.3dshapes/USB_Micro-B_Molex_47346-0001.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "J4"
+      ],
+      "pads": [
+        {
+          "number": "",
+          "net": null
+        },
+        {
+          "number": "",
+          "net": null
+        },
+        {
+          "number": "1",
+          "net": "VBUSB"
+        },
+        {
+          "number": "2",
+          "net": "GPIO19"
+        },
+        {
+          "number": "3",
+          "net": "GPIO20"
+        },
+        {
+          "number": "4",
+          "net": null
+        },
+        {
+          "number": "5",
+          "net": "GND"
+        },
+        {
+          "number": "6",
+          "net": "GND"
+        },
+        {
+          "number": "7",
+          "net": "GND"
+        },
+        {
+          "number": "8",
+          "net": "GND"
+        },
+        {
+          "number": "9",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "Q1",
+      "label": "NPN transistor · L8050",
+      "role": "Part family from BOM; generic SOT-23 package mesh; pinout should be checked against the exact datasheet.",
+      "description": "Part family from BOM; generic SOT-23 package mesh; pinout should be checked against the exact datasheet.",
+      "value": "L8050QLT1G",
+      "manufacturerPartNumber": "L8050QLT1G",
+      "manufacturer": "LRC",
+      "alternates": [],
+      "partType": "Transistor",
+      "bomDescription": "NPN,Ic.max=0.8A,Vbe(sat)=0.5V@Ic=800mA&Ib=80mA, H1.11, Tj-55℃~+150℃",
+      "footprint": "SOT23-3",
+      "x": -253.334388,
+      "y": 210.2358,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Package_TO_SOT_SMD.3dshapes/SOT-23.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "Q1"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "N17689859"
+        },
+        {
+          "number": "2",
+          "net": "RTS"
+        },
+        {
+          "number": "3",
+          "net": "N17689967"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "Q2",
+      "label": "NPN transistor · L8050",
+      "role": "Part family from BOM; generic SOT-23 package mesh; pinout should be checked against the exact datasheet.",
+      "description": "Part family from BOM; generic SOT-23 package mesh; pinout should be checked against the exact datasheet.",
+      "value": "L8050QLT1G",
+      "manufacturerPartNumber": "L8050QLT1G",
+      "manufacturer": "LRC",
+      "alternates": [],
+      "partType": "Transistor",
+      "bomDescription": "NPN,Ic.max=0.8A,Vbe(sat)=0.5V@Ic=800mA&Ib=80mA, H1.11, Tj-55℃~+150℃",
+      "footprint": "SOT23-3",
+      "x": -258.541388,
+      "y": 210.2358,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Package_TO_SOT_SMD.3dshapes/SOT-23.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "Q2"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "N17689862"
+        },
+        {
+          "number": "2",
+          "net": "DTR"
+        },
+        {
+          "number": "3",
+          "net": "N17689962"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R10",
+      "label": "Điện trở SMD · R0402",
+      "role": "Resistor · R0402 · Thick Film Resistors, SMD, 10K(1%), 1/16w, H0.35, -55℃~155℃ · YAGEO RC0402FR-0710KL",
+      "description": "Resistor · R0402 · Thick Film Resistors, SMD, 10K(1%), 1/16w, H0.35, -55℃~155℃ · YAGEO RC0402FR-0710KL",
+      "value": "R0402",
+      "manufacturerPartNumber": "RC0402FR-0710KL",
+      "manufacturer": "YAGEO",
+      "alternates": [],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 10K(1%), 1/16w, H0.35, -55℃~155℃",
+      "footprint": "R0402",
+      "x": -254.731388,
+      "y": 213.5378,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R10"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "DTR"
+        },
+        {
+          "number": "2",
+          "net": "N17689859"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R11",
+      "label": "Điện trở SMD · R0402",
+      "role": "Resistor · 5.1K(1%) · Thick Film Resistors, SMD, 5.1K(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF5101TCE",
+      "description": "Resistor · 5.1K(1%) · Thick Film Resistors, SMD, 5.1K(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF5101TCE",
+      "value": "5.1K(1%)",
+      "manufacturerPartNumber": "0402WGF5101TCE",
+      "manufacturer": "UniOhm",
+      "alternates": [
+        {
+          "partType": "Resistor",
+          "description": "Thick Film Resistors, SMD, 5.1K(1%), 1/16w, H0.35, -55℃~155℃",
+          "manufacturer": "YAGEO",
+          "manufacturerPartNumber": "RC0402FR-075K1L"
+        }
+      ],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 5.1K(1%), 1/16w, H0.35, -55℃~155℃",
+      "footprint": "R0402",
+      "x": -252.013588,
+      "y": 200.914,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R11"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "2",
+          "net": "N17692194"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R12",
+      "label": "Điện trở SMD · R0402",
+      "role": "Resistor · R0402 · Thick Film Resistors, SMD, 10K(1%), 1/16w, H0.35, -55℃~155℃ · YAGEO RC0402FR-0710KL",
+      "description": "Resistor · R0402 · Thick Film Resistors, SMD, 10K(1%), 1/16w, H0.35, -55℃~155℃ · YAGEO RC0402FR-0710KL",
+      "value": "R0402",
+      "manufacturerPartNumber": "RC0402FR-0710KL",
+      "manufacturer": "YAGEO",
+      "alternates": [],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 10K(1%), 1/16w, H0.35, -55℃~155℃",
+      "footprint": "R0402",
+      "x": -252.445388,
+      "y": 213.5378,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R12"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "RTS"
+        },
+        {
+          "number": "2",
+          "net": "N17689862"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R13",
+      "label": "Điện trở SMD · R0402",
+      "role": "Resistor · 0(1%) · Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF0000TCE",
+      "description": "Resistor · 0(1%) · Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF0000TCE",
+      "value": "0(1%)",
+      "manufacturerPartNumber": "0402WGF0000TCE",
+      "manufacturer": "UniOhm",
+      "alternates": [
+        {
+          "partType": "Resistor",
+          "description": "Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃",
+          "manufacturer": "YAGEO",
+          "manufacturerPartNumber": "RC0402FR-070RL"
+        }
+      ],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃",
+      "footprint": "R0402",
+      "x": -259.430388,
+      "y": 213.5378,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R13"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "N17689962"
+        },
+        {
+          "number": "2",
+          "net": "GPIO0"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R14",
+      "label": "Linh kiện · R0402",
+      "role": "Linh kiện · R0402",
+      "description": "Linh kiện · R0402",
+      "value": "R0402",
+      "manufacturerPartNumber": "",
+      "manufacturer": "",
+      "alternates": [],
+      "partType": "",
+      "bomDescription": "",
+      "footprint": "R0402",
+      "x": -264.383388,
+      "y": 221.4626,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": false,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R14"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "N17688663"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "unverified"
+    },
+    {
+      "reference": "R16",
+      "label": "Điện trở SMD · R0402",
+      "role": "Resistor · 1K(1%) · Thick Film Resistors, SMD, 1K(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF1001TCE",
+      "description": "Resistor · 1K(1%) · Thick Film Resistors, SMD, 1K(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF1001TCE",
+      "value": "1K(1%)",
+      "manufacturerPartNumber": "0402WGF1001TCE",
+      "manufacturer": "UniOhm",
+      "alternates": [
+        {
+          "partType": "Resistor",
+          "description": "Thick Film Resistors, SMD, 1K(1%), 1/16w, H0.35, -55℃~155℃",
+          "manufacturer": "YAGEO",
+          "manufacturerPartNumber": "RC0402FR-071KL"
+        }
+      ],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 1K(1%), 1/16w, H0.35, -55℃~155℃",
+      "footprint": "R0402",
+      "x": -264.383388,
+      "y": 220.5736,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R16"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "N17688616"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R17",
+      "label": "Điện trở SMD · R0402",
+      "role": "Resistor · 0(1%) · Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF0000TCE",
+      "description": "Resistor · 0(1%) · Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF0000TCE",
+      "value": "0(1%)",
+      "manufacturerPartNumber": "0402WGF0000TCE",
+      "manufacturer": "UniOhm",
+      "alternates": [
+        {
+          "partType": "Resistor",
+          "description": "Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃",
+          "manufacturer": "YAGEO",
+          "manufacturerPartNumber": "RC0402FR-070RL"
+        }
+      ],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃",
+      "footprint": "R0402",
+      "x": -262.224388,
+      "y": 213.5378,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R17"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GPIO38"
+        },
+        {
+          "number": "2",
+          "net": "RGB_CTRL"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R18",
+      "label": "Điện trở SMD · R0402",
+      "role": "Resistor · 47.5K(1%) · Thick Film Resistors, SMD, 47.5K(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF4752TCE",
+      "description": "Resistor · 47.5K(1%) · Thick Film Resistors, SMD, 47.5K(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF4752TCE",
+      "value": "47.5K(1%)",
+      "manufacturerPartNumber": "0402WGF4752TCE",
+      "manufacturer": "UniOhm",
+      "alternates": [
+        {
+          "partType": "Resistor",
+          "description": "Thick Film Resistors, SMD, 47.5K(1%), 1/16w, H0.35, -55℃~155℃",
+          "manufacturer": "UniOhm",
+          "manufacturerPartNumber": "0402WGF4752TCE"
+        }
+      ],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 47.5K(1%), 1/16w, H0.35, -55℃~155℃",
+      "footprint": "R0402",
+      "x": -264.383388,
+      "y": 218.2876,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R18"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "N17688270"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R19",
+      "label": "Điện trở SMD · R0402",
+      "role": "Resistor · 22.1K(1%) · Thick Film Resistors, SMD, 22.1K(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF2212TCE",
+      "description": "Resistor · 22.1K(1%) · Thick Film Resistors, SMD, 22.1K(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF2212TCE",
+      "value": "22.1K(1%)",
+      "manufacturerPartNumber": "0402WGF2212TCE",
+      "manufacturer": "UniOhm",
+      "alternates": [
+        {
+          "partType": "Resistor",
+          "description": "Thick Film Resistors, SMD, 22.1K(1%), 1/16w, H0.35, -55℃~155℃",
+          "manufacturer": "YAGEO",
+          "manufacturerPartNumber": "RC0402FR-0722K1L"
+        }
+      ],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 22.1K(1%), 1/16w, H0.35, -55℃~155℃",
+      "footprint": "R0402",
+      "x": -264.383388,
+      "y": 219.3036,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R19"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VBUS"
+        },
+        {
+          "number": "2",
+          "net": "N17688270"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R24",
+      "label": "Điện trở SMD · R0603",
+      "role": "Resistor · 0(1%) · Thick Film Resistors, SMD, 1, 1/10w, H0.45, -55℃~155℃ · UniOhm 0603WAF0000T5E",
+      "description": "Resistor · 0(1%) · Thick Film Resistors, SMD, 1, 1/10w, H0.45, -55℃~155℃ · UniOhm 0603WAF0000T5E",
+      "value": "0(1%)",
+      "manufacturerPartNumber": "0603WAF0000T5E",
+      "manufacturer": "UniOhm",
+      "alternates": [
+        {
+          "partType": "Resistor",
+          "description": "Thick Film Resistors, SMD, , 1/10w, H0.45, -55℃~155℃",
+          "manufacturer": "YAGEO",
+          "manufacturerPartNumber": "RC0603FR-070RL"
+        }
+      ],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 1, 1/10w, H0.45, -55℃~155℃",
+      "footprint": "R0603",
+      "x": -262.935588,
+      "y": 199.644,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R24"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "2",
+          "net": "ESP_3V3"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R5",
+      "label": "Điện trở SMD · R0402",
+      "role": "Resistor · R0402 · Thick Film Resistors, SMD, 10K(1%), 1/16w, H0.35, -55℃~155℃ · YAGEO RC0402FR-0710KL",
+      "description": "Resistor · R0402 · Thick Film Resistors, SMD, 10K(1%), 1/16w, H0.35, -55℃~155℃ · YAGEO RC0402FR-0710KL",
+      "value": "R0402",
+      "manufacturerPartNumber": "RC0402FR-0710KL",
+      "manufacturer": "YAGEO",
+      "alternates": [],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 10K(1%), 1/16w, H0.35, -55℃~155℃",
+      "footprint": "R0402",
+      "x": -260.649588,
+      "y": 198.882,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R5"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "CHIP_PU"
+        },
+        {
+          "number": "2",
+          "net": "ESP_3V3"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R7",
+      "label": "Điện trở SMD · R0402",
+      "role": "Resistor · 0(1%) · Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF0000TCE",
+      "description": "Resistor · 0(1%) · Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF0000TCE",
+      "value": "0(1%)",
+      "manufacturerPartNumber": "0402WGF0000TCE",
+      "manufacturer": "UniOhm",
+      "alternates": [
+        {
+          "partType": "Resistor",
+          "description": "Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃",
+          "manufacturer": "YAGEO",
+          "manufacturerPartNumber": "RC0402FR-070RL"
+        }
+      ],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃",
+      "footprint": "R0402",
+      "x": -252.445388,
+      "y": 218.2876,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R7"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "N17689011"
+        },
+        {
+          "number": "2",
+          "net": "U0RXD"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R8",
+      "label": "Điện trở SMD · R0402",
+      "role": "Resistor · 0(1%) · Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF0000TCE",
+      "description": "Resistor · 0(1%) · Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF0000TCE",
+      "value": "0(1%)",
+      "manufacturerPartNumber": "0402WGF0000TCE",
+      "manufacturer": "UniOhm",
+      "alternates": [
+        {
+          "partType": "Resistor",
+          "description": "Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃",
+          "manufacturer": "YAGEO",
+          "manufacturerPartNumber": "RC0402FR-070RL"
+        }
+      ],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃",
+      "footprint": "R0402",
+      "x": -257.144388,
+      "y": 213.5378,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R8"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "N17689967"
+        },
+        {
+          "number": "2",
+          "net": "CHIP_PU"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "R9",
+      "label": "Điện trở SMD · R0402",
+      "role": "Resistor · 0(1%) · Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF0000TCE",
+      "description": "Resistor · 0(1%) · Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃ · UniOhm 0402WGF0000TCE",
+      "value": "0(1%)",
+      "manufacturerPartNumber": "0402WGF0000TCE",
+      "manufacturer": "UniOhm",
+      "alternates": [
+        {
+          "partType": "Resistor",
+          "description": "Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃",
+          "manufacturer": "YAGEO",
+          "manufacturerPartNumber": "RC0402FR-070RL"
+        }
+      ],
+      "partType": "Resistor",
+      "bomDescription": "Thick Film Resistors, SMD, 0(1%), 1/16w, H0.35, -55℃~155℃",
+      "footprint": "R0402",
+      "x": -252.445388,
+      "y": 219.5576,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0402_1005Metric.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "R9"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "N17689016"
+        },
+        {
+          "number": "2",
+          "net": "U0TXD"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "SW1",
+      "label": "BOOT button",
+      "role": "Boot-mode button per the official board guide.",
+      "description": "Boot-mode button per the official board guide.",
+      "value": "NTC013-AT1J-A160T",
+      "manufacturerPartNumber": "NTC013-AT1J-A160T",
+      "manufacturer": "TAIWAN MISAKI",
+      "alternates": [],
+      "partType": "Tact Switch",
+      "bomDescription": "Tact Switch: SMT, 4P, operation force 1.57N, Stem Black Color, 4.2x3.2x2.5, SMD, -40℃~85℃",
+      "footprint": "SW4-4P2X3P2X2P5-SMT",
+      "x": -263.588988,
+      "y": 225.3602,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Button_Switch_SMD.3dshapes/SW_Push_1P1T_NO_CK_PTS125Sx73SMTR.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "SW1"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": null
+        },
+        {
+          "number": "3",
+          "net": "GPIO0"
+        },
+        {
+          "number": "4",
+          "net": null
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "SW2",
+      "label": "RESET button",
+      "role": "Reset/enable button per the official board guide.",
+      "description": "Reset/enable button per the official board guide.",
+      "value": "NTC013-AT1J-A160T",
+      "manufacturerPartNumber": "NTC013-AT1J-A160T",
+      "manufacturer": "TAIWAN MISAKI",
+      "alternates": [],
+      "partType": "Tact Switch",
+      "bomDescription": "Tact Switch: SMT, 4P, operation force 1.57N, Stem Black Color, 4.2x3.2x2.5, SMD, -40℃~85℃",
+      "footprint": "SW4-4P2X3P2X2P5-SMT",
+      "x": -253.208988,
+      "y": 225.3602,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Button_Switch_SMD.3dshapes/SW_Push_1P1T_NO_CK_PTS125Sx73SMTR.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "SW2"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": null
+        },
+        {
+          "number": "3",
+          "net": "CHIP_PU"
+        },
+        {
+          "number": "4",
+          "net": null
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "U2",
+      "label": "3.3 V LDO regulator SGM2212",
+      "role": "Regulates the board's 5 V rail to 3.3 V according to the reference design.",
+      "description": "Regulates the board's 5 V rail to 3.3 V according to the reference design.",
+      "value": "SGM2212-3.3XKC3G/TR",
+      "manufacturerPartNumber": "SGM2212-3.3XKC3G/TR",
+      "manufacturer": "SG Micro",
+      "alternates": [],
+      "partType": "Power ICs",
+      "bomDescription": "LDO,Input.max=20V,Iout.max=800mA,Fixed-Output=3.3V,Vdrop=0.42V@Iout=0.8A,H1.8,-40~+125°C",
+      "footprint": "SOT223",
+      "x": -260.776588,
+      "y": 202.946,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Package_TO_SOT_SMD.3dshapes/SOT-223.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "U2"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "3",
+          "net": "VCC_5V"
+        },
+        {
+          "number": "4",
+          "net": "VCC_3V3"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "U3",
+      "label": "USB-to-UART bridge CP2102N",
+      "role": "USB serial bridge identified by BOM; exact pin behavior should be checked against its datasheet.",
+      "description": "USB serial bridge identified by BOM; exact pin behavior should be checked against its datasheet.",
+      "value": "CP2102N-A02-GQFN28",
+      "manufacturerPartNumber": "CP2102N-A02-GQFN28",
+      "manufacturer": "SiliconLabs",
+      "alternates": [],
+      "partType": "Interface ICs",
+      "bomDescription": "USB-TO-UART,USB2.0 full speed,data rate up to 3Mbaud,H0.8, -40°C~+85°C",
+      "footprint": "QFN28_0P5_5",
+      "x": -257.525388,
+      "y": 219.1766,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Package_DFN_QFN.3dshapes/QFN-28-1EP_5x5mm_P0.5mm_EP3.35x3.35mm.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "U3"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": null
+        },
+        {
+          "number": "2",
+          "net": null
+        },
+        {
+          "number": "3",
+          "net": "GND"
+        },
+        {
+          "number": "4",
+          "net": "D+"
+        },
+        {
+          "number": "5",
+          "net": "D-"
+        },
+        {
+          "number": "6",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "7",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "8",
+          "net": "N17688270"
+        },
+        {
+          "number": "9",
+          "net": "N17688616"
+        },
+        {
+          "number": "10",
+          "net": null
+        },
+        {
+          "number": "11",
+          "net": "N17688663"
+        },
+        {
+          "number": "12",
+          "net": null
+        },
+        {
+          "number": "13",
+          "net": null
+        },
+        {
+          "number": "14",
+          "net": null
+        },
+        {
+          "number": "15",
+          "net": null
+        },
+        {
+          "number": "16",
+          "net": null
+        },
+        {
+          "number": "17",
+          "net": null
+        },
+        {
+          "number": "18",
+          "net": null
+        },
+        {
+          "number": "19",
+          "net": null
+        },
+        {
+          "number": "20",
+          "net": null
+        },
+        {
+          "number": "21",
+          "net": null
+        },
+        {
+          "number": "22",
+          "net": null
+        },
+        {
+          "number": "23",
+          "net": null
+        },
+        {
+          "number": "24",
+          "net": "RTS"
+        },
+        {
+          "number": "25",
+          "net": "N17689016"
+        },
+        {
+          "number": "26",
+          "net": "N17689011"
+        },
+        {
+          "number": "27",
+          "net": null
+        },
+        {
+          "number": "28",
+          "net": "DTR"
+        },
+        {
+          "number": "29",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    },
+    {
+      "reference": "U4",
+      "label": "MCU module ESP32-S3-WROOM-1",
+      "role": "Compute and wireless module; package family from CAD/BOM, memory variant depends on installed module.",
+      "description": "Compute and wireless module; package family from CAD/BOM, memory variant depends on installed module.",
+      "value": "ESP32-S3-WROOM-1",
+      "manufacturerPartNumber": "ESP32-S3-WROOM-1/ESP32-S3-WROOM-2",
+      "manufacturer": "Espressif Systems",
+      "alternates": [],
+      "partType": "Module",
+      "bomDescription": "根据客供模组型号进行贴件",
+      "footprint": "ESP32-S3-WROOM_NEW",
+      "x": -267.364388,
+      "y": 177.6688,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "RF_Module.3dshapes/ESP32-S3-WROOM-1.step",
+      "has3dBody": true,
+      "modelNodeNames": [
+        "U4"
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "ESP_3V3"
+        },
+        {
+          "number": "3",
+          "net": "CHIP_PU"
+        },
+        {
+          "number": "4",
+          "net": "GPIO4"
+        },
+        {
+          "number": "5",
+          "net": "GPIO5"
+        },
+        {
+          "number": "6",
+          "net": "GPIO6"
+        },
+        {
+          "number": "7",
+          "net": "GPIO7"
+        },
+        {
+          "number": "8",
+          "net": "GPIO15"
+        },
+        {
+          "number": "9",
+          "net": "GPIO16"
+        },
+        {
+          "number": "10",
+          "net": "GPIO17"
+        },
+        {
+          "number": "11",
+          "net": "GPIO18"
+        },
+        {
+          "number": "12",
+          "net": "GPIO8"
+        },
+        {
+          "number": "13",
+          "net": "GPIO19"
+        },
+        {
+          "number": "14",
+          "net": "GPIO20"
+        },
+        {
+          "number": "15",
+          "net": "GPIO3"
+        },
+        {
+          "number": "16",
+          "net": "GPIO46"
+        },
+        {
+          "number": "17",
+          "net": "GPIO9"
+        },
+        {
+          "number": "18",
+          "net": "GPIO10"
+        },
+        {
+          "number": "19",
+          "net": "GPIO11"
+        },
+        {
+          "number": "20",
+          "net": "GPIO12"
+        },
+        {
+          "number": "21",
+          "net": "GPIO13"
+        },
+        {
+          "number": "22",
+          "net": "GPIO14"
+        },
+        {
+          "number": "23",
+          "net": "GPIO21"
+        },
+        {
+          "number": "24",
+          "net": "GPIO47"
+        },
+        {
+          "number": "25",
+          "net": "GPIO48"
+        },
+        {
+          "number": "26",
+          "net": "GPIO45"
+        },
+        {
+          "number": "27",
+          "net": "GPIO0"
+        },
+        {
+          "number": "28",
+          "net": "GPIO35"
+        },
+        {
+          "number": "29",
+          "net": "GPIO36"
+        },
+        {
+          "number": "30",
+          "net": "GPIO37"
+        },
+        {
+          "number": "31",
+          "net": "GPIO38"
+        },
+        {
+          "number": "32",
+          "net": "GPIO39"
+        },
+        {
+          "number": "33",
+          "net": "GPIO40"
+        },
+        {
+          "number": "34",
+          "net": "GPIO41"
+        },
+        {
+          "number": "35",
+          "net": "GPIO42"
+        },
+        {
+          "number": "36",
+          "net": "U0RXD"
+        },
+        {
+          "number": "37",
+          "net": "U0TXD"
+        },
+        {
+          "number": "38",
+          "net": "GPIO2"
+        },
+        {
+          "number": "39",
+          "net": "GPIO1"
+        },
+        {
+          "number": "40",
+          "net": "GND"
+        },
+        {
+          "number": "41",
+          "net": "GND"
+        }
+      ],
+      "evidence": "source-backed"
+    }
+  ]
+}

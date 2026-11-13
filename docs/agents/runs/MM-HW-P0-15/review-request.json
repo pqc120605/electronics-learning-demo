@@ -1,0 +1,58 @@
+{
+  "task": "MM-HW-P0-15",
+  "kind": "research/design disposition and optional CAD-study permission proposal, NOT gate closure",
+  "files": [
+    {
+      "path": "docs/hardware/mobot-v2-p0-15-aa-design-closure.md",
+      "sha256": "695887156db5a053a769455cc35c600e13b813b61d675d662f89254deaf26934"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/task.md",
+      "sha256": "1e04c6b2a607c3d4ed5af505334737cf36932da68fcc0bcf0567d9219d02a6a6"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/BOX02-RESULT.md",
+      "sha256": "06121eddd3b7aae8964a07bd88c877c62d38723f836797d46db179d8609c9e2f"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/BOX02-LOCAL-DISCONNECT-REFINEMENT.md",
+      "sha256": "b4141c084d9977070fcafb9aedfc7c92251e5fb575ea3d93835edc18bfb8ba59"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/BOX03-RESULT.md",
+      "sha256": "5573c3c95093840aef059d0be1014fd5f077d04d901ff0ab7facd6f4a6853016"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/BOX03-CORRIDOR-REFINEMENT.md",
+      "sha256": "4dfa096b710d573962b4d629e99b143f6d9a753c519fb30cd3aad0733e0e0910"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/BOX01-SCOPE-AUDIT.md",
+      "sha256": "764d9fe5965696f1766faaecd1aabd8cc1c2db1997f2cb3629c65f50c9e9ed3d"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/budget-screening.md",
+      "sha256": "8961b692733c19970643883423a94ccb732245763242f524d494fa50c2186dad"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/checks.py",
+      "sha256": "d6aeebecb3f85903ef9f12fe785c87fa8e5c4bd7f3fbcf2e6830e15718c3db43"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/checks.json",
+      "sha256": "0d03442bf211fe91fd04dcbacaeab46aebf4bdb38fc4db130dad936fbcdb3bc1"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study-proposal.json",
+      "sha256": "edeae78f366624d1cfadd051787ffad9e11703cc97e409e06dc615a4d99e3b28"
+    },
+    {
+      "path": "docs/research/downloads/p0-15/cost-sources.json",
+      "sha256": "5abc047b6f1a686edd2ef2e32edbfb319fcc3a71f5f4053065b21983871f8368"
+    },
+    {
+      "path": "docs/research/downloads/p0-15/design-sources.json",
+      "sha256": "31e3946069a6c5113cad8f30e1beb7ba8c529e0075fc055f5f0e48f2d508f058"
+    }
+  ]
+}

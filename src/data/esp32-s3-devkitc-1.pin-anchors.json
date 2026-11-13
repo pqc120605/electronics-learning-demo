@@ -1,0 +1,422 @@
+{
+  "boardId": "esp32-s3-devkitc-1",
+  "revision": "Espressif ESP32-S3-DevKitC-1 · PCB V1.1 · PADS reference import",
+  "sourcePcb": "assets/boards/vendor/esp32-s3-devkitc-1/work/kicad-import/ESP32-S3-DevKitC-1_V1.1.kicad_pcb",
+  "sourcePcbSha256": "b6c9a8a0ab751a7d1c1b2dde48345b11a23f7a6a87dab373fd45da2da1280176",
+  "sourceArchiveSha256": "25b16b894c4e104ad62640ceaf60ba7ead356105567f9471da4ce3c66ddb871a",
+  "sourcePadsSha256": "61e3f8202ee518eb014845c81650ac03c2ae128e430729e12f7f647c3688cbfc",
+  "sourceGlb": "public/models/esp32-s3-devkitc-1-v1.1.glb",
+  "sourceGlbSha256": "abf7b557d1356ae5d545f5529203eed80f5f5469d5c2f864a7727db3d314bb85",
+  "coordinateDerivation": "Header pad centers are copied from the PADS-imported KiCad footprint geometry; GLB uses x/z as PCB x/y and y at top copper plane; not physically measured.",
+  "boardTopMm": 1.55,
+  "headers": [
+    {
+      "headerReference": "J1",
+      "side": "left",
+      "pins": [
+        {
+          "id": "j1-1",
+          "position": 1,
+          "padNumber": "1",
+          "label": "3V3",
+          "netName": "ESP_3V3",
+          "xMm": -269.844388,
+          "zMm": 178.0188
+        },
+        {
+          "id": "j1-2",
+          "position": 2,
+          "padNumber": "2",
+          "label": "3V3",
+          "netName": "ESP_3V3",
+          "xMm": -269.844388,
+          "zMm": 180.5588
+        },
+        {
+          "id": "j1-3",
+          "position": 3,
+          "padNumber": "3",
+          "label": "EN",
+          "netName": "CHIP_PU",
+          "xMm": -269.844388,
+          "zMm": 183.0988
+        },
+        {
+          "id": "j1-4",
+          "position": 4,
+          "padNumber": "4",
+          "label": "GPIO4",
+          "netName": "GPIO4",
+          "xMm": -269.844388,
+          "zMm": 185.6388
+        },
+        {
+          "id": "j1-5",
+          "position": 5,
+          "padNumber": "5",
+          "label": "GPIO5",
+          "netName": "GPIO5",
+          "xMm": -269.844388,
+          "zMm": 188.1788
+        },
+        {
+          "id": "j1-6",
+          "position": 6,
+          "padNumber": "6",
+          "label": "GPIO6",
+          "netName": "GPIO6",
+          "xMm": -269.844388,
+          "zMm": 190.7188
+        },
+        {
+          "id": "j1-7",
+          "position": 7,
+          "padNumber": "7",
+          "label": "GPIO7",
+          "netName": "GPIO7",
+          "xMm": -269.844388,
+          "zMm": 193.2588
+        },
+        {
+          "id": "j1-8",
+          "position": 8,
+          "padNumber": "8",
+          "label": "GPIO15",
+          "netName": "GPIO15",
+          "xMm": -269.844388,
+          "zMm": 195.7988
+        },
+        {
+          "id": "j1-9",
+          "position": 9,
+          "padNumber": "9",
+          "label": "GPIO16",
+          "netName": "GPIO16",
+          "xMm": -269.844388,
+          "zMm": 198.3388
+        },
+        {
+          "id": "j1-10",
+          "position": 10,
+          "padNumber": "10",
+          "label": "GPIO17",
+          "netName": "GPIO17",
+          "xMm": -269.844388,
+          "zMm": 200.8788
+        },
+        {
+          "id": "j1-11",
+          "position": 11,
+          "padNumber": "11",
+          "label": "GPIO18",
+          "netName": "GPIO18",
+          "xMm": -269.844388,
+          "zMm": 203.4188
+        },
+        {
+          "id": "j1-12",
+          "position": 12,
+          "padNumber": "12",
+          "label": "GPIO8",
+          "netName": "GPIO8",
+          "xMm": -269.844388,
+          "zMm": 205.9588
+        },
+        {
+          "id": "j1-13",
+          "position": 13,
+          "padNumber": "13",
+          "label": "GPIO3",
+          "netName": "GPIO3",
+          "xMm": -269.844388,
+          "zMm": 208.4988
+        },
+        {
+          "id": "j1-14",
+          "position": 14,
+          "padNumber": "14",
+          "label": "GPIO46",
+          "netName": "GPIO46",
+          "xMm": -269.844388,
+          "zMm": 211.0388
+        },
+        {
+          "id": "j1-15",
+          "position": 15,
+          "padNumber": "15",
+          "label": "GPIO9",
+          "netName": "GPIO9",
+          "xMm": -269.844388,
+          "zMm": 213.5788
+        },
+        {
+          "id": "j1-16",
+          "position": 16,
+          "padNumber": "16",
+          "label": "GPIO10",
+          "netName": "GPIO10",
+          "xMm": -269.844388,
+          "zMm": 216.1188
+        },
+        {
+          "id": "j1-17",
+          "position": 17,
+          "padNumber": "17",
+          "label": "GPIO11",
+          "netName": "GPIO11",
+          "xMm": -269.844388,
+          "zMm": 218.6588
+        },
+        {
+          "id": "j1-18",
+          "position": 18,
+          "padNumber": "18",
+          "label": "GPIO12",
+          "netName": "GPIO12",
+          "xMm": -269.844388,
+          "zMm": 221.1988
+        },
+        {
+          "id": "j1-19",
+          "position": 19,
+          "padNumber": "19",
+          "label": "GPIO13",
+          "netName": "GPIO13",
+          "xMm": -269.844388,
+          "zMm": 223.7388
+        },
+        {
+          "id": "j1-20",
+          "position": 20,
+          "padNumber": "20",
+          "label": "GPIO14",
+          "netName": "GPIO14",
+          "xMm": -269.844388,
+          "zMm": 226.2788
+        },
+        {
+          "id": "j1-21",
+          "position": 21,
+          "padNumber": "21",
+          "label": "5V",
+          "netName": "VCC_5V",
+          "xMm": -269.844388,
+          "zMm": 228.8188
+        },
+        {
+          "id": "j1-22",
+          "position": 22,
+          "padNumber": "22",
+          "label": "GND",
+          "netName": "GND",
+          "xMm": -269.844388,
+          "zMm": 231.3588
+        }
+      ]
+    },
+    {
+      "headerReference": "J3",
+      "side": "right",
+      "pins": [
+        {
+          "id": "j3-1",
+          "position": 1,
+          "padNumber": "1",
+          "label": "GND",
+          "netName": "GND",
+          "xMm": -246.984388,
+          "zMm": 178.0188
+        },
+        {
+          "id": "j3-2",
+          "position": 2,
+          "padNumber": "2",
+          "label": "TX/GPIO43",
+          "netName": "U0TXD",
+          "xMm": -246.984388,
+          "zMm": 180.5588
+        },
+        {
+          "id": "j3-3",
+          "position": 3,
+          "padNumber": "3",
+          "label": "RX/GPIO44",
+          "netName": "U0RXD",
+          "xMm": -246.984388,
+          "zMm": 183.0988
+        },
+        {
+          "id": "j3-4",
+          "position": 4,
+          "padNumber": "4",
+          "label": "GPIO1",
+          "netName": "GPIO1",
+          "xMm": -246.984388,
+          "zMm": 185.6388
+        },
+        {
+          "id": "j3-5",
+          "position": 5,
+          "padNumber": "5",
+          "label": "GPIO2",
+          "netName": "GPIO2",
+          "xMm": -246.984388,
+          "zMm": 188.1788
+        },
+        {
+          "id": "j3-6",
+          "position": 6,
+          "padNumber": "6",
+          "label": "GPIO42",
+          "netName": "GPIO42",
+          "xMm": -246.984388,
+          "zMm": 190.7188
+        },
+        {
+          "id": "j3-7",
+          "position": 7,
+          "padNumber": "7",
+          "label": "GPIO41",
+          "netName": "GPIO41",
+          "xMm": -246.984388,
+          "zMm": 193.2588
+        },
+        {
+          "id": "j3-8",
+          "position": 8,
+          "padNumber": "8",
+          "label": "GPIO40",
+          "netName": "GPIO40",
+          "xMm": -246.984388,
+          "zMm": 195.7988
+        },
+        {
+          "id": "j3-9",
+          "position": 9,
+          "padNumber": "9",
+          "label": "GPIO39",
+          "netName": "GPIO39",
+          "xMm": -246.984388,
+          "zMm": 198.3388
+        },
+        {
+          "id": "j3-10",
+          "position": 10,
+          "padNumber": "10",
+          "label": "GPIO38",
+          "netName": "GPIO38",
+          "xMm": -246.984388,
+          "zMm": 200.8788
+        },
+        {
+          "id": "j3-11",
+          "position": 11,
+          "padNumber": "11",
+          "label": "GPIO37",
+          "netName": "GPIO37",
+          "xMm": -246.984388,
+          "zMm": 203.4188
+        },
+        {
+          "id": "j3-12",
+          "position": 12,
+          "padNumber": "12",
+          "label": "GPIO36",
+          "netName": "GPIO36",
+          "xMm": -246.984388,
+          "zMm": 205.9588
+        },
+        {
+          "id": "j3-13",
+          "position": 13,
+          "padNumber": "13",
+          "label": "GPIO35",
+          "netName": "GPIO35",
+          "xMm": -246.984388,
+          "zMm": 208.4988
+        },
+        {
+          "id": "j3-14",
+          "position": 14,
+          "padNumber": "14",
+          "label": "GPIO0",
+          "netName": "GPIO0",
+          "xMm": -246.984388,
+          "zMm": 211.0388
+        },
+        {
+          "id": "j3-15",
+          "position": 15,
+          "padNumber": "15",
+          "label": "GPIO45",
+          "netName": "GPIO45",
+          "xMm": -246.984388,
+          "zMm": 213.5788
+        },
+        {
+          "id": "j3-16",
+          "position": 16,
+          "padNumber": "16",
+          "label": "GPIO48",
+          "netName": "GPIO48",
+          "xMm": -246.984388,
+          "zMm": 216.1188
+        },
+        {
+          "id": "j3-17",
+          "position": 17,
+          "padNumber": "17",
+          "label": "GPIO47",
+          "netName": "GPIO47",
+          "xMm": -246.984388,
+          "zMm": 218.6588
+        },
+        {
+          "id": "j3-18",
+          "position": 18,
+          "padNumber": "18",
+          "label": "GPIO21",
+          "netName": "GPIO21",
+          "xMm": -246.984388,
+          "zMm": 221.1988
+        },
+        {
+          "id": "j3-19",
+          "position": 19,
+          "padNumber": "19",
+          "label": "GPIO20",
+          "netName": "GPIO20",
+          "xMm": -246.984388,
+          "zMm": 223.7388
+        },
+        {
+          "id": "j3-20",
+          "position": 20,
+          "padNumber": "20",
+          "label": "GPIO19",
+          "netName": "GPIO19",
+          "xMm": -246.984388,
+          "zMm": 226.2788
+        },
+        {
+          "id": "j3-21",
+          "position": 21,
+          "padNumber": "21",
+          "label": "GND",
+          "netName": "GND",
+          "xMm": -246.984388,
+          "zMm": 228.8188
+        },
+        {
+          "id": "j3-22",
+          "position": 22,
+          "padNumber": "22",
+          "label": "GND",
+          "netName": "GND",
+          "xMm": -246.984388,
+          "zMm": 231.3588
+        }
+      ]
+    }
+  ]
+}

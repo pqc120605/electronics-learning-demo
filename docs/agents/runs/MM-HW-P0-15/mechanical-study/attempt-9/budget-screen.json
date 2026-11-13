@@ -1,0 +1,28 @@
+{
+  "scope": "Single-quantity public manufacturer price screen, not a complete kit BOM or purchase quote",
+  "workspace_access_date": "2026-11-11",
+  "kit_target_vnd": 1000000,
+  "verified_exact_header_lines": [
+    {"mpn":"TFM-125-02-S-D-A","qty":2,"unit_usd":8.335,"source":"https://www.samtec.com/products/tfm-125-02-s-d-a"},
+    {"mpn":"TFM-110-02-S-D-A","qty":1,"unit_usd":4.147,"source":"https://www.samtec.com/products/tfm-110-02-s-d-a"}
+  ],
+  "exact_headers_subtotal_usd": 20.817,
+  "similar_variant_screen_only": {
+    "mpn":"SFM-125-T2-S-D-A-K", "qty":2, "unit_usd":8.452,
+    "source":"https://www.samtec.com/products/sfm-125-t2-s-d-a-k",
+    "difference":"K pad variant. No price, availability, qualification or substitution is inferred for SFM-125-T2-S-D-A.",
+    "subtotal_with_exact_header_lines_usd":37.721,
+    "trial_vnd_per_usd":26000,
+    "conditional_total_vnd":980746,
+    "remaining_under_kit_target_vnd":19254,
+    "break_even_vnd_per_usd_for_listed_parts_only":26510.43185493439
+  },
+  "not_priced_in_scenario":["cassette socket SFM-110-T2-S-D-A","robot","controller electronics","PCBs, housing and assembly","three AA cells and external charger","shipping, taxes and sourcing availability"],
+  "compact_bridge_study":{
+    "physical_routes_if_all_conditions_met":25,
+    "signal_header_routes":16,"joystick_power_routes":1,"physical_header_return_allowance":4,
+    "captive_usb_routes":["VBUS","GND","CC1","CC2"],
+    "conditions":["Exact RUN connection has no other crossing paths including shield, data, debug and sideband routes","USB-C source attach/current behavior and the exact B01 clone are independently checked","Two mechanical breaks still cover every real conductor"],
+    "disposition":"Compare compact 26 or 30 contact candidates with actual prices after confirming RUN wiring. No price or sufficiency inferred from the 20- or 50-contact parts."
+  }
+}

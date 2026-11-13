@@ -1,0 +1,29 @@
+{
+  "checks": [
+    {
+      "command": [
+        "node",
+        "D:/StartupOS/docs/agents/validate.mjs"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"tasks\": 61,\n  \"capabilities\": 143,\n  \"warnings\": [],\n  \"errors\": []\n}\n"
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "D:/StartupOS/docs/agents/validate.test.mjs"
+      ],
+      "exit_code": 0,
+      "output": "ℹ tests 61\nℹ suites 0\nℹ pass 61\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 354.9401"
+    }
+  ],
+  "scope": "Fresh read-only replays and manifest verification",
+  "geometry_and_sense_match_saved_results": true,
+  "sense_sensitivity_spot_check_nA": 7.595538596863099,
+  "review_packet_files_unchanged": 17,
+  "prior_checkpoint_files_unchanged": 65,
+  "native_geometry_checks": 8,
+  "physical": "NOT_RUN",
+  "hardware_registry_unchanged": true
+}

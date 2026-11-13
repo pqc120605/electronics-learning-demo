@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-10",
+  "kind": "report-only evidence, no tests rerun",
+  "report_sha256": "eb59cd58c4d96255cd4b1a0b31b5b476a0363405ee5e4e26bb37af9313efb0c4",
+  "configuration_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+  "queue_sha256_at_report": "5c187992f379f2b2059afe029453b1fd56c0399c7fc4ecf6d0dda3462a4390dd",
+  "report_links_checked": 11,
+  "missing_links": [],
+  "packets": {
+    "MM-HW-P0-10": {
+      "manifest_sha256": "a7a444cab53c5fc3397642cf4b2d6d40285222c81f359b99e497f829ef004f89",
+      "files": 242,
+      "matching": 241,
+      "changed": [
+        {
+          "path": "D:/StartupOS/docs/agents/tasks.json",
+          "recorded_sha256": "4058fb5d16bcf6a3c25ddd57ec2f98c46d2edd68a667f19e8f3ee83e6ff3c638",
+          "current_sha256": "5c187992f379f2b2059afe029453b1fd56c0399c7fc4ecf6d0dda3462a4390dd"
+        }
+      ]
+    },
+    "MM-HW-P0-11": {
+      "manifest_sha256": "88cbefe0026d04c928ea503746d3b3a10bac2368b4b082e34cb32bbe6e14a6da",
+      "files": 42,
+      "matching": 42,
+      "changed": []
+    }
+  }
+}

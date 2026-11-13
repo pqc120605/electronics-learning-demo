@@ -1,0 +1,104 @@
+.spice-workbench-page { padding: 0 42px 72px; }
+.spice-workbench-hero { padding: 48px 0 28px; border-bottom: 1px solid var(--line); }
+.spice-workbench-hero .eyebrow { margin-bottom: 15px; }
+.spice-workbench-hero h1 { max-width: 780px; margin: 0; color:var(--ink); font-size: clamp(38px,5.2vw,60px); line-height: 1.02; letter-spacing: -.065em; }
+.spice-workbench-hero h1 span { color:var(--green); }
+.spice-workbench-hero>p:not(.eyebrow) { max-width: 720px; margin: 14px 0 17px; color:var(--ink-soft); font-size: 13px; line-height: 1.7; }
+.spice-hero-actions { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.spice-hero-actions a { color:var(--green); font-size: 11px; font-weight: 700; text-decoration: none; }
+.spice-hero-actions>span { color:var(--ink-faint); font: 700 9px Consolas,monospace; }
+.spice-workbench-grid { display: grid; grid-template-columns: minmax(360px,.9fr) minmax(0,1.1fr); align-items: start; gap: 16px; padding-top: 20px; }
+.spice-editor-card,.spice-output-card { min-width: 0; border: 1px solid var(--line-dark); border-radius: 7px; background:var(--paper-bright); }
+.spice-editor-card { padding: 18px; }
+.spice-card-heading,.spice-results-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.spice-card-heading p,.spice-results-heading p { margin: 0 0 4px; color:var(--green); font: 700 9px Consolas,monospace; letter-spacing: .08em; }
+.spice-card-heading h2,.spice-results-heading h2 { margin: 0; color:var(--ink); font-size: 17px; letter-spacing: -.035em; }
+.spice-card-heading>span { color:var(--ink-faint); font-size: 9px; }
+.spice-example-label,.spice-netlist-label { display: block; margin-top: 16px; margin-bottom: 6px; color:var(--ink-soft); font-size: 10px; font-weight: 700; }
+.spice-editor-card select { width: 100%; min-height: 40px; padding: 7px 10px; border: 1px solid var(--line-dark); border-radius: 4px; background:#e8f2f2; color:var(--ink); font-size: 11px; }
+.spice-example-description,.spice-netlist-help,.spice-budget { margin: 7px 0 0; color:var(--ink-faint); font-size: 9px; line-height: 1.55; }
+.spice-calculator-handoff { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-top: 10px; padding: 11px; border: 1px solid #285057; border-radius: 5px; background:#e8f2f2; }
+.spice-calculator-handoff strong { color:var(--green); font-size: 10px; }
+.spice-calculator-handoff p { margin: 6px 0; color:var(--ink-soft); font-size: 9px; line-height: 1.6; }
+.spice-calculator-handoff small { display: block; color:var(--ink-faint); font-size: 8px; line-height: 1.55; }
+.spice-calculator-handoff a { flex: 0 0 auto; color:var(--green); font-size: 9px; font-weight: 700; text-decoration: none; }
+.spice-editor-card textarea { display: block; width: 100%; min-height: 280px; resize: vertical; padding: 13px; border: 1px solid var(--line-dark); border-radius: 5px; outline: none; background:#e8f2f2; color:#1d2b49; font: 11px/1.65 Consolas,Monaco,monospace; tab-size: 2; }
+.spice-editor-card textarea:focus,.spice-editor-card select:focus { border-color: var(--green); box-shadow: 0 0 0 2px #22cdb41c; }
+.spice-editor-card textarea[aria-invalid="true"] { border-color: #b86b45; }
+.spice-run-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-top: 14px; }
+.spice-run-actions button,.spice-results-heading button { min-height: 40px; padding: 8px 13px; border: 1px solid var(--line-dark); border-radius: 4px; background:#e8f2f2; color:var(--ink); cursor: pointer; font-size: 10px; font-weight: 700; }
+.spice-run-actions .spice-run-button { border-color: #178e83; background:#e8f2f2; color:#1d2b49; }
+.spice-run-actions button:disabled { cursor: wait; opacity: .6; }
+.spice-run-actions [role="status"] { flex: 1 1 160px; color:var(--green); font-size: 10px; }
+.spice-error,.spice-stop-note { margin: 10px 0 0; padding: 10px 12px; border: 1px solid #67492d; border-radius: 4px; background:#f8edda; color:#526078; font-size: 10px; line-height: 1.55; }
+.spice-stop-note { border-color: var(--line-dark); background:#e8f2f2; color:var(--ink-soft); }
+.spice-output-card { min-height: 470px; padding: 18px; }
+.spice-empty-results { min-height: 430px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 28px; text-align: center; }
+.spice-empty-results>span { color:var(--green); font: 52px Georgia,serif; }
+.spice-empty-results h2 { margin: 12px 0 5px; color:var(--ink); font-size: 18px; }
+.spice-empty-results p { max-width: 360px; margin: 0; color:var(--ink-faint); font-size: 10px; line-height: 1.65; }
+.spice-results-heading { padding-bottom: 12px; }
+.spice-result-meta { margin: 10px 0; color:var(--ink-faint); font-size: 9px; line-height: 1.5; }
+.spice-warnings { margin: 10px 0; color:#526078; font-size: 9px; }
+.spice-warnings summary,.spice-table-wrap caption { padding: 6px 0; text-align: left; }
+.spice-warnings li { margin-top: 4px; line-height: 1.5; }
+.spice-plot { margin: 12px 0; padding: 10px 8px 5px; border: 1px solid var(--line); border-radius: 5px; background:#fffaf0; }
+.spice-plot figcaption { color:var(--ink-soft); font-size: 10px; font-weight: 700; }
+.spice-plot svg { display: block; width: 100%; max-height: 270px; overflow: visible; }
+.spice-grid-line { stroke: #e3d7c3; stroke-width: 1; }
+.spice-axis-line { stroke: #748096; stroke-width: 1.25; }
+.spice-plot-line { fill: none; stroke: #d94236; stroke-width: 2.5; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+.spice-axis-label { fill: #526078; font: 9px Consolas,monospace; }
+.spice-plot-note { padding: 10px; color:var(--ink-faint); font-size: 10px; }
+.spice-table-wrap { max-width: 100%; overflow: auto; border: 1px solid var(--line); border-radius: 5px; }
+.spice-table-wrap table { width: 100%; border-collapse: collapse; color:var(--ink-soft); font: 10px Consolas,monospace; white-space: nowrap; }
+.spice-table-wrap caption { padding: 9px 10px; color:var(--ink-faint); font: 9px Inter,Arial,sans-serif; }
+.spice-table-wrap th,.spice-table-wrap td { padding: 8px 10px; border-top: 1px solid var(--line); text-align: right; }
+.spice-table-wrap th:first-child,.spice-table-wrap td:first-child { text-align: left; }
+.spice-table-wrap th { color:var(--green); font-weight: 700; }
+.spice-scope-note { display: grid; grid-template-columns: 155px minmax(0,1fr); gap: 12px; margin-top: 16px; padding: 14px; border: 1px solid #574326; border-radius: 6px; background:#f8edda; color:#526078; }
+.spice-scope-note strong { color:#526078; font-size: 10px; }
+.spice-scope-note p { margin: 0; font-size: 9px; line-height: 1.65; }
+@media(max-width: 900px) { .spice-workbench-grid { grid-template-columns: 1fr; }.spice-output-card { min-height: 330px; }.spice-empty-results { min-height: 280px; } }
+@media(max-width: 560px) { .spice-workbench-page { padding: 0 18px 48px; }.spice-workbench-hero { padding-top: 38px; }.spice-editor-card,.spice-output-card { padding: 14px; }.spice-editor-card textarea { min-height: 245px; }.spice-scope-note { grid-template-columns: 1fr; gap: 7px; }.spice-hero-actions { align-items: flex-start; flex-direction: column; gap: 9px; }.spice-calculator-handoff { flex-direction: column; } }
+.spice-kicad-import { display: grid; gap: 10px; margin: 14px 0 18px; padding: 15px; border: 1px solid var(--line-dark); border-radius: 8px; background:#e8f2f2; }
+.spice-kicad-import h3 { margin: 4px 0 5px; color:var(--ink); font-size: 14px; }
+.spice-kicad-import p,.spice-kicad-import small { margin: 0; color:var(--ink-soft); font-size: 10px; line-height: 1.65; }
+.spice-kicad-kicker { color:var(--green) !important; font: 700 8px Consolas,monospace !important; letter-spacing: .1em; }
+.spice-kicad-file-label { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; color:var(--green); font-size: 10px; font-weight: 700; cursor: pointer; }
+.spice-kicad-file-label input { max-width: 100%; color:var(--ink-soft); font: 10px inherit; }
+.spice-kicad-filename { overflow-wrap: anywhere; }
+.spice-kicad-exclusions { display: grid; gap: 7px; max-height: 180px; overflow: auto; padding: 10px; margin: 0; border: 1px solid var(--line); border-radius: 6px; }
+.spice-kicad-exclusions legend { padding: 0 5px; color:#526078; font-size: 9px; font-weight: 700; }
+.spice-kicad-exclusions label { display: flex; align-items: center; gap: 8px; min-height: 32px; color:var(--ink-soft); font-size: 10px; }
+.spice-kicad-exclusions input { width: 17px; height: 17px; accent-color: #2dd4c5; }
+.spice-kicad-preview { padding: 10px; border: 1px solid #285057; border-radius: 6px; background:#e8f2f2; color:var(--ink-soft); font-size: 9px; line-height: 1.6; }
+.spice-kicad-preview strong { color:var(--green); }
+.spice-kicad-preview ul { display: grid; gap: 5px; padding-left: 18px; margin: 7px 0 0; }
+.spice-kicad-error { color:#526078 !important; }
+.spice-kicad-status { color:var(--green) !important; }
+.spice-kicad-apply { justify-self: start; min-height: 40px; padding: 0 13px; border: 1px solid #256b66; border-radius: 6px; background:#e8f2f2; color:var(--green); font-size: 10px; font-weight: 700; cursor: pointer; }
+.spice-kicad-apply:disabled { opacity: .45; cursor: not-allowed; }
+.spice-kicad-apply:focus-visible,.spice-kicad-exclusions input:focus-visible,.spice-kicad-file-label:focus-within { outline: 2px solid var(--green); outline-offset: 3px; }
+.spice-kicad-exclude-all { justify-self: start; min-height: 32px; padding: 0 9px; border: 1px solid var(--line); border-radius: 5px; background:#e8f2f2; color:var(--green); font-size: 10px; cursor: pointer; }
+.spice-kicad-exclude-all:focus-visible,.spice-pcb-source input:focus-visible,.spice-pcb-source select:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.spice-kicad-net-audit { display: grid; gap: 6px; padding: 10px; border: 1px solid #655124; border-radius: 6px; background:#f8edda; color:var(--ink-soft); font-size: 10px; line-height: 1.6; }
+.spice-kicad-net-audit.match { border-color: #285057; background:#e8f2f2; }
+.spice-kicad-net-audit strong { color:#526078; }
+.spice-kicad-net-audit.match strong { color:var(--green); }
+.spice-kicad-net-audit p { margin: 0; overflow-wrap: anywhere; }
+.spice-kicad-net-audit details { margin-top: 2px; }
+.spice-kicad-net-audit summary { width: fit-content; min-height: 32px; color:var(--green); cursor: pointer; }
+.spice-kicad-net-audit summary:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.spice-pcb-source { display: grid; gap: 9px; padding: 11px; margin: 0; border: 1px solid #655124; border-radius: 6px; background:#f8edda; }
+.spice-pcb-source legend { padding: 0 5px; color:#526078; font-size: 10px; font-weight: 700; }
+.spice-pcb-source-toggle,.spice-pcb-source-fields label { display: grid; gap: 6px; color:var(--ink-soft); font-size: 10px; }
+.spice-pcb-source-toggle { grid-template-columns: 18px 1fr; align-items: center; min-height: 32px; }
+.spice-pcb-source-toggle input { width: 17px; height: 17px; accent-color: #2dd4c5; }
+.spice-pcb-source-fields { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
+.spice-pcb-source-fields select,.spice-pcb-source-fields input { width: 100%; min-width: 0; min-height: 36px; padding: 6px; border: 1px solid var(--line); border-radius: 5px; background:#e8f2f2; color:var(--ink); font: inherit; }
+.spice-pcb-source small { color:#526078; }
+@media (max-width: 560px) { .spice-pcb-source-fields { grid-template-columns: 1fr; } }
+.spice-workspace-return-status{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink-soft);font-size:12px;line-height:1.5}
+.spice-workspace-return-status button{flex:none;min-height:34px;padding:6px 10px;border:1px solid var(--line);border-radius:7px;background:transparent;color:inherit;cursor:pointer}
+@media(max-width:600px){.spice-workspace-return-status{align-items:flex-start;flex-direction:column}}

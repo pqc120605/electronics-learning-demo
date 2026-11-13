@@ -1,0 +1,44 @@
+{
+  "scope": "Conditional allocations, not total system current, bill of materials or guaranteed turn-off time",
+  "allocations": {
+    "R_bleed_nominal_Ohm": 10000,
+    "R_tolerance": 0.01,
+    "C_upper_F": 0.00012,
+    "I_injection_upper_A": 1e-06,
+    "V_initial_upper": 5.4,
+    "V_target": 0.1,
+    "pull_down_nominal_Ohm": 100000,
+    "pull_down_tolerance": 0.01
+  },
+  "values": {
+    "pull_down_high_current_uA_at1_8V": 18.181818181818183,
+    "max_node_injection_uA_for_VIL0_35_with101k": 3.4653465346534653,
+    "bleed_floor_V": 0.0101,
+    "discharge_after_source_already_disconnected_s": 4.961424013285731,
+    "bleed_RUN_current_mA_at5_4V_Rmin9900": 0.5454545454545455,
+    "bank_A_LED_current_sum_mA": [
+      60,
+      360
+    ],
+    "bank_B_boundary_LED_current_sum_mA": [
+      40,
+      240
+    ],
+    "bank_B_with_one_output_LED_current_sum_mA": [
+      45,
+      270
+    ]
+  },
+  "not_proven": [
+    "source isolation MAX time",
+    "injection allocation",
+    "capacitor inventory",
+    "logic rail VOH/VOL loaded",
+    "unpowered load-switch behavior",
+    "reverse and clamp faults",
+    "full battery-current conversion",
+    "thermal",
+    "physical hardware"
+  ],
+  "script_sha256": "ff51274ea7a2893020353a1d381f760ca609cf14f0afc77f521abdb37db55d9f"
+}

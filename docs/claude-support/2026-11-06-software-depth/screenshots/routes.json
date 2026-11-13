@@ -1,0 +1,146 @@
+[
+ {
+  "route": "/",
+  "status": "ok",
+  "h1": "Từ linh kiện nhỏđến thế giới thông minh.",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/app",
+  "status": "ok",
+  "h1": "Học điện tử bằng cách lắp, đọc và thử.",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/app/learn",
+  "status": "ok",
+  "h1": "Chủ đề học",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/app/learn/esp32-led",
+  "status": "ok",
+  "h1": "Làm đèn LED nhấp nháy với ESP32",
+  "external": "",
+  "failedReq": 1,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/app/boards",
+  "status": "ok",
+  "h1": "Chọn board để bắt đầu",
+  "external": "",
+  "failedReq": 1,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/app/components",
+  "status": "ok",
+  "h1": "Linh kiện để thử và hiểu",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/app/lab",
+  "status": "ok",
+  "h1": "Lắp thử một mạch",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/app/projects",
+  "status": "ok",
+  "h1": "Dự án thực hành",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/app/classroom-kits",
+  "status": "ok",
+  "h1": "Lên kế hoạch lớp thực hành",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/app/tools/calculators",
+  "status": "ok",
+  "h1": "Tính nhanh, hiểu rõ giả định.",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/app/tools/firmware",
+  "status": "ok",
+  "h1": "Kiểm tra tệp Intel HEX",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/app/tools/spice",
+  "status": "ok",
+  "h1": "Thử mạch analog trên solver thật.",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/privacy",
+  "status": "ok",
+  "h1": "Quyền riêng tư",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/admin",
+  "status": "ok",
+  "h1": "Thống kê chưa được kết nối",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/admin/login",
+  "status": "ok",
+  "h1": "Chưa kết nối Supabase",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ },
+ {
+  "route": "/no-such-route",
+  "status": "ok",
+  "h1": "Không tìm thấy trang",
+  "external": "",
+  "failedReq": 0,
+  "consoleErrors": 0,
+  "firstErr": ""
+ }
+]

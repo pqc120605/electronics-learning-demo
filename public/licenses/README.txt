@@ -1,0 +1,7 @@
+Third-party software used by Mạch Mở
+
+- `eecircuit-engine` 1.8.0 declares MIT. Its license is included in `eecircuit-engine-MIT.txt`. Upstream: https://github.com/eelab-dev/EEcircuit-engine
+- The package also contains a compiled ngspice WebAssembly runtime, served at `/vendor/eecircuit-engine/spice.wasm`. The observed runtime is ngspice 45.2; its exact artifact hash, size, build header, and source provenance are recorded in `spice-engine-provenance.json` and can be checked with `npm run audit:spice-engine`.
+- **Public redistribution status: NOT CLEARED for this exact WASM artifact.** Its ngspice source commit, build recipe, and linked-component inventory are not recorded. The upstream manual describes a Modified BSD base, LGPLv2 tclspice/numparam exceptions, public-domain XSPICE, and MPL-2.0 OSDI. It mentions `table.cm` in its GPL-linking section, but the manual also says Modified BSD is GPL-compatible; presence and applicable obligations for this binary are unknown. Do not infer the answer from the wrapper's MIT license. See `NGSPICE-NOTICE.txt` and `spice-engine-provenance.json`.
+
+The audit pins the local binary and confirms that the engine solves a small DC circuit. It does not reconstruct the exact source commit or audit every compiled source file. Public redistribution remains gated on obtaining that build provenance and reviewing all applicable upstream notices and source obligations.

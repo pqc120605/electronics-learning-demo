@@ -1,0 +1,30 @@
+{
+  "scope": "Conditional geometry calculation, not hardware or isolation PASS",
+  "allocations_are_unverified": true,
+  "values": {
+    "socket_finished_height_max_from_print_mm": 4.7498,
+    "header_K_height_max_from_print_mm": 5.8928,
+    "assembled_envelope_sum_with_allocations_mm": 11.4026,
+    "global_radial_extent_allocation_mm": 23.58495283014151,
+    "tilt_loss_allocation_mm": 2.055564081579466,
+    "required_lift_without_mated_separation_credit_mm": 15.658164081579464,
+    "conditional_gap_at_lift16_mm": 2.3418359184205344,
+    "conditional_margin_over_screening_gap2_mm": 0.3418359184205344,
+    "conditional_gap_at_historical_lift11_8_mm": -1.8581640815794647,
+    "counterexample_gap_with_edge_pivot_mm": 0.28627183684106877,
+    "counterexample_gap_with_relative10deg_mm": 0.30191592068541623,
+    "nominal_socket_length_reference_mm": 35.69,
+    "depth_reserve_with_allocations_mm": 25.479999999999997
+  },
+  "input_sha256": "ac8226d1ab8a8ee7c9e4be16d02f47496c5e55cdf2d38e7d7a2bfa9933b07069",
+  "not_proven": [
+    "all-metal envelope qualification",
+    "actual mated datum geometry",
+    "solder/tilt/deflection budgets",
+    "physical endpoints",
+    "pulled terminal fault",
+    "whole-kit fit or cost",
+    "approved travel/configuration",
+    "B1"
+  ]
+}

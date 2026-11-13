@@ -1,0 +1,11 @@
+{
+  "taskId": "MM-SIM-STAGE-REV3D-WIRING-UX",
+  "capturedAt": "2026-11-12",
+  "kind": "file-hashes",
+  "files": [
+    {
+      "sha256": "9ec3451270b4a347d9f057ec67ca269e0e2c2feaca2891d214f0ecbfff3a786b",
+      "path": "src/components/builder/BreadboardEditor.tsx"
+    }
+  ]
+}

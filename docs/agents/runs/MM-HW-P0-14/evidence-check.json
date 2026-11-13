@@ -1,0 +1,55 @@
+{
+  "meaning": "source hashes and conditional arithmetic only; hardware NOT_RUN, no gate PASS",
+  "sources": [
+    {
+      "path": "docs/research/downloads/p0-14/fdk-hr3utg.pdf",
+      "sha256": "35274e4301054f1acee56855f05f537b6f9bf92d362c0f3c3122e5f038876919",
+      "bytes": 286834,
+      "hash_match": true
+    },
+    {
+      "path": "docs/research/downloads/p0-14/fdk-20260327-material-update.html",
+      "sha256": "29ca51fd89b51ef194e653c215e7e98e4c90c9d34bb6f74c4b4340ca9677d348",
+      "bytes": 14471,
+      "hash_match": true
+    },
+    {
+      "path": "docs/research/downloads/p0-14/mpd-ba3aaw-revg.pdf",
+      "sha256": "6fe659fd0c4c8fc0fccfa84f75515da4c824e5562a21279d6ddf81a5c6ae992b",
+      "bytes": 272545,
+      "hash_match": true
+    },
+    {
+      "path": "docs/research/downloads/p0-14/pololu-s7v8f5-specs.html",
+      "sha256": "353d70a71b7c638439c88105319b8dbcbdadc1f36e63001803b4f9239dce1901",
+      "bytes": 53808,
+      "hash_match": true
+    },
+    {
+      "path": "docs/research/downloads/p0-14/pololu-s7v8x-reference.pdf",
+      "sha256": "eddb2e28d0a6eed110981988b52767911cddc8f22e276410e57bd739b318e42e",
+      "bytes": 192030,
+      "hash_match": true
+    },
+    {
+      "path": "docs/research/downloads/p0-14/keystone-aa-holder-catalogue.pdf",
+      "sha256": "90b8be61f8f213366bb8a2560ec00545bc318ab620460e6c986ed3ccca6f152c",
+      "bytes": 1315197,
+      "hash_match": true
+    }
+  ],
+  "r12_unchanged": true,
+  "conditional_values": {
+    "allocated_output_power_W": 2.625,
+    "allocated_eta": 0.8,
+    "allocated_input_A_at_3V": 1.0937499999999998,
+    "allocated_input_A_at_3V3": 0.9943181818181818,
+    "conditional_C_100uF_energy_J": 0.0013781250000000002,
+    "conditional_C_1mF_energy_J": 0.01378125,
+    "conditional_one_bleed_open_no_injection_s": 1.9001853441969196,
+    "conditional_one_bleed_open_10uA_injection_s": 2.016876128390454,
+    "conditional_residual_equilibrium_V": 0.101,
+    "weak_cell_counterexample_V": 0.3999999999999999,
+    "M2_allocated_gap_mm": 2.000000000000001
+  }
+}

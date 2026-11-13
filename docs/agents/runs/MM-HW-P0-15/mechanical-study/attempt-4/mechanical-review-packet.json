@@ -1,0 +1,155 @@
+{
+  "scope": "Independent review of M5 endpoint-carriage reference calculations and geometry under approved r1 only",
+  "review_questions": [
+    "Check 16.0mm gap formula and datum; distinguish full-height bound from physical endpoint proof",
+    "Check that actual geometry restricts the door stroke and return motion; examine axis-guide, adapter-pose and frame omissions",
+    "Check source refs, 46/50 budget and counterexamples; give a scoped verdict plus findings and remaining obligations"
+  ],
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/SEQUENCER-REFINEMENT-PLAN.md",
+      "sha256": "2eb508a1f0f5ce4fdf426be5adc32322ef1737ebdd26b20c5cbe96228a4b9c2b",
+      "bytes": 6409
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX01-PARAMETRIC-SCOPE-AUDIT.md",
+      "sha256": "0044d987e10c72d8eeddd8f6648238b671ae63633e7bb3980386a47fa0039979",
+      "bytes": 4006
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX03-SEQUENCER-REVIEW.md",
+      "sha256": "c974dd4bc18956c96824c919ba116fcc52c3c6eb5d71b57419a00cb167283016",
+      "bytes": 6551
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX03-GAP-BOUND-REVIEW.md",
+      "sha256": "6abf0bba0dd37b3de689ee29ceb5ad7fae985cdd57010a66d2bd128ff5fc4fd0",
+      "bytes": 4738
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint_geometry.py",
+      "sha256": "db9517f28ac909f2900952a8b39ce0ea6b9c91cf7e83e48247d7119ea28b3222",
+      "bytes": 4512
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/check_endpoint_geometry.py",
+      "sha256": "94069ed99a87a5f38297dd6e87e649018820d8e47c245d1611fa34782df63064",
+      "bytes": 4078
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/m5_endpoint_model.py",
+      "sha256": "0781a14ca1110218101a254047f28d0697a0dcac76562f25a49b3e4844407b1e",
+      "bytes": 3303
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint-initial-failure.json",
+      "sha256": "3c8ce35c379cdd0ee4c0bc3b2f98c4a90e9359642af91ac1d8733dd5e7298e7c",
+      "bytes": 812
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint-geometry-results.json",
+      "sha256": "a965dd045d10d30d256dbde5ac5c744924bed5cb86a121f8ee6f1fb1cad88724",
+      "bytes": 8508
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint-native-results.json",
+      "sha256": "ce861c1f46251f87f98863399555bbe96b31f4d8b5788d72b1df84cb68dfa9f4",
+      "bytes": 2786
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint-closed.png",
+      "sha256": "a4e6687cd95f50621fa5a413ebe063945d45ece5ef50b7e794523f5991cfafbb",
+      "bytes": 31779
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint-parked.png",
+      "sha256": "2bdeb34ee7556a3259d31189c4162acaf3accd4abdcdf2b5da246d66eda3703d",
+      "bytes": 42608
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/connector-bounds.json",
+      "sha256": "ac8226d1ab8a8ee7c9e4be16d02f47496c5e55cdf2d38e7d7a2bfa9933b07069",
+      "bytes": 2269
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/check_connector_bounds.py",
+      "sha256": "2809e13848d3e6341cff42b616695c089c33739f060d255148c9eb207eea066b",
+      "bytes": 2610
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/connector-bounds-results.json",
+      "sha256": "b612f8542dccef34b802c839a464ee676abf7188200976e28e5f559234b873d1",
+      "bytes": 1311
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/interface-capacity-proposal.json",
+      "sha256": "c5ef6d114b6c71d7522d8a7eac9ca1b7a6adc28ac6917be246d717d1337c8fbe",
+      "bytes": 1793
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/interface-inventory.json",
+      "sha256": "82feb6e3a87b457393e06aa867e4360e1981ad72aaf162ed8a4b4c65ba33922c",
+      "bytes": 3994
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/check_transition_contract.py",
+      "sha256": "6fc69d54bac286091c6cccc9e7bbb461caf66041a01208a62f147fecabe38d9e",
+      "bytes": 4170
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/transition-contract-results.json",
+      "sha256": "81cb807f9e74c3743fc6f59481c8d903101967988b5ca65965494521a985413f",
+      "bytes": 5422
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/program-isolation-results.json",
+      "sha256": "b8b3fc4523cf0ad6b83565b770188107887bdbed22b0dbae12e1099381a05219",
+      "bytes": 27206
+    },
+    {
+      "path": "docs/research/downloads/p0-15/samtec-sfm-drawing.pdf",
+      "sha256": "b1e50a8c459289623b5991007ef65319fc21146099f6b13645f427e298e35ffe",
+      "bytes": 564151
+    },
+    {
+      "path": "docs/research/downloads/p0-15/samtec-xfm-mated.pdf",
+      "sha256": "3223a80cec477ee5531b86674ec3145e7637ec4adb5f53c89d59e89b1263005e",
+      "bytes": 908562
+    },
+    {
+      "path": "docs/research/downloads/p0-15/attempt-4/samtec-tfm-drawing.pdf",
+      "sha256": "4e58e4227decf3e6e229b16ca7b711d9e672111ec1f53ea48887b822b292ede2",
+      "bytes": 3459889
+    },
+    {
+      "path": "docs/research/downloads/p0-15/attempt-4/samtec-pair-cycle-report.pdf",
+      "sha256": "a4320e9b63ac17b34404a73ceacf2515945b7cfc1baa42adb265bd8d0a431b31",
+      "bytes": 456270
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study-proposal.json",
+      "sha256": "edeae78f366624d1cfadd051787ffad9e11703cc97e409e06dc615a4d99e3b28",
+      "bytes": 4056
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/founder-approval.json",
+      "sha256": "b69f0c9a0200818fced60b71f1957c2cb30e0e4306a610f9b50bee84350a8c3b",
+      "bytes": 927
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/geometry.py",
+      "sha256": "9bb8bf2ffba4db32608d513c63e1f8c0ba96c0d884c3fae084d6ef0d93afaaa4",
+      "bytes": 13219
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/protocol.json",
+      "sha256": "d518d5eac800282197c4171b42b9e8f5db9e25a025fb31d1484b841fba100615",
+      "bytes": 3188
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/m5_contact_model.py",
+      "sha256": "94c225a90cb2f9adf68964df8a9a00225b43a09db8578f00e77272ae7acf90bf",
+      "bytes": 3095
+    }
+  ]
+}

@@ -1,0 +1,347 @@
+{
+  "boardId": "adafruit-feather-esp32-s3-5323",
+  "revision": "Adafruit Feather ESP32-S3 #5323 · 8 MB flash · no PSRAM",
+  "sourceBoardCad": "assets/boards/vendor/adafruit-feather-esp32-s3-5323/Adafruit ESP32-S3 8MB No PSRAM.brd",
+  "sourceBoardCadSha256": "5b06b9c6291545a2c9da0993a642e513a75c5901e26836a2ee559077147abcca",
+  "sourceGlb": "public/models/adafruit-feather-esp32-s3-5323.glb",
+  "sourceGlbSha256": "b655f774699e598c7f9102ecb8832b73eb503a0ea5ed0b6e118ac1f9102dda36",
+  "coordinateDerivation": "28 through-hole breakout pads are transformed from Eagle package centers for JP1/JP3, including JP1 R180 and JP3 R0 transforms. Eagle X/Y are aligned to STEP-derived GLB X/Z using 32 inlier designator mesh centers (P95 residual 0.0007 mm); anchors lie on the PCB top plane. Net labels come from the exact board revision; GPIO mappings are maintained separately from the corresponding official Arduino variant.",
+  "alignment": {
+    "matchedMeshCenters": 33,
+    "inlierMeshCenters": 32,
+    "p95ResidualMm": 0.0007,
+    "excludedMeshCenters": [
+      {
+        "reference": "X3",
+        "error": 0.2
+      }
+    ]
+  },
+  "glbCadOffsetMm": {
+    "x": -25.4,
+    "z": 11.43
+  },
+  "boardTopMm": 0.785,
+  "headers": [
+    {
+      "headerReference": "JP1",
+      "side": "left",
+      "pins": [
+        {
+          "id": "jp1-1",
+          "headerReference": "JP1",
+          "padNumber": "1",
+          "side": "left",
+          "position": 1,
+          "netName": "TXD0",
+          "xMm": 19.05,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-2",
+          "headerReference": "JP1",
+          "padNumber": "2",
+          "side": "left",
+          "position": 2,
+          "netName": "TX",
+          "xMm": 16.51,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-3",
+          "headerReference": "JP1",
+          "padNumber": "3",
+          "side": "left",
+          "position": 3,
+          "netName": "RX",
+          "xMm": 13.97,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-4",
+          "headerReference": "JP1",
+          "padNumber": "4",
+          "side": "left",
+          "position": 4,
+          "netName": "MISO",
+          "xMm": 11.43,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-5",
+          "headerReference": "JP1",
+          "padNumber": "5",
+          "side": "left",
+          "position": 5,
+          "netName": "MOSI",
+          "xMm": 8.89,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-6",
+          "headerReference": "JP1",
+          "padNumber": "6",
+          "side": "left",
+          "position": 6,
+          "netName": "SCK",
+          "xMm": 6.35,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-7",
+          "headerReference": "JP1",
+          "padNumber": "7",
+          "side": "left",
+          "position": 7,
+          "netName": "A5",
+          "xMm": 3.81,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-8",
+          "headerReference": "JP1",
+          "padNumber": "8",
+          "side": "left",
+          "position": 8,
+          "netName": "A4",
+          "xMm": 1.27,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-9",
+          "headerReference": "JP1",
+          "padNumber": "9",
+          "side": "left",
+          "position": 9,
+          "netName": "A3",
+          "xMm": -1.27,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-10",
+          "headerReference": "JP1",
+          "padNumber": "10",
+          "side": "left",
+          "position": 10,
+          "netName": "A2",
+          "xMm": -3.81,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-11",
+          "headerReference": "JP1",
+          "padNumber": "11",
+          "side": "left",
+          "position": 11,
+          "netName": "A1",
+          "xMm": -6.35,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-12",
+          "headerReference": "JP1",
+          "padNumber": "12",
+          "side": "left",
+          "position": 12,
+          "netName": "A0",
+          "xMm": -8.89,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-13",
+          "headerReference": "JP1",
+          "padNumber": "13",
+          "side": "left",
+          "position": 13,
+          "netName": "GND",
+          "xMm": -11.43,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-14",
+          "headerReference": "JP1",
+          "padNumber": "14",
+          "side": "left",
+          "position": 14,
+          "netName": "3.3V",
+          "xMm": -13.97,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-15",
+          "headerReference": "JP1",
+          "padNumber": "15",
+          "side": "left",
+          "position": 15,
+          "netName": "3.3V",
+          "xMm": -16.51,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp1-16",
+          "headerReference": "JP1",
+          "padNumber": "16",
+          "side": "left",
+          "position": 16,
+          "netName": "RESET",
+          "xMm": -19.05,
+          "zMm": 10.16,
+          "anchorYmm": 0.785
+        }
+      ]
+    },
+    {
+      "headerReference": "JP3",
+      "side": "right",
+      "pins": [
+        {
+          "id": "jp3-1",
+          "headerReference": "JP3",
+          "padNumber": "1",
+          "side": "right",
+          "position": 1,
+          "netName": "VBAT",
+          "xMm": -8.89,
+          "zMm": -10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp3-2",
+          "headerReference": "JP3",
+          "padNumber": "2",
+          "side": "right",
+          "position": 2,
+          "netName": "EN",
+          "xMm": -6.35,
+          "zMm": -10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp3-3",
+          "headerReference": "JP3",
+          "padNumber": "3",
+          "side": "right",
+          "position": 3,
+          "netName": "VBUS",
+          "xMm": -3.81,
+          "zMm": -10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp3-4",
+          "headerReference": "JP3",
+          "padNumber": "4",
+          "side": "right",
+          "position": 4,
+          "netName": "D13",
+          "xMm": -1.27,
+          "zMm": -10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp3-5",
+          "headerReference": "JP3",
+          "padNumber": "5",
+          "side": "right",
+          "position": 5,
+          "netName": "D12",
+          "xMm": 1.27,
+          "zMm": -10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp3-6",
+          "headerReference": "JP3",
+          "padNumber": "6",
+          "side": "right",
+          "position": 6,
+          "netName": "D11",
+          "xMm": 3.81,
+          "zMm": -10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp3-7",
+          "headerReference": "JP3",
+          "padNumber": "7",
+          "side": "right",
+          "position": 7,
+          "netName": "D10",
+          "xMm": 6.35,
+          "zMm": -10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp3-8",
+          "headerReference": "JP3",
+          "padNumber": "8",
+          "side": "right",
+          "position": 8,
+          "netName": "D9",
+          "xMm": 8.89,
+          "zMm": -10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp3-9",
+          "headerReference": "JP3",
+          "padNumber": "9",
+          "side": "right",
+          "position": 9,
+          "netName": "D6",
+          "xMm": 11.43,
+          "zMm": -10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp3-10",
+          "headerReference": "JP3",
+          "padNumber": "10",
+          "side": "right",
+          "position": 10,
+          "netName": "D5",
+          "xMm": 13.97,
+          "zMm": -10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp3-11",
+          "headerReference": "JP3",
+          "padNumber": "11",
+          "side": "right",
+          "position": 11,
+          "netName": "SCL",
+          "xMm": 16.51,
+          "zMm": -10.16,
+          "anchorYmm": 0.785
+        },
+        {
+          "id": "jp3-12",
+          "headerReference": "JP3",
+          "padNumber": "12",
+          "side": "right",
+          "position": 12,
+          "netName": "SDA",
+          "xMm": 19.05,
+          "zMm": -10.16,
+          "anchorYmm": 0.785
+        }
+      ]
+    }
+  ]
+}

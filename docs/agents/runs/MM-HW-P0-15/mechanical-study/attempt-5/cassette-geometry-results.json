@@ -1,0 +1,211 @@
+{
+  "scope": "Rigid reference shapes and ideal linear guides",
+  "baseline": {
+    "extension_mm": 0,
+    "withdrawal_mm": 8.0,
+    "last_contact_allocation_mm": 2.0,
+    "analytic_barriers": [
+      {
+        "endpoint": "A",
+        "blocking_above_mm": 0.10000000000000142,
+        "own_tongue_release_mm": 2.799999999999997,
+        "margin_to_last_contact_allocation_mm": 0.7999999999999972
+      },
+      {
+        "endpoint": "B",
+        "blocking_above_mm": 0.10000000000000142,
+        "own_tongue_release_mm": 2.799999999999997,
+        "margin_to_last_contact_allocation_mm": 0.7999999999999972
+      }
+    ],
+    "sweeps": [
+      {
+        "absent_tongues": [],
+        "seated_lift_first_collision": [
+          0.10000100000000142,
+          "A cassette tongue",
+          "A cross rail"
+        ],
+        "parked_insertion_first_collision": [
+          1.2000010000000028,
+          "B cross rail",
+          "A cassette tongue"
+        ],
+        "insertion_stop_withdrawal_mm": 6.799998999999997
+      },
+      {
+        "absent_tongues": [
+          "A"
+        ],
+        "seated_lift_first_collision": [
+          0.10000100000000142,
+          "B cassette tongue",
+          "B cross rail"
+        ],
+        "parked_insertion_first_collision": [
+          5.200001000000003,
+          "B cross rail",
+          "B cassette tongue"
+        ],
+        "insertion_stop_withdrawal_mm": 2.799998999999997
+      },
+      {
+        "absent_tongues": [
+          "B"
+        ],
+        "seated_lift_first_collision": [
+          0.10000100000000142,
+          "A cassette tongue",
+          "A cross rail"
+        ],
+        "parked_insertion_first_collision": [
+          1.2000010000000028,
+          "B cross rail",
+          "A cassette tongue"
+        ],
+        "insertion_stop_withdrawal_mm": 6.799998999999997
+      },
+      {
+        "absent_tongues": [
+          "A",
+          "B"
+        ],
+        "seated_lift_first_collision": null,
+        "parked_insertion_first_collision": null,
+        "insertion_stop_withdrawal_mm": null
+      }
+    ],
+    "normal_route_mm": [
+      [
+        0,
+        0
+      ],
+      [
+        8.0,
+        0
+      ],
+      [
+        8.0,
+        16.2
+      ],
+      [
+        8.0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  },
+  "extended": {
+    "extension_mm": 14,
+    "withdrawal_mm": 22,
+    "last_contact_allocation_mm": 15.658164081579464,
+    "analytic_barriers": [
+      {
+        "endpoint": "A",
+        "blocking_above_mm": 0.10000000000000142,
+        "own_tongue_release_mm": 16.799999999999997,
+        "margin_to_last_contact_allocation_mm": 1.141835918420533
+      },
+      {
+        "endpoint": "B",
+        "blocking_above_mm": 0.10000000000000142,
+        "own_tongue_release_mm": 16.799999999999997,
+        "margin_to_last_contact_allocation_mm": 1.141835918420533
+      }
+    ],
+    "sweeps": [
+      {
+        "absent_tongues": [],
+        "seated_lift_first_collision": [
+          0.10000100000000142,
+          "A cassette tongue",
+          "A cross rail"
+        ],
+        "parked_insertion_first_collision": [
+          1.2000010000000028,
+          "B cross rail",
+          "A cassette tongue"
+        ],
+        "insertion_stop_withdrawal_mm": 20.799998999999996
+      },
+      {
+        "absent_tongues": [
+          "A"
+        ],
+        "seated_lift_first_collision": [
+          0.10000100000000142,
+          "B cassette tongue",
+          "B cross rail"
+        ],
+        "parked_insertion_first_collision": [
+          5.200001000000003,
+          "B cross rail",
+          "B cassette tongue"
+        ],
+        "insertion_stop_withdrawal_mm": 16.799998999999996
+      },
+      {
+        "absent_tongues": [
+          "B"
+        ],
+        "seated_lift_first_collision": [
+          0.10000100000000142,
+          "A cassette tongue",
+          "A cross rail"
+        ],
+        "parked_insertion_first_collision": [
+          1.2000010000000028,
+          "B cross rail",
+          "A cassette tongue"
+        ],
+        "insertion_stop_withdrawal_mm": 20.799998999999996
+      },
+      {
+        "absent_tongues": [
+          "A",
+          "B"
+        ],
+        "seated_lift_first_collision": null,
+        "parked_insertion_first_collision": null,
+        "insertion_stop_withdrawal_mm": null
+      }
+    ],
+    "normal_route_mm": [
+      [
+        0,
+        0
+      ],
+      [
+        22,
+        0
+      ],
+      [
+        22,
+        16.2
+      ],
+      [
+        22,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  },
+  "counterexample": {
+    "assumed_last_contact_mm": 3.0,
+    "cassette_withdrawal_mm": 2.9,
+    "absent_tongue": "A",
+    "park_reachable": true
+  },
+  "limitations": [
+    "2 mm baseline is hypothetical. Extended allocation reuses the Samtec bound only for a cassette interface that satisfies every referenced geometric assumption",
+    "Geometry does not prove electrical reconnection at h <= 0.1 mm",
+    "Ideal axes and travel limits require actual guides and stops",
+    "Frame, common-root fracture, terminal pullout, tolerance and force remain open"
+  ]
+}

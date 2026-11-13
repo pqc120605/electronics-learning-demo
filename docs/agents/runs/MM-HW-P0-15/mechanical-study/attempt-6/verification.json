@@ -1,0 +1,30 @@
+{
+  "commands": [
+    {
+      "command": [
+        "node",
+        "D:/StartupOS/docs/agents/validate.mjs"
+      ],
+      "exit": 0,
+      "output": "{\n  \"tasks\": 61,\n  \"capabilities\": 143,\n  \"warnings\": [],\n  \"errors\": []\n}\n"
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "D:/StartupOS/docs/agents/validate.test.mjs"
+      ],
+      "exit": 0,
+      "output": "ℹ tests 61\nℹ suites 0\nℹ pass 61\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 354.1792"
+    }
+  ],
+  "prior_snapshot_files_unchanged": {
+    "attempt-4": 65,
+    "attempt-5": 26
+  },
+  "connector_and_cutoff_replay": "pass",
+  "independent_review_attempt6": "NOT_RUN",
+  "physical_tests": "NOT_RUN",
+  "five_hour_remaining_at_dispatch_stop_percent": 50,
+  "hardware_registry_unchanged": true
+}

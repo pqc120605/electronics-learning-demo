@@ -1,0 +1,53 @@
+{
+  "checked_at": "2026-11-11T00:30:14.889260+07:00",
+  "scope": "Research/evidence checkpoint only; P0-15 incomplete, B1 not ready",
+  "old_and_CAD_manifests": [
+    {
+      "manifest": "docs/agents/runs/MM-HW-P0-15/mechanical-study/snapshot.json",
+      "verified_files": 34
+    },
+    {
+      "manifest": "docs/agents/runs/MM-HW-P0-15/snapshot.json",
+      "verified_files": 38
+    },
+    {
+      "manifest": "docs/agents/runs/MM-HW-P0-14/snapshot.json",
+      "verified_files": 37
+    },
+    {
+      "manifest": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/review-packet.json",
+      "verified_files": 15
+    }
+  ],
+  "supplement_revision": 2,
+  "supplement_files_verified": 15,
+  "manufacturer_PDFs_verified": 3,
+  "state_input_checks_recorded": 192,
+  "directed_traces_recorded": 5,
+  "state_and_arithmetic_execution": "Executed this continuation with exit0; unchanged scripts/results checked here, not claimed as hardware proof",
+  "queue_validation": {
+    "command": "node D:/StartupOS/docs/agents/validate.mjs",
+    "exit_code": 0,
+    "stdout": "{\n  \"tasks\": 61,\n  \"capabilities\": 143,\n  \"warnings\": [],\n  \"errors\": []\n}\n",
+    "stderr": ""
+  },
+  "r12_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+  "hardware_registry_unchanged": true,
+  "hashes": {
+    "CHECKPOINT-2026-11-11.md": "cbe1fc2b33cbf0d012b85511cb7efdae82dc46c0ff94ef76d6e2e55c711bfb79",
+    "BOX08-REFERENCE-REVIEW.md": "32fc6b1f4f17b12271531ffcc718b9aadc7e4868f26f6659c13a74d3891ea938",
+    "BOX08-SUPPLEMENT-REVIEW-1.md": "e041653bdba73166c796ee1d8d72cfe510d491a99dbeb710b78068cdea779d65",
+    "DISPOSITION-SUPPLEMENT-REVIEW.md": "0a0b09fc0701bc4177cebad6f37edaf00d432d54bc9276ee133b71a26cda2175",
+    "SUPPLEMENT-REPORT.md": "2e05495bb71095acef917f1c56ee8ed447e0fec206285d258ebdf96fc2ffec2d",
+    "POWER-SOURCE-DISPOSITION.md": "0a54c4d2dacd844d6e83de60640cf4bbfe2f4d1301efab601537cdb3914946b6",
+    "supplement-review-packet.json": "6323a6141a44df850e885cf5480988ca718f32f5c7a439d2c1bad3c616a474b3",
+    "BOX08-SUPPLEMENT-REVIEW.md": "c39b58d1eb2fe9ff9de43b20ae22aa4cdc06335331790760a6d8af6015e581d2"
+  },
+  "not_run": [
+    "FE/strength",
+    "physical/bench",
+    "firmware/device",
+    "schematic/PCB/B1",
+    "browser/application tests; no application changes"
+  ]
+}

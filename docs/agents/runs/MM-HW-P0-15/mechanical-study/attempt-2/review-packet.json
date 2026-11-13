@@ -1,0 +1,80 @@
+{
+  "scope": "Reference CAD attempt-2 only; not B1 or product approval",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/task.md",
+      "sha256": "0bf039e8006fccf4e5bc61b69a0190ae620e9f7215f1a322271154e1e1819545",
+      "bytes": 2721
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/protocol.json",
+      "sha256": "d518d5eac800282197c4171b42b9e8f5db9e25a025fb31d1484b841fba100615",
+      "bytes": 3188
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/geometry.py",
+      "sha256": "9bb8bf2ffba4db32608d513c63e1f8c0ba96c0d884c3fae084d6ef0d93afaaa4",
+      "bytes": 13219
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/run_paths.py",
+      "sha256": "c6f6f32bae2469beff71814ef48af89bf2fbe867eb8a51afaee828ed68718b78",
+      "bytes": 2821
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/check_paths.py",
+      "sha256": "9ce3426ba46fa4b41deadabb32b187f5ccba0dcd6ffe1f937786964df9fbbe80",
+      "bytes": 3677
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/m5_contact_model.py",
+      "sha256": "94c225a90cb2f9adf68964df8a9a00225b43a09db8578f00e77272ae7acf90bf",
+      "bytes": 3095
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/kernel_check.py",
+      "sha256": "aa63e06688a4a66c80c654785eb44e5d18b9cc05c201af71fa097acb5918a1da",
+      "bytes": 2373
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/path-results.json",
+      "sha256": "dcc96d66992e18ea01e74ec3f325f25c9b8a91bb9812806d397a07777ae5e304",
+      "bytes": 1164106
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/adversarial-results.json",
+      "sha256": "92622d662d10a56b180fb4cf41154e92aa7f3d8a16b3beed2fb51cae5adaa3fa",
+      "bytes": 12873
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/kernel-results.json",
+      "sha256": "6bb058e64690b7d373eaaf9d500211c12f660095c8ec9a892f195e6d24040497",
+      "bytes": 60286
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/m5-contact-reference.xbf",
+      "sha256": "be30c357c6d604fbdebe3d83a78124f90bed9e144e929efddce40ee0bffe6aa8",
+      "bytes": 253896
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/inserted-final.png",
+      "sha256": "8a751f5f9f1a644464bb4f115240f3d7a018d4d14374c77738e89193827ef598",
+      "bytes": 29782
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/REPORT.md",
+      "sha256": "2901c56269cc73415e6360ab811281efa07a05a74fcdc5c31229bdd7bf7186a6",
+      "bytes": 7629
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX03-ADVISORY.md",
+      "sha256": "456db5ce74405b8855193b96e37e2b594580f5594dff8e581bfd9aa0946130ac",
+      "bytes": 4410
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX02-ADVISORY.md",
+      "sha256": "e94cd8d346cc5270d5a468ead0f900bb014e277fca2421ccb5aca51f2d7c565c",
+      "bytes": 5637
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "scope": "Synthetic STATIC configuration only; NOT normally reachable insertion, commercial cable, conductive performance or system single-fault bypass",
+  "shell_depth": 6.4,
+  "tail_square_section_mm": 0.1,
+  "tail_has_sharp_prescribed_bends": true,
+  "points_mm": [
+    [
+      0,
+      -0.15,
+      0
+    ],
+    [
+      1,
+      -0.15,
+      0
+    ],
+    [
+      1,
+      -1.98,
+      0
+    ],
+    [
+      1,
+      -1.98,
+      2.85
+    ],
+    [
+      1,
+      -3.02,
+      2.85
+    ],
+    [
+      1,
+      -3.02,
+      0
+    ],
+    [
+      1,
+      -3.48,
+      0
+    ],
+    [
+      1,
+      -3.48,
+      2.85
+    ],
+    [
+      1,
+      -4.52,
+      2.85
+    ],
+    [
+      1,
+      -4.52,
+      0
+    ],
+    [
+      1,
+      -7.29,
+      0
+    ],
+    [
+      1,
+      -7.29,
+      3.0
+    ],
+    [
+      1,
+      -7.72,
+      3.0
+    ],
+    [
+      1,
+      -7.72,
+      0
+    ],
+    [
+      1,
+      -8.39,
+      0
+    ],
+    [
+      1,
+      -8.39,
+      3.0
+    ],
+    [
+      1,
+      -8.82,
+      3.0
+    ],
+    [
+      1,
+      -8.82,
+      0
+    ],
+    [
+      1,
+      -12,
+      0
+    ]
+  ],
+  "segments": 18,
+  "obstacle_count": 93,
+  "positive_interference_pairs": [],
+  "touching_pairs": [],
+  "static_indications": {
+    "shutters_home": true,
+    "probe_corridors_empty_of_shell_and_tail": true,
+    "face_witness_test_heads_clear_of_tail": true,
+    "reference_shell_inside_potential_contact_region": true
+  },
+  "finding": "The static combination of closed functional panels and empty remote collar probes does not alone prove absence of an arbitrarily thin prescribed tail plus a shell already at contact depth.",
+  "not_proven": [
+    "insertion history with healthy shutters",
+    "manufacturable cable/bend radius",
+    "actual USB contact/cable geometry",
+    "force/strength/tolerance",
+    "single-fault system reachability",
+    "B1"
+  ],
+  "script_sha256": "9467746d0436d5f9721ab1ee293917c8216456cbb21540cad6419f224c945504"
+}

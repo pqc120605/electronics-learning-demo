@@ -1,0 +1,88 @@
+{
+  "scope": "Prescribed witness collision fixture only; not full interlock or fault-reachable system",
+  "cases": [
+    {
+      "stroke": 0.2000005972385406,
+      "contributors": [
+        "intact panel A"
+      ],
+      "kind": "solid_contact",
+      "in_window": true,
+      "side": 1,
+      "panel_missing": false,
+      "aperture": false
+    },
+    {
+      "stroke": 2.0,
+      "contributors": [],
+      "kind": "full_overtravel",
+      "in_window": false,
+      "side": 1,
+      "panel_missing": true,
+      "aperture": false
+    },
+    {
+      "stroke": 0.20000055015087126,
+      "contributors": [
+        "DAMAGED aperture panel A"
+      ],
+      "kind": "solid_contact",
+      "in_window": true,
+      "side": 1,
+      "panel_missing": false,
+      "aperture": true,
+      "shell_panel_intersection_mm3": 0
+    },
+    {
+      "stroke": 0.2000005972385406,
+      "contributors": [
+        "intact panel B"
+      ],
+      "kind": "solid_contact",
+      "in_window": true,
+      "side": -1,
+      "panel_missing": false,
+      "aperture": false
+    },
+    {
+      "stroke": 1.7000005972385404,
+      "contributors": [
+        "intact panel A"
+      ],
+      "kind": "solid_contact",
+      "in_window": false,
+      "side": -1,
+      "panel_missing": true,
+      "aperture": false
+    },
+    {
+      "stroke": 0.20000055015087126,
+      "contributors": [
+        "DAMAGED aperture panel B"
+      ],
+      "kind": "solid_contact",
+      "in_window": true,
+      "side": -1,
+      "panel_missing": false,
+      "aperture": true,
+      "shell_panel_intersection_mm3": 0
+    }
+  ],
+  "model_id": "4ecaa515-9c66-5971-93ec-1a3f47dc5959",
+  "finding": "Complete panel loss is rejected by position window in this ideal fixture. A through-aperture panel still stops the witness in-window while a shell envelope fits. One point witness does not prove functional barrier integrity.",
+  "not_proven": [
+    "actual cycle-completion latch",
+    "force/friction/spring",
+    "system bridge-reconnect reachability",
+    "USB contact/material fit",
+    "single-fault safety",
+    "fault probability",
+    "B1"
+  ],
+  "provenance": {
+    "geometry.py": "9bb8bf2ffba4db32608d513c63e1f8c0ba96c0d884c3fae084d6ef0d93afaaa4",
+    "protocol.json": "d518d5eac800282197c4171b42b9e8f5db9e25a025fb31d1484b841fba100615",
+    "m5_contact_model.py": "94c225a90cb2f9adf68964df8a9a00225b43a09db8578f00e77272ae7acf90bf"
+  },
+  "script_sha256": "6475b1afb91732116d655da52b26ddac37904190be896f2a9092acaec4d70965"
+}

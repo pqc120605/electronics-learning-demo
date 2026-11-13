@@ -1,0 +1,75 @@
+{
+  "kind": "C12 follow-up supplemental evidence; earlier packets preserved",
+  "configuration_unchanged_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+  "queue_policy": "Frozen queue-excerpt.json only; no live tasks.json entry",
+  "files": [
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-extracted.txt",
+      "sha256": "8db94c28ce5c73eda7cf1640c6173678ac80670da7b7b153bbbca51aba526d0d"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p1.png",
+      "sha256": "0c433d11099854f7b4d69cb8f0dc1f725cb3d4e2db2dd22ff51bd23b1514f099"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p2.png",
+      "sha256": "557ba66c2f8a2cc2a851f4ab7a57cc7e5274ea655cd4f91cd37155664ec508eb"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p33.png",
+      "sha256": "2f301b5b2ab81987602447c06eded8ebcdaefa07dc077e72784ff9b30b894d3b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p36.png",
+      "sha256": "61cf333e0cfd3dc97bdaa6357fbf8b335b2cf4eddfebad335ca3dc75f65a1b1f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p37.png",
+      "sha256": "7a41b26959d4a1f7ed64834569d7a7bb0c31f951e1210d0a3fd286d691118820"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p38.png",
+      "sha256": "9cceef817e3df6141fee5518673cb2f2860030088801a14869203044a8d603d2"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p39.png",
+      "sha256": "cb14f4dae17dd2b7cb42a2e9543338d7616c80ac6477bf30fdfe1cd54f86eab5"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p4.png",
+      "sha256": "f21e39bf99e73b6eb6df44acee91724167b2f5751df2bf9fd89ad95456bad132"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/adr45-p5.png",
+      "sha256": "d9cb8f185752696e6a4043fb4643a15381c549775fbdbd20fe6b8d12bc2e5234"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/calculations.json",
+      "sha256": "f7d2fd926bf73f0e6ae33db8095ceacd70a160f31a7896011d71c59b94071595"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/DISPOSITION-C12.md",
+      "sha256": "5dd688890933302edf8cfbfffb92f1bc5dc6c81252a866a72d2f77ce0a04d8d6"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/intake.py",
+      "sha256": "73075a81de1a4495e7c73fe8307737e787b399f2850419b01ae0f3d537c8ec42"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/queue-excerpt.json",
+      "sha256": "eb4896ac293ecc6d2ec53f0c3ec25bf575dc2690b5394aa00ac42d0748cd2282"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/REVIEW_RESULT-C12.md",
+      "sha256": "7311bc7cabc7d6bed70a66e6bcfb6cd76082f69051702030b204948b11a7ed99"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-11/c12-follow-up/source-verification.json",
+      "sha256": "8acc5b5f00f72a7c4c274f2c764ec2c1bb8d66eb559281ab8d806b7c9ef45e1b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/p0-11/adr4520_4525_4530_4533_4540_4550.pdf",
+      "sha256": "de2dca59e24477c2e186440e3d768cc06b7e3742448929a9f5721d5817247b34"
+    }
+  ]
+}

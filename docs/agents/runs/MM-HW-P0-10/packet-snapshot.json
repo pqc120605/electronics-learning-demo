@@ -1,0 +1,977 @@
+{
+  "configuration_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+  "excludes": [
+    "packet-snapshot.json (self)",
+    "RELAY-REVIEW_REQUEST.md (lists this manifest)"
+  ],
+  "files": [
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r12-handset.json",
+      "sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r11-handset.json",
+      "sha256": "b4a7a5aedcd9012ca75df93a973f0517d86f28a13249632c1ea2a576f945e887"
+    },
+    {
+      "path": "D:/StartupOS/docs/agents/tasks.json",
+      "sha256": "4058fb5d16bcf6a3c25ddd57ec2f98c46d2edd68a667f19e8f3ee83e6ff3c638"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-c11-electrical-consolidation.md",
+      "sha256": "b72c56b40d6c04ca16067d580680858f63e09cbbddcbc0fcfabf58068e25e042"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-c11-mechanical-canonical.md",
+      "sha256": "f6aacff8af84497cd9d40cc1f00929b65408ef12154e3884780b5a2d2318d9ce"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-founder-decision-c11-r12.md",
+      "sha256": "03990ac885f967a564408c10937d47b3f0f45ec1c9441ab2c4d7fcfeb6fcd861"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/adafruit-2776.html",
+      "sha256": "47f384eb2c033ee0b786f8ab53441ab235cce11399925a7b1cc086bfc6c5b68c"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p1.png",
+      "sha256": "3227525dafb925ca5b0f1ec1c8a7e8cc6c905938bf310e59acd999014b073388"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p10.png",
+      "sha256": "85eab4120ae0ebb1b592c32b6c68460b5ffdbf3ef1e6400d75ece8e5ef742b8e"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p11.png",
+      "sha256": "d203b494c4b1b86b152d033df040d4190f0cc2c0fbd0ead70d3f1785cf1dac59"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p13.png",
+      "sha256": "9a815143cc3d23c7a2aa2de3d5df26f21400f771481bbce62116447706d215a1"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p14.png",
+      "sha256": "8f4989bfd20dfcf3f9945554e47e7349c245897d2cb32ac79954e26ac5f17adc"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p15.png",
+      "sha256": "bd2f407bc3197facbf1bcf23c6c2bc8fc25b018db0679c6f9164d8201d33a0f4"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p16.png",
+      "sha256": "ba9ce4086776668b1a3769870e55a8f62e3519991abbb6f41ff990d92f35b70a"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p17.png",
+      "sha256": "ecc94b76822f6f4d551f9306151539cebf0735d68ed3f793a0e2e842c823e386"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p18.png",
+      "sha256": "3f141e43493b39c551f97834bd319c6ed991e705a3be7a04e755bb5400f34e9b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p19.png",
+      "sha256": "0a73a4c676321d8d3313ce3ff594f003cead5198831a7f78404251d2af97e635"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p2.png",
+      "sha256": "595e3b9f00cd8b4b919521daec079ec2888216800a3f8d778a6f99b9265f247f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p20.png",
+      "sha256": "e59cb88a28f44538438bcdd342626582aef36b6b4ea2778a06e137932419ca44"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p21.png",
+      "sha256": "5170abc9d399d343c8ce68839b685a42c37ce77d4a85396d57891df3fb2ce57c"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p23.png",
+      "sha256": "feb1e1aad9b9ae6b51aca5c54180c4a357e6e5035262dcfe72e705e25a393ec0"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p24.png",
+      "sha256": "9133270be44ca6af969ffe56786f6cf0bea4f66c0b297375cb5b4b7dd8738224"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p25.png",
+      "sha256": "1d10931564b24b8cbbb04e0f86d3903a49f4bd2db109e5b0ba9e50d503de717d"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p3.png",
+      "sha256": "125461a50d16bbf3c6510e4e5a51d954e1acd112d382ea67e5e23473be6a76fe"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p4.png",
+      "sha256": "76b9ce64f325b498ccdde40eca4617532ad423d26d8c1849dd84feb3e6cc2b84"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p6.png",
+      "sha256": "292c3f0ed51dfd2d806a637dccf224cfc55b44cab2e26958a67783bbeaf4b4fe"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p7.png",
+      "sha256": "fa0640bb0116d207417ff07675e6d8759154f3934dae451018ab8e49478449a4"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p8.png",
+      "sha256": "4af3a3ec2b8f4a4fc4efc8ab1b000f8c06085e82f65e18dbf3e9ccefcc673fe2"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170-p9.png",
+      "sha256": "10e2b8fa005692bed8426b9173eb793bff19cf535508e4f0f2a14bb73dfaa8ad"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170.pdf",
+      "sha256": "90ddfdb38e001e2b528a3b7605acad04ba7bfd36bc5594d27cff002076c7b545"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170.txt",
+      "sha256": "a1b292718d7582eee38118232a413db400f27ea5650de3e5359d4e389313d4e6"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p1.png",
+      "sha256": "0ee656871519aa0425f1457d8ed6d9482131dddd78989d85279a4371f3717baf"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p11.png",
+      "sha256": "16dd0038ed2bc2fa8cf0cd861ec78921585391d9327a042c70d27ed4e8782304"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p14.png",
+      "sha256": "098ea85c47b85add2efb4620d48e0736d75ce8d402e69e89bf105520bda14245"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p15.png",
+      "sha256": "1be37880a6a9e69a432966f914595d0efe386de34d2d0cbdb6f62186d2f5dbb2"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p16.png",
+      "sha256": "ba2dd7efe1ed12af047cad1a236fd5d652c2043ab903db6066b53814315ff10f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p17.png",
+      "sha256": "750db3d42d76e6086fb8c052027c9928a24a5e118ca8648732cac00cfa01bfa8"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p18.png",
+      "sha256": "b53919fe886e2ab0735c58674f0f1e7b9143f86fbad8be88de4deabafedac7a0"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p19.png",
+      "sha256": "a1eaa6540f318a246919858baa78a452bd1f5897b5581305d463752c9c095e42"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p2.png",
+      "sha256": "190c65356b771ec2ca8ea78b768b1fc140ce665760fd5ec9ce0a436f4648a420"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p20.png",
+      "sha256": "8022516e2bcd7732b2a04bd2522363ec41eb14a5334a8d9227a27a78743dd0f6"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p22.png",
+      "sha256": "a7bea033fc4bab87e3df5667f7f39e43993b0269f7971beec9f1d6caf4fdf483"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p23.png",
+      "sha256": "9ef6862c573eef8226061ebdfcd89c763295d1aba4f7df2733940cf69cc10fe3"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p3.png",
+      "sha256": "4b8c9a6faaffa237095d2badf7c62421bff5988e9133fbd529ccda21a29f23b6"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p4.png",
+      "sha256": "a048d932671b919563b0bf87c616d141ee1c74d8501f9029240f0ba74d6509d0"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p6.png",
+      "sha256": "6477e4c1c9acf83373cc0294eb3913bf8dc94512ee3bd920a2fa2ce7827d08fb"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p7.png",
+      "sha256": "dd67971a02f657823baadf05d7ae8639ec30b95df00aa0e730bf2961efe4ac5b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p8.png",
+      "sha256": "d558b7f70d14db8b691fddff5663bd3e5e75aa75138b539c1ab41698b56c0ef6"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j-p9.png",
+      "sha256": "2ae50117103fac02e08839f736b252ba7a5e4417c1b634a76fd7b080e54ab937"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j.pdf",
+      "sha256": "9a4a9e3f7a024a02c1552979aa8a6e9af7a7c5d680c9e3c57207bcbb4d1a171e"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/bq25170j.txt",
+      "sha256": "1f41f7318e1570e2e04bc9defcebcd7a6fb8b0602d6c44caebd5776310eafee3"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/csd25402q3a-p1.png",
+      "sha256": "4b16fedd1fa0b6a9a1b53fc740cd9b00946e0cf88d302429294814ab3f3919b7"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/csd25402q3a-p2.png",
+      "sha256": "8621458abe0c11e38df6c71069c85c9343854b14135fc501520ae82477621f59"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/csd25402q3a-p3.png",
+      "sha256": "7e23f8d86d7dd88bc65f622640867f0de21a07e40f435f858be98aa9d6744950"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/csd25402q3a.pdf",
+      "sha256": "c012fd83328e7fae2186d13a13d9fe184ba7f00ec98f1061dca7118c39abdcd2"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/csd25402q3a.txt",
+      "sha256": "3b50de895a1b18f28f394384090eeabe8150e72a9ce48dc2177642764bb19772"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/mechanical-sources.json",
+      "sha256": "7444a9b98798dc1eb07dacd504575eb19c6f9e71699831a00a957ccb21189dce"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p1.png",
+      "sha256": "bed6a2fd03d782491d97d0f9dd0b04527554693d0bb6ef5b76972c16b31332fd"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p10.png",
+      "sha256": "46adcb2547f99b8082acbbd482981aa8699a6e724ddcdd7a373e6bc0b2d0759b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p12.png",
+      "sha256": "1f4e6210be883db5cdc4d835c731bc42efafc261aa0f2c794160b37743457a35"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p13.png",
+      "sha256": "c2dc3cf2e1bbd645b060b49c8318f5caa161aae890c0cfcaa6a2a503a3d4f9fd"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p14.png",
+      "sha256": "a097775bac26b32068acbf3dee2dcb888fa17dea2c5de3df354039cf63bf7f22"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p16.png",
+      "sha256": "edfcf6e8df597e128774bb3a610d57b68ad3cd1e49569eb4f9795632195ab2ff"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p19.png",
+      "sha256": "29a4e2f4f149da0b465021960adc8769e541b2608b8573de8759f9d9bcf651f2"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p2.png",
+      "sha256": "eb79146fe9bf0accd9ab2d46c66d4d5a062135be44dfe0ca731c008b42e8a2a6"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p6.png",
+      "sha256": "98322bdffa3a261b2717e529523747a9f660b94a22ca331f2b30733ad5115f1a"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p7.png",
+      "sha256": "32ecc1605937a1f762e6766e8f07251b68ad9d26b1613d04350903ca3e4c722f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p8.png",
+      "sha256": "1a0dc5ef0ee7911c72b3ebdb402498df40c334b5e17274a7872e7ee62ae01e20"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33-p9.png",
+      "sha256": "4975895e2e1521cc2820cb55654365df27a760cad29eabc8e69cdd3890f521be"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33.pdf",
+      "sha256": "39839abc9bf09417d0a4b446c6e922679f6dc63b19072e284169dd23007e65fe"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33.txt",
+      "sha256": "a93436093a55db86b56677bfe38f9b954a2258da24f81eb72af09f0a964dfa6f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74-p1.png",
+      "sha256": "f0a61848cf7686608d5b44ce73b563256d3715ebdb514e13af3dc0e811197f00"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74-p10.png",
+      "sha256": "36b6af00e109e536f25c5833578dde0f5946eb315a5abed4ec0a325dad1ef32e"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74-p11.png",
+      "sha256": "30a00eab41f5357f47b7963bcf6a719fdcc5cbca9e8a74988fec81021353195c"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74-p2.png",
+      "sha256": "f04cbcb9688a3fa7736242cc44a1a7f5a61cddc7c374f9f1cd406f6fe9e55b0e"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74-p7.png",
+      "sha256": "66d6ef0d068110f4875ed432ae1be024d5d5722778e577e23e6db3eb6ed026d9"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74-p8.png",
+      "sha256": "320b8b3a7bdd07294e7f4c4c01f04c06d0a01cf7f74233e57f679e3cad64e691"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74.pdf",
+      "sha256": "e46a5a867fec742290000dca5ed3b291535f3c4418ef2ae267acc4ab51b26d8a"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/sn74lvc1g74.txt",
+      "sha256": "c679da4e2edd249b9b39d82309dc807a352073bb05a751031e2722fb137e0930"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/sources.json",
+      "sha256": "48bc4e19378a56619ff27cc4072c9233751333cd91e576639d1230b142fc45c5"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ssab-355mc.html",
+      "sha256": "27bdcb157a0374303259d16f82efd44669507afe895493151e28668766d420ad"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/takaha-ssbh0830-p1.png",
+      "sha256": "17f8fc19fd89be3ec8dbbedd148c4d24088dc654de507e265b67303123ebbb9d"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/takaha-ssbh0830.pdf",
+      "sha256": "9b68bfff718041eb509e55fa28420c8d247d78cc38f1da7ca9dade884de43a58"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p1.png",
+      "sha256": "0fb09c8f86fd3e46790ecc225b0e47b6ac6979b5f8aa9b3e48f714ade38af965"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p10.png",
+      "sha256": "7388e4d673c291444c6241487a5febbe5b2aff8216121cb6ac520468c860b098"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p11.png",
+      "sha256": "40c4c350ffc37e9af414df30e96cd7c44b443ad588009f540edc5d67b4621356"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p12.png",
+      "sha256": "e3da68821489ff2d0c3fd068e14281b535c7955847c416893b57dc2ba046476f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p2.png",
+      "sha256": "02d21e4a002011ca2a802babee09f45f3ccbc2c06c1ad859927f8690f04782fd"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p22.png",
+      "sha256": "26e3fd7ca2d66ac2ff4d242515b0e1a5a6cddf9ce132747ed70d25b58514dc94"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p5.png",
+      "sha256": "be471591116088ce5957782ab282eefc0fe51ea20582f806d5549d539ce94dea"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p6.png",
+      "sha256": "6a73254036d57f3f59b32ef127e71793b5d4ff298e02361f1b7ce00f0b319c84"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p7.png",
+      "sha256": "4bdc71925c2110d31691c61a1a77fa226bb2924ea8eca2e4b956239be62cf9fe"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p8.png",
+      "sha256": "d0a95657f7ef1d06f006613108aa205943ac5f910002a364e7e0838c7a55077f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201-p9.png",
+      "sha256": "6b7e89b815e098b1e026d58897c6eb8a2f6fd85dad5688861654ce56bc4e9289"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201.pdf",
+      "sha256": "358c30340b482fc4b8fb2a5ae8a32543ff758acbbce2b9c1556ac703df118f1b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv3201.txt",
+      "sha256": "1242ded79f2b313c5ef8ff8722d71a86d51574bea1ad88d0e4c67410a455ae11"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p1.png",
+      "sha256": "6e38002bcfc0a735a1fdb9fa20b1ba356f12e2320abc672f5e5b5c92a194bd9d"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p10.png",
+      "sha256": "ee5104756139b73b05c7e23a061ac802076051bd97b924c559b406fd7d51d2f9"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p11.png",
+      "sha256": "09a4cc51ce5d5cdf7c3467ba2c1d34dcfca1e510e142c93e1053fdf2f2a1e9af"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p12.png",
+      "sha256": "ef2b4c88ad2440c19a5b58bd0d24e89246665a393a64f17dff2a03a651a500d2"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p13.png",
+      "sha256": "f28cb2e58b7a6369a19ec0a08011944bcabb5aace5067d33ad5e356ede42fd91"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p14.png",
+      "sha256": "d080b1f47dd4d8b29406e637bc28b3e7b277e65125bbf8147c6b5ac407879967"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p15.png",
+      "sha256": "9e3daba19d62673812b7cddb5d805cb4f8b6270c74b6ab0ec3789d4b3a2e711e"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p2.png",
+      "sha256": "47e42453632edf62220eebf70b2ab8db9aad8bfe51aff4c81c32e2d9bf100dee"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p5.png",
+      "sha256": "4f6d0cc8f2b06ef3c5e958c9f84145aff0e268785dd6076fd6d3212357827d98"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p7.png",
+      "sha256": "3b567d52d9a10906b6678a2577bf7bacb34848d3d6a96addda9d4752b8a5ad1f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p8.png",
+      "sha256": "8f31d9af7c4cad03dece250ad8704f793dc5b471f80fc4f9f7b2ab64b3a4aab9"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710-p9.png",
+      "sha256": "baf7556f5d7f2cdf7b21dc9f74fe6eef994877416795692236f6e6c4c8a0a8f8"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710.pdf",
+      "sha256": "f068d52942be7b00e5fb0f891f0cb022fdfe37c7971601334f7195ebe08e3600"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tlv6710.txt",
+      "sha256": "07d2440135276ec5241b6cfd1fd5be3daddbef2e681bd11a9273194c0ad19da4"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p1.png",
+      "sha256": "e5a32e627f69031bf5299081ca1738cb925ed422da11aa0bf24895c58498c9f0"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p2.png",
+      "sha256": "5047afe5e5a30325dd5370388bb6ad31f1b6147468072f98e62c0474e348b939"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p21.png",
+      "sha256": "3bbd6d3a38d1d6113724e35d258242ee9a4808600e3d043b7d4dce63d7adeab7"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p22.png",
+      "sha256": "f1a1713853a0be4b23080f97dd9a17fe1b7bc12e4cbbc9b255b896470c15448b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p23.png",
+      "sha256": "bd5a8194870f0d3152339b9c96addd60ee152ceefb159853a3bb9696d5e89eae"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p6.png",
+      "sha256": "59666b11c8e85f2a6a424575c3d318d8a37f11733603f5d50a1c947b248eda39"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511-p8.png",
+      "sha256": "952e05eaf12314e7a1d2cc702dd55406579aa954c03ef9bc5e0bc14d87500932"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511.pdf",
+      "sha256": "04291b41a68347fedbbb0776aa44f500eaca65f2ca3af0e022ee60d41c7b1e9f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tmux1511.txt",
+      "sha256": "195414f53e0d9bf7bb902a24f99a5afeac9d1f4c01f08fd76c9160fe92288ba9"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p1.png",
+      "sha256": "ef666ce3f01eab8d2c835640d049845afc830edb35a180479b80f1b2428dafd8"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p16.png",
+      "sha256": "af4cd7b0647c146e6d765c6e13d9eada732ae3bff9c2e0927ad2cf3ce9d7ac08"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p17.png",
+      "sha256": "1f841995e597ac9cd58eb6d49730a91a230d8d99ad65d6ef4d5e8d7d50f0c2bf"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p18.png",
+      "sha256": "299dfce4485e85d73b7aea4d41cb490ef4033bc1e298565bad328d1ca368bc99"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p2.png",
+      "sha256": "2179862cfb734e0ec28af906e7b744c7435c72f3b7162e4201a2384d9323063b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p5.png",
+      "sha256": "aa8c83d6be3c1275730ed8085249cf8f6faaa4a120905c5419e8ad26fb98b8bb"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p6.png",
+      "sha256": "f7a9ba0757aa19c7532f0fa5a9be1c778bd05966821912ee154456a256cc3713"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p7.png",
+      "sha256": "2a4d3bd68d2bc61fbbef6ff9f02a3dc092f4e9cb5004e129bbbf2b103c22c989"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p8.png",
+      "sha256": "57c33eb14b49f00870d8f4e425b9fbcd14c6932a2ab724a39ecacfb0e481d4af"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps22916-p9.png",
+      "sha256": "4d85d62f1f6407ed7202b76947633fceb411193dd66c17aff47744dcfc69615f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps22916.pdf",
+      "sha256": "a4d81b70556d5564aaee9baf455b7651375a94c629448f3f7e7ced2f5c41b33f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps22916.txt",
+      "sha256": "3df623a9c1d8fe8331c931ec504d3700e15c6f2cc44461e470c92281c19d8183"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p1.png",
+      "sha256": "cc59e192933d8952b47fe6968711cac170c3ec38f8b4fe4ff8c0f4f47bbd713f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p10.png",
+      "sha256": "97a40e52d6e1d5805ad2324fa24296f9af3a04d020a9b5971d46e1b2291ef1ee"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p11.png",
+      "sha256": "3e356396f8ad522b78a6ebef463c1da44c93b5544c5e4af22ff5383e80b172c5"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p12.png",
+      "sha256": "abf9bf6cc464a085ff56b64b80ce447bbd3703633b3339f345e4c814e0d58ee2"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p14.png",
+      "sha256": "d1add24c077ec84f49d01f393c168746b1aac00b0cb055abcc3a617afd3bedb2"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p16.png",
+      "sha256": "d31c2bef76f2796c08efe612d952debc869432f252979f3783a93e3673483495"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p18.png",
+      "sha256": "598b3b38d2d2828440b12859d5e9d6072953e768d4cfca65ce6eaa5c557bbad4"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p2.png",
+      "sha256": "50b6e39ae48bf8f7566854189c96efbbdd7bd182720039a3df61c18420bc0cbe"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p25.png",
+      "sha256": "a51bd63505cd1c48ecdcab1ac3e47e5ada595251500945e4df6cc4a2fc623eac"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p27.png",
+      "sha256": "bcf4e23ad0d843b35f4f1506d10585248aa64a5f210a57f362b15e308ccb16eb"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p6.png",
+      "sha256": "03e329c8b00b1a590db8cc999dc4be2fd559e27966ef151c2cd37de251d8b891"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p8.png",
+      "sha256": "a57bae8a7682c36f1b1f87d3134f476f7939d2347801e22c1294c3d82023dba6"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553-p9.png",
+      "sha256": "bf3f5bba3f0d7dd454d3b3b102fedbf2dcd4a804e4056aa5677928634fe087e8"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553.pdf",
+      "sha256": "edd76d150b073ae8d4addbf85f6845b8c722fbd0b35ef025ac3c9e704a6a3385"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps2553.txt",
+      "sha256": "c07712f79da9cc1d5cbf5ba2dcab2dfae193a1b97bfc3ce54fe4a28e78c548b5"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p1.png",
+      "sha256": "b78e6735fedf7498750aeff985ca986c7476ecdfb4ee709c621201c8d0a2e047"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p10.png",
+      "sha256": "edd32535c7bf2fac9617b36d51bee9d7b33d4d439c1ec8b9f38e20190d70e7e4"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p11.png",
+      "sha256": "94f68259e9be352d5852900ab25d16895e40df9a3642b65d93d01c7469e46c4f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p14.png",
+      "sha256": "4d14afc243e6888ab961e892f5a7a4d551e534de0b02726c2856121329da080b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p2.png",
+      "sha256": "db4ceb715bfb806dc06422880a61f3385f77a91a2ac4a41b79262f66a8d9e382"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p21.png",
+      "sha256": "285a0d85e259bd02ea54b95dd994ab3f394b63390beba4096e9948f3c23f2739"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p22.png",
+      "sha256": "7c7cbaa9cadb0bae497627d6c33a1940137c30125cbb9fe71f7a76dd63ca8b26"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p5.png",
+      "sha256": "213a99614a2cf344c5cb623219a37f98cd6a538df7d6ba18d4e06b46c5740b75"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p6.png",
+      "sha256": "21bd8665065a0c85ce8373308e24afdd555a74196dbe880969a6046f4125ef44"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p7.png",
+      "sha256": "e908d46af47a66caf371b0adbe52e5aee7f555dc5082d3fc435adc63c660bd5d"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810-p9.png",
+      "sha256": "2aadcad9ddf771d07a8906754fa63021123bf8c65fd8a4b20c6709aea5790dd1"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810.pdf",
+      "sha256": "ccc31e3ad8b7970005e23ba8b6a165694f712e86fd337b9ba2fe117a98a2e13e"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25810.txt",
+      "sha256": "91a828c9bf52589b3eea2352aaf6f3a4d2fb1cc880003ef86503971de0316590"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p1.png",
+      "sha256": "fba05d458df01291db9f0ccc518b45ff85936f3a08563ef66d0cfda68301c0b0"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p10.png",
+      "sha256": "e41909b98240237d859f0b8e39976aa80930a69d6dbde02f0d35466fb2eac059"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p11.png",
+      "sha256": "6b7fa61ed31930f2f6593bae416e5040356ef90dc138ab1983943e5728d0a719"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p13.png",
+      "sha256": "095f106ff5bb577feee6a98e470a124456b36cdd089270d13422ca2bd20d8eb4"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p14.png",
+      "sha256": "f0ce74cce771a7af95f59b0f0826575453f5362329775638adaa78edb5541da0"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p15.png",
+      "sha256": "1f13fea3b29a54c2ab9e4372fc52a622c2573ab7a00c5a4953118f9f2a7aa5c2"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p16.png",
+      "sha256": "38faed5737866394c683e5d5f20f7bafdf0cf43739d664ed231959fe591883f8"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p17.png",
+      "sha256": "906a74337e326ed5a84fde976b7e89e305f82aeb014fdac117e7a28f783ce645"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p18.png",
+      "sha256": "ddb0d45a52d2fba4df63468cdd806197e9d0b000f35cc5f9e31c77c68ea77a76"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p19.png",
+      "sha256": "2fb651face9175b3ccbaefa23b84bbf0cf92a611d942f651429e8fde1e8550a9"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p20.png",
+      "sha256": "12f62f920f40aa482d28de9d8527d276e25d367fe5980a2a254835a42a4b002a"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p21.png",
+      "sha256": "c48bdb20d35e336621a952a91aecd4d2a9bc98c38db526513bead50f29a16cd9"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p22.png",
+      "sha256": "dfaef9a329d6973eeb6cbd21dca7e09e0cb4a1385b78c08197ec5c0a8624edae"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p3.png",
+      "sha256": "123b11c506cf818093f4c8601d13b19fa484cac9c1d3c2c2342d3cc2c8012dc0"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p41.png",
+      "sha256": "c9250032ca50975f9c5242e5ab288c8903f0378761a7fc849ab3fe7d06b164bc"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p42.png",
+      "sha256": "8d60543ceb4b5181f94f72bf1be453e20b3267e07792d174ff5530c4a9f0ee1a"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p8.png",
+      "sha256": "eb37c7ea005caa4630810cc0b1df06323d4268cfbc9c73b622c6657b0848302d"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947-p9.png",
+      "sha256": "cf00ea8dcccc7019c134f5b55231f414be84e4590facd4d8ae392c5d2931c93d"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947.pdf",
+      "sha256": "8f96de389903091650d4f462dcfad3210071c3ae7093623a7978f34baf8a65b4"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps25947.txt",
+      "sha256": "1de29222ff08448d7a1a128d4770ccee9fa14738a4f360201a25452552a39629"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p1.png",
+      "sha256": "d2b89ad958e6583325bb9189227a17691c772e7e635b714be920224bc7c7c98c"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p10.png",
+      "sha256": "dbbc4a812ac83abf80b98d5bf73781758a82a300c29adbb6d54e5031f29641d7"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p15.png",
+      "sha256": "067f544f0a2b0963b713dd46d16c5cd2ba17ea8727120f13a31b5f919a6a5519"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p16.png",
+      "sha256": "4c5177ef102a409a9e27581ad4db8374b981eb916e7a1198d9c7e9a201a02e07"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p2.png",
+      "sha256": "1c2a8b340826870f59e045753c8075b5e31d8afe7a3be789dd3e7f9934d8dc58"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p4.png",
+      "sha256": "67b69c4929a0ca75c0747c7eafb34bcc9bf58a35e30acf8932dc4511766c4066"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p5.png",
+      "sha256": "ed6c0d9f50977ec9f9b706cb25ec13ffeb081b1ba6869851742e94c2ae128f0c"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p6.png",
+      "sha256": "a5fdb293dbb5cd8120c0b2a87bdacc15894f42e308cfef995c631fb2291a4d1f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3430-p9.png",
+      "sha256": "1e152bd10fd87ef19275f7994f549b57806b7171180d661ee92d7474ada245b6"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3430.pdf",
+      "sha256": "f9887a28788bac6ae6743e211ae50dddd809e3ff7bf0d6a3447c8d71f62c6b4d"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3430.txt",
+      "sha256": "838c5cf3ae081757c646653ea54970b10464328ce9ba1c7c8fc0d0f52f6c9285"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p1.png",
+      "sha256": "5a34749a76e3b5d0bb807b6827efdd5a4e75acd30512af160ed68b3d12bd80c9"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p10.png",
+      "sha256": "f48b39ca9f14c2695ffd1f457c8ce03646995e2c04615cba0e1e7f17cd92c0dc"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p12.png",
+      "sha256": "571b867d6fd02e5febb51f7ca1425dab2642ebbb0f04a6348751a58a14b93665"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p14.png",
+      "sha256": "6fceb05cb0e52d59d4ceff44fdd1a3a3cc84e804c389bee338c659b783254b4e"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p2.png",
+      "sha256": "b09ea6a41bef3ee70db658e2b08c31db651d6ab83e0930ee3f0b3652b0ad9349"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p6.png",
+      "sha256": "9498e103489b3e64878cd54283e1cd15bbbcb2921e38c4095066372966dc52c8"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p8.png",
+      "sha256": "d43266d3cd603fe7502d9d92693a2cccb5631cbc899b2b95e34741551acc2d6b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3808-p9.png",
+      "sha256": "4d3db585b9bb168c08d299339023714800291e09ad0bab9226d4d3203f967e9c"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3808.pdf",
+      "sha256": "74d889c0f68af88032f1633c26381817cc03e10d9fd3b4c177a044ad3ed86eed"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3808.txt",
+      "sha256": "f5d0f70df94db35b0a42d93feccec12d4f8d8909c07c139e99e309a1abcb8f48"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p1.png",
+      "sha256": "12fb7706d9a9e4d47aa0cd4dcdc8267f7e91fe5ddbfad41c378a0e5e5e1533c5"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p10.png",
+      "sha256": "40ae49dd9075e1e0280bed3ed5b83b06c2dd01f638f02b3f5945c2601fb2abb6"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p11.png",
+      "sha256": "e2c0d9f2e3fe1d35b7f0fa551f2a7e7af088186baffbbae3737bfb92b7857560"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p14.png",
+      "sha256": "e620c117be92a7f83778897b54886847a0c21cf10a9d3f2cadc7bc8c48f25ac0"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p15.png",
+      "sha256": "9219b0ac6cf45e1eecedf7ede6f3434bee82930d80eff57cbd80039ab809e91f"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p2.png",
+      "sha256": "81c8fdd73f3c4a8faee487e01d5eb25d4ac013a701607e24a2d651a8973aec60"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p5.png",
+      "sha256": "986321512ccc7596c5187573625a3a78fd6651ed8d00ed89725ebf45b63c685e"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p7.png",
+      "sha256": "4733e03df440880ce08a96968d51248bda8d737fbcf9e7ef01ee59eeb3686077"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p8.png",
+      "sha256": "0f19b4f7a8f5a88803440452365241a2c2824bd556904f6bd5b045508a700482"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3890-p9.png",
+      "sha256": "5ce5f5c201b1a2c5df7157c437bc203484f6915cb8f8b948f18a2760427bcb78"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3890.pdf",
+      "sha256": "ee79599730e7606ba9718d9820b411020e3dcd9ff7d44572f8ee63fead15b9d0"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps3890.txt",
+      "sha256": "e4a0c99fd0ee11cbde5a342a56487cb9b3a897fe3aaaa5a756ab16c3f08729b9"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p1.png",
+      "sha256": "0e62236b409fd0ae3e7c7b09d45a6c29727abc66f8343515252839eb1d6e46d8"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p10.png",
+      "sha256": "896cd382436ee7ade877c5734c0fa856f8e6a2a42d07100c3d79a35c9b7267d7"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p12.png",
+      "sha256": "220e3a6fdce996652954e9e5e9c2b1a87ee72629d4658f86f49809e8c7ff4e4c"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p2.png",
+      "sha256": "ea4b66f47be9c847c954e33072df42e44373f6a8b26aa0ee3feb3a63a1d053bf"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p5.png",
+      "sha256": "255b65dc9703e87227238cc471269e1a9e5be0196a45ea029c6013d7482703b4"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p6.png",
+      "sha256": "1fe5942d5145be895a2681df5c5ce3ec7aac7e037f44bcdfdc5c00fdfb92be52"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps61023-p8.png",
+      "sha256": "fc9e154b51086f41984a565ca3650d896c51c2271453f8769e01ceda7d426d06"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps61023.pdf",
+      "sha256": "1bfe4e5e4d284c752725fbcef7492b5f85449a7d537f24958cfcef7699d2899d"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/tps61023.txt",
+      "sha256": "26b256bdf14d266566b925466b0038653013e67e0d68cf137af1894a032ca441"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/before-snapshot.json",
+      "sha256": "b6e978effb63861f2e7de0805050eea0982c0d213e0052dc1401ce612fd0476e"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/calculate.py",
+      "sha256": "12e4253323438b6ef5edb0bd935471de716978cf603d49bc13f52cd5f2c852ad"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/calculations.json",
+      "sha256": "ad24b91ef157cfdc70b0b79d246992643028c9eb8947a2c7d894372b885a8642"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/consolidate.py",
+      "sha256": "22815e2e1c8bec65e103af7f9bcde4f12bde7ee1f3fa0584d9007acd2ffc3840"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/DATA-REQUEST-DRAFT.md",
+      "sha256": "fbe0aa3b653f3602fffd70ea0a2fc0f8eb8ca51773f5ecb3b55169af92e72265"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/DISPOSITION-C11.md",
+      "sha256": "4d0eb5b9da632cd8f547bba8c7f3be2381ae1efd13744f0137de941c4811d592"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/finalize.py",
+      "sha256": "155e5030c29200d6c7789ce371ebb493a281ac3d281e088b42dab99c0f3c2e9e"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/founder-input.json",
+      "sha256": "a0cde23f40e838acfeedf031d17a3dca567384c4adedb44f89619fafed1c0b4d"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/invariants.json",
+      "sha256": "3eb7096262805688622d3eeff563e97c66b0ec4a7344373a0fd3d81b54ca6b10"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/package-evidence.py",
+      "sha256": "95ae39c30cd43ebf060d9588e11bc69d6c23c4dbd807a2709ba676fb92148162"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/pin-mechanical-sources.py",
+      "sha256": "ed9b7e82f8516928a6c016f5e63b69e3d65eb2f2254c1e650015ac81e5991566"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/pin-sources.py",
+      "sha256": "8bdb7ea139f0930b6b14bd96ef18e769f9f95758cfc237d18d762c7c041b298c"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/reissued/box08-charger-candidate-review.md",
+      "sha256": "236f7504c48200a785dac465e29cab89b33501537d4b784979b937efd6f569b7"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/reissued/box08-final-checkpoint-review.md",
+      "sha256": "fbcd1c1ba8d8102b052d66fef2420c2565e81f3300f161e252135d13d8303531"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/reissued/box08-mechanical-review.md",
+      "sha256": "aabf8ee8375f8ddf9eeb03c1f065c9c2c38bb6fcc87e1c872e5a8f7a7746aa35"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/REPORT.md",
+      "sha256": "6d0b532464f6e4700efc1ba491068d761b0950f298df431f1c36337e8919d12b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/RFQ-DRAFT.md",
+      "sha256": "4d4aa7ab09a381961d69dbe367d18ad87a9668a0d0883603482da6d07dc57b2b"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/source-index.md",
+      "sha256": "c7b4e9592696ed6dc4625cc2c095d8a1764ab923454e1e1d2243c59cf6cffafc"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/SUPERSESSION.md",
+      "sha256": "1c085e81384d111002469da0c727836f1d8f61467277d089a32a0de3727cc201"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/validate-tests.txt",
+      "sha256": "c20a0b255017361c3c37df36ce1ec3c832f58dbfb23f64a887499ec928cb5c2e"
+    },
+    {
+      "path": "D:/StartupOS/electronics-learning-demo/docs/agents/runs/MM-HW-P0-10/validate.json",
+      "sha256": "1432c32c0466479f2ca7613125cd50fa7a1c5ae94265767c499e4ddda65233b6"
+    }
+  ]
+}

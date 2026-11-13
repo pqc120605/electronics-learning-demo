@@ -1,0 +1,69 @@
+[
+  {
+    "part": "tlv3201",
+    "url": "https://www.ti.com/lit/ds/symlink/tlv3201.pdf",
+    "path": "D:\\StartupOS\\electronics-learning-demo\\docs\\research\\downloads\\b1-readiness-2026-11-09\\tlv3201.pdf",
+    "sha256": "358c30340b482fc4b8fb2a5ae8a32543ff758acbbce2b9c1556ac703df118f1b",
+    "pages": 40,
+    "accessed": "2026-11-09",
+    "status": "DOWNLOADED"
+  },
+  {
+    "part": "tps3890",
+    "url": "https://www.ti.com/lit/ds/symlink/tps3890.pdf",
+    "path": "D:\\StartupOS\\electronics-learning-demo\\docs\\research\\downloads\\b1-readiness-2026-11-09\\tps3890.pdf",
+    "sha256": "ee79599730e7606ba9718d9820b411020e3dcd9ff7d44572f8ee63fead15b9d0",
+    "pages": 27,
+    "accessed": "2026-11-09",
+    "status": "DOWNLOADED"
+  },
+  {
+    "part": "ref33",
+    "url": "https://www.ti.com/lit/ds/symlink/ref33.pdf",
+    "path": "D:\\StartupOS\\electronics-learning-demo\\docs\\research\\downloads\\b1-readiness-2026-11-09\\ref33.pdf",
+    "sha256": "39839abc9bf09417d0a4b446c6e922679f6dc63b19072e284169dd23007e65fe",
+    "pages": 36,
+    "accessed": "2026-11-09",
+    "status": "DOWNLOADED"
+  },
+  {
+    "part": "tps2553",
+    "url": "https://www.ti.com/lit/ds/symlink/tps2553.pdf",
+    "path": "D:\\StartupOS\\electronics-learning-demo\\docs\\research\\downloads\\b1-readiness-2026-11-09\\tps2553.pdf",
+    "sha256": "edd76d150b073ae8d4addbf85f6845b8c722fbd0b35ef025ac3c9e704a6a3385",
+    "mime": "application/pdf",
+    "accessed": "2026-11-09",
+    "status": "DOWNLOADED"
+  },
+  {
+    "part": "ltc6993",
+    "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/LTC6993-6993-1-6993-2-6993-3-6993-4.pdf",
+    "status": "NOT_DOWNLOADED",
+    "error": "The read operation timed out"
+  },
+  {
+    "part": "ssab-domex355mc",
+    "url": "https://www.ssab.com/en/brands-and-products/ssab-domex/product-offer/355mc",
+    "path": "D:\\StartupOS\\electronics-learning-demo\\docs\\research\\downloads\\b1-readiness-2026-11-09\\ssab-domex355mc.html",
+    "sha256": "b48dfae7a723f5a3b6849b4484d516b3debdd45717921ebfc630f0d7e2a471d2",
+    "mime": "text/html; charset=utf-8",
+    "accessed": "2026-11-09",
+    "status": "DOWNLOADED"
+  },
+  {
+    "part": "pololu2367",
+    "url": "https://www.pololu.com/product-info-merged/2367",
+    "path": "D:\\StartupOS\\electronics-learning-demo\\docs\\research\\downloads\\b1-readiness-2026-11-09\\pololu2367.html",
+    "sha256": "e0e61809d15c3afa546a5baa3685714f8fa6a0bc144514553be6e53c105a7e6d",
+    "mime": "text/html; charset=utf-8",
+    "accessed": "2026-11-09",
+    "status": "DOWNLOADED"
+  },
+  {
+    "part": "ltc6993",
+    "url": "https://wcm-cce.cldnet.analog.com/media/en/technical-documentation/data-sheets/LTC6993-6993-1-6993-2-6993-3-6993-4.pdf",
+    "status": "NOT_DOWNLOADED",
+    "error": "<urlopen error timed out>",
+    "stop": "Second direct download failed; no further attempts"
+  }
+]

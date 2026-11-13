@@ -1,0 +1,129 @@
+{
+  "boardId": "raspberry-pi-pico-w",
+  "sourceFile": "public/cad/raspberry-pi-pico-w.stp",
+  "sourceSha256": "fa3af83ac3163504264fac1d60aaf2d5bb25ea3df44e302771e905576a718f21",
+  "meshCount": 24,
+  "componentCount": 24,
+  "nodes": [
+    {
+      "nodeName": "SOLDERMASK_TOP",
+      "sourceMeshes": 1,
+      "sourceName": "SOLDERMASK_TOP"
+    },
+    {
+      "nodeName": "Dielectric",
+      "sourceMeshes": 1,
+      "sourceName": "Dielectric"
+    },
+    {
+      "nodeName": "SOLDERMASK_BOTTOM",
+      "sourceMeshes": 1,
+      "sourceName": "SOLDERMASK_BOTTOM"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_004",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_005",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_006",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_007",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_008",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_009",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_010",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_011",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_012",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_013",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_014",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_015",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "RF_SHIELD_PICOW",
+      "sourceMeshes": 1,
+      "sourceName": "RF_SHIELD_PICOW"
+    },
+    {
+      "nodeName": "RPI_RP2040",
+      "sourceMeshes": 1,
+      "sourceName": "RPI_RP2040"
+    },
+    {
+      "nodeName": "RT-WDFN-14AL",
+      "sourceMeshes": 1,
+      "sourceName": "RT-WDFN-14AL"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_019",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_020",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_021",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_022",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "TONEPARTS_TP-1221U-K9K5325",
+      "sourceMeshes": 1,
+      "sourceName": "TONEPARTS_TP-1221U-K9K5325"
+    },
+    {
+      "nodeName": "XTAL320X250X100",
+      "sourceMeshes": 1,
+      "sourceName": "XTAL320X250X100"
+    }
+  ]
+}

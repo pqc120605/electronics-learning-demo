@@ -1,0 +1,82 @@
+{
+  "scope": "DC research corners under explicit allocations; not temperature/bias/hysteresis or physical protection proof",
+  "allocation": {
+    "total_arm_Ohm": 10000,
+    "total_arm_tolerance": 0.001,
+    "B_V": [
+      1.998,
+      2.002
+    ],
+    "T_V": [
+      3.098,
+      3.102
+    ],
+    "total_comparator_input_error_V": [
+      -0.01,
+      0.01
+    ],
+    "monitor_rail_V": [
+      4.75,
+      5.25
+    ],
+    "total_arm_includes": "guard + switch Ron + conductor + main resistor"
+  },
+  "trip_corner_count": 256,
+  "trip_interval_V": [
+    1.0713286713286714,
+    1.1287287287287286
+  ],
+  "P_interval_V": [
+    0.09710100000000021,
+    3.702699
+  ],
+  "N_interval_V": [
+    0.6465510000000002,
+    4.252149
+  ],
+  "common_mode_ceiling_from_monitor_min_V": 4.55,
+  "known_false_healthy": [
+    {
+      "case": "H open, first cell L=0",
+      "delta_V": 0.44999999999999996
+    },
+    {
+      "case": "L open, H=5.4",
+      "delta_V": 0.6000000000000001
+    },
+    {
+      "case": "high reference lost, cell0.8 L=0",
+      "delta_V": 1.4
+    },
+    {
+      "case": "both references scale0.5, cell0.8",
+      "delta_V": 0.125
+    }
+  ],
+  "not_proven": [
+    "10mV total comparator error",
+    "B/T references and independent validity",
+    "continuity and selector failures",
+    "all-temperature behavior",
+    "complete startup/freshness",
+    "source cutoff",
+    "physical fixture",
+    "B1"
+  ],
+  "alternate_switch_leakage_allocation": {
+    "scope": "Conditional current injection calculation, not a guaranteed TMUX2821 leakage bound",
+    "assumptions": "At most four 1uA terminal contributions per sense arm, within 1001 ohms of ideal tap including guard; divider arm totals unchanged",
+    "max_input_error_each_V": 0.0020040019999999995,
+    "max_differential_error_V": 0.004008003999999999,
+    "conditional_trip_V": [
+      1.0633206713286711,
+      1.1367527607607608
+    ],
+    "exclusions": [
+      "nonideal cell/tap impedance",
+      "supply-ramp current paths",
+      "actual bias/source voltage and temperature validation",
+      "terminal clamp and cross-channel faults"
+    ]
+  }
+}

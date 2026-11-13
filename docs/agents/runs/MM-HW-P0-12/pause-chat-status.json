@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-10",
+  "source": "Codex app list_threads immediate snapshot",
+  "chats": [
+    {
+      "id": "01a1aecd-bd7e-7602-831f-b8155a19aab7",
+      "title": "09 | Research Scout",
+      "status": "notLoaded",
+      "hostId": "local"
+    },
+    {
+      "id": "01a1a858-a54b-7eb1-a7c8-bf039a639757",
+      "title": "08 | QA & Safety Review",
+      "status": "notLoaded",
+      "hostId": "local"
+    },
+    {
+      "id": "01a1a855-14f9-7d32-9d27-118e8a50627e",
+      "title": "03 | Hardware & Kit Design",
+      "status": "notLoaded",
+      "hostId": "local"
+    },
+    {
+      "id": "01a1a854-2163-70f2-a167-db281ef2ad08",
+      "title": "02 | Electronics & Firmware",
+      "status": "notLoaded",
+      "hostId": "local"
+    },
+    {
+      "id": "01a1a853-d232-7460-8d00-3312362df34a",
+      "title": "01 | Product & System Architecture",
+      "status": "notLoaded",
+      "hostId": "local"
+    }
+  ]
+}

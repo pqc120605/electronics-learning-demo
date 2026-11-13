@@ -1,0 +1,182 @@
+{
+  "boardId": "seeed-xiao-esp32c3",
+  "revision": "Seeed Studio XIAO ESP32-C3 · v1.3 KiCad project (source archive dated 2026-01-16)",
+  "sourcePcb": "assets/boards/vendor/seeed-xiao-esp32c3/202003511_XIAO ESP32C3_v1.3_SCH&PCB_260116/XIAO ESP32C3_v1.3.kicad_pcb",
+  "sourcePcbSha256": "a761393935ff261a58fee3e3d7ecfb65152eaba8620de64ff7758fb0c043d1db",
+  "sourceGlb": "public/models/seeed-xiao-esp32-c3.glb",
+  "sourceGlbSha256": "1c9ddcc5d43ab72af3bf44808cde942365c5e863a3c63c566e6df0c3ac42e9ab",
+  "coordinateDerivation": "KiCad footprint placement + rotated local pad coordinates; average center of same-net outer/inner half-hole pads; GLB axes x/z aligned to PCB x/y; anchors in metres on top copper surface.",
+  "glbCadOffsetMm": {
+    "x": 0,
+    "z": 0
+  },
+  "boardTopMm": 1.55,
+  "headers": [
+    {
+      "headerReference": "J2",
+      "side": "left",
+      "pins": [
+        {
+          "id": "j2-1",
+          "side": "left",
+          "position": 1,
+          "headerReference": "J2",
+          "padNumber": "1/13",
+          "label": "D0",
+          "netName": "D0",
+          "xMm": 140.8176,
+          "zMm": 98.0186
+        },
+        {
+          "id": "j2-2",
+          "side": "left",
+          "position": 2,
+          "headerReference": "J2",
+          "padNumber": "2/14",
+          "label": "D1",
+          "netName": "D1",
+          "xMm": 143.3576,
+          "zMm": 98.0186
+        },
+        {
+          "id": "j2-3",
+          "side": "left",
+          "position": 3,
+          "headerReference": "J2",
+          "padNumber": "3/15",
+          "label": "D2",
+          "netName": "D2",
+          "xMm": 145.8976,
+          "zMm": 98.0186
+        },
+        {
+          "id": "j2-4",
+          "side": "left",
+          "position": 4,
+          "headerReference": "J2",
+          "padNumber": "4/16",
+          "label": "D3",
+          "netName": "D3",
+          "xMm": 148.4376,
+          "zMm": 98.0186
+        },
+        {
+          "id": "j2-5",
+          "side": "left",
+          "position": 5,
+          "headerReference": "J2",
+          "padNumber": "5/17",
+          "label": "D4",
+          "netName": "D4",
+          "xMm": 150.9776,
+          "zMm": 98.0186
+        },
+        {
+          "id": "j2-6",
+          "side": "left",
+          "position": 6,
+          "headerReference": "J2",
+          "padNumber": "6/18",
+          "label": "D5",
+          "netName": "D5",
+          "xMm": 153.5176,
+          "zMm": 98.0186
+        },
+        {
+          "id": "j2-7",
+          "side": "left",
+          "position": 7,
+          "headerReference": "J2",
+          "padNumber": "7/19",
+          "label": "D6",
+          "netName": "TX_D6",
+          "xMm": 156.0576,
+          "zMm": 98.0186
+        }
+      ]
+    },
+    {
+      "headerReference": "J1",
+      "side": "right",
+      "pins": [
+        {
+          "id": "j1-1",
+          "side": "right",
+          "position": 1,
+          "headerReference": "J1",
+          "padNumber": "1/13",
+          "label": "D7",
+          "netName": "RX_D7",
+          "xMm": 156.0576,
+          "zMm": 111.9886
+        },
+        {
+          "id": "j1-2",
+          "side": "right",
+          "position": 2,
+          "headerReference": "J1",
+          "padNumber": "2/14",
+          "label": "D8",
+          "netName": "D8",
+          "xMm": 153.5176,
+          "zMm": 111.9886
+        },
+        {
+          "id": "j1-3",
+          "side": "right",
+          "position": 3,
+          "headerReference": "J1",
+          "padNumber": "3/15",
+          "label": "D9",
+          "netName": "D9",
+          "xMm": 150.9776,
+          "zMm": 111.9886
+        },
+        {
+          "id": "j1-4",
+          "side": "right",
+          "position": 4,
+          "headerReference": "J1",
+          "padNumber": "4/16",
+          "label": "D10",
+          "netName": "D10",
+          "xMm": 148.4376,
+          "zMm": 111.9886
+        },
+        {
+          "id": "j1-5",
+          "side": "right",
+          "position": 5,
+          "headerReference": "J1",
+          "padNumber": "5/17",
+          "label": "3V3",
+          "netName": "VCC_3V3",
+          "xMm": 145.8976,
+          "zMm": 111.9886
+        },
+        {
+          "id": "j1-6",
+          "side": "right",
+          "position": 6,
+          "headerReference": "J1",
+          "padNumber": "6/18",
+          "label": "GND",
+          "netName": "GND",
+          "xMm": 143.3576,
+          "zMm": 111.9886
+        },
+        {
+          "id": "j1-7",
+          "side": "right",
+          "position": 7,
+          "headerReference": "J1",
+          "padNumber": "7/19",
+          "label": "5V",
+          "netName": "VUSB",
+          "xMm": 140.8176,
+          "zMm": 111.9886
+        }
+      ]
+    }
+  ]
+}

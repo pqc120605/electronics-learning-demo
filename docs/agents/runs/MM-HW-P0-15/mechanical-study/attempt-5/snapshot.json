@@ -1,0 +1,135 @@
+{
+  "scope": "Reviewed attempt-5 cassette study and revised research report",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX08-ENDPOINT-REVIEW.md",
+      "bytes": 3276,
+      "sha256": "3a7ade0c96c3105f5980a0e17e047129faa80db12b519402488278f987122d80"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/connector-bounds-results.json",
+      "bytes": 1311,
+      "sha256": "b612f8542dccef34b802c839a464ee676abf7188200976e28e5f559234b873d1"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/connector-bounds.json",
+      "bytes": 2269,
+      "sha256": "ac8226d1ab8a8ee7c9e4be16d02f47496c5e55cdf2d38e7d7a2bfa9933b07069"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint_geometry.py",
+      "bytes": 4512,
+      "sha256": "db9517f28ac909f2900952a8b39ce0ea6b9c91cf7e83e48247d7119ea28b3222"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/m5_endpoint_model.py",
+      "bytes": 3303,
+      "sha256": "0781a14ca1110218101a254047f28d0697a0dcac76562f25a49b3e4844407b1e"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/mechanical-review-packet.json",
+      "bytes": 6811,
+      "sha256": "e4ab071fc50f7de82dbad0567c019f055b7074ac3b7b0e50958e4000964441a9"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/BOX02-TMUX-TRIP-REVIEW.md",
+      "bytes": 5479,
+      "sha256": "65b1277ccc0d501bca3841f73bbc9a670e1ad02183092bc730d66aeb352e10a2"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/BOX08-DISPOSITION-REVIEW.md",
+      "bytes": 1206,
+      "sha256": "4004d9354d11ceee472e3ad2d05361f7288709c5c4a28042a865e2bf92e8a0ee"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/BOX08-REVIEW.md",
+      "bytes": 3228,
+      "sha256": "1142ea458c62cb81a08e301705011d396998a9e9dde6622ff7ebff2fa800652d"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/cassette-geometry-results.json",
+      "bytes": 5345,
+      "sha256": "6eab64033801545ffb285ff95a0bc8322294c91dbdda321b63279baf4524a5cd"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/cassette-native-results.json",
+      "bytes": 1214,
+      "sha256": "e4a7079873f7c6adaf886b45c9949bbddac892557a104d2ef22943f99c881964"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/cassette-program.png",
+      "bytes": 29993,
+      "sha256": "2f418a3e998a5db994f4f7e9bcbfe8cf5b05bb9aea8ca897c0c1532be6bc70a2"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/cassette_geometry.py",
+      "bytes": 5355,
+      "sha256": "9197da4fc922b54c2c45ac9f4e3a25561dd65d51d4dd1cd052aac314ffa96b71"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/check_passive_sense.py",
+      "bytes": 3715,
+      "sha256": "43ee2cc22eae589ec2cad4b0f395df2e1a9ffe7aedf2913845c2d1d49f6a9643"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/check_sense_feasibility.py",
+      "bytes": 1975,
+      "sha256": "0838e1fa5ed9d08069327dccb41377f844b093a0334c1acc1d784f2f5c138045"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/DISPOSITION.md",
+      "bytes": 956,
+      "sha256": "04609d8429556254caed1d64b9d1d87c1aa275df4e4b372a7398eff5c0cb6515"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/final-verification.json",
+      "bytes": 921,
+      "sha256": "8a792081fa5e896108d370db65cdbe479e55ac047e428228a3e583901144dc1a"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/m5_cassette_model.py",
+      "bytes": 2292,
+      "sha256": "3eae8a0c8b201090a29eb9eee1e36a75f4e53f8e588dda5d54413b946964b5c5"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/passive-sense-results.json",
+      "bytes": 1618,
+      "sha256": "deb2c9de2074eb2264f6141d7da90a8ef2ea42f3d1907a1c11e14779031589d4"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/record_checkpoint.py",
+      "bytes": 3088,
+      "sha256": "65984014c225927a216d98e73fb72c8016afbb5ecde6e224197c54fbebf4ce59"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/REPORT-r2.md",
+      "bytes": 7669,
+      "sha256": "5e73be7ec45f59bc6e9db80dbf9f3bddbb7c811f3dc6eb1d90206d3e83ca57d2"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/REPORT.md",
+      "bytes": 6363,
+      "sha256": "3d0eccc2f830290f6ad059be05f97648d3b6b554790106a9a502d867fa3f583e"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/review-packet.json",
+      "bytes": 3849,
+      "sha256": "7b8c37ed3b90c7bfe94d087f4b30d1993cb153f6f176bd6739bddb35cef25d30"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/sense-feasibility-results.json",
+      "bytes": 2206,
+      "sha256": "505e87fbb7765dbb681d58de993af74e9add0ab3723591af59c72e1effed3335"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/founder-approval.json",
+      "bytes": 927,
+      "sha256": "b69f0c9a0200818fced60b71f1957c2cb30e0e4306a610f9b50bee84350a8c3b"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study-proposal.json",
+      "bytes": 4056,
+      "sha256": "edeae78f366624d1cfadd051787ffad9e11703cc97e409e06dc615a4d99e3b28"
+    }
+  ]
+}

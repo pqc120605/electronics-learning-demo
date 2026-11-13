@@ -1,0 +1,19 @@
+Seeed Studio XIAO ESP32-C3 pinout images
+
+Files:
+- seeed-xiao-esp32c3-front.png
+- seeed-xiao-esp32c3-back.png
+
+Source: Seeed Studio, "Getting Started with Seeed Studio XIAO ESP32C3"
+https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/
+
+Creator: Seeed Studio
+License: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+License terms: https://wiki.seeedstudio.com/License/
+Changes: copied from the source PNGs without modification.
+
+These diagrams are pinout references from Seeed documentation, not photographs
+of a physically inspected board. Verify the board revision and pin functions
+against its own documentation before wiring real hardware. The C3 STEP file
+linked by Seeed points to GrabCAD; its file-specific redistribution license
+has not been verified and is not included here.

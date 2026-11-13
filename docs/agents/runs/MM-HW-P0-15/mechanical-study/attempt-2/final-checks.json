@@ -1,0 +1,37 @@
+{
+  "manifests": [
+    {
+      "manifest": "docs/agents/runs/MM-HW-P0-15/mechanical-study/snapshot.json",
+      "verified_files": 34
+    },
+    {
+      "manifest": "docs/agents/runs/MM-HW-P0-15/snapshot.json",
+      "verified_files": 38
+    },
+    {
+      "manifest": "docs/agents/runs/MM-HW-P0-14/snapshot.json",
+      "verified_files": 37
+    },
+    {
+      "manifest": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/review-packet.json",
+      "verified_files": 15
+    }
+  ],
+  "proposal_sha256": "edeae78f366624d1cfadd051787ffad9e11703cc97e409e06dc615a4d99e3b28",
+  "r12_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+  "hardware_registry_unchanged": true,
+  "path_source_provenance_matches": true,
+  "queue_validation": {
+    "command": "node D:/StartupOS/docs/agents/validate.mjs",
+    "exit_code": 0,
+    "stdout": "{\n  \"tasks\": 61,\n  \"capabilities\": 143,\n  \"warnings\": [],\n  \"errors\": []\n}\n",
+    "stderr": ""
+  },
+  "not_run": [
+    "FE",
+    "bench",
+    "physical fit",
+    "firmware",
+    "frontend/browser/npm; application unchanged"
+  ]
+}

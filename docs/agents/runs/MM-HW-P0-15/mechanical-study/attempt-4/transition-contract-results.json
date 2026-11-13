@@ -1,0 +1,246 @@
+{
+  "scope": "Exhaustive finite abstraction of a proposed sequencing contract, NOT actual M5 proof",
+  "state_fields": [
+    "cassette_connected",
+    "A_all_routes_gap",
+    "B_all_routes_gap",
+    "USB_barrier1_open",
+    "USB_barrier2_open",
+    "PC_inserted"
+  ],
+  "cases": {
+    "ideal independent actual endpoints": {
+      "states": 9,
+      "unsafe": [],
+      "sequence_violations": [],
+      "pc_reachable": true
+    },
+    "one USB barrier stuck open": {
+      "states": 13,
+      "unsafe": [],
+      "sequence_violations": [],
+      "pc_reachable": true
+    },
+    "other USB barrier stuck open": {
+      "states": 13,
+      "unsafe": [],
+      "sequence_violations": [],
+      "pc_reachable": true
+    },
+    "common false park indication": {
+      "states": 25,
+      "unsafe": [
+        {
+          "state": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "trace": [
+            "open barrier1",
+            "open barrier2",
+            "insert PC"
+          ]
+        },
+        {
+          "state": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "trace": [
+            "remove all cassette paths",
+            "open barrier1",
+            "open barrier2",
+            "insert PC"
+          ]
+        }
+      ],
+      "sequence_violations": [
+        {
+          "state": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "trace": [
+            "open barrier1",
+            "open barrier2",
+            "insert PC"
+          ]
+        },
+        {
+          "state": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "trace": [
+            "remove all cassette paths",
+            "open barrier1",
+            "open barrier2",
+            "insert PC"
+          ]
+        },
+        {
+          "state": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "trace": [
+            "remove all cassette paths",
+            "park A actual endpoint",
+            "open barrier1",
+            "open barrier2",
+            "insert PC"
+          ]
+        },
+        {
+          "state": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "trace": [
+            "remove all cassette paths",
+            "park B actual endpoint",
+            "open barrier1",
+            "open barrier2",
+            "insert PC"
+          ]
+        }
+      ],
+      "pc_reachable": true
+    },
+    "unguarded generic cable bypass": {
+      "states": 16,
+      "unsafe": [
+        {
+          "state": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "trace": [
+            "insert PC"
+          ]
+        },
+        {
+          "state": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "trace": [
+            "remove all cassette paths",
+            "insert PC"
+          ]
+        }
+      ],
+      "sequence_violations": [
+        {
+          "state": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "trace": [
+            "insert PC"
+          ]
+        },
+        {
+          "state": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "trace": [
+            "remove all cassette paths",
+            "insert PC"
+          ]
+        },
+        {
+          "state": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ],
+          "trace": [
+            "remove all cassette paths",
+            "park A actual endpoint",
+            "insert PC"
+          ]
+        },
+        {
+          "state": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          "trace": [
+            "remove all cassette paths",
+            "park B actual endpoint",
+            "insert PC"
+          ]
+        }
+      ],
+      "pc_reachable": true
+    }
+  },
+  "unproven_implementation_obligations": [
+    "Each USB barrier alone prevents a real plug from establishing any hazardous conductor",
+    "A/B endpoint observations are independent of shared commands or one common false indication",
+    "Bridge cannot reconnect while PC remains inserted or either barrier remains open",
+    "Actual inventory, clearance, tilt, deformation and routes match the abstraction",
+    "Cassette removal means all eight paths, not only battery positive",
+    "The not-PC guard in the state transition is a declared mechanical obligation, not a modeled physical PC-presence lock"
+  ],
+  "predicates": {
+    "electrical_path_violation": "PC AND NOT(gap_A OR gap_B)",
+    "sequence_violation": "PC AND NOT(cassette_absent AND gap_A AND gap_B)"
+  },
+  "not_in_scope": [
+    "physical tests",
+    "strength/FE",
+    "force",
+    "fault probability",
+    "B1 approval"
+  ]
+}

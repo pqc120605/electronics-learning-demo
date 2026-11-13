@@ -1,0 +1,3203 @@
+{
+  "frame_cells": 81,
+  "native_frame_volume_mm3": 7216.6765,
+  "cell_volume_mm3": 7216.676499999997,
+  "cell_containment_checks": 81,
+  "native_frame_solid_count": 1,
+  "checks": [
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.619886289111922
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 10.422091920531118
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.155315843636803
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camA",
+        "key0"
+      ],
+      "sat": "touching",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.930136612989092e-16
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.223747379588634
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 2.5999999999999996
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.1
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 19.6
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.5999999999999996
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 8.620904824900922
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 11.946363463414295
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 14.12267680009707
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.9859476793401
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 7.9
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 22.542848089804448
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.041880335416964
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 11.985407794480754
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.109947787102783
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 5.643580423808985
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 19.58009193032556
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.619886289111922
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 10.422091920531118
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.155315843636803
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.223747379588634
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camB",
+        "key1"
+      ],
+      "sat": "touching",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.930136612989092e-16
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.1
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 10.6
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 21.1
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 8.64175908018732
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.8485281374238569
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.35983818664306
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 15.132745950421556
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 22.393302570188258
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 22.550831470258476
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 7.922752047110903
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.581523887148641
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 13.160547101089682
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 21.574522010927613
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 19.589282784216476
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 5.675385449465085
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "pair": [
+        "shell-outer",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "pair": [
+        "collar",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "pair": [
+        "crossbar",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "pair": [
+        "key0",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": -7,
+      "pair": [
+        "key1",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "camA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.851218918993452
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "camA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 3.178049716414141
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "camA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 7.628113010968577
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "camA",
+        "key0"
+      ],
+      "sat": "touching",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.0
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "camA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 15.88238017426859
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "doorA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.070393101409249
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "doorA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 1.2999999999999998
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "doorA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 6.199999999999999
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "doorA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.5999999999999996
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "doorA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.814054783713079
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "ribA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 16.230899543771443
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "ribA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 15.0
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "ribA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 13.241223508422474
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "ribA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.1
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "ribA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 26.704681237565822
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "bridgeA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 13.31473244192312
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "bridgeA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.0
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "bridgeA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 10.683164325236225
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "bridgeA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.52102935611481
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "bridgeA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 23.730571000294113
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "camB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.851218918993452
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "camB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 3.178049716414141
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "camB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 7.628113010968577
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "camB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 15.88238017426859
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "camB",
+        "key1"
+      ],
+      "sat": "touching",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.0
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "doorB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 2.9100000000000006
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "doorB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 1.2999999999999998
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "doorB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 7.699999999999999
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "doorB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.814054783713079
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "doorB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.5999999999999996
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "ribB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 15.979427399002756
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "ribB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 15.0
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "ribB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 14.006427096158392
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "ribB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 26.704681237565822
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "ribB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.1
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "bridgeB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 13.007001960482668
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "bridgeB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.0
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "bridgeB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 11.618089343777658
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "bridgeB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 23.730571000294113
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "s": 12,
+      "pair": [
+        "bridgeB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.52102935611481
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "pair": [
+        "shell-outer",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "pair": [
+        "collar",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "pair": [
+        "crossbar",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "pair": [
+        "key0",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5
+      },
+      "d": 6.4,
+      "pair": [
+        "key1",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.619886289111922
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 10.422091920531118
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.155315843636803
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.223747379588636
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camA",
+        "key1"
+      ],
+      "sat": "touching",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.930136612989092e-16
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 2.5999999999999996
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.1
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 19.6
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 8.62090482490092
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.600000000000001
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 11.946363463414295
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 14.12267680009707
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.9859476793401
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 22.542848089804448
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 7.900000000000001
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.041880335416964
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 11.985407794480754
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.109947787102783
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 19.58009193032556
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 5.643580423808986
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.619886289111922
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 10.422091920531118
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.155315843636803
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camB",
+        "key0"
+      ],
+      "sat": "touching",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.930136612989092e-16
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "camB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.223747379588636
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.1
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 10.6
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 21.1
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.8485281374238575
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "doorB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 8.641759080187319
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.35983818664306
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 15.132745950421556
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 22.393302570188258
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 7.922752047110904
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "ribB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 22.550831470258476
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.581523887148641
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 13.160547101089682
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 21.574522010927613
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 5.675385449465086
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "s": 7.8,
+      "pair": [
+        "bridgeB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 19.589282784216476
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "pair": [
+        "shell-outer",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "pair": [
+        "collar",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "pair": [
+        "crossbar",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "pair": [
+        "key0",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "roll": 180,
+        "lead": 3.5
+      },
+      "d": -7,
+      "pair": [
+        "key1",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "camA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.976683484125978
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "camA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 10.763576868868006
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "camA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.67487350715737
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "camA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.32983900398945015
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "camA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 7.469785597340695
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "doorA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.133683957092034
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "doorA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 10.432817876354006
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "doorA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.85654604236702
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "doorA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 1.4389023964025276
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "doorA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 1.6697006638465504
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "ribA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 5.567831161532763
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "ribA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 10.85083025147137
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "ribA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.862476116879584
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "ribA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.7417899107910398
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "ribA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 14.92308257782222
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "bridgeA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.269681604459637
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "bridgeA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 10.623947215751185
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "bridgeA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.862476116879584
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "bridgeA",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 3.176238233423573
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "bridgeA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.015535414131202
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "camB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 5.508878615179523
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "camB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 11.391011878561052
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "camB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 21.43550864886034
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "camB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 7.770876615183282
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "camB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.9835559515012923
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "doorB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 5.633683957092034
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "doorB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 11.932779916355411
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "doorB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 22.34515185712618
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "doorB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 2.619202340204135
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "doorB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 3.042636703200623
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "ribB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 7.572056475022755
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "ribB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 13.36102821178901
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "ribB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 23.377882393081048
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "ribB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 15.070246880996512
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "ribB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 2.8995091017927255
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "bridgeB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 6.489976930428905
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "bridgeB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.965912241689098
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "bridgeB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 23.465912241689097
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "bridgeB",
+        "key0"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.224305724618091
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "s": 0,
+      "pair": [
+        "bridgeB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 3.8223683635681205
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "pair": [
+        "shell-outer",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "pair": [
+        "collar",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "pair": [
+        "crossbar",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "pair": [
+        "key0",
+        "frame"
+      ],
+      "native_intersection_mm3": 0.002506386285307187,
+      "sat_positive": true
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "x": 0.25,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "d": -9,
+      "pair": [
+        "key1",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "camA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 3.0289768364376233
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "camA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 8.468287423788349
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "camA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 18.416938157878228
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "camA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 7.116881339463234
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "doorA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 1.8999999999999995
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "doorA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 8.4
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "doorA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 18.9
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "doorA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.9999999999999997
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "ribA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.302278466115368
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "ribA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 8.919641248391104
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "ribA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 18.9
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "ribA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 14.870776711389354
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "bridgeA",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 2.0855694665965934
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "bridgeA",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 8.4
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "bridgeA",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 18.9
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 0,
+      "pair": [
+        "bridgeA",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 11.964113005150026
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "camB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 5.5822777609144465
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "camB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 10.492854711659739
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "camB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.155315843636803
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "camB",
+        "key1"
+      ],
+      "sat": "touching",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.0
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "doorB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 4.0281012896897215
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "doorB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.984988733093292
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "doorB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 20.400000000000002
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "doorB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 0.5999999999999996
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "ribB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 16.22034524909997
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "ribB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 17.97247896090019
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "ribB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 23.517015116719215
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "ribB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 12.1
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "bridgeB",
+        "shell-outer"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 13.30186453095956
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "bridgeB",
+        "collar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 15.556670594957007
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "bridgeB",
+        "crossbar"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 22.177691493931466
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "s": 12,
+      "pair": [
+        "bridgeB",
+        "key1"
+      ],
+      "sat": "separated",
+      "native_intersection_mm3": 0,
+      "distance_mm": 9.52102935611481
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "pair": [
+        "shell-outer",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "pair": [
+        "collar",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "pair": [
+        "crossbar",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    },
+    {
+      "pose": {
+        "lead": 3.5,
+        "key_a": false
+      },
+      "d": -6.3,
+      "pair": [
+        "key1",
+        "frame"
+      ],
+      "native_intersection_mm3": 0,
+      "sat_positive": false
+    }
+  ],
+  "model_id": "cf8a108a-2507-5b43-8078-95a01c196e1b",
+  "geometry_sha256": "9bb8bf2ffba4db32608d513c63e1f8c0ba96c0d884c3fae084d6ef0d93afaaa4"
+}

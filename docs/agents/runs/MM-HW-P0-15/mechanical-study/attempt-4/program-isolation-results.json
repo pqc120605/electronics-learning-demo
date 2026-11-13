@@ -1,0 +1,1071 @@
+{
+  "scope": "Inter-island connectivity under stated physical-cut assumptions; not implemented sequencing, energy/current, fault containment of a real assembly or B1",
+  "cases": [
+    {
+      "conductors": 19,
+      "case": "PROGRAM bridgepark",
+      "electronic_switch_stuck_on": false,
+      "carrier_can_have_stored_energy": true,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "PROGRAM bridgepark",
+      "electronic_switch_stuck_on": true,
+      "carrier_can_have_stored_energy": true,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 0,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 1,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 2,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 3,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 4,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 5,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 6,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 7,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 8,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 9,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 10,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 11,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 12,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 13,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 14,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 15,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 16,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 17,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 18,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 0,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 1,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 2,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 3,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 4,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 5,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 6,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 7,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 8,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 9,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 10,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 11,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 12,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 13,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 14,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 15,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 16,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 17,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 18,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "one entire breakpoint remains closed",
+      "side": "A",
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "one entire breakpoint remains closed",
+      "side": "B",
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 19,
+      "case": "PC before physical bridgepark",
+      "PC_to_carrier_path": [
+        "PC USB interface",
+        "breakpointB conductor0",
+        "breakpointA conductor0"
+      ],
+      "expected": "counterexample"
+    },
+    {
+      "conductors": 19,
+      "case": "bypass after bridgepark",
+      "PC_to_carrier_path": [
+        "PC USB interface",
+        "unaccounted shield/debug/metal bypass"
+      ],
+      "expected": "counterexample"
+    },
+    {
+      "conductors": 50,
+      "case": "PROGRAM bridgepark",
+      "electronic_switch_stuck_on": false,
+      "carrier_can_have_stored_energy": true,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "PROGRAM bridgepark",
+      "electronic_switch_stuck_on": true,
+      "carrier_can_have_stored_energy": true,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 0,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 1,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 2,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 3,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 4,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 5,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 6,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 7,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 8,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 9,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 10,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 11,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 12,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 13,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 14,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 15,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 16,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 17,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 18,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 19,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 20,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 21,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 22,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 23,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 24,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 25,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 26,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 27,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 28,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 29,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 30,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 31,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 32,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 33,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 34,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 35,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 36,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 37,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 38,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 39,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 40,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 41,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 42,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 43,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 44,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 45,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 46,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 47,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 48,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "A",
+      "route": 49,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 0,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 1,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 2,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 3,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 4,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 5,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 6,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 7,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 8,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 9,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 10,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 11,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 12,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 13,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 14,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 15,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 16,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 17,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 18,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 19,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 20,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 21,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 22,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 23,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 24,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 25,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 26,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 27,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 28,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 29,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 30,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 31,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 32,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 33,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 34,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 35,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 36,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 37,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 38,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 39,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 40,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 41,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 42,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 43,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 44,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 45,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 46,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 47,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 48,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "single physical contact remains conductive",
+      "side": "B",
+      "route": 49,
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "one entire breakpoint remains closed",
+      "side": "A",
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "one entire breakpoint remains closed",
+      "side": "B",
+      "PC_to_carrier_path": null
+    },
+    {
+      "conductors": 50,
+      "case": "PC before physical bridgepark",
+      "PC_to_carrier_path": [
+        "PC USB interface",
+        "breakpointB conductor0",
+        "breakpointA conductor0"
+      ],
+      "expected": "counterexample"
+    },
+    {
+      "conductors": 50,
+      "case": "bypass after bridgepark",
+      "PC_to_carrier_path": [
+        "PC USB interface",
+        "unaccounted shield/debug/metal bypass"
+      ],
+      "expected": "counterexample"
+    }
+  ],
+  "unverified_physical_assumptions": [
+    "all actual conductors inventoried",
+    "two actual gap envelopes",
+    "no unaccounted shield/control/test/mounting path",
+    "PC cannot reach electrical contact before bridgepark",
+    "reconnect prevented while PC connected",
+    "terminal faults do not create cross-route bypass"
+  ],
+  "RUN_protection": "Not evaluated or waived by this PROGRAM analysis",
+  "source_sha256": "0afbe153038384f8feaa2f7ab4ffe1130e8f6373e65f509521bedc0cc8f0eff9"
+}

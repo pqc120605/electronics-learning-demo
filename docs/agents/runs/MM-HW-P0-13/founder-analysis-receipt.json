@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-10",
+  "source": "HQ direct user reply to async product decision call_c31355ddd09a430282e4451323063ec1",
+  "answer_verbatim": "Cho phép khảo sát ngoại lệ có cận (đề xuất)",
+  "decision_reference": "docs/agents/runs/MM-HW-P0-13/MECHANICAL-DECISION.md",
+  "authorized_scope": "Analysis only of a proposed revocation window target no more than1ms, only after proven source and all-I/O isolation and valid release permission; an already moving follower may cross throat within the studied window. No new permission, RUN inhibited until actual relock and fresh arm. Bound both time and follower travel; reject if bounds cannot be demonstrated or OFF proof is lost.",
+  "not_authorized": ["final product exception acceptance", "CAD/FE execution", "configuration/hash approval", "MPN/BOM approval", "gate PASS", "B1 lease", "physical device actions"],
+  "configuration_unchanged": "MOBOT-V2-CONFIG-r12-HANDSET",
+  "configuration_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b"
+}

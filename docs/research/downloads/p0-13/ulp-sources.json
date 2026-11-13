@@ -1,0 +1,22 @@
+[
+  {
+    "url": "https://www.ti.com/lit/ds/symlink/iso7041.pdf",
+    "manufacturer": "TI",
+    "revision_expected": "SLLSF54D",
+    "date": "2026-11-10",
+    "path": "docs/research/downloads/p0-13/iso7041-revd.pdf",
+    "status": "PINNED",
+    "sha256": "208e308791224344dc07751746e830531116dd9e6b22246f83602f8fb6f76ceb",
+    "bytes": 1881288
+  },
+  {
+    "url": "https://www.ti.com/lit/ds/symlink/sn74lvc2g125.pdf",
+    "manufacturer": "TI",
+    "revision_expected": "SCES204Q",
+    "date": "2026-11-10",
+    "path": "docs/research/downloads/p0-13/sn74lvc2g125-revq.pdf",
+    "status": "PINNED",
+    "sha256": "15dab14095892f561bc7407dde6c7fb2fb75d92c6bdafc34e949e5dca1fed340",
+    "bytes": 813455
+  }
+]

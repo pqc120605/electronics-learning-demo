@@ -1,0 +1,34 @@
+Adafruit Feather ESP32-S3 TFT · PID #5483
+3D model and source notices
+
+Source board: Adafruit ESP32-S3 TFT Feather PCB
+https://github.com/adafruit/Adafruit-ESP32-S3-TFT-Feather-PCB
+Designed by Limor Fried/Ladyada for Adafruit Industries.
+The complete upstream README, including its required product description and attribution, is bundled at:
+/cad/adafruit-feather-esp32-s3-tft-5483/README.md
+
+Board layout and schematic: CC BY-SA 3.0 Unported.
+The complete board license is bundled at:
+/cad/adafruit-feather-esp32-s3-tft-5483/BOARD_LICENSE_CC_BY_SA_3.0.txt
+This derived placement/model retains the applicable attribution and share-alike terms.
+
+Source STEP model: Adafruit_CAD_Parts/5483 Feather ESP32-S3 TFT
+https://github.com/adafruit/Adafruit_CAD_Parts/tree/main/5483%20Feather%20ESP32-S3%20TFT
+STEP model license: MIT License. The full upstream license is bundled at:
+/cad/adafruit-feather-esp32-s3-tft-5483/CAD_PARTS_LICENSE_MIT.txt
+
+Modifications: official STEP geometry converted to GLB; millimeters converted to meters;
+Z-up geometry rotated to the viewer's Y-up orientation and centered without reflection;
+STEP meshes grouped by exact Eagle CAD origin within 0.015 mm. Asymmetric USB-C and TFT
+meshes are assigned only when their exact package identity matches the Eagle footprint.
+Unmatched STEP meshes remain visibly unidentified. Eagle footprints without a matching
+mesh remain in the feature list without invented geometry.
+
+Source revision: PID #5483, 4 MB flash and 2 MB PSRAM. This is not PID #5323, #5477,
+#5691 or #5885. The viewer is a CAD reference. It does not establish board fitment,
+component population for every manufacturing lot, pin/net connectivity, firmware execution,
+electrical simulation, or physical-board validation.
+
+The project contains 37 Eagle designators with matched STEP geometry out of 54 board
+elements; 17 footprints are listed without a matched 3D body; 114 source STEP meshes are
+kept in an unidentified geometry group. Counts describe conversion matching only.

@@ -1,0 +1,14 @@
+Seeed Studio XIAO ESP32-S3 — regular board — CAD reference model
+
+Creator and attribution: Seeed Studio / @SeeedStudio.
+Source board/model resource: https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/
+Model license record: https://www.printables.com/model/1344060-3d-model-for-seeed-studio-xiao-esp32-s3
+License: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
+License text: https://creativecommons.org/licenses/by-sa/4.0/
+
+This project includes a derivative GLB converted from the Seeed Studio XIAO ESP32-S3 STEP v2 model.
+Modifications: STEP converted to GLB; geometry centered on the PCB body; source Y-up orientation kept without reflection; explicitly named source meshes grouped as PCB, Shield and U.FL connector; all other CAD feature meshes grouped as unidentified. The source model measures approximately 20.955 × 17.78 mm across the PCB body.
+
+The matching Seeed Studio model record is published under CC BY-SA 4.0. This model is distributed under CC BY-SA 4.0. Attribute Seeed Studio, link this source and license, identify these modifications, and share adaptations under the same license.
+
+This is the regular XIAO ESP32-S3 reference model, not XIAO ESP32-S3 Sense or Plus. It is CAD geometry, not a physical scan. The source STEP does not provide a verified BOM/designator-to-mesh map, pin anchors, netlist, firmware execution or electrical simulation. Do not use as manufacturing or fit-check evidence without measuring the exact board revision.

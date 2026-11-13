@@ -1,0 +1,295 @@
+{
+  "scope": "P0-15 research checkpoint, not completed design or B1 approval",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/adversarial-results-initial-rib.json",
+      "sha256": "9d59e6da0e4035e8d194c4f419a85e2ca4404b28e2bfd344d21a99bdeaed3a94",
+      "bytes": 14343
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/adversarial-results.json",
+      "sha256": "92622d662d10a56b180fb4cf41154e92aa7f3d8a16b3beed2fb51cae5adaa3fa",
+      "bytes": 12873
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX02-ACTIVE-SENSE-ANALYSIS.md",
+      "sha256": "1851fcf691b1f808d340a3a254d789c2e27c9a91d817749398a3cdd9caf3e5f9",
+      "bytes": 7411
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX02-ADVISORY.md",
+      "sha256": "e94cd8d346cc5270d5a468ead0f900bb014e277fca2421ccb5aca51f2d7c565c",
+      "bytes": 5637
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX02-POWER-STATE-PROPOSAL.md",
+      "sha256": "54a71f46ec4ca007e0a469cd772ae3b8112b0dc0f5c9360bdf348bfcb5251169",
+      "bytes": 7605
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX03-ADVISORY.md",
+      "sha256": "456db5ce74405b8855193b96e37e2b594580f5594dff8e581bfd9aa0946130ac",
+      "bytes": 4410
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX03-ENDPOINT-PROPOSAL.md",
+      "sha256": "0043e6f0d2d3b164642bf65796df12e3d8bf0d0a1d0ac62c8801d8d2a7854633",
+      "bytes": 9159
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX08-REFERENCE-REVIEW.md",
+      "sha256": "32fc6b1f4f17b12271531ffcc718b9aadc7e4868f26f6659c13a74d3891ea938",
+      "bytes": 2738
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX08-SUPPLEMENT-REVIEW-1.md",
+      "sha256": "e041653bdba73166c796ee1d8d72cfe510d491a99dbeb710b78068cdea779d65",
+      "bytes": 3247
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX08-SUPPLEMENT-REVIEW.md",
+      "sha256": "c39b58d1eb2fe9ff9de43b20ae22aa4cdc06335331790760a6d8af6015e581d2",
+      "bytes": 1349
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/check_checkpoint.py",
+      "sha256": "13e629051af07c29f1595915fa7f68e0cab5492909bc5911972d9ad78d6f9db6",
+      "bytes": 2812
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/check_paths.py",
+      "sha256": "9ce3426ba46fa4b41deadabb32b187f5ccba0dcd6ffe1f937786964df9fbbe80",
+      "bytes": 3677
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/check_power_bounds.py",
+      "sha256": "b5ffeef42872108d541cfe762cc7b9c94662c6e1f871c30671cc33224a915f06",
+      "bytes": 2232
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/CHECKPOINT-2026-11-11.md",
+      "sha256": "cbe1fc2b33cbf0d012b85511cb7efdae82dc46c0ff94ef76d6e2e55c711bfb79",
+      "bytes": 3874
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/checkpoint-final-checks.json",
+      "sha256": "7c2fb1c6575e4a985302c95b9771d5ea62034cd707387b474efe830605df5aed",
+      "bytes": 2361
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/DISPOSITION-SUPPLEMENT-REVIEW.md",
+      "sha256": "0a0b09fc0701bc4177cebad6f37edaf00d432d54bc9276ee133b71a26cda2175",
+      "bytes": 1584
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/final-checks.json",
+      "sha256": "73f2844279500edd40cdaeed8e5ec2b8f31f7ea47cb086cf75abc8ca16df7823",
+      "bytes": 1143
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/geometry.py",
+      "sha256": "9bb8bf2ffba4db32608d513c63e1f8c0ba96c0d884c3fae084d6ef0d93afaaa4",
+      "bytes": 13219
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/inserted-final-xray.png",
+      "sha256": "f1632d88fcc5b96bcd0da31ad586c1d320fa3843b772853c4c1e9565556b29c4",
+      "bytes": 136244
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/inserted-final.png",
+      "sha256": "8a751f5f9f1a644464bb4f115240f3d7a018d4d14374c77738e89193827ef598",
+      "bytes": 29782
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/inserted.png",
+      "sha256": "92a200c381a1b936d76911a095a238402abc937800b92c9ef6769a33a4cc827d",
+      "bytes": 135760
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/kernel-results.json",
+      "sha256": "6bb058e64690b7d373eaaf9d500211c12f660095c8ec9a892f195e6d24040497",
+      "bytes": 60286
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/kernel_check.py",
+      "sha256": "aa63e06688a4a66c80c654785eb44e5d18b9cc05c201af71fa097acb5918a1da",
+      "bytes": 2373
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/m5-contact-reference.xbf",
+      "sha256": "be30c357c6d604fbdebe3d83a78124f90bed9e144e929efddce40ee0bffe6aa8",
+      "bytes": 253896
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/m5_contact_model.py",
+      "sha256": "94c225a90cb2f9adf68964df8a9a00225b43a09db8578f00e77272ae7acf90bf",
+      "bytes": 3095
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/path-results-initial-rib.json",
+      "sha256": "8df08a51da1d533d3eb775646e39fe68546db9cbeda19c4c1864944415f49b01",
+      "bytes": 1164036
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/path-results.json",
+      "sha256": "dcc96d66992e18ea01e74ec3f325f25c9b8a91bb9812806d397a07777ae5e304",
+      "bytes": 1164106
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/pin_sources.py",
+      "sha256": "896aced8aa8f0dbb929ef527059ebbec3f698118e08a2ca41ee1b2d72418d067",
+      "bytes": 1286
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/power-bounds-results.json",
+      "sha256": "bcb437d74938dffaf66694d3d588cef34745a94215dd8b1d5a9ba6a8cc5b81d2",
+      "bytes": 1463
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/power-contract-results.json",
+      "sha256": "fed04efeea67a9c5036495bc0dd1a96195a401fef1385b193a543dedbca480b8",
+      "bytes": 1084
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/POWER-SOURCE-DISPOSITION.md",
+      "sha256": "0a54c4d2dacd844d6e83de60640cf4bbfe2f4d1301efab601537cdb3914946b6",
+      "bytes": 5820
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/POWER-SOURCE-DISPOSITION.review1.md",
+      "sha256": "7a4a5d12ec7c65dfdad2c45e74e1a4b9c292a2ec0e98d0768af11414fa59130c",
+      "bytes": 4537
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/power_contract_check.py",
+      "sha256": "3b498c5cfd2a3514fb226de489e0b387b9b29e0f0804cb56e7a578c5c4c299a3",
+      "bytes": 3598
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/protocol-initial-rib.json",
+      "sha256": "beeb407e10417741aacc5015dade5cb31162a458925a792d6c629e2077e4e2d5",
+      "bytes": 2978
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/protocol.json",
+      "sha256": "d518d5eac800282197c4171b42b9e8f5db9e25a025fb31d1484b841fba100615",
+      "bytes": 3188
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/REPORT.md",
+      "sha256": "2901c56269cc73415e6360ab811281efa07a05a74fcdc5c31229bdd7bf7186a6",
+      "bytes": 7629
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/resume.py",
+      "sha256": "7f3b309b07b2def7e227f85d50dc18a7b4b0e1614d57bb7c8378f8d5a8064ebf",
+      "bytes": 1820
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/review-packet.json",
+      "sha256": "752066b0931981d76ba489e5b08458fb5877d2a5520e0703537f4e43199bcd3b",
+      "bytes": 3281
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/run_paths.py",
+      "sha256": "c6f6f32bae2469beff71814ef48af89bf2fbe867eb8a51afaee828ed68718b78",
+      "bytes": 2821
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/manifest.json",
+      "sha256": "a9be2d67e0c5431eee28eb3b1009af7863ddbd743cef62e40f302b75787cf967",
+      "bytes": 1473
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/manifest.review1.json",
+      "sha256": "4a3d706e07a5f74d1463a22c384c9ed0a07cba645214ebb44f31ba3041b45f27",
+      "bytes": 1233
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/panasonic-AQY21-ASCTB126E.pdf",
+      "sha256": "c4f533985988595908b678e7c03b80bdec5bca050bcef2e1f88674d8cfb6666c",
+      "bytes": 760016
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/panasonic-AQY21-ASCTB126E.pdf.page2.txt",
+      "sha256": "aa386c71475e078aa7578457c3a31172f91c826a8bffb8d36ce3d3e9325e569f",
+      "bytes": 1800
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/panasonic-AQY21-ASCTB126E.pdf.page3.txt",
+      "sha256": "80358edd1a1eaa3043f05676dc453969ef051ac1373bce8a0f6f5b9f456e2a3e",
+      "bytes": 2107
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/panasonic-AQY21-ASCTB126E.pdf.page4.txt",
+      "sha256": "3e2605602ee26cde7607158c56aba778af075fa7d58d4126c85079536b3d267c",
+      "bytes": 2607
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/panasonic-recommended-pdf-page4.png",
+      "sha256": "8f667454e67b9cc497260f7e012e7ebb14170e3c05ff7f163155b07a8dcbef10",
+      "bytes": 107473
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/ti-ina152-SBOS184.pdf",
+      "sha256": "fca0d823495340ad8476821918326ec2b04bc36c586be288182a43377713a19a",
+      "bytes": 350732
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/ti-ina152-SBOS184.pdf.page2.txt",
+      "sha256": "36a0099dbe60911668fe7fe50d00165e46281404729b6204e6f97accfc3fb357",
+      "bytes": 2070
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/ti-ina152-SBOS184.pdf.page3.txt",
+      "sha256": "ed8c411ea6b0f5d705ff6e1f051e586c587743c087aa7955218e3fcf28b82547",
+      "bytes": 2743
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/ti-tlv803e-SLVSEH0J.pdf",
+      "sha256": "74ac4474d86c3597c4fff6ffa61a59e850130a40eda28085ece9765fb380e844",
+      "bytes": 2343355
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/ti-tlv803e-SLVSEH0J.pdf.page1.txt",
+      "sha256": "dfd987ce35703dd94f7cff50424071d50390f4a491bb44b1df65ba1bb872488b",
+      "bytes": 3191
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/SUPPLEMENT-REPORT.md",
+      "sha256": "2e05495bb71095acef917f1c56ee8ed447e0fec206285d258ebdf96fc2ffec2d",
+      "bytes": 6290
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/SUPPLEMENT-REPORT.review1.md",
+      "sha256": "d3b720ec26f95e59a3424ef151dea32052b3c165fa7958f5984c68758fc503af",
+      "bytes": 6238
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/supplement-review-packet.json",
+      "sha256": "6323a6141a44df850e885cf5480988ca718f32f5c7a439d2c1bad3c616a474b3",
+      "bytes": 3550
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/supplement-review-packet.review1.json",
+      "sha256": "9bc17f7db24938534964578158fd0a3a3b2dbc3ef5c67e2d3f391a2503fe546d",
+      "bytes": 3245
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/task.md",
+      "sha256": "0bf039e8006fccf4e5bc61b69a0190ae620e9f7215f1a322271154e1e1819545",
+      "bytes": 2721
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/update_checkpoint.py",
+      "sha256": "86ad00e5403bb57cf18b8ed07cb732940ff674a5cc880fbd4e81e9372fab46fc",
+      "bytes": 3008
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/verify_evidence.py",
+      "sha256": "d2ce8cc275d47a3e7111db683859cc943386e922ade90af25b4508822abdf15e",
+      "bytes": 2181
+    }
+  ]
+}

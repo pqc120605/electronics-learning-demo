@@ -1,0 +1,173 @@
+{
+  "kind": "Exact kernel checks at six cases; NOT continuous coverage or real mechanism proof",
+  "comparisons": 84,
+  "cases": [
+    {
+      "case": "inserted_nominal",
+      "parameters": {
+        "d": 6.4
+      },
+      "SAT_OCCT_match": true,
+      "target_collisions": [
+        {
+          "part": "collar",
+          "target": "probe0",
+          "volume_mm3": 12.6
+        },
+        {
+          "part": "collar",
+          "target": "probe1",
+          "volume_mm3": 12.6
+        }
+      ],
+      "frame_collisions": [],
+      "note": "Forced collision poses are diagnostic, not reachable accepted states"
+    },
+    {
+      "case": "inserted_180_tilt",
+      "parameters": {
+        "d": 6.4,
+        "roll": 180,
+        "pitch": -5,
+        "yaw": 5,
+        "x": 0.25,
+        "z": -0.15
+      },
+      "SAT_OCCT_match": true,
+      "target_collisions": [
+        {
+          "part": "collar",
+          "target": "probe0",
+          "volume_mm3": 12.422592392
+        },
+        {
+          "part": "collar",
+          "target": "probe1",
+          "volume_mm3": 12.291063233
+        }
+      ],
+      "frame_collisions": [
+        {
+          "part": "collar",
+          "volume_mm3": 17.784838705
+        },
+        {
+          "part": "crossbar",
+          "volume_mm3": 5.068784709
+        },
+        {
+          "part": "key0",
+          "volume_mm3": 5.779469591
+        },
+        {
+          "part": "key1",
+          "volume_mm3": 8.470398078
+        }
+      ],
+      "note": "Forced collision poses are diagnostic, not reachable accepted states"
+    },
+    {
+      "case": "early_tilt",
+      "parameters": {
+        "d": -0.2,
+        "pitch": 5,
+        "yaw": 5,
+        "x": -0.25,
+        "z": 0.15
+      },
+      "SAT_OCCT_match": true,
+      "target_collisions": [
+        {
+          "part": "shell",
+          "target": "probe0",
+          "volume_mm3": 6.08232207
+        },
+        {
+          "part": "shell",
+          "target": "probe1",
+          "volume_mm3": 6.08232207
+        }
+      ],
+      "frame_collisions": [
+        {
+          "part": "key0",
+          "volume_mm3": 0.021609818
+        },
+        {
+          "part": "key1",
+          "volume_mm3": 0.009930627
+        }
+      ],
+      "note": "Forced collision poses are diagnostic, not reachable accepted states"
+    },
+    {
+      "case": "shell_only_baseline",
+      "parameters": {
+        "d": 6.4,
+        "key_a": false,
+        "key_b": false,
+        "collar": false
+      },
+      "SAT_OCCT_match": true,
+      "target_collisions": [],
+      "frame_collisions": [],
+      "note": "Forced collision poses are diagnostic, not reachable accepted states"
+    },
+    {
+      "case": "generic_forced_after_first_door",
+      "parameters": {
+        "d": -4.3,
+        "key_a": false,
+        "key_b": false,
+        "collar": false
+      },
+      "SAT_OCCT_match": true,
+      "target_collisions": [
+        {
+          "part": "shell",
+          "target": "shutterA",
+          "volume_mm3": 2.01204
+        }
+      ],
+      "frame_collisions": [],
+      "note": "Forced collision poses are diagnostic, not reachable accepted states"
+    },
+    {
+      "case": "missing_key_forced_pose",
+      "parameters": {
+        "d": -2,
+        "key_a": false
+      },
+      "SAT_OCCT_match": true,
+      "target_collisions": [
+        {
+          "part": "shell",
+          "target": "probe1",
+          "volume_mm3": 3.01806
+        },
+        {
+          "part": "shell",
+          "target": "shutterA",
+          "volume_mm3": 16.09632
+        }
+      ],
+      "frame_collisions": [],
+      "note": "Forced collision poses are diagnostic, not reachable accepted states"
+    }
+  ],
+  "native_model_id": "b61cbccc-5c25-5a94-957f-bbfdc04dc45d",
+  "native_model_bounds_mm": [
+    40.0,
+    45.1,
+    22.799999999999997
+  ],
+  "frame_shape_valid": true,
+  "all_adapter_solids_checked_valid": true,
+  "physical_tests": "NOT_RUN",
+  "provenance": {
+    "protocol.json": "c4a9abf864b1e46113eca151515a6d572306f1e72bd5bbdd46d00045d012f506",
+    "kernel_check.py": "5f38e3a20255d1962e4790b0f5b59dc32a587d5204f28ffa6d608c480a1b0f46",
+    "m5_model.py": "eb5e06d1cd35ababb91c74cbdd71bd3248ac8d2f93eafff700c056d1ce9c66f6",
+    "collision.py": "21bb99828273dc4f14f57d1bde0a3fb586f7d64a310eac7f9eef8a4f0ea8e68b"
+  }
+}

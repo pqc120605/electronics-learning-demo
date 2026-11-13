@@ -1,0 +1,37 @@
+{
+  "checks": [
+    {
+      "command": [
+        "node",
+        "D:/StartupOS/docs/agents/validate.mjs"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"tasks\": 61,\n  \"capabilities\": 143,\n  \"warnings\": [],\n  \"errors\": []\n}\n"
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "D:/StartupOS/docs/agents/validate.test.mjs"
+      ],
+      "exit_code": 0,
+      "output": "ℹ tests 61\nℹ suites 0\nℹ pass 61\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 315.951"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-X",
+        "utf8",
+        "D:\\StartupOS\\electronics-learning-demo\\docs\\agents\\runs\\MM-HW-P0-15\\mechanical-study\\attempt-4\\verify_integrity.py"
+      ],
+      "exit_code": 0,
+      "output": "{\"prior_snapshot_files_unchanged\": 162, \"source_pdfs\": 4, \"r12_unchanged\": true, \"hardware_registry_unchanged\": true, \"conditional_routes\": 46}\n"
+    }
+  ],
+  "mechanical_reviewed_files_unchanged": 29,
+  "mechanical_review_packet_sha256": "e4ab071fc50f7de82dbad0567c019f055b7074ac3b7b0e50958e4000964441a9",
+  "guarded_replay_segments": 1375,
+  "native_intersection_checks": 16,
+  "physical_tests": "NOT_RUN"
+}

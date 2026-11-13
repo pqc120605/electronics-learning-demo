@@ -1,0 +1,123 @@
+{
+  "classification": "Conditional analytic screening, not FE or physical PASS",
+  "H3": {
+    "cv_min_V": 4.0176,
+    "cv_max_V": 4.0824,
+    "trip_max_allocation_V": 4.11,
+    "window_V": 0.027600000000000513,
+    "threshold_center_V": 4.0962,
+    "Kmax": 1.6012012012012011,
+    "global_current_bound_A": 2.3875114784205693,
+    "cutoff_allowable_us": 59.06091476091415,
+    "Cmin_for_310us_F": 0.052488181270967126,
+    "Imax_for_310us_A": 0.9262433164872155,
+    "Rmin_for_310us_ohm": 2.8070377985133743,
+    "full_threshold_error_budget_V": null,
+    "hardware_cutoff_max_s": null,
+    "correlated_current_A": 1.276400367309458
+  },
+  "actuator": {
+    "pulse_nominal_s": 3,
+    "pulse_max_s": null,
+    "Rmin_ohm": null,
+    "two_coil_nominal_R_ohm": 7.5,
+    "energy_5V_3s_J": 20.0,
+    "energy_5_25V_3s_J": 22.049999999999997
+  },
+  "GPIO": {
+    "baseline5": 5,
+    "distinct_safety_outputs": 4,
+    "mandatory_inputs": 2,
+    "optional_inputs": [
+      0,
+      2
+    ],
+    "E_channels_assumed": 4,
+    "total": [
+      15,
+      17
+    ],
+    "unused_pool": 11,
+    "assured_total": 16,
+    "conditional_total": 18,
+    "upper_deficit": 1
+  },
+  "mechanical": [
+    {
+      "force_per_path_N": 100,
+      "moment_Nmm": 600.0,
+      "key_bending_MPa": 4.6875,
+      "key_full_force_shear_MPa": 1.5625,
+      "frame_normal_MPa": 3.7109375,
+      "ideal_deflection_mm": 0.00026785714285714287,
+      "hertz": [
+        {
+          "effective_radius_mm": 585.6285714285704,
+          "contact_radius_mm": 0.7247338358228133,
+          "peak_pressure_MPa": 90.90427568537882
+        },
+        {
+          "effective_radius_mm": 1366.80000000002,
+          "contact_radius_mm": 0.9613306201028978,
+          "peak_pressure_MPa": 51.66492879549232
+        }
+      ]
+    },
+    {
+      "force_per_path_N": 200,
+      "moment_Nmm": 1200.0,
+      "key_bending_MPa": 9.375,
+      "key_full_force_shear_MPa": 3.125,
+      "frame_normal_MPa": 7.421875,
+      "ideal_deflection_mm": 0.0005357142857142857,
+      "hertz": [
+        {
+          "effective_radius_mm": 585.6285714285704,
+          "contact_radius_mm": 0.9131074153242175,
+          "peak_pressure_MPa": 114.5322104614555
+        },
+        {
+          "effective_radius_mm": 1366.80000000002,
+          "contact_radius_mm": 1.2112006841761325,
+          "peak_pressure_MPa": 65.09373133076055
+        }
+      ]
+    },
+    {
+      "force_per_path_N": 300,
+      "moment_Nmm": 1800.0,
+      "key_bending_MPa": 14.0625,
+      "key_full_force_shear_MPa": 4.6875,
+      "frame_normal_MPa": 11.1328125,
+      "ideal_deflection_mm": 0.0008035714285714286,
+      "hertz": [
+        {
+          "effective_radius_mm": 585.6285714285704,
+          "contact_radius_mm": 1.0452470633026922,
+          "peak_pressure_MPa": 131.1066525463438
+        },
+        {
+          "effective_radius_mm": 1366.80000000002,
+          "contact_radius_mm": 1.3864786737667587,
+          "peak_pressure_MPa": 74.51372135526167
+        }
+      ]
+    }
+  ],
+  "gate_freebody_allocations_N": {
+    "spring": [
+      0.16,
+      0.18
+    ],
+    "guide_drag_max": 0.05,
+    "feedback_max": 0.02,
+    "gravity_max": 0.01,
+    "unpowered_actuator_drag_max": 0.02,
+    "opening_external_max": 0.26,
+    "return_net_min": 0.06,
+    "required_return_min": 0.05
+  },
+  "concave_depth_mm": 0.3960003999200197,
+  "FE": "NOT_RUN",
+  "bench": "NOT_RUN"
+}

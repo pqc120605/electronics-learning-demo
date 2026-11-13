@@ -1,0 +1,2155 @@
+{
+  "boardId": "seeed-xiao-esp32c3",
+  "revision": "Seeed Studio XIAO ESP32-C3 · v1.3 KiCad project (source archive dated 2026-01-16)",
+  "sourceFile": "assets/boards/vendor/seeed-xiao-esp32c3/202003511_XIAO ESP32C3_v1.3_SCH&PCB_260116/XIAO ESP32C3_v1.3.kicad_pcb",
+  "sourceArchiveSha256": "477bc61cec652eaeefa887cb1f97abb1514e8a61ea9659240b88be7213c3b6ff",
+  "sourcePcbSha256": "a761393935ff261a58fee3e3d7ecfb65152eaba8620de64ff7758fb0c043d1db",
+  "sourceSchematicSha256": "c587e0b6e98844aad7b42384cdb5aae039655cf4d3417cc09d986d97f63c867b",
+  "modelSha256": "1c9ddcc5d43ab72af3bf44808cde942365c5e863a3c63c566e6df0c3ac42e9ab",
+  "units": "mm",
+  "modelledDesignators": 47,
+  "unsupportedFootprints": [
+    "BUTTON_TD1183SA",
+    "LOGO-SEEED-NEW-1X9.6MM",
+    "PMOS_1.0_0.6_0.35MM",
+    "USB2.0-TYPE-C",
+    "X4-SMD-2.0X1.6X0.5MM"
+  ],
+  "components": [
+    {
+      "reference": "ANT0",
+      "value": "U.FL-R-SMT-1",
+      "footprint": "U-FL3P-SMD-2.6X2.6X1.0MM",
+      "x": 139.4206,
+      "y": 105.0036,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Connector_Coaxial.3dshapes/U.FL_Hirose_U.FL-R-SMT-1_Vertical.wrl",
+      "pads": [
+        {
+          "number": "D",
+          "net": "N$28"
+        },
+        {
+          "number": "GND1",
+          "net": "GND"
+        },
+        {
+          "number": "GND2",
+          "net": "GND"
+        }
+      ],
+      "label": "Đầu nối U.FL · ANT0",
+      "description": "BOM KiCad ghi U.FL-R-SMT-1 tại ANT0.",
+      "role": "Đầu nối RF U.FL; anten và đường RF không mô phỏng trong viewer.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "BAT0",
+      "value": "DNP",
+      "footprint": "TP-80X40MIL",
+      "x": 148.8186,
+      "y": 100.5586,
+      "rotation": -90,
+      "side": "back",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "1",
+          "net": "VBAT"
+        }
+      ],
+      "label": "BAT0 · chưa lắp (DNP)",
+      "description": "Footprint TP-80X40MIL có trong CAD nhưng được đánh dấu DNP/không populated trong BOM.",
+      "role": "Vị trí CAD chưa lắp; không có thân linh kiện trong model.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "BOOT0",
+      "value": "TD-1183SN-A3N-D1R",
+      "footprint": "BUTTON_TD1183SA",
+      "x": 139.5476,
+      "y": 100.5586,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "",
+          "net": null
+        },
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "D9"
+        }
+      ],
+      "label": "Nút BOOT · BOOT0",
+      "description": "PCB/BOM v1.3 ghi TD-1183SN-A3N-D1R tại BOOT0.",
+      "role": "Nút chọn chế độ boot.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "C1",
+      "value": "2.2uF",
+      "footprint": "C0201",
+      "x": 150.5331,
+      "y": 102.9716,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "VIN"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "label": "Tụ 2.2uF · C1",
+      "description": "Giá trị 2.2uF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C2",
+      "value": "1uF",
+      "footprint": "C0201",
+      "x": 151.257,
+      "y": 109.6137,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        }
+      ],
+      "label": "Tụ 1uF · C2",
+      "description": "Giá trị 1uF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C3",
+      "value": "100nF",
+      "footprint": "C0201",
+      "x": 151.257,
+      "y": 109.1438,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        }
+      ],
+      "label": "Tụ 100nF · C3",
+      "description": "Giá trị 100nF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C4",
+      "value": "2.2uF",
+      "footprint": "C0201",
+      "x": 150.0251,
+      "y": 102.9716,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "VIN"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "label": "Tụ 2.2uF · C4",
+      "description": "Giá trị 2.2uF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C5",
+      "value": "100nF",
+      "footprint": "C0201",
+      "x": 143.6116,
+      "y": 109.8042,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "EN"
+        }
+      ],
+      "label": "Tụ 100nF · C5",
+      "description": "Giá trị 100nF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C6",
+      "value": "10pF",
+      "footprint": "C0201",
+      "x": 148.9456,
+      "y": 110.7186,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "D9"
+        }
+      ],
+      "label": "Tụ 10pF · C6",
+      "description": "Giá trị 10pF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C7",
+      "value": "100nF",
+      "footprint": "C0201",
+      "x": 146.7866,
+      "y": 110.7186,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        }
+      ],
+      "label": "Tụ 100nF · C7",
+      "description": "Giá trị 100nF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C8",
+      "value": "22pF",
+      "footprint": "C0201",
+      "x": 143.6116,
+      "y": 108.1786,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "N$4"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "label": "Tụ 22pF · C8",
+      "description": "Giá trị 22pF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C9",
+      "value": "22pF",
+      "footprint": "C0201",
+      "x": 144.145,
+      "y": 108.6739,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "32K_N"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "label": "Tụ 22pF · C9",
+      "description": "Giá trị 22pF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C10",
+      "value": "100nF",
+      "footprint": "C0201",
+      "x": 146.2786,
+      "y": 102.4636,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "USB_FUSED_5V"
+        }
+      ],
+      "label": "Tụ 100nF · C10",
+      "description": "Giá trị 100nF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C11",
+      "value": "DNP",
+      "footprint": "C0201",
+      "x": 151.257,
+      "y": 105.2576,
+      "rotation": 180,
+      "side": "front",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "ESP_USB_DM"
+        }
+      ],
+      "label": "Tụ DNP · C11",
+      "description": "Giá trị DNP và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "C12",
+      "value": "DNP",
+      "footprint": "C0201",
+      "x": 151.257,
+      "y": 103.7336,
+      "rotation": 180,
+      "side": "front",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "ESP_USB_DP"
+        }
+      ],
+      "label": "Tụ DNP · C12",
+      "description": "Giá trị DNP và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "C13",
+      "value": "DNP",
+      "footprint": "C0201",
+      "x": 146.2786,
+      "y": 99.8855,
+      "rotation": 90,
+      "side": "front",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "N$5"
+        }
+      ],
+      "label": "Tụ DNP · C13",
+      "description": "Giá trị DNP và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "C14",
+      "value": "1.6pF",
+      "footprint": "C0201",
+      "x": 143.9799,
+      "y": 105.918,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "N$22"
+        }
+      ],
+      "label": "Tụ 1.6pF · C14",
+      "description": "Giá trị 1.6pF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C15",
+      "value": "0R",
+      "footprint": "C0201",
+      "x": 144.1577,
+      "y": 105.0798,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "N$22"
+        },
+        {
+          "number": "2",
+          "net": "N$6"
+        }
+      ],
+      "label": "Tụ 0R · C15",
+      "description": "Giá trị 0R và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C23",
+      "value": "2.2uF",
+      "footprint": "C0201",
+      "x": 146.2786,
+      "y": 101.2317,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        }
+      ],
+      "label": "Tụ 2.2uF · C23",
+      "description": "Giá trị 2.2uF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C39",
+      "value": "2.2uF",
+      "footprint": "C0201",
+      "x": 145.7071,
+      "y": 101.2317,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "USB_FUSED_5V"
+        }
+      ],
+      "label": "Tụ 2.2uF · C39",
+      "description": "Giá trị 2.2uF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C40",
+      "value": "2.2uF",
+      "footprint": "C0201",
+      "x": 142.9766,
+      "y": 102.9589,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "VBAT"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "label": "Tụ 2.2uF · C40",
+      "description": "Giá trị 2.2uF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C41",
+      "value": "12pF",
+      "footprint": "C0201",
+      "x": 146.2786,
+      "y": 103.8479,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "N$26"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "label": "Tụ 12pF · C41",
+      "description": "Giá trị 12pF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C42",
+      "value": "12pF",
+      "footprint": "C0201",
+      "x": 147.5105,
+      "y": 103.8479,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "N$27"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "label": "Tụ 12pF · C42",
+      "description": "Giá trị 12pF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C43",
+      "value": "2.2uF",
+      "footprint": "C0201",
+      "x": 142.4686,
+      "y": 104.1146,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        }
+      ],
+      "label": "Tụ 2.2uF · C43",
+      "description": "Giá trị 2.2uF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C44",
+      "value": "1uF",
+      "footprint": "C0201",
+      "x": 143.4846,
+      "y": 104.1146,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        }
+      ],
+      "label": "Tụ 1uF · C44",
+      "description": "Giá trị 1uF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C45",
+      "value": "100nF",
+      "footprint": "C0201",
+      "x": 142.9766,
+      "y": 104.1146,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        }
+      ],
+      "label": "Tụ 100nF · C45",
+      "description": "Giá trị 100nF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C48",
+      "value": "1.6pF",
+      "footprint": "C0201",
+      "x": 142.367,
+      "y": 105.3592,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "N$28"
+        }
+      ],
+      "label": "Tụ 1.6pF · C48",
+      "description": "Giá trị 1.6pF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C49",
+      "value": "0R",
+      "footprint": "C0201",
+      "x": 143.1544,
+      "y": 105.0798,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "N$6"
+        },
+        {
+          "number": "2",
+          "net": "N$28"
+        }
+      ],
+      "label": "Tụ 0R · C49",
+      "description": "Giá trị 0R và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C50",
+      "value": "100nF",
+      "footprint": "C0201",
+      "x": 143.6116,
+      "y": 107.0356,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "N$34"
+        }
+      ],
+      "label": "Tụ 100nF · C50",
+      "description": "Giá trị 100nF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C53",
+      "value": "100nF",
+      "footprint": "C0201",
+      "x": 142.8877,
+      "y": 107.5436,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        }
+      ],
+      "label": "Tụ 100nF · C53",
+      "description": "Giá trị 100nF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "C54",
+      "value": "2.2uF",
+      "footprint": "C0201",
+      "x": 142.1765,
+      "y": 107.5436,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Capacitor_SMD.3dshapes/C_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        }
+      ],
+      "label": "Tụ 2.2uF · C54",
+      "description": "Giá trị 2.2uF và footprint C0201 lấy từ BOM/PCB v1.3.",
+      "role": "Tụ SMD; không suy ra điện áp định mức hoặc chức năng từ package.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "CHG0",
+      "value": "RED",
+      "footprint": "LED-0402",
+      "x": 158.3563,
+      "y": 110.7186,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "LED_SMD.3dshapes/LED_0402_1005Metric.wrl",
+      "pads": [
+        {
+          "number": "+",
+          "net": "N$12"
+        },
+        {
+          "number": "-",
+          "net": "~{CHG}"
+        }
+      ],
+      "label": "LED đỏ báo trạng thái · CHG0",
+      "description": "BOM nguồn ghi LED đỏ tại designator CHG0; vị trí và package lấy từ CAD.",
+      "role": "LED báo trạng thái nguồn/sạc theo nhãn schematic; chưa đo trạng thái thực.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "D1",
+      "value": "MSK4005",
+      "footprint": "SOD-523",
+      "x": 148.5646,
+      "y": 102.5906,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Diode_SMD.3dshapes/D_SOD-523.wrl",
+      "pads": [
+        {
+          "number": "+",
+          "net": "USB_FUSED_5V"
+        },
+        {
+          "number": "-",
+          "net": "VIN"
+        }
+      ],
+      "label": "Diode MSK4005 · D1",
+      "description": "Mã diode lấy từ BOM KiCad; footprint SOD-523 theo PCB.",
+      "role": "Diode bảo vệ/chỉnh lưu theo sơ đồ; không mô phỏng điện áp hay dòng.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "F1",
+      "value": "6V_500mA_Fuse",
+      "footprint": "F0603",
+      "x": 151.1681,
+      "y": 101.1301,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Fuse.3dshapes/Fuse_0603_1608Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "VUSB"
+        },
+        {
+          "number": "2",
+          "net": "USB_FUSED_5V"
+        }
+      ],
+      "label": "Cầu chì 6 V / 500 mA · F1",
+      "description": "BOM KiCad ghi 6V_500mA_Fuse tại F1.",
+      "role": "Phần tử bảo vệ; không dùng viewer để kiểm tra giới hạn dòng của board thật.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "GND0",
+      "value": "DNP",
+      "footprint": "TP-80X40MIL",
+      "x": 150.7236,
+      "y": 100.5586,
+      "rotation": -90,
+      "side": "back",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        }
+      ],
+      "label": "GND0 · chưa lắp (DNP)",
+      "description": "Footprint TP-80X40MIL có trong CAD nhưng được đánh dấu DNP/không populated trong BOM.",
+      "role": "Vị trí CAD chưa lắp; không có thân linh kiện trong model.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "J1",
+      "value": "DNP",
+      "footprint": "H7-HALF-HOLE-2.54",
+      "x": 148.4376,
+      "y": 112.6236,
+      "rotation": 90,
+      "side": "front",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "1",
+          "net": "RX_D7"
+        },
+        {
+          "number": "2",
+          "net": "D8"
+        },
+        {
+          "number": "3",
+          "net": "D9"
+        },
+        {
+          "number": "4",
+          "net": "D10"
+        },
+        {
+          "number": "5",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "6",
+          "net": "GND"
+        },
+        {
+          "number": "7",
+          "net": "VUSB"
+        },
+        {
+          "number": "13",
+          "net": "RX_D7"
+        },
+        {
+          "number": "14",
+          "net": "D8"
+        },
+        {
+          "number": "15",
+          "net": "D9"
+        },
+        {
+          "number": "16",
+          "net": "D10"
+        },
+        {
+          "number": "17",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "18",
+          "net": "GND"
+        },
+        {
+          "number": "19",
+          "net": "VUSB"
+        }
+      ],
+      "label": "J1 · chưa lắp (DNP)",
+      "description": "Footprint H7-HALF-HOLE-2.54 có trong CAD nhưng được đánh dấu DNP/không populated trong BOM.",
+      "role": "Vị trí CAD chưa lắp; không có thân linh kiện trong model.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "J2",
+      "value": "DNP",
+      "footprint": "H7-HALF-HOLE-2.54",
+      "x": 148.4376,
+      "y": 97.3836,
+      "rotation": -90,
+      "side": "front",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "1",
+          "net": "D0"
+        },
+        {
+          "number": "2",
+          "net": "D1"
+        },
+        {
+          "number": "3",
+          "net": "D2"
+        },
+        {
+          "number": "4",
+          "net": "D3"
+        },
+        {
+          "number": "5",
+          "net": "D4"
+        },
+        {
+          "number": "6",
+          "net": "D5"
+        },
+        {
+          "number": "7",
+          "net": "TX_D6"
+        },
+        {
+          "number": "13",
+          "net": "D0"
+        },
+        {
+          "number": "14",
+          "net": "D1"
+        },
+        {
+          "number": "15",
+          "net": "D2"
+        },
+        {
+          "number": "16",
+          "net": "D3"
+        },
+        {
+          "number": "17",
+          "net": "D4"
+        },
+        {
+          "number": "18",
+          "net": "D5"
+        },
+        {
+          "number": "19",
+          "net": "TX_D6"
+        }
+      ],
+      "label": "J2 · chưa lắp (DNP)",
+      "description": "Footprint H7-HALF-HOLE-2.54 có trong CAD nhưng được đánh dấu DNP/không populated trong BOM.",
+      "role": "Vị trí CAD chưa lắp; không có thân linh kiện trong model.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "L1",
+      "value": "2nH",
+      "footprint": "L0201",
+      "x": 143.1544,
+      "y": 105.6386,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Inductor_SMD.3dshapes/L_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "N$28"
+        },
+        {
+          "number": "2",
+          "net": "N$22"
+        }
+      ],
+      "label": "Cuộn cảm 2nH · L1",
+      "description": "Giá trị/footprint lấy từ BOM/PCB v1.3.",
+      "role": "Cuộn cảm SMD trong khối RF/nguồn; chức năng riêng cần đối chiếu schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "L3",
+      "value": "2nH",
+      "footprint": "L0201",
+      "x": 142.7226,
+      "y": 106.7562,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Inductor_SMD.3dshapes/L_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "2",
+          "net": "N$34"
+        }
+      ],
+      "label": "Cuộn cảm 2nH · L3",
+      "description": "Giá trị/footprint lấy từ BOM/PCB v1.3.",
+      "role": "Cuộn cảm SMD trong khối RF/nguồn; chức năng riêng cần đối chiếu schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "Q1",
+      "value": "LP0404N3T5G",
+      "footprint": "PMOS_1.0_0.6_0.35MM",
+      "x": 148.5646,
+      "y": 103.8606,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "1",
+          "net": "VBAT"
+        },
+        {
+          "number": "2",
+          "net": "USB_FUSED_5V"
+        },
+        {
+          "number": "3",
+          "net": "VIN"
+        }
+      ],
+      "label": "MOSFET LP0404N3T5G · Q1",
+      "description": "BOM KiCad ghi mã LP0404N3T5G tại Q1.",
+      "role": "MOSFET theo mã linh kiện; package 3D board-specific chưa có mesh đã xác minh.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "R1",
+      "value": "5.1k",
+      "footprint": "R0201",
+      "x": 151.257,
+      "y": 103.2256,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "N$2"
+        }
+      ],
+      "label": "Điện trở 5.1k Ω · R1",
+      "description": "Giá trị 5.1k và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "R2",
+      "value": "5.1k",
+      "footprint": "R0201",
+      "x": 151.257,
+      "y": 105.7656,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "N$1"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "label": "Điện trở 5.1k Ω · R2",
+      "description": "Giá trị 5.1k và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "R3",
+      "value": "DNP",
+      "footprint": "R0201",
+      "x": 151.257,
+      "y": 107.8865,
+      "rotation": -90,
+      "side": "front",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "1",
+          "net": "N$3"
+        },
+        {
+          "number": "2",
+          "net": "VDD_SPI"
+        }
+      ],
+      "label": "Điện trở DNP Ω · R3",
+      "description": "Giá trị DNP và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "R4",
+      "value": "10k",
+      "footprint": "R0201",
+      "x": 144.145,
+      "y": 109.8042,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "EN"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        }
+      ],
+      "label": "Điện trở 10k Ω · R4",
+      "description": "Giá trị 10k và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "R5",
+      "value": "1R",
+      "footprint": "R0201",
+      "x": 142.4686,
+      "y": 102.5779,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "TX_D6"
+        },
+        {
+          "number": "2",
+          "net": "N$29"
+        }
+      ],
+      "label": "Điện trở 1R Ω · R5",
+      "description": "Giá trị 1R và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "R6",
+      "value": "10k",
+      "footprint": "R0201",
+      "x": 147.9296,
+      "y": 110.7186,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "D9"
+        },
+        {
+          "number": "2",
+          "net": "VCC_3V3"
+        }
+      ],
+      "label": "Điện trở 10k Ω · R6",
+      "description": "Giá trị 10k và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "R7",
+      "value": "0R",
+      "footprint": "R0201",
+      "x": 144.145,
+      "y": 107.6198,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "32K_P"
+        },
+        {
+          "number": "2",
+          "net": "N$4"
+        }
+      ],
+      "label": "Điện trở 0R Ω · R7",
+      "description": "Giá trị 0R và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "R8",
+      "value": "22R",
+      "footprint": "R0201",
+      "x": 151.257,
+      "y": 104.2416,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "DP"
+        },
+        {
+          "number": "2",
+          "net": "ESP_USB_DP"
+        }
+      ],
+      "label": "Điện trở 22R Ω · R8",
+      "description": "Giá trị 22R và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "R9",
+      "value": "100k",
+      "footprint": "R0201",
+      "x": 146.8247,
+      "y": 102.4636,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "USB_FUSED_5V"
+        }
+      ],
+      "label": "Điện trở 100k Ω · R9",
+      "description": "Giá trị 100k và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "R10",
+      "value": "22R",
+      "footprint": "R0201",
+      "x": 151.257,
+      "y": 104.7496,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "DM"
+        },
+        {
+          "number": "2",
+          "net": "ESP_USB_DM"
+        }
+      ],
+      "label": "Điện trở 22R Ω · R10",
+      "description": "Giá trị 22R và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "R21",
+      "value": "DNP",
+      "footprint": "R0201",
+      "x": 143.5227,
+      "y": 102.9589,
+      "rotation": -90,
+      "side": "front",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "1",
+          "net": "~{CHG}"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "label": "Điện trở DNP Ω · R21",
+      "description": "Giá trị DNP và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "R22",
+      "value": "2.7k",
+      "footprint": "R0201",
+      "x": 145.7198,
+      "y": 99.8855,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "N$11"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        }
+      ],
+      "label": "Điện trở 2.7k Ω · R22",
+      "description": "Giá trị 2.7k và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "R31",
+      "value": "2.2k",
+      "footprint": "R0201",
+      "x": 151.257,
+      "y": 110.1217,
+      "rotation": 0,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "2",
+          "net": "N$12"
+        }
+      ],
+      "label": "Điện trở 2.2k Ω · R31",
+      "description": "Giá trị 2.2k và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "R32",
+      "value": "0R",
+      "footprint": "R0201",
+      "x": 146.8247,
+      "y": 103.8479,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Resistor_SMD.3dshapes/R_0201_0603Metric.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "N$36"
+        },
+        {
+          "number": "2",
+          "net": "N$26"
+        }
+      ],
+      "label": "Điện trở 0R Ω · R32",
+      "description": "Giá trị 0R và footprint R0201 lấy từ BOM/PCB v1.3.",
+      "role": "Điện trở SMD; chức năng riêng của từng vị trí cần xem schematic.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "RST0",
+      "value": "TD-1183SN-A3N-D1R",
+      "footprint": "BUTTON_TD1183SA",
+      "x": 139.5476,
+      "y": 109.4486,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "",
+          "net": null
+        },
+        {
+          "number": "1",
+          "net": "GND"
+        },
+        {
+          "number": "2",
+          "net": "EN"
+        }
+      ],
+      "label": "Nút RESET · RST0",
+      "description": "PCB/BOM v1.3 ghi TD-1183SN-A3N-D1R tại RST0.",
+      "role": "Nút reset hệ thống.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "TP1",
+      "value": "DNP",
+      "footprint": "TP-D45MIL",
+      "x": 154.5336,
+      "y": 106.2736,
+      "rotation": 90,
+      "side": "back",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "T",
+          "net": "GND"
+        }
+      ],
+      "label": "TP1 · chưa lắp (DNP)",
+      "description": "Footprint TP-D45MIL có trong CAD nhưng được đánh dấu DNP/không populated trong BOM.",
+      "role": "Vị trí CAD chưa lắp; không có thân linh kiện trong model.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "TP2",
+      "value": "DNP",
+      "footprint": "TP-D45MIL",
+      "x": 151.9936,
+      "y": 103.7336,
+      "rotation": 90,
+      "side": "back",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "T",
+          "net": "D2"
+        }
+      ],
+      "label": "TP2 · chưa lắp (DNP)",
+      "description": "Footprint TP-D45MIL có trong CAD nhưng được đánh dấu DNP/không populated trong BOM.",
+      "role": "Vị trí CAD chưa lắp; không có thân linh kiện trong model.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "TP3",
+      "value": "DNP",
+      "footprint": "TP-D45MIL",
+      "x": 157.0736,
+      "y": 103.7336,
+      "rotation": 90,
+      "side": "back",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "T",
+          "net": "D3"
+        }
+      ],
+      "label": "TP3 · chưa lắp (DNP)",
+      "description": "Footprint TP-D45MIL có trong CAD nhưng được đánh dấu DNP/không populated trong BOM.",
+      "role": "Vị trí CAD chưa lắp; không có thân linh kiện trong model.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "TP4",
+      "value": "DNP",
+      "footprint": "TP-D45MIL",
+      "x": 151.9936,
+      "y": 106.2736,
+      "rotation": 90,
+      "side": "back",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "T",
+          "net": "D4"
+        }
+      ],
+      "label": "TP4 · chưa lắp (DNP)",
+      "description": "Footprint TP-D45MIL có trong CAD nhưng được đánh dấu DNP/không populated trong BOM.",
+      "role": "Vị trí CAD chưa lắp; không có thân linh kiện trong model.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "TP5",
+      "value": "DNP",
+      "footprint": "TP-D45MIL",
+      "x": 157.0736,
+      "y": 106.2736,
+      "rotation": 90,
+      "side": "back",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "T",
+          "net": "D5"
+        }
+      ],
+      "label": "TP5 · chưa lắp (DNP)",
+      "description": "Footprint TP-D45MIL có trong CAD nhưng được đánh dấu DNP/không populated trong BOM.",
+      "role": "Vị trí CAD chưa lắp; không có thân linh kiện trong model.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "TP6",
+      "value": "DNP",
+      "footprint": "TP-D45MIL",
+      "x": 154.5336,
+      "y": 103.7336,
+      "rotation": 90,
+      "side": "back",
+      "dnp": true,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "T",
+          "net": "EN"
+        }
+      ],
+      "label": "TP6 · chưa lắp (DNP)",
+      "description": "Footprint TP-D45MIL có trong CAD nhưng được đánh dấu DNP/không populated trong BOM.",
+      "role": "Vị trí CAD chưa lắp; không có thân linh kiện trong model.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "U$2",
+      "value": "",
+      "footprint": "LOGO-SEEED-NEW-1X9.6MM",
+      "x": 148.1836,
+      "y": 103.7336,
+      "rotation": 180,
+      "side": "back",
+      "dnp": false,
+      "bomPresent": false,
+      "packageModel": null,
+      "pads": [],
+      "label": "Logo Seeed · mặt sau",
+      "description": "Graphic/logo footprint trên lớp mặt sau của PCB; không phải linh kiện lắp ráp và không có BOM.",
+      "role": "Đối tượng silkscreen/fab để tham chiếu vị trí; không có thân linh kiện 3D.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "U1",
+      "value": "PMIC-XC6802MR",
+      "footprint": "SOT-25",
+      "x": 143.7386,
+      "y": 100.5586,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Package_TO_SOT_SMD.3dshapes/SOT-23-5.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "~{CHG}"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        },
+        {
+          "number": "3",
+          "net": "VBAT"
+        },
+        {
+          "number": "4",
+          "net": "USB_FUSED_5V"
+        },
+        {
+          "number": "5",
+          "net": "N$11"
+        }
+      ],
+      "label": "PMIC XC6802MR · U1",
+      "description": "Mã linh kiện và vị trí lấy từ BOM KiCad của board.",
+      "role": "Khối quản lý nguồn/sạc theo mã linh kiện; topology cần đối chiếu schematic trước khi suy ra dòng điện.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "U2",
+      "value": "TLV75733PDBVR",
+      "footprint": "SOT-25",
+      "x": 148.1836,
+      "y": 100.5586,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Package_TO_SOT_SMD.3dshapes/SOT-23-5.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "VIN"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        },
+        {
+          "number": "3",
+          "net": "VIN"
+        },
+        {
+          "number": "4",
+          "net": "N$5"
+        },
+        {
+          "number": "5",
+          "net": "VCC_3V3"
+        }
+      ],
+      "label": "LDO TLV75733PDBVR · U2",
+      "description": "BOM KiCad ghi mã TLV75733PDBVR tại U2.",
+      "role": "Bộ ổn áp tuyến tính 3,3 V theo mã linh kiện; khả năng tải phụ thuộc thiết kế và tản nhiệt thực.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "U4",
+      "value": "ESP32-C3FH4",
+      "footprint": "QFN32G-0.5-5X5MM",
+      "x": 147.8153,
+      "y": 107.3912,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Package_DFN_QFN.3dshapes/QFN-32-1EP_5x5mm_P0.5mm_EP3.3x3.3mm.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "N$22"
+        },
+        {
+          "number": "2",
+          "net": "N$34"
+        },
+        {
+          "number": "3",
+          "net": "N$34"
+        },
+        {
+          "number": "4",
+          "net": "32K_P"
+        },
+        {
+          "number": "5",
+          "net": "32K_N"
+        },
+        {
+          "number": "6",
+          "net": "D0"
+        },
+        {
+          "number": "7",
+          "net": "EN"
+        },
+        {
+          "number": "8",
+          "net": "D1"
+        },
+        {
+          "number": "9",
+          "net": "D2"
+        },
+        {
+          "number": "10",
+          "net": "D3"
+        },
+        {
+          "number": "11",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "12",
+          "net": "D4"
+        },
+        {
+          "number": "13",
+          "net": "D5"
+        },
+        {
+          "number": "14",
+          "net": "D8"
+        },
+        {
+          "number": "15",
+          "net": "D9"
+        },
+        {
+          "number": "16",
+          "net": "D10"
+        },
+        {
+          "number": "17",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "18",
+          "net": "VDD_SPI"
+        },
+        {
+          "number": "19",
+          "net": null
+        },
+        {
+          "number": "20",
+          "net": null
+        },
+        {
+          "number": "21",
+          "net": "N$3"
+        },
+        {
+          "number": "22",
+          "net": null
+        },
+        {
+          "number": "23",
+          "net": null
+        },
+        {
+          "number": "24",
+          "net": null
+        },
+        {
+          "number": "25",
+          "net": "ESP_USB_DM"
+        },
+        {
+          "number": "26",
+          "net": "ESP_USB_DP"
+        },
+        {
+          "number": "27",
+          "net": "RX_D7"
+        },
+        {
+          "number": "28",
+          "net": "N$29"
+        },
+        {
+          "number": "29",
+          "net": "N$27"
+        },
+        {
+          "number": "30",
+          "net": "N$36"
+        },
+        {
+          "number": "31",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "32",
+          "net": "VCC_3V3"
+        },
+        {
+          "number": "33",
+          "net": "GND"
+        }
+      ],
+      "label": "MCU ESP32-C3FH4 · U4",
+      "description": "BOM KiCad xác nhận mã ESP32-C3FH4 tại U4; bố trí từ PCB v1.3.",
+      "role": "Vi điều khiển chính ESP32-C3.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "USB0",
+      "value": "UBF31-0171",
+      "footprint": "USB2.0-TYPE-C",
+      "x": 153.1366,
+      "y": 105.0036,
+      "rotation": 180,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "",
+          "net": null
+        },
+        {
+          "number": "",
+          "net": null
+        },
+        {
+          "number": "A1_B12",
+          "net": "GND"
+        },
+        {
+          "number": "A4_B9",
+          "net": "VUSB"
+        },
+        {
+          "number": "A5",
+          "net": "N$1"
+        },
+        {
+          "number": "A6",
+          "net": "DP"
+        },
+        {
+          "number": "A7",
+          "net": "DM"
+        },
+        {
+          "number": "A8",
+          "net": null
+        },
+        {
+          "number": "B1_A12",
+          "net": "GND"
+        },
+        {
+          "number": "B4_A9",
+          "net": "VUSB"
+        },
+        {
+          "number": "B5",
+          "net": "N$2"
+        },
+        {
+          "number": "B6",
+          "net": "DP"
+        },
+        {
+          "number": "B7",
+          "net": "DM"
+        },
+        {
+          "number": "B8",
+          "net": null
+        },
+        {
+          "number": "S1",
+          "net": "GND"
+        },
+        {
+          "number": "S2",
+          "net": "GND"
+        },
+        {
+          "number": "S3",
+          "net": "GND"
+        },
+        {
+          "number": "S4",
+          "net": "GND"
+        },
+        {
+          "number": "S5",
+          "net": "GND"
+        },
+        {
+          "number": "S6",
+          "net": "GND"
+        }
+      ],
+      "label": "UBF31-0171 · USB0",
+      "description": "Designator, value, footprint và tọa độ từ BOM/PCB KiCad v1.3.",
+      "role": "Chức năng cần tra schematic hoặc datasheet theo mã chính xác.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    },
+    {
+      "reference": "X2",
+      "value": "32.768k/DST1610A",
+      "footprint": "X2-SMD-1.6X1.0X0.5MM",
+      "x": 142.621,
+      "y": 109.0676,
+      "rotation": 90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": "Crystal.3dshapes/Crystal_SMD_MicroCrystal_CM9V-T1A-2Pin_1.6x1.0mm.wrl",
+      "pads": [
+        {
+          "number": "1",
+          "net": "32K_N"
+        },
+        {
+          "number": "2",
+          "net": "N$4"
+        }
+      ],
+      "label": "Thạch anh/dao động 32.768k/DST1610A · X2",
+      "description": "Mã và package lấy từ BOM KiCad của board.",
+      "role": "Nguồn xung nhịp theo schematic; không phải signal flow đã mô phỏng.",
+      "evidence": "source-backed",
+      "has3dBody": true
+    },
+    {
+      "reference": "X4",
+      "value": "40MHz/306011483",
+      "footprint": "X4-SMD-2.0X1.6X0.5MM",
+      "x": 145.0086,
+      "y": 103.2256,
+      "rotation": -90,
+      "side": "front",
+      "dnp": false,
+      "bomPresent": true,
+      "packageModel": null,
+      "pads": [
+        {
+          "number": "1",
+          "net": "N$27"
+        },
+        {
+          "number": "2",
+          "net": "GND"
+        },
+        {
+          "number": "3",
+          "net": "N$26"
+        },
+        {
+          "number": "4",
+          "net": "GND"
+        }
+      ],
+      "label": "Thạch anh/dao động 40MHz/306011483 · X4",
+      "description": "Mã và package lấy từ BOM KiCad của board.",
+      "role": "Nguồn xung nhịp theo schematic; không phải signal flow đã mô phỏng.",
+      "evidence": "source-backed",
+      "has3dBody": false
+    }
+  ]
+}

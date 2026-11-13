@@ -1,0 +1,810 @@
+{
+  "scope": "Native intersections in a static imposed configuration; not insertion history, commercial cable or fault-reachable system",
+  "native_pair_checks": 133,
+  "rows": [
+    {
+      "part": "synthetic tail segment 0",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 2.45
+    },
+    {
+      "part": "synthetic tail segment 0",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 3.4000000000000004
+    },
+    {
+      "part": "synthetic tail segment 0",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 1.8999999999999997
+    },
+    {
+      "part": "synthetic tail segment 0",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 7.1499999999999995
+    },
+    {
+      "part": "synthetic tail segment 0",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 8.25
+    },
+    {
+      "part": "synthetic tail segment 0",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 3.020347662107791
+    },
+    {
+      "part": "synthetic tail segment 0",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 1.5402921800749365
+    },
+    {
+      "part": "synthetic tail segment 1",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 2.45
+    },
+    {
+      "part": "synthetic tail segment 1",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 1.5700000000000003
+    },
+    {
+      "part": "synthetic tail segment 1",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.0699999999999994
+    },
+    {
+      "part": "synthetic tail segment 1",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 5.319999999999999
+    },
+    {
+      "part": "synthetic tail segment 1",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 6.419999999999999
+    },
+    {
+      "part": "synthetic tail segment 1",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 1.4468061839813646
+    },
+    {
+      "part": "synthetic tail segment 1",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 0.8510864433221338
+    },
+    {
+      "part": "synthetic tail segment 2",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 0.004999999999999893
+    },
+    {
+      "part": "synthetic tail segment 2",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.5682429058070145
+    },
+    {
+      "part": "synthetic tail segment 2",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.06999999999999984
+    },
+    {
+      "part": "synthetic tail segment 2",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 5.32
+    },
+    {
+      "part": "synthetic tail segment 2",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 6.42
+    },
+    {
+      "part": "synthetic tail segment 2",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 1.33843191832831
+    },
+    {
+      "part": "synthetic tail segment 2",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 0.8510864433221338
+    },
+    {
+      "part": "synthetic tail segment 3",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 0.004999999999999893
+    },
+    {
+      "part": "synthetic tail segment 3",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.49999999999999956
+    },
+    {
+      "part": "synthetic tail segment 3",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.10000000000000009
+    },
+    {
+      "part": "synthetic tail segment 3",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 4.281168064909388
+    },
+    {
+      "part": "synthetic tail segment 3",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 5.380929287771768
+    },
+    {
+      "part": "synthetic tail segment 3",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 2.00909639674309
+    },
+    {
+      "part": "synthetic tail segment 3",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 3.326637561157718
+    },
+    {
+      "part": "synthetic tail segment 4",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 0.0050000000000003375
+    },
+    {
+      "part": "synthetic tail segment 4",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.4999999999999991
+    },
+    {
+      "part": "synthetic tail segment 4",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.07000000000000028
+    },
+    {
+      "part": "synthetic tail segment 4",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 4.279999999999999
+    },
+    {
+      "part": "synthetic tail segment 4",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 5.379999999999999
+    },
+    {
+      "part": "synthetic tail segment 4",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 0.6628725367670619
+    },
+    {
+      "part": "synthetic tail segment 4",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 1.2170653778687157
+    },
+    {
+      "part": "synthetic tail segment 5",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 2.45
+    },
+    {
+      "part": "synthetic tail segment 5",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.07000000000000073
+    },
+    {
+      "part": "synthetic tail segment 5",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.07000000000000028
+    },
+    {
+      "part": "synthetic tail segment 5",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 3.82
+    },
+    {
+      "part": "synthetic tail segment 5",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 4.92
+    },
+    {
+      "part": "synthetic tail segment 5",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 0.8510864433221338
+    },
+    {
+      "part": "synthetic tail segment 5",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 1.2170653778687157
+    },
+    {
+      "part": "synthetic tail segment 6",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 0.0050000000000003375
+    },
+    {
+      "part": "synthetic tail segment 6",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.07000000000000073
+    },
+    {
+      "part": "synthetic tail segment 6",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.5300000000000002
+    },
+    {
+      "part": "synthetic tail segment 6",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 3.82
+    },
+    {
+      "part": "synthetic tail segment 6",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 4.92
+    },
+    {
+      "part": "synthetic tail segment 6",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 0.6499999999999999
+    },
+    {
+      "part": "synthetic tail segment 6",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 1.579002259025211
+    },
+    {
+      "part": "synthetic tail segment 7",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 0.004999999999999893
+    },
+    {
+      "part": "synthetic tail segment 7",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.10000000000000009
+    },
+    {
+      "part": "synthetic tail segment 7",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.5393514624064722
+    },
+    {
+      "part": "synthetic tail segment 7",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 2.7817979797246233
+    },
+    {
+      "part": "synthetic tail segment 7",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 3.8812884458643357
+    },
+    {
+      "part": "synthetic tail segment 7",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 2.0048861143232224
+    },
+    {
+      "part": "synthetic tail segment 7",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 3.582655085729768
+    },
+    {
+      "part": "synthetic tail segment 8",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 0.005000000000000782
+    },
+    {
+      "part": "synthetic tail segment 8",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.0699999999999994
+    },
+    {
+      "part": "synthetic tail segment 8",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 1.5699999999999998
+    },
+    {
+      "part": "synthetic tail segment 8",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 2.7800000000000002
+    },
+    {
+      "part": "synthetic tail segment 8",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 3.88
+    },
+    {
+      "part": "synthetic tail segment 8",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 1.0860018416190647
+    },
+    {
+      "part": "synthetic tail segment 8",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 2.518183498875076
+    },
+    {
+      "part": "synthetic tail segment 9",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 2.45
+    },
+    {
+      "part": "synthetic tail segment 9",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 0.06999999999999851
+    },
+    {
+      "part": "synthetic tail segment 9",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 1.569999999999999
+    },
+    {
+      "part": "synthetic tail segment 9",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 0.009999999999999787
+    },
+    {
+      "part": "synthetic tail segment 9",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 1.1099999999999994
+    },
+    {
+      "part": "synthetic tail segment 9",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 1.217065377868715
+    },
+    {
+      "part": "synthetic tail segment 9",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 2.518183498875075
+    },
+    {
+      "part": "synthetic tail segment 10",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 0.015000000000000568
+    },
+    {
+      "part": "synthetic tail segment 10",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 2.84
+    },
+    {
+      "part": "synthetic tail segment 10",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 4.34
+    },
+    {
+      "part": "synthetic tail segment 10",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 0.009999999999999787
+    },
+    {
+      "part": "synthetic tail segment 10",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 1.1099999999999994
+    },
+    {
+      "part": "synthetic tail segment 10",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 3.6975802898652526
+    },
+    {
+      "part": "synthetic tail segment 10",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 5.2099854255080915
+    },
+    {
+      "part": "synthetic tail segment 11",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 0.005000000000000782
+    },
+    {
+      "part": "synthetic tail segment 11",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 2.850982286861846
+    },
+    {
+      "part": "synthetic tail segment 11",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 4.347194497604173
+    },
+    {
+      "part": "synthetic tail segment 11",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 0.25
+    },
+    {
+      "part": "synthetic tail segment 11",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 0.724499827467198
+    },
+    {
+      "part": "synthetic tail segment 11",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 4.223647597868651
+    },
+    {
+      "part": "synthetic tail segment 11",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 6.20255087364243
+    },
+    {
+      "part": "synthetic tail segment 12",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 0.005000000000000782
+    },
+    {
+      "part": "synthetic tail segment 12",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 3.2699999999999996
+    },
+    {
+      "part": "synthetic tail segment 12",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 4.77
+    },
+    {
+      "part": "synthetic tail segment 12",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 0.019999999999999574
+    },
+    {
+      "part": "synthetic tail segment 12",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 0.6799999999999997
+    },
+    {
+      "part": "synthetic tail segment 12",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 4.121577367950286
+    },
+    {
+      "part": "synthetic tail segment 12",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 5.634647117079004
+    },
+    {
+      "part": "synthetic tail segment 13",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 2.45
+    },
+    {
+      "part": "synthetic tail segment 13",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 3.2699999999999987
+    },
+    {
+      "part": "synthetic tail segment 13",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 4.77
+    },
+    {
+      "part": "synthetic tail segment 13",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 0.019999999999998685
+    },
+    {
+      "part": "synthetic tail segment 13",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 0.009999999999999787
+    },
+    {
+      "part": "synthetic tail segment 13",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 4.158034167008097
+    },
+    {
+      "part": "synthetic tail segment 13",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 5.634647117079002
+    },
+    {
+      "part": "synthetic tail segment 14",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 0.015000000000000568
+    },
+    {
+      "part": "synthetic tail segment 14",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 3.9399999999999995
+    },
+    {
+      "part": "synthetic tail segment 14",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 5.4399999999999995
+    },
+    {
+      "part": "synthetic tail segment 14",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 0.6899999999999995
+    },
+    {
+      "part": "synthetic tail segment 14",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 0.00999999999999801
+    },
+    {
+      "part": "synthetic tail segment 14",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 4.784359936292419
+    },
+    {
+      "part": "synthetic tail segment 14",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 6.297773267910391
+    },
+    {
+      "part": "synthetic tail segment 15",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 0.004999999999999005
+    },
+    {
+      "part": "synthetic tail segment 15",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 3.9479235048313686
+    },
+    {
+      "part": "synthetic tail segment 15",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 5.445741455486112
+    },
+    {
+      "part": "synthetic tail segment 15",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 0.7338937252763504
+    },
+    {
+      "part": "synthetic tail segment 15",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 0.25
+    },
+    {
+      "part": "synthetic tail segment 15",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 5.201653490091552
+    },
+    {
+      "part": "synthetic tail segment 15",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 7.1407028603718325
+    },
+    {
+      "part": "synthetic tail segment 16",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 0.004999999999999005
+    },
+    {
+      "part": "synthetic tail segment 16",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 4.369999999999999
+    },
+    {
+      "part": "synthetic tail segment 16",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 5.869999999999999
+    },
+    {
+      "part": "synthetic tail segment 16",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 1.1199999999999992
+    },
+    {
+      "part": "synthetic tail segment 16",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 0.019999999999999574
+    },
+    {
+      "part": "synthetic tail segment 16",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 5.210700528719723
+    },
+    {
+      "part": "synthetic tail segment 16",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 6.72407972394786
+    },
+    {
+      "part": "synthetic tail segment 17",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 2.45
+    },
+    {
+      "part": "synthetic tail segment 17",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 4.369999999999999
+    },
+    {
+      "part": "synthetic tail segment 17",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 5.869999999999999
+    },
+    {
+      "part": "synthetic tail segment 17",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 1.1199999999999992
+    },
+    {
+      "part": "synthetic tail segment 17",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 0.019999999999999574
+    },
+    {
+      "part": "synthetic tail segment 17",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 5.239584729156188
+    },
+    {
+      "part": "synthetic tail segment 17",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 6.72407972394786
+    },
+    {
+      "part": "shell-outer",
+      "target": "RELIEVED study frame - no bearing/strength proof",
+      "intersection_mm3": 0,
+      "distance_mm": 1.2599999999999998
+    },
+    {
+      "part": "shell-outer",
+      "target": "A rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 3.0654078032131387
+    },
+    {
+      "part": "shell-outer",
+      "target": "B rigid cam-rib-door; ideal slide",
+      "intersection_mm3": 0,
+      "distance_mm": 1.9500000000000002
+    },
+    {
+      "part": "shell-outer",
+      "target": "probe0",
+      "intersection_mm3": 0,
+      "distance_mm": 7.2
+    },
+    {
+      "part": "shell-outer",
+      "target": "probe1",
+      "intersection_mm3": 0,
+      "distance_mm": 8.3
+    },
+    {
+      "part": "shell-outer",
+      "target": "functional-face witness A; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 3.0500000000000003
+    },
+    {
+      "part": "shell-outer",
+      "target": "functional-face witness B; prescribed test stroke",
+      "intersection_mm3": 0,
+      "distance_mm": 1.5500000000000007
+    }
+  ],
+  "model_id": "7bc8801a-0cdf-555d-b387-276f244d9ae3",
+  "provenance": {
+    "thin_tail.py": "9467746d0436d5f9721ab1ee293917c8216456cbb21540cad6419f224c945504",
+    "functional_witness.py": "27abf9e9a127ae6e98c9cdce9f6ac5b99c85dde57caa65a1fbe81347cce9f3da",
+    "thin_tail_kernel.py": "ef329a1f28702caac6903101b2d34774a69d30264147cc4e126b776d963b7894"
+  }
+}

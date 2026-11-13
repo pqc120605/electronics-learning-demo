@@ -1,0 +1,364 @@
+{
+  "kind": "Adversarial reference sensitivity, NOT hardware or linkage qualification",
+  "key_mapping_diagnostics": [
+    {
+      "only_key": 0,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": 0,
+      "tip_xyz_at_d0": [
+        7.2,
+        3.5,
+        4.0
+      ],
+      "closest_channel_NOT_engagement_proof": 0,
+      "imposed_shutter_identity": 0,
+      "mapping_differs": false,
+      "geometric_tip_trigger_d": -8.3,
+      "scalar_imposed_trigger_d": -8.3,
+      "channel_distance_mm": 0.0
+    },
+    {
+      "only_key": 0,
+      "roll": 180,
+      "pitch": 0,
+      "yaw": 0,
+      "tip_xyz_at_d0": [
+        -7.199999999999999,
+        3.5,
+        -4.000000000000001
+      ],
+      "closest_channel_NOT_engagement_proof": 1,
+      "imposed_shutter_identity": 0,
+      "mapping_differs": true,
+      "geometric_tip_trigger_d": -8.3,
+      "scalar_imposed_trigger_d": -8.3,
+      "channel_distance_mm": 1.2560739669470201e-15
+    },
+    {
+      "only_key": 0,
+      "roll": 0,
+      "pitch": 5,
+      "yaw": 5,
+      "tip_xyz_at_d0": [
+        6.899102009319024,
+        3.7536385602206424,
+        4.289823891983786
+      ],
+      "closest_channel_NOT_engagement_proof": 0,
+      "imposed_shutter_identity": 0,
+      "mapping_differs": false,
+      "geometric_tip_trigger_d": -8.553638560220643,
+      "scalar_imposed_trigger_d": -8.3,
+      "channel_distance_mm": 0.4177768413405391
+    },
+    {
+      "only_key": 0,
+      "roll": 180,
+      "pitch": 5,
+      "yaw": 5,
+      "tip_xyz_at_d0": [
+        -7.506870631153279,
+        3.193188575322086,
+        -3.6797336927501796
+      ],
+      "closest_channel_NOT_engagement_proof": 1,
+      "imposed_shutter_identity": 0,
+      "mapping_differs": true,
+      "geometric_tip_trigger_d": -7.993188575322086,
+      "scalar_imposed_trigger_d": -8.3,
+      "channel_distance_mm": 0.44355393338786675
+    },
+    {
+      "only_key": 1,
+      "roll": 0,
+      "pitch": 0,
+      "yaw": 0,
+      "tip_xyz_at_d0": [
+        -7.2,
+        3.5,
+        -4.0
+      ],
+      "closest_channel_NOT_engagement_proof": 1,
+      "imposed_shutter_identity": 1,
+      "mapping_differs": false,
+      "geometric_tip_trigger_d": -8.3,
+      "scalar_imposed_trigger_d": -8.3,
+      "channel_distance_mm": 0.0
+    },
+    {
+      "only_key": 1,
+      "roll": 180,
+      "pitch": 0,
+      "yaw": 0,
+      "tip_xyz_at_d0": [
+        7.199999999999999,
+        3.5,
+        4.000000000000001
+      ],
+      "closest_channel_NOT_engagement_proof": 0,
+      "imposed_shutter_identity": 1,
+      "mapping_differs": true,
+      "geometric_tip_trigger_d": -8.3,
+      "scalar_imposed_trigger_d": -8.3,
+      "channel_distance_mm": 1.2560739669470201e-15
+    },
+    {
+      "only_key": 1,
+      "roll": 0,
+      "pitch": 5,
+      "yaw": 5,
+      "tip_xyz_at_d0": [
+        -7.50687063115328,
+        3.1931885753220857,
+        -3.6797336927501787
+      ],
+      "closest_channel_NOT_engagement_proof": 1,
+      "imposed_shutter_identity": 1,
+      "mapping_differs": false,
+      "geometric_tip_trigger_d": -7.993188575322085,
+      "scalar_imposed_trigger_d": -8.3,
+      "channel_distance_mm": 0.443553933387868
+    },
+    {
+      "only_key": 1,
+      "roll": 180,
+      "pitch": 5,
+      "yaw": 5,
+      "tip_xyz_at_d0": [
+        6.899102009319023,
+        3.753638560220642,
+        4.2898238919837866
+      ],
+      "closest_channel_NOT_engagement_proof": 0,
+      "imposed_shutter_identity": 1,
+      "mapping_differs": true,
+      "geometric_tip_trigger_d": -8.55363856022064,
+      "scalar_imposed_trigger_d": -8.3,
+      "channel_distance_mm": 0.4177768413405404
+    }
+  ],
+  "outer_vs_illustrative_hollow": [
+    {
+      "pose": {
+        "d": 6.4
+      },
+      "probe": 0,
+      "outer_shell_volume_mm3": 0.0,
+      "illustrative_hollow_shell_volume_mm3": 0.0,
+      "outer_only_collision": false,
+      "presence_proof": "NOT_PROVEN: hollow wall/profile is an assumption, outer box is not material"
+    },
+    {
+      "pose": {
+        "d": 6.4
+      },
+      "probe": 1,
+      "outer_shell_volume_mm3": 0.0,
+      "illustrative_hollow_shell_volume_mm3": 0.0,
+      "outer_only_collision": false,
+      "presence_proof": "NOT_PROVEN: hollow wall/profile is an assumption, outer box is not material"
+    },
+    {
+      "pose": {
+        "d": 6.4,
+        "x": 0.25,
+        "z": -0.15,
+        "pitch": -5,
+        "yaw": 5,
+        "roll": 180
+      },
+      "probe": 0,
+      "outer_shell_volume_mm3": 0.0,
+      "illustrative_hollow_shell_volume_mm3": 0.0,
+      "outer_only_collision": false,
+      "presence_proof": "NOT_PROVEN: hollow wall/profile is an assumption, outer box is not material"
+    },
+    {
+      "pose": {
+        "d": 6.4,
+        "x": 0.25,
+        "z": -0.15,
+        "pitch": -5,
+        "yaw": 5,
+        "roll": 180
+      },
+      "probe": 1,
+      "outer_shell_volume_mm3": 0.0,
+      "illustrative_hollow_shell_volume_mm3": 0.0,
+      "outer_only_collision": false,
+      "presence_proof": "NOT_PROVEN: hollow wall/profile is an assumption, outer box is not material"
+    },
+    {
+      "pose": {
+        "d": -0.2,
+        "x": -0.25,
+        "z": 0.15,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "probe": 0,
+      "outer_shell_volume_mm3": 6.082322069570103,
+      "illustrative_hollow_shell_volume_mm3": 0.8467773312736245,
+      "outer_only_collision": false,
+      "presence_proof": "NOT_PROVEN: hollow wall/profile is an assumption, outer box is not material"
+    },
+    {
+      "pose": {
+        "d": -0.2,
+        "x": -0.25,
+        "z": 0.15,
+        "pitch": 5,
+        "yaw": 5
+      },
+      "probe": 1,
+      "outer_shell_volume_mm3": 6.082322069570111,
+      "illustrative_hollow_shell_volume_mm3": 0.8467773312740525,
+      "outer_only_collision": false,
+      "presence_proof": "NOT_PROVEN: hollow wall/profile is an assumption, outer box is not material"
+    }
+  ],
+  "diagnostic_corner_false_positive": {
+    "outer_volume_mm3": 7.999999999999946e-05,
+    "hollow_volume_mm3": 0.0,
+    "not_current_full_aperture_probe": true
+  },
+  "separated_component_faults": [
+    {
+      "collar": true,
+      "crossbar": true,
+      "synthetic_fault_geometry": false,
+      "same_pose_d": 6.4,
+      "same_imposed_shutters": "open",
+      "docked_collisions": [
+        [
+          {
+            "part": "controlled collar - exploratory",
+            "volume_mm3": 12.600000000000023
+          }
+        ],
+        [
+          {
+            "part": "controlled collar - exploratory",
+            "volume_mm3": 12.600000000000021
+          }
+        ]
+      ],
+      "closure_collision_sample_indices": [
+        [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      ]
+    },
+    {
+      "collar": false,
+      "crossbar": true,
+      "synthetic_fault_geometry": true,
+      "same_pose_d": 6.4,
+      "same_imposed_shutters": "open",
+      "docked_collisions": [
+        [],
+        []
+      ],
+      "closure_collision_sample_indices": [
+        [],
+        []
+      ]
+    },
+    {
+      "collar": true,
+      "crossbar": false,
+      "synthetic_fault_geometry": true,
+      "same_pose_d": 6.4,
+      "same_imposed_shutters": "open",
+      "docked_collisions": [
+        [
+          {
+            "part": "controlled collar - exploratory",
+            "volume_mm3": 12.600000000000023
+          }
+        ],
+        [
+          {
+            "part": "controlled collar - exploratory",
+            "volume_mm3": 12.600000000000021
+          }
+        ]
+      ],
+      "closure_collision_sample_indices": [
+        [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      ]
+    },
+    {
+      "collar": false,
+      "crossbar": false,
+      "synthetic_fault_geometry": true,
+      "same_pose_d": 6.4,
+      "same_imposed_shutters": "open",
+      "docked_collisions": [
+        [],
+        []
+      ],
+      "closure_collision_sample_indices": [
+        [],
+        []
+      ]
+    }
+  ],
+  "findings": [
+    "Scalar key law differs from host-space mapping at roll180 and tilted trigger coordinates; linkage remains unmodelled.",
+    "Outer-envelope intersection is not proof of metal presence; illustrative hollow checks do not establish a guaranteed material set.",
+    "At this deep pose, removing only collar defeats detection even with crossbar retained; crossbar removal alone does not. Faults are synthetic, not assumed buildable adapters."
+  ],
+  "provenance": {
+    "protocol.json": "c4a9abf864b1e46113eca151515a6d572306f1e72bd5bbdd46d00045d012f506",
+    "adversarial_checks.py": "9d2fcf402c7afbd8d5582ecdb346ba545251a4b99e0b4491764192b729a1a94d",
+    "m5_model.py": "eb5e06d1cd35ababb91c74cbdd71bd3248ac8d2f93eafff700c056d1ce9c66f6",
+    "collision.py": "21bb99828273dc4f14f57d1bde0a3fb586f7d64a310eac7f9eef8a4f0ea8e68b",
+    "kernel_check.py": "5f38e3a20255d1962e4790b0f5b59dc32a587d5204f28ffa6d608c480a1b0f46"
+  }
+}

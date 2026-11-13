@@ -1,0 +1,33 @@
+:root {
+  font-family: 'Aptos', 'Segoe UI', sans-serif;
+  color:#1d2b49;
+  background:#f7f0e2;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
+  --ink: #1d2b49;
+  --ink-soft: #526078;
+  --ink-faint: #5e6b80;
+  --green: #b82f28;
+  --green-dark: #b82f28;
+  --green-light: #f7e2d8;
+  --orange: #d94236;
+  --orange-light: #fbede6;
+  --paper: #f7f0e2;
+  --paper-bright: #fffaf0;
+  --line: #dfd3be;
+  --line-dark: #c9baa3;
+  --shadow-soft: 0 12px 32px rgb(49 39 24 / 10%);
+  --focus-ring: #147f91;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 40px;
+  --radius-md: 8px;
+  --radius: var(--radius-md);
+  --accent-strong: #d94236;
+  --on-accent: #fffaf0;
+  --page-pad: clamp(16px, 4vw, 42px);
+}

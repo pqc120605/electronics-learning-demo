@@ -1,0 +1,213 @@
+{
+  "meaning": "Finite rigid-envelope study only; prescribed shutter motion, no physical key/latch/force/whole-kit validation",
+  "candidate_probe_samples": 31590,
+  "potential_contact_samples": 31536,
+  "candidate_probe_hits": [
+    31536,
+    31536
+  ],
+  "candidate_probe_miss_examples": [],
+  "early_tilted_potential_contact_samples": 432,
+  "early_probe_miss_examples": [],
+  "candidate_probe_miss_counts": [
+    0,
+    0
+  ],
+  "generic_paths_imposed_shutter_positions": {
+    "none": {
+      "sample_paths": 162,
+      "blocked_before_potential_contact": 162,
+      "potential_contact_reached": 0,
+      "examples": []
+    },
+    "A_stuck_open": {
+      "sample_paths": 162,
+      "blocked_before_potential_contact": 162,
+      "potential_contact_reached": 0,
+      "examples": []
+    },
+    "B_stuck_open": {
+      "sample_paths": 162,
+      "blocked_before_potential_contact": 162,
+      "potential_contact_reached": 0,
+      "examples": []
+    },
+    "both_stuck_open": {
+      "sample_paths": 162,
+      "blocked_before_potential_contact": 0,
+      "potential_contact_reached": 162,
+      "examples": [
+        {
+          "d": -0.4,
+          "x": -0.25,
+          "z": -0.15,
+          "pitch": -5,
+          "yaw": -5,
+          "roll": 0
+        },
+        {
+          "d": -0.4,
+          "x": -0.25,
+          "z": -0.15,
+          "pitch": -5,
+          "yaw": -5,
+          "roll": 180
+        },
+        {
+          "d": -0.1,
+          "x": -0.25,
+          "z": -0.15,
+          "pitch": -5,
+          "yaw": 0,
+          "roll": 0
+        }
+      ]
+    }
+  },
+  "baseline_outer_envelope_only_docked_probe_hits": [
+    false,
+    false
+  ],
+  "missing_key_paths_imposed_identity_law": [
+    {
+      "missing_key": 0,
+      "own_shutter_stuck_open": false,
+      "lead": 2,
+      "nominal_roll_only": true,
+      "event": {
+        "kind": "blocked",
+        "d": -4.3
+      },
+      "note": "Imposed identity law only; combined fault is not a physical independence proof"
+    },
+    {
+      "missing_key": 0,
+      "own_shutter_stuck_open": false,
+      "lead": 3.5,
+      "nominal_roll_only": true,
+      "event": {
+        "kind": "blocked",
+        "d": -4.3
+      },
+      "note": "Imposed identity law only; combined fault is not a physical independence proof"
+    },
+    {
+      "missing_key": 0,
+      "own_shutter_stuck_open": false,
+      "lead": 5,
+      "nominal_roll_only": true,
+      "event": {
+        "kind": "blocked",
+        "d": -4.3
+      },
+      "note": "Imposed identity law only; combined fault is not a physical independence proof"
+    },
+    {
+      "missing_key": 0,
+      "own_shutter_stuck_open": true,
+      "lead": 2,
+      "nominal_roll_only": true,
+      "event": {
+        "kind": "potential_contact",
+        "d": 0.1
+      },
+      "note": "Imposed identity law only; combined fault is not a physical independence proof"
+    },
+    {
+      "missing_key": 0,
+      "own_shutter_stuck_open": true,
+      "lead": 3.5,
+      "nominal_roll_only": true,
+      "event": {
+        "kind": "potential_contact",
+        "d": 0.1
+      },
+      "note": "Imposed identity law only; combined fault is not a physical independence proof"
+    },
+    {
+      "missing_key": 0,
+      "own_shutter_stuck_open": true,
+      "lead": 5,
+      "nominal_roll_only": true,
+      "event": {
+        "kind": "potential_contact",
+        "d": 0.1
+      },
+      "note": "Imposed identity law only; combined fault is not a physical independence proof"
+    },
+    {
+      "missing_key": 1,
+      "own_shutter_stuck_open": false,
+      "lead": 2,
+      "nominal_roll_only": true,
+      "event": {
+        "kind": "blocked",
+        "d": -2.8
+      },
+      "note": "Imposed identity law only; combined fault is not a physical independence proof"
+    },
+    {
+      "missing_key": 1,
+      "own_shutter_stuck_open": false,
+      "lead": 3.5,
+      "nominal_roll_only": true,
+      "event": {
+        "kind": "blocked",
+        "d": -2.8
+      },
+      "note": "Imposed identity law only; combined fault is not a physical independence proof"
+    },
+    {
+      "missing_key": 1,
+      "own_shutter_stuck_open": false,
+      "lead": 5,
+      "nominal_roll_only": true,
+      "event": {
+        "kind": "blocked",
+        "d": -2.8
+      },
+      "note": "Imposed identity law only; combined fault is not a physical independence proof"
+    },
+    {
+      "missing_key": 1,
+      "own_shutter_stuck_open": true,
+      "lead": 2,
+      "nominal_roll_only": true,
+      "event": {
+        "kind": "potential_contact",
+        "d": 0.1
+      },
+      "note": "Imposed identity law only; combined fault is not a physical independence proof"
+    },
+    {
+      "missing_key": 1,
+      "own_shutter_stuck_open": true,
+      "lead": 3.5,
+      "nominal_roll_only": true,
+      "event": {
+        "kind": "potential_contact",
+        "d": 0.1
+      },
+      "note": "Imposed identity law only; combined fault is not a physical independence proof"
+    },
+    {
+      "missing_key": 1,
+      "own_shutter_stuck_open": true,
+      "lead": 5,
+      "nominal_roll_only": true,
+      "event": {
+        "kind": "potential_contact",
+        "d": 0.1
+      },
+      "note": "Imposed identity law only; combined fault is not a physical independence proof"
+    }
+  ],
+  "continuous_coverage": "NOT_PROVEN",
+  "frame_and_real_linkage": "Not included in this sweep; kernel crosschecks separate",
+  "elapsed_seconds": 24.098,
+  "provenance": {
+    "protocol.json": "c4a9abf864b1e46113eca151515a6d572306f1e72bd5bbdd46d00045d012f506",
+    "run_sweep.py": "454927c75ab84ad08442ceadd578be409516efb0f6462f84a013e7354ebc2b80",
+    "collision.py": "21bb99828273dc4f14f57d1bde0a3fb586f7d64a310eac7f9eef8a4f0ea8e68b"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "units": {
+    "source": "mm",
+    "model": "m",
+    "toleranceMeters": 0.000005
+  },
+  "method": "Compare the exact named board substrate/body mesh from a hash-pinned STEP file with the separately named PCB node bounds in the published GLB. Axis order maps output GLB axes to source STEP axes; translation is intentionally ignored.",
+  "boards": [
+    {
+      "boardId": "raspberry-pi-pico",
+      "sourceFile": "public/cad/raspberry-pi-pico-r3.step",
+      "sourceSha256": "ea5c693afee3de73e9fcaab1892a5ed44bf789438b9b1e5906e9c4f9859cab8b",
+      "sourceBodyMeshName": "PICO_REF_BOARD.STEP",
+      "modelBodyNodeName": "PICO_REF_BOARD",
+      "modelAxisOrder": [0, 1, 2]
+    },
+    {
+      "boardId": "raspberry-pi-pico-w",
+      "sourceFile": "public/cad/raspberry-pi-pico-w.stp",
+      "sourceSha256": "fa3af83ac3163504264fac1d60aaf2d5bb25ea3df44e302771e905576a718f21",
+      "sourceBodyMeshName": "Dielectric",
+      "modelBodyNodeName": "Dielectric",
+      "modelAxisOrder": [0, 2, 1]
+    },
+    {
+      "boardId": "raspberry-pi-pico-2",
+      "sourceFile": "public/cad/raspberry-pi-pico-2.step",
+      "sourceSha256": "d49ada10d893cfcb07cb4abced0a0a0cadca4c4150f153d874268ca06171a24f",
+      "sourceBodyMeshName": "rpi_pico2_PCB",
+      "modelBodyNodeName": "rpi_pico2_PCB",
+      "modelAxisOrder": [0, 2, 1]
+    },
+    {
+      "boardId": "raspberry-pi-pico-2-h",
+      "sourceFile": "public/cad/raspberry-pi-pico-2-h-step-source/rpi_pico2h.step",
+      "sourceSha256": "e1d6614bd8e5bb94aae2eef9452be244da56d48f4f1c363e71f19eff1fe69d4f",
+      "sourceBodyMeshName": "rpi_pico2h_PCB",
+      "modelBodyNodeName": "rpi_pico2h_PCB",
+      "modelAxisOrder": [0, 2, 1]
+    },
+    {
+      "boardId": "adafruit-qtpy-esp32-c3-5405",
+      "sourceFile": "assets/boards/vendor/adafruit-qtpy-esp32-c3/5405-qtpy-esp32-c3.step",
+      "sourceSha256": "a220e20db7132d044a640680df0789c24ee89d7aa55e74a156cecac4bc25ebe8",
+      "sourceBodyMeshName": "Board",
+      "modelBodyNodeName": "PCB",
+      "modelAxisOrder": [0, 2, 1]
+    },
+    {
+      "boardId": "adafruit-feather-esp32-s3-5323",
+      "sourceFile": "assets/boards/vendor/adafruit-feather-esp32-s3-5323/5323 Feather ESP32-S3.step",
+      "sourceSha256": "ffad2a32aec0f0e1ed99280dc6f9904cdbbcd034b209285982a342423e37ec1e",
+      "sourceBodyMeshName": "Board",
+      "modelBodyNodeName": "PCB",
+      "modelAxisOrder": [0, 2, 1]
+    },
+    {
+      "boardId": "adafruit-feather-esp32-s3-tft-5483",
+      "sourceFile": "assets/boards/vendor/adafruit-feather-esp32-s3-tft-5483/5483 Feather ESP32-S3 TFT.step",
+      "sourceSha256": "f1e22e626838b5a648c60eceb8bee87e420afbeb6f515d08f1fd8c77e3d98903",
+      "sourceBodyMeshName": "Board",
+      "modelBodyNodeName": "PCB",
+      "modelAxisOrder": [0, 2, 1]
+    },
+    {
+      "boardId": "seeed-xiao-esp32-s3",
+      "sourceFile": "assets/boards/vendor/seeed-xiao-esp32s3/source/XIAO-ESP32S3 v2.step",
+      "sourceSha256": "870ad45c7af5d92324cec4c6ae65fbf86e3b049d5a97ab9ffd9039ebd73455dd",
+      "sourceBodyMeshName": "SOLID",
+      "modelBodyNodeName": "PCB",
+      "modelAxisOrder": [0, 1, 2]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "scope": "Proposed conductor-budget contract only; not pin assignment or actual clone continuity",
+  "retained_signal_roles": 16,
+  "header_joy_power_routes": 1,
+  "header_return_routes_max": 4,
+  "usb_c_contact_routes_max": 24,
+  "usb_shell_routes_max": 1,
+  "candidate_contacts_per_breakpoint": 50,
+  "proposed_route_bound": 46,
+  "conditional_spare_capacity": 4,
+  "policy": [
+    "At most 21 physical B01 header routes are connected: sixteen retained roles, JOY_VCC and at most four parallel returns.",
+    "Every other B01 header pad remains physically unconnected to carrier, mounting metal, clamps and service wiring; no VIN/3V3 injection is authorized.",
+    "Reserve a separate path for every one of the 24 possible USB-C contact positions and shell, even if the exact captive RUN connection later omits some. This is a conservative budget, not a statement that all 24 contacts are populated or functional.",
+    "All chosen physical routes traverse both full-route breakpoints; a shared net name does not waive a parallel physical conductor.",
+    "No additional shield, test/debug, mount-metal or service bypass is allowed; any new route consumes the remaining capacity and invalidates this budget if the total exceeds 50.",
+    "RUN remains through B01 USB-C. At no point does this contract authorize GPIO/pad mapping, actual connector wiring or a schematic."
+  ],
+  "unresolved": [
+    "Product adoption of the captive RUN/PROGRAM mechanism",
+    "Exact B01 header and RUN-USB connection part, connection drawings and route list",
+    "Whether the exact clone supports every retained role without excluded pins",
+    "Physical connector fit and verified clearance for every metal part",
+    "Actual terminal ratings, return/current sharing, JOY inrush and USB behavior"
+  ]
+}

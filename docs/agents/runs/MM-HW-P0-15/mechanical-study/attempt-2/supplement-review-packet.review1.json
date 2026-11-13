@@ -1,0 +1,75 @@
+{
+  "scope": "Supplemental conditional source/state/endpoint analysis only, not CAD changes or B1",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/SUPPLEMENT-REPORT.md",
+      "sha256": "d3b720ec26f95e59a3424ef151dea32052b3c165fa7958f5984c68758fc503af",
+      "bytes": 6238
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/POWER-SOURCE-DISPOSITION.md",
+      "sha256": "7a4a5d12ec7c65dfdad2c45e74e1a4b9c292a2ec0e98d0768af11414fa59130c",
+      "bytes": 4537
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX02-POWER-STATE-PROPOSAL.md",
+      "sha256": "54a71f46ec4ca007e0a469cd772ae3b8112b0dc0f5c9360bdf348bfcb5251169",
+      "bytes": 7605
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX02-ACTIVE-SENSE-ANALYSIS.md",
+      "sha256": "1851fcf691b1f808d340a3a254d789c2e27c9a91d817749398a3cdd9caf3e5f9",
+      "bytes": 7411
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX03-ENDPOINT-PROPOSAL.md",
+      "sha256": "0043e6f0d2d3b164642bf65796df12e3d8bf0d0a1d0ac62c8801d8d2a7854633",
+      "bytes": 9159
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/BOX08-REFERENCE-REVIEW.md",
+      "sha256": "32fc6b1f4f17b12271531ffcc718b9aadc7e4868f26f6659c13a74d3891ea938",
+      "bytes": 2738
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/power_contract_check.py",
+      "sha256": "3b498c5cfd2a3514fb226de489e0b387b9b29e0f0804cb56e7a578c5c4c299a3",
+      "bytes": 3598
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/power-contract-results.json",
+      "sha256": "fed04efeea67a9c5036495bc0dd1a96195a401fef1385b193a543dedbca480b8",
+      "bytes": 1084
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/check_power_bounds.py",
+      "sha256": "b5ffeef42872108d541cfe762cc7b9c94662c6e1f871c30671cc33224a915f06",
+      "bytes": 2232
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/power-bounds-results.json",
+      "sha256": "bcb437d74938dffaf66694d3d588cef34745a94215dd8b1d5a9ba6a8cc5b81d2",
+      "bytes": 1463
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/manifest.json",
+      "sha256": "4a3d706e07a5f74d1463a22c384c9ed0a07cba645214ebb44f31ba3041b45f27",
+      "bytes": 1233
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/ti-ina152-SBOS184.pdf",
+      "sha256": "fca0d823495340ad8476821918326ec2b04bc36c586be288182a43377713a19a",
+      "bytes": 350732
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/ti-tlv803e-SLVSEH0J.pdf",
+      "sha256": "74ac4474d86c3597c4fff6ffa61a59e850130a40eda28085ece9765fb380e844",
+      "bytes": 2343355
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/sources/panasonic-AQY21-ASCTB126E.pdf",
+      "sha256": "c4f533985988595908b678e7c03b80bdec5bca050bcef2e1f88674d8cfb6666c",
+      "bytes": 760016
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "scope": "P0-15 local CHECK supply follow-up, engineering calculation pending independent review",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-7/REPORT.md",
+      "bytes": 3837,
+      "sha256": "c4d0137acf68a2c18c82d8dce47c1d38be549cd5cf65e8a175e81bbf5da811d2"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-7/check_check_supply.py",
+      "bytes": 3793,
+      "sha256": "c80fe92408b32f7b460586b7699ea848129fe0afe20c86c4b9b1a7f8fa78768f"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-7/check-supply-results.json",
+      "bytes": 2497,
+      "sha256": "27dbcd06bdfb577dd0eacc46308d5d5137bb7ea53630de1d40b2b3b6575d1dc1"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-7/verification.json",
+      "bytes": 284,
+      "sha256": "b33a8ae1f51886c7c949ff598ebd2c4d54e246e646c44b6658325c926cf7d2b4"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/snapshot.json",
+      "bytes": 3547,
+      "sha256": "c57f1b01761a9ae589915f7f379367ac0c713bdc7ecc9aed5a987b3c6a0d976a"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/passive-sense-results.json",
+      "bytes": 1618,
+      "sha256": "deb2c9de2074eb2264f6141d7da90a8ef2ea42f3d1907a1c11e14779031589d4"
+    }
+  ]
+}

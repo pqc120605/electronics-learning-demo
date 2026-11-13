@@ -1,0 +1,12 @@
+{
+  "id": "MOBOT-AA-M5-CAD-STUDY-r1",
+  "date": "2026-11-10",
+  "source": "Direct Founder reply in HQ to request_user_input_async call_e2fd02e652e04f4d9b2b18b0076ea57b",
+  "answer_verbatim": "Duyệt nghiên cứu CAD M5",
+  "approved_proposal": "docs/agents/runs/MM-HW-P0-15/mechanical-study-proposal.json",
+  "approved_proposal_sha256": "edeae78f366624d1cfadd051787ffad9e11703cc97e409e06dc615a4d99e3b28",
+  "scope": "Reference CAD and scripted kinematic/collision study only, under the proposal's exact limits; not product adoption, strength or physical validation.",
+  "owner_writer": "codex_lead",
+  "allowed_outputs": "docs/agents/runs/MM-HW-P0-15/mechanical-study/**",
+  "not_authorized": ["FE/strength certification", "manufacture or printing", "PCB/schematic/GPIO/firmware", "B1 lease", "MPN or handset configuration approval", "purchase/vendor/device actions", "dependency installation", "r12 or live gate changes"]
+}

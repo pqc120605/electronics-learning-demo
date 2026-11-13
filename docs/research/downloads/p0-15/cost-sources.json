@@ -1,0 +1,35 @@
+[
+  {
+    "url": "https://www.panasonicbatteryproducts.com/wp-content/uploads/BQ-CC17A-Instructions-3.19.2025.pdf",
+    "path": "docs/research/downloads/p0-15/panasonic-bq-cc17-instructions-20250319.pdf",
+    "expected_format": "pdf",
+    "role": "manufacturer manual",
+    "date": "2026-11-10",
+    "content_type": "application/pdf",
+    "status": "PINNED",
+    "sha256": "0e97b35902e04bc666a2534df92071d771328a482f23781c7489279e27f5c306",
+    "bytes": 1264042
+  },
+  {
+    "url": "https://slab.vn/bo-sac-pin-panasonic-eneloop-bq-cc17-aa-p5924044.html",
+    "path": "docs/research/downloads/p0-15/slab-bq-cc17-listing-20261110.html",
+    "expected_format": "html",
+    "role": "seller price only",
+    "date": "2026-11-10",
+    "content_type": "text/html; charset=UTF-8",
+    "status": "PINNED",
+    "sha256": "8af1ee55a2f2db2c669601926e1ffa769a5dd51d287a5ecc6078526e48cc464d",
+    "bytes": 77962
+  },
+  {
+    "url": "https://cn.liitokala.com.cn/charger/Cylindricalbatterycharger/344.html",
+    "path": "docs/research/downloads/p0-15/liitokala-lii-s1-reference.html",
+    "expected_format": "html",
+    "role": "manufacturer candidate; verify content before use",
+    "date": "2026-11-10",
+    "content_type": "text/html; charset=utf-8",
+    "status": "PINNED",
+    "sha256": "7481a62f93da928104d74175f4f8e95a2438fe15e425fdde8aa8b8ef18bd3808",
+    "bytes": 44365
+  }
+]

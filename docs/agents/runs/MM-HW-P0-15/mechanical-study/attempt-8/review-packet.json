@@ -1,0 +1,70 @@
+{
+  "scope": "Attempt-8 correction and bounded research calculations",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-8/BOX08-REVIEW-6-7.md",
+      "sha256": "0b2288a4662b0c71e6dcf9eb502b4a7aaff43541f641c7e0a5a8c7180dcc0a6c",
+      "bytes": 3422
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-8/check_coil_cutsets.py",
+      "sha256": "1ac2e802c2540b938e79876881c4f3e45e08cfeef01bf6d5661be47d7f5d8185",
+      "bytes": 3131
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-8/check_review_allocations.py",
+      "sha256": "949342273d394f5229ea0b0ff446cca24f7681c4319433a517d5ae1899b24c45",
+      "bytes": 2895
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-8/check_sense_settling.py",
+      "sha256": "8ff38695504545c1ab3c9921b1b2c705ec6d35f62da92e7ddbaacd1666483c69",
+      "bytes": 2672
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-8/coil-cutset-results.json",
+      "sha256": "7b33564fbd760a7ac5c3b97dd4f2c79b8dabe894746b041131d25cd026e27be0",
+      "bytes": 2789
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-8/REPORT.md",
+      "sha256": "1bef7c0d823383bbc3326bc4cb8ea53c9f5fa154199064ad041d5ee31a301ac7",
+      "bytes": 5183
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-8/review-allocation-results.json",
+      "sha256": "058d072eeb0b9883e148f05d4a4ba58b34fc19229d345db7184c5f09307bc681",
+      "bytes": 2300
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-8/sense-settling-results.json",
+      "sha256": "e975386d111430e273b1135ffd6ebe6870957f402a298bc55bb6eeb60a5dccf4",
+      "bytes": 1707
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-5/passive-sense-results.json",
+      "sha256": "deb2c9de2074eb2264f6141d7da90a8ef2ea42f3d1907a1c11e14779031589d4",
+      "bytes": 1618
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/snapshot.json",
+      "sha256": "c57f1b01761a9ae589915f7f379367ac0c713bdc7ecc9aed5a987b3c6a0d976a",
+      "bytes": 3547
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-6/connector-allocation-results.json",
+      "sha256": "f94dbb54c66e9949b0d04dd5d4be19d70b34962e4f857c5ae8e7ffe8556d9aa5",
+      "bytes": 2126
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-7/snapshot.json",
+      "sha256": "fb2efa9e1a447158588a5ae8ae77d5f3b725e0357cedb355124eec66996c2ba4",
+      "bytes": 1412
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-7/check-supply-results.json",
+      "sha256": "27dbcd06bdfb577dd0eacc46308d5d5137bb7ea53630de1d40b2b3b6575d1dc1",
+      "bytes": 2497
+    }
+  ]
+}

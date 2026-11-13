@@ -1,0 +1,44 @@
+{
+  "taskId": "MM-SIM-STAGE-REV3C-BUTTON-UI",
+  "capturedAt": "2026-11-12",
+  "kind": "file-hashes",
+  "reviewed": true,
+  "files": [
+    {
+      "path": "src/pages/LessonPreflightPage.tsx",
+      "sha256": "bb59e18e672540344d421ed1738f05618c0c79b3822b1dc6feacd05283b4e057"
+    },
+    {
+      "path": "src/pages/LessonPreflightPage.css",
+      "sha256": "e4d577472823933eeb6b959e46657597f249b60ca434945f72664e68b3f032aa"
+    },
+    {
+      "path": "src/components/lesson/ButtonLedLessonLab.tsx",
+      "sha256": "1e1f6a7bda520e6c92cfe26e716bce4a4146ea7d246344eb9403fe4367f5ca21"
+    },
+    {
+      "path": "src/components/lesson/ButtonLedLessonLab.css",
+      "sha256": "e2e729c441bdbd6e705ac42b6e2e80fd6844ac962d953fcd80d78b92f92e9229"
+    },
+    {
+      "path": "src/components/lesson/LessonCircuitWorkspace.tsx",
+      "sha256": "e59e12cb642847753876a7bf889396834854c6f31ada506cc1db83a8d42c3ffd"
+    },
+    {
+      "path": "src/components/lesson/LessonCircuitWorkspace.css",
+      "sha256": "67cc22b1bcfab950924314785294e0e046d629e644622f6319a2d6d7ec1e4d9d"
+    },
+    {
+      "path": "src/lib/buttonLedLessonTrace.ts",
+      "sha256": "f592449a99778014fe984643f32216865ee4cfeaf0c1b0329aa4fa84caa0954e"
+    },
+    {
+      "path": "tests/button-led-lesson-trace.test.mjs",
+      "sha256": "06e276c166e38e1d8541401d061e27231f070cb0ad0717a6b5e987c038c6b6b7"
+    },
+    {
+      "path": "e2e/journeys.spec.mjs",
+      "sha256": "d38e35b7320121d07090dac6d4ef0ef417a0fff67730055ae29d2b1b86c065b2"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# MoBot V2 · P0-02 · Tích hợp bàn giao Box 02 và 03
+
+Nguồn bàn giao: Box 02 turn `01a1b219-72c3-7f23-9e4f-9ce80c85746f`, Box 03 turn `01a1b219-85c1-73e3-b61a-0a96cbc81a1f`. Review delta trên hai proposal đã tách theo D15(a). Cấu hình vẫn proposed. D10 giữ nguyên, các phép đo TBD / NOT_RUN.
+
+| Hạng mục | Bằng chứng mới và điểm cần Box 08 phân xử |
+|---|---|
+| UVLO và latch | HQ tính lại INB với dung sai điện trở ±0,1% và ±100 nA. 80 kΩ/10 kΩ: rising 3,558–3,642 V, falling 3,468–3,615 V. 83 kΩ/10 kΩ: rising 3,677–3,763 V, falling 3,584–3,735 V. Phương án 83 kΩ chỉ là ứng viên nếu yêu cầu sàn 3,558 V được giữ. Chưa có đường xả/hồi áp đúng tải để định lượng ảnh hưởng khả dụng. Giữ nhánh cắt đã review có điều kiện. Reset bất đồng bộ ưu tiên và khóa trực tiếp các enable, kiểm lại điều kiện start trước mở Source, bắt buộc nhả rồi nhấn mới. Cần chứng minh fail-off qua vùng mất bias, cận động 42 mV và tổng trễ cách ly. |
+| H3 và Jauch | Qua sàng lọc dòng. Cận CV 4,232 V của MCP73833 ở điều kiện bảng cao hơn 2 mV so với cận thấp 4,230 V của ngưỡng phát hiện quá áp PCM. Đây là giao nhau theo dung sai, chưa chứng minh PCM tác động. Cần cận CV hãng cho phép, profile kết thúc/timer, NTC qua dung sai và ánh xạ cực XHP-3. |
+| Giao diện và B01 | Gá rời và GH 12 cực/11 dây là đề xuất có căn cứ. Bao thân 55 × 32 × 20 mm chỉ dùng dự trù, tách khoảng thao tác USB/anten. Cần hồ sơ truy xuất PCB/revision theo SKU/lô giao, sụt áp và lệch mass bó dây. Fixture RUN cần ghi CC/VBUS, thời điểm I/O thực sự cách ly, tốc độ rút và biên nhả của từng tiếp điểm khi kênh kia kẹt. |
+| Stackup và DRC | Đề xuất JLC04161H-3313A, 4 lớp 1,6 mm, đồng ngoài/trong 35/15,2 µm. Trace/space 0,15/0,15 mm, via lỗ/pad 0,30/0,60 mm, đồng cách mép phay 0,30 mm là quy tắc tham chiếu. Cần cận dòng/nhiệt/đường hồi và quy tắc riêng đúng package/fab trước khi đóng. |
+| D10 | Có thể khóa phương pháp ghi USB theo RUN/PROGRAM/CHARGE, UVLO đồng bộ đầu pack/rail/enable, ADC toàn hành trình và tải radio. Clone kiểm theo mặt chuẩn và đúng mẫu. Nhiệt thử ứng viên 25 ± 2 °C và 35 ± 2 °C trong vỏ PETG đóng, cần thêm tải/ổn định và cận linh kiện/bề mặt. Cận chưa có dữ liệu vẫn mở. |
+| Robot D16/R5 | Ultralife 466 mA khuyến nghị so với 500 mA danh nghĩa của r7. Cần đối chiếu dung sai CV/dòng kết thúc, timer và NTC. RS PRO có thêm hồ sơ UN38.3, chưa chứng minh cân bằng và cận xung. B04 vẫn chờ hồ sơ đúng pack. R5 giữ chính sách chỉ sạc khi CC báo 1,5 A hoặc 3 A; cần chứng minh /CE mặc định tắt qua ramp và mất bias, với veto motor độc lập. Q7 vẫn mở. |
+
+Nguồn đối chiếu: [TI TLV6710](https://www.ti.com/lit/ds/symlink/tlv6710.pdf) · [Microchip MCP73833](https://ww1.microchip.com/downloads/aemDocuments/documents/APID/ProductDocuments/DataSheets/MCP73833-4-Stand-Alone-Linear-Li-Ion-Li-Polymer-Charge-Management-Controller-DS20002005.pdf) · [Jauch 250832](https://www.jauch.com/downloadfile/6656e149c4d6d000bf9f0721ac1f1df59/250832.pdf) · [JLCPCB stackup](https://jlcpcb.com/impedance) · [TI BQ25886](https://www.ti.com/lit/ds/symlink/bq25886.pdf) · [Shortlist D16](mobot-v2-robot-pack-d16-shortlist.md) · [RS PRO UN38.3](https://docs.rs-online.com/57b5/A700000010177700.pdf).
+
+Box 08 review gộp phần giấy có thể khóa và chỉ rõ điều kiện ngoài tài liệu bắt buộc trước khi trình hash từng carrier. Không dùng packet này để cấp lease.

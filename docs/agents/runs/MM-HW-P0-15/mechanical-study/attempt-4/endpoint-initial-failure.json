@@ -1,0 +1,31 @@
+{
+  "parked_path": {
+    "ha": 16.2,
+    "hb": 16.2,
+    "removed_side": null,
+    "omitted_endpoint_material": [],
+    "step_mm": 0.1,
+    "stop": {
+      "kind": "carriage material",
+      "d": -7.4
+    },
+    "potential_contact_samples": 0,
+    "first_potential_contact": null,
+    "last_carriages": {
+      "1": 4.799999999999996,
+      "-1": 4.799999999999996
+    },
+    "scope": "Nominal intact controlled adapter; frame and all V/probe/cassette latches absent"
+  },
+  "parked_upper_gate_intervals": [
+    [
+      1.100001,
+      2.8999989999999998
+    ],
+    [
+      5.100001,
+      6.899999
+    ]
+  ],
+  "cause": "Longitudinal stem crossed the slot side web at park. The central post also met the key after the solver displaced the carriage around the stem obstruction."
+}

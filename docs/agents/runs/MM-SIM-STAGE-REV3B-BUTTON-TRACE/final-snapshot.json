@@ -1,0 +1,15 @@
+{
+  "taskId": "MM-SIM-STAGE-REV3B-BUTTON-TRACE",
+  "capturedAt": "2026-11-12",
+  "kind": "file-hashes",
+  "files": [
+    {
+      "path": "src/lib/educationalProgram.ts",
+      "sha256": "8cdadc89840a14011f7e7b3364bfc870e81db3bf6dde27a6ea1efecb744c348e"
+    },
+    {
+      "path": "tests/educational-program-events.test.mjs",
+      "sha256": "d55a5fd77ef994bb9951c269e10b9482ca1ebe525709916a1a382009f67f07e6"
+    }
+  ]
+}

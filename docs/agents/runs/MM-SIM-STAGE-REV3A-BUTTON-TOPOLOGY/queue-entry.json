@@ -1,0 +1,143 @@
+{
+  "id": "MM-SIM-STAGE-REV3A-BUTTON-TOPOLOGY",
+  "title": "Canonical button-led CircuitDocV2 and tact-switch footprint fit",
+  "kind": "implementation",
+  "status": "in_progress",
+  "priority": "P1",
+  "owner_role": "software_engineer",
+  "writer": "software_engineer",
+  "reviewer_role": "qa_safety_reviewer",
+  "tester_role": "tester",
+  "advisory_roles": [],
+  "capability_ids": ["LRN-01", "LRN-02"],
+  "module_ids": ["M02"],
+  "legacy_task_ids": [],
+  "depth_change": "One canonical button-led circuit fixture and centered four-leg footprint mapping; capability depth remains unassessed pending review.",
+  "depends_on": [],
+  "input_refs": [
+    "electronics-learning-demo/docs/superpowers/plans/2026-11-12-interactive-button-led-lesson.md",
+    "electronics-learning-demo/docs/agents/runs/MM-SIM-STAGE-REV3A-BUTTON-TOPOLOGY/task.md",
+    "electronics-learning-demo/docs/agents/runs/MM-SIM-STAGE-REV3A-BUTTON-TOPOLOGY/base-snapshot.json",
+    "electronics-learning-demo/docs/agents/runs/MM-SIM-STAGE-REV2/report.md",
+    "electronics-learning-demo/docs/agents/runs/MM-SIM-STAGE-REV2/lesson-matrix.md",
+    "electronics-learning-demo/src/data/component-models.manifest.json",
+    "electronics-learning-demo/src/lib/assemblyLayout.ts"
+  ],
+  "allowed_paths": [
+    "src/data/lessonCircuitDocs.ts",
+    "src/lib/mountResolve.ts",
+    "tests/lesson-circuit-docs.test.mjs",
+    "tests/circuit-doc-v2.test.mjs",
+    "tests/assembly-layout-v2.test.mjs",
+    "docs/agents/runs/MM-SIM-STAGE-REV3A-BUTTON-TOPOLOGY/**"
+  ],
+  "forbidden_paths": [
+    "app/**",
+    "docs/claude-support/**",
+    "docs/hardware/**",
+    ".codex/**",
+    "package.json",
+    "package-lock.json",
+    "src/data/component-models.manifest.json",
+    "src/lib/assemblyLayout.ts",
+    "src/lib/circuitNetsV2.ts",
+    "src/lib/circuitDocV2.ts",
+    "docs/agents/tasks.json"
+  ],
+  "deliverables": [
+    "Canonical getLessonCircuitDoc('button-led') fixture with explicit stable IDs and validated net topology.",
+    "Centered tact-switch footprint resolution within the existing 0.7 mm snap bound; no manifest/global tolerance edits.",
+    "Regression tests for CircuitDocV2 validation, exact leg holes and matching 3D assembly mapping.",
+    "docs/agents/runs/MM-SIM-STAGE-REV3A-BUTTON-TOPOLOGY/report.md and final snapshot hashes, written by lead after builder handoff."
+  ],
+  "acceptance": [
+    "button-led CircuitDocV2 validates without errors, has unique stable IDs, and is returned as an independent fresh clone; blink fixture behavior remains unchanged.",
+    "contactA and contactB each map their two physical legs; for mount col 20, row 5, rotation 90, holes are exactly bb1:20f, bb1:20e, bb1:22f, bb1:22e in manifest leg order.",
+    "input and GND contact nets remain separate; LED output → series resistor → LED → GND topology remains intact.",
+    "CircuitDocV2 2D resolver and V2 assembly projection agree on the same four stable hole identities.",
+    "Invalid/off-grid placements continue to fail at the existing maximum residual of 0.7 mm; no tolerance or manifest change.",
+    "Focused fixture, mount and assembly tests pass; npm.cmd run typecheck exits 0; npm.cmd test exits 0."
+  ],
+  "verification_plan": [
+    "TDD: add the failing button fixture and geometry tests before source implementation.",
+    "Run focused lesson-circuit-docs, circuit-doc-v2 and assembly-layout-v2 tests.",
+    "Run npm.cmd run typecheck.",
+    "Run npm.cmd test and record test count and exit code."
+  ],
+  "readiness": {
+    "scope_complete": true,
+    "inputs_available": true,
+    "acceptance_defined": true,
+    "missing": []
+  },
+  "authorization": "Founder directly requested continuous continuation of the approved lesson redesign. This implementation slice is limited to educational fixture data, footprint mapping and tests; it does not alter hardware configuration, physical claims, learning-data persistence, schema or dependencies.",
+  "execution_requested": true,
+  "attempt": 0,
+  "review": {
+    "verdict": "pending",
+    "reviewer": "qa_safety_reviewer",
+    "reference": null,
+    "scope": "Independent review of the frozen Slice A source/test snapshot and the exact four-leg grouping/net topology."
+  },
+  "verification": {
+    "verdict": "pending",
+    "executed_by": null,
+    "reference": null,
+    "scope": "Focused tests, typecheck and full unit-test suite on the reviewed snapshot."
+  },
+  "waiting": null,
+  "completion_summary": null,
+  "snapshot": {
+    "kind": "file-hashes",
+    "reference": "docs/agents/runs/MM-SIM-STAGE-REV3A-BUTTON-TOPOLOGY/base-snapshot.json"
+  },
+  "required_gates": ["software"],
+  "gates": {
+    "software": "unknown",
+    "public": "not_applicable",
+    "hardware": "not_applicable"
+  },
+  "history": [
+    {
+      "event": "imported_snapshot",
+      "from": null,
+      "to": "scoped",
+      "attempt": 0,
+      "at": "2026-11-12",
+      "actor": "codex_lead",
+      "reason": "First scoped implementation slice after Rev 2; current route, topology and geometry were verified."
+    },
+    {
+      "event": "transition",
+      "from": "scoped",
+      "to": "ready",
+      "attempt": 0,
+      "at": "2026-11-12",
+      "actor": "codex_lead",
+      "reason": "Exact files, baseline hashes, fixture contract, 0.7 mm bound and verification criteria are recorded."
+    },
+    {
+      "event": "transition",
+      "from": "ready",
+      "to": "in_progress",
+      "attempt": 0,
+      "at": "2026-11-12",
+      "actor": "codex_lead",
+      "reason": "Founder authorized continued implementation; issued the active disjoint software lease."
+    }
+  ],
+  "execution_mode": "builder",
+  "write_lease": {
+    "owner": "software_engineer",
+    "lane": "software",
+    "status": "active",
+    "paths": [
+      "src/data/lessonCircuitDocs.ts",
+      "src/lib/mountResolve.ts",
+      "tests/lesson-circuit-docs.test.mjs",
+      "tests/circuit-doc-v2.test.mjs",
+      "tests/assembly-layout-v2.test.mjs"
+    ],
+    "base_snapshot": "docs/agents/runs/MM-SIM-STAGE-REV3A-BUTTON-TOPOLOGY/base-snapshot.json"
+  }
+}

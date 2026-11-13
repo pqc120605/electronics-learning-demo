@@ -1,0 +1,26 @@
+[
+  {
+    "file": "ti-ina152-SBOS184.pdf",
+    "url": "https://www.ti.com/lit/ds/symlink/ina152.pdf",
+    "sha256": "fca0d823495340ad8476821918326ec2b04bc36c586be288182a43377713a19a",
+    "bytes": 350732,
+    "revision_status": "Revision checked against title/table by lead; vendor URLs may change",
+    "use": "Untrusted technical reference, not executed or adopted hardware"
+  },
+  {
+    "file": "ti-tlv803e-SLVSEH0J.pdf",
+    "url": "https://www.ti.com/lit/ds/symlink/tlv803e.pdf",
+    "sha256": "74ac4474d86c3597c4fff6ffa61a59e850130a40eda28085ece9765fb380e844",
+    "bytes": 2343355,
+    "revision_status": "Revision checked against title/table by lead; vendor URLs may change",
+    "use": "Untrusted technical reference, not executed or adopted hardware"
+  },
+  {
+    "file": "panasonic-AQY21-ASCTB126E.pdf",
+    "url": "https://mediap.industry.panasonic.eu/assets/download-files/import/semi_eng_ge1a_aqy21_e_dip4.pdf",
+    "sha256": "c4f533985988595908b678e7c03b80bdec5bca050bcef2e1f88674d8cfb6666c",
+    "bytes": 760016,
+    "revision_status": "Revision checked against title/table by lead; vendor URLs may change",
+    "use": "Untrusted technical reference, not executed or adopted hardware"
+  }
+]

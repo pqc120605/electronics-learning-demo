@@ -1,0 +1,10 @@
+{
+  "task": "MM-HW-P0-15",
+  "status": "in_progress",
+  "write_lease": null,
+  "snapshot_files": 65,
+  "hardware_registry_unchanged": true,
+  "validate_exit_code": 0,
+  "validate_stdout": "{\n  \"tasks\": 61,\n  \"capabilities\": 143,\n  \"warnings\": [],\n  \"errors\": []\n}\n",
+  "validate_stderr": ""
+}

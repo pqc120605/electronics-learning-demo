@@ -1,0 +1,31 @@
+{
+  "taskId": "MM-SIM-STAGE-REV3E-SCHEMATIC",
+  "capturedAt": "2026-11-12",
+  "kind": "file-hashes",
+  "files": [
+    {
+      "path": "src/lib/schematicLayoutV2.ts",
+      "sha256": "f92572f628716403807ff320e1ecffeca45e4a27848ff76a2eb083ade213521e"
+    },
+    {
+      "path": "src/components/builder/CircuitSchematicV2.tsx",
+      "sha256": "e731e7de42c0d5b49d03ad9784aff1e8d37620533eedd24b0059345f7368f6d6"
+    },
+    {
+      "path": "src/components/builder/CircuitSchematicV2.css",
+      "sha256": "cb073c3fb102dce8d411866521b6eabf633338d98a92ea5f4f930c63f60045e4"
+    },
+    {
+      "path": "tests/schematic-layout-v2.test.mjs",
+      "sha256": "e3ed24e6b1d82088f62ecd41bbb32817dfb6a225f28a8128a7f6d12059640d7a"
+    },
+    {
+      "path": "tests/circuit-schematic-v2.test.mjs",
+      "sha256": "ba2aad9e4080ad549c5abeadcb4fb95cef022d0485e12198871b2ffe82257a72"
+    },
+    {
+      "path": "e2e/journeys.spec.mjs",
+      "sha256": "1232657c247e74b488a12c8685c6254e4ea6cee2162143aeea9bce6d9f457fe7"
+    }
+  ]
+}

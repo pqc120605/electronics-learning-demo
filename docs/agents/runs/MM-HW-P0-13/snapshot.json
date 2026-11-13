@@ -1,0 +1,360 @@
+{
+  "date": "2026-11-10",
+  "task": "MM-HW-P0-13",
+  "scope": "Documented engineering proposals, source pins, bounded arithmetic/logical models and independent review; NOT_READY",
+  "configuration_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+  "hardware_gates_changed": false,
+  "self_excluded": true,
+  "files": [
+    {
+      "path": "docs/agents/validate.mjs",
+      "sha256": "c03af0c170eb1eb894852921b6899331a8434e4c1b833ff089d479e4fe064bd7",
+      "bytes": 21181
+    },
+    {
+      "path": "docs/agents/validate.test.mjs",
+      "sha256": "dd380346fe4140870d186aadc7d6aae1481240f921eeead5d345d9ef2845f2c6",
+      "bytes": 26811
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/b1-dependency-check.md",
+      "sha256": "5bc77b026961ee35de69bfe788d98da9b677766dc86c34d7f54b4c2f3b93c559",
+      "bytes": 3051
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX01-SIMPLIFICATION-OPTION.md",
+      "sha256": "c26fa89a1646546d91daa0b50dd648e8f9a8a5989d0e45700747ca7e8effdcee",
+      "bytes": 7189
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX02-DOMAIN-CONTAINMENT.md",
+      "sha256": "2c5e3ebe7650d5d5f3e77edbdb2d7d2c105defa68f8da15b91b160cfed8cc806",
+      "bytes": 7450
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX02-P2-RESULT.md",
+      "sha256": "a34c279db9490b0e326c228e3a73282f4d0c6ef9929c9675521b5d3ed207fe77",
+      "bytes": 10818
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX02-RESULT.md",
+      "sha256": "bea3dfb28e5a603d9bb7982a3e07f6faf05507639876e7bc4344ba7556797f4a",
+      "bytes": 14091
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX03-1MS-FEASIBILITY.md",
+      "sha256": "ba8aea83d7f14cd155bda1293497f7bd1a2ffe52e529c7c3b03f955a903d6a14",
+      "bytes": 7648
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX03-P2-RESULT.md",
+      "sha256": "521a21bd8c04aaa83bd931fa23b376619097cc2a9fcbc3ceb3d1a5674525e209",
+      "bytes": 11139
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX03-RESULT.md",
+      "sha256": "b8eaffc49ac2ca6179b6a2055574bea5182acc9f91373e21849a35b51fcec569",
+      "bytes": 15840
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX03-STORED-ENERGY-STUDY.md",
+      "sha256": "099b0e6f5e55632d4f48fcdbdb2791129af4f4cff4cf0ee9b789dd28d83a1acd",
+      "bytes": 8580
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX08-ELECTRICAL-P2-REVIEW.md",
+      "sha256": "bb176941e12d83346907ada0d8e600895a0f25132ff5445e3a118259d8278cc9",
+      "bytes": 3484
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX08-ELECTRICAL-REVIEW.md",
+      "sha256": "5b7fa13614ff31d6bf426aee0443b15f896abcf0ae3a70db27afa08be0f5cb9d",
+      "bytes": 4482
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX08-FEASIBILITY-FINAL.md",
+      "sha256": "2c970a9a2d1a00928a160d1d0a9a924474b3890fc81ed14bb15241390dd681b8",
+      "bytes": 3434
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX08-MECHANICAL-P2-REVIEW.md",
+      "sha256": "c2cc2bf2dc4a72e483949e294612603663d94065c4abb1b3acb8e35d3952b7c7",
+      "bytes": 3541
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX08-MECHANICAL-REVIEW.md",
+      "sha256": "fe1926ccf7bde28a7920188eddd41d7d9aaef9d0202557b22d3699775a185e69",
+      "bytes": 4263
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX08-SIMPLIFICATION-REVIEW.md",
+      "sha256": "b1eb0aa0eaa557587f855eee3cb5f71a3c20519058dc17df03056c1b47e11ea4",
+      "bytes": 3099
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX08-STATE-MODEL-FINAL.md",
+      "sha256": "5698bd84a51fc3ac6ad9aed0007374160f803ee97391083252454d5f3d667d3c",
+      "bytes": 1128
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX08-STATE-MODEL-REVIEW.md",
+      "sha256": "8635ace8f458a195c6fbbc583c8f1cd683ab1fa643a62cb343af2f1ae488c2d1",
+      "bytes": 2221
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/BOX09-H3-SCREEN.md",
+      "sha256": "d15fd5c4a6da12b89e5265205d2e35eaef8a3739db2ee7d4ba619d93196b6727",
+      "bytes": 4070
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/build-snapshot.py",
+      "sha256": "aaceabeafebf2a9bd7e8893688a6ec77022a7cabeb0423e85e908c3106bc273a",
+      "bytes": 1856
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/calculate.py",
+      "sha256": "8d1f17f8ae931cada2341a18c23b47864ece9a8ead2580ca8da115678d1aff7a",
+      "bytes": 1626
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/calculations.json",
+      "sha256": "917848c6db1aab75993613422a173735e7adad244e8a7b1e09933a188873b70a",
+      "bytes": 1425
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/capture-sweep.json",
+      "sha256": "5e959a30768db61f05eebdadbc8868322126558ebf15d800498dc0c353aa52c8",
+      "bytes": 885
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/capture-sweep.py",
+      "sha256": "bd7792ece2d3229ad379693fe15d348e06c88b8ddd20e7cab6dbed478c9aeea7",
+      "bytes": 1420
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/checkpoint-queue.py",
+      "sha256": "b4e57b8f0f205306b32e69e1e4bf46feb03dc8728569cba81b5665d923e97fcc",
+      "bytes": 3639
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/DATA-REQUEST-DRAFT.md",
+      "sha256": "8ec6c4d088668875e5ee98d258fcf2638003bceb5787c41a9e56ed550de027e2",
+      "bytes": 3836
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/electrical-calculations.json",
+      "sha256": "f7756d760d78f9400262c86032e699c2b2cdce98e28445a9a2054e64343888ac",
+      "bytes": 923
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/electrical-screen.py",
+      "sha256": "cc2482974e83051b42b1f4904b4b7800d7c3f1bc640a1c9a2d17526a80921613",
+      "bytes": 1320
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/founder-analysis-receipt.json",
+      "sha256": "1af45db71891697e97c32e605b89bdfc669c954c6061bb7fe0099046c1c48029",
+      "bytes": 1037
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/guard-energy-check.py",
+      "sha256": "aea41dd313f1d4a1b5ad3afaac4cdbd9a6bf7b35a0aceb981c48c6302aad820d",
+      "bytes": 1594
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/guard-energy-results.json",
+      "sha256": "4c825c2adf421483d28ef973296c80f47cebeaed211bc91f9c72e40dbf7e09c0",
+      "bytes": 1225
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/MECHANICAL-DECISION.md",
+      "sha256": "d109f4210cb2dfb291f2037af44a9bfb334278ad754d343ea42096c2cb4cd32e",
+      "bytes": 3537
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/mechanical-source-verification.json",
+      "sha256": "b487023b5d5f098f0ba1c7431929de39773e83518127e190c5e6b8ce1473f3ff",
+      "bytes": 1298
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/NEXT-DIRECTION.md",
+      "sha256": "57997e441cd29f46ed2e985a453a092e34515abfd711e6a40a833bfa91dbaca2",
+      "bytes": 4251
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/pin-sources.py",
+      "sha256": "2947aff724d6fbf81deaa64a905f3c8c89037135d7c40234c1875255bd5880fc",
+      "bytes": 1498
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/pin-ulp-sources.py",
+      "sha256": "bfe888c52db979f8aff0821d98c601c6f27ab548fc38f94d842bd8ed25010f77",
+      "bytes": 1146
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/queue-after-checkpoint.json",
+      "sha256": "7b439f290074cbd469da39436b26fc476e5f7224df57397457efcda9fecc4f4e",
+      "bytes": 385498
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/queue-before-checkpoint.json",
+      "sha256": "58077fa34893a36cff2cd24904f90e9c1a872b0fd1ff0c59fcbc03b419b32af7",
+      "bytes": 392662
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/queue-before.json",
+      "sha256": "21e84f5204ff1f71672065a61d3fefcf7d36330e8f2dfb12cf19ce6073824511",
+      "bytes": 388963
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/queue-validation.json",
+      "sha256": "088afb3f16cb140c3b7935be08101c58b60624958b9f1f6a96c9787ad0a58e57",
+      "bytes": 81
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/register-task.py",
+      "sha256": "6d217e3efc7c5c52d2912e236a5bd9ceabb2179807d47cc31e27cd28a986ebeb",
+      "bytes": 2953
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/REPORT.md",
+      "sha256": "480823b2d19e1eac8bc49b086f35918799a31e9098411147493f580d950ef26c",
+      "bytes": 5463
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/state-model-results.json",
+      "sha256": "11ed850e2236ebf88d8fee0d9308c355a7ca13191a90259ddfa00259ac6d0620",
+      "bytes": 1567
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/state-model.py",
+      "sha256": "b4d40b6bdd5ff614bae7b5b32da19fd6dcf9e2273a590a96dfaf7b4c7d495ad5",
+      "bytes": 6162
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/task.md",
+      "sha256": "4d1756bf2609d48425b13500c5e155811a56fa2bdf5b5a20cf3798563996aa05",
+      "bytes": 2873
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/TIMER-TOKEN-PHASE.md",
+      "sha256": "0e0496894419b1b7d365c918e8b7d469369713a1d566f9c7a9a101bd1dc9e254",
+      "bytes": 3746
+    },
+    {
+      "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-13/verify-pinned-pdfs.py",
+      "sha256": "8f220b30a52724f86b062952c5a417576e3a53a18299391a389f888680c76547",
+      "bytes": 1221
+    },
+    {
+      "path": "electronics-learning-demo/docs/hardware/mobot-v2-founder-decision-q1-q8.md",
+      "sha256": "dfe9bd6933b1d23d6534446007c152435a31d5b855d6b6d0878bde0f213a48e3",
+      "bytes": 19020
+    },
+    {
+      "path": "electronics-learning-demo/docs/hardware/mobot-v2-founder-decision-q2-off.md",
+      "sha256": "8084cff89ec5a535bdd0cf5335ce1192baa5d599ace2447554d750fcc2befff5",
+      "bytes": 1228
+    },
+    {
+      "path": "electronics-learning-demo/docs/hardware/mobot-v2-p0-13-closure-proposal.md",
+      "sha256": "6f0e7fa6cd3b221fe019906c6740b686903487058f9df2720302b3dd1c8edf74",
+      "bytes": 12751
+    },
+    {
+      "path": "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r12-handset.json",
+      "sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+      "bytes": 54491
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/iso674x-revg-p1.png",
+      "sha256": "880282c839d35e18c720278d039b578e023ac751b541887737dd3e36523f3306",
+      "bytes": 198677
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/iso674x-revg-p21.png",
+      "sha256": "23c9a72b36daf8cd38b6730948e744b08523b056a0a024abfb5c446fab195f13",
+      "bytes": 96425
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/iso674x-revg.pdf",
+      "sha256": "18282cc8e701676eb7c2a283dad8bfc84b220ed4d2e9bb855f0c54fdb5f38805",
+      "bytes": 3389464
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/iso7041-revd-p1.png",
+      "sha256": "b5351a049fa8e8f6393eb3426ed197ca73e04198ba127da4da1a455894f2772b",
+      "bytes": 223234
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/iso7041-revd-p13.png",
+      "sha256": "e6c90cbdc16c2b9e9002f98d9164454701967dd7db7fca538c7f51798092a30e",
+      "bytes": 146284
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/iso7041-revd-p17.png",
+      "sha256": "87e935e9fa69ab282d251da90ce86554bedb275393371c1321e8926d3804be54",
+      "bytes": 81995
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/iso7041-revd-p23.png",
+      "sha256": "0096fc388c9d23d90dfa0411f1df137889d863c4340e31fd3d32a30a77640311",
+      "bytes": 101101
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/iso7041-revd.pdf",
+      "sha256": "208e308791224344dc07751746e830531116dd9e6b22246f83602f8fb6f76ceb",
+      "bytes": 1881288
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/pinned-page-evidence.json",
+      "sha256": "0eac38dae9e41e782cc2b385a0f5ea4de4e20f90bb0501205c3f05de305b816b",
+      "bytes": 3141
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/sn74lvc2g125-revq-p1.png",
+      "sha256": "be26bdad9cd7e2faff46cf4f62910ff69240bac8cee6251f6e694a185ea069bf",
+      "bytes": 191741
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/sn74lvc2g125-revq-p7.png",
+      "sha256": "23fffd75be4d82e533c05da1726310d88d287d17e3aca45ab299669134bf0544",
+      "bytes": 131328
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/sn74lvc2g125-revq.pdf",
+      "sha256": "15dab14095892f561bc7407dde6c7fb2fb75d92c6bdafc34e949e5dca1fed340",
+      "bytes": 813455
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/sources.json",
+      "sha256": "fd7e8145a12b0a8c7556de1dc24ab561a71c77b37da26f4d794b0157011a9e0b",
+      "bytes": 1082
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/tps3760-reva-p1.png",
+      "sha256": "2d9f4c90e94c04412e7dc41104e166276706f1a884df73dc1e6cec5b6899610e",
+      "bytes": 210077
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/tps3760-reva-p7.png",
+      "sha256": "8c9cb4886190107d87d162d2fcab21a9e346057d2585018aac28e5273fed78f1",
+      "bytes": 133593
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/tps3760-reva-p9.png",
+      "sha256": "91e6254df8a914487c6607be63a138d1007ba5b6d6d99dacf15bc23870c2b372",
+      "bytes": 108551
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/tps3760-reva.pdf",
+      "sha256": "eb7d626587f369ade98d55b60823ed28e4b4d955b41181c4443763cf0eef5e7d",
+      "bytes": 2072991
+    },
+    {
+      "path": "electronics-learning-demo/docs/research/downloads/p0-13/ulp-sources.json",
+      "sha256": "dcd9ac76f11190e802190f4fb90c03eb7dd988724d3086722fd45784a2b5280c",
+      "bytes": 728
+    }
+  ]
+}

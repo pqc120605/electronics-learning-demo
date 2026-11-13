@@ -1,0 +1,301 @@
+{
+  "scope": "Endpoint-slot/M5-carriage subassembly research, not complete sequencer or B1",
+  "cases": [
+    {
+      "ha": 16.2,
+      "hb": 16.2,
+      "removed_side": null,
+      "omitted_endpoint_material": [],
+      "step_mm": 0.1,
+      "stop": null,
+      "potential_contact_samples": 65,
+      "first_potential_contact": {
+        "d": 0.0,
+        "carriages": {
+          "1": 12,
+          "-1": 12
+        }
+      },
+      "last_carriages": {
+        "1": 12,
+        "-1": 12
+      },
+      "scope": "Nominal intact controlled adapter; frame and all V/probe/cassette latches absent",
+      "case": "parked reference"
+    },
+    {
+      "ha": 0,
+      "hb": 16.2,
+      "removed_side": null,
+      "omitted_endpoint_material": [],
+      "step_mm": 0.1,
+      "stop": {
+        "kind": "endpoint or stroke",
+        "d": -8.1,
+        "side": 1
+      },
+      "potential_contact_samples": 0,
+      "first_potential_contact": null,
+      "last_carriages": {
+        "1": 0.5999999999999995,
+        "-1": 0.5999999999999995
+      },
+      "scope": "Nominal intact controlled adapter; frame and all V/probe/cassette latches absent",
+      "case": "A not parked"
+    },
+    {
+      "ha": 16.2,
+      "hb": 0,
+      "removed_side": null,
+      "omitted_endpoint_material": [],
+      "step_mm": 0.1,
+      "stop": {
+        "kind": "endpoint or stroke",
+        "d": -7.4,
+        "side": 1
+      },
+      "potential_contact_samples": 0,
+      "first_potential_contact": null,
+      "last_carriages": {
+        "1": 4.799999999999996,
+        "-1": 4.799999999999996
+      },
+      "scope": "Nominal intact controlled adapter; frame and all V/probe/cassette latches absent",
+      "case": "B not parked"
+    },
+    {
+      "ha": 12,
+      "hb": 12,
+      "removed_side": null,
+      "omitted_endpoint_material": [],
+      "step_mm": 0.1,
+      "stop": {
+        "kind": "endpoint or stroke",
+        "d": -8.1,
+        "side": 1
+      },
+      "potential_contact_samples": 0,
+      "first_potential_contact": null,
+      "last_carriages": {
+        "1": 0.5999999999999995,
+        "-1": 0.5999999999999995
+      },
+      "scope": "Nominal intact controlled adapter; frame and all V/probe/cassette latches absent",
+      "case": "historical12 sensitivity"
+    },
+    {
+      "ha": 0,
+      "hb": 16.2,
+      "removed_side": 1,
+      "omitted_endpoint_material": [],
+      "step_mm": 0.1,
+      "stop": {
+        "kind": "endpoint or stroke",
+        "d": -8.1,
+        "side": -1
+      },
+      "potential_contact_samples": 0,
+      "first_potential_contact": null,
+      "last_carriages": {
+        "-1": 0.5999999999999995
+      },
+      "scope": "Nominal intact controlled adapter; frame and all V/probe/cassette latches absent",
+      "case": "A not parked, upper barrier absent"
+    },
+    {
+      "ha": 0,
+      "hb": 16.2,
+      "removed_side": -1,
+      "omitted_endpoint_material": [],
+      "step_mm": 0.1,
+      "stop": {
+        "kind": "endpoint or stroke",
+        "d": -8.1,
+        "side": 1
+      },
+      "potential_contact_samples": 0,
+      "first_potential_contact": null,
+      "last_carriages": {
+        "1": 0.5999999999999995
+      },
+      "scope": "Nominal intact controlled adapter; frame and all V/probe/cassette latches absent",
+      "case": "A not parked, lower barrier absent"
+    },
+    {
+      "ha": 16.2,
+      "hb": 0,
+      "removed_side": 1,
+      "omitted_endpoint_material": [],
+      "step_mm": 0.1,
+      "stop": {
+        "kind": "endpoint or stroke",
+        "d": -7.4,
+        "side": -1
+      },
+      "potential_contact_samples": 0,
+      "first_potential_contact": null,
+      "last_carriages": {
+        "-1": 4.799999999999996
+      },
+      "scope": "Nominal intact controlled adapter; frame and all V/probe/cassette latches absent",
+      "case": "B not parked, upper barrier absent"
+    },
+    {
+      "ha": 16.2,
+      "hb": 0,
+      "removed_side": -1,
+      "omitted_endpoint_material": [],
+      "step_mm": 0.1,
+      "stop": {
+        "kind": "endpoint or stroke",
+        "d": -7.4,
+        "side": 1
+      },
+      "potential_contact_samples": 0,
+      "first_potential_contact": null,
+      "last_carriages": {
+        "1": 4.799999999999996
+      },
+      "scope": "Nominal intact controlled adapter; frame and all V/probe/cassette latches absent",
+      "case": "B not parked, lower barrier absent"
+    },
+    {
+      "ha": 0,
+      "hb": 0,
+      "removed_side": null,
+      "omitted_endpoint_material": [
+        "A",
+        "B"
+      ],
+      "step_mm": 0.1,
+      "stop": null,
+      "potential_contact_samples": 65,
+      "first_potential_contact": {
+        "d": 0.0,
+        "carriages": {
+          "1": 12,
+          "-1": 12
+        }
+      },
+      "last_carriages": {
+        "1": 12,
+        "-1": 12
+      },
+      "scope": "Nominal intact controlled adapter; frame and all V/probe/cassette latches absent",
+      "case": "negative: both endpoint bodies absent"
+    }
+  ],
+  "continuous_downward_collision_intervals": [
+    {
+      "endpoint": "A",
+      "remaining_carriage": 1,
+      "carriage_s_mm": 6.6,
+      "downward_contact_after_mm": 0.20000099999999751,
+      "conditional_h_at_contact_mm": 15.999999000000003
+    },
+    {
+      "endpoint": "A",
+      "remaining_carriage": 1,
+      "carriage_s_mm": 12.0,
+      "downward_contact_after_mm": 0.20000099999999751,
+      "conditional_h_at_contact_mm": 15.999999000000003
+    },
+    {
+      "endpoint": "A",
+      "remaining_carriage": -1,
+      "carriage_s_mm": 6.6,
+      "downward_contact_after_mm": 0.20000100000000462,
+      "conditional_h_at_contact_mm": 15.999998999999995
+    },
+    {
+      "endpoint": "A",
+      "remaining_carriage": -1,
+      "carriage_s_mm": 12.0,
+      "downward_contact_after_mm": 0.20000100000000462,
+      "conditional_h_at_contact_mm": 15.999998999999995
+    },
+    {
+      "endpoint": "B",
+      "remaining_carriage": 1,
+      "carriage_s_mm": 6.6,
+      "downward_contact_after_mm": 0.20000099999999751,
+      "conditional_h_at_contact_mm": 15.999999000000003
+    },
+    {
+      "endpoint": "B",
+      "remaining_carriage": 1,
+      "carriage_s_mm": 12.0,
+      "downward_contact_after_mm": 0.20000099999999751,
+      "conditional_h_at_contact_mm": 15.999999000000003
+    },
+    {
+      "endpoint": "B",
+      "remaining_carriage": -1,
+      "carriage_s_mm": 6.6,
+      "downward_contact_after_mm": 0.20000100000000462,
+      "conditional_h_at_contact_mm": 15.999998999999995
+    },
+    {
+      "endpoint": "B",
+      "remaining_carriage": -1,
+      "carriage_s_mm": 12.0,
+      "downward_contact_after_mm": 0.20000100000000462,
+      "conditional_h_at_contact_mm": 15.999998999999995
+    }
+  ],
+  "retention_at_sampled_fixed_depths": [
+    {
+      "case": "intact",
+      "samples_held": 65,
+      "samples": 65,
+      "first_unheld": null
+    },
+    {
+      "case": "key A removed",
+      "samples_held": 65,
+      "samples": 65,
+      "first_unheld": null
+    },
+    {
+      "case": "key B removed",
+      "samples_held": 65,
+      "samples": 65,
+      "first_unheld": null
+    },
+    {
+      "case": "both keys removed, collar remains",
+      "samples_held": 65,
+      "samples": 65,
+      "first_unheld": null
+    },
+    {
+      "case": "negative, bare shell placed in port",
+      "samples_held": 45,
+      "samples": 65,
+      "first_unheld": {
+        "depth_mm": 4.5,
+        "carriage_minima_mm": [
+          0.0,
+          0.0
+        ],
+        "holds_both_endpoints": false
+      }
+    }
+  ],
+  "retention_limit": "At s=6.6..12 the straight bar crosses both 1 mm plates. This is a one-axis interval argument; removal cases change material at a fixed pose and do not establish a physical insertion or fracture trajectory.",
+  "modeled_constraints": [
+    "Ideal translation-only guides",
+    "Nominal intact controlled adapter",
+    "Rigid connected gate extensions",
+    "No frame/guide clearance qualification"
+  ],
+  "not_proven": [
+    "V/probe/witness cycle-completion",
+    "cassette removal enforcement",
+    "whole M5 frame collision and generic-plug routes",
+    "broken keys/collar and terminal escape",
+    "source electrical protection",
+    "strength/friction/fit/cost",
+    "product/B1 readiness"
+  ]
+}

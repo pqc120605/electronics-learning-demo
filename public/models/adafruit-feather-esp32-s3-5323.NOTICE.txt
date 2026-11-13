@@ -1,0 +1,22 @@
+Mạch Mở · Adafruit Feather ESP32-S3 #5323
+
+Attribution: Adafruit Industries; design by Limor Fried/Ladyada for Adafruit Industries. Official product/revision: PID #5323, 8 MB flash, no PSRAM.
+
+Sources:
+- Board CAD, schematic and required upstream attribution text: https://github.com/adafruit/Adafruit-Feather-ESP32-S3-PCB
+- STEP geometry: https://github.com/adafruit/Adafruit_CAD_Parts/tree/main/5323%20Feather%20ESP32-S3
+- Product guide and pinout: https://learn.adafruit.com/adafruit-esp32-s3-feather
+
+Licenses:
+- STEP source is from the Adafruit_CAD_Parts repository (MIT); see ../cad/adafruit-feather-esp32-s3-5323/cad-parts-license.txt.
+- Eagle board CAD is CC BY-SA 3.0 Unported; see ../cad/adafruit-feather-esp32-s3-5323/board-license.txt. The derived board assembly/GLB is distributed under CC BY-SA 3.0. Preserve attribution and share-alike terms.
+- The complete upstream README is included beside the redistributed CAD because it requires the project/description text above to accompany redistribution.
+
+Modifications: STEP converted to GLB, translated to a board-centered origin, rotated from Z-up to viewer Y-up without reflection, and grouped by strict Eagle-origin coordinate match (<= 0.015 mm). 33 of 47 board CAD elements received a matched STEP mesh. 129 unmatched STEP meshes are grouped as unidentified geometry; 14 Eagle elements remain listed as footprints without a matched 3D body.
+
+Source SHA-256:
+- STEP: ffad2a32aec0f0e1ed99280dc6f9904cdbbcd034b209285982a342423e37ec1e
+- Eagle board: 5b06b9c6291545a2c9da0993a642e513a75c5901e26836a2ee559077147abcca
+
+The model represents only Adafruit Feather ESP32-S3 PID #5323. It is not a physical scan, pin/net viewer, firmware emulator, or electrical simulation. Do not use it to represent PID #5477 or #5885 variants.
+

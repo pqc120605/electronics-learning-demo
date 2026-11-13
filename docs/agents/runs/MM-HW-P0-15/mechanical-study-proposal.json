@@ -1,0 +1,54 @@
+{
+  "id": "MOBOT-AA-M5-CAD-STUDY-r1",
+  "date": "2026-11-10",
+  "status": "proposed_for_founder_permission_only",
+  "purpose": "Study reference kinematics of a keyed PROGRAM adapter and two independently blocked shutters; search for bypass/collision, not approve product or demonstrate safety.",
+  "current_problem": "M3/M4 generic-cable paddles at1/2mm are not guaranteed by0.11mm conditional exposed-shell margin. A label requiring a cable does not prevent generic-cable bypass.",
+  "hypothesis": "Two normally closed frame-supported shutters cover the USB approach. Separate leading keys on a captive adapter operate each shutter. Adapter collar remains in both detection corridors whenever any reference USB contact can remain connected. Ordinary unkeyed plugs do not operate either shutter. Endpoint locks prevent carrier-bridge reconnection until both corridors are empty and both shutters closed.",
+  "reference_inputs_mm": {
+    "pcb_target": [90,90],
+    "pcb_maximum": [100,100],
+    "cassette_reserve": [64,54,22],
+    "bridge_reserve_xy": [35,25],
+    "bridge_lift_nominal": 12,
+    "bridge_lift_min_allocation": 11.8,
+    "usb_plug_shell_length_interval": [6.55,6.75],
+    "usb_plug_shell_width_interval": [8.22,8.28],
+    "usb_plug_shell_thickness_interval": [2.37,2.43],
+    "usb_exposed_shell_minimum": 6.51,
+    "reference_insertion_depth_interval": [0,6.4],
+    "controlled_collar_envelope_length_minimum_from_plug_tip": 12.5,
+    "detection_planes_nominal_before_receptacle": [1,2],
+    "assembly_axial_deflection_allocation": 0.15,
+    "shutter_sweep_reference": 12,
+    "key_lead_before_plug_tip_trial_interval": [2,5]
+  },
+  "provenance": "USB dimensions from pinned USB-IF R2.0 pp40,46-48,57-59. Other dimensions are explicit exploratory allocations from P0-14/P0-15, not manufacturing tolerances, exact B01 measurements or approved product dimensions.",
+  "unknowns_are_study_outputs": [
+    "Key/channel/shutter profiles and order needed to prevent an ordinary plug reaching any contact without both keys.",
+    "Whether collar and keys remain effective through full/partial insertion, withdrawal, misalignment and one stuck/broken key or shutter.",
+    "Exact connector separation/overlap not yet bounded: model as a variable and report conditional results, never close a physical-gap gate.",
+    "Whether the assembly fits with B01/antenna reserve and full depth; exact clone envelope remains D10 verification, not known geometry."
+  ],
+  "allowed_if_separately_approved": [
+    "Reference CAD and scripted swept-volume/collision study only, with parametric inputs and assumptions recorded.",
+    "Show baseline failure and candidate success/failure only under the explicitly modelled cases.",
+    "Return a reviewable candidate or no-go with counterexample; no promise of B1 readiness."
+  ],
+  "forbidden_even_if_study_approved": [
+    "FE/strength certification, physical 100N/200N claims, fabrication or 3D printing.",
+    "PCB/schematic/pin assignment/firmware/lease B1, MPN or configuration approval.",
+    "Purchase, vendor communication, powering batteries or motors, flash, dependency installation.",
+    "Changing r12, live gate status, D10 or adopting a proprietary PROGRAM accessory into the product."
+  ],
+  "materials": "Not selected. Kinematic reference solids only; no strength/material claims or FE in this study.",
+  "expected_outputs_if_approved": [
+    "Model script and reference geometry with input manifest; baseline and candidate swept-state results.",
+    "Coverage and unmodelled cases, especially foreign objects, damaged cables, common-frame break and terminal retention.",
+    "Fit/collar/keying tradeoff and public source/cost gaps; separate review before product adoption."
+  ],
+  "proposed_future_write_scope": [
+    "docs/agents/runs/MM-HW-P0-15/mechanical-study/**"
+  ],
+  "approval_record": "NONE. This file grants no permission and is not registered as an approved hardware configuration. Founder exact-hash permission and scoped queue/preflight review are required before any CAD artifact."
+}

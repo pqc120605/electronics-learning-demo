@@ -1,0 +1,74 @@
+[
+  {
+    "role": "electronics_firmware_engineer",
+    "file": "D:\\StartupOS\\.codex\\agents\\electronics_firmware_engineer.toml",
+    "before_model": "gpt-6-luna",
+    "after_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "sha256": "a7276e1b6c05397797fdb2b75017f3c45ee2db90334e6c314f67206aa5ef05f6"
+  },
+  {
+    "role": "hardware_kit_designer",
+    "file": "D:\\StartupOS\\.codex\\agents\\hardware_kit_designer.toml",
+    "before_model": "gpt-6-luna",
+    "after_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "sha256": "ce667e080d037d81fb64331497cbe7b197e026428dbdedef1318afacb4d6630a"
+  },
+  {
+    "role": "learning_experience_designer",
+    "file": "D:\\StartupOS\\.codex\\agents\\learning_experience_designer.toml",
+    "before_model": "gpt-6-luna",
+    "after_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "sha256": "e954f2d5770ab16d3e58df7333828e827edcf1c7cb115017e1bccf5284195af6"
+  },
+  {
+    "role": "product_system_architect",
+    "file": "D:\\StartupOS\\.codex\\agents\\product_system_architect.toml",
+    "before_model": "gpt-6-luna",
+    "after_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "sha256": "33c91f636a286d86d047b6b0e4e894fa679cdbe1f40658745cd1d29f7e428bd6"
+  },
+  {
+    "role": "qa_safety_reviewer",
+    "file": "D:\\StartupOS\\.codex\\agents\\qa_safety_reviewer.toml",
+    "before_model": "gpt-6-luna",
+    "after_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "sha256": "0b2d031eb6854190d7938b2f9017567bf6984cba87034781761c19addb90d8f6"
+  },
+  {
+    "role": "research_scout",
+    "file": "D:\\StartupOS\\.codex\\agents\\research_scout.toml",
+    "before_model": "gpt-6-luna",
+    "after_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "sha256": "70e6611972ce583985060ed6cd5e5576d8b64237798d4dc93ef1004b80d0f11f"
+  },
+  {
+    "role": "software_engineer",
+    "file": "D:\\StartupOS\\.codex\\agents\\software_engineer.toml",
+    "before_model": "gpt-6-luna",
+    "after_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "sha256": "3925f7434d94c000b1b089b0e0e9f9fe0530a16691311527657ebd62e6c6b2e0"
+  },
+  {
+    "role": "tester",
+    "file": "D:\\StartupOS\\.codex\\agents\\tester.toml",
+    "before_model": "gpt-6-luna",
+    "after_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "sha256": "f032c1107af8202e55627eb4e21d59d8981c16f84102860075178fdeca76e25e"
+  },
+  {
+    "role": "ui_ux_designer",
+    "file": "D:\\StartupOS\\.codex\\agents\\ui_ux_designer.toml",
+    "before_model": "gpt-6-luna",
+    "after_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "sha256": "1d946ef8824892479da33fdcf7a3849e5223d7264fa88738e7dcfa53340f38b6"
+  }
+]

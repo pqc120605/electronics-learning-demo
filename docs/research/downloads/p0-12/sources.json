@@ -1,0 +1,96 @@
+[
+  {
+    "name": "tlv9021-family",
+    "source_url": "https://www.ti.com/lit/ds/symlink/tlv9021.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/p0-12/tlv9021-family.pdf",
+    "sha256": "874c1d4f5ec1c1b4bf6c714d3fe8623d57ad6bff18b83930e3894061a0701c8a",
+    "pages": 85,
+    "page_images": [
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p1.png",
+        "sha256": "aed1db497b1aa510d86250f10142c767a3b7024748e414fa74db0c9d0a4542e1"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p2.png",
+        "sha256": "2090d8673b3f624fbbe79c93101a3419fd5cce4d29aa95c1d6f98794aea45056"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p9.png",
+        "sha256": "6919eeb3e2bf67648a4347798dcd5addbfd583b6b35f038a21f8e8b1ccddd4bb"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p10.png",
+        "sha256": "0a4d187250cdc7669ce9eadbf2a97c38c67ea7dd8126fb6440541fd0887ae695"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p11.png",
+        "sha256": "dd7f0a791b298f092fa3f5855165b9acaddbc3eb8cea850ca3bd73b0a2afd8a6"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p12.png",
+        "sha256": "a1adc83894b2871c865463c8196b8616892b1072a0300b13c92b6d99d32112f4"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p13.png",
+        "sha256": "ae32464c6a6c2042b40c860bb350ba66275213cc2e7d544486b5db579707fe89"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p14.png",
+        "sha256": "877cf3644a5489281cc33b151220d14655b1ec16e352530e93f5c9fd97c89c27"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p18.png",
+        "sha256": "1e6d816028a31af381232c0a29f5cd131df554b55c3680847f4dc51222e78ac3"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p22.png",
+        "sha256": "97e12d15767e1cac2cbcfdcb49c8cbf28f82c436f0a5fb38f6b82568366833eb"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p23.png",
+        "sha256": "8ac23eab1039778de793aef2095eba32e53065d4b9d78ca769726fe69feda526"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p24.png",
+        "sha256": "220d8c05f798e4a24287b2a1a41a82e9fa687a848a897e06d7409ca01689ca49"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p25.png",
+        "sha256": "debce2017dcfd8e060223493457e6d7c74e5a9ef6c12fdd483815ece3fdaa0ac"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p26.png",
+        "sha256": "8eb461d4b739c5ade9fa4e6a23191aad63c08273da442304c0ce9bac959a6f24"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p27.png",
+        "sha256": "fab5c6c470b64344cf120bbff70eb94e63fae112ed333792758c92e0833662bf"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p29.png",
+        "sha256": "3bac830e7afc8efedb8b0ff78a2b077f461fd9a6297dfa6ce3b75947e227b5f2"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p31.png",
+        "sha256": "c717387611d72126f5f058cf68144af6d319d34a09902ba6abfcf62516174671"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p33.png",
+        "sha256": "c4508845dbdfd9fbfa77347a816dccdde48291da817070fb57cceb159058b037"
+      },
+      {
+        "path": "docs/research/downloads/p0-12/tlv9021-family-p36.png",
+        "sha256": "f91377d1790f20589d099122530a22c5294e7e267bb53354e80cea632999c50c"
+      }
+    ]
+  },
+  {
+    "name": "ltc6702",
+    "source_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/6702fa.pdf",
+    "access_date": "2026-11-10",
+    "status": "NOT_RUN",
+    "reason": "The read operation timed out"
+  }
+]

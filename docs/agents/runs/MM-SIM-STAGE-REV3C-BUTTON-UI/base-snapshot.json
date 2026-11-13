@@ -1,0 +1,33 @@
+{
+  "taskId": "MM-SIM-STAGE-REV3C-BUTTON-UI",
+  "capturedAt": "2026-11-12",
+  "kind": "file-hashes",
+  "files": [
+    {
+      "path": "src/pages/LessonPreflightPage.tsx",
+      "sha256": "17915e01b31c83bd316fdbb2baaba0491822c225f45ce14766ae5d14999d8d90c"
+    },
+    {
+      "path": "src/pages/LessonPreflightPage.css",
+      "sha256": "e4d577472823933eeb6b959e46657597f249b60ca434945f72664e68b3f032aa"
+    },
+    {
+      "path": "src/components/lesson/LessonCircuitWorkspace.tsx",
+      "sha256": "e59e12cb642847753876a7bf889396834854c6f31ada506cc1db83a8d42c3ffd"
+    },
+    {
+      "path": "src/components/lesson/LessonCircuitWorkspace.css",
+      "sha256": "67cc22b1bcfab950924314785294e0e046d629e644622f6319a2d6d7ec1e4d9d"
+    },
+    {
+      "path": "e2e/journeys.spec.mjs",
+      "sha256": "f097fa17ecbfdb14fbfff06f9bdc5580e466f958d4dc3aaf1eefc19f05d361c7"
+    }
+  ],
+  "absentAtBaseline": [
+    "src/components/lesson/ButtonLedLessonLab.tsx",
+    "src/components/lesson/ButtonLedLessonLab.css",
+    "src/lib/buttonLedLessonTrace.ts",
+    "tests/button-led-lesson-trace.test.mjs"
+  ]
+}

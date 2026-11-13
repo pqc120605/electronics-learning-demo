@@ -1,0 +1,25 @@
+NGSPICE WEBASSEMBLY — NOT CLEARED: CHƯA XÁC MINH ĐỦ ĐIỀU KIỆN PHÂN PHỐI
+
+Artifact đang được ứng dụng phục vụ từ /vendor/eecircuit-engine/spice.wasm:
+- Wrapper npm: eecircuit-engine 1.8.0, khai báo MIT.
+- Runtime header: ngspice 45.2, build Sat Sep 5 01:00:10 UTC 2026.
+- Kích thước/hash: xem spice-engine-provenance.json; audit bằng npm run audit:spice-engine.
+- Commit nguồn ngspice: chưa ghi nhận. Build recipe/toolchain và danh mục mã được link vào WASM: chưa có.
+
+MIT của wrapper không cấp phép thay cho mã được biên dịch vào WASM. Tài liệu ngspice mô tả Modified BSD làm giấy phép nền; tclspice và numparam theo LGPLv2; XSPICE thuộc public domain; giao diện OSDI theo MPLv2.0 (MPL 2.0). Cần giữ đúng các copyright, điều kiện và disclaimer áp dụng cho từng phần.
+
+Manual ngspice có mục “Linking to GPLd libraries (e.g. readline, fftw, table.cm)”. Mục này cũng nói Modified BSD tương thích GPL và các hạn chế linking được nêu không còn áp dụng. Điều đó không xác nhận binary này có hay không có table.cm, cũng không xác định license obligations của các thành phần thực tế trong artifact.
+
+KẾT LUẬN KIỂM KÊ: hiện chưa đủ bằng chứng để đánh dấu quyền tái phân phối công khai của đúng WASM này là đã được thông qua. Binary đang nằm trong thư mục public của dự án; đây là release gate cho việc phân phối/publish, không phải kết luận rằng binary chắc chắn vi phạm hoặc chắc chắn được phép. Không diễn giải việc package cài được hoặc smoke test chạy đạt thành xác nhận pháp lý.
+
+Để đóng gate: tìm đúng source revision/patch set khớp hash; lưu build script, flags và toolchain; kiểm kê mọi code model/library được link; thêm các notice và source/relink materials mà license tương ứng yêu cầu; sau đó review quyền phân phối theo artifact thực tế.
+
+Gate tự động trong repo: `npm run check:public-release`; lệnh build phát hành `npm run build:public` phải chạy gate trước. `npm run build` chỉ dành cho build/kiểm tra thông thường và vẫn chứa WASM này trong output; không dùng output đó để deploy công khai khi gate còn fail. Chi tiết: `docs/spice-redistribution-audit-2026-11-03.md`.
+
+Nguồn chính:
+- https://ngspice.sourceforge.io/docs/ngspice-manual.pdf (Chapter 29, especially §§29.2, 29.4.5–29.4.7)
+- https://ngspice.sourceforge.io/devel.html
+- https://github.com/ngspice/ngspice/blob/master/COPYING
+- https://github.com/ngspice/ngspice/blob/master/FAQ
+
+Đây là ghi chú kiểm kê kỹ thuật, không phải kết luận pháp lý hoặc tư vấn; nó không xác nhận quyền tái phân phối công khai cho đúng WASM này.

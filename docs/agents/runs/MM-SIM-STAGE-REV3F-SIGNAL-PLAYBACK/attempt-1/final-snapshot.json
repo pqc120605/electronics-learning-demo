@@ -1,0 +1,21 @@
+{
+  "capturedAt": "2026-11-12T23:42:14.6996955+07:00",
+  "writeStatus": "frozen-for-review",
+  "kind": "file-hashes",
+  "taskId": "MM-SIM-STAGE-REV3F-SIGNAL-PLAYBACK",
+  "files": [
+    {
+      "sha256": "a61fe50b723a1500af1c9f0158e6efed978a7b9690da06ee6efd7b7b6ead4678",
+      "path": "src/components/lesson/ButtonLedLessonLab.tsx"
+    },
+    {
+      "sha256": "1b843476b52e936498e3c0ecc36a8f5ed1fc722930eb5277fababb94c79af4b5",
+      "path": "src/components/lesson/ButtonLedLessonLab.css"
+    },
+    {
+      "sha256": "5b5c54048a2b93115044d7465f738f4b9c505d059895e740ff72c89e720f0444",
+      "path": "e2e/journeys.spec.mjs"
+    }
+  ],
+  "attempt": 1
+}

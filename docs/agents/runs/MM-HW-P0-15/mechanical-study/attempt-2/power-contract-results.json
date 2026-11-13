@@ -1,0 +1,52 @@
+{
+  "meaning": "Finite requirements model only, not implemented hardware/firmware",
+  "exhaustive_state_input_checks": 192,
+  "directed_traces": {
+    "held_across_battery_reconnect": [
+      "WAIT_RELEASE",
+      "OFF",
+      "WAIT_RELEASE",
+      "WAIT_RELEASE",
+      "WAIT_RELEASE"
+    ],
+    "release_press_fresh_then_fault": [
+      "WAIT_RELEASE",
+      "READY",
+      "CHECK",
+      "RUN",
+      "LOCKED",
+      "LOCKED"
+    ],
+    "timeout_wins_healthy": [
+      "WAIT_RELEASE",
+      "READY",
+      "CHECK",
+      "LOCKED"
+    ],
+    "stale_measurement": [
+      "WAIT_RELEASE",
+      "READY",
+      "CHECK",
+      "RUN",
+      "LOCKED"
+    ],
+    "held_after_run_brownout": [
+      "WAIT_RELEASE",
+      "READY",
+      "CHECK",
+      "RUN",
+      "OFF",
+      "WAIT_RELEASE",
+      "WAIT_RELEASE"
+    ]
+  },
+  "not_proven": [
+    "physical logic",
+    "POR below guaranteed range",
+    "timer independence",
+    "measurement diagnostics",
+    "GPIO/MPN assignment",
+    "MAX current/delay",
+    "fault containment"
+  ]
+}

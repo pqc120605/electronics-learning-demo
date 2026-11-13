@@ -1,0 +1,156 @@
+{
+  "id": "MM-SIM-STAGE-REV3F-SIGNAL-PLAYBACK",
+  "title": "Stepwise code-to-circuit signal flow in the Button LED lesson",
+  "kind": "implementation",
+  "status": "in_progress",
+  "priority": "P1",
+  "owner_role": "software_engineer",
+  "writer": "software_engineer",
+  "reviewer_role": "qa_safety_reviewer",
+  "tester_role": "tester",
+  "advisory_roles": [
+    "ui_ux_designer"
+  ],
+  "capability_ids": [
+    "WRK-02",
+    "WRK-03",
+    "WRK-05",
+    "WRK-06",
+    "WRK-07",
+    "SIM-01",
+    "EDA-01",
+    "EDA-04"
+  ],
+  "module_ids": [
+    "M02"
+  ],
+  "legacy_task_ids": [],
+  "depth_change": "Keep the existing Button LED educational-interpreter depth; project one provider event at a time onto canonical circuit identities without adding solver, firmware or physical depth.",
+  "depends_on": [
+    "MM-SIM-STAGE-REV3E-SCHEMATIC"
+  ],
+  "input_refs": [
+    "electronics-learning-demo/docs/agents/runs/MM-SIM-STAGE-REV3F-SIGNAL-PLAYBACK/task.md",
+    "electronics-learning-demo/docs/agents/runs/MM-SIM-STAGE-REV3F-SIGNAL-PLAYBACK/base-snapshot.json",
+    "electronics-learning-demo/docs/superpowers/specs/2026-11-11-interactive-electronics-learning-design.md",
+    "electronics-learning-demo/src/lib/buttonLedLessonTrace.ts",
+    "electronics-learning-demo/src/components/lesson/ButtonLedLessonLab.tsx",
+    "electronics-learning-demo/src/components/builder/AssemblyStage.tsx",
+    "electronics-learning-demo/tests/button-led-lesson-trace.test.mjs"
+  ],
+  "allowed_paths": [
+    "src/lib/buttonLedLessonTrace.ts",
+    "src/components/lesson/ButtonLedLessonLab.tsx",
+    "src/components/lesson/ButtonLedLessonLab.css",
+    "tests/button-led-lesson-trace.test.mjs",
+    "e2e/journeys.spec.mjs",
+    "docs/agents/runs/MM-SIM-STAGE-REV3F-SIGNAL-PLAYBACK/**"
+  ],
+  "forbidden_paths": [
+    "app/**",
+    "src/data/**",
+    "src/lib/educationalProgram.ts",
+    "src/lib/logicTrace.ts",
+    "all other product files",
+    "package.json",
+    "package-lock.json",
+    "supabase/**",
+    "docs/claude-support/**",
+    "docs/hardware/**",
+    ".codex/**",
+    "docs/agents/tasks.json"
+  ],
+  "deliverables": [
+    "Pure per-event frame projection for read, branch and write from the existing Button LED educational trace.",
+    "Accessible play/pause/step/replay controls and a visible current code action/line linked to the active circuit frame.",
+    "Synchronized exact IDs and step state across breadboard, schematic and 3D views, with stale/unsupported traces cleared.",
+    "Focused unit tests and E2E at desktop and mobile, plus a lead-owned report and frozen snapshot."
+  ],
+  "acceptance": [
+    "Read and branch frames highlight only the canonical input net/wires and board-input/button endpoints; write highlights only output/series nets and related board/resistor/LED endpoints, including occupied holes.",
+    "Invalid, stale, unsupported, disconnected or out-of-range frames contain no active wire/key/part highlight; unrelated nets never light.",
+    "Controls are keyboard accessible; the current step exposes the existing event kind, source line/snippet and interpreter boundary in an accessible status.",
+    "The same step survives projection changes among breadboard, schematic and 3D; E2E covers 1440x900 and 375x812 without page-width overflow.",
+    "Editing code/topology, changing board/input or receiving unsupported code stops playback and clears old highlights until the user reruns.",
+    "Reduced-motion preference prevents automatic advancing/pulsing; manual previous/next remains usable.",
+    "Focused tests, typecheck, full unit tests, local build and full E2E pass on the final reviewed snapshot."
+  ],
+  "verification_plan": [
+    "TDD pure trace-frame tests against the canonical Button LED document, including pressed/released, invalid, stale, unsupported and out-of-range cases.",
+    "Test UI play/pause/step/replay and event-to-frame synchronization without inferring voltage or current.",
+    "Run focused tests, typecheck, full unit suite, build:local and full test:e2e sequentially after QA review."
+  ],
+  "readiness": {
+    "scope_complete": true,
+    "inputs_available": true,
+    "acceptance_defined": true,
+    "missing": []
+  },
+  "authorization": "Founder authorized continuous implementation of the approved one-screen learning flow and visible code-to-circuit signal behavior. This is a bounded implementation of the approved §12.5 trace requirement on the existing Button LED educational interpreter. It does not change the provider, schema, hardware, firmware, data storage, services or electrical claims.",
+  "execution_requested": true,
+  "attempt": 0,
+  "review": null,
+  "verification": {
+    "verdict": "pending",
+    "executed_by": null,
+    "reference": null,
+    "scope": "Pending independent QA and Tester on the frozen attempt-0 source snapshot."
+  },
+  "waiting": null,
+  "completion_summary": null,
+  "history": [
+    {
+      "event": "imported_snapshot",
+      "from": null,
+      "to": "scoped",
+      "attempt": 0,
+      "at": "2026-11-12",
+      "actor": "codex_lead",
+      "reason": "The approved lesson design requires sequential code-action-to-pin/net/wire/destination visualization; the existing trace currently highlights all mapped wires simultaneously."
+    },
+    {
+      "event": "transition",
+      "from": "scoped",
+      "to": "ready",
+      "attempt": 0,
+      "at": "2026-11-12",
+      "actor": "codex_lead",
+      "reason": "Exact paths, provider boundaries, test fixtures, acceptance and dependencies are recorded; Rev3D and Rev3E are complete."
+    },
+    {
+      "event": "transition",
+      "from": "ready",
+      "to": "in_progress",
+      "attempt": 0,
+      "at": "2026-11-12",
+      "actor": "codex_lead",
+      "reason": "The founder authorized continuous coordinated implementation; lead issued one exact software builder lease."
+    }
+  ],
+  "snapshot": {
+    "kind": "file-hashes",
+    "reference": "electronics-learning-demo/docs/agents/runs/MM-SIM-STAGE-REV3F-SIGNAL-PLAYBACK/base-snapshot.json"
+  },
+  "required_gates": [
+    "software"
+  ],
+  "gates": {
+    "software": "unknown",
+    "public": "not_applicable",
+    "hardware": "not_applicable"
+  },
+  "execution_mode": "builder",
+  "write_lease": {
+    "owner": "software_engineer",
+    "lane": "software",
+    "status": "active",
+    "paths": [
+      "src/lib/buttonLedLessonTrace.ts",
+      "src/components/lesson/ButtonLedLessonLab.tsx",
+      "src/components/lesson/ButtonLedLessonLab.css",
+      "tests/button-led-lesson-trace.test.mjs",
+      "e2e/journeys.spec.mjs"
+    ],
+    "base_snapshot": "electronics-learning-demo/docs/agents/runs/MM-SIM-STAGE-REV3F-SIGNAL-PLAYBACK/base-snapshot.json"
+  }
+}

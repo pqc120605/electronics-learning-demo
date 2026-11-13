@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-10",
+  "source": "HQ direct Founder reply to async decision call_307662f7567249a2943db409484468e3",
+  "answer_verbatim": "B — Nghiên cứu 3 AA/sạc ngoài và liên động thủ công",
+  "proposal_reference": "docs/agents/runs/MM-HW-P0-13/NEXT-DIRECTION.md",
+  "direction": "Authorize research of Q2/Q3 delta: removable three-AA NiMH handset, external charging, no onboard Li-ion charger or powered cassette-release actuator; manual mandatory source/interface separation before USB PROGRAM.",
+  "retained": [
+    "Wireless runtime",
+    "30-pin USB-C CH340 family B01",
+    "G-B sixteen roles, all GPIO UNASSIGNED; E1-E4 preserved",
+    "Starter robot remains separate",
+    "Full carrier/B01 I/O isolation during PROGRAM",
+    "Robot plus handset target below1000000VND, not yet verified",
+    "Beginner usability and physical residual-energy/backfeed analysis remain required"
+  ],
+  "research_delta": [
+    "Q2/Q3 new direction only; historical AA choice is not restored as an approved configuration",
+    "Investigate manual operation without bias after verified physical source/interface separation and bounded residual energy",
+    "Founder was informed PROGRAM currently anticipates internal connector operations; implementation usability remains to be improved/reviewed"
+  ],
+  "not_authorized": [
+    "Final new gate criteria or supersession of live hardware gates",
+    "Cell, holder, connector, converter or other MPN/BOM selection",
+    "Configuration/hash approval or modification of r12",
+    "GPIO assignment, schematic, PCB, CAD/FE or firmware build",
+    "B1 lease, manufacture, purchase, vendor contact, flash or device power"
+  ],
+  "existing_configuration_preserved": {
+    "id": "MOBOT-V2-CONFIG-r12-HANDSET",
+    "sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b"
+  }
+}

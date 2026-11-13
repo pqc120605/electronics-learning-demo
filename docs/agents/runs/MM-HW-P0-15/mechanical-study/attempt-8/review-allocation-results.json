@@ -1,0 +1,59 @@
+{
+  "scope": "Lead corrected allocation labels and examined monitored source voltage sensitivity. Conditional arithmetic only.",
+  "insulation_screen": {
+    "whole_node_nA": 7.595538596863099,
+    "connector_allocation_nA": 5.095538596863099,
+    "cases": [
+      {
+        "paths": 1,
+        "conditional_leakage_nA": 7.2,
+        "within_whole_node_budget": true,
+        "within_connector_allocation": false
+      },
+      {
+        "paths": 2,
+        "conditional_leakage_nA": 14.4,
+        "within_whole_node_budget": false,
+        "within_connector_allocation": false
+      },
+      {
+        "paths": 3,
+        "conditional_leakage_nA": 21.6,
+        "within_whole_node_budget": false,
+        "within_connector_allocation": false
+      }
+    ]
+  },
+  "current_screen": {
+    "required_monitored_power_w": 0.0009772675282296557,
+    "unmonitored_source_voltage_bound_v": 7.2,
+    "cases": [
+      {
+        "monitored_source_voltage_max_allocation_v": 5.25,
+        "valid_current_lower_a": 0.00018614619585326776,
+        "invalid_current_upper_a": 7.75610047133226e-05,
+        "separation_before_measurement_error_a": 0.00010858519113994516
+      },
+      {
+        "monitored_source_voltage_max_allocation_v": 7.2,
+        "valid_current_lower_a": 0.00013573160114300773,
+        "invalid_current_upper_a": 7.75610047133226e-05,
+        "separation_before_measurement_error_a": 5.8170596429685134e-05
+      },
+      {
+        "monitored_source_voltage_max_allocation_v": 9.0,
+        "valid_current_lower_a": 0.00010858528091440619,
+        "invalid_current_upper_a": 7.75610047133226e-05,
+        "separation_before_measurement_error_a": 3.102427620108359e-05
+      },
+      {
+        "monitored_source_voltage_max_allocation_v": 14.4,
+        "valid_current_lower_a": 6.786580057150387e-05,
+        "invalid_current_upper_a": 7.75610047133226e-05,
+        "separation_before_measurement_error_a": -9.695204141818732e-06
+      }
+    ],
+    "ideal_separation_disappears_at_monitored_voltage_v": 12.599985415890199,
+    "limits": "Steady state and bounded unmonitored power only. The current monitor must see all intended-loop current, cannot share another domain return, and needs real accuracy and transition bounds."
+  }
+}

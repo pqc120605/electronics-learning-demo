@@ -1,0 +1,84 @@
+{
+  "decisions": [
+    {
+      "id": "W",
+      "date": "2026-11-09",
+      "answer_verbatim": "Chọn W, ghi rõ giới hạn và review độc lập (đề xuất)",
+      "scope": "W limited detection, independent review",
+      "source": "Founder original reply supplied in HQ conversation context; exact timestamp/message ID unavailable",
+      "source_message_id": null
+    },
+    {
+      "id": "RETENTION",
+      "date": "2026-11-09",
+      "answer_verbatim": "Chốt envelope để phân tích và review (đề xuất)",
+      "scope": "100N service/200N proof EACH independent retention path; release after OFF/unload, jam locked",
+      "source": "Founder original reply supplied in HQ conversation context; exact timestamp/message ID unavailable",
+      "source_message_id": null
+    },
+    {
+      "id": "DIRECT_RETURN",
+      "date": "2026-11-09",
+      "answer_verbatim": "Duyệt hướng direct-return để hoàn thiện hồ sơ",
+      "scope": "direction only",
+      "source": "Founder original reply supplied in HQ conversation context; exact timestamp/message ID unavailable",
+      "source_message_id": null
+    },
+    {
+      "id": "MANUAL_RELEASE",
+      "date": "2026-11-09",
+      "answer_verbatim": "Ấn/kéo bằng tay, tối đa 100 N mỗi nút nhả; không dùng dụng cụ",
+      "scope": "100N EACH release button, separate from retention",
+      "source": "Founder original reply supplied in HQ conversation context; exact timestamp/message ID unavailable",
+      "source_message_id": null
+    },
+    {
+      "id": "IO_ISOLATION",
+      "date": "2026-11-09",
+      "answer_verbatim": "Giữ cách ly toàn bộ I/O; hoàn thiện cơ chế/default charger phù hợp",
+      "scope": "full IO isolation CHARGE/PROGRAM",
+      "source": "Founder original reply supplied in HQ conversation context; exact timestamp/message ID unavailable",
+      "source_message_id": null
+    },
+    {
+      "id": "C11-H3-1",
+      "date": "2026-11-09",
+      "answer_verbatim": "09/11/2026 founder chấp nhận BQ25170 làm ứng viên sạc H3 và chấp nhận đánh đổi dung lượng nạp do CV 4,05 V cố định theo strap.",
+      "source": "Founder current HQ instruction; received in 2026-11-10 session, states decision date09/11/2026",
+      "source_message_id": null
+    },
+    {
+      "id": "C11-H3-2",
+      "date": "2026-11-09",
+      "answer_verbatim": "Chưa duyệt MPN/suffix (J hay không J)/setpoint/BOM/hash.",
+      "source": "Founder current HQ instruction; received in 2026-11-10 session, states decision date09/11/2026",
+      "source_message_id": null
+    },
+    {
+      "id": "C11-H3-3",
+      "date": "2026-11-09",
+      "answer_verbatim": "BQ25186 chuyển sang phương án thay thế lịch sử.",
+      "source": "Founder current HQ instruction; received in 2026-11-10 session, states decision date09/11/2026",
+      "source_message_id": null
+    },
+    {
+      "id": "C11-H3-4",
+      "date": "2026-11-09",
+      "answer_verbatim": "Trần 4,200 V tại đầu cực pack giữ nguyên.",
+      "source": "Founder current HQ instruction; received in 2026-11-10 session, states decision date09/11/2026",
+      "source_message_id": null
+    },
+    {
+      "id": "C11-H3-5",
+      "date": "2026-11-09",
+      "answer_verbatim": "Cách ly toàn bộ I/O trong CHARGE/PROGRAM giữ nguyên (khớp BQ25170 không I2C).",
+      "source": "Founder current HQ instruction; received in 2026-11-10 session, states decision date09/11/2026",
+      "source_message_id": null
+    }
+  ],
+  "defaults_not_confirmed_decisions": {
+    "vendor_contact": "No outgoing communication; founder forwards DATA-REQUEST-DRAFT/RFQ",
+    "mechanical_evidence": "CAD+FE proposal first; physical samples founder option later"
+  },
+  "exclusions": "No hash/MPN/setpoint/BOM/gate/lease/physical authorization"
+}

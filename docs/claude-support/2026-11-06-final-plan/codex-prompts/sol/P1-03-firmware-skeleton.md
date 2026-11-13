@@ -1,0 +1,10 @@
+Model: GPT-6.1 Sol
+Goal: Dựng khung firmware ESP32 cho MoBot có trạng thái an toàn khi reset (motor tắt), build được bằng toolchain founder đã duyệt, chưa flash.
+Context: đọc trước `docs/hardware/mobot-v2-esp32-mcu-contract.md` (P0-S03), cấu hình phần cứng đã duyệt (P0-S02), `docs/hardware/mobot-ctrl-v1-reset-review-candidate-r2.md` (MOBOT-CTRL/1: CMD 32 byte, boot ID, token), `docs/claude-support/2026-11-06-final-plan/founder-decisions.md` (D4, D13). Task: MM-ESP32-001, MM-RUN-001.
+Scope: allowed_paths `hardware/firmware/mobot-v2/**` (chỉ khi lease active). forbidden_paths: `docs/claude-support/**`, `docs/hardware/claude-support/**`, `.codex/**`, `src/**`.
+Constraints: local-first; không thêm dependency ngoài toolchain đã duyệt; không flash, không đụng motor, không bench. ĐIỀU KIỆN BẮT BUỘC: (1) cấu hình phần cứng có `approved_by=user` và hash khớp; (2) D13 đã chốt toolchain; (3) `validate.mjs --dispatch-task` exit 0. Thiếu một điều kiện thì DỪNG. Hiện không thấy `avr-gcc`/`arduino-cli`/`pio` trên PATH: không tự cài. Khung chỉ gồm: khởi tạo `MCU_MOT_EN` thấp trước mọi thứ khác, parser CMD 32 byte theo vector trong tài liệu, trạng thái khóa mặc định, timeout 200 ms/250 ms theo tài liệu; không logic motor thật.
+Approval boundaries: dừng và hỏi founder trước khi cài toolchain, thêm dependency, flash, xoá file, mua linh kiện.
+Done when: build exit 0 bằng lệnh toolchain đã duyệt (ghi nguyên lệnh); test vector CMD 32 byte chạy trên host exit 0 nếu có thể; review mã chứng minh `MCU_MOT_EN` thấp ở mọi đường khởi động; danh sách việc NOT_RUN (firmware trên board, cắt nguồn lúc commit, bench).
+Report: file đã đổi, lệnh + exit code, ghi vào `docs/agents/runs/MM-ESP32-001/`.
+Claude review: CÓ
+Khi xong, ghi docs/agents/runs/<task_id>/review-request.md gồm: mục tiêu, file đã đổi, lệnh kiểm chứng + kết quả, câu hỏi cụ thể cho Claude, scope ≤10 đường dẫn. Cuối nhật ký phiên thêm khối RELAY CODEX → CLAUDE (type REVIEW_REQUEST) theo docs/claude-support/2026-11-06-leaders/leader-prompts.md. DỪNG task tới khi founder dán REVIEW_RESULT và bạn đã ghi DISPOSITION.

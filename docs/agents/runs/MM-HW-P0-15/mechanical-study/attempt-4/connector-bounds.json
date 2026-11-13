@@ -1,0 +1,29 @@
+{
+  "scope":"Conditional dimensional proposal only, not approved configuration/CAD or a physical gap result",
+  "socket_candidate":"SFM-125-T2-S-D-A",
+  "header_candidate":"TFM-125-02-S-D-A",
+  "quantity_each":2,
+  "contacts_per_breakpoint":50,
+  "socket_height_inch":{"nominal":0.185,"plus":0.002,"minus":0.005,"source":"Samtec SFM RevEB, sheet2 Fig2, finished surface-mount section B-B"},
+  "header_height_inch":{"nominal":0.226,"plus":0.006,"minus":0.006,"source":"Samtec TFM RevGB sheet2 Fig2 K; sheet7 Table1 row-02; table is image content, visually read"},
+  "mated_stack_mm":{"nominal":6.30,"max":6.48,"min":null,"source":"XFM mated RevC sheet1 Table1; nominal is not a lower bound"},
+  "screening_allocations":{
+    "solder_standoff_max_each_mm":0.30,
+    "additional_protrusion_budget_each_mm":0.08,
+    "conductive_bridge_envelope_mm":[40,25],
+    "pivot_rule":"H datum/pivot at the common bridge-envelope center; radial bound must include BOTH connectors and all conductor material",
+    "tilt_rule":"5 degrees TOTAL relative tilt, not 5 degrees per component",
+    "relative_bridge_tilt_max_deg":5,
+    "other_relative_loss_max_mm":0.20,
+    "gap_required_mm":2.0,
+    "proposed_lift_min_mm":16.0,
+    "proposed_lift_nominal_mm":16.2,
+    "proposed_lift_max_mm":16.4,
+    "bridge_PCB_thickness_max_mm":1.6,
+    "park_clearance_mm":1.0
+  },
+  "not_manufacturer_guarantees":["assembly solder foot-to-PCB standoff, not the printed flush-to-.012 detail counted twice","extra protrusion budget","40x25 MAX global conductive envelope including both connectors","centered common pivot","bridge total relative tilt5deg","frame deflection/loss0.20","screening gap2mm","achieved lift16mm","PCB thickness maximum1.6mm","park clearance1mm"],
+  "interpretation":"Do not credit fully-mated separation in the lower-gap arithmetic. Full assembled mating-direction envelopes must contain ALL conductor material for this bound to apply. Loose or pulled-out terminals are separate faults. Screening allocations become requirements to demonstrate, not measured facts.",
+  "historical_12mm_model":"Unchanged. Proposal lift16mm is not permission to rebuild current CAD or a change to r12; adopting it needs applicable configuration/scope approval.",
+  "no_pin_assignment":true
+}

@@ -1,0 +1,279 @@
+{
+  "id": "MOBOT-V2-CONFIG-r13-HANDSET",
+  "revision": 13,
+  "status": "proposed",
+  "document_kind": "configuration-proposal",
+  "approval_required_before_hardware_build": true,
+  "founder_record": "docs/hardware/mobot-v2-founder-decision-q1-q8.md",
+  "carrier": "handset",
+  "supersedes": {
+    "id": "MOBOT-V2-CONFIG-r12-HANDSET",
+    "reference": "docs/mission-control/hardware-config-mobot-v2-typec-r12-handset.json",
+    "sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+    "scope": "Kiến trúc tay cầm theo F1–F5; robot ngoài phạm vi"
+  },
+  "decisions": {
+    "Q1": "A — mẫu đã chụp cho cả hai carrier",
+    "Q2": "Nguồn qua USB-C B01, attach CC trước khi cấp VBUS, header thụ động",
+    "Q3": "3 AA tháo rời, alkaline hoặc NiMH, UVLO theo pack, sạc ngoài",
+    "Q4": "B — tách verification_items theo D10",
+    "Q5": "B — PCB 4 lớp cho cả hai carrier",
+    "Q8": "ESP32 DevKit 30 chân USB-C, họ CH340. Mọi kích thước và điện nội bộ là ước lượng, không xác minh.",
+    "D1": "Robot carrier là lõi Starter, tay cầm là module riêng",
+    "D2": "Việt Nam, chưa ghi độ tuổi lên hộp",
+    "D3": "Lời chào và hướng dẫn phát sẵn, không mic, không quảng bá AI hoặc trò chuyện tự nhiên",
+    "D4": "Web Serial USB để kiểm chứng P1, Wi-Fi + WebSocket V1 sau khi thử",
+    "D6": "L3 = D3 trong feature-depth-register"
+  },
+  "board": {
+    "evidence": "docs/hardware/evidence/esp32-devkit-v1-type-c-sample.md",
+    "sku": "UNKNOWN",
+    "revision": "UNKNOWN",
+    "bridge_suffix": "UNKNOWN",
+    "dimensions": "TBD — ước lượng, không xác minh",
+    "internal_electrical": "TBD — ước lượng, không xác minh"
+  },
+  "handset": {
+    "reference": "docs/hardware/mobot-v2-handset-r13-design.md",
+    "wireless": true,
+    "vin": "NC",
+    "en": "NC",
+    "header_3v3": "Ngõ ra của B01; tổng tải thụ động ≤20 mA",
+    "power_contract": "RUN dùng cáp nguồn USB-C liền; PROGRAM rút cáp nguồn rồi dùng cáp PC. CC trước VBUS, cấm cấp ngược hai chiều.",
+    "charger": "Không sạc trong máy",
+    "actuator": "Không dùng",
+    "pin_assignment": "UNASSIGNED",
+    "mechanics": "Hàng socket 22,86 / 25,40 / 27,94 mm chỉ là tham chiếu, chưa đo",
+    "budget_vnd_total_exclusive": 1000000
+  },
+  "split_decision": "docs/hardware/mobot-v2-founder-decision-d15-d16.md",
+  "required_gate_ids": {
+    "schematic": [
+      "D17-OFF-DESIGN",
+      "D17-ACTUATOR-PRODUCT",
+      "D17-H3-CV-PROTECTION",
+      "MCU-RESET-VETO-RESOURCES"
+    ],
+    "layout": [
+      "D17-OFF-DESIGN",
+      "D17-ACTUATOR-PRODUCT",
+      "D17-H3-CV-PROTECTION",
+      "MCU-RESET-VETO-RESOURCES",
+      "D15B-FAB-LAYOUT"
+    ],
+    "bom": [
+      "D17-B01-TRACEABILITY"
+    ],
+    "operation": [
+      "D17-OFF-ASSEMBLY"
+    ]
+  },
+  "milestone_gates": [
+    {
+      "id": "D17-OFF-DESIGN",
+      "owner": "Box 02 + 03; Box 08 review",
+      "milestone": "Trước lease schematic",
+      "scope": "B01 thụ động và đường OFF/VBUS của carrier",
+      "pass_fail": "C1–C3: đối chiếu header, công tắc pack, giới hạn rò/xả và nguồn VBUS bên ngoài. C12 và review độc lập phải đủ mới được PASS.",
+      "status": "OPEN",
+      "stage": "schematic",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md",
+      "evidence": "docs/hardware/mobot-v2-handset-r13-design.md"
+    },
+    {
+      "id": "D17-ACTUATOR-PRODUCT",
+      "owner": "Box 02 + 03; Box 08 review",
+      "milestone": "Trước lease schematic",
+      "scope": "EVT0 bỏ actuator/cassette và dùng một cổng USB-C trên B01",
+      "pass_fail": "C4–C5: xác minh BOM và loại trừ hai nguồn cùng vào B01, kèm phân tích cắm nhầm, attach/detach. C12 và review độc lập phải đủ mới được PASS.",
+      "status": "OPEN",
+      "stage": "schematic",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md",
+      "evidence": "docs/hardware/mobot-v2-handset-r13-design.md"
+    },
+    {
+      "id": "D17-H3-CV-PROTECTION",
+      "owner": "Box 02 + 03; Box 08 review",
+      "milestone": "Trước lease schematic",
+      "scope": "Nguồn 3 AA tháo rời và bảo vệ pack/cổng USB-C",
+      "pass_fail": "C6–C9: chứng minh không có mạch sạc, cận cấp ngược hai chiều, chống ngược cực, PTC, UVLO và phục hồi dưới tải. C12 và review độc lập phải đủ mới được PASS.",
+      "status": "OPEN",
+      "stage": "schematic",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md",
+      "evidence": "docs/hardware/mobot-v2-handset-r13-design.md"
+    },
+    {
+      "id": "D17-B01-TRACEABILITY",
+      "owner": "Box 03; HQ kiểm hồ sơ",
+      "milestone": "Trước khóa BOM",
+      "scope": "Đối chiếu hàng dự kiến giao với ảnh Q1/Q8, SKU/lô/revision/marking và tiêu chí nhận hàng.",
+      "pass_fail": "PASS khi hồ sơ truy xuất tương đương đủ nhận dạng đúng mẫu/biến thể được chọn; FAIL nếu listing chưa liên kết PCBA hoặc sai biến thể; không miễn xác minh clone theo D10.",
+      "status": "OPEN",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md#d17",
+      "evidence": "NOT_RUN / chưa có hồ sơ đóng gate",
+      "stage": "bom"
+    },
+    {
+      "id": "D17-OFF-ASSEMBLY",
+      "owner": "Box 02 + 03; người vận hành được chỉ định; Box 08 review",
+      "milestone": "Trước cho phép sử dụng chuyển mode",
+      "scope": "OFF, rút cáp và PROGRAM trên cụm EVT0",
+      "pass_fail": "PASS khi phép kiểm được phép trên đúng cụm chứng minh hành vi cấp/ngắt/xả và không cấp ngược theo cận đã review. FAIL nếu thiếu ca bắt buộc hoặc vượt cận.",
+      "status": "OPEN",
+      "stage": "operation",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md",
+      "evidence": "docs/hardware/mobot-v2-handset-r13-design.md"
+    },
+    {
+      "id": "D15B-FAB-LAYOUT",
+      "owner": "Box 03 + 02; Box 08 duyệt từng mục",
+      "milestone": "Trước lease layout",
+      "scope": "Stackup/DRC và cận fab áp dụng; liên kết verification item FAB-STACKUP-DRC.",
+      "pass_fail": "PASS khi từng mục có cận áp dụng/đường hồi/package/via/đồng/mạ được Box08 duyệt; FAIL nếu chỉ có số trung bình/giả định chưa được chấp nhận hoặc chưa review.",
+      "status": "OPEN",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md#d17",
+      "evidence": "NOT_RUN / chưa có hồ sơ đóng gate",
+      "stage": "layout"
+    }
+  ],
+  "external_design_gates": [
+    {
+      "id": "MCU-RESET-VETO-RESOURCES",
+      "owner": "Box02 + Box01; Box08 review",
+      "milestone": "Before applicable schematic lease",
+      "scope": "Tài nguyên cho đầu vào thụ động của B01",
+      "pass_fail": "C10–C11: kiểm pool ADC1, chân loại trừ, tải 3V3 ≤20 mA, không có nguồn carrier tại header. C12 và review độc lập phải đủ mới được PASS.",
+      "status": "OPEN",
+      "stage": "schematic",
+      "decision_reference": "docs/hardware/mobot-v2-founder-decision-q1-q8.md",
+      "evidence": "docs/hardware/mobot-v2-handset-r13-design.md"
+    }
+  ],
+  "gate_schema_contract": {
+    "stage_enum": [
+      "schematic",
+      "layout",
+      "bom",
+      "operation"
+    ],
+    "meaning": "required IDs by applicable milestone; layout also requires prior schematic gates. BOM and operation lists preserve their separate milestones; do not invent layout-before-BOM ordering.",
+    "enforcement_status": "r13 chưa tích hợp vào baseline dispatch; mọi cổng OPEN.",
+    "pass_requirement": "Only independent reviewer may close gates with bounded evidence/review reference; hash approval alone never closes gates.",
+    "review_storage": "review_ref remains on PASS gate; matching review_ref/review_sha256 are pinned externally in tasks.json gate_reviews. Never embed review_sha256 in proposal."
+  },
+  "verification_items": [
+    {
+      "id": "USB",
+      "scope": "Dòng attach, boot và flash",
+      "pass_fail": "Trace từng pha trong giới hạn dòng, sụt áp và trạng thái đã review; FAIL nếu vượt giới hạn hoặc reset ngoài yêu cầu.",
+      "responsible": "Box 02 xác lập cận, Box 07 vận hành khi được phép",
+      "timing": "PCB mẫu sau quyền cấp điện; pha flash cần quyền riêng",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "UVLO",
+      "scope": "UVLO động và nội trở pack",
+      "pass_fail": "Cắt/phục hồi trong cửa sổ đã review qua cận nội trở, nhiệt và tải xung; FAIL nếu vượt cửa sổ, đóng ngắt lặp hoặc vượt cận pack.",
+      "responsible": "Box 02 xác lập cận, Box 07 vận hành khi được phép",
+      "timing": "PCB mẫu sau quyền thử pin riêng",
+      "limits": "TBD — khóa và Box 08 review trước layout TBD: ngưỡng nhả quá xả của PCM chưa rõ (Jauch 250832 Rev1.2 trang2: detect/release cùng2,80±0,10V); Box02 sở hữu làm rõ trước đóng gate UVLO/reset tương ứng, Box03 hỗ trợ hồ sơ; không suy hysteresis hay cho tự khởi động lại từ bảng này. Không bổ sung miễn trừ D10.",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "THERMAL",
+      "scope": "Nhiệt thật",
+      "pass_fail": "Mọi linh kiện và bề mặt dưới giới hạn đã review trong vỏ và chu kỳ tải quy định; FAIL nếu vượt bất kỳ giới hạn nào.",
+      "responsible": "Box 07",
+      "timing": "Mẫu tích hợp sau quyền vận hành tương ứng",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "ADC",
+      "scope": "Độ ổn định ADC joystick",
+      "pass_fail": "Dải, sai số và thời gian ổn định đạt cận qua hành trình và tải radio; FAIL nếu có mẫu vượt tiêu chí nghiệm thu.",
+      "responsible": "Box 07",
+      "timing": "PCB tay cầm sau quyền cấp điện và flash tương ứng",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "CLONE",
+      "scope": "Kích thước và điện nội bộ bo clone",
+      "pass_fail": "Đúng mẫu khớp vùng lắp, kết nối và giả định điện đã review; FAIL nếu không vừa, sai chức năng hoặc vượt cận thiết kế.",
+      "responsible": "Box 03 cơ khí, Box 02 điện, người thao tác được phép",
+      "timing": "Sau PCB theo D10; cơ khí không cấp điện có thể kiểm khi có mẫu",
+      "limits": "TBD — khóa và Box 08 review trước layout",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "FAB-STACKUP-DRC",
+      "scope": "D15(b) MỞ 08/11/2026: stackup, cận fab và DRC",
+      "pass_fail": "PASS khi Box08 duyệt option stackup4lớp, cận đồng/mạ/via/trace/clearance/package/đường hồi và ngân sách điện-nhiệt áp dụng; FAIL khi thiếu cận, chỉ có trung bình hoặc quy tắc không đáp ứng. Chưa chọn nhà fab.",
+      "responsible": "Box03 hồ sơ, Box02 ngân sách, HQ giữ gate; Box08 duyệt từng mục",
+      "timing": "Cổng mốc TRƯỚC LEASE LAYOUT; thiếu review thì chặn layout",
+      "limits": "TBD — khóa bằng hồ sơ fab áp dụng trước lease layout, không cần đo sau PCB để đóng cổng hồ sơ",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "RUNTIME-CURRENT",
+      "scope": "Dòng và nhiệt ở chu kỳ radio và điều khiển đại diện",
+      "pass_fail": "PASS khi trace không vượt ngân sách dòng/nhiệt được review. FAIL nếu vượt hoặc mất ổn định.",
+      "responsible": "Box 02 xác lập cận, Box 07 đo khi có quyền, Box 08 review trước layout",
+      "timing": "Sau PCB và sau khi có quyền đo phù hợp",
+      "limits": "TBD; các cận thiết kế bắt buộc đóng đúng mốc",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "CUTOFF-RECOVERY",
+      "scope": "UVLO và phục hồi dưới tải",
+      "pass_fail": "PASS khi các ca sag, cell yếu và hồi áp phù hợp các cận đã review. FAIL nếu ngưỡng sai hoặc lặp ngoài envelope.",
+      "responsible": "Box 02 xác lập cận, Box 07 đo khi có quyền, Box 08 review trước layout",
+      "timing": "Sau PCB và sau khi có quyền đo phù hợp",
+      "limits": "TBD; các cận thiết kế bắt buộc đóng đúng mốc",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    },
+    {
+      "id": "REVERSE-PLUG",
+      "scope": "Cắm nhầm nguồn ngoài",
+      "pass_fail": "PASS khi dòng hai chiều và điện áp ở tất cả trạng thái nằm trong các cận đã review. FAIL nếu vượt hoặc có đường nạp cell.",
+      "responsible": "Box 02 xác lập cận, Box 07 đo khi có quyền, Box 08 review trước layout",
+      "timing": "Sau PCB và sau khi có quyền đo phù hợp",
+      "limits": "TBD; các cận thiết kế bắt buộc đóng đúng mốc",
+      "measured": "TBD",
+      "status": "NOT_RUN",
+      "carrier": "handset"
+    }
+  ],
+  "verification_evaluation_policy": "Giữ phạm vi D10 đã duyệt; loại 8 mục JAUCH vì F1 bỏ sạc onboard và pack Jauch khỏi tay cầm. Box 08 review trước layout. Các phép đo NOT_RUN.",
+  "blocking_unknowns": [
+    "D17-OFF-DESIGN: OPEN — đường OFF, xả VBUS và cấp ngược hai chiều chưa có cận đầy đủ",
+    "D17-ACTUATOR-PRODUCT: OPEN — chưa review phương án một cổng, cáp liền và cắm nhầm",
+    "D17-H3-CV-PROTECTION: OPEN — thiếu cận đường công suất, lỗi đơn, PTC và UVLO động/cell yếu",
+    "MCU-RESET-VETO-RESOURCES: OPEN — còn kiểm tài nguyên và ngân sách tải 3V3",
+    "BOM cả bộ dưới 1 triệu đồng: chưa có dự toán theo khối nguồn EVT0"
+  ],
+  "blocking_unknowns_scope": "Đóng các điều kiện thiết kế theo mốc bằng bằng chứng và review độc lập. Các phép đo D10 vẫn ở verification_items.",
+  "gates": [
+    "Review độc lập Codex trên snapshot",
+    "Founder duyệt đúng SHA-256 và cấp lease schematic riêng",
+    "Giữ cổng chứng nhận đồ dùng trẻ em trước khi bán"
+  ]
+}

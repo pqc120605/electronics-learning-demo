@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-10",
+  "source": "Founder replies to HQ request_user_input_async call_03c174d3a3054389946141b2c5603233",
+  "decisions": [
+    {
+      "id": "P0-11-G-B",
+      "answer_verbatim": "G-B: ưu tiên chẩn đoán khóa, tổng 16 chân; app không có trạng thái sạc riêng (Đề xuất)",
+      "scope": "Retain SECOND_POSITION_OBSERVATION as MCU diagnostic export; omit H3_DEDICATED_STATUS export only. Preserve all independent physical sensors/vetoes/H3 protection and E1-E4 reservation. No GPIO assignment."
+    },
+    {
+      "id": "P0-11-M-A",
+      "answer_verbatim": "Chấp nhận hướng M-A để tính tiếp (Đề xuất)",
+      "scope": "Neutral-only permission-selector proposal: if holding release button, release it and press again after physical OFF. Analyze geometry/force/envelope/cost; not permission to build."
+    }
+  ],
+  "not_approved": ["exact configuration or hash", "MPN or BOM", "CAD/FE or hardware build", "gate closure or lease", "device operation or purchase"],
+  "r12_unchanged_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b"
+}

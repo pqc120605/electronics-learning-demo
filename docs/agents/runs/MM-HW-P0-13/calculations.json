@@ -1,0 +1,38 @@
+{
+  "classification": "Conditional proposal arithmetic; no gate PASS or physical proof",
+  "key_bending_at200N_MPa": 9.375,
+  "key_shear_conservative_at200N_MPa": 3.125,
+  "frame_stress_at200N_MPa": 7.421875,
+  "button_stem_stress_at100N_MPa": 10.9375,
+  "button_tab_stress_at100N_MPa": 2.34375,
+  "ideal_stem_deflection_mm": 0.0002631578947368421,
+  "ideal_tab_deflection_mm": 4.111842105263158e-06,
+  "unload_separation_mm": 0.5965752282825709,
+  "separation_margin_mm": 0.09657522828257092,
+  "follower_gate_allocated_clearance_mm": 0.30000000000000004,
+  "neutral_allocated_clearance_mm": 0.55,
+  "interlock_remaining_engagement_mm": 2.55,
+  "gate_release_clearance_mm": 0.1499999999999999,
+  "external_opening_force_N": 0.25999999999999995,
+  "net_return_force_allocation_N": 0.06,
+  "actuator_requirement_work_mJ": 0.36,
+  "two_key_blanks_mass_g": 75.36,
+  "actuator_nominal_screening": [
+    {
+      "candidate": "Takaha",
+      "resistance_nominal_ohm": 7.5,
+      "two_coils_current_A_at5V": 1.3333333333333333,
+      "power_W_at5V": 6.666666666666667,
+      "energy_J_3s_at5V": 20.0,
+      "guaranteed_MAX": false
+    },
+    {
+      "candidate": "Adafruit",
+      "resistance_nominal_ohm": 4.5,
+      "two_coils_current_A_at5V": 2.2222222222222223,
+      "power_W_at5V": 11.11111111111111,
+      "energy_J_3s_at5V": 33.33333333333333,
+      "guaranteed_MAX": false
+    }
+  ]
+}

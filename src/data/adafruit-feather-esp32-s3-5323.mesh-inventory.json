@@ -1,0 +1,848 @@
+{
+  "boardId": "adafruit-feather-esp32-s3-5323",
+  "revision": "Adafruit Feather ESP32-S3 #5323 · 8 MB flash · no PSRAM",
+  "sourceFile": "assets/boards/vendor/adafruit-feather-esp32-s3-5323/5323 Feather ESP32-S3.step",
+  "boardCadFile": "assets/boards/vendor/adafruit-feather-esp32-s3-5323/Adafruit ESP32-S3 8MB No PSRAM.brd",
+  "sourceSha256": "ffad2a32aec0f0e1ed99280dc6f9904cdbbcd034b209285982a342423e37ec1e",
+  "modelSha256": "b655f774699e598c7f9102ecb8832b73eb503a0ea5ed0b6e118ac1f9102dda36",
+  "boardCadSha256": "5b06b9c6291545a2c9da0993a642e513a75c5901e26836a2ee559077147abcca",
+  "units": "mm",
+  "transform": "Official STEP Z-up rotated +90° about X to viewer Y-up; translated to board-center origin; no reflection",
+  "sourceMeshCount": 168,
+  "mappedComponentCount": 33,
+  "unidentifiedMeshCount": 129,
+  "cadElementCount": 47,
+  "elements": [
+    {
+      "reference": "C6",
+      "value": "10µF",
+      "footprint": "0805-NO",
+      "x": 12.9432,
+      "y": 9.393,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "reference": "C8",
+      "value": "10µF",
+      "footprint": "0805-NO",
+      "x": 17.3378,
+      "y": 5.4518,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "reference": "U$34",
+      "value": "FIDUCIAL_1MM",
+      "footprint": "FIDUCIAL_1MM",
+      "x": 11.43,
+      "y": 21.082,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "reference": "U$35",
+      "value": "FIDUCIAL_1MM",
+      "footprint": "FIDUCIAL_1MM",
+      "x": 46.3768,
+      "y": 0.9976,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "reference": "U$31",
+      "value": "MOUNTINGHOLE2.5",
+      "footprint": "MOUNTINGHOLE_2.5_PLATED",
+      "x": 2.54,
+      "y": 20.32,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "reference": "U$32",
+      "value": "MOUNTINGHOLE2.5",
+      "footprint": "MOUNTINGHOLE_2.5_PLATED",
+      "x": 2.54,
+      "y": 2.54,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "reference": "U2",
+      "value": "AP2112/RT9080-3.3",
+      "footprint": "SOT23-5",
+      "x": 15.5448,
+      "y": 10.16,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "D4",
+      "value": "MBR540",
+      "footprint": "SOD-123",
+      "x": 11.4808,
+      "y": 11.9888,
+      "rotation": 180,
+      "side": "front"
+    },
+    {
+      "reference": "JP1",
+      "value": "",
+      "footprint": "1X16_ROUND",
+      "x": 25.4,
+      "y": 1.27,
+      "rotation": 180,
+      "side": "front"
+    },
+    {
+      "reference": "X1",
+      "value": "JSTPH",
+      "footprint": "JSTPH2_BATT",
+      "x": 10.922,
+      "y": 19.3675,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "JP3",
+      "value": "",
+      "footprint": "1X12_ROUND",
+      "x": 30.48,
+      "y": 21.59,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "U3",
+      "value": "MCP73831T-2ACI/OT",
+      "footprint": "SOT23-5",
+      "x": 18.1102,
+      "y": 16.256,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "CHG",
+      "value": "ORANGE",
+      "footprint": "CHIPLED_0603_NOOUTLINE",
+      "x": 1.4605,
+      "y": 5.461,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "reference": "R2",
+      "value": "5.1K",
+      "footprint": "0603-NO",
+      "x": 6.3373,
+      "y": 4.1148,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "C3",
+      "value": "10µF",
+      "footprint": "0805-NO",
+      "x": 21.5392,
+      "y": 16.002,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "SW2",
+      "value": "KMR2",
+      "footprint": "BTN_KMR2_4.6X2.8",
+      "x": 10.795,
+      "y": 5.1435,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "D3",
+      "value": "RED",
+      "footprint": "CHIPLED_0603_NOOUTLINE",
+      "x": 1.4605,
+      "y": 17.526,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "reference": "R10",
+      "value": "5.1K",
+      "footprint": "0603-NO",
+      "x": 5.715,
+      "y": 20.447,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "reference": "C2",
+      "value": "10uF",
+      "footprint": "0805-NO",
+      "x": 18.6563,
+      "y": 11.938,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "reference": "R7",
+      "value": "100K",
+      "footprint": "0603-NO",
+      "x": 18.669,
+      "y": 8.8773,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "C1",
+      "value": "10uF",
+      "footprint": "0805-NO",
+      "x": 15.9385,
+      "y": 13.1318,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "Q3",
+      "value": "DMG3415U",
+      "footprint": "SOT23-R",
+      "x": 10.4013,
+      "y": 9.5123,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "R12",
+      "value": "100K",
+      "footprint": "0603-NO",
+      "x": 6.3627,
+      "y": 5.6642,
+      "rotation": 180,
+      "side": "front"
+    },
+    {
+      "reference": "C4",
+      "value": "1uF",
+      "footprint": "0603-NO",
+      "x": 14.1732,
+      "y": 5.2832,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "reference": "R4",
+      "value": "5.1K",
+      "footprint": "0603-NO",
+      "x": 15.6718,
+      "y": 15.875,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "reference": "X3",
+      "value": "USB C",
+      "footprint": "USB_C_CUSB31-CFM2AX-01-X",
+      "x": 2.667,
+      "y": 11.43,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "reference": "R5",
+      "value": "5.1K",
+      "footprint": "0603-NO",
+      "x": 8.1915,
+      "y": 8.2804,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "reference": "R8",
+      "value": "5.1K",
+      "footprint": "0603-NO",
+      "x": 5.08,
+      "y": 17.272,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "U1",
+      "value": "ESP32-S3-MINI-1",
+      "footprint": "QFN60_ESP32-S2-MINI-1_EXP",
+      "x": 40.64,
+      "y": 11.43,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "reference": "TP1",
+      "value": "",
+      "footprint": "TESTPOINT_ROUND_1.5MM_NO",
+      "x": 20.447,
+      "y": 5.4102,
+      "rotation": 0,
+      "side": "back"
+    },
+    {
+      "reference": "SW1",
+      "value": "KMR2",
+      "footprint": "BTN_KMR2_4.6X2.8",
+      "x": 20.955,
+      "y": 5.207,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "IC1",
+      "value": "LC709203F/MH",
+      "footprint": "WLCSP9",
+      "x": 21.844,
+      "y": 18.034,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "reference": "R1",
+      "value": "5.1K",
+      "footprint": "0603-NO",
+      "x": 15.748,
+      "y": 5.334,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "reference": "CONN1",
+      "value": "JST SH",
+      "footprint": "JST_SH4_RA",
+      "x": 22.352,
+      "y": 11.43,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "reference": "LED1",
+      "value": "WS2812B_SK6805_1515",
+      "footprint": "SK6805_1515",
+      "x": 29.4005,
+      "y": 8.128,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "R17",
+      "value": "1Meg",
+      "footprint": "0603-NO",
+      "x": 28.7655,
+      "y": 5.5245,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "C5",
+      "value": "1uF",
+      "footprint": "0603-NO",
+      "x": 28.7655,
+      "y": 4.0005,
+      "rotation": 180,
+      "side": "front"
+    },
+    {
+      "reference": "C7",
+      "value": "10uF",
+      "footprint": "0805-NO",
+      "x": 28.067,
+      "y": 17.8435,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "C9",
+      "value": "10uF",
+      "footprint": "0805-NO",
+      "x": 28.067,
+      "y": 15.9385,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "C10",
+      "value": "1uF",
+      "footprint": "0603-NO",
+      "x": 44.577,
+      "y": 19.812,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "U4",
+      "value": "BME280",
+      "footprint": "BME280",
+      "x": 24.765,
+      "y": 16.002,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "reference": "U$15",
+      "value": "",
+      "footprint": "FEATHERLOGO_MED",
+      "x": 23.876,
+      "y": 6.604,
+      "rotation": 0,
+      "side": "back"
+    },
+    {
+      "reference": "U$53",
+      "value": "",
+      "footprint": "STEMMAQT",
+      "x": 21.336,
+      "y": 11.176,
+      "rotation": 0,
+      "side": "back"
+    },
+    {
+      "reference": "C11",
+      "value": "10uF",
+      "footprint": "_0805MP",
+      "x": 26.035,
+      "y": 8.509,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "U$14",
+      "value": "",
+      "footprint": "PCBFEAT-REV-040",
+      "x": 25.273,
+      "y": 12.2555,
+      "rotation": 0,
+      "side": "back"
+    },
+    {
+      "reference": "U5",
+      "value": "AP2112/RT9080-3.3",
+      "footprint": "SOT23-5",
+      "x": 25.527,
+      "y": 5.588,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "reference": "R3",
+      "value": "10K",
+      "footprint": "RESPACK_4X0603",
+      "x": 26.924,
+      "y": 11.938,
+      "rotation": 270,
+      "side": "front"
+    }
+  ],
+  "nodes": [
+    {
+      "nodeName": "PCB",
+      "sourceName": "Board",
+      "sourceMeshes": 1
+    },
+    {
+      "nodeName": "C6",
+      "sourceName": "0805-NO",
+      "sourceMeshes": 1,
+      "designator": "C6",
+      "value": "10µF",
+      "footprint": "0805-NO",
+      "x": 12.9432,
+      "y": 9.393,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "nodeName": "C8",
+      "sourceName": "0805-NO",
+      "sourceMeshes": 1,
+      "designator": "C8",
+      "value": "10µF",
+      "footprint": "0805-NO",
+      "x": 17.3378,
+      "y": 5.4518,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "nodeName": "C3",
+      "sourceName": "0805-NO",
+      "sourceMeshes": 1,
+      "designator": "C3",
+      "value": "10µF",
+      "footprint": "0805-NO",
+      "x": 21.5392,
+      "y": 16.002,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "C2",
+      "sourceName": "0805-NO",
+      "sourceMeshes": 1,
+      "designator": "C2",
+      "value": "10uF",
+      "footprint": "0805-NO",
+      "x": 18.6563,
+      "y": 11.938,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "nodeName": "C1",
+      "sourceName": "0805-NO",
+      "sourceMeshes": 1,
+      "designator": "C1",
+      "value": "10uF",
+      "footprint": "0805-NO",
+      "x": 15.9385,
+      "y": 13.1318,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "C7",
+      "sourceName": "0805-NO",
+      "sourceMeshes": 1,
+      "designator": "C7",
+      "value": "10uF",
+      "footprint": "0805-NO",
+      "x": 28.067,
+      "y": 17.8435,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "C9",
+      "sourceName": "0805-NO",
+      "sourceMeshes": 1,
+      "designator": "C9",
+      "value": "10uF",
+      "footprint": "0805-NO",
+      "x": 28.067,
+      "y": 15.9385,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "U2",
+      "sourceName": "SOT23-5",
+      "sourceMeshes": 1,
+      "designator": "U2",
+      "value": "AP2112/RT9080-3.3",
+      "footprint": "SOT23-5",
+      "x": 15.5448,
+      "y": 10.16,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "U3",
+      "sourceName": "SOT23-5",
+      "sourceMeshes": 1,
+      "designator": "U3",
+      "value": "MCP73831T-2ACI/OT",
+      "footprint": "SOT23-5",
+      "x": 18.1102,
+      "y": 16.256,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "U5",
+      "sourceName": "SOT23-5",
+      "sourceMeshes": 1,
+      "designator": "U5",
+      "value": "AP2112/RT9080-3.3",
+      "footprint": "SOT23-5",
+      "x": 25.527,
+      "y": 5.588,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "D4",
+      "sourceName": "SOD-123",
+      "sourceMeshes": 1,
+      "designator": "D4",
+      "value": "MBR540",
+      "footprint": "SOD-123",
+      "x": 11.4808,
+      "y": 11.9888,
+      "rotation": 180,
+      "side": "front"
+    },
+    {
+      "nodeName": "CHG",
+      "sourceName": "CHIPLED_0603_NOOUTLINE",
+      "sourceMeshes": 3,
+      "designator": "CHG",
+      "value": "ORANGE",
+      "footprint": "CHIPLED_0603_NOOUTLINE",
+      "x": 1.4605,
+      "y": 5.461,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "nodeName": "D3",
+      "sourceName": "CHIPLED_0603_NOOUTLINE",
+      "sourceMeshes": 3,
+      "designator": "D3",
+      "value": "RED",
+      "footprint": "CHIPLED_0603_NOOUTLINE",
+      "x": 1.4605,
+      "y": 17.526,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "nodeName": "R2",
+      "sourceName": "0603-NO",
+      "sourceMeshes": 1,
+      "designator": "R2",
+      "value": "5.1K",
+      "footprint": "0603-NO",
+      "x": 6.3373,
+      "y": 4.1148,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "R10",
+      "sourceName": "0603-NO",
+      "sourceMeshes": 1,
+      "designator": "R10",
+      "value": "5.1K",
+      "footprint": "0603-NO",
+      "x": 5.715,
+      "y": 20.447,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "nodeName": "R7",
+      "sourceName": "0603-NO",
+      "sourceMeshes": 1,
+      "designator": "R7",
+      "value": "100K",
+      "footprint": "0603-NO",
+      "x": 18.669,
+      "y": 8.8773,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "R12",
+      "sourceName": "0603-NO",
+      "sourceMeshes": 1,
+      "designator": "R12",
+      "value": "100K",
+      "footprint": "0603-NO",
+      "x": 6.3627,
+      "y": 5.6642,
+      "rotation": 180,
+      "side": "front"
+    },
+    {
+      "nodeName": "C4",
+      "sourceName": "0603-NO",
+      "sourceMeshes": 1,
+      "designator": "C4",
+      "value": "1uF",
+      "footprint": "0603-NO",
+      "x": 14.1732,
+      "y": 5.2832,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "nodeName": "R4",
+      "sourceName": "0603-NO",
+      "sourceMeshes": 1,
+      "designator": "R4",
+      "value": "5.1K",
+      "footprint": "0603-NO",
+      "x": 15.6718,
+      "y": 15.875,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "nodeName": "R5",
+      "sourceName": "0603-NO",
+      "sourceMeshes": 1,
+      "designator": "R5",
+      "value": "5.1K",
+      "footprint": "0603-NO",
+      "x": 8.1915,
+      "y": 8.2804,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "nodeName": "R8",
+      "sourceName": "0603-NO",
+      "sourceMeshes": 1,
+      "designator": "R8",
+      "value": "5.1K",
+      "footprint": "0603-NO",
+      "x": 5.08,
+      "y": 17.272,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "R1",
+      "sourceName": "0603-NO",
+      "sourceMeshes": 1,
+      "designator": "R1",
+      "value": "5.1K",
+      "footprint": "0603-NO",
+      "x": 15.748,
+      "y": 5.334,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "nodeName": "R17",
+      "sourceName": "0603-NO",
+      "sourceMeshes": 1,
+      "designator": "R17",
+      "value": "1Meg",
+      "footprint": "0603-NO",
+      "x": 28.7655,
+      "y": 5.5245,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "C5",
+      "sourceName": "0603-NO",
+      "sourceMeshes": 1,
+      "designator": "C5",
+      "value": "1uF",
+      "footprint": "0603-NO",
+      "x": 28.7655,
+      "y": 4.0005,
+      "rotation": 180,
+      "side": "front"
+    },
+    {
+      "nodeName": "C10",
+      "sourceName": "0603-NO",
+      "sourceMeshes": 1,
+      "designator": "C10",
+      "value": "1uF",
+      "footprint": "0603-NO",
+      "x": 44.577,
+      "y": 19.812,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "SW2",
+      "sourceName": "BTN_KMR2_4.6X2.8",
+      "sourceMeshes": 1,
+      "designator": "SW2",
+      "value": "KMR2",
+      "footprint": "BTN_KMR2_4.6X2.8",
+      "x": 10.795,
+      "y": 5.1435,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "SW1",
+      "sourceName": "BTN_KMR2_4.6X2.8",
+      "sourceMeshes": 1,
+      "designator": "SW1",
+      "value": "KMR2",
+      "footprint": "BTN_KMR2_4.6X2.8",
+      "x": 20.955,
+      "y": 5.207,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "Q3",
+      "sourceName": "SOT23-R",
+      "sourceMeshes": 1,
+      "designator": "Q3",
+      "value": "DMG3415U",
+      "footprint": "SOT23-R",
+      "x": 10.4013,
+      "y": 9.5123,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "X3",
+      "sourceName": "USB_C_CUSB31-CFM2AX-01-X",
+      "sourceMeshes": 1,
+      "designator": "X3",
+      "value": "USB C",
+      "footprint": "USB_C_CUSB31-CFM2AX-01-X",
+      "x": 2.667,
+      "y": 11.43,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "nodeName": "IC1",
+      "sourceName": "WLCSP9",
+      "sourceMeshes": 2,
+      "designator": "IC1",
+      "value": "LC709203F/MH",
+      "footprint": "WLCSP9",
+      "x": 21.844,
+      "y": 18.034,
+      "rotation": 90,
+      "side": "front"
+    },
+    {
+      "nodeName": "LED1",
+      "sourceName": "SK6805_1515",
+      "sourceMeshes": 1,
+      "designator": "LED1",
+      "value": "WS2812B_SK6805_1515",
+      "footprint": "SK6805_1515",
+      "x": 29.4005,
+      "y": 8.128,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "C11",
+      "sourceName": "_0805MP",
+      "sourceMeshes": 1,
+      "designator": "C11",
+      "value": "10uF",
+      "footprint": "_0805MP",
+      "x": 26.035,
+      "y": 8.509,
+      "rotation": 0,
+      "side": "front"
+    },
+    {
+      "nodeName": "R3",
+      "sourceName": "RESPACK_4X0603",
+      "sourceMeshes": 1,
+      "designator": "R3",
+      "value": "10K",
+      "footprint": "RESPACK_4X0603",
+      "x": 26.924,
+      "y": 11.938,
+      "rotation": 270,
+      "side": "front"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_UNIDENTIFIED",
+      "sourceName": "Unmatched source STEP meshes",
+      "sourceMeshes": 129
+    }
+  ]
+}

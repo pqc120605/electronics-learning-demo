@@ -1,0 +1,180 @@
+{
+  "boardId": "adafruit-qtpy-esp32-c3-5405",
+  "revision": "Adafruit QT Py ESP32-C3 Rev B · #5405",
+  "sourceBoardCad": "assets/boards/vendor/adafruit-qtpy-esp32-c3/Adafruit QT Py ESP32-C3.brd",
+  "sourceBoardCadSha256": "629effaf43d2b46e0b0d41e3e65eecc33b8e5d75da1336589cde89e68426bbe9",
+  "sourceGlb": "public/models/adafruit-qtpy-esp32-c3-5405.glb",
+  "sourceGlbSha256": "75030f7cdca39c06a58baed253b8b23e146a20f6797f224e45d2ab0107ced974",
+  "coordinateDerivation": "Eagle 1X07_CASTEL package pad centers with element R90/R270 transforms; GLB X maps Eagle X and GLB Z maps inverse Eagle Y using robust median offsets from 35 mapped STEP mesh centers; anchors are in metres on the top of the PCB mesh. CAD pairs N/NC are required to share a net; only the 14 exposed JP1/JP3 pads are included.",
+  "glbCadOffsetMm": {
+    "x": -8.89,
+    "z": 10.3506
+  },
+  "boardTopMm": 0.785,
+  "headers": [
+    {
+      "headerReference": "JP1",
+      "pins": [
+        {
+          "id": "jp1-1",
+          "headerReference": "JP1",
+          "padNumber": "1",
+          "side": "left",
+          "position": 1,
+          "label": "A0",
+          "netName": "A0",
+          "xMm": -7.62,
+          "zMm": -7.6199
+        },
+        {
+          "id": "jp1-2",
+          "headerReference": "JP1",
+          "padNumber": "2",
+          "side": "left",
+          "position": 2,
+          "label": "A1",
+          "netName": "A1",
+          "xMm": -7.62,
+          "zMm": -5.0799
+        },
+        {
+          "id": "jp1-3",
+          "headerReference": "JP1",
+          "padNumber": "3",
+          "side": "left",
+          "position": 3,
+          "label": "A2",
+          "netName": "A2",
+          "xMm": -7.62,
+          "zMm": -2.5399
+        },
+        {
+          "id": "jp1-4",
+          "headerReference": "JP1",
+          "padNumber": "4",
+          "side": "left",
+          "position": 4,
+          "label": "A3",
+          "netName": "A3",
+          "xMm": -7.62,
+          "zMm": 0.0001
+        },
+        {
+          "id": "jp1-5",
+          "headerReference": "JP1",
+          "padNumber": "5",
+          "side": "left",
+          "position": 5,
+          "label": "SDA",
+          "netName": "SDA",
+          "xMm": -7.62,
+          "zMm": 2.5401
+        },
+        {
+          "id": "jp1-6",
+          "headerReference": "JP1",
+          "padNumber": "6",
+          "side": "left",
+          "position": 6,
+          "label": "SCL",
+          "netName": "SCL",
+          "xMm": -7.62,
+          "zMm": 5.0801
+        },
+        {
+          "id": "jp1-7",
+          "headerReference": "JP1",
+          "padNumber": "7",
+          "side": "left",
+          "position": 7,
+          "label": "TX",
+          "netName": "TX",
+          "xMm": -7.62,
+          "zMm": 7.6201
+        }
+      ]
+    },
+    {
+      "headerReference": "JP3",
+      "pins": [
+        {
+          "id": "jp3-7",
+          "headerReference": "JP3",
+          "padNumber": "7",
+          "side": "right",
+          "position": 1,
+          "label": "5V",
+          "netName": "+5V",
+          "xMm": 7.62,
+          "zMm": -7.6199
+        },
+        {
+          "id": "jp3-6",
+          "headerReference": "JP3",
+          "padNumber": "6",
+          "side": "right",
+          "position": 2,
+          "label": "GND",
+          "netName": "GND",
+          "xMm": 7.62,
+          "zMm": -5.0799
+        },
+        {
+          "id": "jp3-5",
+          "headerReference": "JP3",
+          "padNumber": "5",
+          "side": "right",
+          "position": 3,
+          "label": "3V3",
+          "netName": "3.3V",
+          "xMm": 7.62,
+          "zMm": -2.5399
+        },
+        {
+          "id": "jp3-4",
+          "headerReference": "JP3",
+          "padNumber": "4",
+          "side": "right",
+          "position": 4,
+          "label": "MO",
+          "netName": "MOSI",
+          "xMm": 7.62,
+          "zMm": 0.0001
+        },
+        {
+          "id": "jp3-3",
+          "headerReference": "JP3",
+          "padNumber": "3",
+          "side": "right",
+          "position": 5,
+          "label": "MI",
+          "netName": "MISO",
+          "xMm": 7.62,
+          "zMm": 2.5401
+        },
+        {
+          "id": "jp3-2",
+          "headerReference": "JP3",
+          "padNumber": "2",
+          "side": "right",
+          "position": 6,
+          "label": "SCK",
+          "netName": "SCK",
+          "xMm": 7.62,
+          "zMm": 5.0801
+        },
+        {
+          "id": "jp3-1",
+          "headerReference": "JP3",
+          "padNumber": "1",
+          "side": "right",
+          "position": 7,
+          "label": "RX",
+          "netName": "RX",
+          "xMm": 7.62,
+          "zMm": 7.6201
+        }
+      ]
+    }
+  ]
+}

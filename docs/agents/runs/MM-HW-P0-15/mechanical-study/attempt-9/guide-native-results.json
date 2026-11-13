@@ -1,0 +1,55 @@
+{
+  "native_checks": [
+    {
+      "endpoint": "A",
+      "distance_mm": 0,
+      "lift_mm": 0.69,
+      "overlap_mm3": 0.0
+    },
+    {
+      "endpoint": "A",
+      "distance_mm": 0,
+      "lift_mm": 0.71,
+      "overlap_mm3": 0.005599999999999197
+    },
+    {
+      "endpoint": "A",
+      "distance_mm": 16.79,
+      "lift_mm": 16.2,
+      "overlap_mm3": 0.005600000000000858
+    },
+    {
+      "endpoint": "A",
+      "distance_mm": 16.81,
+      "lift_mm": 16.2,
+      "overlap_mm3": 0.0
+    },
+    {
+      "endpoint": "B",
+      "distance_mm": 0,
+      "lift_mm": 0.69,
+      "overlap_mm3": 0.0
+    },
+    {
+      "endpoint": "B",
+      "distance_mm": 0,
+      "lift_mm": 0.71,
+      "overlap_mm3": 0.007199999999997263
+    },
+    {
+      "endpoint": "B",
+      "distance_mm": 16.79,
+      "lift_mm": 16.2,
+      "overlap_mm3": 0.007200000000001115
+    },
+    {
+      "endpoint": "B",
+      "distance_mm": 16.81,
+      "lift_mm": 16.2,
+      "overlap_mm3": 0.0
+    }
+  ],
+  "seated_id": "ee409b64-eb16-5d07-95e2-1601913900e6",
+  "parked_id": "c2377b99-886a-5c2f-85f3-a20aeead4b8b",
+  "scope": "Reference guides and cassette stops. Frame anchoring and connector are not modeled."
+}

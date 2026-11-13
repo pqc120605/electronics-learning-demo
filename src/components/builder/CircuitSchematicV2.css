@@ -1,0 +1,45 @@
+.circuit-schematic-v2{min-width:0;border:1px solid #d7c6a8;border-radius:14px;background:#fffaf0;color:#1b2a44;overflow:hidden}
+.circuit-schematic-v2>header{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:12px 16px;border-bottom:1px solid #e5d8c3}
+.circuit-schematic-v2>header div{display:grid;gap:4px}
+.circuit-schematic-v2>header small,.circuit-schematic-v2>header span{color:#526176;font-size:.78rem;max-width:55ch}
+.circuit-schematic-scroll{max-width:100%;overflow:auto;padding:12px;background:#e9e4d9}
+.circuit-schematic-svg{display:block;width:100%;min-width:780px;max-height:72vh}
+.schematic-sheet{fill:#fffdf7;stroke:#7c8790;stroke-width:2}
+.schematic-sheet-dots{fill:url(#schematic-minor-grid);pointer-events:none}
+.schematic-sheet-grid{fill:url(#schematic-major-grid);opacity:.36;pointer-events:none}
+.schematic-sheet-frame{fill:none;stroke:#7d8990;stroke-width:1.5;pointer-events:none}
+.schematic-title-block rect{fill:#fffdf7;stroke:#51616a;stroke-width:1.5}
+.schematic-title-block path{fill:none;stroke:#87939a;stroke-width:1}
+.schematic-title-block text{fill:#263b49;stroke:none;font:600 12px ui-monospace,monospace}
+.circuit-net-line,.circuit-net-bridges{color:#19777a}
+.circuit-net-line path,.circuit-net-bridges path{fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.circuit-net-line>path{cursor:pointer;pointer-events:stroke}
+.circuit-net-line.net-selected,.circuit-net-bridges.bridge-selected{color:#a15b00}
+.circuit-net-line.net-active,.circuit-net-bridges.bridge-active{color:#a34419}
+.circuit-net-line.net-selected>path,.circuit-net-line.net-active>path,.bridge-selected .schematic-crossing-bridge,.bridge-active .schematic-crossing-bridge{stroke-width:4}
+.circuit-schematic-v2 .circuit-net-bridges .schematic-crossing-gap{stroke:#fffaf0;stroke-width:9;stroke-linecap:butt}
+.circuit-schematic-v2 .circuit-net-bridges[data-lesson-net-selected] .schematic-crossing-bridge{stroke:var(--lab-teal,#19777a);stroke-width:6}
+.circuit-net-bridges{pointer-events:none}
+.schematic-junction{fill:currentColor;stroke:#fffaf0;stroke-width:1}
+.schematic-net-reference,.schematic-role-marker text{fill:currentColor;stroke:none;font:600 12px system-ui,sans-serif}
+.circuit-symbol{fill:#fffaf0;stroke:#172f4d;stroke-width:2.4;stroke-linejoin:round}
+.circuit-symbol-board rect,.circuit-symbol-unsupported rect{fill:#eef5ef}
+.circuit-symbol text{fill:#172f4d;stroke:none;text-anchor:middle;font:600 13px system-ui,sans-serif}
+.schematic-terminal circle{fill:#fffaf0;stroke:#19777a;stroke-width:2}
+.schematic-terminal path{fill:none;stroke:#172f4d;stroke-width:2}
+.schematic-terminal text{fill:#263b58;stroke:none;font:12px system-ui,sans-serif}
+.schematic-part-v2{cursor:pointer}
+.schematic-part-v2.part-selected .circuit-symbol{stroke:#a15b00;stroke-width:4}
+.circuit-schematic-v2 :is(button,summary,[tabindex]):focus-visible{outline:3px solid #195bc4;outline-offset:4px}
+.circuit-net-line>path:focus-visible{stroke:#195bc4;stroke-width:6;outline:none}
+.circuit-schematic-net-list{padding:10px 16px;font-size:.85rem}
+.circuit-schematic-net-list summary{cursor:pointer}
+.circuit-schematic-net-list p{color:#526176;max-width:65ch}
+.circuit-schematic-net-list ol{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px;padding:0;list-style:none}
+.circuit-schematic-net-list li{min-width:0}
+.circuit-schematic-net-list button{width:100%;min-height:44px;display:grid;gap:4px;text-align:left;background:#fff;border:1px solid #dfd0b7;border-radius:8px;padding:10px;color:inherit;overflow-wrap:anywhere}
+.circuit-schematic-net-list small,.circuit-schematic-net-list button span{color:#526176}
+.schematic-net-holes{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.schematic-net-holes span{padding:2px 4px;border:1px solid #dfd0b7;border-radius:3px;font-size:.75rem;overflow-wrap:anywhere}
+.schematic-diagnostic{margin:8px 16px;color:#804513;font-size:.85rem;overflow-wrap:anywhere}
+@media(max-width:600px){.circuit-schematic-v2>header{align-items:flex-start;flex-direction:column;gap:6px}.circuit-schematic-scroll{padding:6px}.circuit-schematic-svg{max-height:none}.circuit-schematic-net-list ol{grid-template-columns:1fr}}

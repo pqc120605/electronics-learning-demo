@@ -1,0 +1,64 @@
+{
+  "units": "mm",
+  "footprintReference": "J0",
+  "pitchMm": 2.54,
+  "importer": "KiCad PCB Editor CLI 10.0.7 · pcb import (Cadence Allegro .brd)",
+  "sources": {
+    "raspberry-pi-pico": {
+      "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+      "sha256": "C9C6D1E95409B68B77501093EF42EA266D7F30025F907E4A962167E088BEDEBD"
+    },
+    "raspberry-pi-pico-w": {
+      "file": "assets/boards/vendor/raspberry-pi/official-allegro/rpi-picow-r3-2.brd",
+      "sha256": "574C6112A3418DFF77717F87E62839F5205CF9FD1899350F4CE16610DEE731A5"
+    }
+  },
+  "variants": {
+    "raspberry-pi-pico": { "xOffsetMm": 0, "zOffsetMm": 0, "cadOffsetXmm": 0, "cadOffsetZmm": 0, "boardTopMm": 0.5, "anchorBasis": "Direct J0 through-hole pad centers from Pico R3 Allegro board; STEP axis alignment checked against board outline and USB edge." },
+    "raspberry-pi-pico-w": { "xOffsetMm": 0, "zOffsetMm": 0, "cadOffsetXmm": 0.0001, "cadOffsetZmm": 0.0001, "boardTopMm": 0.01, "anchorBasis": "Direct J0 through-hole pad centers from Pico W R3 Allegro board; its imported J0 is offset +0.0001 mm from Pico R3. STEP axis alignment checked against board outline and USB edge." },
+    "raspberry-pi-pico-2": { "xOffsetMm": 10.5, "zOffsetMm": -25.5, "cadOffsetXmm": 0, "cadOffsetZmm": 0, "boardTopMm": 0.96, "anchorBasis": "Physical header layout shared with Pico R3 per Raspberry Pi documentation; transformed to the Pico 2 STEP axes and centered model origin. No Pico 2-specific Allegro board was present in the local source set." },
+    "raspberry-pi-pico-2-h": { "xOffsetMm": 10.5, "zOffsetMm": -25.5, "cadOffsetXmm": 0, "cadOffsetZmm": 0, "boardTopMm": 3.59, "anchorBasis": "Physical header layout shared with Pico R3 per Raspberry Pi documentation; transformed to the Pico 2 H STEP axes and centered model origin. No Pico 2 H-specific Allegro board was present in the local source set." }
+  },
+  "pads": [
+    { "number": 1, "net": "GPIO0", "xMm": 1.61, "yMm": -49.63 },
+    { "number": 2, "net": "GPIO1", "xMm": 1.61, "yMm": -47.09 },
+    { "number": 3, "net": "GND", "xMm": 1.61, "yMm": -44.55 },
+    { "number": 4, "net": "GPIO2", "xMm": 1.61, "yMm": -42.01 },
+    { "number": 5, "net": "GPIO3", "xMm": 1.61, "yMm": -39.47 },
+    { "number": 6, "net": "GPIO4", "xMm": 1.61, "yMm": -36.93 },
+    { "number": 7, "net": "GPIO5", "xMm": 1.61, "yMm": -34.39 },
+    { "number": 8, "net": "GND", "xMm": 1.61, "yMm": -31.85 },
+    { "number": 9, "net": "GPIO6", "xMm": 1.61, "yMm": -29.31 },
+    { "number": 10, "net": "GPIO7", "xMm": 1.61, "yMm": -26.77 },
+    { "number": 11, "net": "GPIO8", "xMm": 1.61, "yMm": -24.23 },
+    { "number": 12, "net": "GPIO9", "xMm": 1.61, "yMm": -21.69 },
+    { "number": 13, "net": "GND", "xMm": 1.61, "yMm": -19.15 },
+    { "number": 14, "net": "GPIO10", "xMm": 1.61, "yMm": -16.61 },
+    { "number": 15, "net": "GPIO11", "xMm": 1.61, "yMm": -14.07 },
+    { "number": 16, "net": "GPIO12", "xMm": 1.61, "yMm": -11.53 },
+    { "number": 17, "net": "GPIO13", "xMm": 1.61, "yMm": -8.99 },
+    { "number": 18, "net": "GND", "xMm": 1.61, "yMm": -6.45 },
+    { "number": 19, "net": "GPIO14", "xMm": 1.61, "yMm": -3.91 },
+    { "number": 20, "net": "GPIO15", "xMm": 1.61, "yMm": -1.37 },
+    { "number": 21, "net": "GPIO16", "xMm": 19.39, "yMm": -1.37 },
+    { "number": 22, "net": "GPIO17", "xMm": 19.39, "yMm": -3.91 },
+    { "number": 23, "net": "GND", "xMm": 19.39, "yMm": -6.45 },
+    { "number": 24, "net": "GPIO18", "xMm": 19.39, "yMm": -8.99 },
+    { "number": 25, "net": "GPIO19", "xMm": 19.39, "yMm": -11.53 },
+    { "number": 26, "net": "GPIO20", "xMm": 19.39, "yMm": -14.07 },
+    { "number": 27, "net": "GPIO21", "xMm": 19.39, "yMm": -16.61 },
+    { "number": 28, "net": "GND", "xMm": 19.39, "yMm": -19.15 },
+    { "number": 29, "net": "GPIO22", "xMm": 19.39, "yMm": -21.69 },
+    { "number": 30, "net": "RUN", "xMm": 19.39, "yMm": -24.23 },
+    { "number": 31, "net": "GPIO26_ADC0", "xMm": 19.39, "yMm": -26.77 },
+    { "number": 32, "net": "GPIO27_ADC1", "xMm": 19.39, "yMm": -29.31 },
+    { "number": 33, "net": "GND", "xMm": 19.39, "yMm": -31.85 },
+    { "number": 34, "net": "GPIO28_ADC2", "xMm": 19.39, "yMm": -34.39 },
+    { "number": 35, "net": "ADC_VREF", "xMm": 19.39, "yMm": -36.93 },
+    { "number": 36, "net": "3V3", "xMm": 19.39, "yMm": -39.47 },
+    { "number": 37, "net": "3V3_EN", "xMm": 19.39, "yMm": -42.01 },
+    { "number": 38, "net": "GND", "xMm": 19.39, "yMm": -44.55 },
+    { "number": 39, "net": "VSYS", "xMm": 19.39, "yMm": -47.09 },
+    { "number": 40, "net": "VBUS", "xMm": 19.39, "yMm": -49.63 }
+  ]
+}

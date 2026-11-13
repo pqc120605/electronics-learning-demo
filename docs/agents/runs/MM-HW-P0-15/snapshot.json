@@ -1,0 +1,196 @@
+{
+  "kind": "file-hashes",
+  "meaning": "P0-15 checkpoint, not completion or hardware approval",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/BOX01-SCOPE-AUDIT.md",
+      "sha256": "764d9fe5965696f1766faaecd1aabd8cc1c2db1997f2cb3629c65f50c9e9ed3d",
+      "bytes": 6476
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/BOX02-LOCAL-DISCONNECT-REFINEMENT.md",
+      "sha256": "b4141c084d9977070fcafb9aedfc7c92251e5fb575ea3d93835edc18bfb8ba59",
+      "bytes": 5319
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/BOX02-RESULT.md",
+      "sha256": "06121eddd3b7aae8964a07bd88c877c62d38723f836797d46db179d8609c9e2f",
+      "bytes": 8106
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/BOX03-CORRIDOR-REFINEMENT.md",
+      "sha256": "4dfa096b710d573962b4d629e99b143f6d9a753c519fb30cd3aad0733e0e0910",
+      "bytes": 6965
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/BOX03-RESULT.md",
+      "sha256": "5573c3c95093840aef059d0be1014fd5f077d04d901ff0ab7facd6f4a6853016",
+      "bytes": 12730
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/BOX08-REVIEW.md",
+      "sha256": "0bc8c3997ea1284e4e41ca1c0b6d1eb68e4a1656e4d50848f9da81c436a74ab0",
+      "bytes": 5428
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/budget-screening.md",
+      "sha256": "8961b692733c19970643883423a94ccb732245763242f524d494fa50c2186dad",
+      "bytes": 3883
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/checks.json",
+      "sha256": "0d03442bf211fe91fd04dcbacaeab46aebf4bdb38fc4db130dad936fbcdb3bc1",
+      "bytes": 1432
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/checks.py",
+      "sha256": "d6aeebecb3f85903ef9f12fe785c87fa8e5c4bd7f3fbcf2e6830e15718c3db43",
+      "bytes": 2775
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/final-checks.json",
+      "sha256": "b0902e0a10a82759c6595ac38e812c3f1f3f3c9bf351f5405705211174fffc4f",
+      "bytes": 393
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study-proposal.json",
+      "sha256": "edeae78f366624d1cfadd051787ffad9e11703cc97e409e06dc615a4d99e3b28",
+      "bytes": 4056
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/pin-cost-sources.py",
+      "sha256": "a7afe90ce6583847c62ae7c84d1dee1cc8dd4d4e5c3e78e63996121017538818",
+      "bytes": 1771
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/pin-design-sources.py",
+      "sha256": "dbc856cba0d3df9a64029126a2d2d7cb92d6dc0a62d3e7b6751fb11916a115f4",
+      "bytes": 1887
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/queue-before-review.json",
+      "sha256": "d634396227f0c04e8330dd587b2b114804ba7ab0a398bb80545689eee2dcf44e",
+      "bytes": 405326
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/queue-before-waiting.json",
+      "sha256": "6af2372c89228205c5793ac5c864c1559bd9f566a046ac873680a0dc80929d7e",
+      "bytes": 405901
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/queue-before.json",
+      "sha256": "9602a9afb43bf71646a17f1138fccdd4ccad827354aa0ac00d3aea958aba208e",
+      "bytes": 404815
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/queue-final-result.json",
+      "sha256": "50ab2ae31c4e26a2fad7f94f34c4e2c4244d9d4f1e910e67af0fb0f90b1466d0",
+      "bytes": 268
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/REPORT.md",
+      "sha256": "1f97e1c8dceb5eb6a2863d27420618a76410ca34e2d12d642afbdd264769872b",
+      "bytes": 6583
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/review-request.json",
+      "sha256": "436e153e928595a74b07f783044d48bbaa4a0e40d6f312450caa4d0b7354da29",
+      "bytes": 2312
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/review-state.py",
+      "sha256": "0916b25ba7b88151331a1f54153185e5fdeb017c6549c5f5946174a984288d42",
+      "bytes": 1218
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/source-pages/ablic-s1009-p9.png",
+      "sha256": "89a44459a7e607d36e3fb9fa2890213e08192540e6349026dfe024999ed3cd0f",
+      "bytes": 118942
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/source-pages/bq-cc17-p1.png",
+      "sha256": "82e3b2fbadb30e1c96dd24f766b948132fce2ee5437f8b5e5141d6836998ecd2",
+      "bytes": 156364
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/source-pages/usb-r20-p46-plug.png",
+      "sha256": "97f476b89ef674a91785091af3f7815557fc1071da65d6262c4b026e20a0de26",
+      "bytes": 85496
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/start-task.py",
+      "sha256": "f75d5fa13b9e2aea3ecc6671f7271e45ebee12348eb3cc93aa9a99ce442d27f9",
+      "bytes": 1577
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/task.md",
+      "sha256": "1e04c6b2a607c3d4ed5af505334737cf36932da68fcc0bcf0567d9219d02a6a6",
+      "bytes": 3516
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/wait-study-permission.py",
+      "sha256": "b9b9eac0a24f17faeca5c6f35c2fb10056a6bb1912a22da7d6bbd5966c052cbd",
+      "bytes": 2802
+    },
+    {
+      "path": "docs/hardware/mobot-v2-p0-15-aa-design-closure.md",
+      "sha256": "695887156db5a053a769455cc35c600e13b813b61d675d662f89254deaf26934",
+      "bytes": 13254
+    },
+    {
+      "path": "docs/research/downloads/p0-15/ablic-s1009.pdf",
+      "sha256": "23b02c10fd1342807efb735e1db0569dfb818dac1074c769504ad37bae13c3b1",
+      "bytes": 669311
+    },
+    {
+      "path": "docs/research/downloads/p0-15/cost-sources.json",
+      "sha256": "5abc047b6f1a686edd2ef2e32edbfb319fcc3a71f5f4053065b21983871f8368",
+      "bytes": 1405
+    },
+    {
+      "path": "docs/research/downloads/p0-15/design-sources.json",
+      "sha256": "31e3946069a6c5113cad8f30e1beb7ba8c529e0075fc055f5f0e48f2d508f058",
+      "bytes": 2625
+    },
+    {
+      "path": "docs/research/downloads/p0-15/liitokala-lii-s1-reference.html",
+      "sha256": "7481a62f93da928104d74175f4f8e95a2438fe15e425fdde8aa8b8ef18bd3808",
+      "bytes": 44365
+    },
+    {
+      "path": "docs/research/downloads/p0-15/panasonic-bq-cc17-instructions-20250319.pdf",
+      "sha256": "0e97b35902e04bc666a2534df92071d771328a482f23781c7489279e27f5c306",
+      "bytes": 1264042
+    },
+    {
+      "path": "docs/research/downloads/p0-15/samtec-sfm-drawing.pdf",
+      "sha256": "b1e50a8c459289623b5991007ef65319fc21146099f6b13645f427e298e35ffe",
+      "bytes": 564151
+    },
+    {
+      "path": "docs/research/downloads/p0-15/samtec-sfm-tfm-productspec.pdf",
+      "sha256": "5a37d9c4a1fe511011e24fb16190dedd1d4cd73e39377846aa477f1c3705ae84",
+      "bytes": 660065
+    },
+    {
+      "path": "docs/research/downloads/p0-15/samtec-xfm-mated.pdf",
+      "sha256": "3223a80cec477ee5531b86674ec3145e7637ec4adb5f53c89d59e89b1263005e",
+      "bytes": 908562
+    },
+    {
+      "path": "docs/research/downloads/p0-15/slab-bq-cc17-listing-20261110.html",
+      "sha256": "8af1ee55a2f2db2c669601926e1ffa769a5dd51d287a5ecc6078526e48cc464d",
+      "bytes": 77962
+    },
+    {
+      "path": "docs/research/downloads/p0-15/ti-lm66100.pdf",
+      "sha256": "83c17370a97b85ecebe20605da0b955d4ff6f9a474e9692b611a6685d7ad0f00",
+      "bytes": 2105188
+    },
+    {
+      "path": "docs/research/downloads/p0-15/usb-typec-r20-reference.pdf",
+      "sha256": "87d15160bf8bd25129b27e0b7c5e261ed0b1806b3b0d3a7b5d8b1eb783dc9981",
+      "bytes": 10980886
+    }
+  ]
+}

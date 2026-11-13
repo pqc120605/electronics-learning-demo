@@ -1,0 +1,37 @@
+[
+  {
+    "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/calculate.py",
+    "matches": true,
+    "sha256": "364e619b54957c7591a41d0a2b30da33e991a848a08fa7c6cd93a39e826618b1"
+  },
+  {
+    "path": "electronics-learning-demo/docs/agents/runs/MM-HW-P0-12/calculations.json",
+    "matches": true,
+    "sha256": "48832ffcaee5743c77d470aa7b18177ff724a830473f7636c8c16998ff232b9c"
+  },
+  {
+    "path": "electronics-learning-demo/docs/hardware/mobot-v2-p0-12-gpio-constraints.md",
+    "matches": true,
+    "sha256": "5a8890f5ec335cbeb4c6a95a8ab450cc7b338a1727d5eb9b331a619ddd98e9e2"
+  },
+  {
+    "path": "electronics-learning-demo/docs/hardware/mobot-v2-p0-12-h3-candidate-verdict.md",
+    "matches": true,
+    "sha256": "7f7a72d4d48a8452290d29d64f74a38f4bd7fc4300ebaf163c250e5baeaa62bb"
+  },
+  {
+    "path": "electronics-learning-demo/docs/hardware/mobot-v2-p0-12-mode-power-budget.md",
+    "matches": true,
+    "sha256": "0d598a5fd2a978242ca1a109e98eedf37281b37722d4f54bbfadeddf2a6ed7f8"
+  },
+  {
+    "path": "electronics-learning-demo/docs/hardware/mobot-v2-p0-12-preflight-disposition.md",
+    "matches": true,
+    "sha256": "b1143c00a08211bcd0023fbb53a1881fbd2ca810aa3b9ba5984b624ade46c9bf"
+  },
+  {
+    "path": "electronics-learning-demo/docs/mission-control/hardware-config-mobot-v2-typec-r12-handset.json",
+    "matches": true,
+    "sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b"
+  }
+]

@@ -1,0 +1,53 @@
+# Ma trận độ sâu — web app Mạch Mở (2026-11-06)
+
+**Thang dùng:** feature-depth-register đã có thang D0–D4 (`docs/product/2026-11-05-mach-mo-feature-depth-register.md` §1), nên dùng thang đó thay cho L0–L4. D3 ≈ "L3 ngang tham khảo" (workflow hoàn chỉnh: tạo/sửa → kiểm/chạy → hiểu kết quả/lỗi → lưu/xuất/mở lại, có bằng chứng đúng context). D0 tra cứu · D1 kịch bản cố định · D2 đổi đầu vào trong phạm vi · D3 workflow hoàn chỉnh · D4 automation/đa target/vận hành nhóm.
+
+**Quy tắc áp dụng:** mức Mạch Mở chỉ lấy từ code/test/e2e đọc hoặc chạy trong phiên này; dòng không có bằng chứng bị hạ xuống D1. Nguồn tham khảo chỉ lấy P-ID có nhãn D (đã đọc tài liệu chính thức) làm chuẩn D3. Không dùng làm chuẩn D3: **P03** (nhãn A — Advanced "Coming soon"), **P08** (I), **P10** (U — chức năng chưa xác nhận). Không sao chép UI/asset, chỉ tham khảo năng lực.
+
+## 1. Bảng chính
+
+| Năng lực | Nguồn P-ID | Mức tham khảo | Mức Mạch Mở | Bằng chứng (file:line / test / ảnh) | Gap | Cần mạng? |
+|---|---|---|---|---|---|---|
+| **Mô phỏng mạch / SPICE** (SIM-02, SIM-05) | P09, P15, P16, P04 (D); P03ᴬ chỉ tham khảo hướng | D3: tạo/sửa mạch → chạy analysis → đọc plot/cursor → đổi tham số live → lưu/chia sẻ | **D2** | `simulation/spiceNetlist.ts:77,145-169,207` kiểm `.op/.tran/.ac/.dc`, tối đa 20 000 điểm; `pages/SpiceWorkbenchPage.tsx:64` xuất CSV, `:423` nêu giới hạn; `simulation/spice.worker.ts:63`; `lib/calculatorSpice.ts:57-103` 5 bộ tính → netlist; `lib/workspaceSpice.ts:282` workspace chỉ `.op`; e2e `journeys.spec.mjs:68` RC + export pass; ảnh `screenshots/app_tools_spice.png` | Không có tham số live/sweep UI, không cursor/đo; workspace→SPICE chỉ `.op` và chỉ mạch analog thuần; netlist không lưu/mở lại; gate WASM chưa cleared | Không (WASM nội bộ ~6,1 MB); **phát hành bị chặn** |
+| **Firmware / AVR / ESP32** (FW-07..11) | P05, P22, P24, P25 (D); P23 (D/I) | D3: viết/compile → chạy/debug → serial → lưu; nhiều target | **D2** (AVR) · **D0–D1** (ESP32) | `lib/avr8jsRunner.ts:39-40` lõi ATmega328P duy nhất; `workers/avr8js.worker.ts`; `pages/FirmwareHexToolPage.tsx:58` HEX ≤2 MB; `lib/arduinoSketchExport.ts` (77 dòng, xuất `.ino`); e2e `journeys.spec.mjs:52` D13 transitions pass; `data/boardCapabilityRegistry.ts:100-107` chân/ghi chú theo board | Không có compile bridge/ELF/debug; ESP32 là board học chính nhưng chưa có runtime (chỉ scenario/subset); không đa file; không flash/serial thiết bị thật | Không (cục bộ) |
+| **Board 3D / pinout** (CAT-01..05, EXP-02/04) | P01, P05, P17 (D); P10 (U — không dùng làm chuẩn) | D3: chọn board/revision → pin planner/ràng buộc chức năng → nguồn đúng revision cạnh workspace | **D2** | 15 scene audit (`npm run audit:board-models` theo status, chưa chạy lại); `components/board/BoardViewer.tsx:236`; `components/board/BoardPinoutExplorer.tsx`; `data/boardCapabilityRegistry.ts:100-107` nhãn evidence từng board; e2e `journeys.spec.mjs:40` XIAO S3 viewer; ảnh `screenshots/app_boards.png` | Chưa có pin planner/xung đột chức năng nối với workspace; fallback khi WebGL lỗi chưa kiểm chứng; một số board pin picking tắt; register đánh CAT-01 = D0 (evidence theo revision) | Không |
+| **Lộ trình học / bài / quiz** (LRN-01..10, EXP-03) | P01, P02, P11, P13, P14 (D); P08 (I — không chuẩn) | D3: outcome graph, hoạt động có rubric, debug mission, tiến độ + resume theo evidence | **D2** | `data/builderLessons.ts:27-87` 11 bài; `data/learningPath.ts:63` `getLearningResume`, `:26` prerequisite; `components/builder/{InputOutputChallenge,SevenSegmentChallenge,ScenarioPredictionChallenge}.tsx`; `lib/learningProgress.ts:121` `recordLessonSimulationStarted` (≤30 lượt, localStorage); e2e `journeys.spec.mjs:4` curriculum→lesson pass | Không rubric/assessment attempt (K-EVID), không campaign constraint/live criteria, không debug mission, chưa có blocks→text bridge thực sự đo; progress không phải mastery | Không |
+| **Instruments / scope** (OBS-01..10) | P04, P05, P15, P16 (D); P03ᴬ chỉ tham khảo | D3: scope/trigger/cursor, multimeter, serial plotter, protocol decode, lưu trace | **D1** | `components/builder/SimulationInstrumentsPanel.tsx:52-53,77` ba tab (trace logic, Serial Monitor, waveform SPICE) và đường polyline SVG; `components/builder/DigitalWaveform.tsx`; `pages/FirmwareHexToolPage.tsx` CSV trace D13; `lib/logicTrace.ts` là nhãn giáo dục, không đo thật | Chỉ kênh D13/PB5, tối đa 128 chuyển mức; waveform SPICE chỉ vẽ, không cursor/đo/trigger/FFT; không multimeter, protocol decode, serial hai chiều/plotter | Không |
+| **Project / kit / BOM** (PRJ-01..05, KIT-01/02) | P06, P07, P17, P19, P21 (D) | D3: identity ổn định, import/export có ngữ nghĩa, BOM biến thể + tồn kho + thay thế | **D2** (project) · **D1** (BOM) | `lib/savedProjects.ts:96` giới hạn 30 project; `lib/projectLimits.ts:2` import ≤5 MB; `lib/projectBundle.ts` (73 dòng); `lib/classroomKit.ts:37,117` `getKitInventory` + CSV; e2e `journeys.spec.mjs:78,106` pass, **`:134` library identity round trip FAIL** (baseline-checks.md §2); `docs/product/…final-contracts.md` §5 | BOM không có variant identity (không tìm thấy trường variant trong `classroomKit.ts`; contract §5 yêu cầu); không sourcing/giá/thay thế (P21); e2e library identity đỏ; codec decode/normalize chưa theo contract §1 | Không |
+| **Chia sẻ / lớp học** (CLS-01..10, PRJ-07..09) | P06, P11, P13, P14 (D); P15/P16 (share) | D3: giáo viên phát gói, học sinh nộp, rubric review, tiến độ lớp | **D1** | `lib/classroomKit.ts:137` `serializeClassroomKitSharePack`, `:181` `parseClassroomKitImport`; `pages/ClassroomKitPage.tsx` (246 dòng, lưu `localStorage`); migration `supabase/migrations/0001…` chỉ analytics/admin; ảnh `screenshots/app_classroom-kits.png` | Không tài khoản/lớp/giao bài/nộp bài/gallery; share pack thủ công; riêng tư vs công khai chưa có. Với ràng buộc local-first: phần lớp học nên là gói offline (tệp) trước | Không (hiện tại); tính năng cloud tùy chọn sau |
+| **AI hỗ trợ** (OPS-06, OPS-07, EXP-05) | P04 (ProTutor), P07 (D, tuyên bố nhà cung cấp, chưa chạy) | D3: trợ giúp theo schematic/code/quan sát, giữ context, nêu nguồn | **D0** (AI) · **D1** (hướng dẫn quy tắc) | grep `tutor\|trợ lý\|chatbot\|openai\|anthropic` trong `src/` chỉ khớp `data/componentReferences.ts` và `data/seeedXiaoEsp32C3BoardModel.ts` (nội dung, không phải tính năng); hướng dẫn theo luật: `lib/builderGuidance.ts:51`, `lib/circuitValidation.ts`, `components/builder/BuilderGuidancePanel.tsx` | Không có trợ lý ngữ cảnh; hiệu quả giáo dục của AI chưa kiểm chứng (reference-coverage §3); AI đám mây vi phạm local-first nếu bắt buộc → cần quyết định founder | AI đám mây: **có**; hướng dẫn luật: không |
+| **Schematic / PCB** (EDA-01..10, WRK-06/07) | P17, P18, P19, P20 (D) | D3: sửa schematic, ERC giải thích, PCB cơ bản, xuất netlist/BOM; cross-probe | **D1** (sửa) · **D2** (xem/nhập) | `components/builder/SchematicView.tsx:107-118` sơ đồ sinh từ topology workspace (kéo thả, danh sách net, tô sáng); `components/pcb/Pcb2DViewer.tsx:37,178` viewer đồng chỉ đọc (pad/track/via, aria-label); `lib/kicadSpiceImport.ts` (493 dòng) nhập Eeschema XML + IPC-D-356; test `tests/kicad-spice-import.test.mjs` | Không editor schematic độc lập, không ERC, không footprint/PCB authoring (H→I/R theo register), cross-probe schematic↔PCB↔3D chưa có; pin SVG `<span onClick>` chưa thao tác bàn phím (`SchematicView.tsx:114`, review-webapp M2) | Không |
+
+## 2. Tỷ lệ năng lực đạt D3 theo nhóm
+
+Tính theo bảng chính (một nhóm = một năng lực) và theo register (số hàng nhóm đó đạt D3, chỉ tính hàng đã có đánh giá D trong register; "unassessed" không tính là D3).
+
+| Nhóm | Nhóm đạt D3 | Hàng register đạt D3 / tổng hàng nhóm | Mức hiện tại |
+|---|---|---|---|
+| Mô phỏng mạch/SPICE | 0% | 0/10 (SIM-02 = D2, SIM-01 = D2, 8 chưa đánh giá) | D2 |
+| Firmware/AVR/ESP32 | 0% | 0/11 (FW-07 = D2) | D2/D1 |
+| Board 3D/pinout | 0% | 0/10 (CAT-01 = D0, CAT-03/04 = D1) | D2 |
+| Lộ trình/bài/quiz | 0% | 0/10 (LRN-04 = D2, LRN-01/02/09 = D1) | D2 |
+| Instruments/scope | 0% | 0/10 (OBS-01/02 = D1) | D1 |
+| Project/kit/BOM | 0% | 0/12 (PRJ-01..04, KIT-01/02 = D1) | D2/D1 |
+| Chia sẻ/lớp học | 0% | 0/10 (toàn bộ chưa đánh giá/D0–D1) | D1 |
+| AI hỗ trợ | 0% | 0/2 (OPS-06/07 chưa đánh giá) | D0 |
+| Schematic/PCB | 0% | 0/10 (toàn bộ chưa đánh giá/H) | D1 |
+| **Tổng** | **0/9 nhóm** | **0 trong ~85 hàng được xét** | — |
+
+Số liệu register là baseline 04/11 và chưa được chạy lại (register §1: "source-inspected, not fresh runtime verification"). Phiên này xác nhận bằng chạy thật: typecheck, 367 test, 25/28 e2e (3 fail), 16 route không host ngoài.
+
+## 3. Phản biện các mức D2/D3 đã gán (doubt-driven, cuối bước 2)
+
+Không spawn được subagent (ràng buộc phiên) nên đây là tự phản bác, không phải reviewer độc lập; cross-model không dùng (không có ủy quyền gọi CLI ngoài). Mỗi dòng: lập luận hạ mức hay giữ.
+
+- **SPICE = D2, không phải D3.** Phản bác "D3 vì có lưu/xuất": xuất chỉ là CSV; netlist không mở lại từ lưu trữ, không đổi tham số live. Giữ D2. Phản bác ngược "chỉ D1 vì ví dụ cố định": người dùng sửa netlist tự do và chạy `.op/.tran/.ac/.dc` (`SpiceWorkbenchPage.tsx:423`). Giữ D2.
+- **Firmware AVR = D2.** "Đổi HEX và target, chạy, xem trace" — đúng D2; thiếu compile/debug/đa file nên không D3. ESP32 hạ **D0–D1** vì không có runtime; tuyên bố "ESP32 là board chính" lấy từ `CLAUDE.md`/contracts, không từ runtime.
+- **Board 3D = D2, có thể bị coi D3.** Phản bác: có chọn pin, nguồn/giấy phép, 15 scene audit → nhưng register tự đánh CAT-01 = D0 và pin picking tắt ở một số board; fallback WebGL chưa kiểm chứng → giữ D2.
+- **Học = D2.** 11 bài + resume + 3 loại thử thách có phản hồi từ provider; thiếu rubric/assessment → không D3. Không hạ D1 vì LRN-04 (experiments) đạt D2 theo register và e2e `:4` pass.
+- **Instruments = D1.** Phản bác "D2 vì có 3 tab": nhưng kênh duy nhất D13, không đo/cursor; D1 là mức đúng.
+- **BOM = D1 dù project D2.** Contract §5 nêu thiếu variant identity; chưa chạy kiểm thực nghiệm riêng BOM trong phiên này → hạ về D1 theo quy tắc "thiếu bằng chứng ⇒ thấp".
+- **Chia sẻ/lớp học = D1**, **AI = D0**, **Schematic/PCB = D1** (grep âm tính không chứng minh "không có"; ghi rõ là chưa tìm thấy).
+
+## 4. Kỹ năng đã nạp / thiếu
+Đã nạp: `caveman:investigate-first`, `my-skills:verification-before-completion`, `anthropic-skills:built-in-browser`, `agent-skills:code-review-and-quality`, `ecc:competitive-platform-analysis`, `agent-skills:source-driven-development`, `agent-skills:doubt-driven-development`, `agent-skills:planning-and-task-breakdown`. Không skill nào thiếu. Ghi chú: một số skill yêu cầu spawn subagent/ghi `tasks/plan.md`/bỏ qua hạn chế thư mục; `<constraints>` thắng nên không làm. Không bước fetch tài liệu framework nào được thực hiện (không thêm code); nguồn tham khảo chỉ là reference-coverage.

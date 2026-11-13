@@ -1,0 +1,41 @@
+{
+  "captured_on": "2026-11-05",
+  "scope": "src/**, public/**, package.json, package-lock.json, original AGENTS.md; no secrets",
+  "product_files": 355,
+  "product_digest": "48dc45d3f8b19d2955185500f6e61f9d2bda1d0c471f4c164c1fd32b8f49a85c",
+  "queue_sha256": "774e4e317ae96b5cfc639af59c390d12bdaaab448a3a380dd92621f2484d3280",
+  "profiles": {
+    "electronics_firmware_engineer.toml": {
+      "bytes": 2718,
+      "sha256": "264fdae21b4ede6d8b819c28516e837b01433eaec9c4af289d69ef27383db3a2"
+    },
+    "hardware_kit_designer.toml": {
+      "bytes": 2798,
+      "sha256": "2d863f1ae12627215aff824b05d85b417b1a258b4f225c444da3e0f52ebe142d"
+    },
+    "learning_experience_designer.toml": {
+      "bytes": 2728,
+      "sha256": "3f3bb2a1a05ae574030c3168c353b283cf6e3358ed0a68dbea51372567c5dddc"
+    },
+    "product_system_architect.toml": {
+      "bytes": 2758,
+      "sha256": "309d8a79d7e0944c12a6095973925093457aec5aa7f0565157c40b5c3bb4f401"
+    },
+    "qa_safety_reviewer.toml": {
+      "bytes": 2717,
+      "sha256": "851e207160837411bb92632063d04582ba5916b58514a4a975fdb23a6f7ed649"
+    },
+    "software_engineer.toml": {
+      "bytes": 2864,
+      "sha256": "bae724a8be8dce222b31e4928ab764769f16646f332f5bb93b5f36b6a91ab8df"
+    },
+    "tester.toml": {
+      "bytes": 2759,
+      "sha256": "24e19104d89c2aa4aad198bac5ebb1ac61d909feb91f6b98071b21873b068a96"
+    },
+    "ui_ux_designer.toml": {
+      "bytes": 2737,
+      "sha256": "678cbf6cdc1c6f855c27d416095d64e72d59efbace46222d053b793f516383d2"
+    }
+  }
+}

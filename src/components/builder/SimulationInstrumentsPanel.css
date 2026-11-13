@@ -1,0 +1,51 @@
+.simulation-instruments { display:grid; gap:12px; margin:16px 0; padding:16px; border:1px solid var(--line); border-radius:10px; background:var(--paper-bright); color:var(--ink); box-shadow:var(--shadow-soft); }
+.simulation-instruments-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+.simulation-instruments-heading p { margin:0 0 5px; color:var(--green-dark); font:700 10px/1.4 ui-monospace,monospace; letter-spacing:.1em; }
+.simulation-instruments-heading h3 { margin:0; color:var(--ink); font-family:'Bahnschrift SemiCondensed','Aptos Display','Arial Narrow',sans-serif; font-size:18px; }
+.simulation-status { display:inline-flex; align-items:center; min-height:28px; padding:4px 9px; border:1px solid var(--line-dark); border-radius:999px; color:var(--ink-soft); background:#fffaf0; font-size:11px; white-space:nowrap; }
+.simulation-status-running { border-color:#4b9a91; color:#226f6e; background:#eaf4ef; }
+.simulation-status-invalid,.simulation-status-failed,.simulation-status-timeout { border-color:#d6a27a; color:#8b4d2e; background:#fbede3; }
+.simulation-status-completed { border-color:#91b79b; color:#28745f; background:#edf3e8; }
+.simulation-instruments-summary,.simulation-instrument-source,.simulation-instrument-note { margin:0; color:var(--ink-soft); font-size:12px; line-height:1.55; }
+.simulation-runtime-picker { display:flex; gap:8px; flex-wrap:wrap; }
+.simulation-runtime-picker button,.simulation-instrument-tabs button,.simulation-firmware-run,.simulation-dismiss-spice { min-height:38px; padding:8px 12px; border:1px solid var(--line-dark); border-radius:6px; background:#fffaf0; color:var(--ink); font:inherit; cursor:pointer; }
+.simulation-runtime-picker button[aria-pressed="true"] { border-color:var(--green); background:#fae7dc; color:var(--green-dark); }
+.simulation-runtime-picker button:disabled,.simulation-instrument-tabs button:disabled { cursor:not-allowed; opacity:.58; }
+.simulation-instrument-tabs { display:flex; gap:6px; overflow:auto; border-bottom:1px solid var(--line); }
+.simulation-instrument-tabs button { flex:none; border-bottom-left-radius:0; border-bottom-right-radius:0; }
+.simulation-instrument-tabs button[aria-selected="true"] { border-color:var(--green); background:#fae7dc; color:var(--green-dark); }
+.simulation-instrument-tabs button:focus-visible,.simulation-runtime-picker button:focus-visible,.simulation-firmware-run:focus-visible,.simulation-dismiss-spice:focus-visible { outline:2px solid var(--focus-ring); outline-offset:2px; }
+.simulation-instrument-content { display:grid; gap:12px; min-width:0; padding:2px 0; }
+.simulation-instrument-content:focus { outline:none; }
+.simulation-trace-list { margin:0; padding-left:24px; color:var(--ink-soft); font-size:13px; line-height:1.7; }
+.simulation-logic-lines { border-top:1px solid var(--line); padding-top:10px; color:var(--ink-soft); font-size:12px; }
+.simulation-logic-lines summary,.simulation-instrument-content details summary { cursor:pointer; color:#147f91; }
+.simulation-logic-lines ul { display:grid; gap:7px; padding-left:20px; }
+.simulation-logic-lines li { display:flex; justify-content:space-between; gap:12px; }
+.simulation-logic-lines li span { color:var(--ink-faint); font-size:11px; }
+.simulation-firmware-file { display:grid; gap:6px; padding:11px; border:1px dashed var(--line-dark); border-radius:7px; color:var(--ink); background:#fffaf0; font-size:12px; }
+.simulation-firmware-file input { max-width:100%; color:var(--ink-soft); font-size:12px; }
+.simulation-firmware-filename,.simulation-firmware-confirm,.simulation-avr-state span,.simulation-avr-state small,.simulation-serial-monitor small { color:var(--ink-soft); font-size:11px; line-height:1.5; }
+.simulation-firmware-confirm { display:flex; align-items:flex-start; gap:8px; }
+.simulation-firmware-confirm input { margin-top:2px; accent-color:var(--green); }
+.simulation-firmware-run { justify-self:start; border-color:var(--green); color:#fffaf0; background:var(--green); }
+.simulation-firmware-run:hover:not(:disabled) { background:var(--green-dark); }
+.simulation-firmware-run:disabled { opacity:.5; cursor:not-allowed; }
+.simulation-instrument-error { margin:0; color:#8b382f; font-size:12px; }
+.simulation-avr-state,.simulation-serial-monitor { display:grid; gap:6px; padding:12px; border:1px solid var(--line); border-radius:7px; background:#f2e8d6; }
+.simulation-avr-state strong,.simulation-serial-monitor h4 { margin:0; color:var(--ink); font-size:13px; }
+.simulation-serial-monitor pre { max-height:220px; overflow:auto; margin:0; padding:10px; border:1px solid var(--line); border-radius:5px; background:#fffaf0; color:var(--ink); white-space:pre-wrap; overflow-wrap:anywhere; font:12px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace; }
+.simulation-spice-plot { margin:0; padding:12px; border:1px solid var(--line); border-radius:7px; background:#fffaf0; }
+.simulation-spice-plot figcaption { margin-bottom:8px; color:var(--ink); font-size:12px; font-weight:700; }
+.simulation-spice-plot svg { display:block; width:100%; height:auto; }
+.simulation-spice-plot line { stroke:#d7cbb6; stroke-width:1; }
+.simulation-spice-plot path { fill:none; stroke:#d94236; stroke-width:2; }
+.simulation-spice-plot small { display:block; margin-top:7px; color:var(--ink-soft); font-size:10px; overflow-wrap:anywhere; }
+.waveform-cursor { stroke:#147f91; stroke-width:1.5; stroke-dasharray:4 3; vector-effect:non-scaling-stroke; }
+.waveform-cursor-controls { display:grid; grid-template-columns:repeat(2,minmax(120px,1fr)); gap:6px 14px; color:var(--ink-soft); font-size:10px; }
+.waveform-cursor-controls label { display:grid; gap:3px; }
+.waveform-cursor-controls input { width:100%; accent-color:#147f91; }
+.waveform-cursor-controls input:focus-visible { outline:2px solid var(--focus-ring); outline-offset:2px; }
+.waveform-cursor-controls output { grid-column:1/-1; color:var(--ink); line-height:1.5; }
+.simulation-dismiss-spice { justify-self:start; color:var(--ink-soft); }
+@media(max-width:600px) { .simulation-instruments { padding:12px; }.simulation-instruments-heading { display:grid; }.simulation-status { justify-self:start; }.simulation-logic-lines li { display:grid; gap:2px; } }

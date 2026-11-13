@@ -1,0 +1,93 @@
+.robot-lesson {
+  width: min(100% - 2rem, 58rem);
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+  color:var(--ink);
+}
+
+.robot-lesson-header { max-width: 48rem; margin: 0 auto 2rem; }
+.robot-lesson h1 { margin: .45rem 0 1rem; color:var(--ink); font-size: clamp(2rem, 5vw, 3.3rem); line-height: 1.08; letter-spacing: -.055em; }
+.robot-lesson h2 { margin: .25rem 0; color:var(--ink); font-size: 1.5rem; letter-spacing: -.035em; }
+.robot-lesson p { color:var(--ink-soft); line-height: 1.65; }
+.robot-lesson-eyebrow { margin: 0; color:var(--green); font-size: .72rem; font-weight: 750; letter-spacing: .09em; }
+.robot-lesson-limit { padding: .9rem 1rem; border: 1px solid #655124; border-left: 3px solid var(--orange); border-radius: 6px; background:var(--orange-light); color:#526078; }
+.robot-lesson-limit strong { color:#526078; }
+
+.robot-simulator,
+.robot-lesson-steps {
+  margin: 1.25rem 0;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--line-dark);
+  border-radius: 10px;
+  background:var(--paper-bright);
+}
+
+.robot-simulator-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.robot-simulator-heading h2 { margin-top: .45rem; }
+.robot-concept-badge { padding: .45rem .7rem; border: 1px solid #285057; border-radius: 999px; background:#e8f2f2; color:var(--green); font-size: .78rem; font-weight: 700; }
+.robot-world {
+  position: relative;
+  display: flex;
+  min-height: 14rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 1rem 0;
+  border: 1px solid #29434a;
+  border-radius: 8px;
+  background-color:#e8f2f2;
+  background-image:linear-gradient(#e8f2f280 1px, transparent 1px), linear-gradient(90deg, #e8f2f280 1px, transparent 1px), radial-gradient(ellipse at 50% 110%, #e8f2f2 0, transparent 68%);
+  background-size: 32px 32px, 32px 32px, auto;
+}
+.robot-avatar { position: relative; z-index: 1; font-size: 3.5rem; transition: transform .2s ease; }
+.robot-avatar.turn-left { transform: rotate(-35deg); }
+.robot-avatar.turn-right { transform: rotate(35deg); }
+.robot-obstacle { position: absolute; right: 20%; color:var(--orange); font-size: 3rem; }
+.robot-world-label { position: absolute; bottom: .65rem; left: .75rem; padding: .35rem .55rem; border: 1px solid var(--line-dark); border-radius: 4px; background:#e8f2f2dd; color:var(--ink-soft); font-size: .75rem; }
+.robot-status { margin: .7rem 0 1rem; }
+.robot-status strong { color:var(--green); }
+.robot-controls { display: flex; flex-wrap: wrap; gap: .6rem; }
+.robot-lesson button { min-height: 2.75rem; padding: .55rem .9rem; border: 1px solid var(--line-dark); border-radius: 6px; background:#e8f2f2; color:var(--ink); font: inherit; cursor: pointer; }
+.robot-lesson button:hover { border-color: #347b76; background:#e8f2f2; color:var(--green); }
+.robot-lesson button:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
+.robot-lesson .robot-obstacle-button { margin-top: .75rem; border-color: var(--green); background:var(--green); color:#071918; font-weight: 700; }
+.robot-lesson .robot-obstacle-button:hover { background:#5ce1d3; color:#071918; }
+.robot-lesson-steps ol { display: grid; gap: 0; margin: 1rem 0; padding: 0; list-style: none; }
+.robot-lesson-steps li { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--line); }
+.robot-lesson-steps li p { margin: .3rem 0 0; }
+.robot-lesson-steps li button[aria-pressed="true"] { border-color: #285057; background:#e8f2f2; color:var(--green); }
+.robot-completion { margin-bottom: 0; color:var(--ink-faint); font-size: .9rem; }
+
+@media(max-width: 520px) {
+  .robot-lesson { width: min(100% - 1.25rem, 58rem); padding-top: 1.25rem; }
+  .robot-simulator-heading { align-items: flex-start; flex-direction: column; }
+  .robot-lesson-steps li { align-items: stretch; flex-direction: column; }
+  .robot-controls button { flex: 1 1 5.2rem; }
+  .robot-lesson-steps li button { width: 100%; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  .robot-avatar { transition: none; }
+}
+
+
+/* Learn Arduino Red-inspired teaching surface; lesson content and controls stay intact. */
+.robot-lesson { color:var(--ink); }
+.robot-lesson h1,.robot-lesson h2 { color:var(--ink); font-family: 'Bahnschrift SemiCondensed','Aptos Display','Arial Narrow',sans-serif; }
+.robot-lesson p { color:var(--ink-soft); }
+.robot-lesson-eyebrow { color:var(--green-dark); }
+.robot-lesson-limit { border-color: #ead2be; border-left-color: var(--orange); background:#fbede3; color:#67564b; }
+.robot-lesson-limit strong { color:#8b4538; }
+.robot-simulator,.robot-lesson-steps { border-color: var(--line); background:var(--paper-bright); box-shadow: var(--shadow-soft); }
+.robot-concept-badge { border-color: #c9deda; background:#eaf4ef; color:#226f6e; }
+.robot-world { border-color: #d8c7a8; background-color:#f4ead5; background-image:linear-gradient(#d8cbb380 1px,transparent 1px),linear-gradient(90deg,#d8cbb380 1px,transparent 1px),radial-gradient(ellipse at 50% 110%,#e8dcc2 0,transparent 68%); }
+.robot-obstacle { color:var(--green); }
+.robot-world-label { border-color: var(--line); background:#fffaf0eF; color:var(--ink-soft); }
+.robot-status strong { color:#28745f; }
+.robot-lesson button { border-color: var(--line-dark); background:#fffaf0; color:var(--ink); }
+.robot-lesson button:hover { border-color: var(--green); background:#fae7dc; color:var(--green-dark); }
+.robot-lesson .robot-obstacle-button { border-color: var(--green); background:var(--green); color:#1d2b49; }
+.robot-lesson .robot-obstacle-button:hover { background:var(--green-dark); color:#fff; }
+.robot-lesson-steps li { border-color: var(--line); }
+.robot-lesson-steps li button[aria-pressed="true"] { border-color: #d9423650; background:#fae7dc; color:var(--green-dark); }
+.robot-completion { color:var(--ink-faint); }

@@ -1,0 +1,49 @@
+{
+  "scope": "Integrity/arithmetic only; no hardware/gate/B1 approval",
+  "prior_snapshots": [
+    {
+      "snapshot": "docs/agents/runs/MM-HW-P0-15/snapshot.json",
+      "files_unchanged": 38
+    },
+    {
+      "snapshot": "docs/agents/runs/MM-HW-P0-15/mechanical-study/snapshot.json",
+      "files_unchanged": 34
+    },
+    {
+      "snapshot": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-2/checkpoint-snapshot.json",
+      "files_unchanged": 58
+    },
+    {
+      "snapshot": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-3/snapshot.json",
+      "files_unchanged": 32
+    },
+    {
+      "source": "docs\\research\\downloads\\p0-15\\attempt-4\\samtec-tfm-drawing.pdf",
+      "sha256": "4e58e4227decf3e6e229b16ca7b711d9e672111ec1f53ea48887b822b292ede2",
+      "bytes": 3459889
+    },
+    {
+      "source": "docs\\research\\downloads\\p0-15\\attempt-4\\samtec-pair-cycle-report.pdf",
+      "sha256": "a4320e9b63ac17b34404a73ceacf2515945b7cfc1baa42adb265bd8d0a431b31",
+      "bytes": 456270
+    },
+    {
+      "source": "docs\\research\\downloads\\p0-15\\attempt-4\\ti-tlv3502.pdf",
+      "sha256": "fcfbeffce874629849fe7b2324fa40731a41453b587b8f50782f0ff42311b946",
+      "bytes": 1074854
+    },
+    {
+      "source": "docs\\research\\downloads\\p0-15\\attempt-4\\ti-tmux2821.pdf",
+      "sha256": "493e5c0d4eb5ca55dea82dbcce59b1be9c353577e256c161821662c38bb9ac55",
+      "bytes": 2473523
+    }
+  ],
+  "r12_unchanged": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
+  "hardware_registry_unchanged": true,
+  "P0_15_builder_lease": null,
+  "conditional_interface_capacity": {
+    "routes_max": 46,
+    "contacts_per_breakpoint": 50,
+    "spares": 4
+  }
+}

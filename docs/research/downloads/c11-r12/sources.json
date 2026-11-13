@@ -1,0 +1,1079 @@
+[
+  {
+    "part": "bq25170",
+    "url": "https://www.ti.com/lit/ds/symlink/bq25170.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/bq25170.pdf",
+    "sha256": "90ddfdb38e001e2b528a3b7605acad04ba7bfd36bc5594d27cff002076c7b545",
+    "pages": 35,
+    "cover_text": "\n--- PDF PAGE 1 ---\nBQ25170: 800-mA Linear Battery Charger for 1-Cell Li-Ion, and LiFePO4\n1 Features\n•\nInput voltage up-to 30-V tolerant\n•\nAutomatic Sleep Mode for low power consumption\n–\n350-nA battery leakage current\n–\n85-µA input leakage current when charge\ndisabled\n•\nSupports 1-cell Li-Ion, Li-Poly, and LiFePO4\n•\nExternal resistor programmable operation\n–\nVSET to set battery regulation voltage:\n•\nLi-Ion: 4.05 V, 4.1 V, 4.2 V, 4.35 V, 4.4 V\n•\nLiFePO4: 3.5 V, 3.6 V, 3.7 V\n–\nISET to set charge current from 10 mA to 800\nmA\n•\nHigh accuracy\n–\n±0.5% charge voltage accuracy\n–\n±10% charge current accuracy\n•\nCharging features\n–\nPrecharge current 20% of ISET\n–\nTermination current 10% of ISET\n–\nNTC thermistor input to monitor battery\ntemperature\n–\nTS pin for charging function control\n–\nOpen-drain output for status and fault indication\n–\nOpen-drain output for power good indication\n•\nIntegrated fault protection\n–\n6.6-V IN overvoltage protection\n–\nVSET based OUT overvoltage protection\n–\n1000-mA overcurrent protection\n–\n125°C thermal regulation; 150°C thermal\nshutdown protection\n–\nOUT short-circuit protection\n–\nVSET, ISET pins short/open protection\n2 Applications\n•\nTrue wireless headsets\n•\nWearable accessories, smart band\n•\nBeauty and grooming\n•\nElectric toothbrush\n•\nFleet management, asset tracking\n3 Description\nThe BQ25170 is an integrated 800-mA linear charger\nfor 1-cell Li-Ion, Li-Polymer, and LiFePO4 batteries\ntargeted at space-limited portable applications. The\ndevice has a single power output that charges the\nbattery. The system load can be placed in parallel\nwith the battery, as long as the average system load\ndoes not prevent the battery from charging fully within\nthe safety timer duration. When the system load is\nplaced in parallel with the battery, the charge current\nis shared between the system and the battery.\nThe device has three phases for charging a Li-Ion\nbattery: precharge to recover a fully discharged\nbattery, fast-charge constant current to supply the\nbulk of the charge, and voltage regulation to reach\nfull capacity.\nIn all charge phases, an internal control loop monitors\nthe IC junction temperature and reduces the charge\ncurrent if an internal temperature threshold, TREG, is\nexceeded.\nThe charger power stage and charge current sense\nfunctions are fully integrated. The charger function\nhas high accuracy current and voltage regulation\nloops, charge status display, and automatic charge\ntermination. The charge voltage and fast charge\ncurrent are programmable through external resistors.\nThe precharge and termination current threshold track\nthe fast charge current setting.\nDevice Information\nPART NUMBER(1)\nPACKAGE\nBODY SIZE (NOM)\nBQ25170\nWSON (8)\n2.0 mm x 2.0 mm\n(1)\nFor all available packages, see the orderable addendum at\nthe end of the data sheet.\nIN\nOUT\nVSET\nISET\n/PG\nSTAT\nTS\nGND\n1s Li-Ion, LiFePO4\nBQ25170\nVIN: 3.0V ± 6.5V\nVREF\nSimplified Schematic\nwww.ti.com\nBQ25170\nSLUSDJ8A – APRIL 2020 – REVISED APRIL 2021\nCopyright © 2021 Texas Instruments Incorporated\nSubmit Document Feedback\n1\nProduct Folder Links: BQ25170\nBQ25170\nSLUSDJ8A – APRIL 2020 – REVISED APRIL 2021\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,\nintellectual property matters and other important disclaimers. PRODUCTION DATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/bq25170-p1.png",
+        "sha256": "3227525dafb925ca5b0f1ec1c8a7e8cc6c905938bf310e59acd999014b073388"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/bq25170-p2.png",
+        "sha256": "595e3b9f00cd8b4b919521daec079ec2888216800a3f8d778a6f99b9265f247f"
+      },
+      {
+        "page": 3,
+        "path": "docs/research/downloads/c11-r12/bq25170-p3.png",
+        "sha256": "125461a50d16bbf3c6510e4e5a51d954e1acd112d382ea67e5e23473be6a76fe"
+      },
+      {
+        "page": 4,
+        "path": "docs/research/downloads/c11-r12/bq25170-p4.png",
+        "sha256": "76b9ce64f325b498ccdde40eca4617532ad423d26d8c1849dd84feb3e6cc2b84"
+      },
+      {
+        "page": 6,
+        "path": "docs/research/downloads/c11-r12/bq25170-p6.png",
+        "sha256": "292c3f0ed51dfd2d806a637dccf224cfc55b44cab2e26958a67783bbeaf4b4fe"
+      },
+      {
+        "page": 7,
+        "path": "docs/research/downloads/c11-r12/bq25170-p7.png",
+        "sha256": "fa0640bb0116d207417ff07675e6d8759154f3934dae451018ab8e49478449a4"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/bq25170-p8.png",
+        "sha256": "4af3a3ec2b8f4a4fc4efc8ab1b000f8c06085e82f65e18dbf3e9ccefcc673fe2"
+      },
+      {
+        "page": 9,
+        "path": "docs/research/downloads/c11-r12/bq25170-p9.png",
+        "sha256": "10e2b8fa005692bed8426b9173eb793bff19cf535508e4f0f2a14bb73dfaa8ad"
+      },
+      {
+        "page": 10,
+        "path": "docs/research/downloads/c11-r12/bq25170-p10.png",
+        "sha256": "85eab4120ae0ebb1b592c32b6c68460b5ffdbf3ef1e6400d75ece8e5ef742b8e"
+      },
+      {
+        "page": 11,
+        "path": "docs/research/downloads/c11-r12/bq25170-p11.png",
+        "sha256": "d203b494c4b1b86b152d033df040d4190f0cc2c0fbd0ead70d3f1785cf1dac59"
+      },
+      {
+        "page": 13,
+        "path": "docs/research/downloads/c11-r12/bq25170-p13.png",
+        "sha256": "9a815143cc3d23c7a2aa2de3d5df26f21400f771481bbce62116447706d215a1"
+      },
+      {
+        "page": 14,
+        "path": "docs/research/downloads/c11-r12/bq25170-p14.png",
+        "sha256": "8f4989bfd20dfcf3f9945554e47e7349c245897d2cb32ac79954e26ac5f17adc"
+      },
+      {
+        "page": 15,
+        "path": "docs/research/downloads/c11-r12/bq25170-p15.png",
+        "sha256": "bd2f407bc3197facbf1bcf23c6c2bc8fc25b018db0679c6f9164d8201d33a0f4"
+      },
+      {
+        "page": 16,
+        "path": "docs/research/downloads/c11-r12/bq25170-p16.png",
+        "sha256": "ba9ce4086776668b1a3769870e55a8f62e3519991abbb6f41ff990d92f35b70a"
+      },
+      {
+        "page": 17,
+        "path": "docs/research/downloads/c11-r12/bq25170-p17.png",
+        "sha256": "ecc94b76822f6f4d551f9306151539cebf0735d68ed3f793a0e2e842c823e386"
+      },
+      {
+        "page": 18,
+        "path": "docs/research/downloads/c11-r12/bq25170-p18.png",
+        "sha256": "3f141e43493b39c551f97834bd319c6ed991e705a3be7a04e755bb5400f34e9b"
+      },
+      {
+        "page": 19,
+        "path": "docs/research/downloads/c11-r12/bq25170-p19.png",
+        "sha256": "0a73a4c676321d8d3313ce3ff594f003cead5198831a7f78404251d2af97e635"
+      },
+      {
+        "page": 20,
+        "path": "docs/research/downloads/c11-r12/bq25170-p20.png",
+        "sha256": "e59cb88a28f44538438bcdd342626582aef36b6b4ea2778a06e137932419ca44"
+      },
+      {
+        "page": 21,
+        "path": "docs/research/downloads/c11-r12/bq25170-p21.png",
+        "sha256": "5170abc9d399d343c8ce68839b685a42c37ce77d4a85396d57891df3fb2ce57c"
+      },
+      {
+        "page": 23,
+        "path": "docs/research/downloads/c11-r12/bq25170-p23.png",
+        "sha256": "feb1e1aad9b9ae6b51aca5c54180c4a357e6e5035262dcfe72e705e25a393ec0"
+      },
+      {
+        "page": 24,
+        "path": "docs/research/downloads/c11-r12/bq25170-p24.png",
+        "sha256": "9133270be44ca6af969ffe56786f6cf0bea4f66c0b297375cb5b4b7dd8738224"
+      },
+      {
+        "page": 25,
+        "path": "docs/research/downloads/c11-r12/bq25170-p25.png",
+        "sha256": "1d10931564b24b8cbbb04e0f86d3903a49f4bd2db109e5b0ba9e50d503de717d"
+      }
+    ]
+  },
+  {
+    "part": "bq25170j",
+    "url": "https://www.ti.com/lit/ds/symlink/bq25170j.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/bq25170j.pdf",
+    "sha256": "9a4a9e3f7a024a02c1552979aa8a6e9af7a7c5d680c9e3c57207bcbb4d1a171e",
+    "pages": 33,
+    "cover_text": "\n--- PDF PAGE 1 ---\nBQ25170J : 800-mA JEITA-Compliant Linear Battery Charger for 1-Cell Li-Ion, Li-\nPolymer, and LiFePO4\n1 Features\n•\nInput voltage up-to 30-V tolerant\n•\nAutomatic Sleep Mode for low power consumption\n–\n350-nA battery leakage current\n–\n80-µA input leakage current when charge \ndisabled\n•\nSupports 1-cell Li-Ion, Li-Polymer, and LiFePO4\n•\nExternal resistor programmable operation\n–\nVSET to set battery regulation voltage:\n•\nLi-Ion: 4.05 V, 4.1 V, 4.2 V, 4.35 V, 4.4 V\n•\nLiFePO4: 3.5 V, 3.6 V, 3.7 V\n–\nISET to set charge current from 10 mA to 800 \nmA\n•\nHigh accuracy\n–\n±0.5% charge voltage accuracy\n–\n±10% charge current accuracy\n•\nCharging features\n–\nPrecharge current 20% of ISET\n–\nTS pin for charging operation control over \nJEITA range\n–\nTermination current 10% of ISET\n–\nNTC thermistor input to monitor battery \ntemperature\n–\npin for charging function control\n–\nOpen-drain output for status and fault indication\n–\nOpen-drain output for power good indication\n•\nIntegrated fault protection\n–\n6.6-V IN overvoltage protection\n–\nVSET based OUT overvoltage protection\n–\n1000-mA overcurrent protection\n–\n125°C thermal regulation; 150°C thermal \nshutdown protection\n–\nOUT short-circuit protection\n–\nVSET, ISET pins short/open protection\n2 Applications\n•\nTrue wireless headsets\n•\nWearable accessories, smart band\n•\nBeauty and grooming\n•\nElectric toothbrush\n•\nFleet management, asset tracking\n3 Description\nThe BQ25170J is an integrated 800-mA linear charger \nfor 1-cell Li-Ion, Li-Polymer, and LiFePO4 batteries \ntargeted at space-limited portable applications. The \ndevice has a single power output that charges the \nbattery. The system load can be placed in parallel \nwith the battery, as long as the average system load \ndoes not prevent the battery from charging fully within \nthe safety timer duration. When the system load is \nplaced in parallel with the battery, the charge current \nis shared between the system and the battery.\nThe device has three phases for charging a Li-Ion \nbattery: precharge to recover a fully discharged \nbattery, fast-charge constant current to supply the \nbulk of the charge, and voltage regulation to reach \nfull capacity.\nIn all charge phases, an internal control loop monitors \nthe IC junction temperature and reduces the charge \ncurrent if an internal temperature threshold, TREG, is \nexceeded.\nThe charger power stage and charge current sense \nfunctions are fully integrated. The charger function \nhas high accuracy current and voltage regulation \nloops, charge status display, and automatic charge \ntermination. The charge voltage and fast charge \ncurrent are programmable through external resistors. \nThe precharge and termination current threshold track \nthe fast charge current setting.\nDevice Information\nPART NUMBER(1)\nPACKAGE\nBODY SIZE (NOM)\nBQ25170J\nWSON (8)\n2.0 mm x 2.0 mm\n(1)\nFor all available packages, see the orderable addendum at \nthe end of the data sheet.\nSimplified Schematic\nBQ25170J\nSLUSEF8 – OCTOBER 2021\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications, \nintellectual property matters and other important disclaimers. PRODUCTION DATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p1.png",
+        "sha256": "0ee656871519aa0425f1457d8ed6d9482131dddd78989d85279a4371f3717baf"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p2.png",
+        "sha256": "190c65356b771ec2ca8ea78b768b1fc140ce665760fd5ec9ce0a436f4648a420"
+      },
+      {
+        "page": 3,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p3.png",
+        "sha256": "4b8c9a6faaffa237095d2badf7c62421bff5988e9133fbd529ccda21a29f23b6"
+      },
+      {
+        "page": 4,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p4.png",
+        "sha256": "a048d932671b919563b0bf87c616d141ee1c74d8501f9029240f0ba74d6509d0"
+      },
+      {
+        "page": 6,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p6.png",
+        "sha256": "6477e4c1c9acf83373cc0294eb3913bf8dc94512ee3bd920a2fa2ce7827d08fb"
+      },
+      {
+        "page": 7,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p7.png",
+        "sha256": "dd67971a02f657823baadf05d7ae8639ec30b95df00aa0e730bf2961efe4ac5b"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p8.png",
+        "sha256": "d558b7f70d14db8b691fddff5663bd3e5e75aa75138b539c1ab41698b56c0ef6"
+      },
+      {
+        "page": 9,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p9.png",
+        "sha256": "2ae50117103fac02e08839f736b252ba7a5e4417c1b634a76fd7b080e54ab937"
+      },
+      {
+        "page": 11,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p11.png",
+        "sha256": "16dd0038ed2bc2fa8cf0cd861ec78921585391d9327a042c70d27ed4e8782304"
+      },
+      {
+        "page": 14,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p14.png",
+        "sha256": "098ea85c47b85add2efb4620d48e0736d75ce8d402e69e89bf105520bda14245"
+      },
+      {
+        "page": 15,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p15.png",
+        "sha256": "1be37880a6a9e69a432966f914595d0efe386de34d2d0cbdb6f62186d2f5dbb2"
+      },
+      {
+        "page": 16,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p16.png",
+        "sha256": "ba2dd7efe1ed12af047cad1a236fd5d652c2043ab903db6066b53814315ff10f"
+      },
+      {
+        "page": 17,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p17.png",
+        "sha256": "750db3d42d76e6086fb8c052027c9928a24a5e118ca8648732cac00cfa01bfa8"
+      },
+      {
+        "page": 18,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p18.png",
+        "sha256": "b53919fe886e2ab0735c58674f0f1e7b9143f86fbad8be88de4deabafedac7a0"
+      },
+      {
+        "page": 19,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p19.png",
+        "sha256": "a1eaa6540f318a246919858baa78a452bd1f5897b5581305d463752c9c095e42"
+      },
+      {
+        "page": 20,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p20.png",
+        "sha256": "8022516e2bcd7732b2a04bd2522363ec41eb14a5334a8d9227a27a78743dd0f6"
+      },
+      {
+        "page": 22,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p22.png",
+        "sha256": "a7bea033fc4bab87e3df5667f7f39e43993b0269f7971beec9f1d6caf4fdf483"
+      },
+      {
+        "page": 23,
+        "path": "docs/research/downloads/c11-r12/bq25170j-p23.png",
+        "sha256": "9ef6862c573eef8226061ebdfcd89c763295d1aba4f7df2733940cf69cc10fe3"
+      }
+    ]
+  },
+  {
+    "part": "tps3430",
+    "url": "https://www.ti.com/lit/ds/symlink/tps3430.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/tps3430.pdf",
+    "sha256": "f9887a28788bac6ae6743e211ae50dddd809e3ff7bf0d6a3447c8d71f62c6b4d",
+    "pages": 37,
+    "cover_text": "\n--- PDF PAGE 1 ---\nTPS3430 Window Watchdog Timer with Programmable Reset Delay\n1 Features\n•\nFactory-programmed precision watchdog timers:\n–\n±2.5% Accurate watchdog timeout and \nwatchdog reset delays typical at 25°C\n•\nWatchdog disable feature\n•\nUser-programmable watchdog timeout\n•\nUser-programmable watchdog reset delay\n•\nInput voltage range: VDD = 1.6 V to 6.5 V\n•\nLow supply current: IDD = 10 µA (typical)\n•\nOpen-drain output\n•\nSmall 3-mm × 3-mm, 10-Pin VSON package\n•\nJunction operating temperature range:\n–40°C to +125°C\n2 Applications\n•\nSmart display\n•\nBattery pack: e-bike/e-scooter/light electric vehicle \n(LEV)\n•\nCircuit breaker (ACB, MCCB, VCB)\n•\neBike / pedelec\n•\nAC charging (pile) station\n•\nMultifunction relay\n•\nVision computer\n3 Description\nThe TPS3430 is a standalone window watchdog \ntimer with programmable watchdog window and \nprogrammable watchdog reset delay for a wide variety \nof applications. The TPS3430 window watchdog \nachieves 2.5% timing accuracy (typical at 25°C) and \nthe watchdog output ( WDO) reset delay can be \nset by factory-programmed default delay settings, or \nprogrammed by an external capacitor. The watchdog \ncan be disabled via the SET pins to avoid undesired \nwatchdog timeouts during the development process or \nduring power on.\nThe TPS3430 is available in a small 3.00-mm ×\n3.00-mm, 10-pin VSON package.\nDevice Information\nPART NUMBER\nPACKAGE (1)\nBODY SIZE (NOM)\nTPS3430\nVSON (10)\n3.00 mm × 3.00 mm\n(1)\nFor all available packages, see the orderable addendum at \nthe end of the data sheet.\nNC\nVDD1\nGND\nTPS3430\nVDD2\n3.3V\nMicrocontroller\nSET1\nVCORE\nCRST\nGND\nWDO\nNMI\nCWD\nSET0\nWDI\nGPIO\nNC\nNC\nWindow Watchdog Timer Circuit\nTemperature (qC)\nNormalized Window Watchdog Timeout (%)\n-50\n-25\n0\n25\n50\n75\n100\n125\n-10\n-7.5\n-5\n-2.5\n0\n2.5\n5\n7.5\n10\nTPS3\nLower Boundary (tWDL)\nUpper Boundary (tWDL)\nNormalized Watchdog Timeout Accuracy Over \nTemperature (SET0 = 1, SET1 = 1, CWD = NC)\nTPS3430\nSBVS366A – JULY 2018 – REVISED OCTOBER 2021\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications, \nintellectual property matters and other important disclaimers. PRODUCTION DATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/tps3430-p1.png",
+        "sha256": "d2b89ad958e6583325bb9189227a17691c772e7e635b714be920224bc7c7c98c"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/tps3430-p2.png",
+        "sha256": "1c2a8b340826870f59e045753c8075b5e31d8afe7a3be789dd3e7f9934d8dc58"
+      },
+      {
+        "page": 4,
+        "path": "docs/research/downloads/c11-r12/tps3430-p4.png",
+        "sha256": "67b69c4929a0ca75c0747c7eafb34bcc9bf58a35e30acf8932dc4511766c4066"
+      },
+      {
+        "page": 5,
+        "path": "docs/research/downloads/c11-r12/tps3430-p5.png",
+        "sha256": "ed6c0d9f50977ec9f9b706cb25ec13ffeb081b1ba6869851742e94c2ae128f0c"
+      },
+      {
+        "page": 6,
+        "path": "docs/research/downloads/c11-r12/tps3430-p6.png",
+        "sha256": "a5fdb293dbb5cd8120c0b2a87bdacc15894f42e308cfef995c631fb2291a4d1f"
+      },
+      {
+        "page": 9,
+        "path": "docs/research/downloads/c11-r12/tps3430-p9.png",
+        "sha256": "1e152bd10fd87ef19275f7994f549b57806b7171180d661ee92d7474ada245b6"
+      },
+      {
+        "page": 10,
+        "path": "docs/research/downloads/c11-r12/tps3430-p10.png",
+        "sha256": "dbbc4a812ac83abf80b98d5bf73781758a82a300c29adbb6d54e5031f29641d7"
+      },
+      {
+        "page": 15,
+        "path": "docs/research/downloads/c11-r12/tps3430-p15.png",
+        "sha256": "067f544f0a2b0963b713dd46d16c5cd2ba17ea8727120f13a31b5f919a6a5519"
+      },
+      {
+        "page": 16,
+        "path": "docs/research/downloads/c11-r12/tps3430-p16.png",
+        "sha256": "4c5177ef102a409a9e27581ad4db8374b981eb916e7a1198d9c7e9a201a02e07"
+      }
+    ]
+  },
+  {
+    "part": "tmux1511",
+    "url": "https://www.ti.com/lit/ds/symlink/tmux1511.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/tmux1511.pdf",
+    "sha256": "04291b41a68347fedbbb0776aa44f500eaca65f2ca3af0e022ee60d41c7b1e9f",
+    "pages": 45,
+    "cover_text": "\n--- PDF PAGE 1 ---\nTMUX1511 Low-Capacitance, 1:1 (SPST) 4-Channel, Powered-Off Protected Switch \nwith 1.8V Logic\n1 Features\n•\nWide Supply Range: 1.5V to 5.5V\n•\nLow On-Capacitance: 3.3pF\n•\nLow On-Resistance: 2Ω\n•\nHigh Bandwidth: 3GHz\n•\n-40°C to +125°C Operating Temperature\n•\n1.8V Logic Compatible\n•\nSupports Input Voltage Beyond Supply\n•\nIntegrated Pull Down Resistor on Logic Pins\n•\nBidirectional Signal Path\n•\nFail-Safe Logic\n•\nPowered-off protection up to 3.6V\n–\nPinout compatible to SN74CBTLV3126\n–\nPinout compatible (logic variant) of \nSN74CBTLV3125\n2 Applications\n•\nServers\n•\nWired Networking\n•\nWireless Infrastructure\n•\nData Center Switches & Routers\n•\nPC/Notebooks\n•\nBuilding Automation\n•\nePOS\n•\nMotor Drives\n•\nAppliances\n•\nBattery-Powered Equipment\n•\nJTAG Isolation\n•\nSPI Isolation\n3 Description\nThe TMUX1511 is a complementary metal-oxide \nsemiconductor (CMOS) switch. The TMUX1511 offers \n1:1 SPST switch configuration with 4 independently \ncontrolled channels. Wide operating supply of \n1.5V to 5.5V allows for use in a broad array \nof applications from servers and communication \nequipment to industrial applications. The device \nsupports bidirectional analog and digital signals on the \nsource (Sx) and drain (Dx) pins and can pass signals \nabove supply up to VDD x 2, with a maximum input/\noutput voltage of 5.5V.\nUp to 3.6V on the signal path of the TMUX1511 \nprovides isolation when the supply voltage is removed \n(VDD = 0V). Without this protection feature, switches \ncan back-power the supply rail through an internal \nESD diode and cause potential damage to the \nsystem.\nFail-Safe Logic circuitry allows voltages on the logic \ncontrol pins to be applied before the supply pin, \nprotecting the device from potential damage. All logic \ncontrol inputs have 1.8V logic compatible thresholds, \nensuring both TTL and CMOS logic compatibility \nwhen operating in the valid supply voltage range.\nPackage Information\nPART NUMBER\nPACKAGE (1)\nBODY SIZE (NOM)\nTMUX1511\nTSSOP (14)\n5.00mm × 4.40mm\nQFN (16)\n2.60mm x 1.80mm\nX2QFN (12)\n1.60mm x 1.60mm\n(1)\nFor all available packages, see the package option \naddendum at the end of the data sheet.\nS1 \nS2\nS3 \nS4 \nSEL2\nSEL4\nProcessor\nGND\nVDD\nVDD\nVI/O\n1.8V Logic \nI/O\nSEL3\nSEL1\nGND\nJTAG, SPI, GPIO \nPort\nJTAG \nDEBUG, \nSPI, GPIO \nD1\nD2\nD3\nD4\nFLASH\nRAM\nCPU\nPeripherals\nTDI  / MISO / GPIO\nTDO / MOSI / GPIO\nTCK / SCLK / GPIO\nTMS / SS / GPIO\n0.1µF\nApplication Example\nTMUX1511\nSCDS390B – SEPTEMBER 2018 – REVISED MARCH 2025\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications, \nintellectual property matters and other important disclaimers. PRODUCTION DATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/tmux1511-p1.png",
+        "sha256": "e5a32e627f69031bf5299081ca1738cb925ed422da11aa0bf24895c58498c9f0"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/tmux1511-p2.png",
+        "sha256": "5047afe5e5a30325dd5370388bb6ad31f1b6147468072f98e62c0474e348b939"
+      },
+      {
+        "page": 6,
+        "path": "docs/research/downloads/c11-r12/tmux1511-p6.png",
+        "sha256": "59666b11c8e85f2a6a424575c3d318d8a37f11733603f5d50a1c947b248eda39"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/tmux1511-p8.png",
+        "sha256": "952e05eaf12314e7a1d2cc702dd55406579aa954c03ef9bc5e0bc14d87500932"
+      },
+      {
+        "page": 21,
+        "path": "docs/research/downloads/c11-r12/tmux1511-p21.png",
+        "sha256": "3bbd6d3a38d1d6113724e35d258242ee9a4808600e3d043b7d4dce63d7adeab7"
+      },
+      {
+        "page": 22,
+        "path": "docs/research/downloads/c11-r12/tmux1511-p22.png",
+        "sha256": "f1a1713853a0be4b23080f97dd9a17fe1b7bc12e4cbbc9b255b896470c15448b"
+      },
+      {
+        "page": 23,
+        "path": "docs/research/downloads/c11-r12/tmux1511-p23.png",
+        "sha256": "bd5a8194870f0d3152339b9c96addd60ee152ceefb159853a3bb9696d5e89eae"
+      }
+    ]
+  },
+  {
+    "part": "tlv6710",
+    "url": "https://www.ti.com/lit/ds/symlink/tlv6710.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/tlv6710.pdf",
+    "sha256": "f068d52942be7b00e5fb0f891f0cb022fdfe37c7971601334f7195ebe08e3600",
+    "pages": 28,
+    "cover_text": "\n--- PDF PAGE 1 ---\nVPULL-UP\n(Up To 25 V)\nINA+\nGND\nINB–\nVDD\nOUTA\nOUTB\nReference\n1.8 V to 36 V\nProduct\nFolder\nOrder\nNow\nTechnical\nDocuments\nTools &\nSoftware\nSupport &\nCommunity\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,\nintellectual property matters and other important disclaimers. PRODUCTION DATA.\nTLV6710\nSNVSAV4B –JANUARY 2018–REVISED OCTOBER 2018\nTLV6710 Micropower, 36-V Window Comparator With 400-mV Reference\n1\n1\nFeatures\n1•\nHigh Supply Voltage Range: 1.8 V to 36 V\n•\nAdjustable Threshold: Down to 400 mV\n•\nHigh Threshold Accuracy:\n–\n0.25% (Typical)\n–\n0.75% Max Over Temperature\n•\nLow Quiescent Current: 7 µA (Typical)\n•\nOpen-Drain Outputs\n•\nInternal Hysteresis: 5.5 mV (Typical)\n•\nTemperature Range: –40°C to 125°C\n•\nPackage: Thin SOT-23-6\n2\nApplications\n•\nNotebook PCs and Tablets\n•\nSmartphones\n•\nDigital Cameras\n•\nVideo Game Controllers\n•\nRelays and Circuit Breakers\n•\nPortable Medical Devices\n•\nDoor and Window Sensors\n•\nPortable- and Battery-Powered Products\n3\nDescription\nThe TLV6710 is a high voltage window comparator\nthat operates over a 1.8 V to 36 V range. The device\nhas two high-accuracy comparators with an internal\n400-mV reference and two open-drain outputs rated\nto 25 V. The TLV6710 can be used as a window\ncomparator or as two independent comparators; the\nmonitored voltage can be set with the use of external\nresistors.\nOUTA is driven low when the voltage at INA+ drops\nbelow (VITP – VHYS), and goes high when the voltage\nreturns above the respective threshold (VITP). OUTB\nis driven low when the voltage at INB– rises above\nVITP, and goes high when the voltage drops below the\nrespective threshold (VITP – VHYS). Both comparators\nin the TLV6710 include built-in hysteresis to reject\nbrief\nglitches,\nthereby\nensuring\nstable\noutput\noperation without false triggering.\nThe\nTLV6710\nis\navailable\nin\na\nThin\nSOT-23-6\npackage\nand\nis\nspecified\nover\nthe\njunction\ntemperature range of –40°C to 125°C.\nDevice Information(1)\nPART NUMBER\nPACKAGE\nBODY SIZE (NOM)\nTLV6710\nSOT-23 (6)\n2.90 mm × 1.60 mm\n(1) For all available packages, see the package option addendum\nat the end of the data sheet.\nSimplified Block Diagram\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/tlv6710-p1.png",
+        "sha256": "6e38002bcfc0a735a1fdb9fa20b1ba356f12e2320abc672f5e5b5c92a194bd9d"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/tlv6710-p2.png",
+        "sha256": "47e42453632edf62220eebf70b2ab8db9aad8bfe51aff4c81c32e2d9bf100dee"
+      },
+      {
+        "page": 5,
+        "path": "docs/research/downloads/c11-r12/tlv6710-p5.png",
+        "sha256": "4f6d0cc8f2b06ef3c5e958c9f84145aff0e268785dd6076fd6d3212357827d98"
+      },
+      {
+        "page": 7,
+        "path": "docs/research/downloads/c11-r12/tlv6710-p7.png",
+        "sha256": "3b567d52d9a10906b6678a2577bf7bacb34848d3d6a96addda9d4752b8a5ad1f"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/tlv6710-p8.png",
+        "sha256": "8f31d9af7c4cad03dece250ad8704f793dc5b471f80fc4f9f7b2ab64b3a4aab9"
+      },
+      {
+        "page": 9,
+        "path": "docs/research/downloads/c11-r12/tlv6710-p9.png",
+        "sha256": "baf7556f5d7f2cdf7b21dc9f74fe6eef994877416795692236f6e6c4c8a0a8f8"
+      },
+      {
+        "page": 10,
+        "path": "docs/research/downloads/c11-r12/tlv6710-p10.png",
+        "sha256": "ee5104756139b73b05c7e23a061ac802076051bd97b924c559b406fd7d51d2f9"
+      },
+      {
+        "page": 11,
+        "path": "docs/research/downloads/c11-r12/tlv6710-p11.png",
+        "sha256": "09a4cc51ce5d5cdf7c3467ba2c1d34dcfca1e510e142c93e1053fdf2f2a1e9af"
+      },
+      {
+        "page": 12,
+        "path": "docs/research/downloads/c11-r12/tlv6710-p12.png",
+        "sha256": "ef2b4c88ad2440c19a5b58bd0d24e89246665a393a64f17dff2a03a651a500d2"
+      },
+      {
+        "page": 13,
+        "path": "docs/research/downloads/c11-r12/tlv6710-p13.png",
+        "sha256": "f28cb2e58b7a6369a19ec0a08011944bcabb5aace5067d33ad5e356ede42fd91"
+      },
+      {
+        "page": 14,
+        "path": "docs/research/downloads/c11-r12/tlv6710-p14.png",
+        "sha256": "d080b1f47dd4d8b29406e637bc28b3e7b277e65125bbf8147c6b5ac407879967"
+      },
+      {
+        "page": 15,
+        "path": "docs/research/downloads/c11-r12/tlv6710-p15.png",
+        "sha256": "9e3daba19d62673812b7cddb5d805cb4f8b6270c74b6ab0ec3789d4b3a2e711e"
+      }
+    ]
+  },
+  {
+    "part": "tps22916",
+    "url": "https://www.ti.com/lit/ds/symlink/tps22916.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/tps22916.pdf",
+    "sha256": "a4d81b70556d5564aaee9baf455b7651375a94c629448f3f7e7ced2f5c41b33f",
+    "pages": 29,
+    "cover_text": "\n--- PDF PAGE 1 ---\nTPS22916xx 1-V–5.5-V, 2-A, 60-mΩ Ultra-Low Leakage Load Switch\n1 Features\n•\nInput operating voltage range (VIN): 1 V–5.5 V\n•\nMaximum continuous current (IMAX): 2 A\n•\nON-resistance (RON):\n–\n5 VIN = 60 mΩ (typ.), 100 mΩ (85°C max.)\n–\n1.8 VIN = 100 mΩ (typ.), 150 mΩ (85°C max.)\n–\n1 VIN = 200 mΩ (typ.), 325 mΩ (85°C max.)\n•\nUltra-low power consumption:\n–\nON state (IQ): 0.5 µA (typ.), 1 µA (max.)\n–\nOFF state (ISD): 10 nA (typ.), 100 nA (max.)\n–\nTPS22916BL/CL/CNL (ISD): 100 nA (typ.), 300 \nnA (max.)\n•\nSmart ON pin pulldown (RPD):\n–\nON ≥ VIH (ION): 10 nA (max.)\n–\nON ≤ VIL (RPD): 750 kΩ (typ.)\n•\nSlow Timing in C Version Limits Inrush Current:\n–\n5-V turn-on time (tON): 1400 µs at 5 mV/µs\n–\n1.8-V turn-on time (tON): 3000 µs at 1 mV/µs\n–\n1-V turn-on time (tON): 6500 µs at 0.3 mV/µs\n•\nFast timing in b version reduces wait time:\n–\n5-V turn-on time (tON): 115 µs at 57 mV/µs\n–\n1.8-V turn-on time (tON): 250 µs at 12 mV/µs\n–\n1-V turn-on time (tON): 510 µs at 3.3 mV/µs\n•\nAlways-ON true Reverse Current Blocking (RCB):\n–\nActivation current (IRCB): –500 mA (typ.)\n–\nReverse leakage (IIN,RCB): –300 nA (max.)\n•\nQuick Output Discharge (QOD): 150 Ω (typ.)\n(N version has no QOD)\n•\nActive low enable option (L versions)\n2 Applications\n•\nWearables\n•\nSmartphones\n•\nTablets\n•\nPortable speakers\n3 Description\nThe TPS22916xx is a small, single channel load \nswitch using a low leakage P-Channel MOSFET for \nminimum power loss. Advanced gate control design \nsupports operating voltages as low as 1 V with \nminimal increase in ON-resistance and power loss.\nMultiple timing options are available to support \nvarious \nsystem \nloading \nconditions. \nFor \nheavy \ncapacitive loads, the slow turn-on timing in the C \nversion minimizes the inrush current. In cases with \nlight capacitive loads, the fast timing in the B version \nreduces required wait time.\nThe switch ON state is controlled by a digital input \nthat is capable of interfacing directly with low-voltage \ncontrol signals. Both Active High and Active Low (L) \nversions are available. When power is first applied, \na smart pulldown is used to keep the ON pin from \nfloating until system sequencing is complete. AFter \nthe ON pin is deliberately driven high (≥VIH), the smart \npulldown is disconnected to prevent unnecessary \npower loss.\nThe TPS22916xx is available in a small, space \nsaving 0.78 mm × 0.78 mm, 0.4-mm pitch, 0.5-\nmm height 4-pin Wafer-Chip-Scale (WCSP) package \n(YFP). The device is characterized for operation over \na temperature range of –40°C to +85°C.\nDevice Information(1) \nPART NUMBER\nPACKAGE\nBODY SIZE (NOM)\nTPS22916xx\nWCSP (4)\n0.78 mm × 0.78 mm\n(1)\nFor all available packages, see the orderable addendum at \nthe end of the data sheet.\nDevice Comparison Table\nVERSION\nTIMING\nQOD\nENABLE (ON)\nTPS22916B\nFast\nYes\nActive High\nTPS22916BL\nFast\nYes\nActive Low\nTPS22916C\nSlow\nYes\nActive High\nTPS22916CN\nSlow\nNo\nActive High\nTPS22916CL\nSlow\nYes\nActive Low\nTPS22916CNL\nSlow\nNo\nActive Low\nL\nH\nTPS22916xx\nVIN\nVOUT\nRL\nCL\nON\nGND\nVIN\n+\n±\nCIN\nCopyright © 2017, Texas Instruments Incorporated\nSimplified Schematic\nTPS22916\nSLVSDO5F – JULY 2017 – REVISED DECEMBER 2021\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications, \nintellectual property matters and other important disclaimers. PRODUCTION DATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/tps22916-p1.png",
+        "sha256": "ef666ce3f01eab8d2c835640d049845afc830edb35a180479b80f1b2428dafd8"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/tps22916-p2.png",
+        "sha256": "2179862cfb734e0ec28af906e7b744c7435c72f3b7162e4201a2384d9323063b"
+      },
+      {
+        "page": 5,
+        "path": "docs/research/downloads/c11-r12/tps22916-p5.png",
+        "sha256": "aa8c83d6be3c1275730ed8085249cf8f6faaa4a120905c5419e8ad26fb98b8bb"
+      },
+      {
+        "page": 6,
+        "path": "docs/research/downloads/c11-r12/tps22916-p6.png",
+        "sha256": "f7a9ba0757aa19c7532f0fa5a9be1c778bd05966821912ee154456a256cc3713"
+      },
+      {
+        "page": 7,
+        "path": "docs/research/downloads/c11-r12/tps22916-p7.png",
+        "sha256": "2a4d3bd68d2bc61fbbef6ff9f02a3dc092f4e9cb5004e129bbbf2b103c22c989"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/tps22916-p8.png",
+        "sha256": "57c33eb14b49f00870d8f4e425b9fbcd14c6932a2ab724a39ecacfb0e481d4af"
+      },
+      {
+        "page": 9,
+        "path": "docs/research/downloads/c11-r12/tps22916-p9.png",
+        "sha256": "4d85d62f1f6407ed7202b76947633fceb411193dd66c17aff47744dcfc69615f"
+      },
+      {
+        "page": 16,
+        "path": "docs/research/downloads/c11-r12/tps22916-p16.png",
+        "sha256": "af4cd7b0647c146e6d765c6e13d9eada732ae3bff9c2e0927ad2cf3ce9d7ac08"
+      },
+      {
+        "page": 17,
+        "path": "docs/research/downloads/c11-r12/tps22916-p17.png",
+        "sha256": "1f841995e597ac9cd58eb6d49730a91a230d8d99ad65d6ef4d5e8d7d50f0c2bf"
+      },
+      {
+        "page": 18,
+        "path": "docs/research/downloads/c11-r12/tps22916-p18.png",
+        "sha256": "299dfce4485e85d73b7aea4d41cb490ef4033bc1e298565bad328d1ca368bc99"
+      }
+    ]
+  },
+  {
+    "part": "tps61023",
+    "url": "https://www.ti.com/lit/ds/symlink/tps61023.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/tps61023.pdf",
+    "sha256": "1bfe4e5e4d284c752725fbcef7492b5f85449a7d537f24958cfcef7699d2899d",
+    "pages": 28,
+    "cover_text": "\n--- PDF PAGE 1 ---\nTPS61023 3.7-A Boost Converter with 0.5-V Ultra-low Input Voltage\n1 Features\n•\nInput voltage range: 0.5 V to 5.5 V\n•\n1.8-V Minimum input voltage for start-up\n•\nOutput voltage setting range: 2.2 V to 5.5 V\n•\nTwo 47-mΩ (LS) / 68-mΩ (HS) MOSFETs\n•\n3.7-A Valley switching current limit\n•\n94% Efficiency at VIN = 3.6 V, VOUT = 5 V and IOUT\n= 1.5 A\n•\n1-MHz Switching frequency when VIN > 1.5 V and\n0.5-MHz switching frequency when VIN < 1 V\n•\nTypical 0.1-µA shutdown current from VIN and SW\n•\n±2.5% Reference voltage accuracy over –40°C to\n+125°C\n•\nAuto PFM operation mode at light load\n•\nPass-through mode when VIN > VOUT\n•\nTrue disconnection between input and output\nduring shutdown\n•\nOutput overvoltage and thermal shutdown\nprotections\n•\nOutput short-circuit protection\n•\n1.2-mm × 1.6-mm SOT563 (DRL) 6-pin package\n2 Applications\n•\nElectronic shelf label\n•\nVideo doorbell\n•\nRemote controller\n3 Description\nTPS61023 device is a synchronous boost converter\nwith 0.5-V ultra-low input voltage. The device provides\na power supply solution for portable equipment and\nsmart devices powered by various batteries and super\ncapacitors. The TPS61023 has typical 3.7-A valley\nswitch current limit over full temperature range. With a\nwide input voltage range of 0.5 V to 5.5 V, the\nTPS61023 supports super capacitor backup power\napplications, which may deeply discharge the super\ncapacitor.\nThe \nTPS61023 \noperates \nat \n1-MHz \nswitching\nfrequency when the input voltage is above 1.5 V. The\nswitching frequency decreases gradually to 0.5 MHz\nwhen the input voltage is below 1.5 V down to 1 V.\nThe TPS61023 enters power-save mode at light load\ncondition to maintain high efficiency over the entire\nload current range. The TPS61023 consumes a 20-\nµA quiescent current from VOUT in light load condition.\nDuring shutdown, the TPS61023 is completely\ndisconnected from the input power and only\nconsumes a 0.1-µA current to achieve long battery\nlife. The TPS61023 has 5.7-V output overvoltage\nprotection, output short circuit protection, and thermal\nshutdown protection.\nThe TPS61023 offers a very small solution size with\n1.2-mm × 1.6-mm SOT563 (DRL) package and\nminimum amount of external components.\nDevice Information\nPART NUMBER\nPACKAGE\n(1)\nBODY SIZE (NOM)\nTPS61023\nSOT563 (6)\n1.20 mm × 1.60 mm\n(1)\nFor all available packages, see the orderable addendum at\nthe end of the data sheet.\nVIN\nEN\nSW\nVOUT\nFB\nGND\nL1\nR1\nR2\nOFF\nON\nC1\nC2\nVIN : 0.5 V ~ 5.5 V\n1 µH\nTPS61023\nVOUT : 2.2 V ~ 5.5 V\nTypical Application Circuit\nwww.ti.com\nTPS61023\nSLVSF14B – SEPTEMBER 2019 – REVISED AUGUST 2020\nCopyright © 2020 Texas Instruments Incorporated\nSubmit Document Feedback\n1\nProduct Folder Links: TPS61023\nTPS61023\nSLVSF14B – SEPTEMBER 2019 – REVISED AUGUST 2020\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,\nintellectual property matters and other important disclaimers. PRODUCTION DATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/tps61023-p1.png",
+        "sha256": "0e62236b409fd0ae3e7c7b09d45a6c29727abc66f8343515252839eb1d6e46d8"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/tps61023-p2.png",
+        "sha256": "ea4b66f47be9c847c954e33072df42e44373f6a8b26aa0ee3feb3a63a1d053bf"
+      },
+      {
+        "page": 5,
+        "path": "docs/research/downloads/c11-r12/tps61023-p5.png",
+        "sha256": "255b65dc9703e87227238cc471269e1a9e5be0196a45ea029c6013d7482703b4"
+      },
+      {
+        "page": 6,
+        "path": "docs/research/downloads/c11-r12/tps61023-p6.png",
+        "sha256": "1fe5942d5145be895a2681df5c5ce3ec7aac7e037f44bcdfdc5c00fdfb92be52"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/tps61023-p8.png",
+        "sha256": "fc9e154b51086f41984a565ca3650d896c51c2271453f8769e01ceda7d426d06"
+      },
+      {
+        "page": 10,
+        "path": "docs/research/downloads/c11-r12/tps61023-p10.png",
+        "sha256": "896cd382436ee7ade877c5734c0fa856f8e6a2a42d07100c3d79a35c9b7267d7"
+      },
+      {
+        "page": 12,
+        "path": "docs/research/downloads/c11-r12/tps61023-p12.png",
+        "sha256": "220e3a6fdce996652954e9e5e9c2b1a87ee72629d4658f86f49809e8c7ff4e4c"
+      }
+    ]
+  },
+  {
+    "part": "tps25810",
+    "url": "https://www.ti.com/lit/ds/symlink/tps25810.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/tps25810.pdf",
+    "sha256": "ccc31e3ad8b7970005e23ba8b6a165694f712e86fd337b9ba2fe117a98a2e13e",
+    "pages": 39,
+    "cover_text": "\n--- PDF PAGE 1 ---\n100 NŸ\u0003\n(1%)\n6 x 100 NŸ\n(optional)\n2.9 V ± 5.5V\nControl Signals\nAuxiliary Power\nPower Switch\nStatus Signals\nType- C DFP\nStatus Signals\nUSB Type-C\nConnector\nVBUS\nIN1\nIN2\nEN\nCHG\nCHG_HI\nREF\nGND\nOUT\nFAULT\nLD_DET\nCC1\nCC2\nUFP\nPOL\nAUDIO\nDEBUG\nPower Pad\nTPS25810\nAUX\nCC Power\n4.5 V ± 5.5V\n120PF\n6.8PF\nREF_RTN\n4.5 V ± 6.5V\nBus Power\nCopyright © 2016, Texas Instruments Incorporated\nCopyright © 2016, Texas Instruments Incorporated\nProduct\nFolder\nOrder\nNow\nTechnical\nDocuments\nTools &\nSoftware\nSupport &\nCommunity\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,\nintellectual property matters and other important disclaimers. PRODUCTION DATA.\nTPS25810\nSLVSCR1C –SEPTEMBER 2015–REVISED JULY 2017\nTPS25810 USB Type-C DFP Controller and Power Switch with Load Detection\n1\n(1)\nCC pins are IEC-61000-4-2 rated\n1\nFeatures\n1•\nUSB Type-C Rev. 1.2 Compliant DFP Controller\n•\nConnector Attach/Detach Detection\n•\nSTD/1.5-A/3-A Capability Advertisement on CC\n•\nSuper Speed Polarity Determination\n•\nVBUS Application and Discharge\n•\nVCONN Application to Electronically Marked Cable\n•\nAudio and Debug Accessory Identification\n•\n0.7-µA (typ) IDDQ When Port Unattached\n•\nThree Input Supply Options\n–\nIN1: USB Charging Supply\n–\nIN2: VCONN Supply\n–\nAUX: Device Power Supply\n•\nPower Wake Supports Low Power in System\nHibernate (S4) and OFF (S5) Power States\n•\n34-mΩ(typ) High-Side MOSFET\n•\n1.7/3.4-A ILimit (±7.1%) - Programmable\n•\nPort Power Management Enables Power\nResource Optimization Across Multi-Ports\n•\nPackage: 20-Pin WQFN (3 x 4) (1)\n•\nUL Listed – File No. E169910\n2\nApplications\n•\nUSB Type C Host Port in Notebook for Sleep\nCharging\n•\nLCD Monitor/Docking Station and Charging\nCradles\n•\nType C USB Wall Chargers\n3\nDescription\nThe TPS25810 is a USB Type-C Downstream Facing\nPort (DFP) controller with an integrated 3-A rated\nUSB power switch. The TPS25810 monitors the\nType-C\nConfiguration\nChannel\n(CC)\nlines\nto\ndetermine when an USB device is attached. If an\nUpstream Facing Port (UFP) device is attached, the\nTPS25810 applies power to VBUS and communicates\nthe selectable VBUS current sourcing capability to the\nUFP via the passthrough CC line. If the UFP is\nattached using an electronically marked cable, the\nTPS25810 also applies VCONN power to the cable CC\npin. The TPS25810 also identifies when Type-C\naudio or debug accessories are attached.\nThe TPS25810 draws less than 0.7 uA (typ) when no\ndevice is attached. Additional system power saving is\nachievable in S4/S5 system power states by using\nthe UFP output to disable the high power 5-V supply\nwhen no UFP is attached. In this mode the device is\ncapable of running from an auxiliary supply (AUX)\nwhich can be a lower voltage supply (3.3 V), typically\npowering the system uC in low power states (S4/S5).\nThe\nTPS25810\n34-mΩ\npower\nswitch\nhas\ntwo\nselectable fixed current limits that align with the Type-\nC current levels. The FAULT output signals when the\nswitch is in an over current or over temperature\ncondition.\nThe\nLD_DET\noutput\ncontrols\npower\nmanagement to multiple high current Type-C ports in\nan environment where all ports cannot simultaneously\nprovide high current (3 A).\nDevice Information(1)\nPART NUMBER\nPACKAGE\nBODY SIZE (NOM)\nTPS25810\nWQFN (20)\n3.00 mm x 4.00 mm\n(1) For all available packages, see the orderable addendum at\nthe end of the data sheet.\nSimplified Schematic\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/tps25810-p1.png",
+        "sha256": "b78e6735fedf7498750aeff985ca986c7476ecdfb4ee709c621201c8d0a2e047"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/tps25810-p2.png",
+        "sha256": "db4ceb715bfb806dc06422880a61f3385f77a91a2ac4a41b79262f66a8d9e382"
+      },
+      {
+        "page": 5,
+        "path": "docs/research/downloads/c11-r12/tps25810-p5.png",
+        "sha256": "213a99614a2cf344c5cb623219a37f98cd6a538df7d6ba18d4e06b46c5740b75"
+      },
+      {
+        "page": 6,
+        "path": "docs/research/downloads/c11-r12/tps25810-p6.png",
+        "sha256": "21bd8665065a0c85ce8373308e24afdd555a74196dbe880969a6046f4125ef44"
+      },
+      {
+        "page": 7,
+        "path": "docs/research/downloads/c11-r12/tps25810-p7.png",
+        "sha256": "e908d46af47a66caf371b0adbe52e5aee7f555dc5082d3fc435adc63c660bd5d"
+      },
+      {
+        "page": 9,
+        "path": "docs/research/downloads/c11-r12/tps25810-p9.png",
+        "sha256": "2aadcad9ddf771d07a8906754fa63021123bf8c65fd8a4b20c6709aea5790dd1"
+      },
+      {
+        "page": 10,
+        "path": "docs/research/downloads/c11-r12/tps25810-p10.png",
+        "sha256": "edd32535c7bf2fac9617b36d51bee9d7b33d4d439c1ec8b9f38e20190d70e7e4"
+      },
+      {
+        "page": 11,
+        "path": "docs/research/downloads/c11-r12/tps25810-p11.png",
+        "sha256": "94f68259e9be352d5852900ab25d16895e40df9a3642b65d93d01c7469e46c4f"
+      },
+      {
+        "page": 14,
+        "path": "docs/research/downloads/c11-r12/tps25810-p14.png",
+        "sha256": "4d14afc243e6888ab961e892f5a7a4d551e534de0b02726c2856121329da080b"
+      },
+      {
+        "page": 21,
+        "path": "docs/research/downloads/c11-r12/tps25810-p21.png",
+        "sha256": "285a0d85e259bd02ea54b95dd994ab3f394b63390beba4096e9948f3c23f2739"
+      },
+      {
+        "page": 22,
+        "path": "docs/research/downloads/c11-r12/tps25810-p22.png",
+        "sha256": "7c7cbaa9cadb0bae497627d6c33a1940137c30125cbb9fe71f7a76dd63ca8b26"
+      }
+    ]
+  },
+  {
+    "part": "tps3808",
+    "url": "https://www.ti.com/lit/ds/symlink/tps3808.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/tps3808.pdf",
+    "sha256": "74d889c0f68af88032f1633c26381817cc03e10d9fd3b4c177a044ad3ed86eed",
+    "pages": 39,
+    "cover_text": "\n--- PDF PAGE 1 ---\nTPS3808 Low-Quiescent-Current, Programmable-Delay Supervisory Circuit\n1 Features\n•\nPower-on reset generator with adjustable delay \ntime: 1.25ms to 10s\n•\nVery low quiescent current: 2.4μA typical\n•\nHigh threshold accuracy: 0.5% typical\n•\nFixed threshold voltages for standard voltage rails \nfrom 0.9V to 5V and adjustable voltage down to \n0.4V are available\n•\nManual reset (MR) input\n•\nOpen-drain RESET output\n•\nTemperature range: –40°C to 125°C\n•\nSmall SOT-23 and 2mm × 2mm WSON packages\n2 Applications\n•\nDSP or microcontroller applications\n•\nNotebook and desktop computers\n•\nPDAs and handheld products\n•\nPortable and battery-powered products\n•\nFPGA and ASIC applications\n3 Description\nThe TPS3808 family of microprocessor supervisory \ncircuits monitors system voltages from 0.4V to 5V, \nasserting an open-drain RESET signal when the \nSENSE voltage drops below a preset threshold \nor when the manual reset (MR) pin drops to a \nlogic low. The RESET output remains low for the \nuser-adjustable delay time after the SENSE voltage \nand manual reset (MR) return above the respective \nthresholds.\nThe TPS3808 device uses a precision reference to \nachieve 0.5% threshold accuracy for VIT ≤ 3.3V. The \nreset delay time can be set to 20ms by disconnecting \nthe CT pin, 300ms by connecting the CT pin to \nVDD using a resistor, or can be user-adjusted from \n1.25ms to 10s by connecting the CT pin to an external \ncapacitor. The TPS3808 device has a very low typical \nquiescent current of 2.4μA, so it is an excellent \nchoice for battery-powered applications. TPS3808 is \navailable in the SOT-23 and 2mm × 2mm WSON \npackages, and is fully specified over a temperature \nrange from –40°C to 125°C (TJ).\nPackage Information\nPART NUMBER\nPACKAGE(1)\nPACKAGE SIZE(2)\nTPS3808\nDBV (SOT-23, 6)\n2.90mm × 1.60mm\nDRV (WSON, 6)\n2.00mm × 2.00mm\n(1)\nFor all available packages, see the orderable addendum at \nthe end of the datasheet.\n(2)\nThe package size (length × width) is a nominal value and \nincludes pins, where applicable.\n1.2 V\n3.3 V\nTPS3808G12\nTPS3808G33\nDSP\nSENSE\nVDD\nVDD\nSENSE\nVI/O\nVCORE\nGPIO\nGND\nGND\nGND\nRESET\nMR\nCT\nCT\nRESET\nTypical Application\n1.5\n2.5\n3.5\n4.5\n5.5\n6.5\n4.0\n3.5\n3.0\n2.5\n2.0\n1.5\nV\n(V)\nDD\nI\n( A)\nDD m\n-40 C\n°\n25 C\n85 C\n125 C\n°\n°\n°\nSupply Current vs Supply Voltage\nTPS3808\nSBVS050N – MAY 2004 – REVISED AUGUST 2026\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications, \nintellectual property matters and other important disclaimers. PRODUCTION DATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/tps3808-p1.png",
+        "sha256": "5a34749a76e3b5d0bb807b6827efdd5a4e75acd30512af160ed68b3d12bd80c9"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/tps3808-p2.png",
+        "sha256": "b09ea6a41bef3ee70db658e2b08c31db651d6ab83e0930ee3f0b3652b0ad9349"
+      },
+      {
+        "page": 6,
+        "path": "docs/research/downloads/c11-r12/tps3808-p6.png",
+        "sha256": "9498e103489b3e64878cd54283e1cd15bbbcb2921e38c4095066372966dc52c8"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/tps3808-p8.png",
+        "sha256": "d43266d3cd603fe7502d9d92693a2cccb5631cbc899b2b95e34741551acc2d6b"
+      },
+      {
+        "page": 9,
+        "path": "docs/research/downloads/c11-r12/tps3808-p9.png",
+        "sha256": "4d3db585b9bb168c08d299339023714800291e09ad0bab9226d4d3203f967e9c"
+      },
+      {
+        "page": 10,
+        "path": "docs/research/downloads/c11-r12/tps3808-p10.png",
+        "sha256": "f48b39ca9f14c2695ffd1f457c8ce03646995e2c04615cba0e1e7f17cd92c0dc"
+      },
+      {
+        "page": 12,
+        "path": "docs/research/downloads/c11-r12/tps3808-p12.png",
+        "sha256": "571b867d6fd02e5febb51f7ca1425dab2642ebbb0f04a6348751a58a14b93665"
+      },
+      {
+        "page": 14,
+        "path": "docs/research/downloads/c11-r12/tps3808-p14.png",
+        "sha256": "6fceb05cb0e52d59d4ceff44fdd1a3a3cc84e804c389bee338c659b783254b4e"
+      }
+    ]
+  },
+  {
+    "part": "sn74lvc1g74",
+    "url": "https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/sn74lvc1g74.pdf",
+    "sha256": "e46a5a867fec742290000dca5ed3b291535f3c4418ef2ae267acc4ab51b26d8a",
+    "pages": 31,
+    "cover_text": "\n--- PDF PAGE 1 ---\nSN74LVC1G74 Single Positive-Edge-Triggered D-Type Flip-Flop with Clear and Preset\n1 Features\n•\nAvailable in the Texas Instruments\nNanoFree™ package\n•\nSupports 5-V VCC operation\n•\nInputs accept voltages to 5.5-V\n•\nSupports down translation to VCC\n•\nMaximum tpd of 5.9-ns at 3.3-V\n•\nLow power consumption, 10-µA maximum ICC\n•\n±24-mA output drive at 3.3-V\n•\nTypical VOLP (output ground bounce)\n< 0.8-V at VCC = 3.3-V, TA = 25°C\n•\nTypical VOHV (output VOH undershoot)\n> 2-V at VCC = 3.3 V, TA = 25°C\n•\nIoff supports live insertion, partial-power-down \nmode, and back-drive protection\n•\nLatch-up performance exceeds 100 mA per JESD \n78, class II\n•\nESD protection exceeds JESD 22\n–\n2000-V human-body model\n–\n200-V machine model\n–\n1000-V charged-device model\n2 Applications\n•\nServers\n•\nLED displays\n•\nNetwork switch\n•\nTelecom infrastructure\n•\nMotor drivers\n•\nI/O expanders\n3 Description\nThis single positive-edge-triggered D-type flip-flop is \ndesigned for 1.65-V to 5.5-V VCC operation.\nNanoFree™ \npackage \ntechnology \nis \na \nmajor \nbreakthrough in IC packaging concepts, using the die \nas the package.\nA low level at the preset ( PRE) or clear ( CLR) \ninput sets or resets the outputs, regardless of the \nlevels of the other inputs. When PRE and CLR are \ninactive (high), data at the data (D) input meeting the \nsetup time requirements is transferred to the outputs \non the positive-going edge of the clock pulse. Clock \ntriggering occurs at a voltage level and is not related \ndirectly to the rise time of the clock pulse. Following \nthe hold-time interval, data at the D input can be \nchanged without affecting the levels at the outputs.\nThis device is fully specified for partial-power-down \napplications using Ioff. The Ioff circuitry disables \nthe outputs, preventing damaging current backflow \nthrough the device when it is powered down.\nDevice Information\nPART NUMBER\nPACKAGE (1)\nBODY SIZE\nSN74LVC1G74\nSM8 (8)\n2.95 mm × 2.80 mm\nUS8 (8)\n2.30 mm × 2.00 mm\nX2SON (8)\n1.40 mm × 1.00 mm\nUQFN (8)\n1.50 mm × 1.50 mm\n(1)\nFor all available packages, see the orderable addendum at \nthe end of the data sheet.\nD\nQ\nQ\nCLR\nPRE\nCLK\nSimplified Schematic\nSN74LVC1G74\nSCES794G – OCTOBER 2009 – REVISED SEPTEMBER 2021\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications, \nintellectual property matters and other important disclaimers. PRODUCTION DATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/sn74lvc1g74-p1.png",
+        "sha256": "f0a61848cf7686608d5b44ce73b563256d3715ebdb514e13af3dc0e811197f00"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/sn74lvc1g74-p2.png",
+        "sha256": "f04cbcb9688a3fa7736242cc44a1a7f5a61cddc7c374f9f1cd406f6fe9e55b0e"
+      },
+      {
+        "page": 7,
+        "path": "docs/research/downloads/c11-r12/sn74lvc1g74-p7.png",
+        "sha256": "66d6ef0d068110f4875ed432ae1be024d5d5722778e577e23e6db3eb6ed026d9"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/sn74lvc1g74-p8.png",
+        "sha256": "320b8b3a7bdd07294e7f4c4c01f04c06d0a01cf7f74233e57f679e3cad64e691"
+      },
+      {
+        "page": 10,
+        "path": "docs/research/downloads/c11-r12/sn74lvc1g74-p10.png",
+        "sha256": "36b6af00e109e536f25c5833578dde0f5946eb315a5abed4ec0a325dad1ef32e"
+      },
+      {
+        "page": 11,
+        "path": "docs/research/downloads/c11-r12/sn74lvc1g74-p11.png",
+        "sha256": "30a00eab41f5357f47b7963bcf6a719fdcc5cbca9e8a74988fec81021353195c"
+      }
+    ]
+  },
+  {
+    "part": "tps25947",
+    "url": "https://www.ti.com/lit/ds/symlink/tps25947.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/tps25947.pdf",
+    "sha256": "8f96de389903091650d4f462dcfad3210071c3ae7093623a7978f34baf8a65b4",
+    "pages": 75,
+    "cover_text": "\n--- PDF PAGE 1 ---\nTPS25947xx, 2.7V to 23V, 5.5A, 28mΩ True Reverse Current Blocking eFuse with Input \nReverse Polarity Protection\n1 Features\n•\nWide operating input voltage range: 2.7V to 23V\n–\n28V absolute maximum\n–\nWithstands negative voltages up to –15V\n•\nIntegrated back-to-back FETs with low on-\nresistance: RON = 28.3mΩ (typical)\n•\nIdeal diode operation with true reverse-current \nblocking\n•\nFast overvoltage protection\n–\nOvervoltage clamp (OVC) with pin-selectable \nthreshold (3.8V, 5.7V, 13.8V) and 5μs (typical) \nresponse time OR\n–\nAdjustable overvoltage lockout (OVLO) with \n1.2μs (typical) response time\n•\nOvercurrent protection with load current monitor \noutput (ILM)\n–\nActive current limit OR circuit-breaker options\n–\nAdjustable threshold (ILIM) 0.5A to 6A\n•\n±10% accuracy for ILIM > 1A\n–\nAdjustable transient blanking timer (ITIMER) to \nallow peak currents up to 2 × ILIM\n–\nOutput load current monitor accuracy: ±6% \n(IOUT ≥ 1A)\n•\nFast-trip response for short-circuit protection\n–\n500ns (typical) response time\n–\nAdjustable (2 × ILIM) and fixed thresholds\n•\nActive high enable input with adjustable \nundervoltage lockout threshold (UVLO)\n•\nAdjustable output slew rate control (dVdt)\n•\nOvertemperature protection\n•\nDigital outputs\n–\nPriority power MUX control (AUXOFF) and fault \nindication (FLT) or\n–\nPower Good indication (PG) with adjustable \nthreshold (PGTH)\n•\nUL 2367 recognition\n–\nFile No. E339631\n–\nRILM ≥ 750Ω\n•\nIEC 62368-1 CB certified\n•\nSmall footprint: QFN 2mm × 2mm, 0.45mm pitch\n2 Applications\n•\nPower MUX/ORing\n•\nAdapter input protection\n•\nUSB PD protection – PC, notebook, monitors, \ndocks\n•\nServer, PC motherboard, and add-on cards\n•\nEnterprise storage – RAID/HBA/SAN/eSSD\n•\nPatient monitors\n3 Description\nThe TPS25947xx family of eFuses is a highly \nintegrated circuit protection and power management \nsolution in a small package. The devices provide \nmultiple protection modes using very few external \ncomponents and are a robust defense against \noverloads, short-circuits, voltage surges, reverse \npolarity and excessive inrush current. With integrated \nback-to-back FETs, reverse current flow from output \nto input is blocked at all times, making the devices an \nexcellent choice for power MUX/ORing applications \nas well as systems which need load side energy \nhold up storage in case input power supply fails. The \ndevices use linear ORing based scheme to establish \nan almost zero DC reverse current and emulate ideal \ndiode behavior with minimum forward voltage drop \nand power dissipation.\nOutput slew rate and inrush current can be adjusted \nusing an external capacitor. Loads are protected \nfrom input overvoltage conditions either by clamping \nthe output to a safe fixed maximum voltage (pin \nselectable), or by cutting off the output if input \nexceeds an adjustable overvoltage threshold. The \ndevices respond to output overload by actively limiting \nthe current or breaking the circuit. The output current \nlimit threshold as well as the transient overcurrent \nblanking timer are user adjustable. The current limit \ncontrol pin also functions as an analog load current \nmonitor.\nThe devices are available in a 2mm × 2mm, 10-\npin HotRod™ QFN package for improved thermal \nperformance and reduced system footprint.\nThe devices are characterized for operation over a \njunction temperature range from –40°C to +125°C.\nTPS25947\nSLVSFC9C – OCTOBER 2020 – REVISED MAY 2026\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications, \nintellectual property matters and other important disclaimers. PRODUCTION DATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/tps25947-p1.png",
+        "sha256": "fba05d458df01291db9f0ccc518b45ff85936f3a08563ef66d0cfda68301c0b0"
+      },
+      {
+        "page": 3,
+        "path": "docs/research/downloads/c11-r12/tps25947-p3.png",
+        "sha256": "123b11c506cf818093f4c8601d13b19fa484cac9c1d3c2c2342d3cc2c8012dc0"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/tps25947-p8.png",
+        "sha256": "eb37c7ea005caa4630810cc0b1df06323d4268cfbc9c73b622c6657b0848302d"
+      },
+      {
+        "page": 9,
+        "path": "docs/research/downloads/c11-r12/tps25947-p9.png",
+        "sha256": "cf00ea8dcccc7019c134f5b55231f414be84e4590facd4d8ae392c5d2931c93d"
+      },
+      {
+        "page": 10,
+        "path": "docs/research/downloads/c11-r12/tps25947-p10.png",
+        "sha256": "e41909b98240237d859f0b8e39976aa80930a69d6dbde02f0d35466fb2eac059"
+      },
+      {
+        "page": 11,
+        "path": "docs/research/downloads/c11-r12/tps25947-p11.png",
+        "sha256": "6b7fa61ed31930f2f6593bae416e5040356ef90dc138ab1983943e5728d0a719"
+      },
+      {
+        "page": 13,
+        "path": "docs/research/downloads/c11-r12/tps25947-p13.png",
+        "sha256": "095f106ff5bb577feee6a98e470a124456b36cdd089270d13422ca2bd20d8eb4"
+      },
+      {
+        "page": 14,
+        "path": "docs/research/downloads/c11-r12/tps25947-p14.png",
+        "sha256": "f0ce74cce771a7af95f59b0f0826575453f5362329775638adaa78edb5541da0"
+      },
+      {
+        "page": 15,
+        "path": "docs/research/downloads/c11-r12/tps25947-p15.png",
+        "sha256": "1f13fea3b29a54c2ab9e4372fc52a622c2573ab7a00c5a4953118f9f2a7aa5c2"
+      },
+      {
+        "page": 16,
+        "path": "docs/research/downloads/c11-r12/tps25947-p16.png",
+        "sha256": "38faed5737866394c683e5d5f20f7bafdf0cf43739d664ed231959fe591883f8"
+      },
+      {
+        "page": 17,
+        "path": "docs/research/downloads/c11-r12/tps25947-p17.png",
+        "sha256": "906a74337e326ed5a84fde976b7e89e305f82aeb014fdac117e7a28f783ce645"
+      },
+      {
+        "page": 18,
+        "path": "docs/research/downloads/c11-r12/tps25947-p18.png",
+        "sha256": "ddb0d45a52d2fba4df63468cdd806197e9d0b000f35cc5f9e31c77c68ea77a76"
+      },
+      {
+        "page": 19,
+        "path": "docs/research/downloads/c11-r12/tps25947-p19.png",
+        "sha256": "2fb651face9175b3ccbaefa23b84bbf0cf92a611d942f651429e8fde1e8550a9"
+      },
+      {
+        "page": 20,
+        "path": "docs/research/downloads/c11-r12/tps25947-p20.png",
+        "sha256": "12f62f920f40aa482d28de9d8527d276e25d367fe5980a2a254835a42a4b002a"
+      },
+      {
+        "page": 21,
+        "path": "docs/research/downloads/c11-r12/tps25947-p21.png",
+        "sha256": "c48bdb20d35e336621a952a91aecd4d2a9bc98c38db526513bead50f29a16cd9"
+      },
+      {
+        "page": 22,
+        "path": "docs/research/downloads/c11-r12/tps25947-p22.png",
+        "sha256": "dfaef9a329d6973eeb6cbd21dca7e09e0cb4a1385b78c08197ec5c0a8624edae"
+      },
+      {
+        "page": 41,
+        "path": "docs/research/downloads/c11-r12/tps25947-p41.png",
+        "sha256": "c9250032ca50975f9c5242e5ab288c8903f0378761a7fc849ab3fe7d06b164bc"
+      },
+      {
+        "page": 42,
+        "path": "docs/research/downloads/c11-r12/tps25947-p42.png",
+        "sha256": "8d60543ceb4b5181f94f72bf1be453e20b3267e07792d174ff5530c4a9f0ee1a"
+      }
+    ]
+  },
+  {
+    "part": "ref33",
+    "url": "https://www.ti.com/lit/ds/symlink/ref33.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/ref33.pdf",
+    "sha256": "39839abc9bf09417d0a4b446c6e922679f6dc63b19072e284169dd23007e65fe",
+    "pages": 36,
+    "cover_text": "\n--- PDF PAGE 1 ---\nREF33xx 3.9μA, SC70-3, SOT-23-3, and UQFN-8, 30ppm/°C Drift Voltage Reference\n1 Features\n•\nMicrosize packages: SC70-3, SOT-23-3, UQFN-8\n•\nLow supply current: 3.9μA (typical)\n•\nExtremely low dropout voltage: 110mV (typical)\n•\nHigh output current: ±5mA\n•\nLow temperature drift: 30ppm/°C (maximum)\n•\nHigh initial accuracy: ±0.15% (maximum)\n•\n0.1Hz to 10Hz noise: 35μVPP (REF3312)\n•\nVoltage options: 1.2V, 1.8V, 2.5V, 3V, 3.3V\n2 Applications\n•\nPortable equipment\n•\nTablets and smartphones\n•\nHard disk drives\n•\nSensor modules\n•\nData acquisition systems\n•\nMedical equipment\n•\nTest equipment\n3 Description\nThe REF33xx is a low-power, precision, low-dropout \nvoltage reference family available in tiny SC70-3 \nand SOT-23-3 packages, and in a 1.5mm × \n1.5mm UQFN-8 package. Small size and low power \nconsumption (5μA maximum) make the REF33xx \nideal for a wide variety of portable and battery-\npowered applications.\nThe REF33xx can be operated at a supply voltage \n180mV above the specified output voltage under \nnormal load conditions, with the exception of the \nREF3312, which has a minimum supply voltage \nof 1.7V. All models are specified for the wide \ntemperature range of –40°C to +125°C.\nPackage Information\nPART NUMBER\nPACKAGE(1)\nPACKAGE SIZE(2)\nREF33xx\nDBZ (SOT-23, 3)\n2.92mm × 2.37mm\nDCK (SC70, 3)\n2.00mm × 2.10mm\nRSE (UQFN, 8)\n1.50mm × 1.50mm\n(1)\nFor more information, see Section 12.\n(2)\nThe package size (length × width) is a nominal value and \nincludes pins, where applicable.\nR3\nR2\nVIN\n+2.7V\nEnable(1)\nOPA333,\nOPA363,\nOPA369\nor\nR\n66.5\n1\nW\nC\n1.5nF\n1\nC\n1 F\n2\nm\nP1.2\nVREF\nA0+\nREF3312\n+2.7V\nVCC\nVSS\n16-Bit\nADC\nMSP430x20x3PW\nREF3312 in a Single-Supply Signal Chain\n200\n180\n160\n140\n120\n100\n80\n60\n40\n20\n0\nDropout Voltage (mV)\n-5\n-4\n-3\n-2\n-1\n0\n1\n2\n3\n4\n5\nLoad Current (mA)\n+125 C\n°\n+25 C\n°\n-\n°\n40 C\nDropout Voltage vs Load Current\nREF33\nSBOS392I – AUGUST 2007 – REVISED APRIL 2026\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications, \nintellectual property matters and other important disclaimers. PRODUCTION DATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/ref33-p1.png",
+        "sha256": "bed6a2fd03d782491d97d0f9dd0b04527554693d0bb6ef5b76972c16b31332fd"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/ref33-p2.png",
+        "sha256": "eb79146fe9bf0accd9ab2d46c66d4d5a062135be44dfe0ca731c008b42e8a2a6"
+      },
+      {
+        "page": 6,
+        "path": "docs/research/downloads/c11-r12/ref33-p6.png",
+        "sha256": "98322bdffa3a261b2717e529523747a9f660b94a22ca331f2b30733ad5115f1a"
+      },
+      {
+        "page": 7,
+        "path": "docs/research/downloads/c11-r12/ref33-p7.png",
+        "sha256": "32ecc1605937a1f762e6766e8f07251b68ad9d26b1613d04350903ca3e4c722f"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/ref33-p8.png",
+        "sha256": "1a0dc5ef0ee7911c72b3ebdb402498df40c334b5e17274a7872e7ee62ae01e20"
+      },
+      {
+        "page": 9,
+        "path": "docs/research/downloads/c11-r12/ref33-p9.png",
+        "sha256": "4975895e2e1521cc2820cb55654365df27a760cad29eabc8e69cdd3890f521be"
+      },
+      {
+        "page": 10,
+        "path": "docs/research/downloads/c11-r12/ref33-p10.png",
+        "sha256": "46adcb2547f99b8082acbbd482981aa8699a6e724ddcdd7a373e6bc0b2d0759b"
+      },
+      {
+        "page": 12,
+        "path": "docs/research/downloads/c11-r12/ref33-p12.png",
+        "sha256": "1f4e6210be883db5cdc4d835c731bc42efafc261aa0f2c794160b37743457a35"
+      },
+      {
+        "page": 13,
+        "path": "docs/research/downloads/c11-r12/ref33-p13.png",
+        "sha256": "c2dc3cf2e1bbd645b060b49c8318f5caa161aae890c0cfcaa6a2a503a3d4f9fd"
+      },
+      {
+        "page": 14,
+        "path": "docs/research/downloads/c11-r12/ref33-p14.png",
+        "sha256": "a097775bac26b32068acbf3dee2dcb888fa17dea2c5de3df354039cf63bf7f22"
+      },
+      {
+        "page": 16,
+        "path": "docs/research/downloads/c11-r12/ref33-p16.png",
+        "sha256": "edfcf6e8df597e128774bb3a610d57b68ad3cd1e49569eb4f9795632195ab2ff"
+      },
+      {
+        "page": 19,
+        "path": "docs/research/downloads/c11-r12/ref33-p19.png",
+        "sha256": "29a4e2f4f149da0b465021960adc8769e541b2608b8573de8759f9d9bcf651f2"
+      }
+    ]
+  },
+  {
+    "part": "tlv3201",
+    "url": "https://www.ti.com/lit/ds/symlink/tlv3201.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/tlv3201.pdf",
+    "sha256": "358c30340b482fc4b8fb2a5ae8a32543ff758acbbce2b9c1556ac703df118f1b",
+    "pages": 40,
+    "cover_text": "\n--- PDF PAGE 1 ---\nTLV320x 40ns, microPOWER, Push-Pull Output Comparators\n1 Features\n•\nLow Propagation Delay: 40ns\n•\nLow Quiescent Current:\n40µA per Channel\n•\nInput Common-Mode Range Extends 200mV \nBeyond Either Rail\n•\nLow Input Offset Voltage: 1mV\n•\nPush-Pull Outputs\n•\nSupply Range: 2.7V to 5.5V\n•\nIndustrial Temperature Range:\n–40°C to 125°C\n•\nSmall Packages:\n5-Pin SC70, 5-Pin SOT-23, 8-Pin SOIC, 8-Pin \nVSSOP\n2 Applications\n•\nInspection Equipment\n•\nTest and Measurement\n•\nHigh-Speed Sampling Systems\n•\nTelecom\n•\nPortable Communications\n3 Description\nThe \nTLV3201 \nand \nTLV3202 \nare \nsingle- \nand \ndual-channel comparators that offer the ultimate \ncombination of high speed (40ns) and low-power \nconsumption (40µA), all in extremely small packages \nwith features such as rail-to-rail inputs, low offset \nvoltage (1mV ), and large output drive current. The \ndevices are also very easy to implement in a wide \nvariety of applications where response time is critical.\nThe TLV320x family is available in single (TLV3201) \nand dual (TLV3202) channel versions, both with \npush-pull outputs. The TLV3201 is available in 5-pin \nSOT-23 and 5-pin SC70 packages. The TLV3202 is \navailable in 8-pin SOIC and 8-pin VSSOP packages. \nAll devices are specified for operation across the \nexpanded industrial temperature range of –40°C to \n125°C.\nDevice Information\nPART NUMBER\nPACKAGE (1)\nBODY SIZE (NOM) \n(2)\nTLV3201\nSOT-23 (5)\n2.90mm × 1.60mm\nSC70 (5)\n2.00mm × 1.25mm\nTLV3202\nVSSOP (8)\n3.00mm × 3.00mm\nSOIC (8)\n4.90mm × 3.91mm\n(1)\nFor all available packages, see the orderable addendum at \nthe end of the data sheet.\n(2)\nThe package size (length × width) is a nominal value and \nincludes pins, where applicable\n \n \nR2\nR1\nC1\nC2\nVIN\nVREF\nVOUT\nVCC\nCopyright © 2016, Texas Instruments Incorporated\nThreshold Detector\nTLV3201, TLV3202\nSBOS561C – MARCH 2012 – REVISED MAY 2024\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications, \nintellectual property matters and other important disclaimers. UNLESS OTHERWISE NOTED, this document contains PRODUCTION \nDATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/tlv3201-p1.png",
+        "sha256": "0fb09c8f86fd3e46790ecc225b0e47b6ac6979b5f8aa9b3e48f714ade38af965"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/tlv3201-p2.png",
+        "sha256": "02d21e4a002011ca2a802babee09f45f3ccbc2c06c1ad859927f8690f04782fd"
+      },
+      {
+        "page": 5,
+        "path": "docs/research/downloads/c11-r12/tlv3201-p5.png",
+        "sha256": "be471591116088ce5957782ab282eefc0fe51ea20582f806d5549d539ce94dea"
+      },
+      {
+        "page": 6,
+        "path": "docs/research/downloads/c11-r12/tlv3201-p6.png",
+        "sha256": "6a73254036d57f3f59b32ef127e71793b5d4ff298e02361f1b7ce00f0b319c84"
+      },
+      {
+        "page": 7,
+        "path": "docs/research/downloads/c11-r12/tlv3201-p7.png",
+        "sha256": "4bdc71925c2110d31691c61a1a77fa226bb2924ea8eca2e4b956239be62cf9fe"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/tlv3201-p8.png",
+        "sha256": "d0a95657f7ef1d06f006613108aa205943ac5f910002a364e7e0838c7a55077f"
+      },
+      {
+        "page": 9,
+        "path": "docs/research/downloads/c11-r12/tlv3201-p9.png",
+        "sha256": "6b7e89b815e098b1e026d58897c6eb8a2f6fd85dad5688861654ce56bc4e9289"
+      },
+      {
+        "page": 10,
+        "path": "docs/research/downloads/c11-r12/tlv3201-p10.png",
+        "sha256": "7388e4d673c291444c6241487a5febbe5b2aff8216121cb6ac520468c860b098"
+      },
+      {
+        "page": 11,
+        "path": "docs/research/downloads/c11-r12/tlv3201-p11.png",
+        "sha256": "40c4c350ffc37e9af414df30e96cd7c44b443ad588009f540edc5d67b4621356"
+      },
+      {
+        "page": 12,
+        "path": "docs/research/downloads/c11-r12/tlv3201-p12.png",
+        "sha256": "e3da68821489ff2d0c3fd068e14281b535c7955847c416893b57dc2ba046476f"
+      },
+      {
+        "page": 22,
+        "path": "docs/research/downloads/c11-r12/tlv3201-p22.png",
+        "sha256": "26e3fd7ca2d66ac2ff4d242515b0e1a5a6cddf9ce132747ed70d25b58514dc94"
+      }
+    ]
+  },
+  {
+    "part": "csd25402q3a",
+    "url": "https://www.ti.com/lit/ds/symlink/csd25402q3a.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/csd25402q3a.pdf",
+    "sha256": "c012fd83328e7fae2186d13a13d9fe184ba7f00ec98f1061dca7118c39abdcd2",
+    "pages": 17,
+    "cover_text": "\n--- PDF PAGE 1 ---\n-VGS - Gate-To-Source Voltage (V)\nRDS(on) - On-State Resistance (m:)\n0\n2\n4\n6\n8\n10\n12\n0\n3\n6\n9\n12\n15\n18\n21\n24\nD007\nTC = 25° C, I D = -10 A\nTC = 125° C, I D = -10 A\nQg - Gate Charge (nC)\n-VGS - Gate-to-Source Voltage (V)\n0\n2\n4\n6\n8\n10\n12\n14\n0\n1\n2\n3\n4\n5\n6\n7\n8\nD004\nID = -10 A\nVDS = -10 V\n1\nS\nS\nS\nS\nS\n5\nG\n6\nD\n7\nD\n8\nD\n4\n3\n2\nProduct\nFolder\nSample &\nBuy\nTechnical\nDocuments\nTools &\nSoftware\nSupport &\nCommunity\nReference\nDesign\nCSD25402Q3A\nSLPS454B –DECEMBER 2013–REVISED JANUARY 2016\nCSD25402Q3A –20 V P-Channel NexFET™Power MOSFET\n1\nFeatures\nProduct Summary\n1•\nUltra-Low Qg and Qgd\nTA = 25°C\nTYPICAL VALUE\nUNIT\n•\nLow Thermal Resistance\nVDS\nDrain-to-source voltage\n–20\nV\n•\nLow RDS(on)\nQg\nGate charge total (–4.5 V)\n7.5\nnC\nQgd\nGate charge gate to drain\n1.1\nnC\n•\nPb and Halogen Free\nVGS = –1.8 V\n74\nmΩ\n•\nRoHS Compliant\nRDS(on)\nDrain-to-source on resistance\nVGS = –2.5 V\n13.3\nmΩ\n•\nSON 3.3 mm × 3.3 mm Plastic Package\nVGS = –4.5 V\n7.7\nmΩ\nVth\nThreshold voltage\n–0.9\nV\n2\nApplications\n•\nDC-DC Converters\nOrdering Information(1)\n•\nBattery Management\nDEVICE\nQTY\nMEDIA\nPACKAGE\nSHIP\n•\nLoad Switch\nCSD25402Q3A\n2500\n13-Inch Reel\nSON 3.3 mm × 3.3\nTape and\nmm Plastic Package\nReel\nCSD25402Q3AT\n250\n7-Inch Reel\n•\nBattery Protection\n(1) For all available packages, see the orderable addendum at\n3\nDescription\nthe end of the data sheet.\nThis –20-V, 7.7-mΩ NexFET™power MOSFET is\nAbsolute Maximum Ratings\ndesigned to minimize losses in power conversion load\nTA = 25°C\nVALUE\nUNIT\nmanagement applications with a SON 3.3 mm × 3.3\nmm\npackage\nthat\noffers\nan\nexcellent\nthermal\nVDS\nDrain-to-source voltage\n–20\nV\nperformance for the size of the device.\nVGS\nGate-to-source voltage\n+12 or –12\nV\nContinuous drain current, TC = 25°C\n–76\nA\nTop View\nID\nContinuous drain current (package limit)\n–35\nA\nContinuous drain current(1)\n–15\nA\nIDM\nPulsed drain current(2)\n–148\nA\nPower dissipation(1)\n2.8\nPD\nW\nPower dissipation, TC = 25°C\n69\nTJ\nOperating junction temperature\n–55 to 150\n°C\nTstg\nStorage temperature\n–55 to 150\n°C\n(1) Typical RθJA = 45°C/W on 1 inch2 Cu (2 oz.) on 0.060 inch\nthick FR4 PCB.\n(2) Max RθJC = 2.3°C/W, pulse duration ≤100 μs, duty cycle ≤1%\nRDS(on) vs VGS\nGate Charge\n1\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,\nintellectual property matters and other important disclaimers. PRODUCTION DATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/csd25402q3a-p1.png",
+        "sha256": "4b16fedd1fa0b6a9a1b53fc740cd9b00946e0cf88d302429294814ab3f3919b7"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/csd25402q3a-p2.png",
+        "sha256": "8621458abe0c11e38df6c71069c85c9343854b14135fc501520ae82477621f59"
+      },
+      {
+        "page": 3,
+        "path": "docs/research/downloads/c11-r12/csd25402q3a-p3.png",
+        "sha256": "7e23f8d86d7dd88bc65f622640867f0de21a07e40f435f858be98aa9d6744950"
+      }
+    ]
+  },
+  {
+    "part": "tps2553",
+    "url": "https://www.ti.com/lit/ds/symlink/tps2553.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/tps2553.pdf",
+    "sha256": "edd76d150b073ae8d4addbf85f6845b8c722fbd0b35ef025ac3c9e704a6a3385",
+    "pages": 46,
+    "cover_text": "\n--- PDF PAGE 1 ---\nTPS255xx Precision Adjustable Current-Limited Power-Distribution Switches\n1 Features\n•\nUp to 1.5A maximum load current\n•\n±6% current-limit accuracy at 1.7A (Typical)\n•\nMeets USB current-limiting requirements\n•\nBackwards compatible with TPS2550 and \nTPS2551\n•\nAdjustable Current Limit: 75mA to 1700mA \n(Typical)\n•\nConstant-current (TPS255x) and latch-off \n(TPS255x-1) versions\n•\nFast overcurrent response - 2µs (Typical)\n•\n85mΩ high-side MOSFET (DBV package)\n•\n100mΩ high-side MOSFET (DRV package)\n•\nReverse input-output voltage protection\n•\nOperating range: 2.5V to 6.5V\n•\nBuilt-in soft start\n•\nTPS25530-1 additional features:\n–\nQuick Output Discharge (QOD)\n–\n2.5A continuous current in DRV package\n–\n±6% current-limit accuracy at 2.64A (Typical)\n•\n15kV ESD protection per IEC 61000-4-2 (with \nexternal capacitance)\n•\nSafety-related certifications:\n–\nUL listed – File No. E169910\n–\nNEMKO IEC60950-1-am1 ed2.0\n•\nSee the Load switches portfolio\n2 Applications\n•\nUSB ports and hubs\n•\nDigital TVs\n•\nSet-top boxes\n•\nVOIP phones\n3 Description\nThe TPS255x and TPS255x-1 power-distribution \nswitches are intended for applications where precision \ncurrent limiting is required or heavy capacitive loads \nand short circuits are encountered and provide up to \n1.5A of continuous load current. These devices offer \na programmable current-limit threshold from 75mA \nto 1.7A (typical) through an external resistor. Current-\nlimit accuracy as tight as ±6% can be achieved at \nthe higher current-limit settings. The power-switch \nrise and fall times are controlled to minimize current \nsurges during turnon and turnoff.\nTPS255x devices limit the output current to a \nsafe level by using a constant-current mode \nwhen the output load exceeds the current-limit \nthreshold. TPS255x-1 devices provide circuit breaker \nfunctionality by latching off the power switch during \novercurrent or reverse-voltage situations. An internal \nreverse-voltage comparator disables the power-switch \nwhen the output voltage is driven higher than the input \nto protect devices on the input side of the switch. \nThe FAULT output asserts low during overcurrent and \nreverse-voltage conditions.\nThe TPS25530-1 devices have an integrated quick \noutput discharge path when the switch is turned off, \npulling the output down to ground. The current limit \nrange is also extended to 2.64A (typical) with the \n10kΩ ILIM setting for this device.\nPackage Information\nPART NUMBER\nPACKAGE(1)\nPACKAGE SIZE(2)\nTPS2552\nSOT-23 (6)\n2.90mm × 1.60mm\nWSON (6)\n2.00mm × 2.00mm\nTPS2553\nSOT-23 (6)\n2.90mm × 1.60mm\nWSON (6)\n2.00mm × 2.00mm\n(1)\nFor all available packages, see the orderable addendum at \nthe end of the datasheet\n(2)\nThe package size (length × width) is a nominal value and \nincludes pins, where applicable\nOUT\nIN\nGND\nFAULT\nILIM\nEN\nRILIM\n20 kW\nRFAULT\n100 kW\nControl  Signal\n5V USB\nInput\nUSB\nPort\nUSB Data\nTPS2552/53\n0.1\nF\nm\n120\nF\nm\nFault Signal\nPower Pad\nUSB requirement only*\n*\nfacing ports are bypassed with at least\n120\nF per hub\nUSB requirement that downstream\nm\nCopyright © 2016, Texas Instruments Incorporated\nTypical Application\nTPS2552, TPS2552-1, TPS2553, TPS2553-1\nSLVS841G – NOVEMBER 2008 – REVISED OCTOBER 2026\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications, \nintellectual property matters and other important disclaimers. PRODUCTION DATA.\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/tps2553-p1.png",
+        "sha256": "cc59e192933d8952b47fe6968711cac170c3ec38f8b4fe4ff8c0f4f47bbd713f"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/tps2553-p2.png",
+        "sha256": "50b6e39ae48bf8f7566854189c96efbbdd7bd182720039a3df61c18420bc0cbe"
+      },
+      {
+        "page": 6,
+        "path": "docs/research/downloads/c11-r12/tps2553-p6.png",
+        "sha256": "03e329c8b00b1a590db8cc999dc4be2fd559e27966ef151c2cd37de251d8b891"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/tps2553-p8.png",
+        "sha256": "a57bae8a7682c36f1b1f87d3134f476f7939d2347801e22c1294c3d82023dba6"
+      },
+      {
+        "page": 9,
+        "path": "docs/research/downloads/c11-r12/tps2553-p9.png",
+        "sha256": "bf3f5bba3f0d7dd454d3b3b102fedbf2dcd4a804e4056aa5677928634fe087e8"
+      },
+      {
+        "page": 10,
+        "path": "docs/research/downloads/c11-r12/tps2553-p10.png",
+        "sha256": "97a40e52d6e1d5805ad2324fa24296f9af3a04d020a9b5971d46e1b2291ef1ee"
+      },
+      {
+        "page": 11,
+        "path": "docs/research/downloads/c11-r12/tps2553-p11.png",
+        "sha256": "3e356396f8ad522b78a6ebef463c1da44c93b5544c5e4af22ff5383e80b172c5"
+      },
+      {
+        "page": 12,
+        "path": "docs/research/downloads/c11-r12/tps2553-p12.png",
+        "sha256": "abf9bf6cc464a085ff56b64b80ce447bbd3703633b3339f345e4c814e0d58ee2"
+      },
+      {
+        "page": 14,
+        "path": "docs/research/downloads/c11-r12/tps2553-p14.png",
+        "sha256": "d1add24c077ec84f49d01f393c168746b1aac00b0cb055abcc3a617afd3bedb2"
+      },
+      {
+        "page": 16,
+        "path": "docs/research/downloads/c11-r12/tps2553-p16.png",
+        "sha256": "d31c2bef76f2796c08efe612d952debc869432f252979f3783a93e3673483495"
+      },
+      {
+        "page": 18,
+        "path": "docs/research/downloads/c11-r12/tps2553-p18.png",
+        "sha256": "598b3b38d2d2828440b12859d5e9d6072953e768d4cfca65ce6eaa5c557bbad4"
+      },
+      {
+        "page": 25,
+        "path": "docs/research/downloads/c11-r12/tps2553-p25.png",
+        "sha256": "a51bd63505cd1c48ecdcab1ac3e47e5ada595251500945e4df6cc4a2fc623eac"
+      },
+      {
+        "page": 27,
+        "path": "docs/research/downloads/c11-r12/tps2553-p27.png",
+        "sha256": "bcf4e23ad0d843b35f4f1506d10585248aa64a5f210a57f362b15e308ccb16eb"
+      }
+    ]
+  },
+  {
+    "part": "tps3890",
+    "url": "https://www.ti.com/lit/ds/symlink/tps3890.pdf",
+    "access_date": "2026-11-10",
+    "status": "PINNED",
+    "path": "docs/research/downloads/c11-r12/tps3890.pdf",
+    "sha256": "ee79599730e7606ba9718d9820b411020e3dcd9ff7d44572f8ee63fead15b9d0",
+    "pages": 27,
+    "cover_text": "\n--- PDF PAGE 1 ---\nTemperature (qC)\nAccuracy (%)\n-50\n-25\n0\n25\n50\n75\n100\n125\n-0.75\n-0.5\n-0.25\n0\n0.25\n0.5\n0.75\nD001\nUnit 1\nUnit 2\nUnit 3\nUnit 4\nUnit 5\nAvg\nTPS389012\nRESET\nVDD\nGND\nSENSE\n1.8 V\nMicrocontroller\nMR\n1.2 V\nVCORE\nVI/O\nRESET\nCT\nGND\nCopyright © 2016, Texas Instruments Incorporated\nProduct\nFolder\nSample &\nBuy\nTechnical\nDocuments\nTools &\nSoftware\nSupport &\nCommunity\nAn IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,\nintellectual property matters and other important disclaimers. PRODUCTION DATA.\nTPS3890\nSLVSD65A –MARCH 2016–REVISED MAY 2016\nTPS3890\nLow Quiescent Current, 1% Accurate Supervisor with Programmable Delay\n1\n1\nFeatures\n1•\nPower-On-Reset (POR) Generator with Adjustable\nDelay Time: 40 μs to 30 s\n•\nVery Low Quiescent Current: 2.1 μA (Typical)\n•\nHigh Threshold Accuracy: 1% (max)\n•\nPrecision Hysteresis\n•\nFixed and Adjustable Threshold Voltages:\n–\nFixed Thresholds for Standard Rails:\n1.2 V to 3.3 V\n–\nAdjustable Down to 1.15 V\n•\nManual Reset (MR) Input\n•\nOpen-Drain RESET Output\n•\nTemperature Range: –40°C to +125°C\n•\nPackage: 1.5-mm × 1.5-mm WSON\n2\nApplications\n•\nDSPs or Microcontrollers\n•\nFPGAs, ASICs\n•\nNotebooks, Desktop Computers\n•\nSmartphones, Hand-Held Products\n•\nPortable, Battery-Powered Products\n•\nSolid-State Drives\n•\nSet-Top Boxes\n•\nIndustrial Control Systems\n3\nDescription\nThe TPS3890 is a precision voltage supervisor with\nlow-quiescent current that monitors system voltages\nas low as 1.15 V, asserting an open-drain RESET\nsignal when the SENSE voltage drops below a preset\nthreshold or when the manual reset (MR) pin drops to\na logic low. The RESET output remains low for the\nuser-adjustable delay time after the SENSE voltage\nand manual reset (MR) return above the respective\nthresholds. The TPS3890 family uses a precision\nreference to achieve 1% threshold accuracy. The\nreset delay time can be user-adjusted between 40 μs\nand 30 s by connecting the CT pin to an external\ncapacitor. The TPS3890 has a very low quiescent\ncurrent of 2.1 μA and is available in a small 1.5-mm ×\n1.5-mm package, making the device well-suited for\nbattery-powered and space-constrained applications.\nThe device is fully specified over a temperature range\nof –40°C to +125°C (TJ).\nDevice Information(1)\nPART NUMBER\nPACKAGE\nBODY SIZE (NOM)\nTPS3890\nWSON (6)\n1.50 mm × 1.50 mm\n(1) For all available packages, see the orderable addendum at\nthe end of the data sheet.\nTypical Application Circuit\nVITN Accuracy vs Temperature\n",
+    "page_images": [
+      {
+        "page": 1,
+        "path": "docs/research/downloads/c11-r12/tps3890-p1.png",
+        "sha256": "12fb7706d9a9e4d47aa0cd4dcdc8267f7e91fe5ddbfad41c378a0e5e5e1533c5"
+      },
+      {
+        "page": 2,
+        "path": "docs/research/downloads/c11-r12/tps3890-p2.png",
+        "sha256": "81c8fdd73f3c4a8faee487e01d5eb25d4ac013a701607e24a2d651a8973aec60"
+      },
+      {
+        "page": 5,
+        "path": "docs/research/downloads/c11-r12/tps3890-p5.png",
+        "sha256": "986321512ccc7596c5187573625a3a78fd6651ed8d00ed89725ebf45b63c685e"
+      },
+      {
+        "page": 7,
+        "path": "docs/research/downloads/c11-r12/tps3890-p7.png",
+        "sha256": "4733e03df440880ce08a96968d51248bda8d737fbcf9e7ef01ee59eeb3686077"
+      },
+      {
+        "page": 8,
+        "path": "docs/research/downloads/c11-r12/tps3890-p8.png",
+        "sha256": "0f19b4f7a8f5a88803440452365241a2c2824bd556904f6bd5b045508a700482"
+      },
+      {
+        "page": 9,
+        "path": "docs/research/downloads/c11-r12/tps3890-p9.png",
+        "sha256": "5ce5f5c201b1a2c5df7157c437bc203484f6915cb8f8b948f18a2760427bcb78"
+      },
+      {
+        "page": 10,
+        "path": "docs/research/downloads/c11-r12/tps3890-p10.png",
+        "sha256": "40ae49dd9075e1e0280bed3ed5b83b06c2dd01f638f02b3f5945c2601fb2abb6"
+      },
+      {
+        "page": 11,
+        "path": "docs/research/downloads/c11-r12/tps3890-p11.png",
+        "sha256": "e2c0d9f2e3fe1d35b7f0fa551f2a7e7af088186baffbbae3737bfb92b7857560"
+      },
+      {
+        "page": 14,
+        "path": "docs/research/downloads/c11-r12/tps3890-p14.png",
+        "sha256": "e620c117be92a7f83778897b54886847a0c21cf10a9d3f2cadc7bc8c48f25ac0"
+      },
+      {
+        "page": 15,
+        "path": "docs/research/downloads/c11-r12/tps3890-p15.png",
+        "sha256": "9219b0ac6cf45e1eecedf7ede6f3434bee82930d80eff57cbd80039ab809e91f"
+      }
+    ]
+  }
+]

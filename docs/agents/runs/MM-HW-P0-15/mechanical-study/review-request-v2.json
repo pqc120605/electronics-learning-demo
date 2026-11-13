@@ -1,0 +1,97 @@
+{
+  "scope": "M5 re-review of two documentary findings only; geometry/code/protocol/results/XBF unchanged",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/founder-approval.json",
+      "sha256": "b69f0c9a0200818fced60b71f1957c2cb30e0e4306a610f9b50bee84350a8c3b"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/protocol.json",
+      "sha256": "c4a9abf864b1e46113eca151515a6d572306f1e72bd5bbdd46d00045d012f506"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/preflight.py",
+      "sha256": "4f60f15f8f2948e2476c6863011be588b48adb1213c2e6bb5420201a573a59ac"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/m5_model.py",
+      "sha256": "eb5e06d1cd35ababb91c74cbdd71bd3248ac8d2f93eafff700c056d1ce9c66f6"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/collision.py",
+      "sha256": "21bb99828273dc4f14f57d1bde0a3fb586f7d64a310eac7f9eef8a4f0ea8e68b"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/run_sweep.py",
+      "sha256": "454927c75ab84ad08442ceadd578be409516efb0f6462f84a013e7354ebc2b80"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/kernel_check.py",
+      "sha256": "5f38e3a20255d1962e4790b0f5b59dc32a587d5204f28ffa6d608c480a1b0f46"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/adversarial_checks.py",
+      "sha256": "9d2fcf402c7afbd8d5582ecdb346ba545251a4b99e0b4491764192b729a1a94d"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/sweep-results.json",
+      "sha256": "3af8ae941520bffa429edf103eba3df9225c74adeefe4ddbde30ff242b496266"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/kernel-results.json",
+      "sha256": "bb9fae8aa9921b6f84ed36e06e823847debe7265aaae0677acc1f1c8c2ac583e"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/adversarial-results.json",
+      "sha256": "7e349eed7e3f7629c8db7f4c5d50e0914a45c60cf750861c299224a392840036"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/m5-program-reference.xbf",
+      "sha256": "fdb71c9938a2c05fe9d99680d2bc2c8d2e8bc594753242809074ceefc9f9fc05"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/REPORT.md",
+      "sha256": "a67cc0126adab7f87be754ac7b1dd8f8708fad22eff3b7a5631710755aa88fd6"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/BOX03-ADVERSARIAL-REVIEW.md",
+      "sha256": "56a6df41c388b124e7c9dcc3219a385855c9a55bf13e34437e9fc663c62b0982"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/program-xray.png",
+      "sha256": "3a1be9f27598c4aa1391d509092362919dc26034a407b60d84b2b29c3cd45d20"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/generic-blocked.png",
+      "sha256": "7e3d7b852c446710da22143b7b5c21e0e72f577be2f3c87669e61913af356ad0"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/tilted-reference.png",
+      "sha256": "c0d61edfefb87fbe4a9c9ec97c97057710c5ca7b3e63343537f8d0766f6fa8e0"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/review-request.json",
+      "sha256": "24d0e5ab9788be7291829976df236c81a6d97d00698a30bd8f2ab9e9d3420d96"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/REPORT.review1.md",
+      "sha256": "dba273b68262631bf3e4bf406b4036f69fa3ece1559b44eddabbf670db547b2e"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/BOX08-STUDY-REVIEW-1.md",
+      "sha256": "444dba5c3583be2e3a7633c06781414499141ff5d9e70d4e7d53597f8aca3169"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/DISPOSITION.md",
+      "sha256": "84da296825ca54fc0b1e3f30e4f60350104beaf87d3c5c7f2fd5d6ead6a564ed"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/verify_evidence.py",
+      "sha256": "2d4671f1074403f4a0f3c7aba7111ec1555208b738d56eda5e6723d2f473184f"
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/final-checks.json",
+      "sha256": "9c774c36c0690ca72cf870016c895e2398cf26017d71ed6923a4f2603e1096fe"
+    }
+  ]
+}

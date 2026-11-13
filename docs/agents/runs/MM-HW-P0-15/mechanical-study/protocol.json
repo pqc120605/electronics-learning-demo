@@ -1,0 +1,38 @@
+{
+  "study": "MOBOT-AA-M5-CAD-STUDY-r1",
+  "purpose": "Reference geometry and bounded collision exploration, never mechanical realization or physical qualification",
+  "coordinates": {"units":"mm", "X":"lateral right", "Y":"plug insertion into host, mouth at Y=0", "Z":"up", "plug_pose_origin":"metal nose centre", "rotation_order":"roll about Y, then pitch about X, then yaw about Z, then translate"},
+  "domains": {
+    "connected_insertion_samples": {"min":0,"max":6.4,"step":0.1},
+    "approach_samples": {"min":-14,"max":6.4,"step":0.1},
+    "lateral_offsets":[-0.25,0,0.25],
+    "vertical_offsets":[-0.15,0,0.15],
+    "yaw_degrees":[-5,0,5],
+    "pitch_degrees":[-5,0,5],
+    "roll_degrees":[0,180],
+    "key_lead_trials":[2,3.5,5]
+  },
+  "contact_model": "Conservatively call insertion d>=0 potentially electrically connected, including shell; no real B01 contact timing inferred. Rotated poses can also graze the mouth before d=0; these are separately tested as approach/contact-box cases, not excluded merely by d<0.",
+  "profiles": {
+    "shell_width":8.28,"shell_height":2.43,"shell_length":6.55,
+    "collar_width":10,"collar_height":4.2,"collar_front_distance_from_tip":6.5,"collar_rear_distance_from_tip":13.5,
+    "rear_crossbar_width":16.6,"rear_crossbar_height":10,"rear_crossbar_Y_interval":[-15,-13],
+    "key_centres_XZ":[[7.2,4],[-7.2,-4]],"key_width":1.4,"key_height":1.4,"key_rear_Y":-14.5,
+    "frame_width":40,"frame_depth":7,"frame_height":20,"frame_centre":[0,-2.5,0],
+    "central_tunnel_width":10.8,"central_tunnel_height":5,
+    "shutter_planes_Y":[-4,-2.5],"shutter_width":11.4,"shutter_height":5.4,"shutter_depth":0.8,"shutter_travel":12,
+    "probe_planes_Y":[-1,-2],"probe_depth":0.3,"probe_width":11.4,"probe_height":5.4,"probe_park_Z":[6,-6]
+  },
+  "prescribed_kinematics": {
+    "actuation_trigger_plane_Y":-4.8,"key_ramp_insertion":2,
+    "rule":"Each PRESENT key prescribes one shutter displacement: clip((d+lead-trigger)/2,0,1)*12. This is an imposed motion law, NOT a constructed cam/linkage or proof the key operates it. Missing keys do not move their shutter. Fault sweeps override shutters independently.",
+    "bridge_rule":"Bridge lift is shown at12mm in PROGRAM as a reference pose. Real connector overlap, retention, force and interlock linkage remain unmodelled.",
+    "reconnect_probe_rule":"Test each full-aperture probe at dock and its closure sweep for collision. Any detected positive-volume collision prevents the model from declaring empty. No force, deformation, spring, latch or frame-strength claim."
+  },
+  "collision_methods": {"sweep":"15-axis OBB SAT, finite sampled poses; no continuous-coverage claim", "kernel_crosscheck":"Selected independently built build123d/OCCT solid intersections", "tolerance_mm":0.000001, "tangency":"reported separately; positive overlap beyond tolerance counts as collision"},
+  "baseline":"Outer-envelope-only solid reference, not guaranteed metal: rectangular bounds include voids/chamfers and maximum cross-section. Missing tail/overmould is unknown. A detection hit is NOT material-presence proof; a miss demonstrates inadequacy of this envelope, not an observed real cable bypass.",
+  "adversarial_addendum":"Host-space key/trigger diagnostics include one-key roll0/180 and pitch/yaw5 degrees. Existing scalar motion remains explicitly imposed, not contact-driven. Collar and rear crossbar faults are separated. A rounded hollow shell with0.15mm assumed wall and smaller8.22x2.37x6.51 envelope is tested only for sensitivity, never a guaranteed material model.",
+  "negative_controls":["Both shutters stuck open permits a generic nose to reach potential contact under the imposed-motion model", "Truncated/missing collar can defeat the probe at deep insertion", "One missing key with its own shutter also stuck open is a combined fault and can bypass imposed key logic"],
+  "unmodelled":["mechanical key-to-shutter linkage and independent pawl sequencing", "elasticity, spring forces, 100N/200N and FE", "damaged/noncompliant cables and thin foreign objects", "common-frame break, terminal trailing and electrical contacts", "exact B01, antenna and complete kit fit", "continuous unsampled rotations/translations and manufacturing tolerances"],
+  "provenance":"USB and approved reference inputs inherited unchanged from the approved proposal; profile sizes, offset/angle grids and imposed motion are exploratory study outputs, not adopted product/configuration choices. No new manufacturing material or MPN."
+}

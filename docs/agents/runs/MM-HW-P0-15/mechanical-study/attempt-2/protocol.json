@@ -1,0 +1,16 @@
+{
+ "study":"MOBOT-AA-M5-CAD-STUDY-r1",
+ "revision_kind":"Exploratory profile continuation, not a product/configuration revision",
+ "coordinates":"mm; X lateral, Y insertion into host mouth Y=0, Z up; rotate about Y(roll), X(pitch), Z(yaw), then translate",
+ "scope":"Reference rigid geometry, contact-derived frictionless quasistatic ideal slide constraints. No spring/force/friction/latch or product proof.",
+ "input":{"start_d":-20,"end_d":6.4,"step":0.1,"leads":[2,3.5,5],"rolls":[0,180],"corner_x":[-0.25,0.25],"corner_z":[-0.15,0.15],"corner_pitch":[-5,5],"corner_yaw":[-5,5]},
+ "shell":{"width":8.28,"height":2.43,"length":6.55,"meaning":"Outer envelope for interference/potential contact only, not guaranteed material"},
+ "adapter":{"collar_width":10,"collar_height":4.2,"collar_front":6.5,"collar_rear":17.5,"crossbar_width":16.6,"crossbar_height":10,"crossbar_y":[-19.5,-17],"key_width":1.4,"key_height":1.4,"key_rear":-18.5,"key_centres":[[7.2,4],[-7.2,-4]]},
+ "carriage":{"stroke":12,"door_width":11.4,"door_height":5.4,"door_depth":0.8,"door_y":[-4,-2.5],"cam_x":[-4.1,8.4],"cam_xref":7.9,"cam_front_y":-4.8,"cam_ratio":6,"cam_back_y":-2.3,"cam_z":4,"cam_thickness":1.2,"rib_x":[8,8.35],"rib_z":[0,4.5],"rib_depth":0.8,"rib_bridge_x":[5,8.35],"rib_bridge_z":[0,0.5],"rib_revision":"L-shaped reference rib routes below the key instead of crossing it; 0.1mm nominal lateral clearance is NOT a tolerance or strength qualification"},
+ "frame":{"size":[40,11,20],"centre":[0,-4.5,0],"central_tunnel":[10.8,13,5],"key_slot":[2.1,13,2.1]},
+ "probes":{"planes_y":[-7.5,-8.6],"width":11.4,"height":5.4,"depth":0.3,"baseline_planes_y":[-1,-2]},
+ "ideal_constraints":["Each cam, rib and door is one rigid CAD solid with one ideal translation DOF; no physical bearing validation.","Return bias chooses smallest free slider position continuously reachable from previous position. Input-induced overlap may push toward opening boundary; stroke exhaustion is a reference jam.","Forbidden displacement intervals come from SAT configuration space of actual convex shapes, not key identity or d+lead. Input Y is still externally prescribed, and sampled increments do not prove continuous dynamics.","Any frame/door/rib interpenetration stops the sampled path before recording it as reachable. Touching/tolerance is counted, not silently declared clear.","Potential contact includes all d>=0 and touching/intersection of the shell outer envelope with a conservative contact region for d<0. This does not identify real USB contacts."],
+ "derived_profile_changes":"Longer collar remains above approved12.5mm minimum; trial probes7.5/8.6mm test controlled reference collar instead of unknown USB shell material. Keep original1/2mm probes as baseline. New cam/rib/relief/profile values are study outputs, not adopted hardware/MPN/material choices.",
+ "unmodelled":["100N/200N or any force/friction/spring/dynamics","real pawl/endpoint latching and bridge disconnection","common-frame fracture, material loss and certified tamper resistance","exact B01/antenna/cassette/whole-kit fit and cost","real contact/material tolerances or continuous unsampled pose trajectories"],
+ "tolerance_mm":0.000001
+}

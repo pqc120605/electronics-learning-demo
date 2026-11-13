@@ -1,0 +1,30 @@
+{
+  "checks": [
+    {
+      "command": [
+        "node",
+        "D:/StartupOS/docs/agents/validate.mjs"
+      ],
+      "exit": 0,
+      "output": "{\n  \"tasks\": 61,\n  \"capabilities\": 143,\n  \"warnings\": [],\n  \"errors\": []\n}\n"
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "D:/StartupOS/docs/agents/validate.test.mjs"
+      ],
+      "exit": 0,
+      "output": "ℹ tests 61\nℹ suites 0\nℹ pass 61\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 314.6483"
+    }
+  ],
+  "four_calculations_reproduced": true,
+  "verified_snapshot_file_counts": {
+    "docs\\agents\\runs\\MM-HW-P0-15\\mechanical-study\\attempt-6\\snapshot.json": 16,
+    "docs\\agents\\runs\\MM-HW-P0-15\\mechanical-study\\attempt-7\\snapshot.json": 6,
+    "docs\\agents\\runs\\MM-HW-P0-15\\mechanical-study\\attempt-8\\review-packet.json": 13
+  },
+  "Box08_scope": "13-file research packet. CHECK-design addendum separately reproduced by lead.",
+  "physical": "NOT_RUN",
+  "hardware_registry_unchanged": true
+}

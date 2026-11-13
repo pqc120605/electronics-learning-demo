@@ -1,0 +1,13 @@
+{
+  "task_id": "MM-SW-P1-L11",
+  "captured_at": "2026-11-09",
+  "kind": "file-hashes",
+  "files": [
+    { "path": "src/pages/RobotSimulationLessonPage.tsx", "exists": true, "sha256": "6BC131BE6AF2ED5EDF961716F94FEC772E7498E26F3ABDEA9F757A57C0E41255" },
+    { "path": "src/pages/RobotSimulationLessonPage.css", "exists": true, "sha256": "194D52B946A858F1B495CBBD1C78DE6CBE850F283E0D8B36B4D85BB25439D09B" },
+    { "path": "src/App.tsx", "exists": true, "sha256": "020972B30C37C78C508499C6915E04235619E2149AF377FEB46D863DE78F56DB" },
+    { "path": "src/pages/AppHomePage.tsx", "exists": true, "sha256": "6519F9BA08D10B98F2C3B68E1BAF035E4735B5C5E9C802AD41BF765E9AF9287A" },
+    { "path": "e2e/journeys.spec.mjs", "exists": true, "sha256": "5C116CC0B92C1DAFC53DBC954CC13EC714A6066C191ECD66A03023751DF5DC1A" }
+  ],
+  "scope": "Final implementation snapshot before task closure. Five product files only."
+}

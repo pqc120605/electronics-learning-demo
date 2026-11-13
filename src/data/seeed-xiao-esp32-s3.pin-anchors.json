@@ -1,0 +1,272 @@
+{
+  "boardId": "seeed-xiao-esp32-s3",
+  "sourcePcb": "assets/boards/vendor/seeed/opl-xiao-esp32s3/ESP32S3.kicad_pcb",
+  "sourcePcbUrl": "https://github.com/Seeed-Studio/OPL_Kicad_Library/blob/master/Seeed%20Studio%20XIAO%20ESP32S3/ESP32S3.kicad_pcb",
+  "sourcePcbSha256": "9db3fe4b213f048cfe973cc2a2f3c95231b2997586f9081c5b75a1dad73aa604",
+  "license": "CC BY-SA 4.0",
+  "sourceRevision": "Seeed OPL KiCad board; file has no explicit PCB revision metadata",
+  "alignedModel": "Seeed Studio XIAO ESP32-S3 regular-board STEP v2",
+  "coordinateDerivation": "Average of same-net inner/outer half-hole pad centers from J1/J2; outline-center aligned to the official regular-board STEP. KiCad X\u2192STEP Z, KiCad Y-down\u2192STEP X toward USB; top copper plane from STEP. No scale or reflection.",
+  "outlineMm": {
+    "cad": {
+      "minX": 139.6061,
+      "maxX": 157.3961,
+      "minY": 94.4311,
+      "maxY": 115.5761
+    },
+    "stepPcbBody": {
+      "min": [
+        -8.673,
+        -0.25,
+        -15.001
+      ],
+      "max": [
+        12.282,
+        1.0,
+        2.779
+      ]
+    },
+    "maxResidualMm": {
+      "longAxis": 0.095,
+      "shortAxis": 0.005
+    }
+  },
+  "headers": [
+    {
+      "headerReference": "J2",
+      "side": "left",
+      "pins": [
+        {
+          "id": "xiao-s3-d0",
+          "side": "left",
+          "headerReference": "J2",
+          "position": 1,
+          "padNumber": "1/13",
+          "label": "D0",
+          "cadNetName": "D0/A0",
+          "cadXmm": 140.2461,
+          "cadYmm": 97.3571,
+          "anchorMeters": [
+            0.007647,
+            0.000625,
+            -0.008255
+          ]
+        },
+        {
+          "id": "xiao-s3-d1",
+          "side": "left",
+          "headerReference": "J2",
+          "position": 2,
+          "padNumber": "2/14",
+          "label": "D1",
+          "cadNetName": "D1/A1",
+          "cadXmm": 140.2461,
+          "cadYmm": 99.8971,
+          "anchorMeters": [
+            0.005107,
+            0.000625,
+            -0.008255
+          ]
+        },
+        {
+          "id": "xiao-s3-d2",
+          "side": "left",
+          "headerReference": "J2",
+          "position": 3,
+          "padNumber": "3/15",
+          "label": "D2",
+          "cadNetName": "D2/A2",
+          "cadXmm": 140.2461,
+          "cadYmm": 102.4371,
+          "anchorMeters": [
+            0.002567,
+            0.000625,
+            -0.008255
+          ]
+        },
+        {
+          "id": "xiao-s3-d3",
+          "side": "left",
+          "headerReference": "J2",
+          "position": 4,
+          "padNumber": "4/16",
+          "label": "D3",
+          "cadNetName": "D3/A3",
+          "cadXmm": 140.2461,
+          "cadYmm": 104.9771,
+          "anchorMeters": [
+            2.7e-05,
+            0.000625,
+            -0.008255
+          ]
+        },
+        {
+          "id": "xiao-s3-d4",
+          "side": "left",
+          "headerReference": "J2",
+          "position": 5,
+          "padNumber": "5/17",
+          "label": "D4",
+          "cadNetName": "D4/I2C_SDA",
+          "cadXmm": 140.2461,
+          "cadYmm": 107.5171,
+          "anchorMeters": [
+            -0.002513,
+            0.000625,
+            -0.008255
+          ]
+        },
+        {
+          "id": "xiao-s3-d5",
+          "side": "left",
+          "headerReference": "J2",
+          "position": 6,
+          "padNumber": "6/18",
+          "label": "D5",
+          "cadNetName": "D5/I2C_SCL",
+          "cadXmm": 140.2461,
+          "cadYmm": 110.0571,
+          "anchorMeters": [
+            -0.005053,
+            0.000625,
+            -0.008255
+          ]
+        },
+        {
+          "id": "xiao-s3-d6",
+          "side": "left",
+          "headerReference": "J2",
+          "position": 7,
+          "padNumber": "7/19",
+          "label": "D6",
+          "cadNetName": "D6/TX",
+          "cadXmm": 140.2461,
+          "cadYmm": 112.5971,
+          "anchorMeters": [
+            -0.007593,
+            0.000625,
+            -0.008255
+          ]
+        }
+      ]
+    },
+    {
+      "headerReference": "J1",
+      "side": "right",
+      "pins": [
+        {
+          "id": "xiao-s3-5v",
+          "side": "right",
+          "headerReference": "J1",
+          "position": 1,
+          "padNumber": "7/19",
+          "label": "5V",
+          "cadNetName": "VBUS",
+          "cadXmm": 156.7561,
+          "cadYmm": 97.3571,
+          "anchorMeters": [
+            0.007647,
+            0.000625,
+            0.008255
+          ]
+        },
+        {
+          "id": "xiao-s3-gnd",
+          "side": "right",
+          "headerReference": "J1",
+          "position": 2,
+          "padNumber": "6/18",
+          "label": "GND",
+          "cadNetName": "GND",
+          "cadXmm": 156.7561,
+          "cadYmm": 99.8971,
+          "anchorMeters": [
+            0.005107,
+            0.000625,
+            0.008255
+          ]
+        },
+        {
+          "id": "xiao-s3-3v3",
+          "side": "right",
+          "headerReference": "J1",
+          "position": 3,
+          "padNumber": "5/17",
+          "label": "3V3",
+          "cadNetName": "VCC_3V3",
+          "cadXmm": 156.7561,
+          "cadYmm": 102.4371,
+          "anchorMeters": [
+            0.002567,
+            0.000625,
+            0.008255
+          ]
+        },
+        {
+          "id": "xiao-s3-d10",
+          "side": "right",
+          "headerReference": "J1",
+          "position": 4,
+          "padNumber": "4/16",
+          "label": "D10",
+          "cadNetName": "D10/A10/MOSI",
+          "cadXmm": 156.7561,
+          "cadYmm": 104.9771,
+          "anchorMeters": [
+            2.7e-05,
+            0.000625,
+            0.008255
+          ]
+        },
+        {
+          "id": "xiao-s3-d9",
+          "side": "right",
+          "headerReference": "J1",
+          "position": 5,
+          "padNumber": "3/15",
+          "label": "D9",
+          "cadNetName": "D9/A9/MISO",
+          "cadXmm": 156.7561,
+          "cadYmm": 107.5171,
+          "anchorMeters": [
+            -0.002513,
+            0.000625,
+            0.008255
+          ]
+        },
+        {
+          "id": "xiao-s3-d8",
+          "side": "right",
+          "headerReference": "J1",
+          "position": 6,
+          "padNumber": "2/14",
+          "label": "D8",
+          "cadNetName": "D8/A8/SCK",
+          "cadXmm": 156.7561,
+          "cadYmm": 110.0571,
+          "anchorMeters": [
+            -0.005053,
+            0.000625,
+            0.008255
+          ]
+        },
+        {
+          "id": "xiao-s3-d7",
+          "side": "right",
+          "headerReference": "J1",
+          "position": 7,
+          "padNumber": "1/13",
+          "label": "D7",
+          "cadNetName": "D7/RX",
+          "cadXmm": 156.7561,
+          "cadYmm": 112.5971,
+          "anchorMeters": [
+            -0.007593,
+            0.000625,
+            0.008255
+          ]
+        }
+      ]
+    }
+  ]
+}

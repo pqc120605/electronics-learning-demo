@@ -1,0 +1,30 @@
+{
+  "classification": "Logical model only; physical qualifier/reset assertion, timing and fault-containment NOT_PROVEN",
+  "scenario_checks": [
+    "fresh ARM edge consumes qualified LOW and preserves new RUN grant",
+    "held HIGH resets timer but does not erase RUN grant",
+    "RUN_REQUEST withdrawal removes RUN before OFF verification",
+    "continuous OFF qualification enters OFF_READY",
+    "leaving OFF_VERIFY resets timer, not maintained OFF_READY proof",
+    "fresh RELEASE edge consumes qualified LOW and preserves release grant",
+    "intentional follower motion does not reset grant merely by ending neutral qualification",
+    "loss of physical OFF clears release grant",
+    "loss of H dominates simultaneous qualifying ARM edge",
+    "loss of H dominates simultaneous qualifying RELEASE edge",
+    "held ARM at initial recovery cannot auto-run",
+    "held RELEASE at OFF_READY entry cannot auto-release",
+    "COMMITTED never grants RUN without relock and a new arm cycle",
+    "release expiration removes grant and restarts OFF qualification",
+    "held RELEASE after expiry cannot auto-retry",
+    "fault simultaneous with expiration clears grant",
+    "commit and expiration together cannot retain release grant"
+  ],
+  "enumerated_transitions": 458752,
+  "passed": true,
+  "limits": [
+    "no implemented gates/latches or GPIO assignment",
+    "timer_done abstracts actual continuously qualified output",
+    "not a physical delay/race/default proof",
+    "does not remove mechanical precommit counterexample"
+  ]
+}

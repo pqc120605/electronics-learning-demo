@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-10",
+  "scope": "Interim integrated AA proposal; not final design review or B1 readiness",
+  "proposal_sha256": "b59f4cb4f4e47856373a03393800eb9c62e091d9b7fcce62c9639bfb876b1d0a",
+  "checks": [
+    {
+      "command": "python -X utf8 docs/agents/runs/MM-HW-P0-14/check-evidence.py",
+      "exit_code": 0,
+      "meaning": "6 source hashes and conditional arithmetic; r12 unchanged"
+    },
+    {
+      "command": "node D:/StartupOS/docs/agents/validate.mjs",
+      "exit_code": 0,
+      "tasks": 60,
+      "capabilities": 143,
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "hardware_measurements": "NOT_RUN",
+  "software_tests": "NOT_RUN: no product source modified"
+}

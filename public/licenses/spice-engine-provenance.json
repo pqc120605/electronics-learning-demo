@@ -1,0 +1,52 @@
+{
+  "wrapper": {
+    "package": "eecircuit-engine",
+    "version": "1.8.0",
+    "license": "MIT",
+    "source": "https://github.com/eelab-dev/EEcircuit-engine",
+    "registryReportedGitHead": "f4dab6458d3865a1db9766008480690d23410c3a",
+    "gitHeadAssessment": "unverified: archived tree at this commit declares package version 1.7.0, while the installed npm artifact is 1.8.0"
+  },
+  "runtime": {
+    "name": "ngspice",
+    "version": "45.2",
+    "buildHeader": "Sat Sep 5 01:00:10 UTC 2026",
+    "wasmBytes": 6133055,
+    "wasmSha256": "ed7995425b6f7af02db874539d13ea10d07759d5f2be6b79969343459ae886e4",
+    "sourceRepository": "https://github.com/danchitnis/ngspice-sf-mirror",
+    "sourceCommit": null,
+    "sourceCommitStatus": "The npm-reported wrapper gitHead is inconsistent with the installed package version; the exact ngspice source commit used for this WASM remains unknown and must be identified before public redistribution.",
+    "copying": "https://github.com/ngspice/ngspice/blob/master/COPYING",
+    "faq": "https://github.com/ngspice/ngspice/blob/master/FAQ"
+  },
+  "redistribution": {
+    "status": "not-cleared",
+    "publicPath": "/vendor/eecircuit-engine/spice.wasm",
+    "sourceCommit": null,
+    "buildRecipe": "not-recorded-for-the-installed-artifact",
+    "componentInventory": "unknown",
+    "distributionReview": {
+      "status": "pending",
+      "reviewer": null,
+      "reviewedAt": null,
+      "evidence": null
+    },
+    "reviewBasis": [
+      "The installed npm package contains the compiled WASM but not the corresponding ngspice source tree or a build-component manifest.",
+      "npm registry reports wrapper gitHead f4dab6458d3865a1db9766008480690d23410c3a, but the archived tree at that commit declares package version 1.7.0 rather than installed version 1.8.0; neither exact wrapper provenance nor ngspice source commit is established for this artifact.",
+      "The package wrapper declares MIT; this does not identify licenses for code compiled into the WASM.",
+      "The upstream ngspice manual describes a Modified BSD base, LGPLv2 tclspice/numparam exceptions, public-domain XSPICE, and MPL-2.0 OSDI. Its GPL-linking section names table.cm but says Modified BSD is GPL-compatible; this does not prove whether table.cm is present in this specific binary."
+    ],
+    "requirementsToClear": [
+      "Identify and pin the exact ngspice source revision and all patches used for this WASM hash.",
+      "Record build flags, toolchain versions, statically linked code models/libraries, and their per-component license notices.",
+      "Include the corresponding notices and source/relink materials required by the identified licenses, then obtain a distribution review."
+    ]
+  },
+  "audit": {
+    "netlist": "5 V equal-resistor divider with .op",
+    "expectedOutputNode": "v(out)",
+    "expectedOutputVolts": 2.5,
+    "toleranceVolts": 0.000001
+  }
+}

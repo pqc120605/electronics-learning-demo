@@ -1,0 +1,143 @@
+INA152
+2
+SBOS184
+SPECIFICATIONS: VS = ±10V
+INA152EA
+PARAMETER
+CONDITIONS
+MIN
+TYP
+MAX
+UNITS
+OFFSET VOLTAGE
+RTO(1) (2)
+Input Offset Voltage
+VCM = 0V
+±250
+±1500
+µV
+vs Temperature
+TA = –40°C to +85°C
+±3
+±15
+µV/°C
+vs Power Supply
+VS = ±1.35V to ±10V
+5
+30
+µV/V
+vs Time
+0.5
+µV/mo
+INPUT VOLTAGE RANGE(3)
+Common-Mode Voltage Range
+VIN+ – VIN– = 0V
+2(V–)
+2(V+) – 2
+V
+Common-Mode Rejection
+80
+94
+dB
+INPUT IMPEDANCE(4)
+Differential
+80
+kΩ
+Common-Mode
+80
+kΩ
+OUTPUT NOISE VOLTAGE(1) (5)
+RTO
+fO = 10Hz
+97
+nV/√Hz
+fO = 1kHz
+87
+nV/√Hz
+fB = 0.1Hz to 10Hz
+2.4
+µVp-p
+GAIN
+Initial(6)
+1
+V/V
+Gain Error
+±0.01
+±0.1
+%
+Gain Temperature Drift Coefficient
+±1
+±10
+ppm/°C
+Nonlinearity
+(V–) + 0.3V < VO < (V+) – 0.350V
+±0.002
+±0.005
+% of FS
+FREQUENCY RESPONSE
+Small Signal
+800
+kHz
+Slew Rate
+0.4
+V/µs
+Settling Time, 0.1%
+9V Step
+23
+µs
+, 0.01%
+9V Step
+25
+µs
+Overload Recovery
+50% Overdrive
+5
+µs
+OUTPUT
+Voltage
+RL = 10kΩ to GND
+(V+) – 0.35
+(V+) – 0.02
+V
+(V–) + 0.3
+(V–) + 0.15
+V
+Load Capacitance Stability
+500
+pF
+Short-Circuit Curent
+Continuous to Common
++7, –12
+mA
+POWER SUPPLY
+Rated Voltage
+±10
+V
+Voltage Range
+±1.35
+±10
+V
+2.7
+20
+V
+Current, Quiescent
+IO = 0mA
+500
+650
+µA
+TEMPERATURE RANGE
+Specification
+–40
++85
+°C
+Operating
+–55
++125
+°C
+θJA, Junction to Ambient
+150
+°C/W
+TA = +25°C, VS = ±10V, RL = 10kΩ connected to ground, and reference pin connected to ground, unless otherwise noted.
+NOTES: (1) Referred to output in unity-gain difference configuration. Note that this circuit has a gain of 2 for the op amp’s offset voltage and noise voltage.
+(2) Includes effects of amplifier’s input bias and offset currents. (3) Limit IIN through 40kΩ resistors to 1mA. (4) 40kΩ resistors are ratio matched but have ±20%
+absolute value. (5) Includes effects of amplifier’s input current noise and thermal noise contribution of resistor network. (6) Connected as difference amplifier.

@@ -1,0 +1,207 @@
+{
+  "scope": "Prescribed witness collision fixture only; not full interlock or fault-reachable system",
+  "cases": [
+    {
+      "stroke": 0.2000005972385406,
+      "contributors": [
+        "intact panel A"
+      ],
+      "kind": "solid_contact",
+      "in_window": true,
+      "side": 1,
+      "panel_missing": false,
+      "aperture": false
+    },
+    {
+      "stroke": 2.0,
+      "contributors": [],
+      "kind": "full_overtravel",
+      "in_window": false,
+      "side": 1,
+      "panel_missing": true,
+      "aperture": false
+    },
+    {
+      "stroke": 2.0,
+      "contributors": [],
+      "kind": "full_overtravel",
+      "in_window": false,
+      "side": 1,
+      "panel_missing": false,
+      "aperture": true,
+      "shell_panel_intersection_mm3": 0
+    },
+    {
+      "stroke": 2.0,
+      "contributors": [],
+      "kind": "full_overtravel",
+      "in_window": false,
+      "side": 1,
+      "panel_missing": false,
+      "aperture": true,
+      "aperture_offset": [
+        -0.25,
+        -0.15
+      ]
+    },
+    {
+      "stroke": 2.0,
+      "contributors": [],
+      "kind": "full_overtravel",
+      "in_window": false,
+      "side": 1,
+      "panel_missing": false,
+      "aperture": true,
+      "aperture_offset": [
+        -0.25,
+        0.15
+      ]
+    },
+    {
+      "stroke": 2.0,
+      "contributors": [],
+      "kind": "full_overtravel",
+      "in_window": false,
+      "side": 1,
+      "panel_missing": false,
+      "aperture": true,
+      "aperture_offset": [
+        0.25,
+        -0.15
+      ]
+    },
+    {
+      "stroke": 2.0,
+      "contributors": [],
+      "kind": "full_overtravel",
+      "in_window": false,
+      "side": 1,
+      "panel_missing": false,
+      "aperture": true,
+      "aperture_offset": [
+        0.25,
+        0.15
+      ]
+    },
+    {
+      "stroke": 0.2000005972385406,
+      "contributors": [
+        "intact panel B"
+      ],
+      "kind": "solid_contact",
+      "in_window": true,
+      "side": -1,
+      "panel_missing": false,
+      "aperture": false
+    },
+    {
+      "stroke": 1.7000005972385404,
+      "contributors": [
+        "intact panel A"
+      ],
+      "kind": "solid_contact",
+      "in_window": false,
+      "side": -1,
+      "panel_missing": true,
+      "aperture": false
+    },
+    {
+      "stroke": 1.7000005972385404,
+      "contributors": [
+        "intact panel A"
+      ],
+      "kind": "solid_contact",
+      "in_window": false,
+      "side": -1,
+      "panel_missing": false,
+      "aperture": true,
+      "shell_panel_intersection_mm3": 0
+    },
+    {
+      "stroke": 1.7000005972385404,
+      "contributors": [
+        "intact panel A"
+      ],
+      "kind": "solid_contact",
+      "in_window": false,
+      "side": -1,
+      "panel_missing": false,
+      "aperture": true,
+      "aperture_offset": [
+        -0.25,
+        -0.15
+      ]
+    },
+    {
+      "stroke": 1.7000005972385404,
+      "contributors": [
+        "intact panel A"
+      ],
+      "kind": "solid_contact",
+      "in_window": false,
+      "side": -1,
+      "panel_missing": false,
+      "aperture": true,
+      "aperture_offset": [
+        -0.25,
+        0.15
+      ]
+    },
+    {
+      "stroke": 1.7000005972385404,
+      "contributors": [
+        "intact panel A"
+      ],
+      "kind": "solid_contact",
+      "in_window": false,
+      "side": -1,
+      "panel_missing": false,
+      "aperture": true,
+      "aperture_offset": [
+        0.25,
+        -0.15
+      ]
+    },
+    {
+      "stroke": 1.7000005972385404,
+      "contributors": [
+        "intact panel A"
+      ],
+      "kind": "solid_contact",
+      "in_window": false,
+      "side": -1,
+      "panel_missing": false,
+      "aperture": true,
+      "aperture_offset": [
+        0.25,
+        0.15
+      ]
+    }
+  ],
+  "model_id": "4ecaa515-9c66-5971-93ec-1a3f47dc5959",
+  "initial_edge_test_ref": "functional-witness-edge-results.json",
+  "refinement": {
+    "witness_axis_abs_Z_mm": 0.7,
+    "radius_mm": 0.3,
+    "minimum_common_solid_shell_envelope_half_height_mm": 1.0650000000000002,
+    "reference_disk_vertical_margin_mm": 0.06500000000000017,
+    "meaning": "Disk now lies inside the common OUTER BOX footprint over the reference offset range. Not a proof of real shell material or arbitrary panel integrity."
+  },
+  "refined_model_id": "20310328-6a15-53ad-b304-f90f9817f439",
+  "finding": "Z=+/-1mm witness has a false-contact crescent on the tested aperture. Moving to+/-0.7mm rejects the tested lost/apertured panels, including four offset apertures per side. One point still does not prove arbitrary barrier integrity or a real cable-free port.",
+  "not_proven": [
+    "actual cycle-completion latch",
+    "force/friction/spring",
+    "system bridge-reconnect reachability",
+    "USB contact/material fit",
+    "single-fault safety",
+    "fault probability",
+    "B1"
+  ],
+  "provenance": {
+    "geometry.py": "9bb8bf2ffba4db32608d513c63e1f8c0ba96c0d884c3fae084d6ef0d93afaaa4",
+    "protocol.json": "d518d5eac800282197c4171b42b9e8f5db9e25a025fb31d1484b841fba100615",
+    "m5_contact_model.py": "94c225a90cb2f9adf68964df8a9a00225b43a09db8578f00e77272ae7acf90bf"
+  },
+  "script_sha256": "27abf9e9a127ae6e98c9cdce9f6ac5b99c85dde57caa65a1fbe81347cce9f3da"
+}

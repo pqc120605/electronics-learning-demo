@@ -1,0 +1,89 @@
+{
+  "boardId": "raspberry-pi-pico",
+  "sourceFile": "public/cad/raspberry-pi-pico-r3.step",
+  "sourceSha256": "ea5c693afee3de73e9fcaab1892a5ed44bf789438b9b1e5906e9c4f9859cab8b",
+  "meshCount": 17,
+  "componentCount": 16,
+  "nodes": [
+    {
+      "nodeName": "PICO_REF_BOARD",
+      "sourceMeshes": 1,
+      "sourceName": "PICO_REF_BOARD.STEP"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_002",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_003",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_004",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_005",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "CAD_GEOMETRY_006",
+      "sourceMeshes": 1,
+      "sourceName": "Hình học không có tên trong CAD"
+    },
+    {
+      "nodeName": "PICO_REF_SWITCH",
+      "sourceMeshes": 1,
+      "sourceName": "PICO_REF_SWITCH.STEP"
+    },
+    {
+      "nodeName": "PICO_REF_MICROCONTROLLER",
+      "sourceMeshes": 1,
+      "sourceName": "PICO_REF_MICROCONTROLLER.STEP"
+    },
+    {
+      "nodeName": "PICO_REF_LED",
+      "sourceMeshes": 1,
+      "sourceName": "PICO_REF_LED.STEP"
+    },
+    {
+      "nodeName": "PICO_REF_ONSEMI",
+      "sourceMeshes": 1,
+      "sourceName": "PICO_REF_ONSEMI.STEP"
+    },
+    {
+      "nodeName": "PICO_BOURNS",
+      "sourceMeshes": 1,
+      "sourceName": "PICO_BOURNS.STEP"
+    },
+    {
+      "nodeName": "PICO_MURATA",
+      "sourceMeshes": 2,
+      "sourceName": "PICO_MURATA.STEP"
+    },
+    {
+      "nodeName": "PICO_RICHTEK",
+      "sourceMeshes": 1,
+      "sourceName": "PICO_RICHTEK.STEP"
+    },
+    {
+      "nodeName": "PICO_DIODES",
+      "sourceMeshes": 1,
+      "sourceName": "PICO_DIODES.STEP"
+    },
+    {
+      "nodeName": "PICO_AEL",
+      "sourceMeshes": 1,
+      "sourceName": "PICO_AEL.STEP"
+    },
+    {
+      "nodeName": "PICO_WINBOND",
+      "sourceMeshes": 1,
+      "sourceName": "PICO_WINBOND.STEP"
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+PhotoMOS GE 1 Form A
+90% 
+10% 
+Input
+Output
+Toﬀ
+Ton
+*Turn on/Turn off time
+Electrical characteristics (Ambient temperature: 25°C)
+Item
+Symbol
+AQY211EH(A)
+AQY212EH(A)
+AQY210EH(A)
+AQY214EH(A)
+AQY216EH(A)
+Condition
+Input
+LED operate 
+current
+Typical
+IFon
+1.2 mA
+IL = Max.
+Maximum
+3.0 mA
+LED turn off 
+current
+Minimum
+IFoff
+0.4 mA
+IL = Max.
+Typical
+1.1 mA
+LED dropout 
+voltage
+Typical
+VF
+1.25 V (1.14 V at IF = 5 mA)
+IF = 50 mA
+Maximum
+1.5 V
+Output
+On resistance
+Typical
+Ron
+0.25 Ω
+0.85 Ω
+18 Ω
+26 Ω
+52 Ω
+IF = 5 mA 
+IL = Max.
+Within 1 s
+Maximum
+0.5 Ω
+2.5 Ω
+25 Ω
+35 Ω
+120 Ω
+Off state leakage
+current
+Maximum
+ILeak
+1 μA
+IF = 0 mA
+VL = Max.
+Transfer characteristics
+Turn on time*
+Typical
+Ton
+1.5 ms
+1 ms
+0.5 ms
+IF = 5 mA
+IL = Max.
+Maximum
+5 ms
+4 ms
+2.0 ms
+Turn off time*
+Typical
+Toff
+0.1 ms
+0.05 ms
+0.08 ms
+0.04 ms
+IF = 5 mA
+IL = Max.
+Maximum
+1.0 ms
+I/O capacitance
+Typical
+Ciso
+0.8 pF
+f = 1 MHz 
+VB = 0 V
+Maximum
+1.5 pF
+Initial I/O isolation
+resistance
+Minimum
+Riso
+1,000 MΩ
+500 V DC
+Absolute maximum ratings (Ambient temperature: 25°C)
+Item
+Symbol
+AQY211EH(A)
+AQY212EH(A)
+AQY210EH(A)
+AQY214EH(A)
+AQY216EH(A)
+Remarks
+Input
+LED forward current
+IF
+50 mA
+LED reverse voltage
+VR
+5 V
+Peak forward current
+IFP
+1 A
+f = 100 Hz, 
+Duty Ratio = 0.1%
+Power dissipation
+Pin
+75 mW
+Output
+Load voltage (peak AC)
+VL
+30 V
+60 V
+350 V
+400 V
+600 V
+Continuous load current
+IL
+1 A
+0.55 A
+0.13 A
+0.12 A
+0.05 A
+Peak AC, DC
+Peak load current
+Ipeak
+3 A
+1.5 A
+0.4 A
+0.3 A
+0.15 A
+100 ms (1 shot), 
+VL = DC
+Power dissipation
+Pout
+500 mW
+Total power dissipation
+PT
+550 mW
+I/O isolation voltage
+Viso
+5,000 Vrms
+Ambient temperature (Operating)
+Topr
+-40 to +85°C
+(Avoid icing and 
+condensation)
+Ambient temperature (Storage)
+Tstg
+-40 to +100°C
+Junction temperature
+Tj
+125°C
+RATING
+ASCTB126E   202204
+Panasonic Industry Co., Ltd. Electromechanical Control Business Division
+industrial.panasonic.com/ac/e/
+Panasonic Industry Co., Ltd. 2022
+ー 2 ー

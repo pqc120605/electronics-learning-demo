@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-10",
+  "documentary_check_exit": 0,
+  "review_packet_hashes": 13,
+  "review_packet_unchanged": true,
+  "queue_validate": {
+    "command": "node D:/StartupOS/docs/agents/validate.mjs",
+    "exit_code": 0,
+    "tasks": 61,
+    "capabilities": 143,
+    "errors": [],
+    "warnings": []
+  },
+  "CAD": "NOT_RUN",
+  "hardware": "NOT_RUN",
+  "B1": "NOT_READY"
+}

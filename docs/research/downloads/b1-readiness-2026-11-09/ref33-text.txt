@@ -1,0 +1,1920 @@
+=== PDF PAGE 1 ===
+                                                                                    REF33
+                                                                                 SBOS392I – AUGUST 2007 – REVISED APRIL 2026
+ REF33xx 3.9μA, SC70-3, SOT-23-3, and UQFN-8, 30ppm/°C Drift Voltage Reference
+
+1 Features                              3 Description
+
+•  Microsize packages: SC70-3, SOT-23-3, UQFN-8    The REF33xx is a low-power, precision, low-dropout
+•  Low supply current: 3.9μA (typical)                    voltage  reference  family  available  in  tiny SC70-3
+•  Extremely low dropout voltage: 110mV (typical)      and  SOT-23-3  packages,  and   in  a  1.5mm  ×
+•  High output current: ±5mA                     1.5mm UQFN-8 package. Small size and low power
+•  Low temperature drift: 30ppm/°C (maximum)         consumption (5μA maximum) make  the REF33xx
+•  High initial accuracy: ±0.15% (maximum)               ideal  for a wide  variety  of  portable and  battery-
+•  0.1Hz to 10Hz noise: 35μVPP (REF3312)            powered applications.
+•  Voltage options: 1.2V, 1.8V, 2.5V, 3V, 3.3V
+                                             The REF33xx can be operated at a supply voltage
+2 Applications                            180mV above  the  specified  output  voltage under
+                                                   normal load  conditions, with the exception  of the
+•  Portable equipment                                              REF3312,  which has a minimum  supply  voltage
+•  Tablets and smartphones                                                              of  1.7V.  All  models  are  specified  for  the  wide
+•  Hard disk drives                                                     temperature range of –40°C to +125°C.
+•  Sensor modules
+•  Data acquisition systems                                   Package Information
+•  Medical equipment                                PART NUMBER      PACKAGE(1)    PACKAGE SIZE(2)
+•  Test equipment                                                DBZ (SOT-23, 3)    2.92mm × 2.37mm
+
+                                                       REF33xx        DCK (SC70, 3)      2.00mm × 2.10mm
+
+                                                              RSE (UQFN, 8)     1.50mm × 1.50mm
+
+                                                                               (1)   For more information, see Section 12.
+                                                                               (2)  The package size (length × width) is a nominal value and
+                                                                            includes pins, where applicable.
+
+
+                                                                           +2.7V                 200
+         R3           R2                                                      180
+                                                                       VCC
+                    +2.7V                                    MSP430x20x3PW              160                                    +125 °C
+                                                                 P1.2                                                                                                                                                              (mV) 140                               Enable(1)       R 1
+                                             66.5 W
+                                                        A0+           16-Bit                120
+            VIN                             C 1                ADC                                                    1.5nF                                                                                                                             Voltage 100
+
+                                                                        80
+                                    REF3312            VREF
+                 OPA333,                                       C                                                                        2                     VSS                                                                        60                                                                                                                                                                                                                                                                                     Dropout                                                                                                                    +25 °C                                               F                 OPA363,                        1 m
+                         or                                                         40
+                OPA369                                                                                                                    -40 °C
+    REF3312 in a Single-Supply Signal Chain               20
+                                                                         0
+                                                                           -5   -4   -3   -2   -1   0    1    2    3    4    5
+
+                                                                                            Load Current (mA)
+                                                     Dropout Voltage vs Load Current
+
+
+
+
+
+     An IMPORTANT NOTICE at the end of this data sheet addresses availability, warranty, changes, use in safety-critical applications,
+       intellectual property matters and other important disclaimers. PRODUCTION DATA.
+=== PDF PAGE 2 ===
+REF33
+SBOS392I – AUGUST 2007 – REVISED APRIL 2026                                                                   www.ti.com
+
+                                 Table of Contents
+
+ 1 Features............................................................................1      8.3 Feature Description...................................................12
+ 2 Applications.....................................................................1      8.4 Device Functional Modes..........................................13
+ 3 Description.......................................................................1    9 Applications and Implementation................................14
+ 4 Device Comparison.........................................................3      9.1 Application Information............................................. 14
+ 5 Pin Configuration and Functions...................................4      9.2 Typical Applications.................................................. 14
+ 6 Specifications.................................................................. 5      9.3 Power-Supply Recommendations.............................19
+   6.1 Absolute Maximum Ratings........................................ 5      9.4 Layout....................................................................... 19
+   6.2 ESD Ratings............................................................... 5    10 Device and Documentation Support..........................21
+   6.3 Recommended Operating Conditions.........................5      10.1 Documentation Support.......................................... 21
+   6.4 Thermal Information....................................................5      10.2 Receiving Notification of Documentation Updates..21
+   6.5 Electrical Characteristics.............................................6      10.3 Support Resources................................................. 21
+   6.6 Typical Characteristics................................................8      10.4 Trademarks.............................................................21
+ 7 Parameter Measurement Information.......................... 11      10.5 Electrostatic Discharge Caution..............................21
+   7.1 Thermal Hysteresis................................................... 11      10.6 Glossary..................................................................21
+ 8 Detailed Description......................................................12    11 Revision History.......................................................... 21
+   8.1 Overview...................................................................12    12 Mechanical, Packaging, and Orderable
+   8.2 Functional Block Diagram.........................................12          Information.................................................................... 22
+
+
+
+
+
+2     Submit Document Feedback                                                                   Copyright © 2026 Texas Instruments Incorporated
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 3 ===
+                                                                                     REF33
+www.ti.com                                                                       SBOS392I – AUGUST 2007 – REVISED APRIL 2026
+
+4 Device Comparison
+
+                   PRODUCT                                         DESCRIPTION
+
+                       REF3312                                                     1.25V
+
+                       REF3318                                                      1.8V
+
+                       REF3320                                                    2.048V
+
+                       REF3325                                                      2.5V
+
+                       REF3330                                                      3.0V
+
+                       REF3333                                                      3.3V
+
+
+
+
+
+Copyright © 2026 Texas Instruments Incorporated                                                      Submit Document Feedback     3
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 4 ===
+REF33
+SBOS392I – AUGUST 2007 – REVISED APRIL 2026                                                                   www.ti.com
+
+5 Pin Configuration and Functions
+
+
+
+                                                                           OUT
+
+                      IN   1                                                                       8
+
+                                                                   NC  1         7  NC
+
+                                        3  GND                              NC  2         6  NC
+
+                                                                   NC  3         5  IN
+              OUT   2                                                                       4
+
+                                                                       GND
+ Figure 5-1. REF3312, REF3318, REF3320, REF3325, Figure 5-2. REF3312, REF3318, REF3320, REF3325,
+ REF3330, REF3333DBZ Package and DCK Package   REF3330, REF3333RSE Package UQFN-8 (Top
+            SOT-23-3, SC70-3 (Top View)                                 View)
+
+
+                                      Table 5-1. Pin Functions
+                  PIN
+
+   NAME     DBZ, DCK     RSE                                DESCRIPTION
+
+ GND              3           4      Ground
+
+ IN                1           5        Input supply voltage
+
+ NC        —         1, 2, 3, 6, 7  Not connected
+
+ OUT              2           8       Output voltage
+
+
+
+
+
+4     Submit Document Feedback                                                                   Copyright © 2026 Texas Instruments Incorporated
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 5 ===
+                                                                                     REF33
+www.ti.com                                                                       SBOS392I – AUGUST 2007 – REVISED APRIL 2026
+
+6 Specifications
+
+ 6.1 Absolute Maximum Ratings
+ over operating free-air temperature range (unless otherwise noted).(1)
+
+                                                                           MIN      MAX       UNIT
+
+                           Input voltage                                                                           7.5
+ Voltage                                                                                   V
+                        Output voltage                                                              5
+ Current                Output short-circuit, ISC (2)                                                    180      mA
+                        Operating                                                     –50        150
+ Temperature             Junction, TJ                                                               150         °C
+                         Storage, Tstg                                                   –65        150
+
+ (1)   Operation outside the Absolute Maximum Ratings may cause permanent device damage. Absolute Maximum Ratings do not imply
+       functional operation of the device at these or any other conditions beyond those listed under Recommended Operating Conditions.
+           If used outside the Recommended Operating Conditions but within the Absolute Maximum Ratings, the device may not be fully
+       functional, and this may affect device reliability, functionality, performance, and shorten the device lifetime.
+ (2)  See the Power-Supply Recommendations section of this data sheet.
+
+ 6.2 ESD Ratings
+                                                                                 VALUE   UNIT
+                               Human body model (HBM), per ANSI/ESDA/JEDEC JS-001(1)            ±4000
+ V(ESD)     Electrostatic discharge        Charged device model (CDM), per JEDEC specification JESD22-C101(2)    ±1000     V
+                                     Machine model (MM)                                             ±200
+
+ (1)  JEDEC document JEP155 states that 500V HBM allows safe manufacturing with a standard ESD control process.
+ (2)  JEDEC document JEP157 states that 250V CDM allows safe manufacturing with a standard ESD control process.
+
+ 6.3 Recommended Operating Conditions
+ over operating free-air temperature range (unless otherwise noted).
+
+                                                                    MIN     NOM     MAX    UNIT
+ VIN                   Supply input voltage(1)                               VOUT + 0.2                        5.5     V
+ IOUT                  Output current range                                       –5                     5    mA
+
+ (1)  The minimum supply voltage for the REF3312 is 1.7V.
+
+ 6.4 Thermal Information
+                                                                                           REF3325,
+                                                                   REF33xx
+                                                                                     REF3330
+                  THERMAL METRIC(1)                                                              UNIT
+                                                  DCK (SC70)  DBZ (SOT-23)  RSE (UQFN)
+
+                                                                   3 PINS       3 PINS       8 PINS
+ RθJA       Junction-to-ambient thermal resistance                             279.7          313.1           61.2       °C/W
+  RθJC(top)    Junction-to-case (top) thermal resistance                           136.3          144.0           32.6       °C/W
+ RθJB        Junction-to-board thermal resistance                                56.9          109.3           16.0       °C/W
+ ψJT         Junction-to-top characterization parameter                            11.0           18.2            1.3        °C/W
+ ψJB        Junction-to-board characterization parameter                        56.1          107.9           16.0       °C/W
+  RθJC(bot)    Junction-to-case (bottom) thermal resistance                      N/A          N/A          N/A        °C/W
+
+ (1)   For more information about traditional and new thermal metrics, see the Semiconductor and IC Package Thermal Metrics application
+       note.
+
+
+
+
+
+Copyright © 2026 Texas Instruments Incorporated                                                      Submit Document Feedback     5
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 6 ===
+REF33
+SBOS392I – AUGUST 2007 – REVISED APRIL 2026                                                                   www.ti.com
+
+ 6.5 Electrical Characteristics
+ At TA = 25°C, VIN = 5V, and ILOAD = 0mA (unless otherwise noted).
+
+          PARAMETER               TEST CONDITIONS             MIN        TYP       MAX    UNIT
+
+ REF3312 (1.25V)
+ VOUT       Output voltage                                                                       1.25               V
+                   Initial accuracy                                              –0.15%                    0.15%
+             Output voltage noise                  f = 0.1Hz to 10Hz                                    35                 μVPP
+ REF3318 (1.8V)
+ VOUT       Output voltage                                                                            1.8               V
+                   Initial accuracy                                              –0.15%                    0.15%
+             Output voltage noise                  f = 0.1Hz to 10Hz                                    50                 μVPP
+ REF3320 (2.048V)
+ VOUT       Output voltage                                                                    2.048               V
+                   Initial accuracy                                              –0.15%                    0.15%
+             Output voltage noise                  f = 0.1Hz to 10Hz                                    55                 μVPP
+ REF3325 (2.5V)
+ VOUT       Output voltage                                                                            2.5               V
+                   Initial accuracy                                              –0.15%                    0.15%
+             Output voltage noise                  f = 0.1Hz to 10Hz                                    70                 μVPP
+ REF3330 (3.0V)
+ VOUT       Output voltage                                                                            3.0               V
+                   Initial accuracy                                              –0.15%                    0.15%
+             Output voltage noise                  f = 0.1Hz to 10Hz                                    84                 μVPP
+ REF3333 (3.3V)
+ VOUT       Output voltage                                                                            3.3               V
+                   Initial accuracy                                              –0.15%                    0.15%
+             Output voltage noise                  f = 0.1Hz to 10Hz                                    92                 μVPP
+ REF33xx (REF3312, REF3320, REF3325, REF3330, REF3333, REF3340)
+             Output voltage temperature    –40°C to 85°C                                       9           30
+ dVOUT/dT                                                                                               ppm/°C
+                   drift                      –40°C to 125°C                                      8           30
+                                           VIN = VOUT + 200mV to 5.5V(1)            –50            6           50
+                                     0°C to +70°C                                        6
+ ΔVO(ΔVI)    Line regulation                                                                               ppm/V
+                                     –40°C to 85°C                                       8
+
+                                     –40°C to 125°C                                     30
+                                           VIN = VOUT + 200mV(1)                  –50            6           50
+                                            ILOAD = ±5mA, 0°C to 70°C                            10
+ ΔVO(ΔIL)    Load regulation                                                                        ppm/mA
+                                     –40°C to 85°C                                      20
+
+                                     –40°C to 125°C                                     20
+            Long-term stability(3)         0h to 1000h at 25°C                                  55               ppm
+ dT         Thermal hysteresis(2)                                                          90               ppm
+                                            ILOAD = ±5mA                                        110          160
+                                     0°C to 70°C                                       120
+ VIN – VOUT  Minimum dropout voltage(1)    –40°C to 85°C                                     135             mV
+                                     –40°C to 125°C                                    180
+                                            ILOAD = ±2mA, –40°C to 85°C                                       70
+ ISC           Short-circuit current           Sourcing and sinking                                 35             mA
+
+
+6     Submit Document Feedback                                                                   Copyright © 2026 Texas Instruments Incorporated
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 7 ===
+                                                                                     REF33
+www.ti.com                                                                       SBOS392I – AUGUST 2007 – REVISED APRIL 2026
+
+ 6.5 Electrical Characteristics (continued)
+ At TA = 25°C, VIN = 5V, and ILOAD = 0mA (unless otherwise noted).
+
+          PARAMETER               TEST CONDITIONS             MIN        TYP       MAX    UNIT
+
+             Capacitive load                                                            0.1                        10    μF
+             Turn-on settling time          To 0.1% with CL = 1μF                                 2               ms
+ POWER SUPPLY
+ VS          Specified voltage range                                   VOUT + 0.2(1)                            5.5    V
+             Operating voltage range       ILOAD = 0mA                               VOUT + 0.005            5.5    V
+                                                                                                       3.9            5
+ IQ          Current                   –40°C to 85°C                                             4.4            6.5    µA
+                                     –40°C to 125°C                                            4.8            8.5
+
+ TEMPERATURE
+
+              Specified range                                                 –40                       125
+ TA                                                                                                      °C
+             Operating range                                                –50                       150
+
+ (1)  The minimum supply voltage for the REF3312 is 1.7V.
+ (2)  The thermal hysteresis procedure is explained in more detail in the Thermal Hysteresis section.
+ (3)  The long-term stability number reduces as the time increases.
+
+
+
+
+
+Copyright © 2026 Texas Instruments Incorporated                                                      Submit Document Feedback     7
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 8 ===
+REF33
+SBOS392I – AUGUST 2007 – REVISED APRIL 2026                                                                   www.ti.com
+
+ 6.6 Typical Characteristics
+
+ At TA = 25°C and VIN = 5V, and REF3325 used for typical characteristic measurements (unless otherwise noted).
+
+
+
+
+
+             (%)                                                                                                              (%)
+                 Unit                                                                                                                                                  Unit
+
+
+
+
+
+      0 1 3 4 5 6 8 9 10 11 13 14 15 16 18 19 20 21 23 24 25 26          0 1 3 4 5 6 8 9 10 11 13 14 15 16 18 19 20 21 23 24 25 26
+
+                                            Drift (ppm/ °C)                                                                                Drift (ppm/°C)
+
+                          0°C to 70°C                                             –40°C to 125°C
+
+                  Figure 6-1. Temperature Drift                                  Figure 6-2. Temperature Drift
+
+         0.05                                                             200
+
+                                                                        180
+      (%)     0                                                             160
+                                                                                                              +125 °C
+                                                                        140        -0.05                                                                                                                                     (mV)
+                                                                        120                 Accuracy        -0.10                                                                                                                                                                                                                                          Voltage 100
+
+                                                                         80               Voltage
+        -0.15
+                                                                         60                                                                                                                                                                                                                                                                                        Dropout                                               +25 °C
+                                                                         40             Output  -0.20                                                                                                                     -40 °C
+                                                                         20
+
+        -0.25                                                               0
+            -50   -25    0    25    50    75   100   125   150              -5   -4   -3   -2   -1   0    1    2    3    4    5
+
+                                 Temperature ( °C)                                                 Load Current (mA)
+       Figure 6-3. Output Voltage Accuracy vs Temperature                Figure 6-4. Dropout Voltage vs Load Current
+
+        7                                                               1000
+
+
+
+        6                                  )   100
+      A)
+   m                                    (W
+   (
+                                                                                                                                                                   ILOAD = 0mA
+        5                                                                 10      CLOAD = 1mF                     Current                                                                                                                                                                                                                                                                                                                                    Impedance
+        4                                                                  1
+                                                                                                                                                                                                         ILOAD = 1mA
+                                                                                                     = 1mF                           Quiescent                                                                                                                                                                                                                        Output                               CLOAD
+        3                                                                             0.1
+
+
+        2                                                                  0
+          -50   -25    0     25    50    75   100   125   150                1        10       100       1k       10k      100k
+                               Temperature ( °C)                                                         Frequency (Hz)
+          Figure 6-5. Quiescent Current vs Temperature                   Figure 6-6. Output Impedance vs Frequency
+
+
+
+
+
+8     Submit Document Feedback                                                                   Copyright © 2026 Texas Instruments Incorporated
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 9 ===
+                                                                                     REF33
+www.ti.com                                                                       SBOS392I – AUGUST 2007 – REVISED APRIL 2026
+
+ 6.6 Typical Characteristics (continued)
+
+ At TA = 25°C and VIN = 5V, and REF3325 used for typical characteristic measurements (unless otherwise noted).
+
+
+        90                                                                      2.503
+                                                                                                 ILOAD = 1mA                                         ILOAD = 0mA
+        80                              C LOAD = 1 m F               2.502
+
+        70
+                                                                                 2.501
+                                                                                              +125 °C
+        60
+          (dB)  50                                                                                                       (V)  2.500
+                                                                                 2.499
+        40                                                                                    +25 °C          PSRR                                                                                                                                                                                                                          Output  2.498
+        30                                                                                                       -40 °C
+                                                                                 2.497
+        20
+
+                                                                                 2.496
+        10
+
+         0                                                                      2.495
+          10         100          1k          10k         100k                  2.5       3.0       3.5       4.0       4.5       5.0       5.5
+                               Frequency (Hz)                                                             Supply (V)
+     Figure 6-7. Power-Supply Rejection Ratio vs Frequency                      Figure 6-8. Output vs Supply
+
+        2.503
+                                           VS = 5V                                                   VIN
+        2.502
+
+        2.501
+      (V)                    +125 °C
+        2.500
+                                                                                           VOUT               Voltage  2.499                                                                                                                                                                                                                                                                                              1V/div
+                                     +25 °C
+        2.498             Output
+        2.497
+                                        -40 °C
+        2.496
+
+        2.495
+             -5.0          -2.5          0            2.5           5.0                                 400 m s/div
+                              Load Current (mA)                                        CL = 1μF Startup
+           Figure 6-9. Output Voltage vs Load Current
+                                                                                Figure 6-10. Step Response
+
+
+
+
+
+                                                                                            VIN                                                                                                                                                                                                                                                                                                                                                                                                                                             500mV/div
+                        V/div
+       m
+          20                                                                        VOUT
+                                                                                                                                                                                                                                                                                                                                                                                              20mV/div
+
+
+
+
+
+                                         1s/div                                                          100 m s/div
+                Figure 6-11. 0.1Hz to 10Hz Noise                                   CL = 1μF, IOUT = 0mA
+
+                                                                                Figure 6-12. Line Transient
+
+
+
+
+
+Copyright © 2026 Texas Instruments Incorporated                                                      Submit Document Feedback     9
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 10 ===
+REF33
+SBOS392I – AUGUST 2007 – REVISED APRIL 2026                                                                   www.ti.com
+
+ 6.6 Typical Characteristics (continued)
+
+ At TA = 25°C and VIN = 5V, and REF3325 used for typical characteristic measurements (unless otherwise noted).
+
+
+
+
+                                                                        +5mA
+
+              VIN                                                       -5mA                      -5mA                                      500mV/div                                                                                       ILOAD
+
+
+
+             VOUT
+                                  10mV/div                                                                        VOUT
+                                                                                                                                                                                                                                                                                                                                                                                              50mV/div
+
+
+
+                            Time (400 m s/div)                                                     200 m s/div
+                    CLOAD = 10μF, IOUT = 0mA                                 CL = 1μF, ±5mA Output Pulse
+
+                   Figure 6-13. Line Transient                                    Figure 6-14. Load Transient
+
+
+
+                                                                        +1mA
+
+              VIN                                                       -1mA                      -1mA                                      500mV/div                                                                                       ILOAD
+
+
+
+             VOUT
+                                  10mV/div                                                                        VOUT
+                                                                                                                                                                                                                                                                                                                                                                                              20mV/div
+
+
+
+                            Time (200 m s/div)                                                     200 m s/div
+                    CLOAD = 10μF, IOUT = 1mA                                 CL = 1μF, ±1mA Output Pulse
+
+                   Figure 6-15. Line Transient                                    Figure 6-16. Load Transient
+
+
+
+
+
+10    Submit Document Feedback                                                                   Copyright © 2026 Texas Instruments Incorporated
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 11 ===
+                                                                                     REF33
+www.ti.com                                                                       SBOS392I – AUGUST 2007 – REVISED APRIL 2026
+
+7 Parameter Measurement Information
+ 7.1 Thermal Hysteresis
+
+ Thermal hysteresis for the REF33xx is defined as the change in output voltage after operating the device at
+ 25°C, cycling the device through the specified temperature range, and returning to 25°C. It can be expressed as
+ Equation 1:
+
+
+                                                                                                                    (1)                 VPRE −VPOST        VHYST =           × 106 ppm                  VNOMwhere
+
+ •  VHYST = thermal hysteresis (in units of ppm).
+ •  VNOM = the specified output voltage.
+ •  VPRE = output voltage measured at 25°C pretemperature cycling.
+ •  VPOST = output voltage measured after the device cycles from 25°C through the specified temperature range
+    of –40°C to 125°C and returns to 25°C.
+
+
+
+
+
+Copyright © 2026 Texas Instruments Incorporated                                                      Submit Document Feedback    11
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 12 ===
+REF33
+SBOS392I – AUGUST 2007 – REVISED APRIL 2026                                                                   www.ti.com
+
+8 Detailed Description
+ 8.1 Overview
+
+The REF33xx is a family of low-power, precision band-gap voltage references that are specifically designed for
+ extremely low dropout, excellent initial voltage accuracy with a high output current. A simplified block diagram of
+ the REF33xx is shown in the Functional Block Diagram section. Figure 8-1 shows the typical connections for the
+REF33xx. A supply bypass capacitor ranging from 1μF to 10μF is recommended. The total capacitive load at the
+ output must be between 0.1μF to 10μF to establish output stability.
+
+                                                    VIN
+
+
+
+                                               REF33xx
+
+                                        CBYPASS         VIN
+                                 1 m F to 10m F              VOUT          VOUT
+                              (recommended)      GND
+                                                                   CL
+                                                                                0.1 m F to 10m F
+
+
+                                   Figure 8-1. Basic Connections
+
+ 8.2 Functional Block Diagram
+
+                                                             VIN
+
+
+
+
+                                                       REF33xx
+
+
+
+
+                                                                       VOUT
+
+                                                   1.2V
+                                     Bandgap
+
+
+
+
+
+                                        GND
+
+ 8.3 Feature Description
+ 8.3.1 Start-Up Time
+
+The REF33xx features an advanced start-up circuit. Start-up time is almost independent of load (with a 0.1μF to
+10μF load). Upon startup, the current boost circuit forces the output voltage. When the preset voltage is reached,
+ the REF33xx switches to the second stage of output circuitry to precisely set the output voltage. Figure 8-2
+shows the start-up time of the REF3325 for three different capacitive loads. In all three cases, the output voltage
+ settles within 2ms.
+
+
+
+
+
+12    Submit Document Feedback                                                                   Copyright © 2026 Texas Instruments Incorporated
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 13 ===
+                                                                                     REF33
+www.ti.com                                                                       SBOS392I – AUGUST 2007 – REVISED APRIL 2026
+
+
+
+
+
+                                                                         VIN    0.1 m F
+                                                                                                                                                                                   1V/div
+
+
+                                                                     1 m F
+
+                                                                   10 m F
+
+
+
+
+                                                                       Time (400 m s/div)
+
+                                      Figure 8-2. Start-Up Time
+
+ 8.3.2 Low Temperature Drift
+
+The REF33xx is designed for minimal drift error, defined as the change in output voltage over temperature. The
+ drift is calculated using the box method, as described in Equation 2:
+
+
+                                                                                                                    (2)                VOUTMAX −VOUTMIN          Drift =                            × 106 ppm 8.3.3 Power            DissipationVOUT × Temperature Range
+
+The REF33xx family is specified to deliver current loads of ±5mA over the specified input voltage range. The
+ temperature of the device increases according to Equation 3:
+
+                                                                                                                    (3)          TJ = TA + PD × RθJAwhere
+
+ •  TJ = junction temperature (°C)
+ •  TA = ambient temperature (°C)
+ •  PD = power dissipation (W)
+                                                                                                                    (4) •  RθJA == VINJunction-to-ambient× IQ + VIN −VOUTthermalIOUT   resistance (°C/W)
+The REF33xx junction temperature must not exceed the absolute maximum rating of 150°C.
+
+ 8.3.4 Noise Performance
+
+ Typical 0.1Hz to 10Hz voltage noise for each member of the REF33xx family is specified in the Electrical
+ Characteristics table. The noise voltage increases with output voltage and operating temperature. Use additional
+ filtering to improve output noise levels. Give special attention to ensure that the output impedance does not
+ degrade output voltage accuracy.
+
+ 8.4 Device Functional Modes
+
+The REF33xx is powered on when the voltage on the IN pin is greater than VOUT + 0.2V, except for the
+REF3312, where the minimum supply voltage is 1.7V. The maximum input voltage for the REF33xx is 5.5V. Use
+a supply bypass capacitor ranging from 1μF to 10μF. The total capacitive load at the output must be from 0.1μF
+ to 10μF to ensure output stability.
+
+
+
+
+
+Copyright © 2026 Texas Instruments Incorporated                                                      Submit Document Feedback    13
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 14 ===
+REF33
+SBOS392I – AUGUST 2007 – REVISED APRIL 2026                                                                   www.ti.com
+
+9 Applications and Implementation
+
+                                           Note
+
+      Information in the following applications sections  is not part of the TI component specification,
+     and  TI does  not  warrant  its accuracy  or completeness.  TI’s customers  are  responsible  for
+     determining suitability of components for their purposes, as well as validating and testing their design
+     implementation to confirm system functionality.
+
+ 9.1 Application Information
+
+The REF33xx is a family of low-power, precision band-gap voltage references that are specifically designed for
+ extremely low dropout, excellent initial voltage accuracy with a high output current. The extremely small size of
+ the SC70-3, SOT-23-3, and UQFN-8 make these references very attractive for space-constrained applications.
+The following section describes one common application.
+
+ 9.2 Typical Applications
+ 9.2.1 REF3312 in a Bipolar Signal-Chain Configuration
+
+The circuit in Figure 9-1 consists of a low-power reference and conditioning circuit. This circuit attenuates and
+ level-shifts a bipolar input voltage within the proper input range of a single-supply, low-power, 16-bit ΔΣ analog-
+ to-digital converter (ADC), such as the one inside the MSP430™ integrated circuit (or other similar single-supply
+ ADCs). Precision reference circuits are used to level-shift the input signal, provide the ADC reference voltage,
+and create a well-regulated supply voltage for the low-power analog circuitry. A low-power, zero-drift op amp
+ circuit is used to attenuate and level-shift the input signal.
+
+
+                                                 REF3330
+
+                                                    3.3 V                       3.0 V
+
+                                                         IN    OUT
+
+
+
+
+                                                                        R2     +1.25 V
+                                                                     20 k
+
+
+
+                                                        R1              R3
+                                                     100 k            20 k                                                MSP430F2013 LaunchPad
+
+
+                             +
+                                                                                                                                                                  3.3 V
+                                                                             +3.0 V
+                                                                                       VOUT    R8
+                                                                                                                          J1.2/A1+
+                                                                                                                                 IN+                      VIN  +                              OPA317 +                 1 k
+                ±5 V   ±
+                                                                                                                         SD_16
+                                                                                              C1                                    û-ADC
+                              _                                                                0.15 …F                 J1.3/A1±       IN±
+                                                        R4               R5                                                                                                                         VREF
+                                                     100 k            10 k
+
+
+
+
+
+                                                 REF3312
+
+                                                 +3.0 V                  +1.25 V
+                                                                                                                  J1.5/VREF
+                                                         IN     OUT
+
+                                                                              R6
+                                                                         47 k        0.625 V
+
+
+
+                                                                              R7             C2
+                                                                         47 k              47 …F
+
+
+
+                            Figure 9-1. Bipolar Signal-Chain Configuration
+
+
+
+14    Submit Document Feedback                                                                   Copyright © 2026 Texas Instruments Incorporated
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 15 ===
+                                                                                     REF33
+www.ti.com                                                                       SBOS392I – AUGUST 2007 – REVISED APRIL 2026
+
+ 9.2.1.1 Design Requirements
+
+The design requirements are as follows:
+
+ •  Supply voltage: 3.3V
+ •  Maximum input voltage: ±6V
+ •  Specified input voltage: ±5V
+ •  ADC reference voltage: 1.25V
+
+ 9.2.1.2 Detailed Design Procedure
+
+ Figure 9-1 depicts a simplified schematic for this design showing the MSP430 ADC inputs and  full input
+ conditioning circuitry. The ADC is configured for a bipolar measurement where final conversion result is the
+ differential voltage, VDIFF, between the positive and negative ADC inputs, A1+ and A1–. The bipolar, ground-
+ referenced input signal must be level-shifted and attenuated by the op amp so that the output is biased to VREF /
+2 and has a differential voltage that is within the ±VREF / 2 input range of the ADC. The transfer function for the
+op-amp circuit simplifies to Equation 5.
+
+
+                                                                                                                    (5)                  R3           R2 ∥R3       A1 + =                       VREF +                                        VIN                R2 + R3                                 R1where
+
+ •  R1 = R4
+ •  R5 = R2 || R3
+The voltage applied to the negative ADC input, A1–, is based on the resistor divider formed by R6 and R7 and is
+ set to VREF / 2 by setting R6 equal to R7, as shown in Equation 6.
+
+                                                                                                                    (6)                  R7          VREF       A1      −=                       VREF                    =  2 9.2.1.2.1      Op        Amp R6Level-Shift+ R7                         Design
+
+The ratio of R2, R3, and the VREF voltage determines the voltage on the output of the op amp when the
+ differential input is 0V. Select the components so that VOUT is equal to the VREF / 2 voltage when VIN is equal to
+ 0V, as shown in Equation 7.
+
+
+                                                                                                                    (7)                VREF      R3       A1 + =  2  =  R2 + R3 VREFwhere
+
+ •  VIN = 0V
+ •  R2 = R3
+ Solve for the value of R5 by setting R3 equal to R2 in Equation 5, as shown in Equation 8:
+
+
+                                                                                                                    (8)              R2 × R2     R22    R2        R5        = 9.2.1.2.2          Differential              R2 + R2Input               = 2Attenuator× R2 = 2 Design
+
+ VDIFF is the difference between the two inputs, as shown in Equation 9:
+
+                                                                                                                    (9)                                    R3           R2 ∥R3       VREF         VDIFF = A1 + −A1 − =                                        VREF +                                                          VIN −  2                                  R2 + R3                                                  R1
+
+
+
+
+
+Copyright © 2026 Texas Instruments Incorporated                                                      Submit Document Feedback    15
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 16 ===
+REF33
+SBOS392I – AUGUST 2007 – REVISED APRIL 2026                                                                   www.ti.com
+
+When the ratio of R3 and R2 equals the ratio of R7 and R6, Equation 9 simplifies to Equation 11.
+ That is, if:
+
+
+                                                                                                         (10)           R3             R7           1                VREF =                               VREF = 2VREF         R2 + R3                        R6 + R7 Then:
+
+
+                                                                                                             (11)                 R2 ∥R3         VDIFF =         VIN                  R1
+ Determine the ratio of R1, R2, and R3 by setting A1+ equal to the maximum VDIFF for a full-scale positive or
+ negative input voltage, VIN_MAX, as shown in Equation 12:
+
+
+                                                                                                         (12)                            R2 ∥R3       A1 + = VDIFF_MAX =        VIN_MAX                              R1
+R2 equals R3; therefore, Equation 12 simplifies to R2 / 2, resulting in Equation 13:
+
+                                                                                                         (13)                      R2        VDIFF_MAX            =  2 × R1 VIN_MAX 9.2.1.2.3         Input Filtering
+
+ Both inputs feature first-order, low-pass, antialiasing filters that limit the bandwidth and noise of the input signals
+ applied to the ADC. The A1+ filter is formed by R8 and C1 and the equation for the –3dB cutoff frequency is
+shown in Equation 14:
+
+                                                                                                         (14)        f−3dB_A1 + = 2 × π ×1R8 × C1
+The A1– input  filter is formed by C2 and the parallel combination of the R6 and R7 resistors, as shown in
+ Equation 15:
+
+                                                                                                         (15)        f−3dB_A1 −=        1                            R6                      2 × π ×                          × C2                              2 9.2.1.2.4 Component Selection
+ 9.2.1.2.4.1 Voltage References
+
+The REF33xx series of precision low-power voltage references pair well with the low power consumption of
+ the MSP430, while achieving the target accuracy goals. The 16-bit converter in the MSP430F2013 accepts an
+ external reference voltage from 1V to 1.5V with a typical reference input of 1.25V, as shown in Table 9-1.
+
+                      Table 9-1. SD16_A, External Reference Input (MSP430F20x3)
+           PARAMETER(1)              TEST CONDITIONS             MIN        TYP       MAX    UNIT
+ VREF(I)      Input voltage range        VCC = 3V, SD16REFON = 0               1           1.25            1.5    V
+  IREF(I)       Input current            VCC = 3V, SD16REFON = 0                                        50    nA
+
+ (1)   Over recommended ranges of supply voltage and operating free-air temperature (unless otherwise noted).
+
+The REF3312 provides the desired 1.25V reference voltage for the MSP430 ADC. The accuracy of the REF3312
+ output, shown in the Electrical Characteristics, directly affects the accuracy of the entire system and must be
+ less than the desired unadjusted error goals. The REF3312 maximum ±0.15% initial accuracy specification is
+ equal to the unadjusted error design goal of 0.15%, indicating that most of the error budget in this design must
+be devoted to the reference accuracy.
+
+
+
+16    Submit Document Feedback                                                                   Copyright © 2026 Texas Instruments Incorporated
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 17 ===
+                                                                                     REF33
+www.ti.com                                                                       SBOS392I – AUGUST 2007 – REVISED APRIL 2026
+
+The 3.3V system supply voltage that powers the MSP430 can also supply other devices, and therefore can
+have regulation and noise issues. The REF3330 creates an accurate and stable 3.0V output used by the op
+amp, REF3312, and other low-power analog circuitry. The REF33xx series has a drop-output voltage of VOUT
++ 200mV; therefore, as long as the input supply remains above 3.2V, the REF3330 produces a regulated 3.0V
+ output. The output current for the REF33xx series is specified at ±5mA, as shown in Figure 6-9, and is sufficient
+ for the REF3312 and a low-power op amp.
+
+ 9.2.1.2.4.2 Op Amp
+
+The OPA317 op amp is used because of low offset voltage, low offset voltage drift, CMRR, and low power
+ consumption. The dc specifications  for the OPA317 can be seen  in the Texas Instruments Low Offset,
+ Rail-to-Rail I/O Operational Amplifier Precision Catalog datasheet, available for download from www.ti.com.
+The maximum offset of 100µV accounts for only 0.001% of the full-scale signal, and the low-drift reduces
+ temperature  drift effects. Therefore, as previously mentioned, most of the error in this design is from the
+ reference accuracy and passive component tolerances.
+
+ 9.2.1.2.5 Input Attenuation and Level Shifting
+
+ For this design, the bipolar ±5V input must be attenuated and level shifted so the differential voltage is within
+ the input range of ±VREF / 2, or ±0.625V. The accuracy of the op amp output and ADC input can degrade near
+ the supply rails and VREF voltage, so the output is designed to produce a 0.125V to 1.125V output, or ±0.5V for
+a ±5V input. Scaling the output this way also increases the allowable input range to ±6V, and allows for some
+ underscale and overscale voltage measurement and protection.
+
+Use Equation 13 to scale the ±5V input to a ±0.5V differential voltage, as shown in Equation 16.
+
+
+                                                                                                         (16)                  R2         0.5V =  2 × 100kΩ × 5V
+where
+
+ •  R1 = R4 = 100kΩ
+R1 and R4 dominate the input impedance for this design and are therefore selected to be 100kΩ. Higher values
+ can be selected to increase the input impedance at the expense of input noise.
+
+ With the value for R2 and R3 selected as 20kΩ, the value for R5 is calculated, as shown in Equation 17:
+
+                                                                                                         (17)              R2        R5 =  2  × 10kΩ
+where
+
+ •  R2 = R3 = 20kΩ
+ For A1– to equal to VREF / 2, R6 must equal R7. Two 47kΩ resistors are used to conserve power without creating
+an impedance too weak to drive the ADC input.
+
+ 9.2.1.2.6 Input Filtering
+
+The MSP430 ADC is configured to run from the 1.1MHz SMCLK with an oversampling rate (OSR) of 256,
+ yielding a sample rate of roughly 4.3kHz. The input filter cutoff frequency is set to 1kHz to limit the input signal
+ bandwidth, as shown in Equation 19. R8 is 1kΩ to provide isolation from the capacitive load of the low-pass filter,
+ thereby reducing stability concerns.
+
+                                                                                                         (18)        f−3dB_A1 + = 1kHz = 2 × π ×1R8 × C1where
+
+                                                                                                         (19)        C1 = 2 × π × 1kΩ1 × 1kHz = 159nF
+Copyright © 2026 Texas Instruments Incorporated                                                      Submit Document Feedback    17
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 18 ===
+REF33
+SBOS392I – AUGUST 2007 – REVISED APRIL 2026                                                                   www.ti.com
+
+Reduce C1 to 150nF so that it is a standard value.
+The A1– input of the delta-sigma (ΔΣ) converter is not buffered, and therefore requires a large capacitor to
+ supply the charge for the internal sampling capacitor. A 47μF capacitor is selected, resulting in the cutoff
+ frequency illustrated in Equation 20.
+
+                                                                                                         (20)        f−3dB_A1 −=        1     = 0.144Hz                            R6                      2 × π ×                          × C2                              2
+ In applications that cannot tolerate such a low-frequency cutoff, and therefore a long start-up time, buffer the A1–
+ input with another OPA317 to properly drive the ADC input with a lower-input capacitor.
+
+ 9.2.1.2.7 Passive Component Tolerances and Materials
+
+ Resistors R1, R2, R3, R4, R5, R6, and R7 directly affect the accuracy of the circuit. To meet the unadjusted
+ accuracy goals of 0.2%, the resistors used are 0.1%. Select 0.1% resistors for the construction of the difference
+ amplifier circuit to provide a common-mode rejection ratio (CMRR) of at least 60dB.
+
+ 9.2.1.3 Application Curves
+ 9.2.1.3.1 DC Performance
+
+The measured dc performance and calculated error of the circuit is shown in Figure 9-2 and Figure 9-3,
+ respectively. By applying a two-point gain and offset calibration over the specified ±5V input range, the calibrated
+ error is shown in Figure 9-4. The uncalibrated results show errors of 138μV, or 0.0138%FSR. The calibrated
+ results with a simple two-point calibration show errors under 5μV, or 0.0005%FSR, in the specified input range of
+ ±5V.
+
+
+
+                1.25                                                                          50
+
+                                                                                           25
+                1.00                                                                                                                                                                (µV)    0
+                   (V)
+                0.75                                                                                                                                                                                                        Error  ±25
+                                             Voltage                                                                             ±50
+                0.50                                                                                                                                                                                                                                                                                         Voltage  ±75                                       Output
+                                                                                         ±100                0.25                                                                                                                                                                                                                                                 Output
+                                                                                         ±125
+
+                0.00                                                                        ±150
+                  ±6  ±5  ±4  ±3  ±2  ±1   0   1   2   3   4   5   6                          ±6  ±5  ±4  ±3  ±2  ±1   0   1   2   3   4   5   6
+
+                                              Input Voltage (V)                           C01                                                       Input Voltage (V)                           C01
+   Figure 9-2. Measured DC Transfer Function with    Figure 9-3. Measured Output Error with ±6V Input
+                  ±6V Input
+
+
+                                                     40
+
+
+                                                         V)  30
+
+                             (
+                                                                                                                                                Error
+                                                     20
+                                                                                                                                                                            Output
+                                                                                                                                                                                                                                                                                               Calibrated  100
+
+
+
+                                                    ±10
+                                                        ±6  ±5  ±4  ±3  ±2  ±1   0   1   2   3   4   5   6
+
+                                                                                              Input Voltage (V)                           C01
+                          Figure 9-4. Calibrated Output Error with ±6V Input
+
+
+
+
+
+18    Submit Document Feedback                                                                   Copyright © 2026 Texas Instruments Incorporated
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 19 ===
+                                                                                     REF33
+www.ti.com                                                                       SBOS392I – AUGUST 2007 – REVISED APRIL 2026
+
+ 9.2.1.3.2 AC Performance
+
+The ac transfer function for the attenuation and level-shifting circuit is shown in Figure 9-5.
+
+The low-frequency ac CMRR performance is measured to be 62dB, as shown in Figure 9-6.
+
+
+           0                                                                  0
+
+                                                                             ±10
+
+         ±20                                                                 ±20
+
+                                                                                                                                                                             (dB) ±30                (dB)
+         ±40                                                                 ±40
+                Vout                                                                                                                                                        CMRR ±50
+
+         ±60                                                                 ±60
+
+                                                                             ±70
+
+         ±80                                                                 ±80
+             1        10       100       1 K      10 K     100 K                1       10      100     1 K     10 K    100 K   1,000 K
+                                  Frequency (Hz)                            C00                                     Frequency (Hz)                            C00
+     Figure 9-5. Measured AC Transfer Function          Figure 9-6. Measured AC CMRR Results
+
+ 9.3 Power-Supply Recommendations
+
+The REF33xx family of voltage references features extremely low dropout voltage, except for the REF3312. The
+REF3312 has a minimum supply requirement of 1.7V. These references can be operated with a supply 110mV
+above the output voltage with a 5mA load (typical). For loaded conditions, a typical dropout voltage versus load
+ graph is illustrated in Figure 6-4 of the Typical Characteristics.
+
+ If the supply voltage connected to the IN pin is rapidly moved when the REF33xx is connected to a capacitive
+ load, a reverse voltage can discharge through the OUT pin and into the REF33xx. This voltage does not damage
+ the REF33xx, provided that the voltage is less than or equal to 5V.
+
+ 9.4 Layout
+ 9.4.1 Layout Guidelines
+
+ For optimal performance of this design, follow standard printed circuit board (PCB) layout guidelines, including
+ proper decoupling close to all integrated circuits and adequate power and ground connections with large copper
+ pours. Select a PCB size with connectors that connect directly to the MSP430 LaunchPad™.
+
+ Figure 9-7 shows an example of a PCB layout for a data acquisition system using the REF33xx.
+
+Some key considerations are:
+
+ •  Connect a low-ESR, 1μF ceramic capacitor at the IN pin for bypass, and a ceramic capacitor from 0.1µF to
+   10µF at the OUT pin for stability of the REF33xx.
+ •  Decouple other active devices in the system per the device specifications.
+ •  Use a solid ground plane helps distribute heat and reduces EMI noise pickup.
+ •  Place the external components as close to the device as possible. This configuration prevents parasitic errors
+   (such as the Seebeck effect) from occurring.
+ •  Minimize trace length between the reference and bias connections to the ADC to reduce noise pickup.
+ •  Do not run sensitive analog traces in parallel with digital traces. Avoid crossing digital and analog traces if
+    possible, and only make perpendicular crossings when absolutely necessary.
+
+
+
+
+
+Copyright © 2026 Texas Instruments Incorporated                                                      Submit Document Feedback    19
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 20 ===
+REF33
+SBOS392I – AUGUST 2007 – REVISED APRIL 2026                                                                   www.ti.com
+
+ 9.4.2 Layout Example
+
+                                                              Input Signal
+
+
+
+                                                                        AIN
+
+
+                                           OUT           REF
+                                                  C
+                              GND                                           Microcontroller
+                                                          ADC Input                                                                                                                                                                                                                           REF33xx         C
+                                                             IN
+
+
+
+                                   Via to
+                     GND Plane
+                                                                   Via to
+                                                                     Input Power
+
+                                     Figure 9-7. Layout Example
+
+
+
+
+
+20    Submit Document Feedback                                                                   Copyright © 2026 Texas Instruments Incorporated
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 21 ===
+                                                                                     REF33
+www.ti.com                                                                       SBOS392I – AUGUST 2007 – REVISED APRIL 2026
+
+10 Device and Documentation Support
+ 10.1 Documentation Support
+ 10.1.1 Related Documentation
+
+ •  Texas Instruments, 1.8V, 700nA, Zerø-Crossover Rail-to-Rail I/O Operational Amplifier datasheet
+ •  Texas Instruments, 1.8V, 7MHz, 90dB CMRR, Single-Supply Rail-to-Rail I/O Operational Amplifier datasheet
+ •  Texas Instruments, High-Speed, Precision, Gain of 0.2 Level Translation Difference Amplifier datasheet
+ •  Texas Instruments, OPAx333 1.8V, microPower, CMOS Operational Amplifiers, Zero-Drift Series datasheet
+
+ 10.2 Receiving Notification of Documentation Updates
+
+ To receive notification of documentation updates, navigate to the device product folder on ti.com. Click on
+ Notifications to register and receive a weekly digest of any product information that has changed. For change
+ details, review the revision history included in any revised document.
+
+ 10.3 Support Resources
+
+ TI E2E™ support forums are an engineer's go-to source for fast, verified answers and design help — straight
+ from the experts. Search existing answers or ask your own question to get the quick design help you need.
+
+ Linked content is provided "AS IS" by the respective contributors. They do not constitute TI specifications and do
+ not necessarily reflect TI's views; see TI's Terms of Use.
+
+ 10.4 Trademarks
+LaunchPad™ and TI E2E™ are trademarks of Texas Instruments.
+ All trademarks are the property of their respective owners.
+ 10.5 Electrostatic Discharge Caution
+                  This integrated circuit can be damaged by ESD. Texas Instruments recommends that all integrated circuits be handled
+                   with appropriate precautions. Failure to observe proper handling and installation procedures can cause damage.
+
+            ESD damage can range from subtle performance degradation to complete device failure. Precision integrated circuits may
+               be more susceptible to damage because very small parametric changes could cause the device not to meet its published
+                    specifications.
+
+ 10.6 Glossary
+
+ TI Glossary      This glossary lists and explains terms, acronyms, and definitions.
+
+11 Revision History
+NOTE: Page numbers for previous revisions may differ from page numbers in the current version.
+
+Changes from Revision H (August 2019) to Revision I (April 2026)                            Page
+ •  Updated the numbering format for tables, figures, equations, and cross-references throughout the
+   document ...........................................................................................................................................................1
+ •  Moved the REF3312, REF3318, REF3320, REF3325, REF3330, and REF3333 devices to the REF33
+    product folder on TI.com and updated the datasheet header.............................................................................1
+ •  Changed Device Information table to Package Information .............................................................................. 1
+
+
+
+Changes from Revision G (December 2016) to Revision H (August 2019)                      Page
+ •  Changed maximum operating current value in Recommended Operating Conditions section.......................... 5
+ •  Changed table title to REF33xx (REF3312, REF3320, REF3325, REF3330, REF3333, REF3340) ................ 6
+
+
+
+
+
+Copyright © 2026 Texas Instruments Incorporated                                                      Submit Document Feedback    21
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 22 ===
+REF33
+SBOS392I – AUGUST 2007 – REVISED APRIL 2026                                                                   www.ti.com
+
+12 Mechanical, Packaging, and Orderable Information
+
+The following pages include mechanical packaging and orderable information. This information is the most
+ current data available for the designated devices. This data is subject to change without notice and revision of
+ this document. For browser-based versions of this data sheet, refer to the left-hand navigation.
+
+
+
+
+
+22    Submit Document Feedback                                                                   Copyright © 2026 Texas Instruments Incorporated
+
+                                                   Product Folder Links: REF33
+=== PDF PAGE 23 ===
+                                                         PACKAGE OPTION ADDENDUM
+
+
+    www.ti.com                                                                                                                                                                         13-Apr-2026
+
+
+PACKAGING INFORMATION
+
+   Orderable part number     Status   Material type    Package | Pins    Package qty | Carrier    RoHS        Lead finish/       MSL rating/       Op temp (°C)           Part marking
+                                                      (1)                 (2)                                                                                          (3)            Ball material        Peak reflow                                                              (6)
+                                                                                                                                                                                                    (4)                                (5)
+     REF3312AIDBZR          Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33A
+     REF3312AIDBZR.A         Active     Production    SOT-23 (DBZ) | 3    3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33A
+     REF3312AIDBZT          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33A
+     REF3312AIDBZT.A         Active     Production    SOT-23 (DBZ) | 3     250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33A
+    REF3312AIDBZT1G4        Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33A
+   REF3312AIDBZT1G4.A       Active     Production    SOT-23 (DBZ) | 3     250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33A
+     REF3312AIDCKR          Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R12
+    REF3312AIDCKR.A         Active     Production     SC70 (DCK) | 3     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R12
+   REF3312AIDCKR1G4        Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R12
+   REF3312AIDCKR1G4.A       Active     Production     SC70 (DCK) | 3     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R12
+     REF3312AIDCKT          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R12
+     REF3312AIDCKT.A         Active     Production     SC70 (DCK) | 3      250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R12
+     REF3312AIRSER          Active     Production           null (null) |       5000 | LARGE T&R      Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125             5G
+    REF3312AIRSER.A         Active     Production    UQFN (RSE) | 8     5000 | LARGE T&R      Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125             5G
+    REF3312AIRSERG4        Active     Production           null (null) |       5000 | LARGE T&R      Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125             5G
+   REF3312AIRSERG4.A       Active     Production    UQFN (RSE) | 8     5000 | LARGE T&R      Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125             5G
+     REF3312AIRSET          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125             5G
+     REF3312AIRSET.A         Active     Production    UQFN (RSE) | 8     250 | SMALL T&R       Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125             5G
+     REF3318AIDBZR          Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33B
+     REF3318AIDBZR.A         Active     Production    SOT-23 (DBZ) | 3    3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33B
+     REF3318AIDBZT          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33B
+     REF3318AIDBZT.A         Active     Production    SOT-23 (DBZ) | 3     250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33B
+    REF3318AIDBZTG4        Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33B
+   REF3318AIDBZTG4.A       Active     Production    SOT-23 (DBZ) | 3     250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33B
+     REF3318AIDCKR          Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R18
+    REF3318AIDCKR.A         Active     Production     SC70 (DCK) | 3     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R18
+    REF3318AIDCKRG4        Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R18
+   REF3318AIDCKRG4.A       Active     Production     SC70 (DCK) | 3     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R18
+     REF3318AIDCKT          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R18
+
+
+                                                                               Addendum-Page 1
+=== PDF PAGE 24 ===
+                                                       PACKAGE OPTION ADDENDUM
+
+
+www.ti.com                                                                                                                                                                         13-Apr-2026
+
+
+
+
+Orderable part number     Status   Material type    Package | Pins    Package qty | Carrier    RoHS        Lead finish/       MSL rating/       Op temp (°C)           Part marking
+                                                (1)                 (2)                                                                                          (3)            Ball material        Peak reflow                                                              (6)
+                                                                                                                                                                                              (4)                                (5)
+  REF3318AIDCKT.A         Active     Production     SC70 (DCK) | 3      250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R18
+  REF3320AIDBZR          Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            R33C
+  REF3320AIDBZR.A         Active     Production    SOT-23 (DBZ) | 3    3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            R33C
+   REF3320AIDBZT          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            R33C
+  REF3320AIDBZT.A         Active     Production    SOT-23 (DBZ) | 3     250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            R33C
+ REF3320AIDBZT1G4        Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            R33C
+REF3320AIDBZT1G4.A       Active     Production    SOT-23 (DBZ) | 3     250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            R33C
+  REF3320AIDCKR          Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R20
+  REF3320AIDCKR.A         Active     Production     SC70 (DCK) | 3     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R20
+ REF3320AIDCKRG4        Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R20
+REF3320AIDCKRG4.A       Active     Production     SC70 (DCK) | 3     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R20
+  REF3320AIDCKT          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R20
+  REF3320AIDCKT.A         Active     Production     SC70 (DCK) | 3      250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R20
+  REF3325AIDBZR          Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            R33D
+  REF3325AIDBZR.A         Active     Production    SOT-23 (DBZ) | 3    3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            R33D
+ REF3325AIDBZR1G4        Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            R33D
+REF3325AIDBZR1G4.A       Active     Production    SOT-23 (DBZ) | 3    3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            R33D
+   REF3325AIDBZT          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            R33D
+  REF3325AIDBZT.A         Active     Production    SOT-23 (DBZ) | 3     250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125            R33D
+  REF3325AIDCKR          Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R25
+  REF3325AIDCKR.A         Active     Production     SC70 (DCK) | 3     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R25
+ REF3325AIDCKR1G4        Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R25
+REF3325AIDCKR1G4.A       Active     Production     SC70 (DCK) | 3     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R25
+  REF3325AIDCKT          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R25
+  REF3325AIDCKT.A         Active     Production     SC70 (DCK) | 3      250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R25
+  REF3325AIRSER          Active     Production           null (null) |       5000 | LARGE T&R      Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125           GN
+  REF3325AIRSER.A         Active     Production    UQFN (RSE) | 8     5000 | LARGE T&R      Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125           GN
+ REF3325AIRSERG4        Active     Production           null (null) |       5000 | LARGE T&R      Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125           GN
+ REF3325AIRSERG4.A       Active     Production    UQFN (RSE) | 8     5000 | LARGE T&R      Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125           GN
+  REF3330AIDBZR          Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33E
+  REF3330AIDBZR.A         Active     Production    SOT-23 (DBZ) | 3    3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33E
+
+                                                                            Addendum-Page 2
+=== PDF PAGE 25 ===
+                                                         PACKAGE OPTION ADDENDUM
+
+
+    www.ti.com                                                                                                                                                                         13-Apr-2026
+
+
+
+
+   Orderable part number     Status   Material type    Package | Pins    Package qty | Carrier    RoHS        Lead finish/       MSL rating/       Op temp (°C)           Part marking
+                                                      (1)                 (2)                                                                                          (3)            Ball material        Peak reflow                                                              (6)
+                                                                                                                                                                                                    (4)                                (5)
+    REF3330AIDBZRG4        Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33E
+   REF3330AIDBZRG4.A       Active     Production    SOT-23 (DBZ) | 3    3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33E
+     REF3330AIDBZT          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33E
+     REF3330AIDBZT.A         Active     Production    SOT-23 (DBZ) | 3     250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33E
+     REF3330AIDCKR          Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R30
+    REF3330AIDCKR.A         Active     Production     SC70 (DCK) | 3     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R30
+   REF3330AIDCKR1G4        Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R30
+   REF3330AIDCKR1G4.A       Active     Production     SC70 (DCK) | 3     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R30
+     REF3330AIDCKT          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R30
+     REF3330AIDCKT.A         Active     Production     SC70 (DCK) | 3      250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R30
+     REF3330AIRSER          Active     Production           null (null) |       5000 | LARGE T&R      Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125            EN
+    REF3330AIRSER.A         Active     Production    UQFN (RSE) | 8     5000 | LARGE T&R      Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125            EN
+    REF3330AIRSERG4        Active     Production           null (null) |       5000 | LARGE T&R      Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125            EN
+   REF3330AIRSERG4.A       Active     Production    UQFN (RSE) | 8     5000 | LARGE T&R      Yes          NIPDAU        Level-1-260C-UNLIM        -40 to 125            EN
+     REF3333AIDBZR          Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33F
+     REF3333AIDBZR.A         Active     Production    SOT-23 (DBZ) | 3    3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33F
+    REF3333AIDBZRG4        Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33F
+   REF3333AIDBZRG4.A       Active     Production    SOT-23 (DBZ) | 3    3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33F
+     REF3333AIDBZT          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33F
+     REF3333AIDBZT.A         Active     Production    SOT-23 (DBZ) | 3     250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125             R33F
+     REF3333AIDCKR          Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R33
+    REF3333AIDCKR.A         Active     Production     SC70 (DCK) | 3     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R33
+    REF3333AIDCKRG4        Active     Production           null (null) |       3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R33
+   REF3333AIDCKRG4.A       Active     Production     SC70 (DCK) | 3     3000 | LARGE T&R      Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R33
+     REF3333AIDCKT          Active     Production           null (null) |        250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R33
+     REF3333AIDCKT.A         Active     Production     SC70 (DCK) | 3      250 | SMALL T&R       Yes          NIPDAU        Level-2-260C-1 YEAR       -40 to 125              R33
+
+(1) Status: For more details on status, see our product life cycle.
+
+(2) Material type: When designated, preproduction parts are prototypes/experimental devices, and are not yet approved or released for full production. Testing and final process, including without limitation quality assurance,
+reliability performance testing, and/or process qualification, may not yet be complete, and this item is subject to further changes or possible discontinuation. If available for ordering, purchases will be subject to an additional
+waiver at checkout, and are intended for early internal evaluation purposes only. These items are sold without warranties of any kind.
+
+                                                                               Addendum-Page 3
+=== PDF PAGE 26 ===
+                                                         PACKAGE OPTION ADDENDUM
+
+
+    www.ti.com                                                                                                                                                                         13-Apr-2026
+
+
+
+
+(3) RoHS values: Yes, No, RoHS Exempt. See the TI RoHS Statement for additional information and value definition.
+
+(4) Lead finish/Ball material: Parts may have multiple material finish options. Finish options are separated by a vertical ruled line. Lead finish/Ball material values may wrap to two lines if the finish value exceeds the maximum
+column width.
+
+(5) MSL rating/Peak reflow: The moisture sensitivity level ratings and peak solder (reflow) temperatures. In the event that a part has multiple moisture sensitivity ratings, only the lowest level per JEDEC standards is shown.
+Refer to the shipping label for the actual reflow temperature that will be used to mount the part to the printed circuit board.
+
+(6) Part marking: There may be an additional marking, which relates to the logo, the lot trace code information, or the environmental category of the part.
+
+Multiple part markings will be inside parentheses. Only one part marking contained in parentheses and separated by a "~" will appear on a part. If a line is indented then it is a continuation of the previous line and the two
+combined represent the entire part marking for that device.
+
+Important Information and Disclaimer:The information provided on this page represents TI's knowledge and belief as of the date that it is provided. TI bases its knowledge and belief on information provided by third parties, and
+makes no representation or warranty as to the accuracy of such information. Efforts are underway to better integrate information from third parties. TI has taken and continues to take reasonable steps to provide representative
+and accurate information but may not have conducted destructive testing or chemical analysis on incoming materials and chemicals. TI and TI suppliers consider certain information to be proprietary, and thus CAS numbers
+and other limited information may not be available for release.
+
+In no event shall TI's liability arising out of such information exceed the total purchase price of the TI part(s) at issue in this document sold by TI to Customer on an annual basis.
+
+
+
+
+
+                                                                               Addendum-Page 4
+=== PDF PAGE 27 ===
+                                 PACKAGE OUTLINE
+RSE0008A                                                                                                                                                                                                                                                                                                              SCALE 7.000           UQFN - 0.6 mm max height
+                                                                         PLASTIC QUAD FLATPACK - NO LEAD
+
+
+                                          1.55                  B                                          1.45             A
+
+
+
+
+
+       PIN 1 INDEX AREA
+                                                               1.55
+                                                               1.45
+
+
+
+
+
+                 0.6                                  C
+                 0.5
+
+                                                          SEATING PLANE
+                   0.05
+                   0.00                                                0.05 C
+
+
+                                0.35                       2X                                0.25                              0.4                                                 6X                                                                    0.3                        0.1   C A B                                                                                       (0.12)
+                       0.05   C                            2X 0.45                              TYP                                                                       0.35                                     4
+
+                         3
+                                                    5
+
+              2X                                  SYMM
+                1
+
+                                                                            0.25                                                          2X                                                                            0.15
+                                                   7
+                         1                                                  0.1   C A B
+            4X 0.5                                                       0.05   C
+                                     8
+                                                                          0.3                           SYMM                4X                                                                          0.2
+                                                                          0.1   C A B
+                                      PIN 1 ID                                                                       0.05   C                                            (45 X 0.1)
+
+
+                                                                                                    4220323/B  03/2018
+
+NOTES:
+
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+  per ASME Y14.5M.
+2. This drawing is subject to change without notice.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 28 ===
+                             EXAMPLE BOARD LAYOUT
+RSE0008A                             UQFN - 0.6 mm max height
+                                                                          PLASTIC QUAD FLATPACK - NO LEAD
+
+
+
+
+
+                                         SYMM
+                                             (R0.05) TYP
+                                                            2X (0.6)                                                        8
+                           6X (0.55)
+
+
+                                      1                                      7
+
+                      4X (0.25)
+                                                             SYMM
+                                                                                                                        (1.3)
+                                                                          2X
+                          4X (0.5)                                                               (0.2)
+
+                                                                             5
+                                      3
+
+
+
+                                                        4
+                                                         2X (0.3)
+                                                                       (1.35)
+
+                             LAND PATTERN EXAMPLE
+                                                  SCALE:30X
+
+
+
+                        0.07 MAX                                        0.07 MIN
+                ALL AROUND                             ALL AROUND
+                                                                       SOLDER MASK                                      METAL
+                                                                         OPENING
+
+
+                                     SOLDER MASK                                                                          METAL                                       OPENING                                                                     UNDER
+                                                                        SOLDER MASK
+                    NON SOLDER MASK                       SOLDER MASK
+                            DEFINED                               DEFINED
+                           (PREFERRED)
+
+                            SOLDER MASK DETAILS
+                                        NOT TO SCALE
+
+
+                                                                                                    4220323/B  03/2018
+
+NOTES: (continued)
+
+3. For more information, see Texas Instruments literature number SLUA271 (www.ti.com/lit/slua271).
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 29 ===
+                            EXAMPLE STENCIL DESIGN
+RSE0008A                             UQFN - 0.6 mm max height
+                                                                         PLASTIC QUAD FLATPACK - NO LEAD
+
+
+
+
+
+                                       SYMM
+
+                                           (R0.05) TYP                2X (0.6)
+                                                         8
+
+                        6X (0.55)
+
+                                   1                                       7
+
+                     4X (0.25)
+                                                            SYMM
+                                                                                                                       (1.3)
+
+                        4X (0.5)                                          2X (0.2)
+
+                                                                           5
+                                    3
+
+
+
+                                                      4
+                                                        2X
+                                                                                    (0.3)
+
+                                                                    (1.35)
+
+
+                           SOLDER PASTE EXAMPLE
+                                   BASED ON 0.1 mm THICKNESS
+                                                SCALE: 30X
+
+
+
+
+
+                                                                                                    4220323/B  03/2018
+NOTES: (continued)
+
+5. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+  design recommendations.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 30 ===
+                                 PACKAGE OUTLINE
+DCK0003A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        SCALE 5.600             SOT-SC70 - 1.1 max height
+                                                                    SMALL OUTLINE TRANSISTOR SC70
+
+
+
+
+
+                                                                       C
+                                                2.4
+                                                1.8                                                            0.1 C
+                                                1.4                                            B     A                                 1.1 MAX                   PIN 1                    1.1
+           INDEX AREA
+
+                          1
+
+                       0.65
+                                                                   2.15                 1.3
+                                                        3   1.85
+
+                          2
+
+
+                     0.30              3X                     0.15
+                0.1   C A B                                         4X 0 -12                               0.1                                                                                                                         (0.9)           TYP                                                                                                                           0.0
+
+
+
+
+
+                                                 4X 4 -15
+
+
+
+                  0.15
+                                                                        0.22      GAGE PLANE                                        TYP                                                                        0.08
+
+
+                                         0.46          8                                  TYP           TYP                                         0.26          0                                             SEATING PLANE
+
+
+
+
+
+                                                                                                      4220745/F  11/2024
+NOTES:
+
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+  per ASME Y14.5M.
+2. This drawing is subject to change without notice.
+3. Body dimensions do not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not exceed
+  0.25mm per side
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 31 ===
+                             EXAMPLE BOARD LAYOUT
+DCK0003A                                 SOT-SC70 - 1.1 max height
+                                                                    SMALL OUTLINE TRANSISTOR SC70
+
+
+
+
+
+                                             PKG                                      3X (0.95)                       3X (0.4)
+                                      1
+
+
+
+                                                          SYMM
+                                (1.3)
+                                                                             3
+                                    (0.65)
+
+                                      2
+
+                             (R0.05) TYP                             (2.2)
+
+                             LAND PATTERN EXAMPLE
+                                       EXPOSED METAL SHOWN
+                                                   SCALE:18X
+
+
+
+
+
+                                                                         SOLDER MASK             SOLDER MASK                           METAL UNDER                                   METAL                                   OPENING             OPENING                              SOLDER MASK
+
+
+        EXPOSED METAL                        EXPOSED METAL
+
+                                       0.07 MAX                                          0.07 MIN
+                          ARROUND                           ARROUND
+
+                     NON SOLDER MASK                        SOLDER MASK
+                             DEFINED                                DEFINED
+                           (PREFERRED)
+                              SOLDER MASK DETAILS
+
+
+
+
+
+                                                                                                      4220745/F  11/2024
+NOTES: (continued)
+
+4. Publication IPC-7351 may have alternate designs.
+5. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 32 ===
+                            EXAMPLE STENCIL DESIGN
+DCK0003A                                 SOT-SC70 - 1.1 max height
+                                                                    SMALL OUTLINE TRANSISTOR SC70
+
+
+
+
+
+                                           PKG
+                                     3X (0.95)                     3X (0.4)
+                                     1
+
+
+
+                                                         SYMM
+                           (1.3)
+                                                                            3
+                                  (0.65)
+
+                                     2
+
+                           (R0.05) TYP                                                                          (2.2)
+
+                           SOLDER PASTE EXAMPLE
+                                   BASED ON 0.125 THICK STENCIL
+                                                 SCALE:18X
+
+
+
+
+
+                                                                                                      4220745/F  11/2024
+NOTES: (continued)
+
+6. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+   design recommendations.
+7. Board assembly site may have different recommendations for stencil design.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 33 ===
+                                 PACKAGE OUTLINE
+DBZ0003A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            SCALE 4.000           SOT-23 - 1.12 mm max height
+                                                                        SMALL OUTLINE TRANSISTOR
+
+
+
+
+                                              2.64                                     C
+                                              2.10
+                                                                                                     1.12 MAX                                                1.4
+                                                1.2                                            B         A                                                0.1 C
+                  PIN 1
+           INDEX AREA
+
+                         1
+
+
+                    0.95   (0.125)
+                                                                        3.04
+               1.9                                                       2.80
+                                                         3
+                           (0.15)
+                 NOTE 4
+
+
+                           2                      0.5              3X                      0.3
+                       0.2   C A B                                     4X 0 -15                           0.10                                                                                                                  (0.95)          TYP                                                                                                                     0.01
+
+
+
+                                                  4X 4 -15
+
+
+                  0.25
+      GAGE PLANE                                                  0.20                                                          TYP                                                                         0.08
+
+
+                                           0.6                                 TYP               0 -8 TYP               0.2           SEATING PLANE
+
+
+
+
+
+                                                                                                      4214838/F  08/2024
+NOTES:
+
+1. All linear dimensions are in millimeters. Any dimensions in parenthesis are for reference only. Dimensioning and tolerancing
+  per ASME Y14.5M.
+2. This drawing is subject to change without notice.
+3. Reference JEDEC registration TO-236, except minimum foot length.
+4. Support pin may differ or may not be present.
+5. Body dimensions do not include mold flash, protrusions, or gate burrs. Mold flash, protrusions, or gate burrs shall not exceed
+  0.25mm per side
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 34 ===
+                             EXAMPLE BOARD LAYOUT
+DBZ0003A                                 SOT-23 - 1.12 mm max height
+                                                                        SMALL OUTLINE TRANSISTOR
+
+
+
+
+
+                                               PKG
+                                           3X (1.3)
+                                           1
+
+                                3X (0.6)
+
+
+                                                            SYMM
+
+                                                                              3
+                             2X (0.95)
+
+                                           2
+
+                                   (R0.05) TYP                                                                                (2.1)
+
+
+                               LAND PATTERN EXAMPLE
+                                                      SCALE:15X
+
+
+
+
+
+                                                                         SOLDER MASK            SOLDER MASK                           METAL UNDER                                    METAL                                   OPENING             OPENING                              SOLDER MASK
+
+
+
+
+                                      0.07 MAX                                          0.07 MIN
+                               ALL AROUND                               ALL AROUND
+
+                     NON SOLDER MASK                        SOLDER MASK
+                              DEFINED                                DEFINED
+                            (PREFERRED)
+                               SOLDER MASK DETAILS
+
+
+
+
+
+                                                                                                      4214838/F  08/2024
+NOTES: (continued)
+
+5. Publication IPC-7351 may have alternate designs.
+6. Solder mask tolerances between and around signal pads can vary based on board fabrication site.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 35 ===
+                            EXAMPLE STENCIL DESIGN
+DBZ0003A                                 SOT-23 - 1.12 mm max height
+                                                                        SMALL OUTLINE TRANSISTOR
+
+
+
+
+
+                                             PKG
+
+                                         3X (1.3)
+                                        1
+
+                             3X (0.6)
+
+
+                                                          SYMM
+                                                                           3
+                                  2X(0.95)
+
+                                        2
+
+                               (R0.05) TYP
+                                                                            (2.1)
+
+                            SOLDER PASTE EXAMPLE
+                                     BASED ON 0.125 THICK STENCIL
+                                                   SCALE:15X
+
+
+
+
+
+                                                                                                      4214838/F  08/2024
+NOTES: (continued)
+
+7. Laser cutting apertures with trapezoidal walls and rounded corners may offer better paste release. IPC-7525 may have alternate
+  design recommendations.
+8. Board assembly site may have different recommendations for stencil design.
+
+
+
+
+
+                                                     www.ti.com
+=== PDF PAGE 36 ===
+                 IMPORTANT NOTICE AND DISCLAIMER
+TI PROVIDES TECHNICAL AND RELIABILITY DATA (INCLUDING DATASHEETS), DESIGN RESOURCES (INCLUDING REFERENCE
+DESIGNS), APPLICATION OR OTHER DESIGN ADVICE, WEB TOOLS, SAFETY INFORMATION, AND OTHER RESOURCES “AS IS”
+AND WITH ALL FAULTS, AND DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING WITHOUT LIMITATION ANY
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT OF THIRD
+PARTY INTELLECTUAL PROPERTY RIGHTS.
+
+These resources are intended for skilled developers designing with TI products. You are solely responsible for (1) selecting the appropriate
+TI products for your application, (2) designing, validating and testing your application, and (3) ensuring your application meets applicable
+standards, and any other safety, security, regulatory or other requirements.
+
+These resources are subject to change without notice. TI grants you permission to use these resources only for development of an
+application that uses the TI products described in the resource. Other reproduction and display of these resources is prohibited. No license
+is granted to any other TI intellectual property right or to any third party intellectual property right. TI disclaims responsibility for, and you fully
+indemnify TI and its representatives against any claims, damages, costs, losses, and liabilities arising out of your use of these resources.
+
+TI’s products are provided subject to TI’s Terms of Sale, TI’s General Quality Guidelines, or other applicable terms available either on
+ti.com or provided in conjunction with such TI products. TI’s provision of these resources does not expand or otherwise alter TI’s applicable
+warranties or warranty disclaimers for TI products. Unless TI explicitly designates a product as custom or customer-specified, TI products
+are standard, catalog, general purpose devices.
+
+TI objects to and rejects any additional or different terms you may propose.
+
+IMPORTANT NOTICE
+
+                                         Copyright © 2026, Texas Instruments Incorporated
+
+                                                       Last updated 10/2025

@@ -1,0 +1,24 @@
+{
+  "scope": "Sensitivity calculations only; TYP is never a guaranteed bound",
+  "H3": {
+    "partial_margin_before_hysteresis_min_mV": 2.170089976258893,
+    "typ_hysteresis_input_mV": 1.2,
+    "typ_hysteresis_pack_mV_full": 1.9664058872830925,
+    "remaining_if_full_typ_charged_to_margin_mV": 0.2036840889758007,
+    "remaining_if_half_typ_mV": 1.186887032617347,
+    "hysteresis_max_required": "TBD; combined full error budget must fit with positive guard",
+    "solder_shift": "200ppm is now confirmed TYP only, not MAX; the earlier provisional interval remains conditional"
+  },
+  "bleed_proposal": {
+    "connection": "Continuous passive bleed proposed for these worksheets, not switched by MCU; r12/BOM unchanged",
+    "RUN_at5_25V_nominal_A": 0.00105,
+    "RUN_at5_25V_Rmin_A": 0.0010606060606060607,
+    "RUN_max_power_W": 0.0055681818181818185,
+    "JOY_at3_3V_nominal_A": 0.0003,
+    "JOY_at3_6V_Rmin_A": 0.00033057851239669424,
+    "JOY_max_power_W": 0.0011900826446280992,
+    "RUN_remaining_load_current_if_total500mA_A": 0.49893939393939396,
+    "OFF_note": "Zero only if rail really zero; residual/external bias cases use rail-specific KCL; do not double-count JOY current already supplied by B01 within RUN total"
+  },
+  "GPIO": "G-B16/16; new roles require architecture/resource review, never automatically drop E-channel or change module"
+}

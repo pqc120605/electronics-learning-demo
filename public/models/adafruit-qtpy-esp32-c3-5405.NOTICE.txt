@@ -1,0 +1,21 @@
+Mạch Mở · Adafruit QT Py ESP32-C3 Rev B #5405
+
+The source STEP model and this derived GLB are based on Adafruit's 5405 QT Py ESP32-C3 model.
+Attribution: Adafruit Industries; designed by Limor Fried/Ladyada for Adafruit Industries.
+3D model license: CC BY-SA 2.5 (see https://creativecommons.org/licenses/by-sa/2.5/).
+The board CAD, schematic and README are from Adafruit-QT-Py-ESP32-C3-PCB and are licensed CC BY-SA 3.0 Unported; see the bundled board-license.txt and README.md.
+The Adafruit CAD Parts source repository includes the MIT License; its copyright and permission terms are reproduced in /cad/adafruit-qt-py-esp32-c3-rev-b/cad-parts-license.txt. The individual STEP design's attribution/share-alike terms are preserved above.
+
+Modifications: STEP converted to GLB, geometry centered and rotated from Z-up to viewer Y-up without reflection; meshes grouped by Eagle designator where a coordinate match <= 0.015 mm or exact package-name match was available. Unmatched meshes are grouped as unidentified geometry.
+
+This is a CAD reference model, not a physical scan, board-revision certification, electrical simulation, firmware emulator, or pin/net map. QT Py ESP32-C3 Rev B #5405 only.
+
+Source board repository: https://github.com/adafruit/Adafruit-QT-Py-ESP32-C3-PCB
+Source STEP repository: https://github.com/adafruit/Adafruit_CAD_Parts/tree/main/5405%20QTPy%20ESP32%20C3
+
+The source board README requires the following project/description text to accompany redistribution:
+PCB files for the Adafruit QT Py ESP32-C3 WiFi Dev Board with STEMMA QT.
+Format is EagleCAD schematic and board layout.
+Adafruit QT Py ESP32-C3 WiFi Dev Board with STEMMA QT is a miniature development board using the ESP32-C3.
+Designed by Limor Fried/Ladyada for Adafruit Industries.
+Creative Commons Attribution/Share-Alike, all text above must be included in any redistribution.

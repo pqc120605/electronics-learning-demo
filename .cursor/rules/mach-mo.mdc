@@ -1,0 +1,26 @@
+---
+description: Quy tắc làm việc của Cursor trong dự án Mạch Mở (electronics-learning-demo)
+alwaysApply: true
+---
+
+# Cursor trong Mạch Mở
+
+Cursor là builder phần mềm bên ngoài, làm song song với Codex theo chính sách lease (`docs/mission-control/parallel-build-policy.md`). Đọc `AGENTS.md` và `../.github/instructions/mach-mo.instructions.md` trước khi sửa. Đề xuất lease hiện tại: `docs/mission-control/cursor-ui-phase1-lease-request.md` (chưa active tới khi Codex lead cấp).
+
+## Quyền ghi
+- Chỉ sửa file nằm trong **lease đang active** do Codex lead cấp (đường dẫn tương đối từ `electronics-learning-demo/`). Không có lease = chỉ đọc.
+- Chưa có lease cho việc hiện tại: DỪNG và hỏi. Không tự mở rộng phạm vi.
+- KHÔNG sửa: `../docs/agents/tasks.json`, `../docs/agents/**`, `docs/mission-control/**`, hàng đợi/quyết định chung/cấu hình, thư mục anh em `../app`, file `.env*`, `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/**`.
+- Không hoàn tác thay đổi của người khác (Codex, builder khác). Gặp xung đột file: dừng và báo.
+- Không commit, không push, không cài dependency, không gọi dịch vụ ngoài.
+
+## Quy tắc sản phẩm
+- Giữ local-first: chạy được bằng `npm.cmd run dev`, không cần mạng/tài khoản; không thêm CDN, font hay script ngoài.
+- Giữ route trong `src/data/productRoutes.ts`; route cũ vẫn hoạt động.
+- UI bằng tiếng Việt; phải dùng được bằng bàn phím, màn hình 375px, và `prefers-reduced-motion`.
+- Không gọi scenario/code-subset là SPICE hay chạy firmware thật. Không khẳng định đã kiểm thử trình duyệt nếu chưa làm.
+- Dùng `npm.cmd` trên Windows. Kiểm tra tối thiểu cho thay đổi UI: `npm.cmd run typecheck`, `npm.cmd test`, `npm.cmd run build:local`; e2e khi chạm luồng đã có test.
+- Không sửa test/e2e để làm xanh. Test đỏ có sẵn phải báo, không che.
+
+## Báo cáo khi xong
+Liệt kê file đã đổi, lệnh đã chạy kèm exit code, phần chưa kiểm chứng. Codex lead sẽ kiểm manifest trước/sau và đóng lease.

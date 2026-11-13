@@ -1,0 +1,70 @@
+{
+  "scope": "Conditional sensitivity, same topology and fixed reference/comparator allocations",
+  "allocated_sense_off_budget_A": 7.75610047133226e-05,
+  "board_leak_limit_at_604k_nA": 7.595538596863099,
+  "cases": [
+    {
+      "delta_v": 7.2,
+      "allocated_board_leak_nA": 2.5,
+      "guard_each_min_ohm_from_off": 604000.0,
+      "guard_each_max_ohm_from_uv": 1435812.246623057,
+      "allocation_overlap": true
+    },
+    {
+      "delta_v": 7.2,
+      "allocated_board_leak_nA": 5.0,
+      "guard_each_min_ohm_from_off": 604000.0,
+      "guard_each_max_ohm_from_uv": 856855.6955653727,
+      "allocation_overlap": true
+    },
+    {
+      "delta_v": 7.2,
+      "allocated_board_leak_nA": 10.0,
+      "guard_each_min_ohm_from_off": 604000.0,
+      "guard_each_max_ohm_from_uv": 474330.8314736884,
+      "allocation_overlap": false
+    },
+    {
+      "delta_v": 9.0,
+      "allocated_board_leak_nA": 2.5,
+      "guard_each_min_ohm_from_off": 755000.0,
+      "guard_each_max_ohm_from_uv": 1435812.246623057,
+      "allocation_overlap": true
+    },
+    {
+      "delta_v": 9.0,
+      "allocated_board_leak_nA": 5.0,
+      "guard_each_min_ohm_from_off": 755000.0,
+      "guard_each_max_ohm_from_uv": 856855.6955653727,
+      "allocation_overlap": true
+    },
+    {
+      "delta_v": 9.0,
+      "allocated_board_leak_nA": 10.0,
+      "guard_each_min_ohm_from_off": 755000.0,
+      "guard_each_max_ohm_from_uv": 474330.8314736884,
+      "allocation_overlap": false
+    },
+    {
+      "delta_v": 12.0,
+      "allocated_board_leak_nA": 2.5,
+      "guard_each_min_ohm_from_off": 1006666.6666666666,
+      "guard_each_max_ohm_from_uv": 1435812.246623057,
+      "allocation_overlap": true
+    },
+    {
+      "delta_v": 12.0,
+      "allocated_board_leak_nA": 5.0,
+      "guard_each_min_ohm_from_off": 1006666.6666666666,
+      "guard_each_max_ohm_from_uv": 856855.6955653727,
+      "allocation_overlap": false
+    },
+    {
+      "delta_v": 12.0,
+      "allocated_board_leak_nA": 10.0,
+      "guard_each_min_ohm_from_off": 1006666.6666666666,
+      "guard_each_max_ohm_from_uv": 474330.8314736884,
+      "allocation_overlap": false
+    }
+  ]
+}

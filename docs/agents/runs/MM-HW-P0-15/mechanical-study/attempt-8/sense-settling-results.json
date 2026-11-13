@@ -1,0 +1,40 @@
+{
+  "scope": "Passive divider with two independent first-order input nodes, stiff tap and reference steps; allocations only",
+  "rth_each_upper_ohm": 604603.9999999999,
+  "initial_error_each_upper_v": 5.5,
+  "dynamic_differential_error_allocation_v": 0.002,
+  "cases": [
+    {
+      "capacitance_allocation_each_pf": 25,
+      "pole_time_constant_s": 1.5115099999999995e-05,
+      "dynamic_error_settling_upper_s": 0.00013017884970633586
+    },
+    {
+      "capacitance_allocation_each_pf": 100,
+      "pole_time_constant_s": 6.046039999999998e-05,
+      "dynamic_error_settling_upper_s": 0.0005207153988253435
+    },
+    {
+      "capacitance_allocation_each_pf": 330,
+      "pole_time_constant_s": 0.00019951931999999997,
+      "dynamic_error_settling_upper_s": 0.0017183608161236339
+    },
+    {
+      "capacitance_allocation_each_pf": 1000,
+      "pole_time_constant_s": 0.0006046039999999999,
+      "dynamic_error_settling_upper_s": 0.005207153988253436
+    }
+  ],
+  "finite_overdrive_case": {
+    "cell_voltage_at_most_v": 1.0423984105286717,
+    "settled_margin_at_least_v": 0.00999,
+    "margin_after_allocated_dynamic_error_at_least_v": 0.00799
+  },
+  "limits": [
+    "Requires separate bounded input capacitances and source/reference impedance already included or negligible.",
+    "Input coupling, source ramps and comparator internal dynamics need separate bounds.",
+    "The finite overdrive test is an engineering example and changes no product threshold.",
+    "Arbitrarily small overdrive or slow approach gives no universal detection deadline.",
+    "Total trip also includes validity detector, latch, switching element and load current decay."
+  ]
+}

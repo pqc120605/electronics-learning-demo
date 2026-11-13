@@ -1,0 +1,119 @@
+{
+  "scope": "Native kernel checks of the reference subassembly",
+  "parked_model_id": "1767fe52-928e-5edd-84f8-9bd30161e4e9",
+  "closed_model_id": "9ee2f9b7-03d4-5eef-8383-32141e0be5bc",
+  "native_intersections": [
+    {
+      "endpoint": "A",
+      "side": 1,
+      "height_mm": 16.2,
+      "overlap_mm3": 0.0,
+      "expected_positive_overlap": false
+    },
+    {
+      "endpoint": "A",
+      "side": 1,
+      "height_mm": 16.01,
+      "overlap_mm3": 0.0,
+      "expected_positive_overlap": false
+    },
+    {
+      "endpoint": "A",
+      "side": 1,
+      "height_mm": 15.99,
+      "overlap_mm3": 0.007999999999999818,
+      "expected_positive_overlap": true
+    },
+    {
+      "endpoint": "A",
+      "side": 1,
+      "height_mm": 12,
+      "overlap_mm3": 0.6399999999999999,
+      "expected_positive_overlap": true
+    },
+    {
+      "endpoint": "A",
+      "side": -1,
+      "height_mm": 16.2,
+      "overlap_mm3": 0.0,
+      "expected_positive_overlap": false
+    },
+    {
+      "endpoint": "A",
+      "side": -1,
+      "height_mm": 16.01,
+      "overlap_mm3": 0.0,
+      "expected_positive_overlap": false
+    },
+    {
+      "endpoint": "A",
+      "side": -1,
+      "height_mm": 15.99,
+      "overlap_mm3": 0.00799999999999554,
+      "expected_positive_overlap": true
+    },
+    {
+      "endpoint": "A",
+      "side": -1,
+      "height_mm": 12,
+      "overlap_mm3": 0.6399999999999987,
+      "expected_positive_overlap": true
+    },
+    {
+      "endpoint": "B",
+      "side": 1,
+      "height_mm": 16.2,
+      "overlap_mm3": 0.0,
+      "expected_positive_overlap": false
+    },
+    {
+      "endpoint": "B",
+      "side": 1,
+      "height_mm": 16.01,
+      "overlap_mm3": 0.0,
+      "expected_positive_overlap": false
+    },
+    {
+      "endpoint": "B",
+      "side": 1,
+      "height_mm": 15.99,
+      "overlap_mm3": 0.007999999999999818,
+      "expected_positive_overlap": true
+    },
+    {
+      "endpoint": "B",
+      "side": 1,
+      "height_mm": 12,
+      "overlap_mm3": 0.6399999999999999,
+      "expected_positive_overlap": true
+    },
+    {
+      "endpoint": "B",
+      "side": -1,
+      "height_mm": 16.2,
+      "overlap_mm3": 0.0,
+      "expected_positive_overlap": false
+    },
+    {
+      "endpoint": "B",
+      "side": -1,
+      "height_mm": 16.01,
+      "overlap_mm3": 0.0,
+      "expected_positive_overlap": false
+    },
+    {
+      "endpoint": "B",
+      "side": -1,
+      "height_mm": 15.99,
+      "overlap_mm3": 0.00799999999999554,
+      "expected_positive_overlap": true
+    },
+    {
+      "endpoint": "B",
+      "side": -1,
+      "height_mm": 12,
+      "overlap_mm3": 0.6399999999999987,
+      "expected_positive_overlap": true
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-10",
+  "approved_study_hash_verified": "edeae78f366624d1cfadd051787ffad9e11703cc97e409e06dc615a4d99e3b28",
+  "historical_snapshots_unchanged": {
+    "MM-HW-P0-14": 37,
+    "MM-HW-P0-15": 38
+  },
+  "result_provenance_matches_current_source": true,
+  "initial_review_17_file_bytes_preserved": true,
+  "report_revision": "Doc-only corrections; original report retained under REPORT.review1.md",
+  "XBF_unchanged_after_review1": true,
+  "r12_unchanged": true,
+  "fresh_queue_validation": {
+    "command": "node D:/StartupOS/docs/agents/validate.mjs",
+    "exit_code": 0,
+    "tasks": 61,
+    "capabilities": 143,
+    "warnings": [],
+    "errors": []
+  },
+  "observed_execution_record": {
+    "CAD_model_build_exit": 0,
+    "finite_sweep_exit": 0,
+    "kernel_crosscheck_exit": 0,
+    "adversarial_checks_exit": 0,
+    "XBF_export_and_inspect": "observed succeeded"
+  },
+  "fresh_check_scope": "Hashes/provenance/schema and queue validation; no repeated CAD build or physical test",
+  "tangency_coverage": "NOT_SEPARATELY_REPORTED; protocol deviation explicitly retained, no boundary-coverage claim",
+  "physical_tests": "NOT_RUN",
+  "B1": "NOT_READY"
+}

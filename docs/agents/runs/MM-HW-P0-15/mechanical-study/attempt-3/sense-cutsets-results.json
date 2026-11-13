@@ -1,0 +1,736 @@
+{
+  "scope": "Ideal passive conductor counterexample/cut-set analysis only; no physical protection PASS",
+  "network_minimum_branches_only": true,
+  "counts": {
+    "single": {
+      "switch_count": 6,
+      "single_switch_fault_cases": 6,
+      "single_switch_fault_cases_with_path": 3
+    },
+    "dual": {
+      "switch_count": 12,
+      "single_switch_fault_cases": 12,
+      "single_switch_fault_cases_with_path": 0
+    },
+    "floating_return_only": {
+      "switch_count": 0,
+      "single_switch_fault_cases": 0,
+      "single_switch_fault_cases_with_path": 0
+    },
+    "floating_full_boundary": {
+      "switch_count": 8,
+      "single_switch_fault_cases": 8,
+      "single_switch_fault_cases_with_path": 0
+    }
+  },
+  "cases": [
+    {
+      "topology": "single",
+      "case": "normal_OFF",
+      "closed_switches": [],
+      "tap_paths": []
+    },
+    {
+      "topology": "single",
+      "case": "one switch stuck closed: L1.cut1",
+      "closed_switches": [
+        "L1.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "single",
+      "case": "one switch stuck closed: H1.cut1",
+      "closed_switches": [
+        "H1.cut1"
+      ],
+      "tap_paths": [
+        {
+          "taps": [
+            "T0",
+            "T1"
+          ],
+          "edges": [
+            "reference/monitor return",
+            "INA152 passive positive network H1",
+            "sense conductor H1",
+            "H1.cut1",
+            "two guard resistors H1"
+          ]
+        }
+      ]
+    },
+    {
+      "topology": "single",
+      "case": "one switch stuck closed: L2.cut1",
+      "closed_switches": [
+        "L2.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "single",
+      "case": "one switch stuck closed: H2.cut1",
+      "closed_switches": [
+        "H2.cut1"
+      ],
+      "tap_paths": [
+        {
+          "taps": [
+            "T0",
+            "T2"
+          ],
+          "edges": [
+            "reference/monitor return",
+            "INA152 passive positive network H2",
+            "sense conductor H2",
+            "H2.cut1",
+            "two guard resistors H2"
+          ]
+        }
+      ]
+    },
+    {
+      "topology": "single",
+      "case": "one switch stuck closed: L3.cut1",
+      "closed_switches": [
+        "L3.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "single",
+      "case": "one switch stuck closed: H3.cut1",
+      "closed_switches": [
+        "H3.cut1"
+      ],
+      "tap_paths": [
+        {
+          "taps": [
+            "T0",
+            "T3"
+          ],
+          "edges": [
+            "reference/monitor return",
+            "INA152 passive positive network H3",
+            "sense conductor H3",
+            "H3.cut1",
+            "two guard resistors H3"
+          ]
+        }
+      ]
+    },
+    {
+      "topology": "dual",
+      "case": "normal_OFF",
+      "closed_switches": [],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "one switch stuck closed: L1.cut1",
+      "closed_switches": [
+        "L1.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "one switch stuck closed: L1.cut2",
+      "closed_switches": [
+        "L1.cut2"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "one switch stuck closed: H1.cut1",
+      "closed_switches": [
+        "H1.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "one switch stuck closed: H1.cut2",
+      "closed_switches": [
+        "H1.cut2"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "one switch stuck closed: L2.cut1",
+      "closed_switches": [
+        "L2.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "one switch stuck closed: L2.cut2",
+      "closed_switches": [
+        "L2.cut2"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "one switch stuck closed: H2.cut1",
+      "closed_switches": [
+        "H2.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "one switch stuck closed: H2.cut2",
+      "closed_switches": [
+        "H2.cut2"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "one switch stuck closed: L3.cut1",
+      "closed_switches": [
+        "L3.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "one switch stuck closed: L3.cut2",
+      "closed_switches": [
+        "L3.cut2"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "one switch stuck closed: H3.cut1",
+      "closed_switches": [
+        "H3.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "one switch stuck closed: H3.cut2",
+      "closed_switches": [
+        "H3.cut2"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "floating_return_only",
+      "case": "normal_OFF",
+      "closed_switches": [],
+      "tap_paths": [
+        {
+          "taps": [
+            "T1",
+            "T2"
+          ],
+          "edges": [
+            "two guard resistors H1",
+            "sense conductor H1",
+            "INA152 passive positive network H1",
+            "INA152 passive positive network H2",
+            "sense conductor H2",
+            "two guard resistors H2"
+          ]
+        },
+        {
+          "taps": [
+            "T1",
+            "T3"
+          ],
+          "edges": [
+            "two guard resistors H1",
+            "sense conductor H1",
+            "INA152 passive positive network H1",
+            "INA152 passive positive network H3",
+            "sense conductor H3",
+            "two guard resistors H3"
+          ]
+        },
+        {
+          "taps": [
+            "T2",
+            "T3"
+          ],
+          "edges": [
+            "two guard resistors H2",
+            "sense conductor H2",
+            "INA152 passive positive network H2",
+            "INA152 passive positive network H3",
+            "sense conductor H3",
+            "two guard resistors H3"
+          ]
+        }
+      ]
+    },
+    {
+      "topology": "floating_full_boundary",
+      "case": "normal_OFF",
+      "closed_switches": [],
+      "tap_paths": []
+    },
+    {
+      "topology": "floating_full_boundary",
+      "case": "one switch stuck closed: L1.cut1",
+      "closed_switches": [
+        "L1.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "floating_full_boundary",
+      "case": "one switch stuck closed: H1.cut1",
+      "closed_switches": [
+        "H1.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "floating_full_boundary",
+      "case": "one switch stuck closed: L2.cut1",
+      "closed_switches": [
+        "L2.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "floating_full_boundary",
+      "case": "one switch stuck closed: H2.cut1",
+      "closed_switches": [
+        "H2.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "floating_full_boundary",
+      "case": "one switch stuck closed: L3.cut1",
+      "closed_switches": [
+        "L3.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "floating_full_boundary",
+      "case": "one switch stuck closed: H3.cut1",
+      "closed_switches": [
+        "H3.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "floating_full_boundary",
+      "case": "one switch stuck closed: boundary.supply",
+      "closed_switches": [
+        "boundary.supply"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "floating_full_boundary",
+      "case": "one switch stuck closed: boundary.return",
+      "closed_switches": [
+        "boundary.return"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "only enable A stuck high",
+      "closed_switches": [
+        "H1.cut1",
+        "H2.cut1",
+        "H3.cut1",
+        "L1.cut1",
+        "L2.cut1",
+        "L3.cut1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "only enable B stuck high",
+      "closed_switches": [
+        "H1.cut2",
+        "H2.cut2",
+        "H3.cut2",
+        "L1.cut2",
+        "L2.cut2",
+        "L3.cut2"
+      ],
+      "tap_paths": []
+    },
+    {
+      "topology": "dual",
+      "case": "shared enable drives both groups high",
+      "closed_switches": [
+        "H1.cut1",
+        "H1.cut2",
+        "H2.cut1",
+        "H2.cut2",
+        "H3.cut1",
+        "H3.cut2",
+        "L1.cut1",
+        "L1.cut2",
+        "L2.cut1",
+        "L2.cut2",
+        "L3.cut1",
+        "L3.cut2"
+      ],
+      "tap_paths": [
+        {
+          "taps": [
+            "T0",
+            "T1"
+          ],
+          "edges": [
+            "reference/monitor return",
+            "INA152 passive positive network H1",
+            "sense conductor H1",
+            "H1.cut2",
+            "H1.cut1",
+            "two guard resistors H1"
+          ]
+        },
+        {
+          "taps": [
+            "T0",
+            "T2"
+          ],
+          "edges": [
+            "reference/monitor return",
+            "INA152 passive positive network H2",
+            "sense conductor H2",
+            "H2.cut2",
+            "H2.cut1",
+            "two guard resistors H2"
+          ]
+        },
+        {
+          "taps": [
+            "T0",
+            "T3"
+          ],
+          "edges": [
+            "reference/monitor return",
+            "INA152 passive positive network H3",
+            "sense conductor H3",
+            "H3.cut2",
+            "H3.cut1",
+            "two guard resistors H3"
+          ]
+        },
+        {
+          "taps": [
+            "T1",
+            "T2"
+          ],
+          "edges": [
+            "two guard resistors H1",
+            "H1.cut1",
+            "H1.cut2",
+            "sense conductor H1",
+            "INA152 passive positive network H1",
+            "INA152 passive positive network H2",
+            "sense conductor H2",
+            "H2.cut2",
+            "H2.cut1",
+            "two guard resistors H2"
+          ]
+        },
+        {
+          "taps": [
+            "T1",
+            "T3"
+          ],
+          "edges": [
+            "two guard resistors H1",
+            "H1.cut1",
+            "H1.cut2",
+            "sense conductor H1",
+            "INA152 passive positive network H1",
+            "INA152 passive positive network H3",
+            "sense conductor H3",
+            "H3.cut2",
+            "H3.cut1",
+            "two guard resistors H3"
+          ]
+        },
+        {
+          "taps": [
+            "T2",
+            "T3"
+          ],
+          "edges": [
+            "two guard resistors H2",
+            "H2.cut1",
+            "H2.cut2",
+            "sense conductor H2",
+            "INA152 passive positive network H2",
+            "INA152 passive positive network H3",
+            "sense conductor H3",
+            "H3.cut2",
+            "H3.cut1",
+            "two guard resistors H3"
+          ]
+        }
+      ]
+    },
+    {
+      "topology": "floating_full_boundary",
+      "case": "sense bank enable stuck high",
+      "closed_switches": [
+        "H1.cut1",
+        "H2.cut1",
+        "H3.cut1",
+        "L1.cut1",
+        "L2.cut1",
+        "L3.cut1"
+      ],
+      "tap_paths": [
+        {
+          "taps": [
+            "T1",
+            "T2"
+          ],
+          "edges": [
+            "two guard resistors H1",
+            "H1.cut1",
+            "sense conductor H1",
+            "INA152 passive positive network H1",
+            "INA152 passive positive network H2",
+            "sense conductor H2",
+            "H2.cut1",
+            "two guard resistors H2"
+          ]
+        },
+        {
+          "taps": [
+            "T1",
+            "T3"
+          ],
+          "edges": [
+            "two guard resistors H1",
+            "H1.cut1",
+            "sense conductor H1",
+            "INA152 passive positive network H1",
+            "INA152 passive positive network H3",
+            "sense conductor H3",
+            "H3.cut1",
+            "two guard resistors H3"
+          ]
+        },
+        {
+          "taps": [
+            "T2",
+            "T3"
+          ],
+          "edges": [
+            "two guard resistors H2",
+            "H2.cut1",
+            "sense conductor H2",
+            "INA152 passive positive network H2",
+            "INA152 passive positive network H3",
+            "sense conductor H3",
+            "H3.cut1",
+            "two guard resistors H3"
+          ]
+        }
+      ]
+    }
+  ],
+  "two_switch_fault_cases_with_path": [
+    {
+      "topology": "dual",
+      "case": "two switches stuck closed",
+      "closed_switches": [
+        "H1.cut1",
+        "H1.cut2"
+      ],
+      "tap_paths": [
+        {
+          "taps": [
+            "T0",
+            "T1"
+          ],
+          "edges": [
+            "reference/monitor return",
+            "INA152 passive positive network H1",
+            "sense conductor H1",
+            "H1.cut2",
+            "H1.cut1",
+            "two guard resistors H1"
+          ]
+        }
+      ]
+    },
+    {
+      "topology": "dual",
+      "case": "two switches stuck closed",
+      "closed_switches": [
+        "H2.cut1",
+        "H2.cut2"
+      ],
+      "tap_paths": [
+        {
+          "taps": [
+            "T0",
+            "T2"
+          ],
+          "edges": [
+            "reference/monitor return",
+            "INA152 passive positive network H2",
+            "sense conductor H2",
+            "H2.cut2",
+            "H2.cut1",
+            "two guard resistors H2"
+          ]
+        }
+      ]
+    },
+    {
+      "topology": "dual",
+      "case": "two switches stuck closed",
+      "closed_switches": [
+        "H3.cut1",
+        "H3.cut2"
+      ],
+      "tap_paths": [
+        {
+          "taps": [
+            "T0",
+            "T3"
+          ],
+          "edges": [
+            "reference/monitor return",
+            "INA152 passive positive network H3",
+            "sense conductor H3",
+            "H3.cut2",
+            "H3.cut1",
+            "two guard resistors H3"
+          ]
+        }
+      ]
+    }
+  ],
+  "supply_inhibit_cases": [
+    {
+      "case": "normal_OFF",
+      "closed": [],
+      "tap_paths": []
+    },
+    {
+      "case": "one element stuck closed SUP1",
+      "closed": [
+        "SUP1"
+      ],
+      "tap_paths": []
+    },
+    {
+      "case": "one element stuck closed SUP2",
+      "closed": [
+        "SUP2"
+      ],
+      "tap_paths": []
+    },
+    {
+      "case": "one element stuck closed DRV_A",
+      "closed": [
+        "DRV_A"
+      ],
+      "tap_paths": []
+    },
+    {
+      "case": "one element stuck closed DRV_B",
+      "closed": [
+        "DRV_B"
+      ],
+      "tap_paths": []
+    },
+    {
+      "case": "both bank drivers stuck high",
+      "closed": [
+        "DRV_A",
+        "DRV_B"
+      ],
+      "tap_paths": []
+    },
+    {
+      "case": "both supply inhibits stuck closed",
+      "closed": [
+        "SUP1",
+        "SUP2"
+      ],
+      "tap_paths": [
+        {
+          "taps": [
+            "T0",
+            "T3"
+          ],
+          "edges": [
+            "monitor finite load, value TBD",
+            "supply inhibit2",
+            "supply inhibit1"
+          ]
+        }
+      ]
+    },
+    {
+      "case": "one common override closes everything",
+      "closed": [
+        "SUP1",
+        "SUP2",
+        "DRV_A",
+        "DRV_B"
+      ],
+      "tap_paths": [
+        {
+          "taps": [
+            "T0",
+            "T3"
+          ],
+          "edges": [
+            "monitor finite load, value TBD",
+            "supply inhibit2",
+            "supply inhibit1"
+          ]
+        }
+      ]
+    }
+  ],
+  "arithmetic": {
+    "two_branch_witness_only_delta1_2V_uA_nominal": 7.407590310871873,
+    "three_equal_positive_branches_only_H_V": [
+      1.2,
+      2.4,
+      3.6
+    ],
+    "three_equal_positive_branches_only_floating_reference_V": 2.4,
+    "three_equal_positive_branches_only_current_into_reference_uA": [
+      -14.815180621743746,
+      0.0,
+      14.81518062174375
+    ],
+    "note": "Nominal passive subnetwork calculations, not total island-current or MAX bounds; other silicon/clamp branches are not quantified",
+    "one_off_switch_per_each6sense_uA_budget_at_Panasonic_table_conditions_only": 6
+  },
+  "not_proven": [
+    "complete circuit graph",
+    "leakage and switch capacitance",
+    "common enable independence",
+    "monitor supply/control/output bypass",
+    "healthy measurement/freshness",
+    "cell reversal/clamps",
+    "transients/MAX timing",
+    "physical faults",
+    "BOM/fit/cost"
+  ],
+  "source_sha256": "3745600890260afb81d3f97ee083bf3a5002abeca5132b5998204b1b08661cb3"
+}

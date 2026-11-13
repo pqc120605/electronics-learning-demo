@@ -1,0 +1,29 @@
+{
+  "kind": "file-hashes",
+  "capturedAt": "2026-11-12T23:04:58.7646529+07:00",
+  "taskId": "MM-SIM-STAGE-REV3F-SIGNAL-PLAYBACK",
+  "files": [
+    {
+      "path": "src/lib/buttonLedLessonTrace.ts",
+      "sha256": "e62cca7d0a6c1229eb9c42b37f90f284e2023b5c4d89922df805464f8dffbb85"
+    },
+    {
+      "path": "src/components/lesson/ButtonLedLessonLab.tsx",
+      "sha256": "1a44638a16916280b834237ea74950380cea115a2257d2aaab49af3b140d21d3"
+    },
+    {
+      "path": "src/components/lesson/ButtonLedLessonLab.css",
+      "sha256": "8972ba54eb7b0d5a70219e88fe053a228d5580e563e56a458ee96edf59ebc345"
+    },
+    {
+      "path": "tests/button-led-lesson-trace.test.mjs",
+      "sha256": "ff4c009d506fa9b49d552ce79868c38a7b77a783aaaf4c6aad8db2eea72322f0"
+    },
+    {
+      "path": "e2e/journeys.spec.mjs",
+      "sha256": "8bbed4dfccd25798568f919818c0baa0ba050523e58cf7692b8ebf94203373ac"
+    }
+  ],
+  "attempt": 0,
+  "writeStatus": "frozen-for-review"
+}

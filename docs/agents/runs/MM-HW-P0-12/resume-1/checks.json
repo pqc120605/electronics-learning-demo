@@ -1,0 +1,67 @@
+{
+  "checks": [
+    {
+      "command": [
+        "node",
+        "D:\\StartupOS\\docs\\agents\\validate.mjs"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "validate-before.json"
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "D:\\StartupOS\\docs\\agents\\validate.test.mjs"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "validate-tests.txt"
+    },
+    {
+      "command": [
+        "node",
+        "D:\\StartupOS\\docs\\agents\\validate.mjs",
+        "--dispatch-task",
+        "MM-HW-MOBOT-REMOTE-KICAD-001"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "output": "dispatch-refused.json"
+    },
+    {
+      "command": [
+        "C:\\Users\\ACER\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "D:\\StartupOS\\electronics-learning-demo\\docs\\agents\\runs\\MM-HW-P0-12\\calculate.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "fresh-calculations.json"
+    },
+    {
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import fs from 'node:fs'; import {validateQueue} from 'file:///D:/StartupOS/docs/agents/validate.mjs'; const errors=validateQueue(JSON.parse(fs.readFileSync(process.argv[1],'utf8'))); console.log(JSON.stringify({errors})); if(errors.length)process.exitCode=1;",
+        "D:\\StartupOS\\electronics-learning-demo\\docs\\agents\\runs\\MM-HW-P0-12\\resume-1\\queue-candidate.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "candidate-validation.json"
+    },
+    {
+      "command": [
+        "node",
+        "D:\\StartupOS\\docs\\agents\\validate.mjs"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "validate-after.json"
+    }
+  ],
+  "validator_tests": 61,
+  "hardware": "NOT_RUN",
+  "configuration_changed": false
+}

@@ -1,0 +1,192 @@
+{
+  "kind": "file-hashes",
+  "date": "2026-11-10",
+  "meaning": "Final research/handoff snapshot, not configuration approval",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/BOX02-BOOT-ROLE-REFINEMENT.md",
+      "sha256": "4588523f356760365480586da4b898132b478f3706b4137f5310536e31214e97",
+      "bytes": 5462
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/BOX02-CELL-PROTECTION-REFINEMENT.md",
+      "sha256": "559b06ef6b4bb9db9efbb06b652d8351f2d51cdb520e6f8a9b11501bb9c9c624",
+      "bytes": 4658
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/BOX02-POWER-ENTRY-REFINEMENT.md",
+      "sha256": "3f47bc0a836ac70c970c02abde9612d2f65255da8b35ec72c047a43b5754b844",
+      "bytes": 7785
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/BOX02-RESULT.md",
+      "sha256": "ec863d2d2fdc68688426ffbfea84b9d611acc98511635d1da98380135875cba3",
+      "bytes": 12908
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/BOX03-M2-REFINEMENT.md",
+      "sha256": "64bb53ea94cd9da8fbdee8d9b5f1c743e66cbd06f72ce1e1395f4cb38756aa65",
+      "bytes": 9720
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/BOX03-M3-PORT-REFINEMENT.md",
+      "sha256": "453db9c4c0de1be4eae89b9d96a6943723f7ff3dd01155ef697d6b4afc16d915",
+      "bytes": 9114
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/BOX03-RESULT.md",
+      "sha256": "052f4004edc963c8ddd1ae13b03941c06fa43e5006fb38596891e683d0d07b62",
+      "bytes": 12421
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/BOX08-REVIEW.md",
+      "sha256": "28f413a4c70dbedf483dc99fc85f74542287841becd5eb479e64db51d98ac149",
+      "bytes": 4893
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/check-evidence.py",
+      "sha256": "b0e2a652de5683ff65f1aaf802287a7d3902a1d4ec7edf56d62961a81763a959",
+      "bytes": 1767
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/checks-interim.json",
+      "sha256": "92ded7726cbb420027fe1226afe0553e5e7ff1512438e51fcd82f439b6f3dfa4",
+      "bytes": 718
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/evidence-check.json",
+      "sha256": "7749a0354294fa5dff776df9223a3fad203b736861bc126d3397c5f02aa61dce",
+      "bytes": 2092
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/final-checks.json",
+      "sha256": "062a5e1f3772b514c5cc9d9526fd56af90b2e107a23d1ce41ed2b35e7d0a649d",
+      "bytes": 523
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/integration-contract.md",
+      "sha256": "d2d83f0b0ad177fc6705905939c7b7809f562ea7c571b1a2d1b3d934a04cf752",
+      "bytes": 5327
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/LEAD-SOURCE-CHECK.md",
+      "sha256": "f0ad179769bf5ab43725007bd2878ce449323db221d53da773273f82d17c3be3",
+      "bytes": 1379
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/pin-sources.py",
+      "sha256": "d36d813a381cfae45797ec07ccf50d5d3ec0bd91a6710e1015e8d464ab358424",
+      "bytes": 1879
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/queue-before-close.json",
+      "sha256": "acb84485d18e31aa50f4cbca0159460ec6ddf4168e64bd871dbf5e5e078ffd3a",
+      "bytes": 399055
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/queue-before-review.json",
+      "sha256": "1dbc960bf4c20a9a86c0076e3222bf5ab9b388bca806359575837e8fb6b4aee4",
+      "bytes": 398715
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/queue-before.json",
+      "sha256": "7b439f290074cbd469da39436b26fc476e5f7224df57397457efcda9fecc4f4e",
+      "bytes": 385498
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/queue-close-result.json",
+      "sha256": "7a00f202d47f003d6fbc4152d5fe212a9ed94e3ab37c8e75ad4444a93c0cfb5c",
+      "bytes": 257
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/queue-close.py",
+      "sha256": "6b71399f6bf99c5a63058aa2780f6f11a2438ef8fc22db67e9ec67e6f880f7b6",
+      "bytes": 5142
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/queue-review.py",
+      "sha256": "559b72f90a6ca3ed2c55cc93b8fe9f1c73ac744fc39a8c2d45360ea7f9b3ac71",
+      "bytes": 2023
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/register-task.py",
+      "sha256": "6975e38e15fb45d50890f225ea7085e186bcdffaa4471ffde39874b81f176405",
+      "bytes": 2882
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/REPORT.md",
+      "sha256": "ca0f292d9a3ed727ea00f0700d71bfb55aebf6aec0931c4ed844d939db28ed54",
+      "bytes": 7152
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/review-request.json",
+      "sha256": "0244d18fdbb8b8a424d3fd87e6c292de4d0c76502d8afe7ba99104dd65a65aa5",
+      "bytes": 1530
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/REVIEW-SCOPE.md",
+      "sha256": "8d82536df79ba3116739adcea2359785358639bb207fa84e23a7a42643d50d99",
+      "bytes": 2483
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/source-pages/fdk-hr3utg-p1.png",
+      "sha256": "730dd66697ec8a9ad017ec995da63aad4c3228830485806833b97969e7cda05e",
+      "bytes": 143911
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/source-pages/mpd-ba3aaw-revg-p1.png",
+      "sha256": "0f2d810e21340c42bf1b27b1de47c7f29cdeed7e4865e439205d8bacf6572452",
+      "bytes": 184299
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-14/task.md",
+      "sha256": "97ee0bf73e9cf287b52ad645f1d23e30759dbabbdf1d81c010560e68f6ec812c",
+      "bytes": 3543
+    },
+    {
+      "path": "docs/hardware/mobot-v2-p0-14-aa-founder-direction.json",
+      "sha256": "903a63669918b6211f0835f1bde53ed432539667da095923a94fab923c15eab8",
+      "bytes": 1846
+    },
+    {
+      "path": "docs/hardware/mobot-v2-p0-14-aa-manual-interlock-proposal.md",
+      "sha256": "53f5f3bc95b6406ab58a623fc9924619c45889b677c200d5d659f530c71537c4",
+      "bytes": 21243
+    },
+    {
+      "path": "docs/research/downloads/p0-14/fdk-20260327-material-update.html",
+      "sha256": "29ca51fd89b51ef194e653c215e7e98e4c90c9d34bb6f74c4b4340ca9677d348",
+      "bytes": 14471
+    },
+    {
+      "path": "docs/research/downloads/p0-14/fdk-hr3utg.pdf",
+      "sha256": "35274e4301054f1acee56855f05f537b6f9bf92d362c0f3c3122e5f038876919",
+      "bytes": 286834
+    },
+    {
+      "path": "docs/research/downloads/p0-14/keystone-aa-holder-catalogue.pdf",
+      "sha256": "90b8be61f8f213366bb8a2560ec00545bc318ab620460e6c986ed3ccca6f152c",
+      "bytes": 1315197
+    },
+    {
+      "path": "docs/research/downloads/p0-14/mpd-ba3aaw-revg.pdf",
+      "sha256": "6fe659fd0c4c8fc0fccfa84f75515da4c824e5562a21279d6ddf81a5c6ae992b",
+      "bytes": 272545
+    },
+    {
+      "path": "docs/research/downloads/p0-14/pololu-s7v8f5-specs.html",
+      "sha256": "353d70a71b7c638439c88105319b8dbcbdadc1f36e63001803b4f9239dce1901",
+      "bytes": 53808
+    },
+    {
+      "path": "docs/research/downloads/p0-14/pololu-s7v8x-reference.pdf",
+      "sha256": "eddb2e28d0a6eed110981988b52767911cddc8f22e276410e57bd739b318e42e",
+      "bytes": 192030
+    },
+    {
+      "path": "docs/research/downloads/p0-14/sources.json",
+      "sha256": "dfa7e2bce1f481579be8e3d67deb7f180183c07d05129d1046c61d22f0ac1ce9",
+      "bytes": 2305
+    }
+  ]
+}

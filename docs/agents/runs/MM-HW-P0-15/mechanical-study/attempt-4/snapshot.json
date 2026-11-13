@@ -1,0 +1,330 @@
+{
+  "scope": "P0-15 attempt-4 research and lead supplemental verification. Box 08 verdict applies to the separate 29-file mechanical packet.",
+  "files": [
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX01-CAUSAL-ARCHITECTURE.md",
+      "sha256": "7603e68b4fcf8505e8b34f358d424dd5814c441e2db0cc6206bcfd39714d6fef",
+      "bytes": 5513
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX01-PARAMETRIC-SCOPE-AUDIT.md",
+      "sha256": "0044d987e10c72d8eeddd8f6648238b671ae63633e7bb3980386a47fa0039979",
+      "bytes": 4006
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX02-CMOS-ALTERNATIVE.md",
+      "sha256": "6e4aaa5e82e54a6a85e82e9b4549f86f5a88d12a706d0955c3ec3755367618f2",
+      "bytes": 3262
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX02-DUAL-CHANNEL-ALTERNATIVE.md",
+      "sha256": "2e531fe359f237cce38865623ba1b6efd55f309d278b9f393d733b7257e484c4",
+      "bytes": 6804
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX02-FRONTEND-HALF.md",
+      "sha256": "35b35bb816589869a9dfec9084f3fb27c92036ab35e5304514d788ccd14204d9",
+      "bytes": 7302
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX02-FRONTEND-THIRD.md",
+      "sha256": "ec85a60ecd5d820bd50d07302e603b935c122289c86246fda37bffc0f94a88df",
+      "bytes": 5153
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX02-POWER-DOMAINS.md",
+      "sha256": "16cf10a2867036a170b70cd3125533738771d29f028e3a559d4a1f62b8870169",
+      "bytes": 6276
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX02-SOURCE-DISPOSITION.md",
+      "sha256": "92744be380bf48916d16dcafd00116cd5eb8c70cc7832d225a739cdc56cb5598",
+      "bytes": 7368
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX03-GAP-BOUND-REVIEW.md",
+      "sha256": "6abf0bba0dd37b3de689ee29ceb5ad7fae985cdd57010a66d2bd128ff5fc4fd0",
+      "bytes": 4738
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX03-INTEGRATED-INTERLOCK.md",
+      "sha256": "76f57d30b727e2c8e38386ccad4cb025e75b63bd66c8963510b47201a71324bb",
+      "bytes": 11018
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX03-SEQUENCER-REVIEW.md",
+      "sha256": "c974dd4bc18956c96824c919ba116fcc52c3c6eb5d71b57419a00cb167283016",
+      "bytes": 6551
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/BOX08-ENDPOINT-REVIEW.md",
+      "sha256": "3a7ade0c96c3105f5980a0e17e047129faa80db12b519402488278f987122d80",
+      "bytes": 3276
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/check_connector_bounds.py",
+      "sha256": "2809e13848d3e6341cff42b616695c089c33739f060d255148c9eb207eea066b",
+      "bytes": 2610
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/check_direct_frontend.py",
+      "sha256": "f6c84dda75ea55dc7410377ae2e0e09e66f43ae2f1b62ea77e2b27d5d3349118",
+      "bytes": 3428
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/check_endpoint_geometry.py",
+      "sha256": "94069ed99a87a5f38297dd6e87e649018820d8e47c245d1611fa34782df63064",
+      "bytes": 4078
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/check_inventory.py",
+      "sha256": "653c1a3c2fc373ffb9013d51d86082829cc3daabff1b0b1cd46cd7d6d01d1c4f",
+      "bytes": 1143
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/check_transition_contract.py",
+      "sha256": "6fc69d54bac286091c6cccc9e7bbb461caf66041a01208a62f147fecabe38d9e",
+      "bytes": 4170
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/connector-bounds-results.json",
+      "sha256": "b612f8542dccef34b802c839a464ee676abf7188200976e28e5f559234b873d1",
+      "bytes": 1311
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/connector-bounds.json",
+      "sha256": "ac8226d1ab8a8ee7c9e4be16d02f47496c5e55cdf2d38e7d7a2bfa9933b07069",
+      "bytes": 2269
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/connector-source-manifest.json",
+      "sha256": "7d097cd20847e9e6f681934a82cfea05def542b499fe95b4d74ef933d3b10d1a",
+      "bytes": 966
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/direct-frontend-results.json",
+      "sha256": "8138a4d4c15a2a533dc4a332074e8d5bc3d208c6e62407ef34e2571dc2ad144e",
+      "bytes": 2200
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/dual-channel-comparison.json",
+      "sha256": "480ee9fa1f0cd1ea0980bf0c3b6bcd73e18dca3747f9e4bd93c58b2bc5d98e60",
+      "bytes": 999
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint-closed.png",
+      "sha256": "a4e6687cd95f50621fa5a413ebe063945d45ece5ef50b7e794523f5991cfafbb",
+      "bytes": 31779
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint-geometry-results.json",
+      "sha256": "a965dd045d10d30d256dbde5ac5c744924bed5cb86a121f8ee6f1fb1cad88724",
+      "bytes": 8508
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint-initial-failure.json",
+      "sha256": "3c8ce35c379cdd0ee4c0bc3b2f98c4a90e9359642af91ac1d8733dd5e7298e7c",
+      "bytes": 812
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint-native-results.json",
+      "sha256": "ce861c1f46251f87f98863399555bbe96b31f4d8b5788d72b1df84cb68dfa9f4",
+      "bytes": 2786
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint-parked.png",
+      "sha256": "2bdeb34ee7556a3259d31189c4162acaf3accd4abdcdf2b5da246d66eda3703d",
+      "bytes": 42608
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/endpoint_geometry.py",
+      "sha256": "db9517f28ac909f2900952a8b39ce0ea6b9c91cf7e83e48247d7119ea28b3222",
+      "bytes": 4512
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/final-checks.json",
+      "sha256": "03f4e873bdaf6d16a7b79262536339aa54c6e4ce51fa839a8b95487ab8edf560",
+      "bytes": 1267
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/guarded-carriage-results.json",
+      "sha256": "f003803013c4d90f5662d8bad6cbc64d1ae2abe60c40ceea72b57a6dff788645",
+      "bytes": 1349
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/guarded_carriage.py",
+      "sha256": "0178c9e62e3f0bdf2e27ec6ce7343e56de0df4c09708b099243cb189b9d2dcb0",
+      "bytes": 4409
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/integrity-results.json",
+      "sha256": "59806aad80bf9099cfd0a9f3bd641072e9eb62e70a853ee1a55f4d5325c00876",
+      "bytes": 1742
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/interface-capacity-proposal.json",
+      "sha256": "c5ef6d114b6c71d7522d8a7eac9ca1b7a6adc28ac6917be246d717d1337c8fbe",
+      "bytes": 1793
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/interface-inventory.json",
+      "sha256": "82feb6e3a87b457393e06aa867e4360e1981ad72aaf162ed8a4b4c65ba33922c",
+      "bytes": 3994
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/inventory-checks.json",
+      "sha256": "252208cef4af15c0a89a85d6c5478aabb382b7ecbaa3cd46c0940c84e0c66486",
+      "bytes": 399
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/m5_endpoint_model.py",
+      "sha256": "0781a14ca1110218101a254047f28d0697a0dcac76562f25a49b3e4844407b1e",
+      "bytes": 3303
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/mechanical-review-packet.json",
+      "sha256": "e4ab071fc50f7de82dbad0567c019f055b7074ac3b7b0e50958e4000964441a9",
+      "bytes": 6811
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/pin_connector_sources.py",
+      "sha256": "e8c0d0e5880941fe8e2b85db74c3180cb948524b54336ec068895f9ac3c969d2",
+      "bytes": 1232
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/program-isolation-results.json",
+      "sha256": "b8b3fc4523cf0ad6b83565b770188107887bdbed22b0dbae12e1099381a05219",
+      "bytes": 27206
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/program_isolation.py",
+      "sha256": "0afbe153038384f8feaa2f7ab4ffe1130e8f6373e65f509521bedc0cc8f0eff9",
+      "bytes": 4105
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/REPORT.md",
+      "sha256": "f43839caaf0eddcf791300d9a817e86daae3219a23c7d63e82214da3585a8d77",
+      "bytes": 8436
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/resume.py",
+      "sha256": "d98814da11254b7a3c6f824d39a335a3e7c49e1adc531764b76f531869cce6c6",
+      "bytes": 1111
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/samtec-mated-source-page1.png",
+      "sha256": "e287841ace1271a9a97a10bc60a7adbd39a9a08f8a0e0f9f5197d881fe7e6923",
+      "bytes": 247804
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/samtec-sfm-source-page1.png",
+      "sha256": "a3df94ffc5461f409f9ff3f866977df219b3b25570756d938d437bc65d8b8edc",
+      "bytes": 244235
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/samtec-sfm-source-page2.png",
+      "sha256": "524cdc8f05480aad2993bc9a3040faa8294802d4224ee7c19d21cdea4e40e045",
+      "bytes": 170598
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/samtec-tfm-source-page2.png",
+      "sha256": "f13737b49a525925e17c39b08bd192db4d3b2501456c2dbe32a3943d89ac75be",
+      "bytes": 218189
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/samtec-tfm-source-page6.png",
+      "sha256": "af7e9569eb4511c9ad2b91c0e05aa720bf68c2198db84f8e5b222df7adbafbc7",
+      "bytes": 287006
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/samtec-tfm-source-page7.png",
+      "sha256": "f207345974b12f7b7f3282e939d9468facad586e1ae578ecd678a8a3622eeb65",
+      "bytes": 242139
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/samtec-tfm-source-page8.png",
+      "sha256": "a344aa067a5ae06eba6e7e0656c4bbdf56383cdbef76f7fa50bb995de1b496a5",
+      "bytes": 118999
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/SEQUENCER-REFINEMENT-PLAN.md",
+      "sha256": "2eb508a1f0f5ce4fdf426be5adc32322ef1737ebdd26b20c5cbe96228a4b9c2b",
+      "bytes": 6409
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/task.md",
+      "sha256": "385febba5a81b0d851445b18ac2da41973155da1cda21241e28724cf87fa9659",
+      "bytes": 2290
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/tlv3502-electrical-page5.png",
+      "sha256": "480bb089fe4f23f1006c41bac5a7e72fe57ed4fc4696c3178f86ea08f049367f",
+      "bytes": 175476
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/tlv3502-source-manifest.json",
+      "sha256": "f7190d1cf90e6f8b647a26ce16b322ee282334f9e119e9c2fda79dc782ddec10",
+      "bytes": 631
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/tlv3502-switching-page6.png",
+      "sha256": "17adabbdb15769951b2b43d60fc7627dd598bbe0afd99dca4b3fe6b9d6910f03",
+      "bytes": 101067
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/tmux2821-source-manifest.json",
+      "sha256": "8f35991e5a7f701b4d2628b740672acca68905d0b501e884a174c0bde8a2f244",
+      "bytes": 464
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/tmux2821-source-page5.png",
+      "sha256": "123da01eba73924669457c98f0512efe8b4952651dd785c636f3345909df8157",
+      "bytes": 122113
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/tmux2821-source-page6.png",
+      "sha256": "96a4db53882ff52b9c50582480e3cc7035d943b0cdf066f1acaca1e48371268e",
+      "bytes": 142772
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/tmux2821-source-page7.png",
+      "sha256": "333b1345535539ef08474959dc8cce5418a3e57e6823ded7b8b379ca9dcccb7a",
+      "bytes": 151119
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/transition-contract-results.json",
+      "sha256": "81cb807f9e74c3743fc6f59481c8d903101967988b5ca65965494521a985413f",
+      "bytes": 5422
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/validator-tests.log",
+      "sha256": "865f951b6915fea2bf2dfcc3c0a7038c1401fe1aa845950da9f250dd2c2800c7",
+      "bytes": 4467
+    },
+    {
+      "path": "docs/agents/runs/MM-HW-P0-15/mechanical-study/attempt-4/verify_integrity.py",
+      "sha256": "41082d6fd9d787cc2bbd0da14df619a711dfb406ee035f7f3f1291b130237cd7",
+      "bytes": 2914
+    },
+    {
+      "path": "docs/research/downloads/p0-15/attempt-4/samtec-pair-cycle-report.pdf",
+      "sha256": "a4320e9b63ac17b34404a73ceacf2515945b7cfc1baa42adb265bd8d0a431b31",
+      "bytes": 456270
+    },
+    {
+      "path": "docs/research/downloads/p0-15/attempt-4/samtec-tfm-drawing.pdf",
+      "sha256": "4e58e4227decf3e6e229b16ca7b711d9e672111ec1f53ea48887b822b292ede2",
+      "bytes": 3459889
+    },
+    {
+      "path": "docs/research/downloads/p0-15/attempt-4/ti-tlv3502.pdf",
+      "sha256": "fcfbeffce874629849fe7b2324fa40731a41453b587b8f50782f0ff42311b946",
+      "bytes": 1074854
+    },
+    {
+      "path": "docs/research/downloads/p0-15/attempt-4/ti-tmux2821.pdf",
+      "sha256": "493e5c0d4eb5ca55dea82dbcce59b1be9c353577e256c161821662c38bb9ac55",
+      "bytes": 2473523
+    }
+  ]
+}

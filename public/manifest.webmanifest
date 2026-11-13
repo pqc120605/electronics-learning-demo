@@ -1,0 +1,21 @@
+{
+  "id": "/app",
+  "name": "Mạch Mở — Học điện tử qua thực hành",
+  "short_name": "Mạch Mở",
+  "description": "Học điện tử, lập trình nhúng và IoT bằng cách nhìn, thử và làm.",
+  "lang": "vi",
+  "start_url": "/app",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#071116",
+  "theme_color": "#071116",
+  "categories": ["education", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/mach-mo-pwa.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
