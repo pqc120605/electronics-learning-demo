@@ -15,19 +15,19 @@
     "version": "75030f7cdca3"
   },
   "/models/arduino-mega-2560-r3.glb": {
-    "sha256": "7b1211ca97181e62b33978f0cc3d121b3bd338f885a8fb25dd6b931ff3577745",
-    "bytes": 9733596,
-    "version": "7b1211ca9718"
+    "sha256": "adf1fcf07b4a6d9ae8cd0cede3570019b85ae57c0370d2305c3e5ccc4cd2d408",
+    "bytes": 10289120,
+    "version": "adf1fcf07b4a"
   },
   "/models/arduino-nano-classic.glb": {
-    "sha256": "9c424d96e1d0677cd3c6e7b0e615d0da0f94dd1d455f35677d45e7490e87c798",
-    "bytes": 3475000,
-    "version": "9c424d96e1d0"
+    "sha256": "43c1f8047b7f83c3b955f91097fc42dc24d8f147a68f9e844bbb6da710beff55",
+    "bytes": 4060836,
+    "version": "43c1f8047b7f"
   },
   "/models/arduino-uno-r3.glb": {
-    "sha256": "b499c0764e77f8e6ae3915243db4e672eb507d10ea56227b1481f42e231dc6bb",
-    "bytes": 6337136,
-    "version": "b499c0764e77"
+    "sha256": "53330cd2b0d2fac39206f2774e71e8961316634ea3f027331583379a43965ff6",
+    "bytes": 6679512,
+    "version": "53330cd2b0d2"
   },
   "/models/esp32-devkit-v1-30pin.glb": {
     "sha256": "b3d0a6b0be0900f4ec6dc2e23ec2bd3a180ab78c359ade9a52b9604723c82f21",
@@ -40,9 +40,9 @@
     "version": "129265213475"
   },
   "/models/esp32-s3-devkitc-1-v1.1.glb": {
-    "sha256": "abf7b557d1356ae5d545f5529203eed80f5f5469d5c2f864a7727db3d314bb85",
-    "bytes": 8226076,
-    "version": "abf7b557d135"
+    "sha256": "1ffe23480ffabcb5ba740b05fd60fa835a56fecd00d76075ce79a88a4f685515",
+    "bytes": 8225996,
+    "version": "1ffe23480ffa"
   },
   "/models/raspberry-pi-pico-2-h.glb": {
     "sha256": "b3ce57f26b5267be6d64ff899846b8c6db2bccb4c5186434317870e48e94395a",
@@ -73,5 +73,15 @@
     "sha256": "866adb2f4068574976bd1b5f7763a07e1d800bbc2e489a3efdfe473dbf5424d2",
     "bytes": 466300,
     "version": "866adb2f4068"
+  },
+  "/models/stm32-blue-pill-f103.glb": {
+    "sha256": "a520c6f436e242e3c4b9032e3efcf90e180c1d41c09a8adf86f849c1c0932ec2",
+    "bytes": 2278248,
+    "version": "a520c6f436e2"
+  },
+  "/models/stm32-nucleo-f401re.glb": {
+    "sha256": "9124a49017a50e7627f3d7c6e3100b3778c3f603ec4e8d883881d1ec3019ddbd",
+    "bytes": 4754776,
+    "version": "9124a49017a5"
   }
 }

@@ -1,5 +1,6 @@
 import { parseBoardGlb, type GpuBatch, type NodeBounds } from '../board/glbParser'
 import { compileShader, cross, dot, makeCamera, multiply, normalize, perspective, rayTriangle, subtract, viewMatrix, type Vec3 } from '../board/sceneMath'
+import { createShadowTarget, depthFragmentShader, depthVertexShader, LIGHT_DIR, lightViewProjection, loadEnvTexture, pbrFragmentShader, pbrVertexShader, sceneQuality, toLinear, type ShadowTarget } from '../board/pbrShading'
 import { BENCH_MM, footprintBox, localToWorld, placementMatrix, type AssemblyPlacement, type AssemblyPlan, type Bounds } from '../../lib/assemblyLayout'
 
 export type AssetStatus = { loading: number; failedUrls: string[] }
@@ -18,34 +19,8 @@ const WIRE_RADIUS = 0.0009
 const LOAD_TIMEOUT_MS = 30000
 const FALLBACK_COLOR: [number, number, number] = [0.44, 0.47, 0.5]
 
-const vertexShader = `#version 300 es
-in vec3 aPosition;
-in vec3 aNormal;
-in float aProgress;
-uniform mat4 uViewProjection;
-uniform mat4 uModel;
-out vec3 vNormal;
-out float vProgress;
-void main() { gl_Position = uViewProjection * uModel * vec4(aPosition, 1.0); vNormal = mat3(uModel) * aNormal; vProgress = aProgress; }
-`
-const fragmentShader = `#version 300 es
-precision highp float;
-in vec3 vNormal;
-in float vProgress;
-uniform vec3 uColor;
-uniform float uEmphasis;
-uniform float uGlow;
-uniform float uStripes;
-uniform float uPhase;
-out vec4 outColor;
-void main() {
-  vec3 n = normalize(vNormal);
-  float light = 0.56 + 0.44 * max(dot(n, normalize(vec3(-0.42, 0.72, 0.52))), 0.0);
-  vec3 color = mix(uColor, vec3(0.18, 0.82, 0.76), uEmphasis * 0.6);
-  if (uStripes > 0.0) color = mix(color, vec3(0.97, 0.98, 0.94), step(0.5, fract(vProgress * uStripes - uPhase)) * 0.82);
-  outColor = vec4(color * light * (1.0 + uGlow) + uColor * uGlow * 0.5 + vec3(0.018, 0.026, 0.028), 1.0);
-}
-`
+const vertexShader = pbrVertexShader
+const fragmentShader = pbrFragmentShader
 
 function identityMatrix() { return [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1] }
 
@@ -105,6 +80,11 @@ export class AssemblyScene {
   private plan: AssemblyPlan | null = null
   private boxes = new Map<string, Asset>()
   private ownedBuffers = new Set<WebGLBuffer>()
+  private depthProgram: WebGLProgram | undefined
+  private plugs: Asset[] = []
+  private shadow: ShadowTarget | undefined
+  private envTexture: WebGLTexture | undefined
+  readonly quality = sceneQuality()
   private bench: Asset
   private instances: Instance[] = []
   private wireMeshes: WireMesh[] = []
@@ -149,7 +129,17 @@ export class AssemblyScene {
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(program) ?? 'Không liên kết được shader.')
     this.program = program
     gl.enable(gl.DEPTH_TEST)
-    this.bench = this.boxAsset({ min: [-BENCH_MM.width / 2, -2, -BENCH_MM.depth / 2], max: [BENCH_MM.width / 2, 0, BENCH_MM.depth / 2] }, [0.72, 0.66, 0.53])
+    this.bench = this.boxAsset({ min: [-BENCH_MM.width / 2, -2, -BENCH_MM.depth / 2], max: [BENCH_MM.width / 2, 0, BENCH_MM.depth / 2] }, toLinear([0.72, 0.66, 0.53]))
+    if (this.quality === 'high') {
+      // Soft shadows and image-based lighting; skipped on low-end devices (sceneQuality) without changing the layout.
+      const depth = gl.createProgram()
+      if (depth) {
+        const dv = compileShader(gl, gl.VERTEX_SHADER, depthVertexShader), df = compileShader(gl, gl.FRAGMENT_SHADER, depthFragmentShader)
+        gl.attachShader(depth, dv); gl.attachShader(depth, df); gl.linkProgram(depth); gl.deleteShader(dv); gl.deleteShader(df)
+        if (gl.getProgramParameter(depth, gl.LINK_STATUS)) { this.depthProgram = depth; this.shadow = createShadowTarget(gl) } else gl.deleteProgram(depth)
+      }
+      loadEnvTexture(gl, (texture) => { if (this.disposed) { gl.deleteTexture(texture); return } this.envTexture = texture; this.render() })
+    }
   }
 
   private buffer(target: number, data: ArrayBufferView) {
@@ -165,7 +155,7 @@ export class AssemblyScene {
     const key = [...bounds.min, ...bounds.max].join('x')
     const cached = this.boxes.get(key)
     if (cached) return cached
-    const box = this.boxAsset(bounds, FALLBACK_COLOR)
+    const box = this.boxAsset(bounds, toLinear(FALLBACK_COLOR))
     this.boxes.set(key, box)
     return box
   }
@@ -245,6 +235,9 @@ export class AssemblyScene {
   private rebuildWires(plan: AssemblyPlan) {
     const gl = this.gl
     for (const mesh of this.wireMeshes) for (const buffer of mesh.buffers) { gl.deleteBuffer(buffer); this.ownedBuffers.delete(buffer) }
+    // Dupont housings at both wire ends (2.5 x 2.5 x 9 mm black plastic) so jumpers read as real wires.
+    for (const plug of this.plugs) for (const batch of plug.batches) for (const buffer of batch.buffers) { gl.deleteBuffer(buffer); this.ownedBuffers.delete(buffer) }
+    this.plugs = Object.values(plan.wireEnds).flatMap((ends) => ends.map((end) => this.boxAsset({ min: [end[0] - 1.25, end[1], end[2] - 1.25], max: [end[0] + 1.25, end[1] + 9, end[2] + 1.25] }, toLinear([0.09, 0.09, 0.1]))))
     this.wireMeshes = Object.entries(plan.wireEnds).map(([id, [from, to]]) => {
       const tube = buildTube(from.map((value) => value / 1000) as Vec3, to.map((value) => value / 1000) as Vec3)
       return { id, indexCount: tube.indices.length, middle: tube.middle, lengthMm: tube.lengthMm, buffers: [this.buffer(gl.ARRAY_BUFFER, tube.positions), this.buffer(gl.ARRAY_BUFFER, tube.normals), this.buffer(gl.ARRAY_BUFFER, tube.progress), this.buffer(gl.ELEMENT_ARRAY_BUFFER, tube.indices)] }
@@ -278,6 +271,13 @@ export class AssemblyScene {
     this.distance = Math.max(this.fitDistance * 0.3, Math.min(this.fitDistance * 1.6, this.distance * (direction === 1 ? 0.85 : 1.18)))
     this.render()
     this.onViewChange()
+  }
+  /** Named camera angles for the view menu; distances are relative to the fitted framing. */
+  setPreset(preset: 'overview' | 'top' | 'front' | 'close') {
+    const views = { overview: [DEFAULT_VIEW.azimuth, DEFAULT_VIEW.elevation, 1], top: [0, 1.5, 1.05], front: [0, 0.38, 0.95], close: [DEFAULT_VIEW.azimuth, 0.7, 0.55] } as const
+    const [azimuth, elevation, scale] = views[preset]
+    this.azimuth = azimuth; this.elevation = elevation; this.distance = this.fitDistance * scale
+    this.render(); this.onViewChange()
   }
   resetView() { this.azimuth = DEFAULT_VIEW.azimuth; this.elevation = DEFAULT_VIEW.elevation; this.distance = this.fitDistance; this.render(); this.onViewChange() }
 
@@ -369,10 +369,40 @@ export class AssemblyScene {
   render() {
     if (this.disposed || this.gl.isContextLost()) return
     const gl = this.gl, program = this.program, uniform = (name: string) => gl.getUniformLocation(program, name)
+    const lightVP = lightViewProjection(this.target, Math.max(0.06, this.radius * 1.25))
+    if (this.shadow && this.depthProgram) {
+      const depth = this.depthProgram, position = gl.getAttribLocation(depth, 'aPosition')
+      gl.bindFramebuffer(gl.FRAMEBUFFER, this.shadow.framebuffer)
+      gl.viewport(0, 0, this.shadow.size, this.shadow.size)
+      gl.clear(gl.DEPTH_BUFFER_BIT)
+      gl.useProgram(depth)
+      // Attributes left enabled by the main pass (normals, wire progress) point at shorter buffers and would void the draw.
+      for (let index = 0; index < 4; index += 1) gl.disableVertexAttribArray(index)
+      gl.uniformMatrix4fv(gl.getUniformLocation(depth, 'uLightVP'), false, new Float32Array(lightVP))
+      for (const instance of this.instances) {
+        gl.uniformMatrix4fv(gl.getUniformLocation(depth, 'uModel'), false, new Float32Array(instance.model))
+        for (const batch of instance.asset.batches) {
+          gl.bindBuffer(gl.ARRAY_BUFFER, batch.buffers[0]); gl.enableVertexAttribArray(position); gl.vertexAttribPointer(position, 3, gl.FLOAT, false, 0, 0)
+          gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, batch.buffers[2])
+          gl.drawElements(gl.TRIANGLES, batch.indices.length, gl.UNSIGNED_INT, 0)
+        }
+      }
+      gl.bindFramebuffer(gl.FRAMEBUFFER, null)
+      gl.viewport(0, 0, this.canvas.width, this.canvas.height)
+    }
     gl.clearColor(0, 0, 0, 0)
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
     gl.useProgram(program)
     gl.uniformMatrix4fv(uniform('uViewProjection'), false, new Float32Array(this.viewProjection()))
+    gl.uniformMatrix4fv(uniform('uLightVP'), false, new Float32Array(lightVP))
+    gl.uniform3fv(uniform('uCameraPos'), this.camera().eye)
+    const lightLength = Math.hypot(...LIGHT_DIR)
+    gl.uniform3fv(uniform('uLightDir'), LIGHT_DIR.map((value) => value / lightLength))
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, this.envTexture ?? null); gl.uniform1i(uniform('uEnv'), 0)
+    gl.uniform1f(uniform('uEnvReady'), this.envTexture ? 1 : 0)
+    gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, this.shadow?.texture ?? null); gl.uniform1i(uniform('uShadowMap'), 1)
+    gl.uniform1f(uniform('uShadowOn'), this.shadow ? 1 : 0)
+    gl.activeTexture(gl.TEXTURE0)
     const progressLocation = gl.getAttribLocation(program, 'aProgress')
     if (progressLocation >= 0) { gl.disableVertexAttribArray(progressLocation); gl.vertexAttrib1f(progressLocation, 0) }
     gl.uniform1f(uniform('uStripes'), 0)
@@ -384,6 +414,8 @@ export class AssemblyScene {
         this.bindMesh(batch.buffers[0], batch.buffers[1])
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, batch.buffers[2])
         gl.uniform3fv(uniform('uColor'), batch.color)
+        gl.uniform1f(uniform('uMetallic'), batch.metallic ?? 0)
+        gl.uniform1f(uniform('uRoughness'), batch.roughness ?? 0.7)
         gl.uniform1f(uniform('uEmphasis'), emphasisFor(batch.nodeName))
         gl.drawElements(gl.TRIANGLES, batch.indices.length, gl.UNSIGNED_INT, 0)
       }
@@ -395,6 +427,7 @@ export class AssemblyScene {
       const partEmphasis = selected ? 0.5 : this.activeParts.has(id) ? 0.22 : 0
       drawAsset(instance.asset, instance.model, (node) => nodeSelection ? (this.selectedNodes.has(node) ? 1 : 0) : partEmphasis, this.litParts.has(id) ? 0.9 : 0)
     }
+    for (const plug of this.plugs) drawAsset(plug, identityMatrix(), () => 0, 0)
     gl.uniformMatrix4fv(uniform('uModel'), false, new Float32Array(identityMatrix()))
     gl.uniform1f(uniform('uGlow'), 0)
     gl.uniform1f(uniform('uEmphasis'), 0)
@@ -405,7 +438,9 @@ export class AssemblyScene {
       gl.bindBuffer(gl.ARRAY_BUFFER, mesh.buffers[2])
       if (progressLocation >= 0) gl.vertexAttribPointer(progressLocation, 1, gl.FLOAT, false, 0, 0)
       gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mesh.buffers[3])
-      gl.uniform3fv(uniform('uColor'), style?.color ?? [0.4, 0.45, 0.5])
+      gl.uniform3fv(uniform('uColor'), toLinear(style?.color ?? [0.4, 0.45, 0.5]))
+      gl.uniform1f(uniform('uMetallic'), 0)
+      gl.uniform1f(uniform('uRoughness'), 0.42)
       gl.uniform1f(uniform('uStripes'), style?.stripes ? Math.max(3, Math.round(mesh.lengthMm / 9)) : 0)
       gl.uniform1f(uniform('uPhase'), (style?.direction ?? 0) * this.phase)
       gl.drawElements(gl.TRIANGLES, mesh.indexCount, gl.UNSIGNED_SHORT, 0)
@@ -419,5 +454,8 @@ export class AssemblyScene {
     for (const controller of this.loading.values()) controller.abort()
     for (const buffer of this.ownedBuffers) this.gl.deleteBuffer(buffer)
     this.gl.deleteProgram(this.program)
+    if (this.depthProgram) this.gl.deleteProgram(this.depthProgram)
+    if (this.shadow) { this.gl.deleteTexture(this.shadow.texture); this.gl.deleteFramebuffer(this.shadow.framebuffer) }
+    if (this.envTexture) this.gl.deleteTexture(this.envTexture)
   }
 }

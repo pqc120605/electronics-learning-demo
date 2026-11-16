@@ -8,12 +8,14 @@ import { ButtonLedLessonLab } from '../components/lesson/ButtonLedLessonLab'
 import { builderLessons, type BuilderLessonId } from '../data/builderLessons'
 import { curriculumLessons } from '../data/curriculumSchema'
 import { getLessonEntryRoute, getLessonPrerequisiteIds, getNextLessonId, getUnmetPrerequisiteIds, learningPathOrder, learningStages } from '../data/learningPath'
-import { getSimulationTarget, normalizeSimulationTargetId } from '../data/simulationTargets'
+import { getSimulationTarget, simulationTargets } from '../data/simulationTargets'
 import { recordLessonOpened } from '../lib/learningProgress'
-import { getLessonPreflight, getPreflightBoardNotice, preflightBoardIds } from '../lib/lessonPreflight'
+import { getLessonPreflight, getPreflightBoardNotice } from '../lib/lessonPreflight'
 import { useLearningProgress } from '../lib/useLearningProgress'
 import { useProductRoute } from '../lib/useProductRoute'
 import './LessonPreflightPage.css'
+import {LessonBoardChooser} from '../components/lesson/LessonBoardChooser'
+import {resolveLessonBoardChoice} from '../lib/lessonBoardSelection'
 
 export function LessonPreflightPage() {
   const productRoute = useProductRoute()
@@ -22,22 +24,25 @@ export function LessonPreflightPage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const validLesson = builderLessons.some((item) => item.id === lessonId) ? lessonId as BuilderLessonId : undefined
   useEffect(() => { if (validLesson) recordLessonOpened(validLesson) }, [validLesson])
-  if (lessonId === 'blink') return <Navigate replace to={productRoute('/learn/esp32-led')} />
+
   if (!validLesson) return <div className="catalog-page"><section className="catalog-page-heading"><h1>Không tìm thấy bài này</h1><p>Liên kết có thể đã cũ. Bạn có thể chọn lại bài trong lộ trình.</p><Link className="button-primary" to={productRoute('/topics')}>Xem lộ trình</Link></section></div>
 
-  const boardId = searchParams.has('board') ? normalizeSimulationTargetId(searchParams.get('board') ?? undefined) : 'esp32-devkit'
+  const choice=resolveLessonBoardChoice(searchParams.get('board'))
+  if(choice.kind!=='selected')return <LessonBoardChooser lessonId={validLesson} requestedId={searchParams.get('board')} onChoose={board=>setSearchParams({board})}/>
+  const boardId=choice.target.boardId
+  if(validLesson==='blink'&&boardId==='esp32-devkit')return <Navigate replace to={productRoute('/learn/esp32-led?board=esp32-devkit')}/>
   const preflight = getLessonPreflight(validLesson, boardId)
   const { lesson, target, support, revision, confidence, sourceUrl, licenseName, hasBoardViewer, boardRoute, parts, pins, startRoute } = preflight
-  const boardNotice = getPreflightBoardNotice(searchParams.get('board'))
+  const boardNotice = getPreflightBoardNotice(boardId)
   const stageIndex = learningStages.findIndex((stage) => stage.lessonIds.includes(validLesson))
   const previousId = learningPathOrder[learningPathOrder.indexOf(validLesson) - 1]
   const nextId = getNextLessonId(validLesson)
   const neighbour = (id?: BuilderLessonId) => curriculumLessons.find((item) => item.id === id)
   const entry = (id: BuilderLessonId) => productRoute(getLessonEntryRoute({ id }, target.boardId))
-  const boardOptions = preflightBoardIds.includes(target.boardId as typeof preflightBoardIds[number]) ? preflightBoardIds : [target.boardId, ...preflightBoardIds]
+  const boardOptions = simulationTargets.map(target=>target.boardId)
   const previous = neighbour(previousId), next = neighbour(nextId)
   const unmetPrerequisites = getUnmetPrerequisiteIds(validLesson, progress.selfReportedCompletedLessonIds)
-  const requestedBoard = searchParams.get('board')
+  const requestedBoard = boardId
   const buttonBoardNotice = boardNotice ?? (requestedBoard === '' ? { kind: 'unknown' as const, message: 'Liên kết chưa chỉ định board. Hãy chọn board cho bài học.' } : undefined)
 
   if (validLesson === 'button-led') return <ButtonLedLessonLab
@@ -45,7 +50,7 @@ export function LessonPreflightPage() {
     boardId={buttonBoardNotice ? requestedBoard ?? boardId : boardId}
     boardNotice={buttonBoardNotice}
     boardOptions={boardOptions}
-    onBoardChange={id => setSearchParams(id === 'esp32-devkit' ? {} : { board: id }, { replace: true })}
+    onBoardChange={id => setSearchParams({ board: id }, { replace: true })}
     position={learningPathOrder.indexOf(validLesson) + 1}
     total={learningPathOrder.length}
     stage={learningStages[stageIndex]?.title}
@@ -65,7 +70,7 @@ export function LessonPreflightPage() {
       </div>
       <aside aria-label="Bắt đầu bài">
         {boardNotice && <p className="lesson-preflight-locked" role="status">{boardNotice.message}{boardNotice.boardRoute && <> <Link to={productRoute(boardNotice.boardRoute)}>Xem hồ sơ board</Link></>}</p>}
-        <label>Board của bạn<select value={target.boardId} onChange={(event) => setSearchParams(event.target.value === 'esp32-devkit' ? {} : { board: event.target.value }, { replace: true })}>{boardOptions.map((id) => <option key={id} value={id}>{getSimulationTarget(id).name}</option>)}</select></label>
+        <label>Board của bạn<select value={target.boardId} onChange={(event) => setSearchParams({ board: event.target.value }, { replace: true })}>{boardOptions.map((id) => <option key={id} value={id}>{getSimulationTarget(id).name}</option>)}</select></label>
         {support.supported ? <Link className="button-primary" to={productRoute(startRoute)}>Bắt đầu thực hành <span aria-hidden="true">↗</span></Link> : <p className="lesson-preflight-locked" role="status">{support.reason}</p>}
         <small>Mở trong phòng thử theo phiên riêng của tab này; workspace chính không bị thay đổi.</small>
       </aside>

@@ -1,0 +1,505 @@
+{
+  "recorded_at": "2026-11-15T10:12:17.152Z",
+  "root": "D:/StartupOS/electronics-learning-demo",
+  "changed": [
+    {
+      "file": "src/components/AppWorkspaceNavigation.css",
+      "sha256": "b12956cb7be2467abfdd1c617b8ddc4ec8f11bedaee2845014172319cdb444cc",
+      "before_sha256": "ac78b513a8a76a71cd8694fe5f117351e2d160b575b7f39e4fcf16d5ec4dfba7"
+    },
+    {
+      "file": "src/components/AppWorkspaceNavigation.tsx",
+      "sha256": "1e4245635dfb7dbd8442071746a8a7e40477f532c168022277366ca5bfed715b",
+      "before_sha256": "e8c233faed11f8f882b913d1063ffa859d534f57b2f86ee4e9a4770f16d2f175"
+    },
+    {
+      "file": "src/components/AuthMenu.css",
+      "sha256": "c6f964102b8b0a2ad48a562e47bf3d5ee29e839ecb9ca8a85d672603dbf9397d",
+      "before_sha256": "7a432607c7f8ebeea092c21f03a9e9f24c7688ab6bf7f48fbb73fecc687d4843"
+    },
+    {
+      "file": "src/components/board/BoardViewer.tsx",
+      "sha256": "7c82df9018d81e0c48c9f18bbd0d10390125e9d56d76f5fa7103c06f5be9acfc",
+      "before_sha256": "041bc5b2c94aa46ffc4256789100867ed7a5d6a1e7b84b09627b0227dc91ccd1"
+    },
+    {
+      "file": "src/components/builder/Assembly3DView.tsx",
+      "sha256": "5e2a1fc0ab0961e3271b1b1734f6c521345182766fdcf8256599520d88e31fb4",
+      "before_sha256": "b46b452b7d2c014418823f8afb179fab429d455cc60a76fc6b3e055249a81382"
+    },
+    {
+      "file": "src/components/builder/AssemblyStage.css",
+      "sha256": "3c9169e5abd84020d314c9d55fa4efd0c7389ad4c7b99bcf5ca477418b7ee184",
+      "before_sha256": "a6478cb239a23478cdddce06dea0b90ddcc3465ffe54fb6199fde9cb6c546831"
+    },
+    {
+      "file": "src/components/builder/AssemblyStage.tsx",
+      "sha256": "c75cdee2b57ed9359fe3408a9c450aeb5bdf4c2a7565ad3155c373000a1aa883",
+      "before_sha256": "f24bc3a5e4ac9a9f9d3f6c1dd26a85ff71e9e9fbd103e7ccd4a369dfc3b82a9d"
+    },
+    {
+      "file": "src/components/builder/BreadboardDiagram.tsx",
+      "sha256": "d89de886cd158906f0c7a758c43212f6cb5f662ca28d1c1929d89d3f57566233",
+      "before_sha256": "1eabf0ecc01a6395a1f5cae47cc2824fb901b1b21d3ff35123160d3a184e5b36"
+    },
+    {
+      "file": "src/components/builder/BreadboardEditor.css",
+      "sha256": "baf8c36431ac6b2aa088658b72260cc6d760724c947021fc21aae16bd1868679",
+      "before_sha256": "f928e6ea64d0185c3e45bebfa05fcfb61bec1bba8d09cbd1286cbcb000e5753c"
+    },
+    {
+      "file": "src/components/builder/BreadboardEditor.tsx",
+      "sha256": "3065794534ca6d6db3b66a75b5a4d0261764c86c97f6f22509a4d17201e0fd2d",
+      "before_sha256": "9c4582bb8d31adc307e0999e6e2320e34a572339fc61973e027f685b8ce8a169"
+    },
+    {
+      "file": "src/components/builder/CircuitSchematicV2.css",
+      "sha256": "7856521438a71bc162532030812979fdd5243e6748e163d5d9600e6180543365",
+      "before_sha256": "010df3bbbd0c61fc08b9ce4da65024301f1cae9e6c14d4a6c8999b22cccff679"
+    },
+    {
+      "file": "src/components/builder/CircuitSchematicV2.tsx",
+      "sha256": "06d233ca443884b82128b0153ad2aefa07d703eee0e63e0faaaf6a440447d97e",
+      "before_sha256": "d13fc55c5bad6d823d683b6fe490e65a8d6b680d9a25f176230fe750ad46071c"
+    },
+    {
+      "file": "src/components/builder/DigitalWaveform.css",
+      "sha256": "9d135ee671c178dfcfdc63d25e82744ec92b7589d3db5fae90592e46274a5556",
+      "before_sha256": "99d1af668a0833139b939655ed236e63cbbaeb3ef13afe2b11f1c1c943053b11"
+    },
+    {
+      "file": "src/components/builder/InputOutputChallenge.css",
+      "sha256": "9581f5ff1c0b15f2909de012c7fa6353151a9989244e25e0197a8fd74ee2eb8e",
+      "before_sha256": "5077f28b244b8c8b96f6a11e87ae29af8f118220bd7ed0ab8d8a2e903d1ec315"
+    },
+    {
+      "file": "src/components/builder/ScenarioPredictionChallenge.css",
+      "sha256": "0c84e4a08785e1bb80be1e263995e72167dbf35d4f2c6a8187b107a22c494271",
+      "before_sha256": "3d8a72a30843008955e6af223d4c118d7d8475e2d2e4c7925907c11afcdbf61f"
+    },
+    {
+      "file": "src/components/builder/SchematicFlow.css",
+      "sha256": "c9272e9fd36a8869d126e169bd943a4259fc14bf1717645cf452711db29ab632",
+      "before_sha256": "d485f2ab3ec16af6e148542215a3fb9499e6c86b2f0b39e26be29e8c9c511e9b"
+    },
+    {
+      "file": "src/components/builder/SchematicView.tsx",
+      "sha256": "8e30eff5777935ff46768ce9343b9c87ce539a11cf3b4e42d1206ab087f9dcb3",
+      "before_sha256": "8e86224a792040475188164309973448d237124b52aa27adfa805bd2fa07db46"
+    },
+    {
+      "file": "src/components/builder/SevenSegmentChallenge.css",
+      "sha256": "ebe4fa1d9907a9efcae2bb653f85aa909f3bc04681181d4d479b10bb3f830ab8",
+      "before_sha256": "ad9d3b2345f231a4cc0ca25b8023ecc9e9d196e29f7c2014b70ffd0f7f04c89b"
+    },
+    {
+      "file": "src/components/builder/SignalFlowPanel.css",
+      "sha256": "e2835fb31eb0e2b0918fec58f3e91fea829f397872737daa9e3ad9820ea5a0eb",
+      "before_sha256": "668ee02c42de3738142b81f34803f1cdc438bd1bd6b5077d91adb2a9a38809e5"
+    },
+    {
+      "file": "src/components/builder/SimulationInstrumentsPanel.css",
+      "sha256": "bc3cbd375c8f83fb239a31e80708c66d18fcb8c011a3f27c528ec11ce0119c19",
+      "before_sha256": "3c7e353adf7635ad796f7efc90ceaeb7ec76dcba7bd9653560ef82a0e8c4fe8c"
+    },
+    {
+      "file": "src/components/ComponentAnatomy.css",
+      "sha256": "97f1ed6c9a049dfde6ad1b1d2a7fc3f9f6246c35cc60549380559365c143fceb",
+      "before_sha256": "b7a2ab83cbcf6f813331e4628534794d05f9225595eb0a24a80d72b712b7f804"
+    },
+    {
+      "file": "src/components/ComponentAnatomy.tsx",
+      "sha256": "456c008145c2df890405ab8155f5b9c8e04956b3e88d2e3610e38cb386e10f7c",
+      "before_sha256": "df3dcfb218683f2bbdbf5ea9d31c14706e27e53ec620cc5d97e97064fdc777db"
+    },
+    {
+      "file": "src/components/ComponentVisual.tsx",
+      "sha256": "93911fa53334779f717111aebf409fecc607930638892805e695a38f38d67b03",
+      "before_sha256": "b2afd8b5ffd44bb3d8adfd72e331dcf878a226866dd7926e84ef84e13bc746ac"
+    },
+    {
+      "file": "src/components/freestyle/FreestyleBench.css",
+      "sha256": "3a775e0a1bcd766023ce7e534fc0bec1b16e9a98c7b4cfd0cee5b0779abb3926",
+      "before_sha256": "df732695877a80fa0d98f73b5f76fe3e18377e9bc094a31808240835a4f8972d"
+    },
+    {
+      "file": "src/components/freestyle/FreestyleBench.tsx",
+      "sha256": "7ef7366194c352ccccecd48bd36b2da44368e919583a4c818bcadec167aac9f8",
+      "before_sha256": "3c0b1f5a48fd53c245d72dee710e8254b53dcd9fad2b83fb624eef3561b18df9"
+    },
+    {
+      "file": "src/components/LearningActivity.css",
+      "sha256": "f2c9db77f454129c39a58a570a6f06ea1b0f1b98d4f9f6cf3a3bf13be5b8bdac",
+      "before_sha256": "42400c0c5ff064cd345ab1f3814cbaf467d69068c3708d94a39b6bfea6da25f5"
+    },
+    {
+      "file": "src/components/LearningPath.css",
+      "sha256": "8198734be8874f111a7e869b90c02cc4a791c184d658e9da79fc6dad8a777de3",
+      "before_sha256": "b2ff173d8c3e6ebc7c2c0459c6b0e542ca25e6ca80342607160dd4519880f82a"
+    },
+    {
+      "file": "src/components/lesson/ButtonLedLessonLab.css",
+      "sha256": "5a37f200cdbe1919a19a824b75cfc206d9aec29845ad4f5b7baea09c0241b293",
+      "before_sha256": "da0851eea5cc3d6753622ef93fcf8ba0af8c2b2f49ed42b304406fc15e07c433"
+    },
+    {
+      "file": "src/components/lesson/CircuitGatePanel.css",
+      "sha256": "a913af5f0921aa34707f15ac9b56a7007425d80c51328c56e810c57830b32e2b",
+      "before_sha256": "8fa1cf17ffe5df07217ab248260fc76ec6c5bca5512e33788da00f6eba7575f8"
+    },
+    {
+      "file": "src/components/lesson/LessonCircuitWorkspace.css",
+      "sha256": "eb9759bb7d35f87c1e37f583e432353fce7310970928ef5c85152208f7e505ae",
+      "before_sha256": "67cc22b1bcfab950924314785294e0e046d629e644622f6319a2d6d7ec1e4d9d"
+    },
+    {
+      "file": "src/components/lesson/LessonCircuitWorkspace.tsx",
+      "sha256": "c1d2bf4a849a31af30a70f63dd284bd29c92181c475870c1903febdd9fa3a2e8",
+      "before_sha256": "36a0b194a8a15c2cdb9271cee2385a39cec1430434640171dd64742b924eada0"
+    },
+    {
+      "file": "src/components/LessonProgressToggle.css",
+      "sha256": "5ae993215d2b5d8be9c7c3a999d40734a46c1ea0032f97f845814c366eb986db",
+      "before_sha256": "76c645e77857a69ecc6aa8c70719ee0f492ff7509488dbd93f241989c0c4f7ae"
+    },
+    {
+      "file": "src/components/onboarding/Onboarding.css",
+      "sha256": "22ebf772f7b5f7dfdc84d61e0dafc3bc2ac467769c39dfeedb5a701a31378c64",
+      "before_sha256": "39877d27f35b5bcb7b60c344c1ec17a58e90af31ad08b2d9e8fac47fc7fb1817"
+    },
+    {
+      "file": "src/components/onboarding/Onboarding.tsx",
+      "sha256": "81d5da64ed49ae2dbc37af485b9ab93054af04f6fc9172c03fb71f57509dcfab",
+      "before_sha256": "bc901b2c80db617c45b1dfa3207db84f2ba90cd0efcc74903021fdcb8535578c"
+    },
+    {
+      "file": "src/components/onboarding/tours.ts",
+      "sha256": "1d9c7b3aa7ea99f2089ac3f0916e2f61389236c488209bf0eeccd96084b2e7d9",
+      "before_sha256": "ed4b8de6e1b45c7c41d5215b911038ba5fec5bcc8698008d06b4e1aefeca070b"
+    },
+    {
+      "file": "src/components/pcb/pcb-viewer.css",
+      "sha256": "290ee309a1c2cad6ba31f6c99960153998e3808ab927c564df03463454880cf9",
+      "before_sha256": "5c8776620667845e23a48278af57eaec1a5fd69541c43a9507bfeea703179769"
+    },
+    {
+      "file": "src/components/pcb/Pcb2DViewer.tsx",
+      "sha256": "8427619bbfde7d2171e34fd996d4e41bb7a54f6b13124a70c850821be98ea76e",
+      "before_sha256": "e976b3c1dde7db14a28cdbeda86e6ff88692552e2727c259f83b59c88e4dcb00"
+    },
+    {
+      "file": "src/components/SiteNavigation.css",
+      "sha256": "23680bbe7231752271ab967c1fe897146cffa448d21c6e6a90705b49e1c3bf6c",
+      "before_sha256": "82641c34ca18dd2e605eee8640642229bcbecd1e1caf046c393d0f9082d99a89"
+    },
+    {
+      "file": "src/components/spice/SpiceProbeMap.css",
+      "sha256": "e75f0d8b99095e64651de0455a340718f225e371842a767b38676f46a55195ad",
+      "before_sha256": "393f392976e6ecc3c360e78afd1a6ab0109b519d5d3ce7c8a44a48e46e6f0531"
+    },
+    {
+      "file": "src/lib/theme.ts",
+      "sha256": "784ba596296221afc18f7f66d925ba1a10894e1359df3fbbc97f70fa849e68f1",
+      "before_sha256": null
+    },
+    {
+      "file": "src/pages/AppHomePage.css",
+      "sha256": "3d24420ad28774b4c2067c1c1af1b924ff870486c98a6323f8ce9db9af6d4698",
+      "before_sha256": "f2d3bb785c59f9eb456d44eba1333175443ad2c049472932081dee9b5a479958"
+    },
+    {
+      "file": "src/pages/ClassroomKitPage.css",
+      "sha256": "52e89aeb195bdf09a204980f31028a711f387e9b9d09afd615b559bafcedef0a",
+      "before_sha256": "f525ac99aaadc5692179bacf336bff75422aad02c97c0e12f0e070584d4bbba4"
+    },
+    {
+      "file": "src/pages/Community.css",
+      "sha256": "9ab7f6d3db3018591a969f9dbbbd0c16fc138bb24ab85c94138d317140e816b5",
+      "before_sha256": "615a9d5676132b14cba55cad759d21b7e856aa463c019042b399d4fe2ad4b551"
+    },
+    {
+      "file": "src/pages/ElectronicsCalculatorsPage.css",
+      "sha256": "68fdb514bd9f7d29d6de0400a1019304b1e7db6a85f29b9284c882fb3bbcaa65",
+      "before_sha256": "f92028c191758fafc68e711ada41c6e36a24676c28b880bb8f43b0ed4ca4ecfc"
+    },
+    {
+      "file": "src/pages/FirmwareHexToolPage.css",
+      "sha256": "8feac9eb4b8573714553b7d3b2d49090d6367434c00e00f778d2a9be92772c60",
+      "before_sha256": "e7d76df4b91e96b7ed27817fae74ee7fb45fde0a54362e316d7f5b1c146ff82c"
+    },
+    {
+      "file": "src/pages/LessonPreflightPage.css",
+      "sha256": "3578341f8c86c30f617b05d85aed62f7178cd3c51eac0d6dfcb0bd980f6af642",
+      "before_sha256": "e4d577472823933eeb6b959e46657597f249b60ca434945f72664e68b3f032aa"
+    },
+    {
+      "file": "src/pages/RobotSimulationLessonPage.css",
+      "sha256": "4c5a318cb2f9de2aa2c8875d5f8865cf7aa4a9d40acc92b463df69f88d76c08e",
+      "before_sha256": "0342ad79025f63dcbb38d5bc623449dbba51d05ad1ba780799224f28bd76a046"
+    },
+    {
+      "file": "src/pages/SketchRunnerPage.css",
+      "sha256": "e9dc72e91a5b743ca24d5bc50a99b13ae5e393622632646eb32685e6078d5750",
+      "before_sha256": "5717a30be568c16889845c9620d150dac67a8e79ead3ae60622151a3e9f9b5d3"
+    },
+    {
+      "file": "src/pages/SpiceWorkbenchPage.css",
+      "sha256": "63139e788e898e387afd2b2f38593886391d256a31eaaa3c83e0b8720a4ad901",
+      "before_sha256": "32b433fabee740f7958f4b8ea0aba05c131141d3f63ab33dc1e8f31b98971580"
+    },
+    {
+      "file": "src/styles/app.css",
+      "sha256": "6931660aa076db45dd85feb55314f8507681eccba3be3ec41c5c8e08c5785fbc",
+      "before_sha256": "3e974de0bd175321be8ffe54006146e065f1a165038bd01f7140e654647b5e43"
+    },
+    {
+      "file": "src/styles/one-screen.css",
+      "sha256": "50c196c6969c355f236eca7526cbabec5da01dfe3af23c7c11630670711d8206",
+      "before_sha256": "7d9d523dd4d988a0046d19da96ff71582ecae92b7924548ba03dec42c873e8a7"
+    },
+    {
+      "file": "src/styles/redesign.css",
+      "sha256": "ecc29cd2648404ada016707dbc142610d4628f7ae4dd036ec5e5d7e2b5d5651d",
+      "before_sha256": "c476e0a6818d451e2febe76971c84ef67bde9c788340031cba204064fa809434"
+    },
+    {
+      "file": "src/styles/tokens.css",
+      "sha256": "ab1ba190e788c60dcc89fa86f8e8763e1050b7e8a3f95f5cc58ad8e6c648219f",
+      "before_sha256": "b0bd93f091c3a5be1eb96646ebcda60ae3abecf09373830b62ea2a67c98199dc"
+    },
+    {
+      "file": "e2e/journeys.spec.mjs",
+      "sha256": "9d9159ec358641a36177d8994e288c861feab1ba1597c3738c8433a1c4b24c4b",
+      "before_sha256": "4a2230aa2f119abdbffa8215c30c0fef4e898f248958a5cd26eba766c2c62cad"
+    },
+    {
+      "file": "e2e/onboarding-tour.spec.mjs",
+      "sha256": "ef827e672db1705408449f23021740f31feb09a37a6479b1e827c6faf8b61d7b",
+      "before_sha256": "ee232be10ff3185973f1919b508aeb90f514ffb6f66cb569f5715e4b602fc5be"
+    },
+    {
+      "file": "e2e/route-card-contrast.spec.mjs",
+      "sha256": "1ad63d284fad2822e356e45db09e3e7c6bfc98851643891cedafd941db146049",
+      "before_sha256": null
+    },
+    {
+      "file": "e2e/theme.spec.mjs",
+      "sha256": "4ecf751a87f6111d793db4fd0691bcd5079575e730d080487e7ef493310e7384",
+      "before_sha256": null
+    },
+    {
+      "file": "tests/onboarding-tours.test.mjs",
+      "sha256": "2d62a58dfa5928b5d06891fd1e096524c63309b2244b518d1c1d4729955ccac7",
+      "before_sha256": "03cb23aed0ea2c08045648e8054243482b109fc7e7158df22fa6cb314420bda7"
+    },
+    {
+      "file": "tests/theme.test.mjs",
+      "sha256": "53d7b67fcecf8fe0e3e847b5b7d6470a2f83fc5dfac88c90a69069c1e1df16d9",
+      "before_sha256": null
+    },
+    {
+      "file": "index.html",
+      "sha256": "cec21ce7782142aba44d322098b0e2eb9de1984b5533c82e00ac78f0862d95ee",
+      "before_sha256": "ffbcb8f290c2c798860d5446d28f298e99975d1a4945665ad676f0d9c27665a1"
+    }
+  ],
+  "metrics": {
+    "before": {
+      "fontsBelow13": 858,
+      "fontsBelow12": 652,
+      "hardcodedColors": 1582,
+      "colorsOutsideTokens": 1546,
+      "appColors": 806
+    },
+    "after": {
+      "fontsBelow13": 12,
+      "fontsBelow12": 9,
+      "hardcodedColors": 1428,
+      "colorsOutsideTokens": 1192,
+      "appColors": 617
+    }
+  },
+  "svg_exceptions": [
+    {
+      "file": "src/components/builder/BreadboardEditor.css",
+      "line": 79,
+      "selector": ".diagram-board-note",
+      "value": "11px system-ui, sans-serif",
+      "reason": "SVG viewBox coordinates; readable details also available in HTML inspector and zoom controls"
+    },
+    {
+      "file": "src/components/builder/BreadboardEditor.css",
+      "line": 85,
+      "selector": ".diagram-board-pin text",
+      "value": "11px ui-monospace, monospace",
+      "reason": "SVG viewBox coordinates; readable details also available in HTML inspector and zoom controls"
+    },
+    {
+      "file": "src/components/builder/BreadboardEditor.css",
+      "line": 100,
+      "selector": ".diagram-row-labels,.diagram-rail-labels",
+      "value": "700 10px ui-monospace, monospace",
+      "reason": "SVG viewBox coordinates; readable details also available in HTML inspector and zoom controls"
+    },
+    {
+      "file": "src/components/builder/BreadboardEditor.css",
+      "line": 101,
+      "selector": ".diagram-trench-label",
+      "value": "9px",
+      "reason": "SVG viewBox coordinates; readable details also available in HTML inspector and zoom controls"
+    },
+    {
+      "file": "src/components/builder/BreadboardEditor.css",
+      "line": 116,
+      "selector": ".diagram-bench-lane text",
+      "value": "700 10px ui-monospace, monospace",
+      "reason": "SVG viewBox coordinates; readable details also available in HTML inspector and zoom controls"
+    },
+    {
+      "file": "src/components/builder/BreadboardEditor.css",
+      "line": 119,
+      "selector": ".diagram-button-mark",
+      "value": "700 10px ui-monospace, monospace",
+      "reason": "SVG viewBox coordinates; readable details also available in HTML inspector and zoom controls"
+    },
+    {
+      "file": "src/components/builder/BreadboardEditor.css",
+      "line": 126,
+      "selector": ".diagram-component-value",
+      "value": "700 11px system-ui, sans-serif",
+      "reason": "SVG viewBox coordinates; readable details also available in HTML inspector and zoom controls"
+    },
+    {
+      "file": "src/components/builder/BreadboardEditor.css",
+      "line": 159,
+      "selector": ".diagram-level-pill text",
+      "value": "700 10px/1 var(--mm-font-mono, Consolas, monospace)",
+      "reason": "SVG viewBox coordinates; readable details also available in HTML inspector and zoom controls"
+    },
+    {
+      "file": "src/components/builder/CircuitSchematicV2.css",
+      "line": 13,
+      "selector": ".schematic-title-block text",
+      "value": "600 12px ui-monospace,monospace",
+      "reason": "SVG viewBox coordinates; readable details also available in HTML inspector and zoom controls"
+    },
+    {
+      "file": "src/components/builder/CircuitSchematicV2.css",
+      "line": 26,
+      "selector": ".schematic-net-reference,.schematic-role-marker text",
+      "value": "600 12px system-ui,sans-serif",
+      "reason": "SVG viewBox coordinates; readable details also available in HTML inspector and zoom controls"
+    },
+    {
+      "file": "src/components/builder/CircuitSchematicV2.css",
+      "line": 35,
+      "selector": ".schematic-terminal text",
+      "value": "12px system-ui,sans-serif",
+      "reason": "SVG viewBox coordinates; readable details also available in HTML inspector and zoom controls"
+    },
+    {
+      "file": "src/components/pcb/pcb-viewer.css",
+      "line": 82,
+      "selector": ".pcb-reference text",
+      "value": ".9px ui-monospace, monospace",
+      "reason": "SVG viewBox coordinates; readable details also available in HTML inspector and zoom controls"
+    }
+  ],
+  "evidence": [
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/unit.log",
+      "stage": "final_verification",
+      "sha256": "995e2c7e0ec24eea420f5ca20ce7d1ff7b6f17954c5b505d89faad31346846a1"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/final-focused-unit.log",
+      "stage": "scoped_regression_pass",
+      "sha256": "b4cf1b81682e571e8287b10712eda02357b5ddc458e14a54dc74985f958394a8"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/typecheck-final.log",
+      "stage": "final_verification",
+      "sha256": "aed1c139a3382e941c2db5a93942e7071a48537206764175bd26142cb3c23655"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/build.log",
+      "stage": "final_verification",
+      "sha256": "2d591b66941a9d3d756fb91b1b68e9d1729ce706e2bd58d8e27664b1c95b434f"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/e2e-final.log",
+      "stage": "final_verification",
+      "sha256": "fbfd756dff1d33544b2585cebf743c958369db1989a28065e59b1e82e1a3f341"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/audit-light-final.log",
+      "stage": "final_verification",
+      "sha256": "1e8299aecf19af1b3701d7ae1240566f054e38cade179f4052fc94d7884793f2"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/audit-dark-final.log",
+      "stage": "final_verification",
+      "sha256": "1e8299aecf19af1b3701d7ae1240566f054e38cade179f4052fc94d7884793f2"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/wp0-unit.log",
+      "stage": "baseline",
+      "sha256": "54f4d95094a0db6b8dd1f33953950eaaffbb2ee28302dc242ab24c4e52a0428e"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/wp0-e2e.log",
+      "stage": "baseline",
+      "sha256": "70cc15f6c5a82edfdccbaaf1130968bea9b3ccf33e854ded4629d30d9c1f309e"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/menu-red.log",
+      "stage": "intermediate_failure_reproduction",
+      "sha256": "73fdb29c5a010251288b30d801bf3127096f7d5966b6bd82e5aecf123151c641"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/focused-e2e.log",
+      "stage": "intermediate_failure_reproduction",
+      "sha256": "ab782fe7f3a587ae0d12a50030772fed3583a0b7e33a3ee34601cfec3faa364a"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/focused-final.log",
+      "stage": "intermediate_failure_reproduction",
+      "sha256": "666ac97517b2cdba85aa164e2700b1796356d247e205cd1e6dd036b0ffd138ee"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/mobile-final.log",
+      "stage": "scoped_regression_pass",
+      "sha256": "3db27422d3a1e02bd0d5eb3cd546d58d14fb913218df7283d53ab20ab250868a"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/card-red.log",
+      "stage": "intermediate_failure_reproduction",
+      "sha256": "1408a46c052bfb084ef4318631b9770153591ef210a1f4f34b85489d4fa972c1"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/card-final.log",
+      "stage": "scoped_regression_pass",
+      "sha256": "ef8cce75fde9e913a35870ac71f0e478cf74729bd38308c9e95af24178d791d7"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/e2e-mobile-regression.log",
+      "stage": "intermediate_failure_reproduction",
+      "sha256": "67931b8fdeaab91f7463a923b9f1674cc926400a0d2de6e8927a7ce7cb91145a"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/e2e-130-pass-before-card-fix.log",
+      "stage": "previous_snapshot_pass",
+      "sha256": "cc8b79a3e55d6076638cdf7842f97b44c1a58a4db67dd26dd8d9a2f4a0749021"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/route-audit-final12-light-both.json",
+      "stage": "final_verification",
+      "sha256": "9135e3a809cdea627b470ce81321e713cf5104df9edd4386c5df9affcfceda45"
+    },
+    {
+      "file": "docs/claude-support/2026-11-14-web-ui-ux-review/validation12/route-audit-final12-dark-both.json",
+      "stage": "final_verification",
+      "sha256": "cb381e4ff39ae7fb4cb78936fe927043a553854da145cf376504271bbf33f84c"
+    }
+  ]
+}

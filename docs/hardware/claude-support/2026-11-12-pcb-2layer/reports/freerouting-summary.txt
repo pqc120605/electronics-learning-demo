@@ -1,0 +1,64 @@
+== handset
+freerouting rc 0 354s
+ses import: True
+tracks 774
+620E34] Optimization stage completed:. Baseline router score: 1000.00, baseline optimizer score: 462.64, final router score: 1000.00, final optimizer score: 489.46, completed in 293.77 second
+620E34] Job '2FBBE7\620E34' finished with state: COMPLETED (elapsed: 5 minutes 35.40 seconds, finished at UTC: 2026-11-13T11:39:07.358094500Z).
+Found 0 violations
+Found 68 violations
+Found 1 unconnected items
+Found 0 schematic parity issues
+     44 [silk_over_copper]
+     23 [silk_overlap]
+      1 [unconnected_items]
+      1 [track_width]
+-- non-silk details
+[track_width]: Track width (board setup constraints min width 0.1500 mm; actual 0.1200 mm)
+    @(64.1816 mm, 19.7240 mm): Track [/B6_G] on F.Cu, length 0.1383 mm
+[silk_overlap]: Silkscreen clearance
+[unconnected_items]: Missing connection between items
+    @(64.8000 mm, 18.0250 mm): Track [/GND] on F.Cu, length 0.3182 mm
+    @(60.7750 mm, 22.7500 mm): Track [/GND] on F.Cu, length 1.0963 mm
+== robot
+WARN region overflow Q2 (37.5, 31.8, 54.5, 38.8)
+freerouting rc 0 437s
+ses import: True
+tracks 1655
+4BD3C8] Job '4447CF\4BD3C8' finished with state: COMPLETED (elapsed: 7 minutes 11.19 seconds, finished at UTC: 2026-11-13T11:49:50.402857200Z).
+Found 0 violations
+Found 184 violations
+Found 26 unconnected items
+Found 0 schematic parity issues
+     70 [silk_overlap]
+     68 [silk_over_copper]
+     26 [unconnected_items]
+     22 [via_dangling]
+      8 [solder_mask_bridge]
+      8 [shorting_items]
+      8 [courtyards_overlap]
+-- non-silk details
+[shorting_items]: Items shorting two nets (nets /STAT_K and /VAA2)
+    @(20.1625 mm, 52.7500 mm): Pad 1 [/STAT_K] of D5 on F.Cu
+    @(20.3250 mm, 52.8000 mm): Pad 1 [/VAA2] of R1 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CE_N and /VPACK2)
+    @(12.8750 mm, 52.7500 mm): Pad 1 [/CE_N] of R9 on F.Cu
+    @(13.6375 mm, 54.0000 mm): Pad 2 [/VPACK2] of F1 on F.Cu
+[shorting_items]: Items shorting two nets (nets /VBUS_CHG and /Q1_G)
+    @(16.4750 mm, 52.7500 mm): Pad 1 [/VBUS_CHG] of R10 on F.Cu
+    @(16.1125 mm, 52.8000 mm): Pad 1 [/Q1_G] of Q1 on F.Cu
+[shorting_items]: Items shorting two nets (nets /Q1_G and /CHG_CC1)
+    @(23.9750 mm, 52.8000 mm): Pad 1 [/Q1_G] of R2 on F.Cu
+    @(23.7750 mm, 52.7500 mm): Pad 1 [/CHG_CC1] of R3 on F.Cu
+[shorting_items]: Items shorting two nets (nets /VPACK_RAW and /TS_NET)
+    @(9.3625 mm, 54.0000 mm): Pad 1 [/VPACK_RAW] of F1 on F.Cu
+    @(9.1750 mm, 52.7500 mm): Pad 1 [/TS_NET] of R8 on F.Cu
+[shorting_items]: Items shorting two nets (nets /Q1_G and /STAT_A)
+    @(21.9750 mm, 52.8000 mm): Pad 2 [/Q1_G] of R1 on F.Cu
+    @(21.7375 mm, 52.7500 mm): Pad 2 [/STAT_A] of D5 on F.Cu
+[shorting_items]: Items shorting two nets (nets /VPACK2 and /GND)
+    @(13.6375 mm, 54.0000 mm): Pad 2 [/VPACK2] of F1 on F.Cu
+    @(14.5250 mm, 52.7500 mm): Pad 2 [/GND] of R9 on F.Cu
+[shorting_items]: Items shorting two nets (nets /CHG_CC2 and /VPACK_RAW)
+    @(9.1750 mm, 54.9000 mm): Pad 1 [/CHG_CC2] of R4 on F.Cu
+    @(9.3625 mm, 54.0000 mm): Pad 1 [/VPACK_RAW] of F1 on F.Cu
+== done

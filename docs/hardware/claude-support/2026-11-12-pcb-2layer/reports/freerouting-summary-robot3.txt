@@ -1,0 +1,29 @@
+parts 139 nets 114 tracks 0 vias 0 failed 0 time 0s
+
+
+dsn export: True
+Traceback (most recent call last):
+  File "D:\StartupOS\electronics-learning-demo\docs\hardware\claude-support\2026-11-12-pcb-2layer\kicad\tools\fr_route.py", line 16, in <module>
+    r = subprocess.run([JAVA, "-jar", JAR, "-de", dsn, "-do", ses, "-mp", passes, "--gui.enabled=false"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\StartupOS\.tools\kicad-10.0.7\bin\Lib\subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\StartupOS\.tools\kicad-10.0.7\bin\Lib\subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\StartupOS\.tools\kicad-10.0.7\bin\Lib\subprocess.py", line 1628, in _communicate
+    raise TimeoutExpired(self.args, orig_timeout)
+subprocess.TimeoutExpired: Command '['D:\\StartupOS\\.tools\\jre\\jdk-25.0.5+8-jre\\bin\\java.exe', '-jar', 'D:\\StartupOS\\.tools\\freerouting\\freerouting.jar', '-de', 'D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\robot\\mobot-robot.dsn', '-do', 'D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\robot\\mobot-robot.ses', '-mp', '10', '--gui.enabled=false']' timed out after 2400 seconds
+yer\kicad\robot\mobot-robot.ses' (109762 bytes).
+
+
+ses import: True
+tracks 1587
+Found 103 violations
+Found 15 unconnected items
+Found 0 schematic parity issues
+Saved DRC Report to reports/robot-drc.rpt
+     55 [silk_over_copper]
+     48 [silk_overlap]
+     15 [unconnected_items]

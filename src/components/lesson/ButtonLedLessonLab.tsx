@@ -9,7 +9,9 @@ import { buttonLedEndpointKey, getButtonLedLessonFrame, getButtonLedLessonTrace,
 import type { CircuitDocV2, CircuitEndpointV2 } from '../../lib/circuitDocV2'
 import { addWire, editWireEndpoint, removeWire, setWireRole, type CircuitDocEditResult } from '../../lib/circuitDocEdits'
 import { createNetIndexV2 } from '../../lib/circuitNetsV2'
+import { evaluateCircuitGates } from '../../lib/circuitGates'
 import type { LessonPreflight, PreflightBoardNotice } from '../../lib/lessonPreflight'
+import { CircuitGatePanel } from './CircuitGatePanel'
 import { occupancy } from '../../lib/mountResolve'
 import type { useLearningProgress } from '../../lib/useLearningProgress'
 import type { CircuitEndpoint } from '../../types/circuitTopology'
@@ -18,10 +20,11 @@ import { LearningActivity } from '../LearningActivity'
 import { BreadboardEditor, wireRoleLabels } from '../builder/BreadboardEditor'
 import { CircuitSchematicV2 } from '../builder/CircuitSchematicV2'
 import './ButtonLedLessonLab.css'
+import { GuideContextBridge } from '../guide/GuideContext'
 
 const AssemblyStage = lazy(() => import('../builder/AssemblyStage').then(module => ({ default: module.AssemblyStage })))
 const stageViews = [['breadboard', 'Breadboard'], ['schematic', 'Sơ đồ'], ['assembly', '3D']] as const
-const inspectorTabs = [['overview', 'Tổng quan'], ['parts', 'Linh kiện'], ['code', 'Code'], ['trace', 'Trace']] as const
+const inspectorTabs = [['overview', 'Bài học'], ['parts', 'Linh kiện'], ['checks', 'Kiểm tra'], ['code', 'Code'], ['trace', 'Trace']] as const
 const mobileViews = [['circuit', 'Mạch'], ['schematic', 'Sơ đồ'], ['code', 'Code'], ['details', 'Chi tiết']] as const
 const noOp = () => {}
 const modelPinFallback = () => ({ x: 0, y: 0 })
@@ -64,6 +67,8 @@ function endpointConflict(wire: LessonWire, wires: readonly LessonWire[]) {
   return duplicate ? `Dây ${duplicate.id} đã nối ${from} với ${to}.` : undefined
 }
 
+import {lessonBoardPresentation} from '../../lib/lessonBoardPresentation'
+
 export function ButtonLedLessonLab({ preflight, boardId, boardNotice, boardOptions, onBoardChange, position, total, stage, previous, next, progress, routeFor }: Props) {
   const { lesson, target } = preflight
   const [doc, setDoc] = useState(() => getLessonCircuitDoc('button-led')!)
@@ -82,9 +87,12 @@ export function ButtonLedLessonLab({ preflight, boardId, boardNotice, boardOptio
   const [editorVersion, setEditorVersion] = useState(0)
   const nextWireNumber = useRef(0)
   const mountedBoardId = useRef(boardId)
+  const boardCodeDrafts=useRef<Record<string,string>>({})
 
   useEffect(() => {
     if (mountedBoardId.current !== boardId) {
+      boardCodeDrafts.current[mountedBoardId.current]=code
+      setCode(boardCodeDrafts.current[boardId]??sampleCode(target))
       mountedBoardId.current = boardId
       setRun(null)
       setPlaying(false)
@@ -93,6 +101,7 @@ export function ButtonLedLessonLab({ preflight, boardId, boardNotice, boardOptio
 
   const trace = useMemo(() => getButtonLedLessonTrace({ doc, code, boardId, pressed }, run), [doc, code, boardId, pressed, run])
   const frame = useMemo(() => getButtonLedLessonFrame({ doc, code, boardId, pressed }, run, step), [doc, code, boardId, pressed, run, step])
+  const gateReport = useMemo(() => evaluateCircuitGates(doc), [doc])
   const isPlaying = playing && trace.status === 'ready' && !reduceMotion
   useEffect(() => {
     const preference = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)')
@@ -248,6 +257,7 @@ export function ButtonLedLessonLab({ preflight, boardId, boardNotice, boardOptio
   }
 
   return <div className="button-lab" data-mobile-view={mobileView}>
+    <GuideContextBridge snapshot={{owner:'button-led-lesson',priority:100,lesson:'Nút nhấn điều khiển LED',board:{id:boardId,name:target.name,reference:Boolean(boardNotice)},part:part&&definition?{id:part.id,type:part.type,name:part.type==='resistor'?'Điện trở':definition.label,summary:definition.explanation,pins:definition.pins.map(pin=>pin.label),note:definition.safetyNotes}:undefined,status:trace.status==='ready'?'Trace bài học sẵn sàng':trace.message,issues:[...(boardNotice?[boardNotice.message]:[]),...(trace.message?[trace.message]:[]),...(notice?.error?[notice.message]:[])].slice(0,3)}} />
     <aside className="button-lab-rail" aria-label="Bài học và tiến độ">
       <Link className="button-lab-path" to={routeFor('/topics')}>Lộ trình</Link>
       <h1>{lesson.title}</h1>
@@ -275,8 +285,8 @@ export function ButtonLedLessonLab({ preflight, boardId, boardNotice, boardOptio
         <div hidden={view !== 'breadboard'}>
           <BreadboardProjection doc={doc} activeKeys={frame.activeKeys} activeWireIds={activeWireIds} selectedEndpoints={selectedEndpoints}
             selectedWireIds={selectedWireId ? new Set([selectedWireId]) : selectedNet?.wireIds}>
-            <BreadboardEditor key={editorVersion} doc={doc} selectedWireId={selectedWireId} pendingEndpoint={null} activeWireIds={activeWireIds}
-              onSelectEndpoint={selectEndpoint} onSelectWire={id => selectConnection('wire', id)}
+            <BreadboardEditor presentation={lessonBoardPresentation(target,'button-led')} key={editorVersion} doc={doc} selectedWireId={selectedWireId} pendingEndpoint={null} activeWireIds={activeWireIds}
+              onSelectEndpoint={selectEndpoint} onSelectPart={selectPart} onSelectWire={id => selectConnection('wire', id)}
               onCommitWire={commitWire} onEditWireEndpoint={changeWireEndpoint}
               onSetWireRole={(id, role) => updateCircuit(setWireRole(doc, id, role))}
               onRemoveWire={id => updateCircuit(removeWire(doc, id))} notice={notice?.message}
@@ -285,7 +295,7 @@ export function ButtonLedLessonLab({ preflight, boardId, boardNotice, boardOptio
           </BreadboardProjection>
         </div>
         {view === 'schematic' && <SchematicProjection doc={doc} selectedNetKey={selectedNet?.key}>
-          <CircuitSchematicV2 doc={doc} selectedKey={partId} selectedWireId={projectedWireId} activeKeys={frame.activeKeys}
+          <CircuitSchematicV2 boardLabel={target.name} boardPinLabels={lessonBoardPresentation(target,'button-led').pinLabels} doc={doc} selectedKey={partId} selectedWireId={projectedWireId} activeKeys={frame.activeKeys}
             onSelectPart={selectPart} onSelectWire={id => selectConnection('wire', id)} onSelectNet={id => selectConnection('net', id)} />
         </SchematicProjection>}
         {view === 'assembly' && !boardNotice && <Suspense fallback={<p role="status">Đang mở cảnh 3D…</p>}>
@@ -350,6 +360,10 @@ export function ButtonLedLessonLab({ preflight, boardId, boardNotice, boardOptio
               <small>{wireRoleLabels[wire.role ?? 'signal']} · Net <code>{netIndex.netOf(buttonLedEndpointKey(wire.from))?.key ?? 'chưa xác định'}</code></small>
             </button>
           </li>)}</ul></details>
+        </div>
+
+        <div className="button-lab-pane button-lab-checks-pane" hidden={tab !== 'checks'}>
+          <CircuitGatePanel report={gateReport} />
         </div>
 
         <div className="button-lab-pane button-lab-code-pane" hidden={tab !== 'code'}>
@@ -427,10 +441,17 @@ function BreadboardProjection({ doc, activeKeys, activeWireIds, selectedEndpoint
   useLayoutEffect(() => {
     const root = container.current
     if (!root) return
-    const elements = new Map(Array.from(root.querySelectorAll<HTMLElement>('[data-circuit-endpoint]'), element => [element.dataset.circuitEndpoint, element]))
-    for (const [key, element] of elements) {
-      element.toggleAttribute('data-lesson-active', Boolean(key && activeKeys.has(key)))
-      element.toggleAttribute('data-lesson-selected', Boolean(key && selectedEndpoints.has(key)))
+    const endpointElements = new Map<string, HTMLElement[]>()
+    for (const element of root.querySelectorAll<HTMLElement>('[data-circuit-endpoint]')) {
+      const key = element.dataset.circuitEndpoint
+      if (key) endpointElements.set(key, [...(endpointElements.get(key) ?? []), element])
+    }
+    const elements = new Map([...endpointElements].map(([key, matches]) => [key, matches[matches.length - 1]]))
+    for (const [key, matches] of endpointElements) {
+      for (const element of matches) {
+        element.toggleAttribute('data-lesson-active', activeKeys.has(key))
+        element.toggleAttribute('data-lesson-selected', selectedEndpoints.has(key))
+      }
     }
     const grid = root.querySelector('.breadboard-editor-scroll')
     let pending = 0

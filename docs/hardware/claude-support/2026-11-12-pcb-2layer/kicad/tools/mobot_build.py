@@ -181,7 +181,7 @@ def write_schematic(design, parts, path, project):
 def write_project(path, name, rules):
     pro = {
         "board": {"design_settings": {"defaults": {}, "rules": {
-            "min_clearance": rules["clearance"], "min_track_width": 0.2, "min_via_diameter": 0.6,
+            "min_clearance": rules["clearance"], "min_track_width": 0.15, "min_via_diameter": 0.6,
             "min_through_hole_diameter": 0.3, "min_via_annular_width": 0.13, "min_copper_edge_clearance": 0.3,
             "min_hole_clearance": 0.15, "min_hole_to_hole": 0.25, "solder_mask_to_copper_clearance": 0.0}}},
         "net_settings": {"classes": [{"name": "Default", "clearance": rules["clearance"], "track_width": 0.2,
@@ -189,7 +189,14 @@ def write_project(path, name, rules):
                                        "microvia_drill": 0.1, "diff_pair_width": 0.2, "diff_pair_gap": 0.25,
                                        "diff_pair_via_gap": 0.25, "wire_width": 6, "bus_width": 12,
                                        "line_style": 0, "pcb_color": "rgba(0, 0, 0, 0.000)",
+                                       "schematic_color": "rgba(0, 0, 0, 0.000)"},
+                                      {"name": "Power", "clearance": rules["clearance"], "track_width": 0.4,
+                                       "via_diameter": 0.6, "via_drill": 0.3, "microvia_diameter": 0.3,
+                                       "microvia_drill": 0.1, "diff_pair_width": 0.2, "diff_pair_gap": 0.25,
+                                       "diff_pair_via_gap": 0.25, "wire_width": 6, "bus_width": 12,
+                                       "line_style": 0, "pcb_color": "rgba(0, 0, 0, 0.000)",
                                        "schematic_color": "rgba(0, 0, 0, 0.000)"}],
+                         "netclass_patterns": [{"netclass": "Power", "pattern": "/" + n} for n in rules.get("power", [])],
                          "meta": {"version": 3}},
         "meta": {"filename": name + ".kicad_pro", "version": 3},
         "schematic": {"legacy_lib_dir": "", "legacy_lib_list": []},
@@ -378,7 +385,7 @@ def build(design_name, do_route=True):
         p = dict(p); p["pins"] = nums; p.setdefault("names", {}); p.setdefault("block", "Khác")
         parts.append(p); fps[p["ref"]] = fp
     write_schematic(D, parts, os.path.join(outdir, proj + ".kicad_sch"), proj)
-    write_project(os.path.join(outdir, proj + ".kicad_pro"), proj, {"clearance": clearance})
+    write_project(os.path.join(outdir, proj + ".kicad_pro"), proj, {"clearance": clearance, "power": sorted(D.get("netclass", {}))})
     # ---- board
     board = pcbnew.BOARD()
     board.GetDesignSettings().SetCopperLayerCount(2)
@@ -401,7 +408,7 @@ def build(design_name, do_route=True):
             fp.SetPosition(pcbnew.VECTOR2I(0, 0)); fp.SetOrientationDegrees(rot)
             a = courtyard_box(fp)
             if r.startswith("U"):
-                a = (a[0] - 1.0, a[1] - 1.0, a[2] + 1.0, a[3] + 1.0)
+                a = (a[0] - 0.5, a[1] - 0.5, a[2] + 0.5, a[3] + 0.5)
             w, h = a[2] - a[0], a[3] - a[1]
             if cx + w > x1 and cx > x0:
                 cx = x0; cy += rowh + gap; rowh = 0
@@ -441,10 +448,18 @@ def build(design_name, do_route=True):
                     ni_ = pcbnew.NETINFO_ITEM(board, un); board.Add(ni_); unets[un] = ni_
                 pd.SetNet(unets[un])
     # outline
-    pts = [(0, 0), (W, 0), (W, H), (0, H)]
-    for i in range(4):
+    # rounded corners (radius CR): 4 straight edges + 4 quarter arcs
+    CR = float(D.get("corner_r", 3.0)); k = CR * (1 - 0.7071067811865476)
+    def _v(x, y):
+        return pcbnew.VECTOR2I(MM(x), MM(y))
+    for (a, c) in (((CR, 0), (W - CR, 0)), ((W, CR), (W, H - CR)), ((W - CR, H), (CR, H)), ((0, H - CR), (0, CR))):
         s = pcbnew.PCB_SHAPE(board); s.SetShape(pcbnew.SHAPE_T_SEGMENT)
-        s.SetStart(pcbnew.VECTOR2I(MM(pts[i][0]), MM(pts[i][1]))); s.SetEnd(pcbnew.VECTOR2I(MM(pts[(i + 1) % 4][0]), MM(pts[(i + 1) % 4][1])))
+        s.SetStart(_v(*a)); s.SetEnd(_v(*c))
+        s.SetLayer(pcbnew.Edge_Cuts); s.SetWidth(MM(0.1)); board.Add(s)
+    for (a, m, c) in (((0, CR), (k, k), (CR, 0)), ((W - CR, 0), (W - k, k), (W, CR)),
+                      ((W, H - CR), (W - k, H - k), (W - CR, H)), ((CR, H), (k, H - k), (0, H - CR))):
+        s = pcbnew.PCB_SHAPE(board); s.SetShape(pcbnew.SHAPE_T_ARC)
+        s.SetArcGeometry(_v(*a), _v(*m), _v(*c))
         s.SetLayer(pcbnew.Edge_Cuts); s.SetWidth(MM(0.1)); board.Add(s)
     for (txt, x, y, sz) in D.get("silk", []):
         t = pcbnew.PCB_TEXT(board); t.SetText(txt); t.SetPosition(pcbnew.VECTOR2I(MM(x), MM(y)))
@@ -598,13 +613,13 @@ def build(design_name, do_route=True):
         v.SetDrill(MM(VIA_DRILL)); v.SetNet(nets[idnet[nid]]); board.Add(v)
     # zones
     gnd = D.get("gnd", "GND")
-    for lay in LAY:
+    for lay in (pcbnew.B_Cu,):
         z = pcbnew.ZONE(board); z.SetLayer(lay); z.SetNetCode(nets[gnd].GetNetCode())
         o = z.Outline(); o.NewOutline()
         for (x, y) in ((0.4, 0.4), (W - 0.4, 0.4), (W - 0.4, H - 0.4), (0.4, H - 0.4)):
             o.Append(MM(x), MM(y))
         z.SetMinThickness(MM(0.25)); z.SetLocalClearance(MM(0.25)); z.SetAssignedPriority(0)
-        z.SetThermalReliefGap(MM(0.25)); z.SetThermalReliefSpokeWidth(MM(0.4)); z.SetPadConnection(pcbnew.ZONE_CONNECTION_THT_THERMAL)
+        z.SetThermalReliefGap(MM(0.25)); z.SetThermalReliefSpokeWidth(MM(0.4)); z.SetPadConnection(pcbnew.ZONE_CONNECTION_FULL)
         board.Add(z)
     for (x0, y0, x1, y1) in D.get("keepout", []):
         z = pcbnew.ZONE(board); z.SetIsRuleArea(True)

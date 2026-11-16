@@ -201,7 +201,7 @@ export function BoardViewer({ manifest, selectedSceneId, onSelectScene, selected
     <div className="board-viewer" role="group" aria-label={`Mô hình mạch ${manifest.id} tương tác`}>
       <div className="board-scene-switch" role="group" aria-label="Chế độ xem mạch">{manifest.scenes.map((scene) => <button key={scene.id} type="button" aria-pressed={selectedSceneId === scene.id} className={selectedSceneId === scene.id ? 'board-scene-active' : ''} onClick={() => onSelectScene(scene.id)}>{scene.label}</button>)}</div>
       {manifest.audit && <div className="board-audit-status" role="note"><strong>CAD tham chiếu · {manifest.audit.revision}</strong><span>{manifest.id.startsWith('raspberry-pi-') ? `${manifest.features.filter((feature) => feature.roleEvidence === 'source-backed').length} nhóm đã nhận diện · ${manifest.features.filter((feature) => feature.roleEvidence !== 'source-backed').length} nhóm chưa xác minh` : formatBoardModelStats(getBoardModelStats(manifest))}.{hiddenFootprintCount > 0 && !showFootprints ? ' Mở phần footprint để tra cứu mục chưa có mesh 3D.' : ''}</span></div>}
-      <div ref={stageRef} className="board-viewer-stage">
+      <div ref={stageRef} className="board-viewer-stage mm-keep-light">
         <canvas
           ref={canvasRef}
           className="board-viewer-canvas"

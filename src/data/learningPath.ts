@@ -29,8 +29,8 @@ export function getUnmetPrerequisiteIds(lessonId: BuilderLessonId, completedLess
 
 /** Every lesson opens a page about its goal and board first; blink has the long-form lesson. */
 export function getLessonEntryRoute(lesson: { id: BuilderLessonId }, boardId?: string) {
-  if (lesson.id === 'blink') return '/learn/esp32-led'
-  return `/learn/${lesson.id}${boardId && boardId !== 'esp32-devkit' ? `?board=${encodeURIComponent(boardId)}` : ''}`
+  if (lesson.id === 'blink' && boardId === 'esp32-devkit') return '/learn/esp32-led?board=esp32-devkit'
+  return `/learn/${lesson.id}${boardId ? `?board=${encodeURIComponent(boardId)}` : ''}`
 }
 
 /** Progress records the last lesson opened, not lessons completed. */

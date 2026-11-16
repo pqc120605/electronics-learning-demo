@@ -29,7 +29,9 @@ test('representation levels stay separate facts', () => {
   assert.equal(led.mesh.kind, 'source-cad-mesh')
   const sonar = m.getComponentRepresentations('ultrasonic')
   assert.equal(sonar.schematicSymbol, 'generic')
-  assert.equal(sonar.mesh.kind, 'parametric-mesh')
+  // 2026-11-14: modules are assembled from KiCad library packages; still generic, not vendor CAD.
+  assert.equal(sonar.mesh.kind, 'kicad-assembly')
+  assert.match(sonar.mesh.modelNote, /không phải CAD của hãng/)
   assert.equal(m.getComponentRepresentations('thermistor').mesh.kind, 'parametric-mesh')
   assert.equal(m.getComponentRepresentations('limit-switch').mesh.kind, 'parametric-mesh')
   assert.match(m.getComponentMesh('thermistor').modelNote, /Không gắn mã B/)
@@ -45,7 +47,8 @@ test('common catalog modules have distinct, explicitly generic 3D models', () =>
   for (const id of ['dht22', 'pir', 'photoresistor-module', 'soil', 'mpu6050', 'bmp280', 'ir-receiver', 'lcd1602', 'rotary-encoder', 'rfid']) {
     const mesh = m.getComponentMesh(id)
     assert.ok(mesh, `${id} should have a locally bundled mesh`)
-    assert.equal(mesh.kind, 'parametric-mesh', `${id} must not imply manufacturer CAD`)
+    assert.ok(['parametric-mesh', 'kicad-assembly'].includes(mesh.kind), `${id} must not imply manufacturer CAD`)
+    assert.notEqual(mesh.kind, 'source-cad-mesh')
     assert.match(mesh.modelNote, /tham khảo|minh họa|không phải/i, `${id} should disclose generic geometry`)
     assert.ok(m.components.some((item) => item.id === id), `${id} should correspond to a catalog record`)
     assert.equal(m.getComponentMeshForCatalog(id).id, id)

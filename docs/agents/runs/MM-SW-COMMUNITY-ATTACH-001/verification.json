@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-16",
+  "task": "MM-SW-COMMUNITY-ATTACH-001",
+  "executed_by": "codex_lead",
+  "source_snapshot": "docs/agents/runs/MM-SW-COMMUNITY-ATTACH-001/review-snapshot.json",
+  "source_hashes_match": true,
+  "commands": [
+    {
+      "command": "npm.cmd run typecheck",
+      "exit_code": 0,
+      "log": ".tmp/depth-typecheck-final2.txt"
+    },
+    {
+      "command": "npm.cmd test",
+      "exit_code": 0,
+      "tests": 680,
+      "passed": 680,
+      "failed": 0,
+      "log": ".tmp/depth-full-node-final.txt"
+    },
+    {
+      "command": "node --test tests/lesson-board-selection.test.mjs tests/learning-flow.test.mjs tests/onboarding-tours.test.mjs tests/audit-followup.test.mjs tests/review-pass.test.mjs",
+      "exit_code": 0,
+      "tests": 52,
+      "log": ".tmp/depth-route-node-final.txt",
+      "note": "Affected checks repeated after final practice-link correction."
+    },
+    {
+      "command": "npm.cmd run build:local",
+      "exit_code": 0,
+      "log": ".tmp/depth-build-final.txt"
+    },
+    {
+      "command": "node node_modules/@playwright/test/cli.js test --config .tmp/pw-redesign.config.mjs e2e/offline.spec.mjs e2e/signal-flow.spec.mjs --workers=1",
+      "exit_code": 0,
+      "tests": 10,
+      "passed": 10,
+      "log": ".tmp/depth-final-affected-browser.txt",
+      "note": "Production bundle and same assertions; inherited config overrides only preview port5311/output to preserve unrelated process at5196. Standard5196 invocation not run this slice."
+    }
+  ],
+  "full_sweep": {
+    "command": "npm.cmd run test:e2e -- --config .tmp/pw-redesign.config.mjs --workers=1",
+    "exit_code": 1,
+    "tests": 194,
+    "passed": 191,
+    "failed": 3,
+    "log": ".tmp/depth-full-browser-final.txt",
+    "resolution": "Only test fixtures/selectors changed after this sweep: explicit offline board, visible signal panel, V2 symbol collision selector. Same production bundle rerun of both affected files passed10/10. No single194/194 pass claimed."
+  },
+  "independent_review": "docs/agents/runs/MM-SW-COMMUNITY-ATTACH-001/review.md",
+  "limits": "Chưa tạo backend. SQL apply, OAuth, upload thật, signed URL expiry, hai tài khoản/RLS và concurrency đều NOT_RUN. Không công bố online live. Tệp trước khi đăng chỉ RAM, reload chọn lại; localStorage/IDB có thể bị xóa.",
+  "external_backend_live": "NOT_RUN",
+  "public_release": "NOT_RUN; local build is not a distribution pass"
+}

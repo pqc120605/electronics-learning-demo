@@ -3,17 +3,22 @@ import type { ComponentDefinition } from '../../data/componentRegistry'
 import type { CircuitConnection, CircuitPart } from '../../types/circuitTopology'
 import { getWireNetGroups } from '../../lib/circuitNets'
 import { SchematicSymbol } from './SchematicSymbol'
+import './SchematicFlow.css'
+import { resolveSchematicLayout } from '../../lib/schematicLayout'
 
 export type SchematicPart = CircuitPart
 export type SchematicWire = CircuitConnection
-type Props = { parts: SchematicPart[]; wires: SchematicWire[]; definitions: ComponentDefinition[]; selectedPartId: string; selectedWireId: string; pending: string | null; highlightedNetKey: string | null; nameFor: (part: SchematicPart) => string; colorWire: (wire: SchematicWire) => string; active: (wire: SchematicWire) => boolean; activePart: (part: SchematicPart) => boolean; onSelect: (id: string) => void; onSelectWire: (id: string) => void; onSelectNet: (key: string | null) => void; onPinClick: (endpoint: string) => void; onDrop: (id: string, x: number, y: number) => void; onRotate: (id: string) => void; onRemove: (id: string) => void; onRemoveWire: (id: string) => void; onExportTarget?: (element: HTMLDivElement | null) => void }
+/** Logic-trace state of one wire (see logicTrace.WireFlow): a teaching label, not a measurement. */
+type SchematicFlow = { signal: string; label?: string; direction: 'forward' | 'reverse' | 'none' }
+type Props = { parts: SchematicPart[]; wires: SchematicWire[]; definitions: ComponentDefinition[]; selectedPartId: string; selectedWireId: string; pending: string | null; highlightedNetKey: string | null; nameFor: (part: SchematicPart) => string; colorWire: (wire: SchematicWire) => string; active: (wire: SchematicWire) => boolean; activePart: (part: SchematicPart) => boolean; onSelect: (id: string) => void; onSelectWire: (id: string) => void; onSelectNet: (key: string | null) => void; onPinClick: (endpoint: string) => void; onDrop: (id: string, x: number, y: number) => void; onRotate: (id: string) => void; onRemove: (id: string) => void; onRemoveWire: (id: string) => void; flows?: ReadonlyMap<string, SchematicFlow>; onExportTarget?: (element: HTMLDivElement | null) => void }
 
-export function SchematicView({ parts, wires, definitions, selectedPartId, selectedWireId, pending, highlightedNetKey, nameFor, colorWire, active, activePart, onSelect, onSelectWire, onSelectNet, onPinClick, onDrop, onRotate, onRemove, onRemoveWire, onExportTarget }: Props) {
+export function SchematicView({ parts, wires, definitions, selectedPartId, selectedWireId, pending, highlightedNetKey, nameFor, colorWire, active, activePart, onSelect, onSelectWire, onSelectNet, onPinClick, onDrop, onRotate, onRemove, onRemoveWire, flows, onExportTarget }: Props) {
   const [zoom, setZoom] = useState(1)
   const [pan, setPan] = useState({ x: 0, y: 0 })
   const [canvasWidth, setCanvasWidth] = useState(0)
   const [manualMobileLayout, setManualMobileLayout] = useState(false)
   const [pinPoints, setPinPoints] = useState<Record<string, { x: number; y: number }>>({})
+  const [cardSizes, setCardSizes] = useState<Record<string, { width: number; height: number }>>({})
   const canvasRef = useRef<HTMLDivElement>(null)
   const svgRef = useRef<SVGSVGElement>(null)
   const panDrag = useRef<{ x: number; y: number } | null>(null)
@@ -33,6 +38,16 @@ export function SchematicView({ parts, wires, definitions, selectedPartId, selec
     observer.observe(canvas)
     return () => observer.disconnect()
   }, [])
+  // Wide layout: keep preset positions but move cards that would overlap; the canvas grows to fit.
+  const wideLayout = !compact && canvasWidth > 0 ? resolveSchematicLayout(parts.map(part => ({ id: part.id, x: part.x, y: part.y, width: cardSizes[part.id]?.width ?? Math.min(220, canvasWidth * 0.28), height: cardSizes[part.id]?.height ?? 120 })), canvasWidth, 540) : null
+  const cardPosition = (part: SchematicPart) => compact ? { left: `${compactPositions[part.id].x}%`, top: `${compactPositions[part.id].y}%` } : wideLayout?.positions[part.id] ? { left: `${wideLayout.positions[part.id].left}%`, top: `${wideLayout.positions[part.id].top}px` } : { left: `${part.x}%`, top: `${part.y}%` }
+  useLayoutEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const next: Record<string, { width: number; height: number }> = {}
+    canvas.querySelectorAll<HTMLElement>('[data-schematic-part]').forEach(card => { next[card.dataset.schematicPart!] = { width: card.offsetWidth, height: card.offsetHeight } })
+    setCardSizes(current => Object.keys(next).length === Object.keys(current).length && Object.entries(next).every(([id, size]) => current[id]?.width === size.width && current[id]?.height === size.height) ? current : next)
+  }, [parts, canvasWidth, compact])
   useLayoutEffect(() => {
     const svg = svgRef.current
     if (!svg) return
@@ -53,7 +68,7 @@ export function SchematicView({ parts, wires, definitions, selectedPartId, selec
     observer.observe(svg)
     svg.parentElement?.querySelectorAll('[data-schematic-endpoint]').forEach(pin => observer.observe(pin))
     return () => observer.disconnect()
-  }, [parts, zoom, pan, canvasWidth, compact, manualMobileLayout])
+  }, [parts, zoom, pan, canvasWidth, compact, manualMobileLayout, cardSizes])
   function schematicPinPoint(endpoint: SchematicWire['from']) {
     const measured = pinPoints[`${endpoint.partId}:${endpoint.pinId}`]
     if (measured) return measured
@@ -99,18 +114,18 @@ export function SchematicView({ parts, wires, definitions, selectedPartId, selec
     const pin = definition?.pins.find(item => item.id === endpoint.pinId)
     return `${part ? nameFor(part) : endpoint.partId}.${pin?.label ?? endpoint.pinId}`
   }
-  return <section className="schematic-shell" aria-label="Sơ đồ nguyên lý tương tác">
+  return <section className="schematic-shell mm-keep-light" aria-label="Sơ đồ nguyên lý tương tác">
     <header className="schematic-toolbar"><div><strong>Sơ đồ nguyên lý</strong><small>Kết nối theo chân đã khai báo · sơ đồ học tập, chưa phải ERC KiCad</small></div><span>Đỏ: nguồn +　Đen: GND　Xanh: tín hiệu</span><div className="schematic-zoom" role="group" aria-label="Điều khiển sơ đồ"><button type="button" aria-label="Thu nhỏ sơ đồ" onClick={() => setZoom(value => Math.max(.7, value - .1))}>−</button><output>{Math.round(zoom * 100)}%</output><button type="button" aria-label="Phóng to sơ đồ" onClick={() => setZoom(value => Math.min(1.5, value + .1))}>+</button><button type="button" onClick={() => { setZoom(1); setPan({ x: 0, y: 0 }) }}>Vừa khung</button></div></header>
-    <div ref={canvasRef} className="schematic-canvas" style={compact ? { minHeight: `${Math.max(460, compactRows * 230)}px` } : undefined} onDragOver={event => event.preventDefault()} onDrop={drop}>
+    <div ref={canvasRef} className="schematic-canvas" style={compact ? { minHeight: `${Math.max(460, compactRows * 230)}px` } : wideLayout ? { minHeight: `${wideLayout.height}px` } : undefined} onDragOver={event => event.preventDefault()} onDrop={drop}>
       <div ref={onExportTarget} className="schematic-content" onPointerDown={panStart} onPointerMove={panMove} onPointerUp={panEnd} onPointerCancel={panEnd} style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }}>
-        <svg ref={svgRef} className="schematic-wires" viewBox="0 0 100 100" preserveAspectRatio="none" aria-label="Các dây nối của topology">{wires.map(wire => { const a = schematicPinPoint(wire.from); const b = schematicPinPoint(wire.to); const mid = (a.x + b.x) / 2; const selected = selectedWireId === wire.id; return <g key={wire.id} className={`schematic-wire ${selected ? 'schematic-wire-selected' : ''}`} role="button" tabIndex={0} aria-label={`Chọn dây ${endpointName(wire.from)} đến ${endpointName(wire.to)}`} onClick={() => onSelectWire(wire.id)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onSelectWire(wire.id) } }}><path className="schematic-wire-hit" d={`M${a.x} ${a.y}H${mid}V${b.y}H${b.x}`} fill="none" stroke="transparent" strokeWidth="14" vectorEffect="non-scaling-stroke"/><path d={`M${a.x} ${a.y}H${mid}V${b.y}H${b.x}`} fill="none" stroke={selected ? '#fff3a6' : active(wire) ? '#25d3bc' : colorWire(wire)} strokeWidth={selected ? 1.5 : active(wire) ? 1.15 : .7} strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" pointerEvents="none"/></g> })}</svg>
+        <svg ref={svgRef} className="schematic-wires" viewBox="0 0 100 100" preserveAspectRatio="none" aria-label="Các dây nối của topology">{wires.map(wire => { const a = schematicPinPoint(wire.from); const b = schematicPinPoint(wire.to); const mid = (a.x + b.x) / 2; const selected = selectedWireId === wire.id; return <g key={wire.id} className={`schematic-wire ${selected ? 'schematic-wire-selected' : ''}`} role="button" tabIndex={0} aria-label={`Chọn dây ${endpointName(wire.from)} đến ${endpointName(wire.to)}`} onClick={() => onSelectWire(wire.id)} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onSelectWire(wire.id) } }}><path className="schematic-wire-hit" d={`M${a.x} ${a.y}H${mid}V${b.y}H${b.x}`} fill="none" stroke="transparent" strokeWidth="14" vectorEffect="non-scaling-stroke"/><path d={`M${a.x} ${a.y}H${mid}V${b.y}H${b.x}`} fill="none" stroke={selected ? '#fff3a6' : active(wire) ? '#25d3bc' : colorWire(wire)} strokeWidth={selected ? 1.5 : active(wire) ? 1.15 : .7} strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" pointerEvents="none"/>{(() => { const flow = flows?.get(wire.id); return flow && flow.direction !== 'none' ? <path className={`schematic-flow schematic-flow-${flow.direction}`} data-signal={flow.signal} d={`M${a.x} ${a.y}H${mid}V${b.y}H${b.x}`} fill="none" strokeWidth={1.6} strokeDasharray="3 7" strokeLinecap="round" vectorEffect="non-scaling-stroke" pointerEvents="none"/> : null })()}</g> })}</svg>{flows && flows.size > 0 && <div className="schematic-flow-labels" aria-hidden="true">{wires.map(wire => { const flow = flows.get(wire.id); if (!flow?.label) return null; const a = schematicPinPoint(wire.from), b = schematicPinPoint(wire.to); return <span key={wire.id} data-signal={flow.signal} style={{ left: `${(a.x + b.x) / 2}%`, top: `${(a.y + b.y) / 2}%` }}>{flow.label}</span> })}</div>}
         {parts.map(part => { const def = definitions.find(item => item.id === part.type); if (!def) return null; return <article key={part.id} className={`schematic-part ${selectedPartId === part.id ? 'schematic-part-selected' : ''} ${activePart(part) ? 'schematic-part-active' : ''}`} draggable tabIndex={0} onKeyDown={event => {
           if ((event.key === 'r' || event.key === 'R' || event.key === 'Delete' || event.key.startsWith('Arrow')) && event.target !== event.currentTarget) return
           if (event.key === 'r' || event.key === 'R') { event.preventDefault(); onRotate(part.id) }
           else if (event.key === 'Delete' && part.type !== 'board') { event.preventDefault(); onRemove(part.id) }
           else if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onSelect(part.id) }
           else if (event.key.startsWith('Arrow')) { event.preventDefault(); const step = event.shiftKey ? 5 : 2; const current = compact ? compactPositions[part.id] : part; const position = { x: Math.max(5, Math.min(95, current.x + (event.key === 'ArrowRight' ? step : event.key === 'ArrowLeft' ? -step : 0))), y: Math.max(10, Math.min(90, current.y + (event.key === 'ArrowDown' ? step : event.key === 'ArrowUp' ? -step : 0))) }; if (compact) applyCompactLayout(part.id, position); else onDrop(part.id, position.x, position.y) }
-        }} onDragStart={event => event.dataTransfer.setData('partId', part.id)} onClick={() => onSelect(part.id)} style={{ left: `${(compact ? compactPositions[part.id] : part).x}%`, top: `${(compact ? compactPositions[part.id] : part).y}%`, transform: 'translate(-50%,-50%)' }}>
+        }} onDragStart={event => event.dataTransfer.setData('partId', part.id)} onClick={() => onSelect(part.id)} data-schematic-part={part.id} style={{ ...cardPosition(part), transform: 'translate(-50%,-50%)' }}>
           <SchematicSymbol type={part.type} label={nameFor(part)} rotation={part.rotation}/><strong>{nameFor(part)}</strong>
           <div className="schematic-pins">{def.pins.map(pin => { const key = `${part.id}:${pin.id}`; return <button key={pin.id} type="button" data-schematic-endpoint={key} className={`part-pin ${pin.electricalType} ${pending === key ? 'pin-pending' : ''}`} aria-label={`${nameFor(part)} chân ${pin.label} · ${pin.polarity ?? pin.electricalType}`} aria-pressed={pending === key} onClick={event => { event.stopPropagation(); onPinClick(key) }} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') event.stopPropagation() }} title={`${pin.label} · ${pin.polarity ?? pin.electricalType}`}>{pin.label}</button> })}</div>
         </article> })}

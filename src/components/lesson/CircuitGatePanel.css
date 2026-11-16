@@ -1,0 +1,27 @@
+.circuit-gate-panel { display: grid; gap: 8px; }
+.circuit-gate-panel h2 { margin: 0; color: var(--ink); font-size: 1.05rem; }
+.circuit-gate-scope { color: var(--ink-soft); font-size: var(--mm-text-sm); line-height: 1.45; }
+.circuit-gate-summary { padding: 8px; border-left: 3px solid var(--lab-teal, var(--mm-text-signal)); color: var(--ink); background: var(--lab-teal-soft, var(--mm-surface-highlight)); font-size: var(--mm-text-sm); font-weight: 750; }
+.circuit-gate-summary[data-overall='warning'] { border-color: #946000; background: #f6efda; }
+.circuit-gate-summary[data-overall='fail'] { border-color: var(--lab-coral, var(--mm-accent)); background: #f7e8e2; }
+.circuit-gate-list { display: grid; gap: 5px; margin: 0; padding: 0; list-style: none; }
+.circuit-gate-list > li { min-width: 0; border: 1px solid var(--line); border-radius: 6px; background: var(--paper-bright); }
+.circuit-gate-list > li[data-status='fail'] { border-color: var(--lab-coral, var(--mm-accent)); }
+.circuit-gate-list > li[data-status='warning'] { border-color: #c59a42; }
+.circuit-gate-list details { margin: 0 !important; padding: 0 !important; border: 0 !important; }
+.circuit-gate-list summary { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 6px; padding: 7px !important; color: var(--ink); list-style: none; }
+.circuit-gate-list summary::-webkit-details-marker { display: none; }
+.circuit-gate-id { grid-row: 1 / span 2; align-self: center; color: var(--ink-soft); font: var(--mm-text-sm)/1.2 Consolas, monospace; }
+.circuit-gate-title { min-width: 0; font-size: var(--mm-text-sm); font-weight: 700; }
+.circuit-gate-status { grid-column: 2; color: var(--lab-teal, var(--mm-text-signal)); font-size: var(--mm-text-sm); }
+.circuit-gate-list [data-status='fail'] .circuit-gate-status { color: var(--lab-coral, var(--mm-accent)); }
+.circuit-gate-list [data-status='warning'] .circuit-gate-status { color: #795000; }
+.circuit-gate-list [data-status='not_applicable'] .circuit-gate-status { color: var(--ink-soft); }
+.circuit-gate-diagnostics { display: grid; gap: 4px; margin: 0; padding: 0 9px 9px 28px; color: var(--ink); font-size: var(--mm-text-sm); line-height: 1.45; }
+.circuit-gate-empty { margin: 0 !important; padding: 0 9px 9px 28px; color: var(--ink-soft); font-size: var(--mm-text-sm); line-height: 1.4; }
+
+.builder-circuit-gates { min-width: 0; max-height: min(58vh, 620px); overflow: auto; }
+.builder-circuit-gates .circuit-gate-panel h2 { font-size: .95rem; }
+.builder-circuit-gates .circuit-gate-scope { font-size: var(--mm-text-sm); }
+.builder-circuit-gates .circuit-gate-list summary { grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
+.builder-circuit-gates .circuit-gate-status { grid-column: auto; text-align: right; }

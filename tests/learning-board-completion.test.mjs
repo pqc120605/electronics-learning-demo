@@ -25,10 +25,10 @@ test('capability labels claim what the evidence shows, not a physical check', ()
   assert.equal(m.getBoardCapability('esp32-c6-devkitc-1').pinMap.ledOutput.sourceBacked, false)
 })
 
-test('lesson entry routes keep the chosen board, except the ESP32 default and the fixed LED page', () => {
+test('lesson entry routes keep every explicit board and leave new entries unselected', () => {
   assert.equal(m.getLessonEntryRoute({ id: 'button-led' }, 'arduino-uno-r3'), '/learn/button-led?board=arduino-uno-r3')
-  assert.equal(m.getLessonEntryRoute({ id: 'button-led' }, 'esp32-devkit'), '/learn/button-led')
-  assert.equal(m.getLessonEntryRoute({ id: 'blink' }, 'arduino-uno-r3'), '/learn/esp32-led')
+  assert.equal(m.getLessonEntryRoute({ id: 'button-led' }, 'esp32-devkit'), '/learn/button-led?board=esp32-devkit')
+  assert.equal(m.getLessonEntryRoute({ id: 'blink' }, 'arduino-uno-r3'), '/learn/blink?board=arduino-uno-r3')
   assert.equal(m.getLessonEntryRoute({ id: 'button-led' }), '/learn/button-led')
 })
 

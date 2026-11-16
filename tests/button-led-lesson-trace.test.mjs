@@ -81,11 +81,13 @@ test('rejects malformed code, mismatched profiles, and topology with missing or 
     assertBlocked(getButtonLedLessonTrace(current, old), 'unsupported')
   }
   const { doc: broken } = removeWire(old.doc, 'w-input-to-button')
-  assertBlocked(getButtonLedLessonTrace({ ...old, doc: broken }, old), 'invalid')
+  const brokenContext = { ...old, doc: broken }
+  assertBlocked(getButtonLedLessonTrace(brokenContext, brokenContext), 'invalid')
 
-  const { doc: shorted, issues } = addWire(old.doc, { id: 'bridge-button-contacts', from: { kind: 'hole', holeId: 'bb1:20h' }, to: { kind: 'hole', holeId: 'bb1:22h' } })
+  const { doc: shorted, issues } = addWire(old.doc, { id: 'bridge-button-contacts', from: { kind: 'pin', partId: 'button-1', pinId: 'contactA' }, to: { kind: 'pin', partId: 'button-1', pinId: 'contactB' } })
   assert.deepEqual(issues.filter(issue => issue.severity === 'error'), [])
-  assertBlocked(getButtonLedLessonTrace({ ...old, doc: shorted }, old), 'invalid')
+  const shortedContext = { ...old, doc: shorted }
+  assertBlocked(getButtonLedLessonTrace(shortedContext, shortedContext), 'invalid')
 })
 
 test('projects one read or branch frame onto only the input net, including mounted holes', () => {
@@ -97,7 +99,8 @@ test('projects one read or branch frame onto only the input net, including mount
       assert.equal(frame.event.kind, step === 0 ? 'read' : 'branch')
       assert.deepEqual([...frame.wireFlows.keys()], ['w-input-to-button'])
       assert.deepEqual([...frame.activePartIds].sort(), ['board-1', 'button-1'])
-      for (const key of ['board-1:input', 'button-1:contactA', 'bb1:20g', 'bb1:20f', 'bb1:20e']) assert.ok(frame.activeKeys.has(key), key)
+      for (const key of ['board-1:input', 'button-1:contactA']) assert.ok(frame.activeKeys.has(key), key)
+      for (const key of ['bb1:20g', 'bb1:20f', 'bb1:20e']) assert.equal(frame.activeKeys.has(key), false, key)
       for (const key of ['board-1:ledOut', 'button-1:contactB', 'led-1:anode', 'board-1:gnd']) assert.equal(frame.activeKeys.has(key), false, key)
       assert.equal(frame.wireFlows.get('w-input-to-button').signal, pressed ? 'low' : 'high')
       assert.equal(frame.wireFlows.get('w-input-to-button').direction, 'none')
@@ -111,12 +114,13 @@ test('projects the write frame onto only the output and resistor series nets', (
     const current = context(pressed)
     const frame = getButtonLedLessonFrame(current, current, 2)
     assert.equal(frame.event.kind, 'write')
-    assert.deepEqual([...frame.wireFlows.keys()], ['w-gpio-to-resistor'])
+    assert.deepEqual([...frame.wireFlows.keys()].sort(), ['w-gpio-to-resistor', 'w-resistor-to-led'])
     assert.deepEqual([...frame.activePartIds].sort(), ['board-1', 'led-1', 'res-1'])
-    for (const key of ['board-1:ledOut', 'res-1:a', 'res-1:b', 'led-1:anode', 'bb1:10a', 'bb1:10c', 'bb1:14c', 'bb1:14d']) assert.ok(frame.activeKeys.has(key), key)
+    for (const key of ['board-1:ledOut', 'res-1:a', 'res-1:b', 'led-1:anode', 'bb1:10a', 'bb1:10c', 'bb1:14c', 'bb1:14g']) assert.ok(frame.activeKeys.has(key), key)
     for (const key of ['board-1:input', 'button-1:contactA', 'led-1:cathode', 'board-1:gnd']) assert.equal(frame.activeKeys.has(key), false, key)
     assert.equal(frame.wireFlows.get('w-gpio-to-resistor').signal, pressed ? 'high' : 'low')
     assert.equal(frame.wireFlows.get('w-gpio-to-resistor').direction, 'none')
+    assert.equal(frame.wireFlows.get('w-resistor-to-led').direction, 'none')
   }
 })
 

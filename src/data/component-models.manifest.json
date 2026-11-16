@@ -2,110 +2,113 @@
   {
     "id": "battery",
     "file": "/models/components/battery.glb",
-    "bytes": 24292,
-    "sha256": "5992493ebed087d1e168a110f1e1d7bab189d1b39574da7a52a8284b3a640de7",
+    "bytes": 120988,
+    "sha256": "08903373541a2a28ee3f7a2dc491372d3859daf055273df41a95c7ed0899f2d6",
     "sizeMm": [
-      77.5,
-      16.7,
-      32
+      59.51,
+      20,
+      32.92
     ],
     "boundsMm": {
       "min": [
-        -28.5,
+        -29.75,
         0,
-        -16
+        -16.46
       ],
       "max": [
-        49,
-        16.7,
-        16
+        29.75,
+        20,
+        16.46
       ]
     },
-    "triangles": 588,
-    "kind": "parametric-mesh",
+    "triangles": 3856,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "positive": [
-        49,
-        2,
-        -6
+        -27.17,
+        20,
+        -7.5
       ],
       "negative": [
-        49,
-        2,
-        6
+        -27.17,
+        20,
+        7.49
       ]
     },
-    "legsMm": []
+    "legsMm": [],
+    "packageName": "Hộp pin 2×AA (Keystone 2462)",
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng."
   },
   {
     "id": "bmp280",
     "file": "/models/components/bmp280.glb",
-    "bytes": 7892,
-    "sha256": "68d5dfa2c6f7048e432d0e6f8e2f1c53ef52da5c9c5359be85ece7b7f95fe3a8",
+    "bytes": 88624,
+    "sha256": "1227cde6df5cb6d34617bf2cd3e1000a55e4ab014cb1f23b3fe53af61470986f",
     "sizeMm": [
-      24,
-      9,
-      16
+      15.24,
+      11.6,
+      15
     ],
     "boundsMm": {
       "min": [
-        -12,
-        -4,
-        -8
+        -7.62,
+        0,
+        -7.5
       ],
       "max": [
-        12,
-        5,
-        8
+        7.62,
+        11.6,
+        7.5
       ]
     },
-    "triangles": 96,
-    "kind": "parametric-mesh",
+    "triangles": 2214,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "vcc": [
         -6.35,
-        2,
-        -7.62
+        11.6,
+        6
       ],
       "gnd": [
         -3.81,
-        2,
-        -7.62
+        11.6,
+        6
       ],
       "scl": [
         -1.27,
-        2,
-        -7.62
+        11.6,
+        6
       ],
       "sda": [
         1.27,
-        2,
-        -7.62
+        11.6,
+        6
       ],
       "csb": [
         3.81,
-        2,
-        -7.62
+        11.6,
+        6
       ],
       "sdo": [
         6.35,
-        2,
-        -7.62
+        11.6,
+        6
       ]
     },
     "legsMm": [],
-    "modelNote": "Minh họa breakout cảm biến áp suất; không phân biệt chính xác BMP280/BME280 hay pinout module cụ thể."
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+    "packageName": "Module GY-BMP280 (11,5 × 15 mm)"
   },
   {
     "id": "boost-converter",
     "file": "/models/components/boost-converter.glb",
-    "bytes": 33596,
-    "sha256": "94311d245f1f7dbd0b30293dc25159f7c4b4dcf44790ad6a267b4dd637c6a9b2",
+    "bytes": 171020,
+    "sha256": "7e5c2d5952031f8b44f273e0b3bc5418a14e8afc62386cdb1e5603845f1b68d4",
     "sizeMm": [
       36,
-      6.4,
+      17.07,
       17
     ],
     "boundsMm": {
@@ -116,36 +119,38 @@
       ],
       "max": [
         18,
-        6.4,
+        17.07,
         8.5
       ]
     },
-    "triangles": 888,
-    "kind": "parametric-mesh",
+    "triangles": 4840,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "inPlus": [
         -16,
-        1.7,
+        6.03,
         -6.5
       ],
       "inMinus": [
         -16,
-        1.7,
+        6.03,
         6.5
       ],
       "outPlus": [
         16,
-        1.7,
+        6.03,
         -6.5
       ],
       "outMinus": [
         16,
-        1.7,
+        6.03,
         6.5
       ]
     },
-    "legsMm": []
+    "legsMm": [],
+    "packageName": "Module tăng áp MT3608 (36 × 17 mm)",
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng."
   },
   {
     "id": "breadboard",
@@ -202,11 +207,11 @@
   {
     "id": "buck-converter",
     "file": "/models/components/buck-converter.glb",
-    "bytes": 64684,
-    "sha256": "9afadb3e5385145081f6858e4c0dd0ad3422f04c36c4988028300c7b5de70d63",
+    "bytes": 271052,
+    "sha256": "566ac8bb579896988002c75d312f3d86ab53e8380ad1cc1c67595e283322fdf5",
     "sizeMm": [
       43,
-      12.3,
+      17.07,
       21
     ],
     "boundsMm": {
@@ -217,36 +222,38 @@
       ],
       "max": [
         21.5,
-        12.3,
+        17.07,
         10.5
       ]
     },
-    "triangles": 1828,
-    "kind": "parametric-mesh",
+    "triangles": 8560,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "inPlus": [
-        -20,
-        1.7,
+        -19.5,
+        6.03,
         -8.5
       ],
       "inMinus": [
-        -20,
-        1.7,
+        -19.5,
+        6.03,
         8.5
       ],
       "outPlus": [
-        20,
-        1.7,
+        19.5,
+        6.03,
         -8.5
       ],
       "outMinus": [
-        20,
-        1.7,
+        19.5,
+        6.03,
         8.5
       ]
     },
-    "legsMm": []
+    "legsMm": [],
+    "packageName": "Module hạ áp LM2596 (43 × 21 mm)",
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng."
   },
   {
     "id": "button",
@@ -276,7 +283,7 @@
     "sourceFile": "Button_Switch_THT.3dshapes/SW_PUSH_6mm.step",
     "sourceSha256": "eb2ba2737299cc764145d8d10ea26d992f819ff5522fb3c0dfa2605b8221f9d6",
     "footprint": "Button_Switch_THT.pretty/SW_PUSH_6mm.kicad_mod",
-    "mount": "breadboard",
+    "mount": "bench",
     "pinsMm": {
       "contactB": [
         0,
@@ -421,28 +428,83 @@
     ]
   },
   {
+    "id": "capacitor-ceramic",
+    "file": "/models/components/capacitor-ceramic.glb",
+    "bytes": 102720,
+    "sha256": "a857a83d781a05a7eaadc568d5d0d18c1ed43c053765dcc14452c1438e340d9a",
+    "sizeMm": [
+      5.5,
+      7.1,
+      2.5
+    ],
+    "boundsMm": {
+      "min": [
+        -0.25,
+        -2,
+        -1.25
+      ],
+      "max": [
+        5.25,
+        5.097,
+        1.25
+      ]
+    },
+    "triangles": 2710,
+    "kind": "source-cad-mesh",
+    "packageName": "Tụ gốm đĩa Ø5 mm, chân 5 mm",
+    "sourceFile": "Capacitor_THT.3dshapes/C_Disc_D5.0mm_W2.5mm_P5.00mm.step",
+    "sourceSha256": "5739d7f7288da1879d2a2e4a8d7f4d1ac5e5ad712d777b40e647ec559cf8ecba",
+    "footprint": "Capacitor_THT.pretty/C_Disc_D5.0mm_W2.5mm_P5.00mm.kicad_mod",
+    "mount": "breadboard",
+    "pinsMm": {
+      "a": [
+        0,
+        0,
+        0
+      ],
+      "b": [
+        5,
+        0,
+        0
+      ]
+    },
+    "legsMm": [
+      {
+        "pinId": "a",
+        "x": 0,
+        "z": 0
+      },
+      {
+        "pinId": "b",
+        "x": 5,
+        "z": 0
+      }
+    ],
+    "modelNote": "Thư viện 3D KiCad 10.0.7 (CC BY-SA 4.0)."
+  },
+  {
     "id": "dc-motor",
     "file": "/models/components/dc-motor.glb",
-    "bytes": 20324,
-    "sha256": "e6240ccf0a36b30b41f9c21c91391beda8c429b3b2eefe384eab2598173d411d",
+    "bytes": 26272,
+    "sha256": "5c9910add3889d5989ace393a7baf3715e998a9cf19770778df69e8669961527",
     "sizeMm": [
-      36,
-      15.2,
+      38,
+      20,
       20
     ],
     "boundsMm": {
       "min": [
-        -8,
-        0,
+        -10,
+        -2.4,
         -10
       ],
       "max": [
         28,
-        15.2,
+        17.6,
         10
       ]
     },
-    "triangles": 528,
+    "triangles": 592,
     "kind": "parametric-mesh",
     "mount": "bench",
     "pinsMm": {
@@ -457,52 +519,55 @@
         5
       ]
     },
-    "legsMm": []
+    "legsMm": [],
+    "packageName": "Motor DC 130 có vỏ kim loại, nắp nhựa và 2 cực hàn.",
+    "modelNote": "Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước."
   },
   {
     "id": "dht22",
     "file": "/models/components/dht22.glb",
-    "bytes": 7844,
-    "sha256": "a3241a1400b77cf8a19e8abc72521b354512550e4bcb4af7a9e811504cb3692a",
+    "bytes": 57948,
+    "sha256": "e9c2415d053cf6a66a39cf8c65d6864223d5a9df68d6024680f4cce558e5f161",
     "sizeMm": [
-      15,
-      19,
-      18
+      15.24,
+      11.6,
+      20
     ],
     "boundsMm": {
       "min": [
-        -7.5,
-        -4,
-        -9
+        -7.62,
+        0,
+        -10
       ],
       "max": [
-        7.5,
-        15,
-        9
+        7.62,
+        11.6,
+        10
       ]
     },
-    "triangles": 96,
-    "kind": "parametric-mesh",
+    "triangles": 1300,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "vcc": [
         -2.54,
-        2,
-        -7.62
+        11.6,
+        8.2
       ],
       "data": [
         0,
-        2,
-        -7.62
+        11.6,
+        8.2
       ],
       "gnd": [
         2.54,
-        2,
-        -7.62
+        11.6,
+        8.2
       ]
     },
     "legsMm": [],
-    "modelNote": "Minh họa module cảm biến nhiệt độ/độ ẩm dạng phổ biến; không phải CAD AM2302 của hãng. Số chân và kích thước breakout thay đổi theo phiên bản."
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+    "packageName": "Module AM2302/DHT22 trên PCB 3 chân"
   },
   {
     "id": "diode",
@@ -561,210 +626,246 @@
   {
     "id": "h-bridge",
     "file": "/models/components/h-bridge.glb",
-    "bytes": 66632,
-    "sha256": "1c1d38ac442ee0e1e93a966ed4bec393e3734f15abf7256ebb62252807fd1c17",
+    "bytes": 392812,
+    "sha256": "e4fd3df858d1e21366715a986bb7013a5d045b9084f94df15c23e92e3b58b051",
     "sizeMm": [
-      48,
-      25.5,
-      43.25
+      47.4,
+      28.5,
+      44.6
     ],
     "boundsMm": {
       "min": [
-        -24,
+        -23.7,
         0,
-        -21.5
+        -22.3
       ],
       "max": [
-        24,
-        25.5,
-        21.75
+        23.7,
+        28.5,
+        22.3
       ]
     },
-    "triangles": 1716,
-    "kind": "parametric-mesh",
+    "triangles": 11471,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
-      "in1": [
-        -9,
-        8,
-        8
-      ],
-      "in2": [
-        -6.46,
-        8,
-        8
-      ],
-      "ena": [
-        -3.92,
-        8,
-        8
-      ],
-      "motorVcc": [
-        -5,
-        9.5,
-        18
-      ],
-      "gnd": [
-        0,
-        9.5,
-        18
-      ],
-      "logicVcc": [
-        5,
-        9.5,
-        18
-      ],
       "out1": [
-        -21.5,
-        9.5,
-        -6
+        -18.5,
+        17.3,
+        -8.3
       ],
       "out2": [
-        -16.5,
-        9.5,
-        -6
+        -18.5,
+        17.3,
+        -13.3
+      ],
+      "motorVcc": [
+        -12.5,
+        17.3,
+        17.7
+      ],
+      "gnd": [
+        -7.5,
+        17.3,
+        17.7
+      ],
+      "logicVcc": [
+        -2.5,
+        17.3,
+        17.7
+      ],
+      "ena": [
+        0.5,
+        12.11,
+        17.2
+      ],
+      "in1": [
+        3.04,
+        12.11,
+        17.2
+      ],
+      "in2": [
+        5.58,
+        12.11,
+        17.2
       ]
     },
-    "legsMm": []
+    "legsMm": [],
+    "packageName": "Module cầu H L298N (43 × 43 mm)",
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng."
   },
   {
     "id": "ir-receiver",
     "file": "/models/components/ir-receiver.glb",
-    "bytes": 5908,
-    "sha256": "0b3c3677dfaae6ae5ae410b3744624b54e773ce5c76bcc368e96f222d474c2df",
+    "bytes": 18744,
+    "sha256": "4d08843c233b875ba7409ad0d99701bcb97245037a85237abfe2c2904e8d9c0a",
     "sizeMm": [
-      5.68,
-      12,
-      10.22
+      6,
+      13.34,
+      5.6
     ],
     "boundsMm": {
       "min": [
-        -2.84,
-        -4,
-        -7.92
+        -3,
+        0,
+        -2.8
       ],
       "max": [
-        2.84,
-        8,
-        2.3
+        3,
+        13.34,
+        2.8
       ]
     },
-    "triangles": 60,
-    "kind": "parametric-mesh",
+    "triangles": 454,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "out": [
         -2.54,
-        2,
-        -7.62
+        13.34,
+        -1.25
       ],
       "gnd": [
         0,
-        2,
-        -7.62
+        13.34,
+        -1.25
       ],
       "vcc": [
         2.54,
-        2,
-        -7.62
+        13.34,
+        -1.25
       ]
     },
     "legsMm": [],
-    "modelNote": "Minh họa bộ thu IR 3 chân dạng package; thứ tự chân phụ thuộc đúng mã và hướng nhìn datasheet."
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+    "packageName": "Mắt thu hồng ngoại 3 chân (vỏ Vishay MOLD, kiểu VS1838B/TSOP)"
   },
   {
     "id": "ir-sensor",
     "file": "/models/components/ir-sensor.glb",
-    "bytes": 25372,
-    "sha256": "824665d70980164589faf848ded325f5e5c3e1a300fb7a58397969e1fed97e2b",
+    "bytes": 215304,
+    "sha256": "6b3632474bb77a628f2d031abc5145379bf4dbf3017ba9bbfdcd98f464d9da13",
     "sizeMm": [
-      48.5,
-      7.1,
-      14
+      31,
+      17.07,
+      15.07
     ],
     "boundsMm": {
       "min": [
-        -23,
+        -15.5,
         0,
-        -7
+        -7.54
       ],
       "max": [
-        25.5,
-        7.1,
-        7
+        15.5,
+        17.07,
+        7.54
       ]
     },
-    "triangles": 576,
-    "kind": "parametric-mesh",
+    "triangles": 5991,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "out": [
-        -23,
-        3,
-        -2.54
+        -13.9,
+        8.56,
+        -3.08
       ],
       "gnd": [
-        -23,
-        3,
-        0
+        -13.9,
+        8.56,
+        -0.54
       ],
       "vcc": [
-        -23,
-        3,
-        2.54
+        -13.9,
+        8.56,
+        2
       ]
     },
-    "legsMm": []
+    "legsMm": [],
+    "packageName": "Module cảm biến vật cản hồng ngoại FC-51 (31 × 14 mm)",
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng."
+  },
+  {
+    "id": "jumper",
+    "mount": "bench",
+    "pinsMm": {},
+    "legsMm": [],
+    "file": "/models/components/jumper.glb",
+    "bytes": 27192,
+    "sha256": "82d1065416f3d4e6c763f8c5924c3e86fb1c65d2a5ad15fde0ee0a15ba8d1ee6",
+    "sizeMm": [
+      50.5,
+      2.5,
+      25.15
+    ],
+    "boundsMm": {
+      "min": [
+        -25.25,
+        2.75,
+        -11.5
+      ],
+      "max": [
+        25.25,
+        5.25,
+        13.65
+      ]
+    },
+    "triangles": 664,
+    "kind": "parametric-mesh",
+    "packageName": "Dây jumper Dupont đực–đực 10 cm (minh họa tham số).",
+    "modelNote": "Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước."
   },
   {
     "id": "lcd1602",
     "file": "/models/components/lcd1602.glb",
-    "bytes": 32452,
-    "sha256": "07eece6c21e60e4b62255f642352b494e5db442b211e8198681ebc7e71e17c75",
+    "bytes": 257332,
+    "sha256": "8a46d9c20158e2620926792add0b776744b7e2b7f3c7c21c80131a32b5668de6",
     "sizeMm": [
       80,
-      10.45,
-      41.32
+      21.34,
+      36
     ],
     "boundsMm": {
       "min": [
         -40,
-        -4,
-        -18.32
+        0,
+        -18
       ],
       "max": [
         40,
-        6.45,
-        23
+        21.34,
+        18
       ]
     },
-    "triangles": 492,
-    "kind": "parametric-mesh",
+    "triangles": 7072,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "gnd": [
-        -3.81,
-        2,
-        -18
+        -38,
+        15.27,
+        -3.8
       ],
       "vcc": [
-        -1.27,
-        2,
-        -18
+        -38,
+        15.27,
+        -1.26
       ],
       "sda": [
-        1.27,
-        2,
-        -18
+        -38,
+        15.27,
+        1.28
       ],
       "scl": [
-        3.81,
-        2,
-        -18
+        -38,
+        15.27,
+        3.82
       ]
     },
     "legsMm": [],
-    "modelNote": "Minh họa LCD ký tự 16×2 có backpack I²C; controller, địa chỉ, pinout và điện áp tùy module."
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+    "packageName": "LCD 16×2 HD44780 + backpack I²C PCF8574 (80 × 36 mm)"
   },
   {
     "id": "ldr",
@@ -877,26 +978,26 @@
   {
     "id": "limit-switch",
     "file": "/models/components/limit-switch.glb",
-    "bytes": 18524,
-    "sha256": "83d37daba455e6f56444c42b4bb856692d8acbf577a58331adf2808e6728cd69",
+    "bytes": 18056,
+    "sha256": "f4579ec8ddcec992543ab331a439994ab1814e04a49bc13e7f8088bd69ac006b",
     "sizeMm": [
-      20,
-      15.6,
-      19.3
+      22.4,
+      15.8,
+      9.45
     ],
     "boundsMm": {
       "min": [
         -10,
         0,
-        -6.6
+        -3.25
       ],
       "max": [
-        10,
-        15.6,
-        12.7
+        12.4,
+        15.8,
+        6.2
       ]
     },
-    "triangles": 408,
+    "triangles": 236,
     "kind": "parametric-mesh",
     "mount": "bench",
     "pinsMm": {
@@ -917,7 +1018,38 @@
       ]
     },
     "legsMm": [],
-    "modelNote": "Microswitch cần gạt minh họa với COM/NO/NC. Kích thước, lực nhấn, hành trình và sơ đồ chân cần đối chiếu đúng mã linh kiện thật."
+    "modelNote": "Hình dạng micro switch minh họa; vị trí chân COM/NO/NC và định mức thay đổi theo mã sản phẩm, đối chiếu ký hiệu in trên vỏ.",
+    "packageName": "Công tắc hành trình micro (KW11) có cần gạt và bánh xe."
+  },
+  {
+    "id": "logic-level",
+    "mount": "bench",
+    "legsMm": [],
+    "file": "/models/components/logic-level.glb",
+    "bytes": 158776,
+    "sha256": "bb5c97e3ecd7400a503284755a36974a040f8de53de0acd44be27e12e567e9f7",
+    "sizeMm": [
+      15.24,
+      11.6,
+      13
+    ],
+    "boundsMm": {
+      "min": [
+        -7.62,
+        0,
+        -6.5
+      ],
+      "max": [
+        7.62,
+        11.6,
+        6.5
+      ]
+    },
+    "triangles": 4086,
+    "kind": "kicad-assembly",
+    "packageName": "Module chuyển mức logic 4 kênh BSS138",
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+    "pinsMm": {}
   },
   {
     "id": "mosfet",
@@ -984,84 +1116,169 @@
     ]
   },
   {
+    "id": "mosfet-module",
+    "mount": "bench",
+    "legsMm": [],
+    "file": "/models/components/mosfet-module.glb",
+    "bytes": 168512,
+    "sha256": "d09d4d67ca5ff3ae8d0be29d0fa696c5118008dd608446d2250ea61b1654ab96",
+    "sizeMm": [
+      37.4,
+      28.52,
+      24.5
+    ],
+    "boundsMm": {
+      "min": [
+        -18.7,
+        0,
+        -12.25
+      ],
+      "max": [
+        18.7,
+        28.52,
+        12.25
+      ]
+    },
+    "triangles": 4602,
+    "kind": "kicad-assembly",
+    "packageName": "Module MOSFET IRF520",
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+    "pinsMm": {}
+  },
+  {
     "id": "mpu6050",
     "file": "/models/components/mpu6050.glb",
-    "bytes": 8636,
-    "sha256": "d025b0a7bdf20eec32d6197136db0afb18013f0ffa196aae892ebd6791bf90b2",
+    "bytes": 215676,
+    "sha256": "4d2c75f03abf811694aa29913bc84ba0d8e7d4b2e3ebb4e730d66c3489872c25",
     "sizeMm": [
-      20,
-      9.2,
+      21,
+      11.6,
       16
     ],
     "boundsMm": {
       "min": [
-        -10,
-        -4,
+        -10.5,
+        0,
         -8
       ],
       "max": [
-        10,
-        5.2,
+        10.5,
+        11.6,
         8
       ]
     },
-    "triangles": 96,
-    "kind": "parametric-mesh",
+    "triangles": 5758,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "vcc": [
-        -5.08,
-        2,
-        -7.62
+        -8.89,
+        11.6,
+        6.5
       ],
       "gnd": [
-        -2.54,
-        2,
-        -7.62
-      ],
-      "sda": [
-        0,
-        2,
-        -7.62
+        -6.35,
+        11.6,
+        6.5
       ],
       "scl": [
-        2.54,
-        2,
-        -7.62
+        -3.81,
+        11.6,
+        6.5
+      ],
+      "sda": [
+        -1.27,
+        11.6,
+        6.5
       ],
       "int": [
-        5.08,
-        2,
-        -7.62
+        8.89,
+        11.6,
+        6.5
       ]
     },
     "legsMm": [],
-    "modelNote": "Minh họa breakout IMU loại nhỏ; không xác nhận chip, regulator, mức điện áp hoặc pinout của một board MPU-6050 cụ thể."
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+    "packageName": "Module GY-521 MPU-6050 (21 × 16 mm)"
+  },
+  {
+    "id": "neopixel",
+    "file": "/models/components/neopixel.glb",
+    "bytes": 106300,
+    "sha256": "b37d835bd65c6f1fd4f8d145eadfdf0582f45e9ebb6312699c082baa99943124",
+    "sizeMm": [
+      5.4,
+      1.6,
+      5
+    ],
+    "boundsMm": {
+      "min": [
+        -2.7,
+        0,
+        -2.5
+      ],
+      "max": [
+        2.7,
+        1.6,
+        2.5
+      ]
+    },
+    "triangles": 1242,
+    "kind": "source-cad-mesh",
+    "packageName": "LED RGB địa chỉ WS2812B 5050 (PLCC4)",
+    "sourceFile": "LED_SMD.3dshapes/LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm.step",
+    "sourceSha256": "637199c792cc5581f13c630b8ea641c3d770ebc3f87475da122d395f340d713a",
+    "footprint": "LED_SMD.pretty/LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm.kicad_mod",
+    "mount": "bench",
+    "pinsMm": {
+      "vdd": [
+        -2.45,
+        0,
+        -1.65
+      ],
+      "dout": [
+        -2.45,
+        0,
+        1.65
+      ],
+      "vss": [
+        2.45,
+        0,
+        1.65
+      ],
+      "din": [
+        2.45,
+        0,
+        -1.65
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "Thư viện 3D KiCad 10.0.7 (CC BY-SA 4.0)."
   },
   {
     "id": "oled",
     "file": "/models/components/oled.glb",
-    "bytes": 9364,
-    "sha256": "c1494ed6e848cbc62a8ecea68a2b227096739e1530d543a756a51918204c6eb2",
+    "bytes": 81268,
+    "sha256": "866e16e0873ddda11a650dc792d8cb7603b12792239992bed61cc41815564ba1",
     "sizeMm": [
       27.3,
-      16.6,
+      11.75,
       27.8
     ],
     "boundsMm": {
       "min": [
         -13.65,
         -6,
-        -1.3
+        -1.8
       ],
       "max": [
         13.65,
-        10.6,
-        26.5
+        5.75,
+        26
       ]
     },
-    "triangles": 96,
-    "kind": "parametric-mesh",
+    "triangles": 2174,
+    "kind": "kicad-assembly",
     "mount": "breadboard",
     "pinsMm": {
       "vcc": [
@@ -1106,126 +1323,130 @@
         "x": 3.81,
         "z": 0
       }
-    ]
+    ],
+    "packageName": "Module OLED 0,96\" I²C SSD1306 (27,3 × 27,8 mm)",
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng."
   },
   {
     "id": "photoresistor-module",
     "file": "/models/components/photoresistor-module.glb",
-    "bytes": 25944,
-    "sha256": "1f1d146a70080f4bf15d6b868111af614cbdcd5c1a532ddc0dbdb18a187df8c7",
-    "sizeMm": [
-      22,
-      11,
-      18
-    ],
-    "boundsMm": {
-      "min": [
-        -11,
-        -4,
-        -9
-      ],
-      "max": [
-        11,
-        7,
-        9
-      ]
-    },
-    "triangles": 588,
-    "kind": "parametric-mesh",
-    "mount": "bench",
-    "pinsMm": {
-      "vcc": [
-        -3.81,
-        2,
-        -7.62
-      ],
-      "gnd": [
-        -1.27,
-        2,
-        -7.62
-      ],
-      "ao": [
-        1.27,
-        2,
-        -7.62
-      ],
-      "do": [
-        3.81,
-        2,
-        -7.62
-      ]
-    },
-    "legsMm": [],
-    "modelNote": "Minh họa breakout LDR với comparator và chân AO/DO; không đại diện một sơ đồ hoặc kích thước module cụ thể."
-  },
-  {
-    "id": "pir",
-    "file": "/models/components/pir.glb",
-    "bytes": 27176,
-    "sha256": "3fd615ed83a69ea3379fb460411453fe6a33bba3d64123f27b5361bf02ce47e3",
+    "bytes": 185952,
+    "sha256": "bf0a87ea2c64a29dc7bb4e35ee3559266fb69ab943854fe30af44750a6792d93",
     "sizeMm": [
       32,
-      14,
-      24
+      17.07,
+      14
     ],
     "boundsMm": {
       "min": [
         -16,
-        -4,
-        -12
+        0,
+        -7
       ],
       "max": [
         16,
-        10,
-        12
+        17.07,
+        7
       ]
     },
-    "triangles": 688,
-    "kind": "parametric-mesh",
+    "triangles": 5093,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "vcc": [
-        -2.54,
-        2,
-        -10.16
-      ],
-      "out": [
-        0,
-        2,
-        -10.16
+        -14.4,
+        8.56,
+        -3.81
       ],
       "gnd": [
-        2.54,
-        2,
-        -10.16
+        -14.4,
+        8.56,
+        -1.27
+      ],
+      "do": [
+        -14.4,
+        8.56,
+        1.27
+      ],
+      "ao": [
+        -14.4,
+        8.56,
+        3.81
       ]
     },
     "legsMm": [],
-    "modelNote": "Minh họa module PIR phổ biến có chụp cảm biến và biến trở; không đại diện mã HC-SR501 hay pinout cụ thể."
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+    "packageName": "Module quang trở LDR + LM393 (32 × 14 mm)"
+  },
+  {
+    "id": "pir",
+    "file": "/models/components/pir.glb",
+    "bytes": 198428,
+    "sha256": "91dd68e417df86216d0da930903ef6bce026ff5395d26a0898a898d2b9624743",
+    "sizeMm": [
+      35.31,
+      21.22,
+      24.5
+    ],
+    "boundsMm": {
+      "min": [
+        -17.65,
+        0,
+        -12.25
+      ],
+      "max": [
+        17.65,
+        21.22,
+        12.25
+      ]
+    },
+    "triangles": 5508,
+    "kind": "kicad-assembly",
+    "mount": "bench",
+    "pinsMm": {
+      "vcc": [
+        -0.89,
+        14.63,
+        10.25
+      ],
+      "out": [
+        1.65,
+        14.63,
+        10.25
+      ],
+      "gnd": [
+        4.19,
+        14.63,
+        10.25
+      ]
+    },
+    "legsMm": [],
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+    "packageName": "Module PIR HC-SR501 với thấu kính Fresnel (32 × 24 mm)"
   },
   {
     "id": "potentiometer",
     "file": "/models/components/potentiometer.glb",
-    "bytes": 23792,
-    "sha256": "c5d221e8f5390569d8deecade1c3757d6a200f38e8cf6addfda71cbfd09d0261",
+    "bytes": 32468,
+    "sha256": "b37e3052855b67adacea0ca8198ffb0ff3ac31b98f52647339f80f6dfd6de366",
     "sizeMm": [
-      13,
-      22.6,
-      13
+      12,
+      13.9,
+      22.35
     ],
     "boundsMm": {
       "min": [
-        -6.5,
+        -6,
         -3.5,
-        -12
+        -22
       ],
       "max": [
-        6.5,
-        19.1,
-        1
+        6,
+        10.4,
+        0.35
       ]
     },
-    "triangles": 564,
+    "triangles": 772,
     "kind": "parametric-mesh",
     "mount": "breadboard",
     "pinsMm": {
@@ -1261,66 +1482,100 @@
         "x": 2.54,
         "z": 0
       }
-    ]
+    ],
+    "packageName": "Biến trở xoay 10 kΩ có núm (kiểu RV09).",
+    "modelNote": "Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước."
+  },
+  {
+    "id": "power-bank",
+    "mount": "bench",
+    "pinsMm": {},
+    "legsMm": [],
+    "file": "/models/components/power-bank.glb",
+    "bytes": 13284,
+    "sha256": "cdbae78962017730dc612cd41701dc0178f2d2d872a3096d5ae805be0a72a51c",
+    "sizeMm": [
+      98.5,
+      22.2,
+      62
+    ],
+    "boundsMm": {
+      "min": [
+        -49.5,
+        0,
+        -31
+      ],
+      "max": [
+        49,
+        22.2,
+        31
+      ]
+    },
+    "triangles": 108,
+    "kind": "parametric-mesh",
+    "packageName": "Pin dự phòng USB 5 V (minh họa tham số).",
+    "modelNote": "Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước."
   },
   {
     "id": "relay",
     "file": "/models/components/relay.glb",
-    "bytes": 31088,
-    "sha256": "b83c3cb8ad17a0d0d3176f31dbc5646fb9ee884bbf9a3640df32489e963b0fb5",
+    "bytes": 268256,
+    "sha256": "a4ef2a3676ac0e794098b803a8b5ab889577049a4a480e28d3ee1eb13c725e9e",
     "sizeMm": [
-      58.5,
-      17.1,
-      26
+      50,
+      19.1,
+      30.5
     ],
     "boundsMm": {
       "min": [
-        -31,
+        -25,
         0,
-        -13
+        -15.25
       ],
       "max": [
-        27.5,
-        17.1,
-        13
+        25,
+        19.1,
+        15.25
       ]
     },
-    "triangles": 756,
-    "kind": "parametric-mesh",
+    "triangles": 7450,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "in": [
-        -31,
-        3,
-        -2.54
+        -23.4,
+        6.04,
+        -0.29
       ],
       "vcc": [
-        -31,
-        3,
-        0
+        -23.4,
+        6.04,
+        2.25
       ],
       "gnd": [
-        -31,
-        3,
-        2.54
-      ],
-      "com": [
-        15,
-        9.5,
-        0
+        -23.4,
+        6.04,
+        4.79
       ],
       "no": [
         20,
-        9.5,
-        0
+        17.3,
+        -2.75
+      ],
+      "com": [
+        20,
+        17.3,
+        -7.75
       ],
       "nc": [
-        25,
-        9.5,
-        0
+        20,
+        17.3,
+        -12.75
       ]
     },
-    "legsMm": []
+    "legsMm": [],
+    "packageName": "Module relay 1 kênh 5 V (SRD-05VDC)",
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng."
   },
   {
     "id": "resistor",
@@ -1379,72 +1634,73 @@
   {
     "id": "rfid",
     "file": "/models/components/rfid.glb",
-    "bytes": 13240,
-    "sha256": "3e04f6dca5508447af6ead12846d508d45892f7155a89410f90ae8bdceae77fe",
+    "bytes": 284128,
+    "sha256": "87ffcbde08c8312d876c2c666b9faa8cdb777f5808f46b289e0221d6f777fc54",
     "sizeMm": [
       40,
-      9.4,
+      11.6,
       60
     ],
     "boundsMm": {
       "min": [
         -20,
-        -4,
+        0,
         -30
       ],
       "max": [
         20,
-        5.4,
+        11.6,
         30
       ]
     },
-    "triangles": 180,
-    "kind": "parametric-mesh",
+    "triangles": 8174,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "sda": [
         -8.89,
-        2,
-        -15.24
+        11.6,
+        27.5
       ],
       "sck": [
         -6.35,
-        2,
-        -15.24
+        11.6,
+        27.5
       ],
       "mosi": [
         -3.81,
-        2,
-        -15.24
+        11.6,
+        27.5
       ],
       "miso": [
         -1.27,
-        2,
-        -15.24
+        11.6,
+        27.5
       ],
       "irq": [
         1.27,
-        2,
-        -15.24
+        11.6,
+        27.5
       ],
       "gnd": [
         3.81,
-        2,
-        -15.24
+        11.6,
+        27.5
       ],
       "rst": [
         6.35,
-        2,
-        -15.24
+        11.6,
+        27.5
       ],
       "vcc": [
         8.89,
-        2,
-        -15.24
+        11.6,
+        27.5
       ]
     },
     "legsMm": [],
-    "modelNote": "Minh họa breakout RFID với anten vòng và header; không phải CAD RC522 cụ thể, không xác nhận chip, anten hay pinout."
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+    "packageName": "Module RFID RC522 13,56 MHz (40 × 60 mm)"
   },
   {
     "id": "rgb-led",
@@ -1523,81 +1779,82 @@
   {
     "id": "rotary-encoder",
     "file": "/models/components/rotary-encoder.glb",
-    "bytes": 23736,
-    "sha256": "bdc93e9ee38768b68addb51be8e0adda89f264668c4244d4f4973d79055361b9",
+    "bytes": 94596,
+    "sha256": "cf2a2caa04fb2f7b68ca03a0f97c160fef29ad6b6ba286c3ef1bf77ce05aa10a",
     "sizeMm": [
       24,
-      32,
-      18
+      26.5,
+      18.5
     ],
     "boundsMm": {
       "min": [
         -12,
-        -4,
-        -9
+        0,
+        -9.25
       ],
       "max": [
         12,
-        28,
-        9
+        26.5,
+        9.25
       ]
     },
-    "triangles": 576,
-    "kind": "parametric-mesh",
+    "triangles": 2447,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "clk": [
         -5.08,
-        2,
-        -7.62
+        11.6,
+        -7.65
       ],
       "dt": [
         -2.54,
-        2,
-        -7.62
+        11.6,
+        -7.65
       ],
       "sw": [
         0,
-        2,
-        -7.62
+        11.6,
+        -7.65
       ],
       "vcc": [
         2.54,
-        2,
-        -7.62
+        11.6,
+        -7.65
       ],
       "gnd": [
         5.08,
-        2,
-        -7.62
+        11.6,
+        -7.65
       ]
     },
     "legsMm": [],
-    "modelNote": "Minh họa encoder xoay breakout phổ biến; không xác nhận sơ đồ chân hoặc kích thước KY-040 của một nhà sản xuất cụ thể."
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+    "packageName": "Module encoder xoay KY-040 (24 × 18 mm)"
   },
   {
     "id": "servo",
     "file": "/models/components/servo.glb",
-    "bytes": 24440,
-    "sha256": "2959eb43bd67f46847e6efd84cafcf6b49e1f9fbe20684a7f4ee33b5f25d6f6d",
+    "bytes": 26348,
+    "sha256": "0b1c75bf7cbbc889693d2a3b7c139d4a91f8bec1933e3fadf031bd321e4bd5ba",
     "sizeMm": [
-      37.1,
-      31,
-      11.8
+      38.2,
+      30.45,
+      11.9
     ],
     "boundsMm": {
       "min": [
-        -16.1,
-        0,
+        -16.2,
+        -0.05,
         -5.9
       ],
       "max": [
-        21,
-        31,
-        5.9
+        22,
+        30.4,
+        6
       ]
     },
-    "triangles": 576,
+    "triangles": 480,
     "kind": "parametric-mesh",
     "mount": "bench",
     "pinsMm": {
@@ -1617,7 +1874,9 @@
         1.3
       ]
     },
-    "legsMm": []
+    "legsMm": [],
+    "packageName": "Servo micro 9 g kiểu SG90 (vỏ xanh, tai bắt vít, cánh tay và dây 3 màu).",
+    "modelNote": "Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước."
   },
   {
     "id": "seven-segment",
@@ -1820,72 +2079,103 @@
   {
     "id": "soil",
     "file": "/models/components/soil.glb",
-    "bytes": 8008,
-    "sha256": "ac5eb5dc2a1b61e20e085c2b64d12ec1ec50a35ac016a8fd2231750b0538c068",
+    "bytes": 43496,
+    "sha256": "1d44f1ea1de88eb49663626bacf48494165c06c70ecfd02230cb839dd073f326",
     "sizeMm": [
       16,
-      7,
-      66
+      11.6,
+      60
     ],
     "boundsMm": {
       "min": [
         -8,
-        -4,
-        -33
+        0,
+        -30
       ],
       "max": [
         8,
-        3,
-        33
+        11.6,
+        30
       ]
     },
-    "triangles": 84,
-    "kind": "parametric-mesh",
+    "triangles": 1183,
+    "kind": "kicad-assembly",
     "mount": "bench",
     "pinsMm": {
       "vcc": [
         -2.54,
-        2,
-        -7.62
+        11.6,
+        -27.8
       ],
       "gnd": [
         0,
-        2,
-        -7.62
+        11.6,
+        -27.8
       ],
       "aout": [
         2.54,
-        2,
-        -7.62
+        11.6,
+        -27.8
       ]
     },
     "legsMm": [],
-    "modelNote": "Minh họa đầu dò độ ẩm đất điện dung dạng bảng; hình học, lớp phủ và mạch đầu ra tùy nhà sản xuất."
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+    "packageName": "Đầu dò độ ẩm đất dạng nĩa (16 × 60 mm)"
+  },
+  {
+    "id": "soil-relay-pump",
+    "mount": "bench",
+    "pinsMm": {},
+    "legsMm": [],
+    "file": "/models/components/soil-relay-pump.glb",
+    "bytes": 22364,
+    "sha256": "5d535cd47487cc0a261813331dff55b7355ac990d6bf997f910ca01256e48ed8",
+    "sizeMm": [
+      55,
+      24.2,
+      25.2
+    ],
+    "boundsMm": {
+      "min": [
+        -18,
+        0,
+        -12.6
+      ],
+      "max": [
+        37,
+        24.2,
+        12.6
+      ]
+    },
+    "triangles": 536,
+    "kind": "parametric-mesh",
+    "packageName": "Bơm chìm mini 3–5 V và ống dẫn cho bộ tưới tự động (minh họa tham số).",
+    "modelNote": "Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước."
   },
   {
     "id": "tb6612",
     "file": "/models/components/tb6612.glb",
-    "bytes": 16472,
-    "sha256": "754d89ada9129e1934eb77ec5f3b705e72c4b7d08aa6d31c6ad8067573cf97fc",
+    "bytes": 263964,
+    "sha256": "c9cfe72abaf58237eff4565ac6ac6970215c5ca74d5314a9a6f5aa30a7792af5",
     "sizeMm": [
-      20.3,
-      11.4,
-      20.3
+      20.32,
+      12.3,
+      20.32
     ],
     "boundsMm": {
       "min": [
-        -10.15,
+        -10.16,
         -6,
-        -10.15
+        -10.16
       ],
       "max": [
-        10.15,
-        5.4,
-        10.15
+        10.16,
+        6.29,
+        10.16
       ]
     },
-    "triangles": 240,
-    "kind": "parametric-mesh",
+    "triangles": 7100,
+    "kind": "kicad-assembly",
     "mount": "breadboard",
     "pinsMm": {
       "vm": [
@@ -1913,23 +2203,23 @@
         0,
         -8.89
       ],
-      "stby": [
-        -1.27,
-        0,
-        8.89
-      ],
-      "ain1": [
-        1.27,
+      "pwma": [
+        -8.89,
         0,
         8.89
       ],
       "ain2": [
-        3.81,
+        -6.35,
         0,
         8.89
       ],
-      "pwma": [
-        6.35,
+      "ain1": [
+        -3.81,
+        0,
+        8.89
+      ],
+      "stby": [
+        -1.27,
         0,
         8.89
       ]
@@ -1961,23 +2251,23 @@
         "z": -8.89
       },
       {
-        "pinId": "stby",
-        "x": -1.27,
-        "z": 8.89
-      },
-      {
-        "pinId": "ain1",
-        "x": 1.27,
+        "pinId": "pwma",
+        "x": -8.89,
         "z": 8.89
       },
       {
         "pinId": "ain2",
-        "x": 3.81,
+        "x": -6.35,
         "z": 8.89
       },
       {
-        "pinId": "pwma",
-        "x": 6.35,
+        "pinId": "ain1",
+        "x": -3.81,
+        "z": 8.89
+      },
+      {
+        "pinId": "stby",
+        "x": -1.27,
         "z": 8.89
       },
       {
@@ -1996,18 +2286,18 @@
         "z": -8.89
       },
       {
-        "pinId": "nc-b0",
-        "x": -8.89,
+        "pinId": "nc-b4",
+        "x": 1.2699999999999996,
         "z": 8.89
       },
       {
-        "pinId": "nc-b1",
-        "x": -6.3500000000000005,
+        "pinId": "nc-b5",
+        "x": 3.8099999999999987,
         "z": 8.89
       },
       {
-        "pinId": "nc-b2",
-        "x": -3.8100000000000005,
+        "pinId": "nc-b6",
+        "x": 6.35,
         "z": 8.89
       },
       {
@@ -2015,31 +2305,33 @@
         "x": 8.89,
         "z": 8.89
       }
-    ]
+    ],
+    "packageName": "Breakout TB6612FNG 2×8 chân (20,3 × 20,3 mm)",
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng."
   },
   {
     "id": "thermistor",
     "file": "/models/components/thermistor.glb",
-    "bytes": 11864,
-    "sha256": "91d4aab9a2c96716698a27cddb03c7fe93bb4d76f3023a8157915bfd90ba058a",
+    "bytes": 20928,
+    "sha256": "cea4316bc66426e09bb0947df44a5545bfaa490757ac4308087765410e00c991",
     "sizeMm": [
-      4.2,
+      3.8,
       12.6,
-      4.2
+      3.8
     ],
     "boundsMm": {
       "min": [
-        -2.1,
+        -1.9,
         -2,
-        -2.1
+        -1.9
       ],
       "max": [
-        2.1,
+        1.9,
         10.6,
-        2.1
+        1.9
       ]
     },
-    "triangles": 304,
+    "triangles": 524,
     "kind": "parametric-mesh",
     "mount": "breadboard",
     "pinsMm": {
@@ -2066,7 +2358,8 @@
         "z": 0
       }
     ],
-    "modelNote": "Hạt NTC 2 chân dạng epoxy để minh họa hình dáng. Không gắn mã B, dải nhiệt, đường cong R/T hay kích thước của một nhà sản xuất cụ thể."
+    "modelNote": "Hình dạng giọt epoxy minh họa. Không gắn mã B, R25 hay đường cong nhiệt độ cụ thể; xem datasheet linh kiện thật.",
+    "packageName": "Nhiệt điện trở NTC dạng giọt epoxy (kiểu MF52)."
   },
   {
     "id": "transistor",
@@ -2135,27 +2428,27 @@
   {
     "id": "ultrasonic",
     "file": "/models/components/ultrasonic.glb",
-    "bytes": 30308,
-    "sha256": "8ed9017261941788f515e6b514ffc5068b326d24512bcb12714216dca0a25c77",
+    "bytes": 356520,
+    "sha256": "415f13668d184bd6ad8dfaf7d9fc8dc1a0675dfc1f4848c1e275535dd3f99a1e",
     "sizeMm": [
       45,
-      28.5,
-      14.2
+      28.24,
+      16.23
     ],
     "boundsMm": {
       "min": [
         -22.5,
         -6,
-        -1.25
+        -2.63
       ],
       "max": [
         22.5,
-        22.5,
-        12.95
+        22.24,
+        13.6
       ]
     },
-    "triangles": 756,
-    "kind": "parametric-mesh",
+    "triangles": 9953,
+    "kind": "kicad-assembly",
     "mount": "breadboard",
     "pinsMm": {
       "vcc": [
@@ -2200,6 +2493,38 @@
         "x": 3.81,
         "z": 0
       }
-    ]
+    ],
+    "packageName": "Module siêu âm HC-SR04 (45 × 20 mm)",
+    "modelNote": "PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng."
+  },
+  {
+    "id": "usb-cable",
+    "mount": "bench",
+    "pinsMm": {},
+    "legsMm": [],
+    "file": "/models/components/usb-cable.glb",
+    "bytes": 10932,
+    "sha256": "77ade6af2be02b599b7e6efd3c370e97ad7bba68f7eaf52fdc11ee81386490db",
+    "sizeMm": [
+      86,
+      7.25,
+      15
+    ],
+    "boundsMm": {
+      "min": [
+        -46,
+        0.25,
+        -7.5
+      ],
+      "max": [
+        40,
+        7.5,
+        7.5
+      ]
+    },
+    "triangles": 176,
+    "kind": "parametric-mesh",
+    "packageName": "Cáp USB-A sang micro-USB (minh họa tham số).",
+    "modelNote": "Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước."
   }
 ]

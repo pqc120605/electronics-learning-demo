@@ -1,0 +1,4 @@
+
+> mach-mo-learning-demo@0.1.0 typecheck
+> node --max-old-space-size=4096 node_modules/typescript/bin/tsc -p tsconfig.app.json --noEmit
+

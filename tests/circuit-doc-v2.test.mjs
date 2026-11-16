@@ -155,18 +155,15 @@ test('a two-pin resistor rotates 90 and 270 degrees across breadboard rows', () 
   assert.deepEqual(at270.map(hole => gridApi.formatHole(hole)), ['bb1:10a', 'bb1:10e'])
 })
 
-test('a centered 90 degree button mount resolves both legs of each contact in manifest order', () => {
+test('bench-only button geometry cannot resolve as a breadboard footprint', () => {
   const mount = { kind: 'breadboard', board: 'bb1', col: 20, row: 5, rotation: 90 }
   const button = { id: 'button-1', type: 'button', mount }
   const doc = blinkDoc()
   doc.parts.push(button)
 
-  assert.deepEqual(api.canMount(button, mount, doc, registry), { ok: true })
-  assert.deepEqual(api.footprintHoles(button).map(gridApi.formatHole), ['bb1:20f', 'bb1:20e', 'bb1:22f', 'bb1:22e'])
-  const occupied = api.occupancy(doc)
-  for (const [holeId, pinId] of [['bb1:20f', 'contactA'], ['bb1:20e', 'contactA'], ['bb1:22f', 'contactB'], ['bb1:22e', 'contactB']]) {
-    assert.deepEqual(occupied[holeId].legs, [{ partId: button.id, pinId }])
-  }
+  assert.deepEqual(api.canMount(button, mount, doc, registry), { ok: false, code: 'G2', reason: 'Linh kiện “button” không được manifest cho phép cắm breadboard.' })
+  assert.equal(api.footprintHoles(button), null)
+  assert.deepEqual(api.footprintHoles({ ...button, mount: { kind: 'bench', lane: 'right', order: 0 } }), [])
 })
 
 test('centering rejects off-grid, malformed and over-tolerance footprints', () => {

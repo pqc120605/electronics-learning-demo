@@ -257,7 +257,7 @@ export function Pcb2DViewer({ boardId, lessonId, codePin, signalActive = false, 
   const componentGuide = componentInfo ? unoComponentGuide[componentInfo.reference] : undefined
   const boardOutlinePath = useMemo(() => joinBoardOutline(manifest?.outline ?? []), [manifest?.outline])
 
-  return <section className="pcb2d-panel" aria-label="Khám phá lớp đồng PCB 2D">
+  return <section className="pcb2d-panel mm-keep-light" aria-label="Khám phá lớp đồng PCB 2D">
     <header className="pcb2d-heading"><div><p className="eyebrow">PCB 2D · DỮ LIỆU CAD NGUỒN</p><h3>{boardManifests[boardId]?.title ?? 'Chưa có lớp đồng cho board này'}{manifest ? ` · ${manifest.revision}` : ''}</h3></div>
       {manifest && <span className="pcb2d-source-badge">Nguồn: KiCad · {manifest.components.length} linh kiện · {manifest.copperFeatures.length} đối tượng đồng</span>}
     </header>

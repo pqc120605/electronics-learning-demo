@@ -1,0 +1,94 @@
+{
+  "checks": [
+    {
+      "tests": 25,
+      "exit_code": 0,
+      "command": "node --test tests/community.test.mjs tests/community-attachments.test.mjs tests/community-remote.test.mjs"
+    },
+    {
+      "exit_code": 0,
+      "command": "npm.cmd run typecheck"
+    }
+  ],
+  "not_run": [
+    "browser specs (lead owns build/ports)",
+    "SQL apply/syntax execution against PostgreSQL",
+    "Supabase OAuth/storage/RLS/two-user live checks"
+  ],
+  "date": "2026-11-16",
+  "files": [
+    {
+      "sha256": "371cfaa85488c59c2928c274916c3599dd0dca779aa30ccb602115a1c6305e06",
+      "path": "src/lib/community.ts"
+    },
+    {
+      "sha256": "c42e02d18db277f3d68a2315882809df384cea2826aaae014e2abc809a17cab3",
+      "path": "src/lib/communityStore.ts"
+    },
+    {
+      "sha256": "7c56025ee3f18323527459d325082beac9ccae78fca1d17dc2f1eac60520317a",
+      "path": "src/lib/communityAttachments.ts"
+    },
+    {
+      "sha256": "43809dd9e4fafe1b0a9e972a94194bbede4ab97377933d8659ccb49c48d83484",
+      "path": "src/lib/communityAttachmentStore.ts"
+    },
+    {
+      "sha256": "36282959704135f60d4b25c2ef1b06767f2826f20bb9025142601a72d70ca168",
+      "path": "src/lib/communityRemoteRepository.ts"
+    },
+    {
+      "sha256": "848973584121f809fb908838ac061adb0e4bd2f0d07fbda42d5a8072d0e4ac2e",
+      "path": "src/lib/communityDrafts.ts"
+    },
+    {
+      "sha256": "cab7e4a51c4b560063613276265618d61187130d2061ab14a5293e591ae627fd",
+      "path": "src/components/community/CommunityAttachments.tsx"
+    },
+    {
+      "sha256": "6f58c7ba849fe7c5fb50b84bd32242d09c79551f14f030e709bc4b5304394b62",
+      "path": "src/components/community/CommunityChrome.tsx"
+    },
+    {
+      "sha256": "b1a2a0aae9ead5480badccd02fd3e847b0a70f249dbfa2e7f45881292fcc56ad",
+      "path": "src/components/community/ReportButton.tsx"
+    },
+    {
+      "sha256": "4139a9424974b2dff6630155250c6fd5dcee4cc6400aa8a72d3135d11d8fc677",
+      "path": "src/pages/CommunityNewPostPage.tsx"
+    },
+    {
+      "sha256": "c215a637ba75f9e103a4a8bcb3822669d3e4697bc240bde75a9fa83991b6f293",
+      "path": "src/pages/CommunityPostPage.tsx"
+    },
+    {
+      "sha256": "183362314c8afcf70de20cbff77df3fa86c1f13aac45afa4e9225c74b17f6774",
+      "path": "src/pages/CommunityPage.tsx"
+    },
+    {
+      "sha256": "28efdca62d139bca02c49b4582217f475de2bc1352e26f80dd4eb31599b25172",
+      "path": "src/pages/Community.css"
+    },
+    {
+      "sha256": "6a163f785cd078e93dc467e3ffe4c30354d01f571c1db32c15a7938233d782fd",
+      "path": "tests/community-attachments.test.mjs"
+    },
+    {
+      "sha256": "140d167a3f1065d0311e943bb3c2942ff50c350b907943e924ce75a91e906f30",
+      "path": "tests/community-remote.test.mjs"
+    },
+    {
+      "sha256": "79dcac7d2090bd4f83e875ff257f2a250f047364b925f8757b50240ea306e100",
+      "path": "e2e/community-attachments.spec.mjs"
+    },
+    {
+      "sha256": "c18d1fd97841eda278afc502f7061be414963aedeb6570c03af9cd43da84d926",
+      "path": "docs/software/community-online/001-community.sql"
+    },
+    {
+      "sha256": "8e0135053dccc0f361d61c5cdcf67b8e39235b28cb79e21eb887bea62c81d48c",
+      "path": "docs/software/community-online/README.md"
+    }
+  ],
+  "task": "MM-SW-COMMUNITY-ATTACH-001"
+}

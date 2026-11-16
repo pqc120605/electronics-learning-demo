@@ -2,25 +2,13 @@ import { parseBoardGlb, type GpuBatch, type NodeBounds } from './glbParser'
 import type { BoardModelManifest, BoardSceneDefinition } from './boardSceneTypes'
 import { getFeatureFocusBounds } from '../../lib/boardFeatureFocus'
 import { compileShader as shader, dot, makeCamera, multiply, normalize, perspective, rayTriangle, subtract, viewMatrix, type Vec3 } from './sceneMath'
+import { LIGHT_DIR, loadEnvTexture, pbrFragmentShader, pbrVertexShader, sceneQuality } from './pbrShading'
 
 type PreparedBatch = GpuBatch & { buffers: WebGLBuffer[] }
 
-const vertexShader = `#version 300 es
-in vec3 aPosition;
-in vec3 aNormal;
-uniform mat4 uViewProjection;
-uniform mat4 uModel;
-out vec3 vNormal;
-void main() { gl_Position = uViewProjection * uModel * vec4(aPosition, 1.0); vNormal = mat3(uModel) * aNormal; }
-`
-const fragmentShader = `#version 300 es
-precision highp float;
-in vec3 vNormal;
-uniform vec3 uColor;
-uniform float uEmphasis;
-out vec4 outColor;
-void main() { vec3 n = normalize(vNormal); float light = 0.54 + 0.46 * max(dot(n, normalize(vec3(-0.42, 0.62, 0.68))), 0.0); vec3 color = mix(uColor, vec3(0.18, 0.78, 0.72), uEmphasis * 0.58); outColor = vec4(color * light + vec3(0.018, 0.026, 0.028), 1.0); }
-`
+// Shared metal/roughness shading with the CC0 environment map (see pbrShading.ts); no shadow pass here.
+const vertexShader = pbrVertexShader
+const fragmentShader = pbrFragmentShader
 
 const identity: number[] = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
 
@@ -48,6 +36,7 @@ export class BoardScene {
   private width = 1
   private height = 1
   private disposed = false
+  private envTexture: WebGLTexture | undefined
   private canvas: HTMLCanvasElement
 
   private constructor(canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) {
@@ -65,6 +54,7 @@ export class BoardScene {
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(program) ?? 'Không liên kết được shader.')
     this.program = program
     gl.enable(gl.DEPTH_TEST)
+    if (sceneQuality() === 'high') loadEnvTexture(gl, (texture) => { if (this.disposed) { gl.deleteTexture(texture); return } this.envTexture = texture; this.render() })
   }
 
   static create(canvas: HTMLCanvasElement): BoardScene {
@@ -263,6 +253,17 @@ export class BoardScene {
     gl.useProgram(this.program)
     gl.uniformMatrix4fv(gl.getUniformLocation(this.program, 'uViewProjection'), false, new Float32Array(viewProjection))
     gl.uniformMatrix4fv(gl.getUniformLocation(this.program, 'uModel'), false, new Float32Array(identity))
+    const at = (name: string) => gl.getUniformLocation(this.program, name)
+    gl.uniformMatrix4fv(at('uLightVP'), false, new Float32Array(identity))
+    gl.uniform3fv(at('uCameraPos'), camera.eye)
+    const lightLength = Math.hypot(...LIGHT_DIR)
+    gl.uniform3fv(at('uLightDir'), LIGHT_DIR.map((value) => value / lightLength))
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, this.envTexture ?? null); gl.uniform1i(at('uEnv'), 0)
+    gl.uniform1f(at('uEnvReady'), this.envTexture ? 1 : 0)
+    gl.uniform1i(at('uShadowMap'), 1)
+    gl.uniform1f(at('uShadowOn'), 0)
+    gl.uniform1f(at('uStripes'), 0)
+    gl.uniform1f(at('uGlow'), 0)
     const positionLocation = gl.getAttribLocation(this.program, 'aPosition')
     const normalLocation = gl.getAttribLocation(this.program, 'aNormal')
     for (const batch of this.batches) {
@@ -277,6 +278,8 @@ export class BoardScene {
       const isHovered = (this.featureNodes.get(this.hoveredFeatureId) ?? []).includes(batch.nodeName)
       const isHighlighted = this.highlightedFeatureIds.some((id) => (this.featureNodes.get(id) ?? []).includes(batch.nodeName))
       gl.uniform3fv(gl.getUniformLocation(this.program, 'uColor'), this.displayColor(batch.nodeName, batch.color))
+      gl.uniform1f(at('uMetallic'), batch.metallic ?? 0)
+      gl.uniform1f(at('uRoughness'), batch.roughness ?? 0.6)
       gl.uniform1f(gl.getUniformLocation(this.program, 'uEmphasis'), isSelected ? 1 : isHovered ? 0.82 : isHighlighted ? 0.52 : 0)
       gl.drawElements(gl.TRIANGLES, batch.indices.length, gl.UNSIGNED_INT, 0)
     }
@@ -288,6 +291,7 @@ export class BoardScene {
     const gl = this.gl
     this.clearBuffers()
     gl.deleteProgram(this.program)
+    if (this.envTexture) gl.deleteTexture(this.envTexture)
   }
 
   private clearBuffers(): void {

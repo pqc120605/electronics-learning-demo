@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-15T12:52:07.813Z",
+  "hashes": {
+    "src/components/freestyle/FreestyleBench.tsx": "6f53de1b8e77ff4c01480076820216e0361433c802417f47b77cc4b34f1610bd",
+    "src/components/freestyle/FreestyleBench.css": "3a775e0a1bcd766023ce7e534fc0bec1b16e9a98c7b4cfd0cee5b0779abb3926",
+    "src/components/builder/BreadboardEditor.tsx": "3065794534ca6d6db3b66a75b5a4d0261764c86c97f6f22509a4d17201e0fd2d",
+    "src/components/builder/BreadboardDiagram.tsx": "d89de886cd158906f0c7a758c43212f6cb5f662ca28d1c1929d89d3f57566233",
+    "src/lib/breadboardDiagram.ts": "aaa18aaa86973131d6230151dc0199ce9cc6fb5e314f0a179b1dd97ec23f31de",
+    "src/lib/freestyle/freestyleCircuit.ts": "ff4c48328a7d92546635fce94dae702db6e0aec533a8bfb4d58a38e58845ea0d",
+    "tests/freestyle-circuit.test.mjs": "5399640d9f7ae0c33a113403fcf273a263c5cbfa4e96cba9458d882a07ace63f",
+    "e2e/freestyle-bench.spec.mjs": "fa6571b51ebe6f721746669d1aca9588301484bd8610e047b4eee396c49075c6",
+    "e2e/mascot-guide.spec.mjs": "db5005cc5ea99edb85bb412ef49a4e94326c9c6b0e53f62f4c56c6fd27fd4db8"
+  }
+}

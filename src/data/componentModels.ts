@@ -1,7 +1,7 @@
 import { componentRegistry } from './componentRegistry'
 import manifest from './component-models.manifest.json'
 
-export type ComponentMeshKind = 'source-cad-mesh' | 'parametric-mesh'
+export type ComponentMeshKind = 'source-cad-mesh' | 'kicad-assembly' | 'parametric-mesh'
 export type ComponentLeg = { pinId: string; x: number; z: number }
 export type BreadboardGrid = { pitch: number; columns: number; topY: number; firstColumnX: number; rows: number[]; rails: number[] }
 export type ComponentMesh = { id: string; file: string; bytes: number; sha256: string; sizeMm: number[]; boundsMm: { min: number[]; max: number[] }; triangles: number; kind: ComponentMeshKind; packageName?: string; modelNote?: string; sourceFile?: string; sourceSha256?: string; footprint?: string; mount: 'breadboard' | 'bench'; pinsMm: Record<string, number[]>; legsMm: ComponentLeg[]; gridMm?: BreadboardGrid }
@@ -16,11 +16,13 @@ export type ComponentRepresentations = {
 
 export const componentMeshKindLabels: Record<ComponentMeshKind, string> = {
   'source-cad-mesh': 'Mesh CAD · thư viện KiCad',
+  'kicad-assembly': 'Module dựng từ package KiCad',
   'parametric-mesh': 'Minh họa tham số',
 }
 
 export const componentMeshNotes: Record<ComponentMeshKind, string> = {
   'source-cad-mesh': 'Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể.',
+  'kicad-assembly': 'PCB, chữ lụa và linh kiện là package chuẩn của thư viện KiCad, đặt theo module phổ biến; không phải CAD của nhà sản xuất module.',
   'parametric-mesh': 'Mạch Mở dựng theo kích thước thường gặp để dễ nhận biết. Module thật khác nhau về bố trí, kích thước và thứ tự chân.',
 }
 
@@ -35,6 +37,8 @@ export function getComponentMesh(id: string | undefined): ComponentMesh | undefi
 
 /** Resolves a library catalog id to its builder model when one exists, otherwise to a dedicated catalog illustration mesh. */
 export function getComponentMeshForCatalog(catalogId: string): ComponentMesh | undefined {
+  // Catalog "capacitor" là tụ gốm; part builder "capacitor" là tụ hóa (catalog "electrolytic").
+  if (catalogId === 'capacitor') return getComponentMesh('capacitor-ceramic')
   const builderPart = componentRegistry.find((part) => part.catalogId === catalogId)
   if (builderPart) return getComponentMesh(builderPart.id)
   return componentRegistry.some((part) => part.id === catalogId) ? undefined : getComponentMesh(catalogId)

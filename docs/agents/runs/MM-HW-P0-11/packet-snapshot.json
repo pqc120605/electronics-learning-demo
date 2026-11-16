@@ -2,7 +2,8 @@
   "configuration_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
   "excludes": [
     "packet-snapshot.json (self)",
-    "RELAY-REVIEW_REQUEST.md (pins manifest)"
+    "RELAY-REVIEW_REQUEST.md (pins manifest)",
+    "QA-REVIEW-REQUEST.md (review instructions; not evidence payload)"
   ],
   "files": [
     {
@@ -139,7 +140,7 @@
     },
     {
       "path": "D:/StartupOS/docs/agents/tasks.json",
-      "sha256": "5c187992f379f2b2059afe029453b1fd56c0399c7fc4ecf6d0dda3462a4390dd"
+      "sha256": "06622a0082a5a862ff08b4b752bb3c989111df998c47aada495193cd5d981c23"
     },
     {
       "path": "D:/StartupOS/electronics-learning-demo/docs/research/downloads/c11-r12/ref33.pdf",

@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
-const routes=['/','/app','/learn/button-led','/boards?board=seeed-xiao-esp32-s3','/components?component=resistor','/build?lesson=blink&guided=1','/tools/electronics-calculators','/app/classroom-kits']
+const routes=['/','/app','/learn/button-led?board=esp32-devkit','/boards?board=seeed-xiao-esp32-s3','/components?component=resistor','/build?lesson=blink&guided=1&board=esp32-devkit','/tools/electronics-calculators','/app/classroom-kits']
 for(const width of [375,1440]) for(const route of routes) test(`a11y ${width}px ${route}`, async ({page},testInfo)=>{
   await page.setViewportSize({width,height:900})
   await page.goto(route)

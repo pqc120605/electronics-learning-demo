@@ -1,0 +1,48 @@
+# Board 2D nhìn thẳng từ trên
+
+16/11/2026 · MM-SW-BOARD-2D-003
+
+Tám ảnh CAD top-down; chân có nguồn dùng cùng phép chiếu với hình; bỏ khung board giả; sửa alias che hit target; giữ endpoint/draft.
+
+## Kiểm chứng
+
+- typecheck exit0.
+- npm.cmd test:680/680, exit0;52ca liên quan URL/board chạy lại sau sửa liên kết cuối, exit0.
+- build:local exit0 (bản nội bộ).
+- production-preview e2e toàn bộ:191/194, exit1; ba fixture/selector đã sửa, hai file liên quan chạy lại10/10 exit0 trên cùng bundle. Không tuyên bố194/194 trong một lượt. Dùng config kế thừa cổng5311 để giữ tiến trình khác ở5196. Không báo đã chạy lệnh chuẩn5196.
+- Review độc lập:PASS, xem [review.md](review.md); hash source khớp snapshot đã review.
+
+Lệnh/log/exitcode: [verification.json](verification.json). Bản quét đầu bị ngắt sau khi phát hiện hồi quy; kết quả source cũ không được dùng thay lượt cuối. Không thêm dependency, không deploy, không gọiClaude, không chạm hardware.
+
+## Giới hạn
+
+Ảnh tham chiếu CAD, không phải ảnh chụp/đo bo của người dùng. Chân chưa có nguồn không vẽ đoán; giả định breadboard400 chưa kiểm vật lý.
+
+## SHA-256 file trong scope
+
+| File | SHA-256 |
+|---|---|
+| e2e/board-top-view.spec.mjs | 07cd540a24e38f2a187d99fa16eed8a0eaa857173c0dbce4a1f999131571855a |
+| e2e/freestyle-views.spec.mjs | c54cd595c1020d908fc1e9d98fda84477fa0fe7103147071d2c507fb61e58479 |
+| public/board-reference/topview/NOTICE.md | 3067fc10c22ba64f3fb8fcdf3dbe72315afd59e2c60a0d23cec07a31e9425643 |
+| public/board-reference/topview/arduino-mega-2560-r3.png | bff155b79179dced5e9074119cdd970a8300ff625d49b8c8aa8b1a10bb7009e2 |
+| public/board-reference/topview/arduino-nano-classic.png | 85aba2f11a708ba515e15b714943986e958edf83857dc1fd8c86c8076f66ac5d |
+| public/board-reference/topview/arduino-uno-r3.png | f0b04cd65c39f4b0ced65719ea0eaad1a6016f1e6847f83f28110b1820f1bfb1 |
+| public/board-reference/topview/esp32-devkit.png | 541a10883ea2ba063b50344a52bfa95f2de3587b64d32e257f5dcbabe9dc1f28 |
+| public/board-reference/topview/esp32-s3-devkitc-1.png | 2c6fd5f2ad9b45eb55d3947b9029192d01030e36939cf5bfce07dbede2f0149a |
+| public/board-reference/topview/raspberry-pi-pico.png | d21810bcb53e8a83cb29b76028900c9e56b1199d516d00ecf2b85b4300d34144 |
+| public/board-reference/topview/stm32-blue-pill-f103.png | 70ffed0f8ca2f83168fbb5d1dc7988798b86f73795daec210941bffde98fcaf3 |
+| public/board-reference/topview/stm32-nucleo.png | dcda51a44f0bf350907dbc1bd55810549beeea7308a4249ccd5fc17804c41829 |
+| scripts/board-topview-render.ts | 66d74bc6eec65078951336bfdb6d8eac301256838c3c1d04de786cd6615e67dd |
+| scripts/render-board-topviews.mjs | e154d2ea843f227bdee7ae41205e128d71ecd3fc08b60099159bb497c3dc0b1d |
+| src/components/builder/BreadboardDiagram.tsx | 24aaa3e34c7fe0b84d57683f7ea3800f006d3cfdf1951ad4ec47c30a8fb2bc1f |
+| src/components/builder/BreadboardEditor.tsx | 4931825a2377b392470e3ec594d060d15a438a9e9d60b44038712a742080e711 |
+| src/components/freestyle/FreestyleBench.tsx | 19428698646e5af4a6061669ff55af104eae0adb383814725d3d843d0aa27acf |
+| src/components/freestyle/FreestyleBoardArt.tsx | ef747e5fae10b5cbf30deebeeae1022a441ac89561280972de5d24d8465bbf95 |
+| src/data/boardTopViews.json | 5ae1bca212d5a55c30a074789753345d2f7406be92f67259480b38a423b4eb6e |
+| src/lib/boardTopView.ts | a1be02f029951e170579bdafbea074188a65565083b36913d7f2cccb4861b336 |
+| src/lib/breadboardDiagram.ts | 7bebe5d1a46903dd1958bf09f7cc7a22942e287b770a90c8d0f96f654e07b154 |
+| src/lib/freestyle/freestylePresentation.ts | f01033411296b558a4c649c9264a5eb70da5a9d385c91deb396a1fafd35bd923 |
+| tests/board-top-view.test.mjs | 63b21283452c08822a1d84a4d5b653fba83c1bf14aa6ac1ffec54590f3a2e2c7 |
+| tests/breadboard-diagram.test.mjs | 852c8d2c9fa0914e97d2f625bd342b8c0a1c2b00c85b6039fb3aac0c997c183e |
+| tests/freestyle-presentation.test.mjs | de74c38918ce7fafbe6e7bf25c0c7fe3005575e563b4841cea9dcd0bfa64118b |

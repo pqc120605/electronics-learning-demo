@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test'
-import { readFile } from 'node:fs/promises'
+import { readFile, mkdir } from 'node:fs/promises'
 
 test('mobile selected-wire controls remain fully exposed above the playback console', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 })
-  await page.goto('/app/learn/button-led')
+  await page.goto('/app/learn/button-led?board=esp32-devkit')
   const lab = page.locator('.button-lab')
   const editor = lab.getByRole('region', { name: 'Lắp mạch trên breadboard' })
   await editor.getByRole('combobox', { name: 'Chọn dây' }).selectOption('w-input-to-button')
@@ -24,17 +24,20 @@ test('mobile selected-wire controls remain fully exposed above the playback cons
     await expect(lab.locator('.button-lab-result')).toHaveAttribute('data-state', state === 'stale' ? 'stale' : 'ready')
     await expect(lab.locator('.button-lab-result')).toHaveAttribute('data-event', state === 'stale' ? '' : state)
   }
+  const proofDir = 'docs/claude-support/2026-11-14-web-ui-ux-review/img/12/interactions'
+  await mkdir(proofDir, { recursive: true })
+  await page.screenshot({ path: `${proofDir}/mobile-selected-wire-controls.png` })
   await wire.getByRole('button', { name: 'Xóa dây w-input-to-button' }).click()
   await expect(wire).toHaveCount(0)
   await lab.getByRole('button', { name: 'Khôi phục mạch' }).click()
-  await expect(editor.getByRole('combobox', { name: 'Chọn dây' }).locator('option:not([value=""])')).toHaveCount(5)
+  await expect(editor.getByRole('combobox', { name: 'Chọn dây' }).locator('option:not([value=""])')).toHaveCount(6)
   expect(await page.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.scrollHeight])).toEqual([375, 812])
 })
 
 for (const viewport of [{ width: 1440, height: 900 }, { width: 375, height: 812 }]) {
   test(`3D event marker excludes selected pins outside the current frame at ${viewport.width}px`, async ({ page }, testInfo) => {
     await page.setViewportSize(viewport)
-    await page.goto('/app/learn/button-led')
+    await page.goto('/app/learn/button-led?board=esp32-devkit')
     const lab = page.locator('.button-lab')
     const views = lab.getByRole('group', { name: 'Chọn hình chiếu mạch' })
     const controls = lab.getByRole('group', { name: 'Điều khiển từng bước trace' })
@@ -66,7 +69,7 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 375, height: 812 
 for (const viewport of [{ width: 1440, height: 900 }, { width: 375, height: 812 }]) {
   test(`signal playback follows one event across projections at ${viewport.width}px`, async ({ page }, testInfo) => {
     await page.setViewportSize(viewport)
-    await page.goto('/app/learn/button-led')
+    await page.goto('/app/learn/button-led?board=esp32-devkit')
     const lab = page.locator('.button-lab')
     const status = lab.locator('.button-lab-result')
     const controls = lab.getByRole('group', { name: 'Điều khiển từng bước trace' })
@@ -98,14 +101,14 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 375, height: 812 
     await expectStep(2, 'branch')
     await views.getByRole('button', { name: 'Sơ đồ', exact: true }).click()
     await expect(schematic.locator('.circuit-net-line.net-active')).toHaveCount(1)
-    await expect(schematic.locator('.circuit-net-line[data-net-key="bb1:20a"]')).toHaveClass(/net-active/)
+    await expect(schematic.locator('.circuit-net-line[data-net-key="board-1:input"]')).toHaveClass(/net-active/)
     await expectStep(2, 'branch')
     await next.press('Enter')
     await expectStep(3, 'write')
     await expect(lab.getByTestId('button-lab-selection')).toHaveText('board-1:input')
     await expect(next).toBeDisabled()
     await expect(schematic.locator('.circuit-net-line.net-active')).toHaveCount(2)
-    await expect(schematic.locator('.circuit-net-line[data-net-key="bb1:20a"]')).not.toHaveClass(/net-active/)
+    await expect(schematic.locator('.circuit-net-line[data-net-key="board-1:input"]')).not.toHaveClass(/net-active/)
     await views.getByRole('button', { name: '3D', exact: true }).click()
     await expect(lab.locator('.assembly-stage-view canvas').or(lab.getByText(/chưa mở được WebGL 2/))).toBeVisible()
     await expectStep(3, 'write')
@@ -158,7 +161,7 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 375, height: 812 
 
 test('reduced motion keeps signal playback manual and stops an active timer', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
-  await page.goto('/app/learn/button-led')
+  await page.goto('/app/learn/button-led?board=esp32-devkit')
   const lab = page.locator('.button-lab')
   const controls = lab.getByRole('group', { name: 'Điều khiển từng bước trace' })
   const status = lab.locator('.button-lab-result')
@@ -184,7 +187,7 @@ for (const { width, height, keyboard } of [
 ]) {
   test(`button LED wiring preserves endpoint identity and rejects invalid edits at ${width}×${height}`, async ({ page }, testInfo) => {
     await page.setViewportSize({ width, height })
-    await page.goto('/app/learn/button-led')
+    await page.goto('/app/learn/button-led?board=esp32-devkit')
     const lab = page.locator('.button-lab')
     const editor = lab.getByRole('region', { name: 'Lắp mạch trên breadboard' })
     const select = editor.getByRole('button', { name: 'Chọn', exact: true })
@@ -214,7 +217,7 @@ for (const { width, height, keyboard } of [
     await expect(mode).toContainText('board-1:vcc')
     await choose('bb1:2a')
     await expect(mode).toContainText('bb1:2a')
-    await wireCount(5)
+    await wireCount(6)
 
     await activate(connect)
     await expect(mode).toContainText('Chọn điểm bắt đầu')
@@ -223,16 +226,16 @@ for (const { width, height, keyboard } of [
     await expect(mode).toContainText('board-1:vcc')
     await choose('board-1:vcc')
     await expect(editor.getByRole('alert')).toContainText(/hai điểm khác nhau.*board-1:vcc/)
-    await wireCount(5)
+    await wireCount(6)
     await activate(editor.getByRole('button', { name: 'Hủy nối dây' }))
     await expect(select).toHaveAttribute('aria-pressed', 'true')
-    await wireCount(5)
+    await wireCount(6)
 
     await activate(connect)
     await editor.getByRole('combobox', { name: 'Loại dây mới' }).selectOption('power')
     await choose('board-1:vcc', 'Space')
     await choose('bb1:3a')
-    await wireCount(6)
+    await wireCount(7)
     await expect(mode).toContainText('board-1:vcc')
     await expect(mode).toContainText('bb1:3a')
     await expect(newWire()).toContainText(/board-1:vcc.*bb1:3a.*Nguồn dương.*bb1:3a/)
@@ -295,7 +298,7 @@ for (const { width, height, keyboard } of [
     await expect(list).toHaveValue('')
     await expect(wire).toHaveCount(0)
     await expect(geometry).toHaveCount(0)
-    await wireCount(5)
+    await wireCount(6)
     await expect(lab.locator('.button-lab-wire-overlay path[data-active="true"]')).toHaveCount(0)
 
     if (keyboard) {
@@ -307,20 +310,20 @@ for (const { width, height, keyboard } of [
       await page.mouse.down()
       await page.mouse.move(to.x + to.width / 2, to.y + to.height / 2, { steps: 6 })
       await page.mouse.up()
-      await wireCount(6)
+      await wireCount(7)
       await expect(list.locator('option[value="lesson-wire-2"]')).toContainText(/bb1:6a.*bb1:7a/)
     } else {
       await connect.click()
       await choose('bb1:6a')
       await choose('bb1:7a')
-      await wireCount(6)
+      await wireCount(7)
     }
     await activate(lab.getByRole('button', { name: 'Khôi phục mạch' }))
     await expect(select).toHaveAttribute('aria-pressed', 'true')
     await expect(list).toHaveValue('')
-    await wireCount(5)
+    await wireCount(6)
     expect(await list.locator('option:not([value=""])').evaluateAll(options => options.map(option => option.value))).toEqual([
-      'w-gpio-to-resistor', 'w-led-cathode-to-rail', 'w-rail-to-gnd', 'w-input-to-button', 'w-button-to-gnd-rail',
+      'w-gpio-to-resistor', 'w-resistor-to-led', 'w-led-cathode-to-rail', 'w-rail-to-gnd', 'w-input-to-button', 'w-button-to-gnd',
     ])
     await expectOneScreen()
   })
@@ -328,7 +331,7 @@ for (const { width, height, keyboard } of [
 
 test('button LED workspace keeps the desktop scene, navigation, and typed result in one viewport', async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 1440, height: 900 })
-  await page.goto('/app/learn/button-led')
+  await page.goto('/app/learn/button-led?board=esp32-devkit')
   const lab = page.locator('.button-lab')
   const status = lab.locator('.button-lab-result')
   const view = lab.getByRole('group', { name: 'Chọn hình chiếu mạch' })
@@ -398,7 +401,7 @@ test('button LED workspace keeps the desktop scene, navigation, and typed result
 
 test('button LED mobile views preserve input, selection, and code and invalidate old results', async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 375, height: 812 })
-  await page.goto('/app/learn/button-led')
+  await page.goto('/app/learn/button-led?board=esp32-devkit')
   const lab = page.locator('.button-lab')
   const mobile = lab.getByRole('navigation', { name: 'Chế độ xem trên điện thoại' })
   const status = lab.locator('.button-lab-result')
@@ -410,7 +413,7 @@ test('button LED mobile views preserve input, selection, and code and invalidate
   await expect(status).toContainText('LOW → if → LED sáng')
   await mobile.getByRole('button', { name: 'Chi tiết' }).click()
   await lab.getByRole('button', { name: 'Linh kiện', exact: true }).click()
-  await lab.locator('.button-lab-inspector').getByRole('button', { name: /button-1:contactA/ }).click()
+  await lab.locator('.button-lab-inspector').getByRole('button', { name: 'Tiếp điểm A button-1:contactA', exact: true }).click()
   await expect(lab.getByTestId('button-lab-selection')).toHaveText('button-1:contactA')
   await mobile.getByRole('button', { name: 'Sơ đồ' }).click()
   await expect(lab.locator('.circuit-schematic-v2')).toBeVisible()
@@ -433,10 +436,13 @@ test('button LED mobile views preserve input, selection, and code and invalidate
   await lab.getByRole('button', { name: 'Khôi phục code mẫu' }).click()
   await mobile.getByRole('button', { name: 'Chi tiết' }).click()
   await expect(lab.getByTestId('button-lab-selection')).toHaveText('button-1:contactA')
-  await lab.getByRole('button', { name: 'Tổng quan' }).click()
+  await lab.getByRole('button', { name: 'Bài học', exact: true }).click()
   await lab.getByRole('combobox', { name: 'Board của bạn' }).selectOption('arduino-uno-r3')
-  await expect(status).toHaveAttribute('data-state', 'unsupported')
-  await expect(status).toContainText(/profile board/)
+  await expect(status).toHaveAttribute('data-state', 'stale')
+  await expect(status).toHaveAttribute('data-event', '')
+  await lab.getByRole('button', { name: 'Chạy lại', exact: true }).click()
+  await expect(status).toHaveAttribute('data-state', 'ready')
+  await expect(status).toContainText('LOW → if → LED sáng')
   await expect(pressed).toBeInViewport()
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375)
   await testInfo.attach('button-lesson-mobile-375x812', { body: await page.screenshot(), contentType: 'image/png' })
@@ -447,7 +453,7 @@ test('button LED mobile views preserve input, selection, and code and invalidate
 for (const viewport of [{ width: 1440, height: 900 }, { width: 375, height: 812 }]) {
   test(`teaching schematic preserves keyboard net selection and code highlights at ${viewport.width}px`, async ({ page }, testInfo) => {
     await page.setViewportSize(viewport)
-    await page.goto('/app/learn/button-led')
+    await page.goto('/app/learn/button-led?board=esp32-devkit')
     const lab = page.locator('.button-lab')
     const mobile = lab.getByRole('navigation', { name: 'Chế độ xem trên điện thoại' })
     const views = lab.getByRole('group', { name: 'Chọn hình chiếu mạch' })
@@ -463,40 +469,40 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 375, height: 812 
     await expect(schematic.locator('[data-symbol-state="open"]')).toHaveCount(1)
     await expect(schematic.locator('.schematic-role-marker[data-role="ground"]')).toHaveCount(1)
     await expect(schematic.locator('.schematic-crossing')).not.toHaveCount(0)
-    const inputNet = schematic.locator('.circuit-net-line').filter({ has: page.getByRole('button', { name: 'Chọn net bb1:20a', exact: true }) })
+    const inputNet = schematic.locator('.circuit-net-line[data-net-key="board-1:input"]')
     await expect(inputNet).toHaveClass(/net-active/)
     await inputNet.locator('path[role="button"]').first().press('Space')
     await expect(inputNet).toHaveAttribute('data-lesson-net-selected', '')
-    await expect(lab.getByTestId('button-lab-selection')).toHaveText('bb1:20a')
+    await expect(lab.getByTestId('button-lab-selection')).toHaveText('board-1:input')
     await testInfo.attach(`teaching-schematic-${viewport.width}x${viewport.height}`, { body: await page.screenshot(), contentType: 'image/png' })
     await (viewport.width === 375 ? mobile : views).getByRole('button', { name: viewport.width === 375 ? 'Mạch' : 'Breadboard', exact: true }).click()
     // Overlay geometry requires both endpoints inside their independent picker viewports.
     await lab.locator('[data-circuit-endpoint="bb1:20g"]').scrollIntoViewIfNeeded()
     await lab.locator('[data-circuit-endpoint="board-1:input"]').scrollIntoViewIfNeeded()
     await expect(lab.locator('.button-lab-wire-overlay path[data-selected="true"][data-wire-id="w-input-to-button"]')).toHaveCount(1)
-    await expect(lab.locator('[data-circuit-endpoint="button-1:contactA"]')).toHaveAttribute('data-lesson-selected', '')
+    // The button is modeled as a bench part, so its contact is rendered once even though the source mesh has duplicate physical legs.
+    await expect(lab.locator('[data-circuit-endpoint="button-1:contactA"][data-lesson-selected]')).toHaveCount(1)
     if (viewport.width === 375) await mobile.getByRole('button', { name: 'Code', exact: true }).click()
     else await lab.getByRole('group', { name: 'Chọn nội dung bài học' }).getByRole('button', { name: 'Code', exact: true }).click()
     await expect(lab.getByRole('textbox', { name: 'Code bài nút nhấn' })).toHaveValue(/digitalRead/)
     await expect(lab.locator('.button-lab-result')).toContainText('LOW → if → LED sáng')
-    await expect(lab.getByTestId('button-lab-selection')).toHaveText('bb1:20a')
+    await expect(lab.getByTestId('button-lab-selection')).toHaveText('board-1:input')
     await showSchematic()
-    await expect(lab.locator('.circuit-net-line[data-net-key="bb1:20a"]')).toHaveAttribute('data-lesson-net-selected', '')
-    await expect(lab.locator('.circuit-net-line[data-net-key="bb1:20a"]')).toHaveClass(/net-active/)
+    await expect(lab.locator('.circuit-net-line[data-net-key="board-1:input"]')).toHaveAttribute('data-lesson-net-selected', '')
+    await expect(lab.locator('.circuit-net-line[data-net-key="board-1:input"]')).toHaveClass(/net-active/)
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(viewport.width)
     await schematic.locator('summary').click()
-    await expect(schematic.locator('li[data-net-key="bb1:20a"] [data-hole-id="bb1:20g"]')).toBeVisible()
+    const listedInputNet = schematic.locator('li[data-net-key="board-1:input"]')
+    await expect(listedInputNet).toContainText('board-1:input')
+    await expect(listedInputNet).toContainText('button-1:contactA')
   })
 }
 
-test('an unknown board keeps the button lesson in a labeled reference view without 3D or trace', async ({ page }) => {
+test('an unknown lesson board asks for a choice without a fallback circuit or trace', async ({ page }) => {
   await page.goto('/app/learn/button-led?board=unregistered-board')
-  const lab = page.locator('.button-lab')
-  await expect(lab.locator('.button-lab-result')).toHaveAttribute('data-state', 'unsupported')
-  await expect(lab.locator('.button-lab-board-notice')).toContainText(/Mạch mẫu theo ESP32/)
-  await expect(lab.getByRole('button', { name: '3D', exact: true })).toBeDisabled()
-  await expect(lab.locator('.button-lab-inspector').getByRole('link', { name: 'Mở phòng lắp mạch' })).toHaveCount(0)
-  await expect(lab.locator('.button-lab-wire-overlay path[data-active="true"]')).toHaveCount(0)
+  await expect(page.locator('.lesson-board-chooser')).toBeVisible()
+  await expect(page.getByRole('alert')).toContainText('không tự đổi sang ESP32')
+  await expect(page.locator('.button-lab,[data-board-art],.button-lab-wire-overlay path[data-active="true"]')).toHaveCount(0)
 })
 
 test('PCB copper viewer keeps controls readable in the warm interface and renders the selected CAD layer', async ({ page }) => {
@@ -567,12 +573,23 @@ test('PCB copper viewer keeps controls readable in the warm interface and render
   }
 })
 
-test('beginner follows curriculum to a ready guided lesson', async ({ page }) => {
+test('beginner follows curriculum into an editable guided lesson', async ({ page }) => {
   await page.goto('/app')
   await page.getByRole('link', { name: 'Bắt đầu bài LED', exact: true }).click()
+  await page.getByLabel('Board của bạn', { exact: true }).selectOption('esp32-devkit')
   await page.getByRole('link', { name: /Thực hành|Bắt đầu thực hành/ }).first().click()
   await expect(page).toHaveURL(/\/app\/lab.*lesson=blink/)
-  await expect(page.getByRole('heading', { name: 'Sẵn sàng chạy', exact: true })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'LED nhấp nháy', exact: true })).toBeVisible()
+  await page.getByRole('button', { name: 'Tạo bản nháp để chỉnh sửa', exact: true }).click()
+  await expect(page.getByText('Đã tạo bản nháp mạch v5. Bản schema 4 được giữ nguyên để khôi phục.')).toBeVisible()
+  const editor = page.getByRole('region', { name: 'Lắp mạch trên breadboard' })
+  await expect(editor).toBeVisible()
+  await editor.locator('.breadboard-grid-details > summary').click()
+  const v5Key = 'machmo-builder-session-v5'
+  const before = await page.evaluate(key => JSON.parse(sessionStorage.getItem(key) ?? 'null').circuit.wires.length, v5Key)
+  await editor.getByRole('button', { name: 'Chọn chân board-1 GPIO 23', exact: true }).click()
+  await editor.locator('[data-hole-id="bb1:1a"]').click()
+  await expect.poll(() => page.evaluate(key => JSON.parse(sessionStorage.getItem(key) ?? 'null').circuit.wires.length, v5Key)).toBe(before + 1)
 })
 
 test('learner discovers and completes the conceptual robot lesson across narrow and desktop viewports', async ({ page }) => {
@@ -598,7 +615,8 @@ test('learner discovers and completes the conceptual robot lesson across narrow 
 })
 
 test('real pointer drag creates exactly one wire and undo restores the circuit', async ({ page }, testInfo) => {
-  await page.goto('/build?lesson=blink&guided=1&board=arduino-uno-r3')
+  // The analog lesson still uses the legacy editor; blink now uses CircuitDocV2.
+  await page.goto('/build?lesson=analog-potentiometer&guided=1&board=arduino-uno-r3')
   await page.getByRole('button', { name: 'Tự nối dây từ đầu', exact: true }).waitFor()
   page.once('dialog', dialog => dialog.accept())
   await page.getByRole('button', { name: 'Tự nối dây từ đầu', exact: true }).click()
@@ -626,7 +644,7 @@ test('real pointer drag creates exactly one wire and undo restores the circuit',
 })
 
 async function prepareKeyboardWiring(page, viewName) {
-  await page.goto('/build?lesson=blink&guided=1&board=arduino-uno-r3')
+  await page.goto('/build?lesson=analog-potentiometer&guided=1&board=arduino-uno-r3')
   const startWiring = page.getByRole('button', { name: 'Tự nối dây từ đầu', exact: true })
   await startWiring.waitFor()
   page.once('dialog', dialog => dialog.accept())
@@ -692,7 +710,7 @@ test('draft warning is announced once and clears after storage recovers', async 
   })
   await page.goto('/build?lesson=blink&guided=1&board=arduino-uno-r3')
   await expect.poll(() => page.evaluate(() => window.draftWriteAttempts)).toContain('machmo-guided-lesson-drafts-blink')
-  const warning = page.getByRole('status', { name: /Không lưu được bản nháp/ })
+  const warning = page.locator('.builder-toolbar [role="status"]')
   await expect(warning).toHaveCount(1)
   await expect(warning).toHaveText('Không lưu được bản nháp trên trình duyệt này')
   await page.evaluate(() => { window.failDraftWrites = false })
@@ -700,12 +718,11 @@ test('draft warning is announced once and clears after storage recovers', async 
   await page.getByRole('group', { name: 'Chọn cách viết code' }).getByRole('button', { name: 'Tự viết C++', exact: true }).click()
   await page.getByRole('textbox', { name: 'Code Arduino C++', exact: true }).fill('// ghi lại thành công')
   await expect(warning).toHaveCount(1)
-  await expect(warning).toHaveText('')
-  await expect(warning).toHaveAccessibleName(/Không lưu được bản nháp/)
+  await expect(warning).toHaveText('Đã lưu trên thiết bị này')
 })
 
 test('accepting a v4 migration preview keeps source bytes while v5 jumpers and cross-view selection persist', async ({ page }) => {
-  await page.goto('/app/lab')
+  await page.goto('/app/lab?board=esp32-devkit')
   const legacyWorkspace = {
     schemaVersion: 4,
     lesson: 'blink',
@@ -727,7 +744,7 @@ test('accepting a v4 migration preview keeps source bytes while v5 jumpers and c
   }
   const legacyRaw = JSON.stringify(legacyWorkspace)
   await page.evaluate(raw => localStorage.setItem('machmo-builder-session', raw), legacyRaw)
-  await page.getByRole('button', { name: 'Bắt đầu lắp mạch →', exact: true }).click()
+  await page.getByRole('button', { name: 'Tiếp tục lắp mạch', exact: true }).click()
   const legacyBefore = await page.evaluate(() => localStorage.getItem('machmo-builder-session'))
   expect(legacyBefore).toBe(legacyRaw)
   await page.getByRole('button', { name: 'Lắp dây · breadboard', exact: true }).click()
@@ -745,6 +762,7 @@ test('accepting a v4 migration preview keeps source bytes while v5 jumpers and c
   await expect(page.getByRole('button', { name: '⌁ Nối dây' })).toBeDisabled()
 
   await editor.getByRole('button', { name: /Chọn chân board-1 3V3/ }).click()
+  await editor.locator('.breadboard-grid-details > summary').click()
   await editor.locator('[data-hole-id="bb1:20a"]').click()
   const selectedWire = editor.getByRole('region', { name: /Chỉnh dây wire-v2-/ })
   await expect(selectedWire).toContainText(/board-1 · 3V3 ↔ Lỗ bb1:20a/)
@@ -759,7 +777,7 @@ test('accepting a v4 migration preview keeps source bytes while v5 jumpers and c
   expect(await exportAttempt).toBe(false)
   expect(await page.evaluate(() => localStorage.getItem('machmo-builder-session'))).toBe(legacyBefore)
   await page.reload()
-  await page.getByRole('button', { name: 'Bắt đầu lắp mạch →', exact: true }).click()
+  await page.getByRole('button', { name: 'Tiếp tục lắp mạch', exact: true }).click()
   await page.getByRole('button', { name: 'Lắp dây · breadboard', exact: true }).click()
   const reloadedEditor = page.getByRole('region', { name: 'Lắp mạch trên breadboard' })
   await reloadedEditor.getByText(/dây · danh sách endpoint/).click()
@@ -784,7 +802,7 @@ test('accepting a v4 migration preview keeps source bytes while v5 jumpers and c
   await reloadedWire.click()
   await reloadedEditor.getByRole('button', { name: /Xóa dây wire-v2-/ }).click()
   await page.reload()
-  await page.getByRole('button', { name: 'Bắt đầu lắp mạch →', exact: true }).click()
+  await page.getByRole('button', { name: 'Tiếp tục lắp mạch', exact: true }).click()
   await page.getByRole('button', { name: 'Lắp dây · breadboard', exact: true }).click()
   const finalEditor = page.getByRole('region', { name: 'Lắp mạch trên breadboard' })
   await finalEditor.getByText(/dây · danh sách endpoint/).click()
@@ -797,7 +815,7 @@ test('accepting a v4 migration preview keeps source bytes while v5 jumpers and c
 })
 
 test('3D lesson preview ignores stale legacy parts and keeps its inventory on the CircuitDocV2 source', async ({ page }) => {
-  await page.goto('/app/lab?lesson=blink&guided=1')
+  await page.goto('/app/lab?lesson=blink&guided=1&board=esp32-devkit')
   const legacyWorkspace = {
     schemaVersion: 4,
     lesson: 'blink',
@@ -815,7 +833,8 @@ test('3D lesson preview ignores stale legacy parts and keeps its inventory on th
   }
   await page.evaluate(value => localStorage.setItem('machmo-builder-session', JSON.stringify(value)), legacyWorkspace)
   await page.reload()
-  await expect(page.getByText('Đang xem trước topology mạch v5')).toBeVisible()
+  // 2026-11-15: blink có trace V2 nên bản xem trước đổi tiêu đề (trước: "Đang xem trước topology mạch v5").
+  await expect(page.getByText('Xem thử trace trên mạch bài học')).toBeVisible()
   await page.getByRole('button', { name: 'Lắp mạch · 3D', exact: true }).click()
 
   const inventory = page.getByRole('region', { name: 'Danh sách linh kiện trong cảnh' })
@@ -823,13 +842,14 @@ test('3D lesson preview ignores stale legacy parts and keeps its inventory on th
   await expect(inventory).toContainText('Điện trở 220 Ω')
   await expect(inventory).toContainText('LED')
   await expect(inventory).not.toContainText('Buzzer')
-  await expect(page.locator('.circuit-v2-assembly-wires')).toContainText('3 dây trong mạch v5')
+  await expect(page.locator('.circuit-v2-assembly-wires')).toContainText('4 dây trong mạch v5')
+  await expect(page.locator('.circuit-v2-assembly-wires')).toContainText('w-rail-to-gnd')
 })
 
 test('lesson code steps highlight the corresponding canonical circuit net and board feature selection is shared', async ({ page }, testInfo) => {
   for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
     await page.setViewportSize(viewport)
-    await page.goto('/app/learn/esp32-led')
+    await page.goto('/app/learn/esp32-led?board=esp32-devkit')
     const lessonCircuit = page.getByRole('region', { name: 'Mạch bài học dùng CircuitDocV2' })
     await expect(lessonCircuit).toBeVisible()
     await page.getByRole('button', { name: /Đưa GPIO 23 về mức HIGH/ }).click()
@@ -845,7 +865,9 @@ test('lesson code steps highlight the corresponding canonical circuit net and bo
     await lessonEditor.locator('.breadboard-wire-list').getByRole('button', { name: /w-gpio-to-resistor/ }).click()
     await lessonEditor.getByRole('button', { name: 'Xóa dây w-gpio-to-resistor' }).click()
     await expect(lessonCircuit.getByRole('status').filter({ hasText: 'Đường mạch chưa đủ kết nối theo các net kỳ vọng' })).toBeVisible()
-    await lessonEditor.getByRole('button', { name: 'Chọn chân board-1 GPIO LED' }).click()
+    await lessonEditor.getByRole('button', { name: 'Chọn chân board-1 GPIO 23' }).click()
+    await lessonEditor.locator('.breadboard-grid-details > summary').click()
+    await lessonEditor.locator('[data-hole-id="bb1:10a"]').scrollIntoViewIfNeeded()
     await lessonEditor.locator('[data-hole-id="bb1:10a"]').click()
     await expect(lessonCheck).toBeVisible()
 
@@ -861,6 +883,8 @@ test('lesson code steps highlight the corresponding canonical circuit net and bo
     await expect(lessonCircuit.getByText(/Registry chưa ghim datasheet/)).toBeVisible()
     await expect(ledPart).toHaveAttribute('aria-pressed', 'true')
 
+    // Bài học dùng panel tab (2026-11-14): mở tab Code trước khi dùng editor C++.
+    await page.getByRole('tablist', { name: 'Các phần của bài' }).getByRole('tab', { name: /Code/ }).click()
     await page.getByRole('button', { name: 'Tự viết code C++' }).click()
     const codeEditor = page.getByRole('textbox', { name: 'Code Arduino C++', exact: true })
     await codeEditor.fill('void setup() {\n  pinMode(23, OUTPUT);\n  analogWrite(23, 128);\n}\nvoid loop() {}')
@@ -874,6 +898,7 @@ test('lesson code steps highlight the corresponding canonical circuit net and bo
     await expect(lessonCircuit.locator('.net-active')).toHaveCount(0)
     await lessonCircuit.getByRole('tab', { name: 'Trong bài' }).click()
     await lessonCircuit.getByLabel('Chọn khối chức năng board').selectOption('regulator')
+    await page.getByRole('tablist', { name: 'Các phần của bài' }).getByRole('tab', { name: /Board và pinout/ }).click()
     await expect(page.getByRole('group', { name: 'Chọn linh kiện để xem thông tin' }).getByRole('button', { name: /Bộ ổn áp 3,3 V/ })).toHaveAttribute('aria-pressed', 'true')
     await expect(lessonCircuit.getByText(/U2 · AMS1117-3\.3/)).toBeVisible()
     await expect(lessonCircuit.getByText(/USB \+5 V → D1 → U2 IN/)).toBeVisible()
@@ -916,7 +941,7 @@ test('pin focus does not select its part and part shortcuts do not bubble from p
       return getContext.call(this, type, ...args)
     }
   })
-  await page.goto('/build?lesson=blink&guided=1&board=arduino-uno-r3')
+  await page.goto('/build?lesson=analog-potentiometer&guided=1&board=arduino-uno-r3')
   await page.getByRole('button', { name: 'Lắp mạch · 3D', exact: true }).click()
   await expect(page.getByText('Trình duyệt này chưa mở được WebGL 2', { exact: false })).toBeVisible()
   const selectedAnnouncement = page.locator('.builder-main > p.sr-only')
@@ -988,7 +1013,7 @@ test('SPICE solves its RC example and exports solver data', async ({ page }) => 
 })
 
 test('saved project can be opened and exported/imported without losing circuit or drafts', async ({ page }) => {
-  await page.goto('/app/lab?lesson=blink&guided=1')
+  await page.goto('/app/lab?lesson=blink&guided=1&board=esp32-devkit')
   await page.getByRole('textbox',{name:'Tên project cần lưu'}).fill('E2E mạch LED')
   await page.getByRole('button',{name:'Lưu project',exact:true}).click()
   await page.goto('/app/projects')
@@ -1021,7 +1046,7 @@ test('file import preserves portable identity and conflicting drafts without ser
     await page.getByRole('button', { name: 'Xuất tệp', exact: true }).click()
     return JSON.parse(await readFile(await (await downloading).path(), 'utf8'))
   }
-  await page.goto('/app/lab?lesson=blink&guided=1')
+  await page.goto('/app/lab?lesson=blink&guided=1&board=esp32-devkit')
   const input = await exportBundle()
   input.workspace.projectId = 'mm-baseline-portable-id'
   input.workspace.code = '// workspace code\n'
@@ -1055,7 +1080,7 @@ test('library identity round trip updates only the opened entry and keeps the po
   }
   const builderExport = () => exportFrom(page.getByRole('button', { name: 'Xuất tệp', exact: true }))
   const file = bundle => ({ name: 'identity.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(bundle)) })
-  await page.goto('/build')
+  await page.goto('/build?board=esp32-devkit')
   const source = await builderExport()
   source.workspace.projectId = 'portable-P'
   source.workspace.projectName = 'Tên tài liệu'
@@ -1095,8 +1120,8 @@ test('library identity round trip updates only the opened entry and keeps the po
   expect(openedDocument).toEqual(originalDocument)
   expect((await readWorkspace()).libraryEntryId).toBe(second.id)
 
-  await page.getByRole('button', { name: 'Bắt đầu lắp mạch →', exact: true }).click()
-  await page.getByRole('region', { name: 'Việc cần làm tiếp theo' }).getByRole('button', { name: 'Tiếp tục viết code', exact: true }).click()
+  await page.getByRole('button', { name: 'Tiếp tục lắp mạch', exact: true }).click()
+  await page.getByRole('navigation', { name: 'Các bước thực hành' }).getByRole('button', { name: 'Viết code', exact: true }).click()
   const editor = page.getByRole('textbox', { name: 'Code Arduino C++', exact: true })
   await editor.fill('// bản sửa chỉ thuộc mục hai')
   await update.click()
@@ -1159,20 +1184,20 @@ test('library identity round trip updates only the opened entry and keeps the po
 
 for (const acceptImport of [true, false]) {
   test(`slow Builder import preserves the latest linked draft when ${acceptImport ? 'confirmed' : 'cancelled'}`, async ({ page }) => {
-    await page.goto('/build')
+    await page.goto('/build?board=esp32-devkit')
     const label = page.getByRole('textbox', { name: 'Tên project cần lưu' })
     await label.fill('Mục đang sửa')
     await page.getByRole('button', { name: 'Lưu vào thư viện', exact: true }).click()
     const update = page.getByRole('button', { name: 'Cập nhật bản đã lưu', exact: true })
     await expect(update).toBeVisible()
-    await page.getByRole('button', { name: 'Tiếp tục lắp mạch', exact: true }).click()
-    await page.getByRole('region', { name: 'Việc cần làm tiếp theo' }).getByRole('button', { name: 'Tiếp tục viết code', exact: true }).click()
-    await page.getByRole('button', { name: 'Tự viết C++', exact: true }).click()
-    const editor = page.getByRole('textbox', { name: 'Code Arduino C++', exact: true })
-    await editor.fill('// draft A')
     const downloading = page.waitForEvent('download')
     await page.getByRole('button', { name: 'Xuất tệp', exact: true }).click()
     const input = JSON.parse(await readFile(await (await downloading).path(), 'utf8'))
+    await page.getByRole('button', { name: 'Tiếp tục lắp mạch', exact: true }).click()
+    await page.getByRole('navigation', { name: 'Các bước thực hành' }).getByRole('button', { name: 'Viết code', exact: true }).click()
+    await page.getByRole('button', { name: 'Tự viết C++', exact: true }).click()
+    const editor = page.getByRole('textbox', { name: 'Code Arduino C++', exact: true })
+    await editor.fill('// draft A')
     input.workspace.projectId = 'incoming-portable'
     input.workspace.code = '// imported'
     const before = await page.evaluate(() => ({
@@ -1229,7 +1254,7 @@ test('supplied and learner-edited branch drafts survive reload including empty d
     await page.getByRole('button', { name: 'Xuất tệp', exact: true }).click()
     return JSON.parse(await readFile(await (await downloading).path(), 'utf8'))
   }
-  await page.goto('/app/lab?lesson=blink&guided=1')
+  await page.goto('/app/lab?lesson=blink&guided=1&board=esp32-devkit')
   const input = await exportBundle()
   input.workspace.lesson = 'button-led'
   input.workspace.code = '// current button code\n'

@@ -8,6 +8,8 @@ import {
   type I2cSpeed,
 } from '../lib/electronicsCalculators'
 import { getAdcFieldErrors, getI2cFieldErrors, getLedFieldErrors, getRcFieldErrors } from '../lib/calculatorValidation'
+
+const FIELD_ERROR_SUMMARY = 'Sửa ô được đánh dấu để xem kết quả.'
 import { useProductRoute } from '../lib/useProductRoute'
 import { createCalculatorSpiceHandoff, serializeCalculatorSpiceHandoff, type CalculatorSpiceId, type CalculatorSpiceInputMap } from '../lib/calculatorSpice'
 import './ElectronicsCalculatorsPage.css'
@@ -74,7 +76,7 @@ export function ElectronicsCalculatorsPage() {
             <Field id="calc-led-vf" label="Điện áp thuận LED (Vf)" value={led.vf} unit="V" error={ledErrors.vf} onChange={vf => setLed({ ...led, vf })} />
             <Field id="calc-led-current" label="Dòng mục tiêu" value={led.current} unit="mA" error={ledErrors.current} onChange={current => setLed({ ...led, current })} />
           </div>
-          {ledResult.value ? <div className="electronics-result" aria-live="polite" aria-atomic="true"><small>Điện trở E24 đề xuất</small><strong>{ohms(ledResult.value.standardOhms)}</strong><p>Dòng ước tính {number(ledResult.value.actualCurrentMilliAmps)} mA · Công suất trên R {number(ledResult.value.resistorPowerMilliwatts)} mW</p><button className="electronics-spice-action" type="button" onClick={() => openInSpice('led', { supplyVolts: Number(led.supply), forwardVolts: Number(led.vf), currentMilliAmps: Number(led.current) })}>Mô phỏng giá trị này trong SPICE</button></div> : <p className="electronics-error" role="alert">{ledResult.error}</p>}
+          {ledResult.value ? <div className="electronics-result" aria-live="polite" aria-atomic="true"><small>Điện trở E24 đề xuất</small><strong>{ohms(ledResult.value.standardOhms)}</strong><p>Dòng ước tính {number(ledResult.value.actualCurrentMilliAmps)} mA · Công suất trên R {number(ledResult.value.resistorPowerMilliwatts)} mW</p><button className="electronics-spice-action" type="button" onClick={() => openInSpice('led', { supplyVolts: Number(led.supply), forwardVolts: Number(led.vf), currentMilliAmps: Number(led.current) })}>Mô phỏng giá trị này trong SPICE</button></div> : <p className="electronics-error" role="alert">{Object.keys(ledErrors).length ? FIELD_ERROR_SUMMARY : ledResult.error}</p>}
           <p className="electronics-formula">R = (V nguồn − Vf) / I · Chọn giá trị E24 bằng hoặc lớn hơn giá trị tính.</p>
         </section>
 
@@ -85,7 +87,7 @@ export function ElectronicsCalculatorsPage() {
             <Field id="calc-adc-maximum" label="Giới hạn ADC" value={adc.maximum} unit="V" error={adcErrors.maximum} onChange={maximum => setAdc({ ...adc, maximum })} />
             <Field id="calc-adc-lower" label="Điện trở dưới (R2)" value={adc.lower} unit="kΩ" error={adcErrors.lower} onChange={lower => setAdc({ ...adc, lower })} />
           </div>
-          {adcResult.value ? <div className="electronics-result" aria-live="polite" aria-atomic="true"><small>Điện trở trên tối thiểu theo E24</small><strong>{ohms(adcResult.value.standardR1Ohms)}</strong><p>Vout ước tính {number(adcResult.value.outputAtMaxVolts)} V · Dòng qua cầu chia {number(adcResult.value.inputCurrentMicroAmps)} µA</p><button className="electronics-spice-action" type="button" onClick={() => openInSpice('adc-divider', { inputMaxVolts: Number(adc.input), adcMaxVolts: Number(adc.maximum), lowerResistorKOhms: Number(adc.lower) })}>Mô phỏng giá trị này trong SPICE</button></div> : <p className="electronics-error" role="alert">{adcResult.error}</p>}
+          {adcResult.value ? <div className="electronics-result" aria-live="polite" aria-atomic="true"><small>Điện trở trên tối thiểu theo E24</small><strong>{ohms(adcResult.value.standardR1Ohms)}</strong><p>Vout ước tính {number(adcResult.value.outputAtMaxVolts)} V · Dòng qua cầu chia {number(adcResult.value.inputCurrentMicroAmps)} µA</p><button className="electronics-spice-action" type="button" onClick={() => openInSpice('adc-divider', { inputMaxVolts: Number(adc.input), adcMaxVolts: Number(adc.maximum), lowerResistorKOhms: Number(adc.lower) })}>Mô phỏng giá trị này trong SPICE</button></div> : <p className="electronics-error" role="alert">{Object.keys(adcErrors).length ? FIELD_ERROR_SUMMARY : adcResult.error}</p>}
           <p className="electronics-formula">Vout = Vin × R2 / (R1 + R2) · Kiểm tra giới hạn ADC và trở kháng nguồn trong datasheet.</p>
         </section>
 
@@ -96,7 +98,7 @@ export function ElectronicsCalculatorsPage() {
             <Field id="calc-i2c-capacitance" label="Điện dung bus ước tính" value={i2c.capacitance} unit="pF" error={i2cErrors.capacitance} onChange={capacitance => setI2c({ ...i2c, capacitance })} />
             <label className="electronics-field"><span>Tốc độ bus</span><select value={i2c.speed} onChange={event => setI2c({ ...i2c, speed: event.target.value as I2cSpeed })}><option value="standard">Standard · 100 kHz</option><option value="fast">Fast · 400 kHz</option><option value="fastPlus">Fast Plus · 1 MHz</option></select></label>
           </div>
-          {i2cResult.value ? <div className="electronics-result" aria-live="polite" aria-atomic="true"><small>Dải R ước tính · khuyến nghị E24</small><strong>{ohms(i2cResult.value.recommendedOhms)}</strong><p>{ohms(i2cResult.value.minimumOhms)} – {ohms(i2cResult.value.maximumOhms)} · tr lên tối đa {i2cResult.value.maximumRiseTimeNs} ns</p><button className="electronics-spice-action" type="button" onClick={() => openInSpice('i2c-pullup', { supplyVolts: Number(i2c.supply), busCapacitancePf: Number(i2c.capacitance), speed: i2c.speed })}>Mô phỏng sườn lên tương đương trong SPICE</button></div> : <p className="electronics-error" role="alert">{i2cResult.error}</p>}
+          {i2cResult.value ? <div className="electronics-result" aria-live="polite" aria-atomic="true"><small>Dải R ước tính · khuyến nghị E24</small><strong>{ohms(i2cResult.value.recommendedOhms)}</strong><p>{ohms(i2cResult.value.minimumOhms)} – {ohms(i2cResult.value.maximumOhms)} · tr lên tối đa {i2cResult.value.maximumRiseTimeNs} ns</p><button className="electronics-spice-action" type="button" onClick={() => openInSpice('i2c-pullup', { supplyVolts: Number(i2c.supply), busCapacitancePf: Number(i2c.capacitance), speed: i2c.speed })}>Mô phỏng sườn lên tương đương trong SPICE</button></div> : <p className="electronics-error" role="alert">{Object.keys(i2cErrors).length ? FIELD_ERROR_SUMMARY : i2cResult.error}</p>}
           {Number(i2c.capacitance)>(i2c.speed==='fastPlus'?550:400)&&<p className="electronics-error" role="status">Điện dung bus vượt giới hạn tải điện dung danh định của chế độ I²C đã chọn theo UM10204 (400 pF ở Standard/Fast, 550 pF ở Fast-mode Plus). Kiểm tra đặc tính thiết bị và cân nhắc buffer hoặc phân đoạn bus.</p>}
           <p className="electronics-formula">Rmin theo dòng kéo xuống; Rmax ≈ tr / (0,8473 × Cbus). Kết quả phụ thuộc điện dung thực, mức VOL và chuẩn bus.</p>
         </section>
@@ -107,7 +109,7 @@ export function ElectronicsCalculatorsPage() {
             <Field id="calc-rc-resistance" label="Điện trở" value={rc.resistance} unit="kΩ" error={rcErrors.resistance} onChange={resistance => setRc({ ...rc, resistance })} />
             <Field id="calc-rc-capacitance" label="Tụ điện" value={rc.capacitance} unit="µF" error={rcErrors.capacitance} onChange={capacitance => setRc({ ...rc, capacitance })} />
           </div>
-          {rcResult.value ? <div className="electronics-result" aria-live="polite" aria-atomic="true"><small>Hằng số thời gian (τ)</small><strong>{number(rcResult.value.timeConstantMs)} ms</strong><p>Đạt 63,2% sau 1τ · tần số cắt −3 dB khoảng {number(rcResult.value.cutoffHz)} Hz</p><button className="electronics-spice-action" type="button" onClick={() => openInSpice('rc', { resistanceKOhms: Number(rc.resistance), capacitanceMicroFarads: Number(rc.capacitance) })}>Mô phỏng giá trị này trong SPICE</button></div> : <p className="electronics-error" role="alert">{rcResult.error}</p>}
+          {rcResult.value ? <div className="electronics-result" aria-live="polite" aria-atomic="true"><small>Hằng số thời gian (τ)</small><strong>{number(rcResult.value.timeConstantMs)} ms</strong><p>Đạt 63,2% sau 1τ · tần số cắt −3 dB khoảng {number(rcResult.value.cutoffHz)} Hz</p><button className="electronics-spice-action" type="button" onClick={() => openInSpice('rc', { resistanceKOhms: Number(rc.resistance), capacitanceMicroFarads: Number(rc.capacitance) })}>Mô phỏng giá trị này trong SPICE</button></div> : <p className="electronics-error" role="alert">{Object.keys(rcErrors).length ? FIELD_ERROR_SUMMARY : rcResult.error}</p>}
           <p className="electronics-formula">τ = R × C · Mốc phần trăm giả định bước điện áp và mạch RC lý tưởng bậc một.</p>
         </section>
       </div>

@@ -1,0 +1,148 @@
+/*
+  Thiết kế lại UI/UX 2026-11-15 — lớp thị giác chung, nạp sau one-screen.css.
+  Báo cáo: docs/claude-support/2026-11-14-web-ui-ux-review/10-thiet-ke-lai-ui-ux.md
+  - Chỉ dùng/mở rộng token --mm-*; không đổi bố cục one-screen.
+  - Hiệu ứng chỉ CSS (tour dùng thêm Element.scrollIntoView); tắt hết khi prefers-reduced-motion.
+  - Chuyển trang không đổi opacity để axe không đo nhầm độ tương phản giữa lúc chuyển.
+*/
+:root {
+  --mm-space-1: 4px; --mm-space-2: 8px; --mm-space-3: 12px; --mm-space-4: 16px; --mm-space-5: 24px; --mm-space-6: 32px; --mm-space-7: 48px;
+  --mm-text-xs: 12px; --mm-text-sm: 13px; --mm-text-base: 15px; --mm-text-lg: 18px; --mm-text-xl: 24px; --mm-text-2xl: 32px;
+  --mm-led-on: #ff5a3c;
+}
+
+@keyframes mm-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes mm-rise { from { translate: 0 10px; } to { translate: 0 0; } }
+@keyframes mm-pop { from { opacity: 0; transform: translateY(-4px) scale(.985); } to { opacity: 1; transform: none; } }
+@keyframes mm-enter { from { translate: 0 6px; } to { translate: 0 0; } }
+@keyframes mm-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+@keyframes mm-run-pulse { 0% { box-shadow: 0 0 0 0 rgb(184 47 40 / 45%); } 70% { box-shadow: 0 0 0 10px rgb(184 47 40 / 0%); } 100% { box-shadow: 0 0 0 0 rgb(184 47 40 / 0%); } }
+@keyframes mm-running-stripes { from { background-position: 0 0; } to { background-position: 28px 0; } }
+@keyframes mm-led-on { 0% { transform: scale(.7); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }
+
+/* ---------- Chữ ---------- */
+body { font-family: var(--mm-font-body); -webkit-font-smoothing: antialiased; }
+body { transition: background-color var(--mm-dur-base) var(--mm-ease), color var(--mm-dur-base) var(--mm-ease); }
+/* Fixed dark provider brand surface needs a light label in either theme. */
+.auth-provider-github { color: #fff; }
+.note-icon, .path-icon, .board-glyph { color: var(--mm-accent); background: var(--mm-surface-alert); }
+.board-row .board-glyph { max-width: 100%; height: auto; min-height: 42px; aspect-ratio: 1; }
+.comparison-insight.insight-warning strong { color: var(--mm-text-warning); }
+.part-row:hover, .part-row-active { background: var(--mm-signal-soft); }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+/* ---------- Chuyển trang: nội dung mới trượt nhẹ lên ---------- */
+#main-content > * { animation: mm-enter var(--mm-dur-slow) var(--mm-ease); }
+
+/* ---------- Thanh đầu trang ---------- */
+.site-header { gap: var(--mm-space-3); background: rgb(var(--mm-surface-rgb) / 92%); }
+.site-header .brand { transition: opacity var(--mm-dur-fast) var(--mm-ease); }
+.site-header .brand:hover { opacity: .85; }
+.header-cta { min-height: 40px; padding: 0 16px; border: 1px solid var(--mm-accent); border-radius: 999px; background: var(--mm-accent); color: var(--mm-on-action); font: 700 14px/1 var(--mm-font-body); gap: 8px; transition: background-color var(--mm-dur-fast) var(--mm-ease), transform var(--mm-dur-fast) var(--mm-ease), box-shadow var(--mm-dur-fast) var(--mm-ease); }
+.header-cta:hover { background: var(--mm-accent-hover); color: var(--mm-on-action); transform: translateY(-1px); box-shadow: 0 8px 18px -10px rgb(184 47 40 / 70%); }
+.header-cta:active { transform: translateY(0) scale(.98); }
+.site-header > .help-menu { margin-right: 10px; }
+@media (max-width: 760px) {
+  .site-header .help-menu-label { display: none; }
+  .site-header .help-menu-button { padding: 0 8px; }
+  .site-header > .help-menu { margin-right: 0; }
+  .header-cta { padding: 0 12px; font-size: 13px; }
+}
+.header-cta span { color: inherit; }
+/* Màn hẹp: header một hàng (thương hiệu · Trợ giúp · Menu); "Bắt đầu học" đã có ở trang chủ và menu Học. */
+@media (max-width: 760px) { .site-header { flex-wrap: nowrap; row-gap: 0; } .site-header .brand { margin-right: auto; } .site-header .brand-name { white-space: nowrap; } .site-header .site-nav-root { flex: none; } }
+.button-primary span { color: inherit; }
+@media (max-width: 760px) { .site-header > .help-menu { order: 1; } .site-header > .site-nav-root { order: 2; } .site-header > .header-cta { order: 3; } }
+@media (max-width: 680px) {
+  .site-header { min-height: 60px; padding-top: 8px; padding-bottom: 8px; }
+  .site-header .site-nav-root { width: auto; }
+  .site-header .site-nav-root .site-nav-mobile-toggle { width: auto; }
+  .site-header .site-nav-root .main-nav { position: absolute; width: min(320px, calc(100vw - 24px)); margin-top: 0; box-shadow: 0 18px 40px -18px rgb(29 43 73 / 55%); }
+}
+@media (max-width: 520px) { .site-header > .header-cta { display: none; } }
+.workspace-top-actions { gap: 12px; }
+@media (max-width: 760px) {
+  .workspace-web-link .workspace-web-label { display: none; }
+  .workspace-top-actions .workspace-web-link { display: inline-flex; justify-content: center; width: 40px; min-width: 40px; padding: 0; }
+}
+@media (max-width: 760px) { .workspace-top-actions .help-menu-label { display: none; } .workspace-top-actions .help-menu-button { padding: 0 8px; } }
+
+/* ---------- Nút ---------- */
+.button-primary,
+.freestyle-run-button,
+.lesson-studio-dock .lesson-dock-primary,
+.mm-tour-primary { transition: background-color var(--mm-dur-fast) var(--mm-ease), border-color var(--mm-dur-fast) var(--mm-ease), transform var(--mm-dur-fast) var(--mm-ease), box-shadow var(--mm-dur-fast) var(--mm-ease); }
+.button-primary { border-radius: var(--mm-radius-md); }
+.button-primary:hover { background: var(--mm-accent-hover); transform: translateY(-1px); box-shadow: 0 10px 20px -12px rgb(184 47 40 / 70%); }
+.button-primary:active,
+.freestyle-run-button:active,
+.lesson-studio-dock button:active,
+.freestyle-button:active,
+.mm-tour-primary:active { transform: scale(.98); }
+.lesson-studio-dock .lesson-dock-primary:hover { background: var(--mm-accent-hover); border-color: var(--mm-accent-hover); }
+.lesson-studio-dock button:hover:not(:disabled):not(.lesson-dock-primary),
+.lesson-studio-dock a:hover:not(.lesson-dock-primary) { border-color: var(--mm-ink); }
+
+/* Nút Chạy: nhịp sáng nhẹ khi sẵn sàng, sọc chạy khi đang mô phỏng */
+.freestyle-run-button:not(.is-running) { animation: mm-run-pulse 2.4s var(--mm-ease) 1.2s 3; }
+.freestyle-run-button:hover:not(.is-running) { background: var(--mm-accent-hover); transform: translateY(-1px); }
+.freestyle-run-button.is-running { background-image: repeating-linear-gradient(-45deg, rgb(255 255 255 / 0%) 0 7px, rgb(255 255 255 / 12%) 7px 14px); background-size: 28px 100%; animation: mm-running-stripes .9s linear infinite; }
+
+/* ---------- Thẻ có thể bấm ---------- */
+:is(.home-links a, .topic-tile, .project-card-ready, .builder-lesson-card, .component-catalog-item, .home-flow-card) { transition: border-color var(--mm-dur-fast) var(--mm-ease), box-shadow var(--mm-dur-base) var(--mm-ease), transform var(--mm-dur-base) var(--mm-ease), background-color var(--mm-dur-fast) var(--mm-ease); }
+:is(.home-links a, .topic-tile, .project-card-ready, .builder-lesson-card, .home-flow-card):hover { transform: translateY(-2px); box-shadow: var(--mm-shadow-lift); }
+.component-catalog-item:hover { box-shadow: var(--mm-shadow-card); }
+
+/* ---------- Panel xuất hiện ---------- */
+:is(.freestyle-card, .builder-part-inspector, .help-menu-panel, .site-nav-submenu, .lesson-panel-body > [role="tabpanel"]:not([hidden]), #freestyle-step-panel > div) { animation: mm-rise var(--mm-dur-slow) var(--mm-ease); }
+
+/* ---------- LED sáng ---------- */
+.freestyle-outputs li.is-on .freestyle-led { background: var(--mm-led-on); box-shadow: 0 0 calc(4px + 14px * var(--brightness, 1)) var(--mm-led-on), 0 0 2px var(--mm-surface-white) inset; animation: mm-led-on var(--mm-dur-slow) var(--mm-ease); }
+.freestyle-outputs li { transition: color var(--mm-dur-fast) var(--mm-ease); }
+.freestyle-outputs li.is-on { color: var(--mm-ink); font-weight: 650; }
+.breadboard-diagram-part-led .diagram-led-body { transition: fill var(--mm-dur-base) var(--mm-ease), filter var(--mm-dur-base) var(--mm-ease); }
+
+/* ---------- Trạng thái rỗng ---------- */
+:is(.catalog-empty, .freestyle-empty, .mm-empty) { display: grid; gap: 4px; justify-items: start; padding: 14px 16px; border: 1px dashed var(--mm-line); border-radius: var(--mm-radius-md); background: rgb(var(--mm-surface-rgb) / 60%); color: var(--mm-muted); font-size: var(--mm-text-sm); line-height: 1.45; }
+:is(.catalog-empty, .freestyle-empty, .mm-empty)::before { content: '○'; color: var(--mm-signal); font: 700 16px/1 var(--mm-font-mono); }
+
+/* ---------- Tải trang: khung xương ---------- */
+.route-loading.mm-skeleton-page { display: grid; place-items: stretch; align-content: start; gap: 14px; width: min(1180px, 100% - 32px); min-height: 55vh; margin: 28px auto; }
+.mm-skeleton-page .mm-skeleton-line,
+.mm-skeleton-page .mm-skeleton-block { border-radius: var(--mm-radius-md); background: linear-gradient(90deg, var(--mm-bg-deep) 0%, var(--mm-surface) 50%, var(--mm-bg-deep) 100%); background-size: 200% 100%; animation: mm-shimmer 1.4s linear infinite; }
+.mm-skeleton-line { height: 14px; }
+.mm-skeleton-line.is-title { width: min(420px, 70%); height: 30px; }
+.mm-skeleton-line.is-short { width: 40%; }
+.mm-skeleton-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.mm-skeleton-block { height: 160px; }
+.mm-skeleton-status { color: var(--mm-muted); font-size: var(--mm-text-sm); }
+
+/* ---------- Trang chủ: ba cách bắt đầu ---------- */
+.home-start { margin: 0 var(--page-pad) var(--mm-space-6); }
+.home-start-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.home-flow-card { display: grid; grid-template-rows: auto auto 1fr auto; gap: 8px; height: 100%; padding: 18px; border: 1px solid var(--mm-line); border-radius: var(--mm-radius-lg); background: var(--mm-surface); color: var(--mm-text); text-decoration: none; box-shadow: var(--mm-shadow-card); }
+.home-flow-card:hover { border-color: var(--mm-accent); }
+.home-flow-kicker { color: var(--mm-accent); font: 700 var(--mm-text-sm)/1 var(--mm-font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.home-flow-card strong { color: var(--mm-ink); font: 700 21px/1.2 var(--mm-font-display); }
+.home-flow-card ol { display: grid; gap: 6px; margin: 4px 0 0; padding: 0; list-style: none; counter-reset: mm-flow; }
+.home-flow-card li { display: grid; grid-template-columns: 24px 1fr; align-items: center; gap: 8px; font-size: 14px; counter-increment: mm-flow; }
+.home-flow-card li::before { content: counter(mm-flow); display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--mm-bg); color: var(--mm-ink); font: 700 var(--mm-text-sm)/1 var(--mm-font-mono); }
+.home-flow-action { color: var(--mm-accent); font-weight: 700; font-size: 14px; }
+@media (max-width: 900px) { .home-start-grid { grid-template-columns: 1fr; } }
+@media (max-width: 680px) { .home-start { margin: 0 18px 24px; } }
+
+/* ---------- Liên kết thư viện → bàn lắp mạch ---------- */
+:is(.board-freestyle-link, .component-freestyle-link) { display: inline-flex; align-items: center; gap: 6px; width: fit-content; min-height: 32px; margin: 6px 0 0; padding: 0 10px; border: 1px solid var(--mm-signal); border-radius: 999px; color: var(--mm-signal); font: 650 13px/1 var(--mm-font-body); text-decoration: none; transition: background-color var(--mm-dur-fast) var(--mm-ease); }
+:is(.board-freestyle-link, .component-freestyle-link):hover { background: var(--mm-signal-soft); }
+.board-copy .board-freestyle-link { display: flex; }
+
+/* ---------- Vùng bấm tối thiểu 24px (WCAG 2.5.8) cho link nhỏ trong breadcrumb ---------- */
+:is(.lesson-breadcrumb a, .lesson-builder-link, .builder-return-links a) { display: inline-flex; align-items: center; min-height: 24px; }
+
+/* ---------- Giảm chuyển động ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; animation-delay: 0s !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .header-cta:hover, .button-primary:hover, .freestyle-run-button:hover, :is(.home-links a, .topic-tile, .project-card-ready, .builder-lesson-card, .home-flow-card):hover { transform: none; }
+  .mm-skeleton-page .mm-skeleton-line, .mm-skeleton-page .mm-skeleton-block { animation: none; }
+}

@@ -1,7 +1,44 @@
 import { useEffect, useRef, useState, type MouseEvent } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { productFeatureRegistry as F } from '../data/productFeatureRegistry'
+import { PRODUCT_ROUTES as R } from '../data/productRoutes'
+import { AuthMenu } from './AuthMenu'
 import './SiteNavigation.css'
+
+type NavItem = { to: string; label: string; hint: string }
+type NavGroup = { id: string; label: string; items: NavItem[] }
+
+/**
+ * 2026-11-15: năm khu vực chính thay cho bảy mục cũ (Giới thiệu, Không gian học, Thư viện, Phòng thử, Công cụ, Lộ trình, Cộng đồng).
+ * Mọi URL cũ giữ nguyên; chỉ gom link về đúng nhóm.
+ */
+const navigationGroups: NavGroup[] = [
+  { id: 'learn', label: 'Học', items: [
+    { to: F.lesson.publicRoute, label: 'Bài đầu tiên', hint: 'LED với ESP32 · bắt đầu ở đây' },
+    { to: F.learning.publicRoute, label: 'Chủ đề học', hint: 'Lộ trình theo chủ đề' },
+    { to: F.projects.publicRoute, label: 'Dự án', hint: 'Bài thực hành và mẫu' },
+    { to: F.dashboard.publicRoute, label: 'Không gian học của tôi', hint: 'Tiếp tục bài đang học' },
+    { to: F.classroom.publicRoute, label: 'Lớp học & bộ kit', hint: 'Dành cho giáo viên' },
+  ] },
+  { id: 'build', label: 'Lắp mạch', items: [
+    { to: R.publicFreestyle, label: 'Bàn lắp mạch tự do', hint: 'Board → linh kiện → code → Chạy' },
+    { to: F.lab.publicRoute, label: 'Phòng lắp mạch theo bài', hint: 'Mạch dựng sẵn theo bài mẫu' },
+  ] },
+  { id: 'library', label: 'Thư viện', items: [
+    { to: F.boards.publicRoute, label: 'Board', hint: 'ESP32, Arduino, Pico, STM32' },
+    { to: F.components.publicRoute, label: 'Linh kiện', hint: 'Chân, vai trò, lưu ý an toàn' },
+  ] },
+  { id: 'tools', label: 'Công cụ', items: [
+    { to: F.sketch.publicRoute, label: 'Chạy code Arduino/ESP32', hint: 'GPIO, Serial, logic analyzer' },
+    { to: F.spice.publicRoute, label: 'Mô phỏng SPICE', hint: 'Mạch analog bằng ngspice' },
+    { to: F.calculators.publicRoute, label: 'Bộ tính điện tử', hint: 'LED, chia áp, pull-up, RC' },
+    { to: F.firmware.publicRoute, label: 'Kiểm tra firmware HEX', hint: 'Đọc Intel HEX, demo AVR' },
+  ] },
+]
+
+function isItemActive(pathname: string, to: string) {
+  return pathname === to || (to === R.publicFreestyle && pathname.startsWith(`${to}/`))
+}
 
 function closeParentDisclosure(event: MouseEvent<HTMLAnchorElement>) {
   event.currentTarget.closest('.main-nav')?.querySelectorAll('details[open]').forEach((item) => item.removeAttribute('open'))
@@ -12,9 +49,6 @@ export function SiteNavigation() {
   const rootRef = useRef<HTMLDivElement>(null)
   const mobileToggleRef = useRef<HTMLButtonElement>(null)
   const { pathname } = useLocation()
-  const libraryActive = pathname === F.boards.publicRoute || pathname === F.components.publicRoute
-  const pathActive = pathname === F.learning.publicRoute || pathname === F.projects.publicRoute
-  const toolsActive = pathname === F.firmware.publicRoute || pathname === F.calculators.publicRoute || pathname === F.spice.publicRoute
 
   const closeNavigation = (event: MouseEvent<HTMLAnchorElement>) => {
     closeParentDisclosure(event)
@@ -63,31 +97,20 @@ export function SiteNavigation() {
         {mobileOpen ? 'Đóng menu' : 'Menu'}
       </button>
       <nav className={`main-nav ${mobileOpen ? 'main-nav-open' : ''}`} id="primary-navigation" aria-label="Điều hướng chính">
-        <NavLink to={F.intro.publicRoute} end onClick={closeNavigation}>{F.intro.publicLabel}</NavLink>
-        <NavLink to={F.dashboard.publicRoute} onClick={closeNavigation}>{F.dashboard.publicLabel}</NavLink>
-        <details className={`site-nav-group ${libraryActive ? 'site-nav-group-active' : ''}`} onToggle={(event) => { if (event.currentTarget.open) closeOtherGroups(event.currentTarget) }}>
-          <summary>Thư viện</summary>
-          <div className="site-nav-submenu">
-            <NavLink to={F.boards.publicRoute} onClick={closeNavigation}>{F.boards.publicLabel}</NavLink>
-            <NavLink to={F.components.publicRoute} onClick={closeNavigation}>{F.components.publicLabel}</NavLink>
-          </div>
-        </details>
-        <NavLink to={F.lab.publicRoute} onClick={closeNavigation}>{F.lab.publicLabel}</NavLink>
-        <details className={`site-nav-group ${toolsActive ? 'site-nav-group-active' : ''}`} onToggle={(event) => { if (event.currentTarget.open) closeOtherGroups(event.currentTarget) }}>
-          <summary>Công cụ</summary>
-          <div className="site-nav-submenu">
-            <NavLink to={F.firmware.publicRoute} onClick={closeNavigation}>{F.firmware.publicLabel}</NavLink>
-            <NavLink to={F.calculators.publicRoute} onClick={closeNavigation}>{F.calculators.publicLabel}</NavLink>
-            <NavLink to={F.spice.publicRoute} onClick={closeNavigation}>{F.spice.publicLabel}</NavLink>
-          </div>
-        </details>
-        <details className={`site-nav-group ${pathActive ? 'site-nav-group-active' : ''}`} onToggle={(event) => { if (event.currentTarget.open) closeOtherGroups(event.currentTarget) }}>
-          <summary>Lộ trình</summary>
-          <div className="site-nav-submenu">
-            <NavLink to={F.learning.publicRoute} onClick={closeNavigation}>{F.learning.publicLabel}</NavLink>
-            <NavLink to={F.projects.publicRoute} onClick={closeNavigation}>{F.projects.publicLabel}</NavLink>
-          </div>
-        </details>
+        {navigationGroups.map(group => {
+          const active = group.items.some(item => isItemActive(pathname, item.to))
+          return <details key={group.id} className={`site-nav-group ${active ? 'site-nav-group-active' : ''}`} onToggle={(event) => { if (event.currentTarget.open) closeOtherGroups(event.currentTarget) }}>
+            <summary>{group.label}</summary>
+            <div className="site-nav-submenu">
+              {group.items.map(item => <NavLink key={item.to} to={item.to} end onClick={closeNavigation}>
+                <span className="site-nav-item-label">{item.label}</span><span className="site-nav-item-hint">{item.hint}</span>
+              </NavLink>)}
+            </div>
+          </details>
+        })}
+        <NavLink className="site-nav-direct" to={F.community.publicRoute} onClick={closeNavigation}>{F.community.publicLabel}</NavLink>
+        {/* Màn hẹp: nút đăng nhập nằm trong menu để header vẫn gọn một hàng. */}
+        <div className="site-nav-auth" onClick={() => setMobileOpen(false)}><AuthMenu variant="public" /></div>
       </nav>
     </div>
   )

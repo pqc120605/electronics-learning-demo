@@ -132,7 +132,8 @@ test('board model publication is controlled by traceable source evidence', async
   assert.ok(existsSync(fileURLToPath(new URL('../src/data/boardModelSources.ts', import.meta.url))), 'board model evidence registry must exist')
   const modelSources = await server.ssrLoadModule('/src/data/boardModelSources.ts')
   const published = Object.values(modelSources.boardModelSources).filter((record) => record.published)
-  assert.equal(published.length, 14)
+  // +2 on 2026-11-14: STM32 Blue Pill and Nucleo-F401RE educational reconstructions (KiCad library parts).
+  assert.equal(published.length, 16)
   for (const record of published) {
     assert.ok(['source-verified-cad', 'educational-reconstruction'].includes(record.status))
     assert.ok(record.revision.trim())
@@ -141,16 +142,18 @@ test('board model publication is controlled by traceable source evidence', async
     assert.ok(record.attribution.trim())
     assert.ok(record.confidenceNote.trim())
   }
-  assert.equal(modelSources.getBoardModelEvidence('stm32-nucleo').status, 'preview-only')
+  assert.equal(modelSources.getBoardModelEvidence('stm32-nucleo').status, 'educational-reconstruction')
+  assert.match(modelSources.getBoardModelEvidence('stm32-nucleo').revision, /không dùng CAD MB1136/)
   assert.equal(modelSources.getBoardModelEvidence('adafruit-qtpy-esp32-c3-5405').published, true)
   assert.equal(modelSources.getBoardModelEvidence('seeed-xiao-esp32c3').status, 'educational-reconstruction')
   assert.equal(modelSources.getBoardModelEvidence('adafruit-feather-esp32-s3-tft-5483').published, true)
   assert.equal(modelSources.getBoardModelEvidence('esp32-s3-devkitc-1').published, true)
   assert.equal(modelSources.getBoardModelEvidence('esp32-s3-devkitc-1').status, 'educational-reconstruction')
-  assert.equal(modelSources.getBoardModelEvidence('stm32-blue-pill-f103').published, false)
+  assert.equal(modelSources.getBoardModelEvidence('stm32-blue-pill-f103').published, true)
+  assert.equal(modelSources.getBoardModelEvidence('stm32-blue-pill-f103').status, 'educational-reconstruction')
   assert.equal(modelSources.getBoardModelEvidence('stm32-bluepill-sinakarvandi'), undefined)
   assert.equal(modelSources.getBoardModelEvidence('not-a-board'), undefined)
-  assert.equal(modules.getBoardCapability('stm32-nucleo').modelStatus, 'preview-only')
+  assert.equal(modules.getBoardCapability('stm32-nucleo').modelStatus, 'cad-reference')
 })
 
 test('the QT Py board model is discoverable from both board and component libraries', async () => {
@@ -187,9 +190,10 @@ test('board evidence panel explains publication status and keeps preview-only bo
   assert.match(lesson, /BoardModelEvidencePanel/)
 })
 
-test('NUCLEO-F401RE exposes official Arduino header pinout without claiming a 3D viewer', () => {
+test('NUCLEO-F401RE exposes official Arduino header pinout and labels its 3D viewer as a reconstruction', () => {
   const capability = modules.getBoardCapability('stm32-nucleo')
-  assert.equal(capability.modelStatus, 'preview-only')
+  // Capability collapses every published model (reconstructions included) to 'cad-reference'.
+  assert.equal(capability.modelStatus, 'cad-reference')
   assert.equal(capability.confidence, 'source-backed')
   assert.equal(capability.pinMap.d13.label, 'PA5 · SPI1_SCK')
   assert.equal(capability.pinMap.a0.label, 'PA0 · ADC1_IN0')

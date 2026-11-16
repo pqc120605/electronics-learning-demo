@@ -31,10 +31,10 @@ test('add/remove part and add/remove wire are immutable and refresh document cou
 
   const addedWire = api.addWire(addedPart.doc, { id: 'w-extra', from: { kind: 'pin', partId: 'board-1', pinId: 'vcc' }, to: { kind: 'pin', partId: 'res-2', pinId: 'a' } })
   assertNoErrors(addedWire.issues)
-  assert.equal(addedWire.doc.expect.wireCount, 4)
+  assert.equal(addedWire.doc.expect.wireCount, 5)
   const removedWire = api.removeWire(addedWire.doc, 'w-extra')
   assertNoErrors(removedWire.issues)
-  assert.equal(removedWire.doc.expect.wireCount, 3)
+  assert.equal(removedWire.doc.expect.wireCount, 4)
   const removedPart = api.removePart(removedWire.doc, 'res-2')
   assertNoErrors(removedPart.issues)
   assert.equal(removedPart.doc.parts.length, 4)
@@ -98,7 +98,7 @@ test('wire endpoint edits can move either end between pins and holes without cha
 
 test('wire endpoint edits refuse occupied holes and duplicate wire endpoints without mutating the source', () => {
   const doc = api.getLessonCircuitDoc('blink')
-  const occupied = api.editWireEndpoint(doc, 'w-gpio-to-resistor', 'to', { kind: 'hole', holeId: 'bb1:15a' })
+  const occupied = api.editWireEndpoint(doc, 'w-gpio-to-resistor', 'to', { kind: 'hole', holeId: 'bb1:15g' })
   assert.ok(occupied.issues.some(issue => issue.code === 'G4' && issue.severity === 'error'))
   assert.equal(occupied.doc, doc)
 

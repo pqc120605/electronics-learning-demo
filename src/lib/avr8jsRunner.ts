@@ -21,6 +21,7 @@ import { getAtmega328pFirmwareTarget, type Atmega328pBoardId, type Atmega328pFir
 const D13_MASK = 1 << 5
 const MAX_TRANSITIONS = 128
 const MAX_SERIAL_BYTES = 4_096
+const MAX_CHANNEL_EVENTS = 2_048
 
 export type Atmega328pSnapshot = {
   target: `${Atmega328pBoardId}-atmega328p`
@@ -30,6 +31,9 @@ export type Atmega328pSnapshot = {
   pinTransitions: boolean[]
   pinTransitionEvents: Array<{ level: boolean; cycles: number; simulatedMilliseconds: number }>
   traceTruncated: boolean
+  /** Logic analyzer: chuyển mức của mọi chân digital/analog đang là OUTPUT (Arduino D0–D13, A0–A5). */
+  channels: Record<string, Array<{ level: boolean; cycles: number; simulatedMilliseconds: number }>>
+  channelsTruncated: boolean
   serialText: string
   serialByteCount: number
   serialTruncated: boolean
@@ -55,8 +59,8 @@ export function createAtmega328pMachine(hex: string, targetId: Atmega328pBoardId
 
   const cpu = new CPU(program, target.sramBytes)
   const portB = new AVRIOPort(cpu, portBConfig)
-  new AVRIOPort(cpu, portCConfig)
-  new AVRIOPort(cpu, portDConfig)
+  const portC = new AVRIOPort(cpu, portCConfig)
+  const portD = new AVRIOPort(cpu, portDConfig)
   new AVRTimer(cpu, timer0Config)
   new AVRTimer(cpu, timer1Config)
   new AVRTimer(cpu, timer2Config)
@@ -87,6 +91,28 @@ export function createAtmega328pMachine(hex: string, targetId: Atmega328pBoardId
     else traceTruncated = true
   })
 
+  const channels: Atmega328pSnapshot['channels'] = {}
+  let channelsTruncated = false
+  let channelEventCount = 0
+  const watchPort = (port: AVRIOPort, ddrAddress: number, names: readonly string[]) => {
+    const last: Array<boolean | undefined> = []
+    port.addListener((value) => {
+      const ddr = cpu.data[ddrAddress]
+      names.forEach((name, bit) => {
+        if (!name || !(ddr & (1 << bit))) return
+        const level = Boolean(value & (1 << bit))
+        if (last[bit] === level) return
+        last[bit] = level
+        if (channelEventCount >= MAX_CHANNEL_EVENTS) { channelsTruncated = true; return }
+        channelEventCount += 1
+        ;(channels[name] ??= []).push({ level, cycles: cpu.cycles, simulatedMilliseconds: cpu.cycles / (target.clockHz / 1000) })
+      })
+    })
+  }
+  watchPort(portD, portDConfig.DDR, ['D0', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7'])
+  watchPort(portB, portBConfig.DDR, ['D8', 'D9', 'D10', 'D11', 'D12', 'D13'])
+  watchPort(portC, portCConfig.DDR, ['A0', 'A1', 'A2', 'A3', 'A4', 'A5'])
+
   function snapshot(): Atmega328pSnapshot {
     const pinState = portB.pinState(5)
     return {
@@ -97,6 +123,8 @@ export function createAtmega328pMachine(hex: string, targetId: Atmega328pBoardId
       pinTransitions: [...pinTransitions],
       pinTransitionEvents: [...pinTransitionEvents],
       traceTruncated,
+      channels: Object.fromEntries(Object.entries(channels).map(([name, events]) => [name, [...events]])),
+      channelsTruncated,
       serialText: new TextDecoder('utf-8').decode(new Uint8Array(serialBytes)),
       serialByteCount: serialBytes.length,
       serialTruncated,

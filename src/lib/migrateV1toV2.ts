@@ -103,7 +103,8 @@ export function migrateWorkspaceV1ToV2(value: unknown, lessonOverride?: string):
     parts.push(resolved)
   }
   const doc = { ...docBase, parts, expect: { partCount: parts.length, wireCount: docBase.wires.length, netCount: 0 } } as CircuitDocV2
-  doc.expect.netCount = createNetIndexV2(doc).netsList().length
+  doc.expect.netCount = createNetIndexV2(doc).netsList()
+    .filter(net => net.endpoints.size > 1 || net.wireIds.size > 0).length
   const netIndex = createNetIndexV2(doc)
   const warnings = componentRegistry.flatMap(definition => {
     const used = parts.filter(part => part.type === definition.id)

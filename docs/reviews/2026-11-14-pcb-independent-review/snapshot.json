@@ -1,0 +1,114 @@
+[
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\handset\\bom.csv",
+    "Hash": "CE60EEC3924C1019FA04A167A742C73227A5A46FB1E835DB66CD8AB04CAAF8AB"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\handset\\mobot-handset.kicad_pcb",
+    "Hash": "F0C334941EB546770652480CB0800AB3923BC1866AC0A1D1B1C517736C18B0B9"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\handset\\mobot-handset.kicad_pro",
+    "Hash": "27C3D986FA5BCF1C1A5E0E754A6C9B68C3D578C27049F9D1B4C996B0C3D1199F"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\handset\\mobot-handset.kicad_sch",
+    "Hash": "83EC45687323CE77EF3FF8A2606A8EAEB114262E9A61F5C613AE5754F04169D2"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\handset\\pos.csv",
+    "Hash": "D213403B7EC9722F249FF208F9325AABC4DD6A8B06FBC60C4F913E9526649D7B"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\lib\\mobot.pretty\\Joystick_PTH.kicad_mod",
+    "Hash": "62A7E0B6D9F300337B20325F72777711D316004EA33727362B76280BBDFF876A"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\lib\\mobot.pretty\\PinSocket_1x15_Alt3Rows_22.86_25.40_27.94.kicad_mod",
+    "Hash": "BB474D2DF07F7403042B3122A0BEB50EA5BC1F5A22B78174A7A84EA07103A1A1"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\lib\\mobot.pretty\\Texas_RNM0015A_VQFN-15_2.5x3mm.kicad_mod",
+    "Hash": "51A731AE0C1017475C404A2BE32B788ABDC71AF7E9826722DEBDE72C6128D69F"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\robot\\bom.csv",
+    "Hash": "FB2BFD5442AC837D8D75B9D9B2AF9B0DD4561051C556B5151E58B4159332AAED"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\robot\\mobot-robot.kicad_pcb",
+    "Hash": "3E3FDA46EBAB52C7AF2E985470BEDC1EAD16D156398722BA3C0423FC3746529C"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\robot\\mobot-robot.kicad_pro",
+    "Hash": "1BAEB5D3DEEA54B505668DAA69BB31430C23B5DD506E533BA8F5428D716CB845"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\robot\\mobot-robot.kicad_sch",
+    "Hash": "F49F810875BD9A3AF6DB104BFDC9392C89B1493D38A3C67F8E571527CA0A3E7F"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\robot\\pos.csv",
+    "Hash": "BE183C1822AFB2B25CC1FC37FF75C4981083A1A6BC5E2F1C35FC94C9A21F9B70"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\design_handset.py",
+    "Hash": "B2629F7F9F99C348BF93FDBD16D5687D16A300CA3EFC5BC5CB38B618C1B04AB2"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\design_robot.py",
+    "Hash": "192FD8B884ECBCA391D5CFD7FAFC1D09AFFFE5420B037E761730FC746BBB7744"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\dump_box.py",
+    "Hash": "E284CE473AAA4663F7005566FBC3BAEE03A426D0DD00A129DF10D007D718826D"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\fix_gnd.py",
+    "Hash": "1A7780553C8B9D62D86A9A18A198074352CB5F395B359ED97E31267FBBDCE950"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\fix_pro.py",
+    "Hash": "5D1A0FA7A809DFA36329DCEE006F6C9CD23D57E114EE4F396A34670FB4DE9F6C"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\fix_silk.py",
+    "Hash": "B1DEBF62979D65DD0D98A7AC95FF20FFA632BCEFEDD6538CC54A968C54F894FE"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\fr_route.py",
+    "Hash": "978491657E68E08E8615693902D2FAC0C1A6FFB23AD8B055FC02FAB4C5344F6E"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\fr_route2.py",
+    "Hash": "78CCA5D01C3B546102BEC4472333996C75BDE30D822DFC56D30807E42F6B0D1D"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\gnd_comp.py",
+    "Hash": "CF012974D3D1E71931323E286177E1B505BA5DA499B7DA6FF3961244DEF3CE59"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\mobot_build.py",
+    "Hash": "8494DE5D6FFFD3131646CE798D66D1B77B04E4C867B8C8918533F6F2F1274D2B"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\patch_tracks.py",
+    "Hash": "72A113EADA8B08409AD24AB230EBF01ACBC0441E9439CAFD6F4EB578928244AB"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\rip_ic.py",
+    "Hash": "D647DB88C5B4A54E39905C0D0F1E31DB1EFD11CFFA8AD27188A10320D096D9A7"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\rm_via.py",
+    "Hash": "2FECE96D6D8A0772A3A9CBB92C2D941D8491567869AEC95D016D4FDA24F1A1A5"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\zone_frag.py",
+    "Hash": "B1D818CAD54C15236C5FEB96D0E16D2A76C93DC5B78123494C8F9CC9C3F7BC17"
+  },
+  {
+    "Path": "D:\\StartupOS\\electronics-learning-demo\\docs\\hardware\\claude-support\\2026-11-12-pcb-2layer\\kicad\\tools\\zone_islands.py",
+    "Hash": "82326846BEE437CD9524800A8D1CC7390206E11B7D6E01D746E6C35CE0DE7EED"
+  }
+]

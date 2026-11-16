@@ -1,0 +1,20 @@
+MicroPython firmware cho Raspberry Pi Pico (RPI_PICO)
+
+Tệp: RPI_PICO-20260824-v1.29.0.uf2
+Nguồn: https://micropython.org/resources/firmware/RPI_PICO-20260824-v1.29.0.uf2
+Trang tải chính thức: https://micropython.org/download/RPI_PICO/
+SHA-256: e1160e602e277d85920adb5fe741435edccba9ba6ecadc85fdab75252eeff4e9
+Kích thước: 680960 byte
+Tải về: 2026-11-14, không chỉnh sửa.
+
+Giấy phép: MIT (Copyright (c) 2013-2026 Damien P. George và các tác giả MicroPython),
+toàn văn trong LICENSE-micropython.txt. Bản dựng có kèm mã của Pico SDK (BSD-3-Clause,
+Raspberry Pi) và các thư viện bên thứ ba của MicroPython theo giấy phép mở ghi trong
+mã nguồn MicroPython: https://github.com/micropython/micropython
+
+Mạch Mở dùng tệp này để chạy MicroPython trên RP2040 giả lập (rp2040js) trong trình duyệt.
+
+KHÔNG đóng gói: bootrom RP2040 (B2). Bootrom chứa mufplib chỉ được cấp phép dùng trên chip
+RP2040 thật (hoặc GPLv2 từ tác giả), nên dịch vụ cục bộ scripts/arduino-compile-service.mjs
+tải bản phát hành chính thức https://github.com/raspberrypi/pico-bootrom-rp2040/releases/tag/b2
+về .tmp/firmware-cache/ trên máy người dùng và kiểm SHA-256 trước khi dùng.

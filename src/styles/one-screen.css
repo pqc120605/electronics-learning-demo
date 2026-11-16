@@ -1,0 +1,177 @@
+/*
+  Khung 1 màn hình + ngôn ngữ thị giác 2026-11-14.
+  Nguồn: docs/claude-support/2026-11-14-web-ui-ux-review/00-style-reference.md
+  - >=1280x720: tài liệu không cuộn; .site-scroll cuộn nội bộ; trang .mm-fit
+    (phòng lắp mạch, bài học) dùng stage cố định + panel cuộn riêng.
+  - <768px: cho cuộn dọc, không cuộn ngang.
+*/
+
+/* ---------- Nền, chữ, focus (mọi viewport) ---------- */
+body { background: var(--mm-bg); color: var(--mm-text); }
+/* Mạch keeps the available width; technical detail grids scroll inside their own regions. */
+.builder-main .breadboard-diagram-svg { min-width:0;width:100%;height:auto; }
+.builder-main .breadboard-pin-picker { flex-wrap:wrap;max-height:96px;overflow:auto; }
+.catalog-page-heading h1,
+.lesson-heading h1,
+.lesson-section-heading h2,
+.builder-step-intro h2 { font-family: var(--mm-font-display); letter-spacing: -.01em; }
+:where(#main-content) :where(button, a, summary, [role="tab"]) { transition: background-color var(--mm-dur-fast) var(--mm-ease), border-color var(--mm-dur-fast) var(--mm-ease), color var(--mm-dur-fast) var(--mm-ease), box-shadow var(--mm-dur-fast) var(--mm-ease); }
+:where(button, a, summary, select, input, textarea, [role="tab"]):focus-visible { outline: 3px solid var(--mm-signal); outline-offset: 2px; }
+
+/* Thanh trên + rail theo tông kem */
+.workspace-topbar { background: rgb(var(--mm-surface-rgb) / 94%); border-bottom-color: var(--mm-line); }
+.workspace-sidebar { background: var(--mm-bg-deep); border-right-color: var(--mm-line); }
+.workspace-nav-group h2 { color: var(--mm-muted); }
+.workspace-nav-link { color: var(--mm-text); }
+.workspace-nav-link:hover { background: var(--mm-surface); }
+.workspace-nav-link-active { border-color: var(--mm-line); background: var(--mm-surface); color: var(--mm-accent); box-shadow: inset 3px 0 0 var(--mm-accent); }
+.workspace-sidebar-note { background: var(--mm-surface); }
+
+/* ---------- Bài học: tab panel + stage (mọi viewport) ---------- */
+.lesson-studio-tabs { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 14px; padding: 4px; border: 1px solid var(--mm-line); border-radius: var(--mm-radius-md); background: var(--mm-surface); }
+.lesson-studio-tabs [role="tab"] { min-height: 40px; padding: 0 14px; border: 0; border-radius: 6px; background: transparent; color: var(--mm-text); font: 700 13px/1 var(--mm-font-display); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+.lesson-studio-tabs [role="tab"]:hover { color: var(--mm-ink); background: var(--mm-bg); }
+.lesson-studio-tabs [role="tab"][aria-selected="true"] { color: var(--mm-accent); background: var(--mm-bg); box-shadow: inset 0 -2px 0 var(--mm-accent); }
+.lesson-studio-tabs .lesson-tab-index { margin-right: 6px; color: var(--mm-muted); font-family: var(--mm-font-mono); font-size: var(--mm-text-sm); letter-spacing: 0; }
+.lesson-panel-body > [role="tabpanel"][hidden] { display: none; }
+.lesson-studio-dock { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 10px 0 0; border-top: 1px solid var(--mm-line); }
+.lesson-studio-dock .lesson-dock-step { color: var(--mm-muted); font: 700 var(--mm-text-sm)/1.3 var(--mm-font-mono); }
+.lesson-studio-dock .lesson-dock-spacer { flex: 1 1 auto; }
+.lesson-studio-dock button,
+.lesson-studio-dock a { min-height: 40px; display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; border: 1px solid var(--mm-line); border-radius: var(--mm-radius-md); background: var(--mm-surface); color: var(--mm-ink); font-weight: 650; font-size: 13px; text-decoration: none; cursor: pointer; }
+.lesson-studio-dock button:disabled { opacity: .5; cursor: not-allowed; }
+.lesson-studio-dock .lesson-dock-primary { border-color: var(--mm-accent); background: var(--mm-accent); color: var(--mm-on-action); }
+
+/* ---------- Phòng lắp mạch: thành phần chung ---------- */
+.builder-topline { display: grid; gap: 8px; }
+.builder-guide { display: grid; gap: 12px; align-content: start; min-width: 0; }
+
+/* ---------- Khung 1 màn hình >= 1280x720 ---------- */
+@media (min-width: 1280px) and (min-height: 720px) {
+  html { scroll-padding-top: 0; }
+  .site-frame { height: 100vh; height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+  .site-frame > .site-header,
+  .site-frame > .workspace-topbar,
+  .site-frame > .workspace-offline-notice { flex: none; }
+  .site-frame > .skip-link { position: absolute; }
+  .site-scroll { position: relative; flex: 1 1 auto; min-height: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; }
+  .app-workspace-frame .site-scroll { margin-left: var(--mm-rail-w); }
+  .app-workspace-frame .site-scroll > main { margin-left: 0; min-height: 0; }
+  .app-workspace-frame .site-scroll > .site-footer { margin-left: 0; }
+
+  /* Trang dạng workspace: đúng chiều cao vùng nhìn thấy, không cuộn trang */
+  .site-scroll:has(> main > .mm-fit) { overflow: hidden; display: flex; flex-direction: column; }
+  .site-scroll:has(> main > .mm-fit) > main { flex: 1 1 auto; min-height: 0; width: 100%; max-width: none; margin: 0; display: flex; }
+  .site-scroll:has(> main > .mm-fit) > .site-footer { display: none; }
+  main > .mm-fit { flex: 1 1 auto; min-width: 0; min-height: 0; width: 100%; max-width: none; margin: 0; }
+
+  /* ----- Phòng lắp mạch ----- */
+  .circuit-builder-page.mm-fit { display: flex; flex-direction: column; padding: 0; }
+  .circuit-builder-page.mm-fit > .catalog-page-heading { flex: none; display: flex; flex-wrap: nowrap; align-items: center; gap: 14px; padding: 10px 24px; }
+  .circuit-builder-page.mm-fit > .catalog-page-heading h1 { order: 1; flex: none; font-size: 26px; white-space: nowrap; }
+  .circuit-builder-page.mm-fit > .catalog-page-heading .eyebrow { order: 2; flex: none; margin: 0; }
+  .circuit-builder-page.mm-fit > .catalog-page-heading > h1 + p { display: none; }
+  .circuit-builder-page.mm-fit > .catalog-page-heading .builder-return-links { order: 3; margin: 0 0 0 auto; font-size: var(--mm-text-sm); white-space: nowrap; }
+  .circuit-builder-page.mm-fit > .catalog-page-heading > :last-child:not(.builder-return-links, h1, p) { order: 4; flex: none; margin: 0; }
+  .circuit-builder-page.mm-fit > .builder-guided-session { flex: none; margin: 8px 24px 0; }
+  .circuit-builder-page.mm-fit > .builder-content { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 10px; padding: 10px 24px 12px; }
+  .circuit-builder-page.mm-fit .builder-topline { flex: none; }
+  .circuit-builder-page.mm-fit .builder-stepper { padding: 8px 10px; border-top: 1px solid var(--line-dark); border-radius: var(--mm-radius-md); }
+  .circuit-builder-page.mm-fit .builder-stepper button { min-height: 38px; }
+  .circuit-builder-page.mm-fit .builder-workbench { position: relative; flex: 1 1 auto; min-height: 0; overflow-x: hidden; overflow-y: auto; container-type: size; display: grid; grid-template-columns: minmax(0, 1fr) var(--mm-panel-w); grid-auto-flow: row; align-items: start; column-gap: 14px; row-gap: 12px; }
+  .circuit-builder-page.mm-fit .builder-content:not([data-step="choose"]) .builder-workbench > .builder-grid { display: contents; }
+  .circuit-builder-page.mm-fit .builder-content:not([data-step="choose"]) .builder-main { grid-column: 1; grid-row: 1 / span 40; position: sticky; top: 0; height: 100cqh; overflow-x: hidden; overflow-y: auto; padding: 12px; border: 1px solid var(--line-dark); border-radius: var(--mm-radius-lg); background: var(--mm-surface); }
+  .circuit-builder-page.mm-fit .builder-content:not([data-step="choose"]) .builder-workbench > :not(.builder-grid),
+  .circuit-builder-page.mm-fit .builder-content:not([data-step="choose"]) .builder-palette,
+  .circuit-builder-page.mm-fit .builder-content:not([data-step="choose"]) .builder-inspector { grid-column: 2; min-width: 0; }
+  .circuit-builder-page.mm-fit .builder-content:not([data-step="choose"]) .builder-palette,
+  .circuit-builder-page.mm-fit .builder-content:not([data-step="choose"]) .builder-inspector { border: 1px solid var(--line-dark); border-radius: var(--mm-radius-lg); }
+  .circuit-builder-page.mm-fit .builder-content[data-step="assemble"] .builder-palette { order: -1; }
+  .circuit-builder-page.mm-fit .builder-content[data-step="run"] .builder-inspector { order: -1; border: 1px solid var(--line-dark); }
+  .circuit-builder-page.mm-fit .builder-content[data-step="choose"] .builder-workbench { grid-template-columns: minmax(0, 1fr); }
+  .circuit-builder-page.mm-fit .builder-step-actions { position: static; flex: none; margin: 0; padding: 8px 10px; border: 1px solid var(--line-dark); border-radius: var(--mm-radius-md); background: var(--mm-surface); }
+
+  .circuit-builder-page.mm-fit .builder-main .breadboard-editor > .breadboard-diagram,
+  .lesson-page.mm-fit .lesson-stage .breadboard-editor > .breadboard-diagram { order: -1; }
+
+  /* ----- Bài học ----- */
+  .lesson-page.mm-fit { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto auto auto minmax(0, 1fr) auto; align-items: center; column-gap: 24px; row-gap: 8px; max-width: none; padding: 10px 24px 12px; }
+  .lesson-page.mm-fit > * { grid-column: 1 / -1; margin-top: 0; margin-bottom: 0; }
+  .lesson-page.mm-fit > .lesson-heading { grid-column: 1; }
+  .lesson-page.mm-fit > .lesson-brief { grid-column: 2; grid-row: 2; gap: 18px; border: 0; }
+  .lesson-page.mm-fit > .lesson-studio-body { grid-row: 5; align-self: stretch; }
+  .lesson-page.mm-fit > .lesson-studio-dock { grid-row: 6; }
+  .lesson-page.mm-fit .lesson-breadcrumb { margin: 0; }
+  .lesson-page.mm-fit .lesson-heading { padding: 0; border: 0; align-items: center; }
+  .lesson-page.mm-fit .lesson-heading h1 { margin: 0; font-size: 28px; line-height: 1.1; }
+  .lesson-page.mm-fit .lesson-heading .eyebrow { margin-bottom: 4px; }
+  .lesson-page.mm-fit .lesson-intro { display: none; }
+  .lesson-page.mm-fit .lesson-level { display: none; }
+  .lesson-page.mm-fit .lesson-brief { padding: 8px 0; }
+  .lesson-page.mm-fit > .lesson-studio-body { min-height: 0; height: 100%; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(420px, 1fr); gap: 16px; }
+  .lesson-page.mm-fit .objective-list { grid-template-columns: minmax(0, 1fr); }
+  .lesson-page.mm-fit .lesson-objectives { display: grid; gap: 8px; margin-bottom: 18px; }
+  .lesson-page.mm-fit .lesson-stage { min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr) minmax(0, auto); gap: 10px; overflow: hidden; padding: 10px; border: 1px solid var(--line-dark); border-radius: var(--mm-radius-lg); background: var(--mm-surface); }
+  .lesson-page.mm-fit .lesson-stage > * { min-height: 0; margin: 0; overflow-y: auto; overflow-x: hidden; }
+  .lesson-page.mm-fit .lesson-stage > :last-child { max-height: 34cqh; }
+  .lesson-page.mm-fit .lesson-studio-body { container-type: size; }
+  .lesson-page.mm-fit .lesson-stage .lesson-circuit-workspace { margin: 0; padding: 12px; gap: 10px; box-shadow: none; }
+  .lesson-page.mm-fit .lesson-stage .lesson-circuit-heading h3 { margin: 2px 0 0; font-size: 18px; }
+  .lesson-page.mm-fit .lesson-stage .lesson-circuit-layout { grid-template-columns: minmax(0, 1fr); }
+  .lesson-page.mm-fit .lesson-stage .lesson-circuit-inspector { order: 2; }
+  .lesson-page.mm-fit .lesson-stage .breadboard-editor-eyebrow { display: none; }
+  .lesson-page.mm-fit .lesson-stage .breadboard-editor-heading h2 { font-size: 18px; }
+  .lesson-page.mm-fit .lesson-stage .breadboard-editor-heading > p { margin: 0; font-size: var(--mm-text-sm); }
+  .lesson-page.mm-fit .lesson-panel { min-height: 0; display: flex; flex-direction: column; }
+  .lesson-page.mm-fit .lesson-studio-tabs { flex: none; position: static; margin-bottom: 10px; }
+  .lesson-page.mm-fit .lesson-panel-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; padding-right: 4px; }
+  .lesson-page.mm-fit .lesson-panel-body .lesson-section { margin: 0; padding: 0; border: 0; }
+  .lesson-page.mm-fit .lesson-panel-body .lesson-section-heading { padding-top: 0; }
+  .lesson-page.mm-fit .lesson-panel-body .wiring-layout,
+  .lesson-page.mm-fit .lesson-panel-body .finish-layout,
+  .lesson-page.mm-fit .lesson-panel-body .interactive-circuit { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- Mobile: không cuộn ngang ---------- */
+@media (max-width: 767px) {
+  .lesson-studio-tabs { overflow-x: auto; flex-wrap: nowrap; }
+  .lesson-studio-tabs [role="tab"] { flex: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(#main-content) :where(button, a, summary, [role="tab"]) { transition: none; }
+}
+
+/* Tương phản WCAG AA cho chữ phụ (axe color-contrast, 2026-11-14). #main-content để thắng CSS component tải sau. */
+#main-content :is(.lesson-circuit-heading > span, .lesson-signal-flow > small, .lesson-circuit-part-list > button > small, .lesson-circuit-check > span, .card-kicker) { color: var(--mm-muted); }
+#main-content :is(.part-row-active > .part-name > small, .part-row-active > .part-view) { color: var(--mm-text); }
+#main-content .capability-badge--reference { color: var(--mm-text-signal); }
+#main-content .robot-obstacle-button { color: var(--mm-on-action); }
+
+/* MM-UX-04: lý do khóa hiện ngay cạnh nút chế độ */
+.builder-view-lock-reason { flex-basis: 100%; margin: 4px 0 0; padding: 7px 10px; border: 1px solid var(--mm-line); border-radius: var(--mm-radius-md); background: var(--mm-bg); color: var(--mm-text); font-size: var(--mm-text-sm); line-height: 1.5; }
+
+/* #9 Thư viện board dạng danh sách–chi tiết ở >=1280x720 */
+@media (min-width: 1280px) and (min-height: 720px) {
+  .board-section.catalog-page-section { display: grid; grid-template-columns: minmax(360px, .85fr) minmax(0, 1.35fr); align-items: start; column-gap: 20px; padding-top: 24px; }
+  .board-section.catalog-page-section > * { grid-column: 1; min-width: 0; }
+  .board-section.catalog-page-section > .board-cad-viewer { grid-column: 2; grid-row: 1 / span 6; position: sticky; top: 12px; max-height: calc(100dvh - var(--mm-header-h, 68px) - 24px); overflow-y: auto; margin: 0; }
+  .board-section.catalog-page-section .board-list .board-row { grid-template-columns: 48px minmax(0, 1fr) auto; gap: 8px 12px; align-items: start; }
+  .board-section.catalog-page-section .board-list .board-row > :nth-child(n + 3) { grid-column: 2 / -1; justify-self: start; }
+  .board-section.catalog-page-section .board-list .board-row > .row-arrow { grid-column: 3; grid-row: 1; justify-self: end; }
+  .board-section.catalog-page-section .board-list .board-row .board-source-link:not(.board-cad-open),
+  .board-section.catalog-page-section .board-list .board-row .board-model-note ~ .board-model-note { display: none; }
+  .board-section.catalog-page-section .board-list .board-row:has(.board-cad-open[aria-pressed="true"]) { border-color: var(--mm-accent); background: var(--mm-surface); }
+}
+
+/* Panel firmware Raspberry Pi Pico (rp2040js) */
+.rp2040-panel { display: grid; gap: 10px; margin-top: 18px; padding: 18px; border: 1px solid var(--line-dark); border-radius: var(--mm-radius-lg); background: var(--mm-surface); }
+.rp2040-panel h2 { margin: 0; font-family: var(--mm-font-display); }
+.rp2040-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.rp2040-actions button,.rp2040-file { min-height: 40px; display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; border: 1px solid var(--line-dark); border-radius: var(--mm-radius-md); background: var(--mm-bg); color: var(--mm-ink); font-weight: 650; font-size: 13px; cursor: pointer; }
+.rp2040-actions .rp2040-run { border-color: var(--mm-accent); background: var(--mm-accent); color: var(--mm-on-action); }
+.rp2040-actions button:disabled { opacity: .55; cursor: not-allowed; }
+.rp2040-file input { max-width: 190px; font-size: var(--mm-text-sm); }
+.rp2040-note,.rp2040-source { margin: 0; color: var(--mm-muted); font-size: var(--mm-text-sm); line-height: 1.5; }
+.simulation-logic-analyzer { display: grid; gap: 8px; }
+.simulation-logic-analyzer > strong { color: var(--mm-ink); font-size: 13px; }

@@ -49,6 +49,15 @@ test('breadboard editor identifies occupied leads and provides selectable compon
   assert.match(html, /res-1:a/)
 })
 
+test('workspace shows one breadboard heading while the lesson canvas keeps its own contextual heading', () => {
+  const doc = getLessonCircuitDoc('blink')
+  const workspaceHtml = renderToStaticMarkup(createElement(Editor, props(doc)))
+  const lessonHtml = renderToStaticMarkup(createElement(Editor, props(doc, { lessonWiring: { noticeIsError: false, onClearNotice() {} } })))
+  const headingPattern = /<h[23][^>]*>Breadboard và dây nối<\/h[23]>/g
+  assert.equal((workspaceHtml.match(headingPattern) ?? []).length, 1)
+  assert.equal((lessonHtml.match(headingPattern) ?? []).length, 1)
+})
+
 test('selected wire exposes endpoint, role and removal controls with accessible names', () => {
   const html = renderToStaticMarkup(createElement(Editor, props(getLessonCircuitDoc('blink'))))
   assert.match(html, /Chỉnh đầu dây w-gpio-to-resistor/)
@@ -66,5 +75,5 @@ test('editor displays typed wiring diagnostics without changing the source docum
   const doc = getLessonCircuitDoc('blink')
   const html = renderToStaticMarkup(createElement(Editor, props(doc, { notice: 'G4: Lỗ bb1:15a đang bị chiếm.' })))
   assert.match(html, /G4: Lỗ bb1:15a đang bị chiếm\./)
-  assert.equal(doc.wires.length, 3)
+  assert.equal(doc.wires.length, 4)
 })

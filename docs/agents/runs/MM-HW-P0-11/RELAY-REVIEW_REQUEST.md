@@ -6,7 +6,7 @@ type: REVIEW_REQUEST
 delivery: Founder tự chuyển nếu muốn; không gọi Claude/vendor
 configuration: r12 giữ nguyên proposed, SHA256 8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b
 packet_manifest: docs/agents/runs/MM-HW-P0-11/packet-snapshot.json
-packet_manifest_sha256: 88cbefe0026d04c928ea503746d3b3a10bac2368b4b082e34cb32bbe6e14a6da
+packet_manifest_sha256: ff48a170646fb2609b82cc8543bd3c59b6bffb89b70e70ed007e07079c465f29
 
 Xin review proposal, không tự suy đủ bằng chứng đóng cổng. Đọc REPORT.md, QA-REVIEW.md, calculations.json và ba tài liệu mobot-v2-p0-11-*.md. Founder đã chọn G-B16GPIO và M-A neutral-only; receipt có nguyên văn. Chưa duyệt configuration/hash/MPN/CAD/FE/lease.
 

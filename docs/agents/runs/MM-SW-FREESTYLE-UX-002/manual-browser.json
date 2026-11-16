@@ -1,0 +1,29 @@
+{
+  "browser": "Chromium 156.0.8078.4",
+  "viewports": [
+    "1440x900",
+    "375x812"
+  ],
+  "url": "http://127.0.0.1:5320/build/freestyle",
+  "views": [
+    "empty",
+    "2D",
+    "zoom",
+    "dark",
+    "schematic",
+    "3D",
+    "waveform",
+    "mobile"
+  ],
+  "physicalMeasurements": "NOT_RUN",
+  "automatedCaptureCompleted": true,
+  "visualReview": "Reviewed: no blocking issue in the scoped empty/2D/zoom/schematic/3D/waveform/mobile views",
+  "reviewedBy": "codex_lead",
+  "reviewDate": "2026-11-16",
+  "limits": [
+    "Reference geometry and logical pin stations are labeled; not physical board verification",
+    "Sampled digital states, not analog measurement",
+    "Schematic can scroll internally; 2D supports zoom and expanded mode",
+    "Physical mobile keyboard and screen reader NOT_RUN"
+  ]
+}

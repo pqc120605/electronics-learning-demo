@@ -53,6 +53,40 @@ MODEL_BY_VALUE = {
     "ESP32-S3-WROOM_NEW": "RF_Module.3dshapes/ESP32-S3-WROOM-1.step",
 }
 
+# PADS footprints and KiCad STEP origins disagree for two packages (verified 2026-11-14 by
+# exporting with kicad-cli 10.0.7 and comparing bounding boxes with the 22 header pads):
+# - CON22X1_2P54_OBLATE: pads run along footprint X, the KiCad 1x22 STEP runs along Y; the
+#   headers sit on B.Cu, so the mirrored model needs rotate z = -90 to lie on the pad column.
+# - ESP32-S3-WROOM_NEW: the PADS origin is pad 1, the STEP origin is the module body centre;
+#   offset (9, -5.26) mm (KiCad 3D offset Y points up) centres the 18 x 25.5 mm body on the pads.
+MODEL_TRANSFORM_BY_REF = {
+    "J1": {"rotate": (0, 0, -90)},
+    "J3": {"rotate": (0, 0, -90)},
+    "U4": {"offset": (9, -5.26, 0)},
+}
+
+
+def apply_model_transforms(pcb_path: Path) -> None:
+    """Rewrite offset/rotate of the 3D models listed in MODEL_TRANSFORM_BY_REF.
+
+    pcbnew's Python Models() returns copies, so the transform is applied to the saved
+    s-expression text instead. Idempotent: running it twice gives the same file.
+    """
+    text = pcb_path.read_text(encoding="utf-8")
+    blocks = re.split(r"(?m)^(?=\t\(footprint )", text)
+    out = []
+    for block in blocks:
+        match = re.search(r'\(property "Reference" "([^"]+)"', block)
+        transform = MODEL_TRANSFORM_BY_REF.get(match.group(1)) if match else None
+        if transform:
+            for key, (x, y, z) in transform.items():
+                block, count = re.subn(rf"(\(model \"[^\"]+\"[\s\S]*?\({key}\s*\(xyz) [-\d.]+ [-\d.]+ [-\d.]+\)", rf"\g<1> {x} {y} {z})", block, count=1)
+                if count != 1:
+                    raise RuntimeError(f"{match.group(1)}: no 3D model {key} entry to transform")
+        out.append(block)
+    pcb_path.write_text("".join(out), encoding="utf-8", newline="")
+
+
 ROLE_BY_REF = {
     "U4": ("MCU module ESP32-S3-WROOM-1", "Compute and wireless module; package family from CAD/BOM, memory variant depends on installed module.", "source-backed"),
     "U3": ("USB-to-UART bridge CP2102N", "USB serial bridge identified by BOM; exact pin behavior should be checked against its datasheet.", "source-backed"),
@@ -295,6 +329,7 @@ def main() -> int:
     DERIVED.mkdir(parents=True, exist_ok=True)
     board.SetFileName(str(OUT_PCB))
     pcbnew.SaveBoard(str(OUT_PCB), board)
+    apply_model_transforms(OUT_PCB)
     inventory = {
         "boardId": BOARD_ID,
         "revision": "Espressif ESP32-S3-DevKitC-1 · PCB V1.1 · PADS reference import",

@@ -30,9 +30,9 @@ test('the canonical ESP32 blink lesson doc contains a valid, explicitly wired 22
   assert.equal(doc.schema, 2)
   assert.equal(doc.lessonId, 'blink')
   assert.deepEqual(doc.parts.map(part => part.id), ['board-1', 'bb-1', 'res-1', 'led-1'])
-  assert.deepEqual(doc.wires.map(wire => wire.id), ['w-gpio-to-resistor', 'w-led-cathode-to-rail', 'w-rail-to-gnd'])
+  assert.deepEqual(doc.wires.map(wire => wire.id), ['w-gpio-to-resistor', 'w-resistor-to-led', 'w-led-cathode-to-rail', 'w-rail-to-gnd'])
   assert.equal(doc.parts.find(part => part.id === 'res-1').value.ohm, 220)
-  assert.equal(doc.wires.length, 3)
+  assert.equal(doc.wires.length, 4)
 
   const ids = [...doc.breadboards.map(board => board.id), ...doc.parts.map(part => part.id), ...doc.wires.map(wire => wire.id)]
   assert.equal(new Set(ids).size, ids.length, 'part, breadboard and wire IDs are unique')
@@ -47,7 +47,7 @@ test('the canonical blink doc resolves GPIO, resistor, LED and return to the int
 
   sameNet('board-1:ledOut', 'res-1:a', ...'abcde'.split('').map(row => `bb1:10${row}`))
   sameNet('res-1:b', 'led-1:anode', ...'abcde'.split('').map(row => `bb1:14${row}`))
-  sameNet('led-1:cathode', 'board-1:gnd', ...'abcde'.split('').map(row => `bb1:15${row}`), ...Array.from({ length: 25 }, (_, index) => `bb1:T-:${index + 1}`))
+  sameNet('led-1:cathode', 'board-1:gnd', ...'fghij'.split('').map(row => `bb1:15${row}`), ...Array.from({ length: 25 }, (_, index) => `bb1:T-:${index + 1}`))
   differentNets('res-1:a', 'res-1:b')
   differentNets('led-1:anode', 'led-1:cathode')
 })
@@ -73,17 +73,17 @@ test('the canonical button-led document is valid and independently cloned', () =
   assert.equal(doc.lessonId, 'button-led')
   assert.deepEqual(doc.breadboards, blink.breadboards)
   assert.deepEqual(doc.parts.slice(0, 4), blink.parts)
-  assert.deepEqual(doc.wires.slice(0, 3), blink.wires)
+  assert.deepEqual(doc.wires.slice(0, 4), blink.wires)
   assert.deepEqual(doc.parts.map(part => part.id), ['board-1', 'bb-1', 'res-1', 'led-1', 'button-1'])
-  assert.deepEqual(doc.wires.slice(3).map(wire => wire.id), ['w-input-to-button', 'w-button-to-gnd-rail'])
-  assert.deepEqual(doc.expect, { partCount: 5, wireCount: 5, netCount: 4 })
+  assert.deepEqual(doc.wires.slice(4).map(wire => wire.id), ['w-input-to-button', 'w-button-to-gnd'])
+  assert.deepEqual(doc.expect, { partCount: 5, wireCount: 6, netCount: 4 })
   const ids = [...doc.breadboards, ...doc.parts, ...doc.wires].map(item => item.id)
   assert.equal(new Set(ids).size, ids.length)
   assert.deepEqual(validateCircuitDoc(doc, componentRegistry).filter(issue => issue.severity === 'error'), [])
 
   const pristine = structuredClone(doc)
   doc.parts[4].mount.col = 1
-  doc.wires[3].from.pinId = 'ledOut'
+  doc.wires[4].from.pinId = 'ledOut'
   assert.deepEqual(getLessonCircuitDoc('button-led'), pristine)
   assert.deepEqual(getLessonCircuitDoc('blink'), blink)
 })
@@ -93,8 +93,8 @@ test('the button-led document has separate input, ground, LED output and LED ano
   assert.ok(doc)
   const index = createNetIndexV2(doc, componentRegistry)
   const groups = [
-    ['board-1:input', 'button-1:contactA', 'bb1:20f', 'bb1:20e'],
-    ['board-1:gnd', 'button-1:contactB', 'bb1:22f', 'bb1:22e', 'led-1:cathode'],
+    ['board-1:input', 'button-1:contactA'],
+    ['board-1:gnd', 'button-1:contactB', 'led-1:cathode', ...Array.from({ length: 25 }, (_, index) => `bb1:T-:${index + 1}`)],
     ['board-1:ledOut', 'res-1:a'],
     ['res-1:b', 'led-1:anode'],
   ]

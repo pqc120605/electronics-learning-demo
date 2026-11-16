@@ -6,7 +6,7 @@
   "sourceArchiveSha256": "25b16b894c4e104ad62640ceaf60ba7ead356105567f9471da4ce3c66ddb871a",
   "sourcePadsSha256": "61e3f8202ee518eb014845c81650ac03c2ae128e430729e12f7f647c3688cbfc",
   "sourceGlb": "public/models/esp32-s3-devkitc-1-v1.1.glb",
-  "sourceGlbSha256": "abf7b557d1356ae5d545f5529203eed80f5f5469d5c2f864a7727db3d314bb85",
+  "sourceGlbSha256": "1ffe23480ffabcb5ba740b05fd60fa835a56fecd00d76075ce79a88a4f685515",
   "coordinateDerivation": "Header pad centers are copied from the PADS-imported KiCad footprint geometry; GLB uses x/z as PCB x/y and y at top copper plane; not physically measured.",
   "boardTopMm": 1.55,
   "headers": [

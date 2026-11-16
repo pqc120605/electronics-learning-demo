@@ -1,0 +1,13 @@
+/* Running-lesson overlay on the schematic: moving dashes follow the trace direction, pills name the level. */
+.schematic-flow { stroke: var(--mm-signal, #2bc4a8); animation: schematic-flow-run 0.9s linear infinite; }
+.schematic-flow[data-signal="power"] { stroke: var(--mm-power, #e5534b); }
+.schematic-flow[data-signal="low"] { stroke: var(--mm-muted, #7d8a90); }
+.schematic-flow-reverse { animation-direction: reverse; }
+@keyframes schematic-flow-run { to { stroke-dashoffset: -20; } }
+.schematic-flow-labels { position: absolute; inset: 0; pointer-events: none; }
+.schematic-flow-labels span { position: absolute; transform: translate(-50%, -130%); font: 600 var(--mm-text-sm)/1.5 var(--mm-font-mono, ui-monospace, monospace); padding: 0 5px; border-radius: 999px; background: var(--mm-bg-deep, #0e1416); color: var(--mm-signal, #2bc4a8); border: 1px solid currentColor; white-space: nowrap; }
+.schematic-flow-labels span[data-signal="power"] { color: var(--mm-power, #e5534b); }
+.schematic-flow-labels span[data-signal="ground"] { color: var(--mm-gnd, #8b949e); }
+.schematic-flow-labels span[data-signal="low"] { color: var(--mm-muted, #7d8a90); }
+.schematic-flow-labels span[data-signal="analog"] { color: var(--mm-data, #d4a72c); }
+@media (prefers-reduced-motion: reduce) { .schematic-flow { animation: none; stroke-dasharray: none; opacity: .75; } }

@@ -1,6 +1,6 @@
 import { PRODUCT_ROUTES as R } from './productRoutes'
 
-export type ProductFeatureId = 'intro' | 'dashboard' | 'learning' | 'lesson' | 'boards' | 'components' | 'lab' | 'projects' | 'classroom' | 'calculators' | 'firmware' | 'spice'
+export type ProductFeatureId = 'intro' | 'dashboard' | 'learning' | 'lesson' | 'boards' | 'components' | 'lab' | 'freestyle' | 'projects' | 'classroom' | 'calculators' | 'firmware' | 'spice' | 'sketch' | 'community'
 export type ProductFeatureState = 'available' | 'limited' | 'reference' | 'planned'
 
 export type ProductFeature = {
@@ -43,7 +43,11 @@ export const productFeatureRegistry: Record<ProductFeatureId, ProductFeature> = 
   },
   lab: {
     id: 'lab', title: 'Phòng lắp mạch', summary: 'Lắp circuit, xem schematic/3D, kiểm tra heuristic và chạy hành vi được hỗ trợ.',
-    state: 'limited', publicRoute: R.publicLab, appRoute: R.appLab, publicLabel: 'Phòng thử', appLabel: 'Phòng lắp mạch', icon: '⌁',
+    state: 'limited', publicRoute: R.publicLab, appRoute: R.appLab, publicLabel: 'Phòng lắp mạch theo bài', appLabel: 'Phòng lắp mạch theo bài', icon: '⌁',
+  },
+  freestyle: {
+    id: 'freestyle', title: 'Bàn lắp mạch tự do', summary: 'Chọn board, thêm linh kiện, viết code Arduino/MicroPython và bấm Chạy để xem LED, Serial và luồng tín hiệu.',
+    state: 'limited', publicRoute: R.publicFreestyle, appRoute: R.appFreestyle, publicLabel: 'Bàn lắp mạch tự do', appLabel: 'Bàn lắp mạch tự do', icon: '✚',
   },
   projects: {
     id: 'projects', title: 'Dự án thực hành', summary: 'Khám phá bài thực hành và các project mẫu hiện có.',
@@ -61,17 +65,28 @@ export const productFeatureRegistry: Record<ProductFeatureId, ProductFeature> = 
     id: 'firmware', title: 'Kiểm tra firmware HEX', summary: 'Đọc Intel HEX và chạy demo AVR giới hạn; không tự nạp board.',
     state: 'limited', publicRoute: R.publicFirmware, appRoute: R.appFirmware, publicLabel: 'Kiểm tra firmware HEX', appLabel: 'Kiểm tra HEX', icon: '⌗',
   },
+  sketch: {
+    id: 'sketch', title: 'Chạy code Arduino/ESP32', summary: 'Thông dịch sketch Arduino C++ con ngay trên web cho ESP32, Arduino và Pico; xem GPIO, Serial và logic analyzer. Không biên dịch firmware thật.',
+    state: 'limited', publicRoute: R.publicSketch, appRoute: R.appSketch, publicLabel: 'Chạy code Arduino/ESP32', appLabel: 'Chạy code', icon: '▷',
+  },
   spice: {
     id: 'spice', title: 'Mô phỏng điện SPICE', summary: 'Chạy netlist analog giới hạn bằng ngspice WASM; nhận subset analog từ workspace và XML netlist KiCad, không chạy firmware MCU hay chuyển trọn board.',
     state: 'limited', publicRoute: R.publicSpice, appRoute: R.appSpice, publicLabel: 'Mô phỏng SPICE', appLabel: 'Mô phỏng SPICE', icon: '∿',
   },
+  community: {
+    id: 'community', title: 'Cộng đồng thảo luận', summary: 'Hỏi đáp điện tử, nhúng và IoT theo nhóm chủ đề. Bản xem trước: bài mẫu + bài nháp lưu trên thiết bị, chưa đồng bộ máy chủ.',
+    state: 'limited', publicRoute: R.publicCommunity, appRoute: R.appCommunity, publicLabel: 'Cộng đồng', appLabel: 'Cộng đồng', icon: '◇',
+  },
 }
 
-export const publicFeatureOrder: readonly ProductFeatureId[] = ['learning', 'boards', 'components', 'lab', 'calculators', 'spice', 'firmware', 'projects']
+export const publicFeatureOrder: readonly ProductFeatureId[] = ['learning', 'boards', 'components', 'lab', 'calculators', 'sketch', 'spice', 'firmware', 'projects', 'community']
+/** 2026-11-15: cùng năm khu vực với điều hướng công khai: Học · Lắp mạch · Thư viện · Công cụ · Cộng đồng. */
 export const appNavigationGroups: ReadonlyArray<{ id: string; label: string; features: readonly ProductFeatureId[] }> = [
-  { id: 'learn', label: 'KHÔNG GIAN HỌC', features: ['dashboard', 'learning', 'lesson'] },
-  { id: 'practice', label: 'TRA CỨU & THỰC HÀNH', features: ['boards', 'components', 'lab', 'projects', 'classroom'] },
-  { id: 'tools', label: 'CÔNG CỤ', features: ['calculators', 'spice', 'firmware'] },
+  { id: 'learn', label: 'HỌC', features: ['dashboard', 'lesson', 'learning', 'projects', 'classroom'] },
+  { id: 'build', label: 'LẮP MẠCH', features: ['freestyle', 'lab'] },
+  { id: 'library', label: 'THƯ VIỆN', features: ['boards', 'components'] },
+  { id: 'tools', label: 'CÔNG CỤ', features: ['calculators', 'spice', 'firmware', 'sketch'] },
+  { id: 'community', label: 'CỘNG ĐỒNG', features: ['community'] },
 ]
 
 export function getProductFeature(id: ProductFeatureId): ProductFeature {

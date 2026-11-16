@@ -73,7 +73,10 @@ test('sensor outputs flow toward the board; analog shows the normalized value on
 test('ultrasonic marks TRIG and ECHO pulses with opposite directions', () => {
   const states = flow('ultrasonic-distance')
   assert.deepEqual([states.get('sonar-wire-trig').signal, states.get('sonar-wire-trig').direction], ['pulse', 'forward'])
-  assert.deepEqual([states.get('sonar-wire-echo').signal, states.get('sonar-wire-echo').direction], ['pulse', 'reverse'])
+  // ECHO runs sensor → 1 kΩ → GPIO (the preset wire is drawn from the sensor), so it is forward here.
+  assert.deepEqual([states.get('sonar-wire-echo').signal, states.get('sonar-wire-echo').direction], ['pulse', 'forward'])
+  assert.equal(states.get('sonar-echo-divider').signal, 'pulse')
+  assert.equal(states.get('sonar-wire-vcc').label, '5V')
 })
 
 test('seven-segment wires show each driven and undriven segment', () => {

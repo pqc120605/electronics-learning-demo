@@ -43,14 +43,24 @@ test('routes around a footprint and reports a blocker when no route can be found
   assert.equal(enclosed.errors.length, 1)
 })
 
-test('does not route through an endpoint footprint or silently snap off-grid endpoints', () => {
+test('routes from off-grid endpoints with orthogonal lead-ins without changing the endpoints', () => {
+  const offGrid = routeWires([{ id: 'off-grid', from: [0.1, 0.3], to: [10.16, 0], fromExit: 'E', toExit: 'W' }])
+  assert.deepEqual(offGrid.errors, [])
+  const route = offGrid.routes[0]
+  assert.deepEqual(route.points[0], [0.1, 0.3])
+  assert.deepEqual(route.points.at(-1), [10.16, 0])
+  for (let i = 1; i < route.points.length; i += 1) {
+    assert.ok(route.points[i][0] === route.points[i - 1][0] || route.points[i][1] === route.points[i - 1][1], 'every segment is orthogonal')
+  }
+})
+
+test('does not route through an endpoint footprint', () => {
   const throughPart = routeWires([{ id: 'wire-1', from: [2.54, 0], to: [10.16, 0], fromExit: 'E', toExit: 'W', fromObstacleId: 'part' }], [
     { id: 'part', x: 0, y: -1.27, width: 5.08, height: 2.54 },
   ])
   assert.equal(throughPart.errors.length, 0)
   const route = throughPart.routes[0]
   assert.ok(route.points[1][0] >= 6.35, 'endpoint lead exits the part before routing')
-  assert.equal(routeWires([{ id: 'off-grid', from: [0.1, 0], to: [10.16, 0] }]).errors[0].wireId, 'off-grid')
 })
 
 test('sorts wires and resolves ties deterministically', () => {

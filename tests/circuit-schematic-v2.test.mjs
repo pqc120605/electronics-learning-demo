@@ -32,7 +32,8 @@ test('button schematic exposes open switch, LED emission/polarity, values, role 
   assert.match(html, /GPIO IN/)
   assert.match(html, /data-role="ground"/)
   assert.match(html, /schematic-crossing/)
-  assert.match(html, /data-hole-id="bb1:22g"/)
+  assert.match(html, /data-hole-id="bb1:T-:10"/)
+  assert.doesNotMatch(html, /data-hole-id="bb1:22[g|h]"/)
   assert.doesNotMatch(html, /schematic-hole-label/)
   doc.wires[0].role = 'power'
   const powered = renderToStaticMarkup(createElement(CircuitSchematicV2, { doc }))
@@ -46,7 +47,8 @@ test('button schematic exposes open switch, LED emission/polarity, values, role 
 test('unknown symbol and conflicting supply roles stay visible as diagnostics', () => {
   const doc = getLessonCircuitDoc('button-led')
   doc.parts.push({ id: 'unknown-1', type: 'unknown-part', mount: { kind: 'bench', lane: 'bottom', order: 1 } })
-  doc.wires[1].role = 'power'
+  doc.wires[2].role = 'ground'
+  doc.wires[3].role = 'power'
   const html = renderToStaticMarkup(createElement(CircuitSchematicV2, { doc }))
   assert.match(html, /unknown-1/)
   assert.match(html, /circuit-symbol-unsupported/)

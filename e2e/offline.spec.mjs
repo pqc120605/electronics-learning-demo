@@ -6,7 +6,7 @@ async function expectLabWorkspace(page) {
 }
 
 test('app opens offline and a new worker deploy removes its previous cache', async ({ page, context, browser }, testInfo) => {
-  await page.goto('/app/lab')
+  await page.goto('/app/lab?board=esp32-devkit')
   await expect(page.locator('body')).toContainText(/Mạch|Học|Thực hành/)
   await expectLabWorkspace(page)
   await page.evaluate(() => navigator.serviceWorker.ready)
@@ -33,7 +33,10 @@ test('app opens offline and a new worker deploy removes its previous cache', asy
       controller: expect.stringContaining('v=e2e-deploy-one'),
     })
     const firstCount = await deploymentPage.evaluate(async () => (await caches.open('mach-mo-shell-e2e-deploy-one')).keys().then(keys => keys.length))
-    expect(firstCount).toBe(5)
+    // 3 URL shell (/, /offline.html, manifest) + mọi asset JS/CSS mà index.html tham chiếu; số chunk phụ thuộc bundler.
+    const entryAssets = await deploymentPage.evaluate(async () => new Set([...(await (await fetch('/')).text()).matchAll(/(?:src|href)="(\/assets\/[^"?#]+\.(?:js|css))"/g)].map(match => match[1])).size)
+    expect(entryAssets).toBeGreaterThanOrEqual(2)
+    expect(firstCount).toBe(3 + entryAssets)
 
     await deploymentPage.evaluate(() => navigator.serviceWorker.register('/sw.js?v=e2e-deploy-two', { scope: '/' }))
     await expect.poll(() => deploymentPage.evaluate(() => caches.keys().then(names => names.filter(name => name.startsWith('mach-mo-shell-'))))).toEqual(['mach-mo-shell-e2e-deploy-two'])
@@ -45,7 +48,7 @@ test('app opens offline and a new worker deploy removes its previous cache', asy
       controller: expect.stringContaining('v=e2e-deploy-two'),
     })
     const secondCount = await deploymentPage.evaluate(async () => (await caches.open('mach-mo-shell-e2e-deploy-two')).keys().then(keys => keys.length))
-    expect(secondCount).toBe(5)
+    expect(secondCount).toBe(3 + entryAssets)
   } finally {
     await deploymentContext.close()
   }

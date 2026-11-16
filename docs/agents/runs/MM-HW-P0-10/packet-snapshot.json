@@ -2,7 +2,8 @@
   "configuration_sha256": "8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b",
   "excludes": [
     "packet-snapshot.json (self)",
-    "RELAY-REVIEW_REQUEST.md (lists this manifest)"
+    "RELAY-REVIEW_REQUEST.md (lists this manifest)",
+    "QA-REVIEW-REQUEST.md (review instructions; not evidence payload)"
   ],
   "files": [
     {
@@ -15,7 +16,7 @@
     },
     {
       "path": "D:/StartupOS/docs/agents/tasks.json",
-      "sha256": "4058fb5d16bcf6a3c25ddd57ec2f98c46d2edd68a667f19e8f3ee83e6ff3c638"
+      "sha256": "06622a0082a5a862ff08b4b752bb3c989111df998c47aada495193cd5d981c23"
     },
     {
       "path": "D:/StartupOS/electronics-learning-demo/docs/hardware/mobot-v2-c11-electrical-consolidation.md",

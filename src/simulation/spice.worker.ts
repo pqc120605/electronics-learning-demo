@@ -1,4 +1,5 @@
 import { assertSpiceResultPointBudget, inspectSpiceNetlist, normalizeSpiceNetlistForEngine } from './spiceNetlist'
+import { cleanProbeSeries, instrumentSpiceNetlist } from './spiceProbes'
 
 type SpiceWorkerRequest = { type: 'run'; runId: string; netlist: string }
 type SpiceSeries = { name: string; type: string; values: number[] }
@@ -41,7 +42,8 @@ scope.onmessage = async (event) => {
     const simulation = new Simulation()
     scope.postMessage({ type: 'progress', runId, stage: 'initializing', message: 'Đang khởi tạo ngspice WASM…' })
     await simulation.start()
-    simulation.setNetList(normalizeSpiceNetlistForEngine(event.data.netlist))
+    // Ammeter 0 V nối tiếp R/C/L/D để engine trả dòng nhánh thật (xem spiceProbes.ts).
+    simulation.setNetList(normalizeSpiceNetlistForEngine(instrumentSpiceNetlist(event.data.netlist).netlist))
     scope.postMessage({ type: 'progress', runId, stage: 'solving', message: 'Đang giải mạch và thu kết quả…' })
     const result = await simulation.runSim() as SpiceEngineResult
     assertSpiceResultPointBudget(result.numPoints)
@@ -51,11 +53,11 @@ scope.onmessage = async (event) => {
     }
 
     const stride = Math.max(1, Math.ceil(result.numPoints / MAX_DISPLAY_POINTS))
-    const series = result.data.map((column) => ({
+    const series = cleanProbeSeries(result.data.map((column) => ({
       name: column.name,
       type: column.type,
       values: column.values.filter((_, index) => index % stride === 0).map(asMagnitude),
-    }))
+    })))
     const warnings = simulation.getError().filter(Boolean).slice(-5)
     scope.postMessage({
       type: 'result',

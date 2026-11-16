@@ -1,0 +1,22 @@
+{
+  "at": "2026-11-15T18:09:40.002Z",
+  "hashes": {
+    "src/lib/community.ts": "ba55ea9362bd7698a6682e222275f3135aaaeebba7af91a90dd3888531e7bc48",
+    "src/lib/communityStore.ts": "942d1dfa6c3e11d5517737c4ffab3add4ea040fc776e4fffe5a05b61a22d5e7f",
+    "src/lib/communityAttachments.ts": null,
+    "src/lib/communityAttachmentStore.ts": null,
+    "src/lib/communityRemoteRepository.ts": null,
+    "src/lib/communityDrafts.ts": null,
+    "src/components/community/CommunityAttachments.tsx": null,
+    "src/components/community/CommunityChrome.tsx": "a6b2c46404328f1ef1aab82e59a32bf4c10589bcb93bc2445fc8e2dee51b36de",
+    "src/pages/CommunityNewPostPage.tsx": "4ecb1b7b50bdf172841348e51445345e88c3088c9b0840bdc2ae602c272e4644",
+    "src/pages/CommunityPostPage.tsx": "c18c31b0cccb47136dd42bb13928cb956fb649f3bed834b5adcad5f384c392d1",
+    "src/pages/CommunityPage.tsx": "6176853f820b20fa816456694fa830475b55d29ffd83fb00899465a3e0c1846b",
+    "src/pages/Community.css": "9ab7f6d3db3018591a969f9dbbbd0c16fc138bb24ab85c94138d317140e816b5",
+    "tests/community.test.mjs": "c3d2a5a295d874087b36ccb30ccdd0d6268efb79394ea801bd498f182f46c558",
+    "tests/community-attachments.test.mjs": null,
+    "tests/community-remote.test.mjs": null,
+    "e2e/community-attachments.spec.mjs": null,
+    "src/components/community/ReportButton.tsx": "878cf3a04190c34db37729349d3505377a83eaba567c7843534ab1aef0b619a6"
+  }
+}

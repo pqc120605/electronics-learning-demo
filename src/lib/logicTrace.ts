@@ -14,6 +14,8 @@ export type LogicTraceInput = {
   hasCircuitErrors: boolean
   inputs: { pressed: boolean; detected: boolean; potPercent: number; lightPercent: number }
   tick: number
+  /** Board logic supply shown on the VCC net, e.g. '3V3' or '5V'. Defaults to '3V3'. */
+  supplyLabel?: string
 }
 
 const pinKeys = (part: PartRef) => (getComponentDefinition(part.type)?.pins ?? []).map((pin) => `${part.id}:${pin.id}`)
@@ -22,6 +24,16 @@ function netsTouching(parts: PartRef[], nets: NetIndex, ...types: string[][]) {
   const ids = types.map((group) => new Set(parts.filter((part) => group.includes(part.type)).map((part) => part.id)))
   return nets.nets.filter((net) => ids.every((group) => [...net.endpoints].some((key) => group.has(key.slice(0, key.lastIndexOf(':'))))))
     .flatMap((net) => [...net.wireIds])
+}
+
+/** Teaching label for a power net, named after the pin that supplies it; never a measured voltage. */
+function powerLabel(type: string, pinId: string, supplyLabel = '3V3') {
+  if (type === 'board') return pinId === 'v5' ? '5V' : supplyLabel
+  if (type === 'battery') return 'V+'
+  if (pinId === 'outPlus') return 'VOUT'
+  if (pinId === 'inPlus') return 'VIN'
+  if (pinId === 'vm') return 'VM'
+  return 'Nguồn'
 }
 
 function groundNets(parts: PartRef[], nets: NetIndex) {
@@ -68,8 +80,12 @@ export function getLogicTraceWireIds({ lessonId, parts, wires, frame, active, ha
         const sources = lessonId === 'button-led' ? ofType('button').filter((part) => pinKeys(part).some((key) => onBoardPin(key, 'input'))) : ofType('ir-sensor').filter((part) => onBoardPin(`${part.id}:out`, 'input'))
         return [...(sourceOn ? nets.wiresOn(sources.flatMap(pinKeys)) : []), ...ledWires()]
       }
-      case 'ultrasonic-distance':
-        return [...nets.wiresOn(ofType('ultrasonic').flatMap(pinKeys)), ...ledWires()]
+      case 'ultrasonic-distance': {
+        const sensorPins = ofType('ultrasonic').flatMap(pinKeys)
+        // Include the ECHO divider resistors so the pulse is traced all the way to the GPIO.
+        const dividerLegs = ofType('resistor').filter((resistor) => pinKeys(resistor).some((leg) => sensorPins.some((key) => nets.sameNet(leg, key)) || onBoardPin(leg, 'echo'))).flatMap(pinKeys)
+        return [...nets.wiresOn([...sensorPins, ...dividerLegs]), ...ledWires()]
+      }
       case 'seven-segment-counter': {
         const driven = (frame.segments ?? []).flatMap((value, index) => value ? [boardPin(`seg${index}`)] : [])
         const seriesLegs = driven.flatMap((key) => ofType('resistor').filter((resistor) => pinKeys(resistor).some((leg) => nets.sameNet(leg, key))).flatMap(pinKeys))
@@ -129,7 +145,11 @@ export function getLogicFlow(input: LogicTraceInput): Map<string, WireFlow> {
   }
   for (const part of parts) for (const pin of getComponentDefinition(part.type)?.pins ?? []) {
     if (pin.electricalType === 'ground') paint(`${part.id}:${pin.id}`, { signal: 'ground', label: 'GND', direction: 'none' })
-    else if (pin.electricalType === 'power') paint(`${part.id}:${pin.id}`, { signal: 'power', label: 'Nguồn', direction: 'none' })
+    else if (pin.electricalType === 'power') {
+      // The supplying pin (board/battery/converter) names the net; a load's VCC pin must not overwrite it.
+      const label = powerLabel(part.type, pin.id, input.supplyLabel), net = nets.netOf(`${part.id}:${pin.id}`)
+      if (net) for (const id of net.wireIds) if (label !== 'Nguồn' || !flows.has(id)) flows.set(id, { signal: 'power', label, direction: 'none' })
+    }
   }
   if (lessonId === 'buck-boost-concept' || lessonId === 'dc-motor-driver' || lessonId === 'mosfet-switch') {
     for (const id of getLogicTraceWireIds(input)) if (!flows.has(id)) flows.set(id, { signal: 'active', direction: 'none' })
@@ -166,6 +186,8 @@ export function getLogicFlow(input: LogicTraceInput): Map<string, WireFlow> {
   if (lessonId === 'ultrasonic-distance') for (const sensor of ofType('ultrasonic')) {
     if (onBoardPin(`${sensor.id}:trig`, 'trig')) paintFrom(boardPin('trig'), 'pulse', 'TRIG', true)
     if (onBoardPin(`${sensor.id}:echo`, 'echo')) paintFrom(`${sensor.id}:echo`, 'pulse', 'ECHO', true)
+    // ECHO through the 1 kΩ/2 kΩ divider: the pulse reaches the GPIO at about 3,3 V.
+    else if (ofType('resistor').some((resistor) => { const legs = pinKeys(resistor); return legs.some((leg) => nets.sameNet(leg, `${sensor.id}:echo`)) && legs.some((leg) => onBoardPin(leg, 'echo')) })) { paintFrom(`${sensor.id}:echo`, 'pulse', 'ECHO 5V', true); paintFrom(boardPin('echo'), 'pulse', 'ECHO ~3,3V', true) }
   }
   if (lessonId === 'seven-segment-counter') (frame.segments ?? []).forEach((value, index) => {
     const start = boardPin(`seg${index}`)

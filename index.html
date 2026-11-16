@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Match src/lib/theme.ts: validate before the stylesheet/bundle paints; default stays light.
+      try {
+        var mmTheme = localStorage.getItem('mm-theme');
+        document.documentElement.dataset.theme = mmTheme === 'dark' || mmTheme === 'system' ? mmTheme : 'light';
+      } catch (_) { document.documentElement.dataset.theme = 'light'; }
+    </script>
     <meta name="theme-color" content="#071116" />
     <meta name="description" content="Học điện tử, lập trình nhúng và IoT bằng những dự án nhỏ, trực quan và miễn phí." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

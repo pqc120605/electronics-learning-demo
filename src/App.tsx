@@ -5,6 +5,8 @@ import { AdminGate } from './components/AdminGate'
 import { PRODUCT_ROUTES as R } from './data/productRoutes'
 import { getBrowserStorage, quarantineWorkspaceData } from './lib/workspaceStorage'
 import './styles/app.css'
+import './styles/one-screen.css'
+import './styles/redesign.css'
 
 const AdminDashboardPage = lazy(() => import('./pages/AdminDashboardPage').then(module => ({ default: module.AdminDashboardPage })))
 const AdminLoginPage = lazy(() => import('./pages/AdminLoginPage').then(module => ({ default: module.AdminLoginPage })))
@@ -21,8 +23,16 @@ const ComponentsPage = lazy(() => import('./pages/ComponentsPage').then(module =
 const CircuitBuilderPage = lazy(() => import('./pages/CircuitBuilderPage').then(module => ({ default: module.CircuitBuilderPage })))
 const FirmwareHexToolPage = lazy(() => import('./pages/FirmwareHexToolPage').then(module => ({ default: module.FirmwareHexToolPage })))
 const ElectronicsCalculatorsPage = lazy(() => import('./pages/ElectronicsCalculatorsPage').then(module => ({ default: module.ElectronicsCalculatorsPage })))
+const FreestyleLabPage = lazy(() => import('./pages/FreestyleLabPage').then(module => ({ default: module.FreestyleLabPage })))
+const SketchRunnerPage = lazy(() => import('./pages/SketchRunnerPage').then(module => ({ default: module.SketchRunnerPage })))
 const SpiceWorkbenchPage = lazy(() => import('./pages/SpiceWorkbenchPage').then(module => ({ default: module.SpiceWorkbenchPage })))
+const FeedbackPage = lazy(() => import('./pages/FeedbackPage').then(module => ({ default: module.FeedbackPage })))
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage').then(module => ({ default: module.PrivacyPage })))
+const LoginPage = lazy(() => import('./pages/LoginPage').then(module => ({ default: module.LoginPage })))
+const AuthCallbackPage = lazy(() => import('./pages/AuthCallbackPage').then(module => ({ default: module.AuthCallbackPage })))
+const CommunityPage = lazy(() => import('./pages/CommunityPage').then(module => ({ default: module.CommunityPage })))
+const CommunityPostPage = lazy(() => import('./pages/CommunityPostPage').then(module => ({ default: module.CommunityPostPage })))
+const CommunityNewPostPage = lazy(() => import('./pages/CommunityNewPostPage').then(module => ({ default: module.CommunityNewPostPage })))
 
 class BuilderErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean; resetError: string }> {
   state = { failed: false, resetError: '' }
@@ -82,6 +92,19 @@ function RoutePlaceholder({ title }: { title: string }) {
   )
 }
 
+/** Khung xương khi tải chunk trang (2026-11-15); hiệu ứng shimmer tắt khi reduced-motion. */
+function RouteSkeleton() {
+  return (
+    <div className="route-loading mm-skeleton-page" role="status">
+      <span className="mm-skeleton-line is-title" aria-hidden="true" />
+      <span className="mm-skeleton-line" aria-hidden="true" />
+      <span className="mm-skeleton-line is-short" aria-hidden="true" />
+      <div className="mm-skeleton-grid" aria-hidden="true"><span className="mm-skeleton-block" /><span className="mm-skeleton-block" /><span className="mm-skeleton-block" /></div>
+      <span className="mm-skeleton-status">Đang tải trang…</span>
+    </div>
+  )
+}
+
 function readAppSurface() {
   try { return window.sessionStorage.getItem('mach-mo-surface') === 'app' }
   catch { return false }
@@ -114,7 +137,7 @@ export default function App() {
   const shell = (children: ReactNode) => <SiteShell variant={inAppSurface ? 'app' : 'public'}>{children}</SiteShell>
 
   return (
-    <Suspense fallback={<div className="route-loading" role="status">Đang tải trang…</div>}>
+    <Suspense fallback={<RouteSkeleton />}>
     <RouteErrorBoundary resetKey={location.pathname}>
     <Routes>
       <Route path={R.publicHome} element={shell(<ExplorePage />)} />
@@ -130,14 +153,30 @@ export default function App() {
       <Route path={R.appClassroomKit} element={shell(<ClassroomKitPage />)} />
       <Route path={R.appCalculators} element={shell(<ElectronicsCalculatorsPage />)} />
       <Route path={R.appSpice} element={shell(<SpiceWorkbenchPage />)} />
+      <Route path={R.appSketch} element={shell(<SketchRunnerPage />)} />
       <Route path={R.appFirmware} element={shell(<FirmwareHexToolPage />)} />
       <Route path={R.publicBoards} element={shell(<BoardCatalogPage />)} />
       <Route path={R.publicComponents} element={shell(<ComponentsPage />)} />
+      {/* 2026-11-14: bàn lắp mạch tự do toàn màn hình; URL mới, không đổi URL cũ. */}
+      <Route path="/build/freestyle" element={shell(<FreestyleLabPage />)} />
+      <Route path={`${R.appLab}/freestyle`} element={shell(<FreestyleLabPage />)} />
       <Route path={R.publicLab} element={<CircuitBuilderRoute variant={inAppSurface ? 'app' : 'public'} />} />
       <Route path={R.publicFirmware} element={shell(<FirmwareHexToolPage />)} />
       <Route path={R.publicCalculators} element={shell(<ElectronicsCalculatorsPage />)} />
       <Route path={R.publicSpice} element={shell(<SpiceWorkbenchPage />)} />
+      <Route path={R.publicSketch} element={shell(<SketchRunnerPage />)} />
+      <Route path={R.publicFeedback} element={shell(<FeedbackPage />)} />
+      <Route path={R.appFeedback} element={shell(<FeedbackPage />)} />
       <Route path={R.privacy} element={shell(<PrivacyPage />)} />
+      <Route path={R.publicLogin} element={shell(<LoginPage />)} />
+      <Route path={R.appLogin} element={shell(<LoginPage />)} />
+      <Route path={R.authCallback} element={shell(<AuthCallbackPage />)} />
+      <Route path={R.publicCommunity} element={shell(<CommunityPage />)} />
+      <Route path={`${R.publicCommunity}/new`} element={shell(<CommunityNewPostPage />)} />
+      <Route path={`${R.publicCommunity}/:postId`} element={shell(<CommunityPostPage />)} />
+      <Route path={R.appCommunity} element={shell(<CommunityPage />)} />
+      <Route path={`${R.appCommunity}/new`} element={shell(<CommunityNewPostPage />)} />
+      <Route path={`${R.appCommunity}/:postId`} element={shell(<CommunityPostPage />)} />
       <Route path={R.publicTopics} element={shell(<TopicsPage />)} />
       <Route path={R.publicProjects} element={shell(<ProjectsPage />)} />
       <Route path={R.publicLesson} element={shell(<LessonPage />)} />

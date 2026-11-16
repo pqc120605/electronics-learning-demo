@@ -1,0 +1,138 @@
+{
+  "esp32-devkit": {
+    "id": "esp32-devkit",
+    "image": "/board-reference/topview/esp32-devkit.png",
+    "width": 1600,
+    "height": 922,
+    "boundsMm": {
+      "minX": 119.2999990862608,
+      "maxX": 175.15401983261108,
+      "minZ": 89.96539866924286,
+      "maxZ": 122.15000087022781
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/esp32-devkit-v1-30pin.glb?v=b3d0a6b0be09",
+    "assetSha256": "b3d0a6b0be0900f4ec6dc2e23ec2bd3a180ab78c359ade9a52b9604723c82f21",
+    "imageSha256": "541a10883ea2ba063b50344a52bfa95f2de3587b64d32e257f5dcbabe9dc1f28",
+    "revision": "ESP32 Dev Kit Clone · 30-pin reference design"
+  },
+  "esp32-s3-devkitc-1": {
+    "id": "esp32-s3-devkitc-1",
+    "image": "/board-reference/topview/esp32-s3-devkitc-1.png",
+    "width": 637,
+    "height": 1600,
+    "boundsMm": {
+      "minX": -272.73898804321334,
+      "maxX": -244.05898795678667,
+      "minZ": 168.67880023841857,
+      "maxZ": 240.81880295276642
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/esp32-s3-devkitc-1-v1.1.glb?v=1ffe23480ffa",
+    "assetSha256": "1ffe23480ffabcb5ba740b05fd60fa835a56fecd00d76075ce79a88a4f685515",
+    "imageSha256": "2c6fd5f2ad9b45eb55d3947b9029192d01030e36939cf5bfce07dbede2f0149a",
+    "revision": "Espressif ESP32-S3-DevKitC-1 · PCB V1.1 · PADS reference import"
+  },
+  "arduino-uno-r3": {
+    "id": "arduino-uno-r3",
+    "image": "/board-reference/topview/arduino-uno-r3.png",
+    "width": 1600,
+    "height": 1159,
+    "boundsMm": {
+      "minX": 105.95000094175339,
+      "maxX": 184.2910989522934,
+      "minZ": 76.83360135555267,
+      "maxZ": 133.57359611988068
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/arduino-uno-r3.glb?v=53330cd2b0d2",
+    "assetSha256": "53330cd2b0d2fac39206f2774e71e8961316634ea3f027331583379a43965ff6",
+    "imageSha256": "f0b04cd65c39f4b0ced65719ea0eaad1a6016f1e6847f83f28110b1820f1bfb1",
+    "revision": "Arduino Uno Rev3 · source CAD import"
+  },
+  "arduino-nano-classic": {
+    "id": "arduino-nano-classic",
+    "image": "/board-reference/topview/arduino-nano-classic.png",
+    "width": 1601,
+    "height": 720,
+    "boundsMm": {
+      "minX": 125.41110372543335,
+      "maxX": 171.59109258651733,
+      "minZ": 94.61359983682632,
+      "maxZ": 115.39360000793488
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/arduino-nano-classic.glb?v=43c1f8047b7f",
+    "assetSha256": "43c1f8047b7f83c3b955f91097fc42dc24d8f147a68f9e844bbb6da710beff55",
+    "imageSha256": "85aba2f11a708ba515e15b714943986e958edf83857dc1fd8c86c8076f66ac5d",
+    "revision": "Arduino Nano classic · source CAD import (V3.3)"
+  },
+  "arduino-mega-2560-r3": {
+    "id": "arduino-mega-2560-r3",
+    "image": "/board-reference/topview/arduino-mega-2560-r3.png",
+    "width": 1600,
+    "height": 810,
+    "boundsMm": {
+      "minX": 89.4700021147728,
+      "maxX": 200.8010938167572,
+      "minZ": 76.83360135555267,
+      "maxZ": 133.17360424995422
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/arduino-mega-2560-r3.glb?v=adf1fcf07b4a",
+    "assetSha256": "adf1fcf07b4a6d9ae8cd0cede3570019b85ae57c0370d2305c3e5ccc4cd2d408",
+    "imageSha256": "bff155b79179dced5e9074119cdd970a8300ff625d49b8c8aa8b1a10bb7009e2",
+    "revision": "Arduino Mega 2560 Rev3 · source CAD import"
+  },
+  "raspberry-pi-pico": {
+    "id": "raspberry-pi-pico",
+    "image": "/board-reference/topview/raspberry-pi-pico.png",
+    "width": 695,
+    "height": 1601,
+    "boundsMm": {
+      "minX": -1.5000000000000036,
+      "maxX": 22.499999716877937,
+      "minZ": -53.799998700618744,
+      "maxZ": 1.5
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/raspberry-pi-pico.glb?v=aa1b6f4bb7b9",
+    "assetSha256": "aa1b6f4bb7b95187569451feb6f5d1f0ff4eb2b5ab42791d68a25c9e320f2671",
+    "imageSha256": "d21810bcb53e8a83cb29b76028900c9e56b1199d516d00ecf2b85b4300d34144",
+    "revision": "Pico R3 · CAD tham chiếu chính hãng"
+  },
+  "stm32-blue-pill-f103": {
+    "id": "stm32-blue-pill-f103",
+    "image": "/board-reference/topview/stm32-blue-pill-f103.png",
+    "width": 1600,
+    "height": 626,
+    "boundsMm": {
+      "minX": -3.819751405343413,
+      "maxX": 62.340000081062314,
+      "minZ": -1.5,
+      "maxZ": 24.359999909996986
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/stm32-blue-pill-f103.glb?v=a520c6f436e2",
+    "assetSha256": "a520c6f436e242e3c4b9032e3efcf90e180c1d41c09a8adf86f849c1c0932ec2",
+    "imageSha256": "70ffed0f8ca2f83168fbb5d1dc7988798b86f73795daec210941bffde98fcaf3",
+    "revision": "Tái dựng giáo dục · bản Blue Pill phổ biến 53,34 × 22,86 mm"
+  },
+  "stm32-nucleo": {
+    "id": "stm32-nucleo",
+    "image": "/board-reference/topview/stm32-nucleo.png",
+    "width": 1332,
+    "height": 1600,
+    "boundsMm": {
+      "minX": -1.5,
+      "maxX": 71.50000029802322,
+      "minZ": -3.6999999262392524,
+      "maxZ": 84.00000327825546
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/stm32-nucleo-f401re.glb?v=9124a49017a5",
+    "assetSha256": "9124a49017a50e7627f3d7c6e3100b3778c3f603ec4e8d883881d1ec3019ddbd",
+    "imageSha256": "dcda51a44f0bf350907dbc1bd55810549beeea7308a4249ccd5fc17804c41829",
+    "revision": "Tái dựng giáo dục · Nucleo-64 70 × 82,5 mm (không dùng CAD của ST)"
+  }
+}

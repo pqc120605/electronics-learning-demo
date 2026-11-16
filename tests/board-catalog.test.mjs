@@ -91,7 +91,8 @@ test('board model counts come from the CAD inventory, not the feature list lengt
   const feather = adafruit.adafruitBoardModels.find((model) => model.id === 'adafruit-feather-esp32-s3-5323')
   assert.deepEqual(evidence.getBoardModelStats(feather), { withMesh: 33, withoutMesh: 14, otherGroups: 2 })
   const uno = arduino.arduinoBoardModels.find((model) => model.id === 'arduino-uno-r3')
-  assert.equal(evidence.getBoardModelStats(uno).withoutMesh, 87)
+  // 87 before 2026-11-14; headers, ICSP, jack, USB-B, crystal, resonator, reset, D1, T1 now have bodies.
+  assert.equal(evidence.getBoardModelStats(uno).withoutMesh, 74)
 })
 
 test('catalog notes repeat the inventory counts and official hosts', () => {

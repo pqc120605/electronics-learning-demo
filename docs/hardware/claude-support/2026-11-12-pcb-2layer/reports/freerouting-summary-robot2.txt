@@ -1,0 +1,41 @@
+WARN region overflow R1 (29.5, 39.5, 54.0, 50.5)
+WARN region overflow R2 (29.5, 39.5, 54.0, 50.5)
+WARN region overflow R56 (29.5, 39.5, 54.0, 50.5)
+WARN region overflow D2 (29.5, 39.5, 54.0, 50.5)
+WARN region overflow R15 (29.5, 39.5, 54.0, 50.5)
+WARN region overflow Q2 (29.5, 39.5, 54.0, 50.5)
+freerouting rc 0 284s
+ses import: True
+tracks 1713
+Found 212 violations
+Found 17 unconnected items
+Found 0 schematic parity issues
+     73 [silk_overlap]
+     68 [silk_over_copper]
+     25 [track_width]
+     17 [unconnected_items]
+     14 [via_dangling]
+     12 [solder_mask_bridge]
+     12 [shorting_items]
+      8 [courtyards_overlap]
+[shorting_items]: Items shorting two nets (nets /LRCLK_G and /EN_NODE)
+    @(48.4250 mm, 51.8000 mm): Pad 1 [/LRCLK_G] of R43 on F.Cu
+    @(48.7625 mm, 51.0500 mm): Pad 1 [/EN_NODE] of Q2 on F.Cu
+[shorting_items]: Items shorting two nets (nets /I2S_BCLK and /UV2_SW)
+    @(46.4250 mm, 51.8000 mm): Pad 2 [/I2S_BCLK] of R42 on F.Cu
+    @(46.4250 mm, 51.0500 mm): Pad 2 [/UV2_SW] of R15 on F.Cu
+[shorting_items]: Items shorting two nets (nets /I2S_LRCLK and /UV2_SW)
+    @(50.0750 mm, 51.8000 mm): Pad 2 [/I2S_LRCLK] of R43 on F.Cu
+    @(50.6375 mm, 52.0000 mm): Pad 3 [/UV2_SW] of Q2 on F.Cu
+[shorting_items]: Items shorting two nets (nets /V5 and /BIN1_G)
+    @(37.4750 mm, 51.0500 mm): Pad 1 [/V5] of R56 on F.Cu
+    @(37.4750 mm, 51.8000 mm): Pad 1 [/BIN1_G] of R40 on F.Cu
+      2 Track [/GND] on F.Cu, length 0.4179 mm
+      1 Via [/GND] on F.Cu - B.Cu
+      1 Via [/AIN2_D] on F.Cu - B.Cu
+      1 Track [/SDA] on F.Cu, length 2.0440 mm
+      1 Track [/GND] on F.Cu, length 2.7087 mm
+      1 Track [/GND] on F.Cu, length 2.1250 mm
+      1 Track [/GND] on F.Cu, length 2.0604 mm
+      1 Track [/GND] on F.Cu, length 1.5129 mm
+done

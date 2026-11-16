@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-15T18:09:40.006Z",
+  "hashes": {
+    "src/lib/guideKnowledge.ts": "2826ade225f577a3b4dad3bf05986dac1938e23220f56c00e2d160784caaf8d8",
+    "src/lib/guideCatalog.ts": null,
+    "src/lib/guideSearch.ts": null,
+    "src/components/guide/GuidePanel.tsx": "e32e90e453e58a5d48b08a12d2b7f3dc3945ae8adb3e62aec735bcf78b4fcb63",
+    "src/components/guide/Guide.css": "0377b69b0180d76b77662b9d0970fd256d9bb03c90b551f37741124f3f696a16",
+    "tests/guide-knowledge.test.mjs": "c2c56878b39cf74db1e4466ec5bf5718f75e3743d6178fe065be03bcd5c94b7d",
+    "tests/guide-catalog.test.mjs": null,
+    "e2e/guide-depth.spec.mjs": null,
+    "docs/software/mo-bot-knowledge-coverage.md": null
+  }
+}

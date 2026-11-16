@@ -1,0 +1,216 @@
+[
+  {
+    "id": "esp32-devkit",
+    "asset": "/models/esp32-devkit-v1-30pin.glb?v=b3d0a6b0be09",
+    "revision": "Mô hình tham chiếu",
+    "clip": {
+      "x": 169,
+      "y": 231,
+      "width": 302,
+      "height": 175
+    },
+    "imageSha256": "d9aa13bddf28838f8f9a2dcb38a96b51dd98092c4bfc4a628657dca43dc344a2",
+    "modelSha256": "b3d0a6b0be0900f4ec6dc2e23ec2bd3a180ab78c359ade9a52b9604723c82f21",
+    "evidence": {
+      "status": "source-verified-cad",
+      "revision": "ESP32 Dev Kit Clone · 30-pin reference design",
+      "sourceUrl": "https://github.com/BrijModi/ESP32-Dev-Kit-Clone",
+      "licenseName": "MIT (thiết kế gốc; mesh gói linh kiện có điều khoản riêng)",
+      "attribution": "ESP32 Dev Kit Clone của Brij Modi; phải giữ ghi công của tác giả gốc.",
+      "confidenceNote": "Hình học board dựa trên thiết kế clone KiCad được nêu tên; không đại diện cho mọi board bán dưới tên DevKit V1.",
+      "unresolvedIssues": [
+        "Clone và revision khác có thể thay linh kiện.",
+        "Một số thân package là model KiCad dùng chung."
+      ],
+      "published": true
+    }
+  },
+  {
+    "id": "esp32-s3-devkitc-1",
+    "asset": "/models/esp32-s3-devkitc-1-v1.1.glb?v=1ffe23480ffa",
+    "revision": "Espressif ESP32-S3-DevKitC-1 · PCB V1.1 · PADS reference import",
+    "clip": {
+      "x": 238,
+      "y": 122,
+      "width": 164,
+      "height": 396
+    },
+    "imageSha256": "778de066b629ce91ace688158311f7798068aafff15b7af285ce28195a09ca80",
+    "modelSha256": "1ffe23480ffabcb5ba740b05fd60fa835a56fecd00d76075ce79a88a4f685515",
+    "evidence": {
+      "status": "educational-reconstruction",
+      "revision": "ESP32-S3-DevKitC-1 · PCB V1.1 · module memory variant not fixed by BOM",
+      "sourceUrl": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp32-s3-devkitc-1/user_guide_v1.1.html",
+      "licenseName": "Điều khoản Espressif reference design; package models KiCad CC BY-SA 4.0 kèm ngoại lệ chính thức.",
+      "attribution": "Espressif Systems (reference PADS/BOM) và KiCad Libraries Contributors (mesh package). Xem NOTICE cạnh GLB; không ngụ ý liên kết với Espressif.",
+      "confidenceNote": "Viewer nội bộ được dựng từ PADS ASCII/BOM chính hãng V1.1: 48 footprint có mesh package và 44 pad header chọn được. PADS nhập vào có lỗi DRC; outline từ PADS lệch 0,125 mm với PDF kích thước. Đây là tái dựng giáo dục, chưa đối chiếu board vật lý và không dùng để chế tạo.",
+      "unresolvedIssues": [
+        "47/48 package meshes là model chung theo footprint; marking/hình dáng chính xác theo MPN chưa được xác minh. Module U4 theo họ ESP32-S3-WROOM-1, nhưng BOM không khóa biến thể bộ nhớ cụ thể.",
+        "PADS import có DRC lỗi và net chưa được xác nhận bằng netlist/schematic độc lập; không tô luồng điện hoặc dùng model để sản xuất.",
+        "Chưa kiểm tra hình học bằng board thật; sai lệch outline nguồn PADS/PDF là 0,125 mm."
+      ],
+      "noticeUrl": "/models/esp32-s3-devkitc-1-v1.1.NOTICE.txt",
+      "published": true
+    }
+  },
+  {
+    "id": "arduino-uno-r3",
+    "asset": "/models/arduino-uno-r3.glb?v=53330cd2b0d2",
+    "revision": "Arduino Uno Rev3 · source CAD import",
+    "clip": {
+      "x": 106,
+      "y": 166,
+      "width": 428,
+      "height": 307
+    },
+    "imageSha256": "4ba3e97a468428643a7a1565c91012fecba1f8e9115bcce2aa3a0d997d92644e",
+    "modelSha256": "53330cd2b0d2fac39206f2774e71e8961316634ea3f027331583379a43965ff6",
+    "evidence": {
+      "status": "source-verified-cad",
+      "revision": "Arduino Uno Rev3 · source CAD import",
+      "sourceUrl": "https://docs.arduino.cc/hardware/uno-rev3",
+      "licenseName": "CC BY-SA 4.0 (CAD tham chiếu; mesh gói linh kiện của bên thứ ba có thể có điều khoản riêng)",
+      "attribution": "Tệp CAD Arduino Uno Rev3; phải giữ ghi công nguồn và điều khoản chia sẻ tương tự.",
+      "confidenceNote": "Vị trí PCB theo CAD Rev3 đã nhập; đây không phải xác minh một board clone ngoài đời.",
+      "unresolvedIssues": [
+        "Một số thân package là model chung, không theo mã nhà sản xuất cụ thể.",
+        "Linh kiện lắp thực tế có thể khác theo revision board."
+      ],
+      "published": true
+    }
+  },
+  {
+    "id": "arduino-nano",
+    "asset": "/models/arduino-nano-classic.glb?v=43c1f8047b7f",
+    "revision": "Arduino Nano classic · source CAD import (V3.3)",
+    "clip": {
+      "x": 195,
+      "y": 260,
+      "width": 250,
+      "height": 116
+    },
+    "imageSha256": "a3e9c26a5cee107253baea983b87a623609738e79960dbbc981e8dd4c79d704b",
+    "modelSha256": "43c1f8047b7f83c3b955f91097fc42dc24d8f147a68f9e844bbb6da710beff55",
+    "evidence": {
+      "status": "source-verified-cad",
+      "revision": "Arduino Nano classic · V3.3 source CAD import",
+      "sourceUrl": "https://docs.arduino.cc/hardware/nano",
+      "licenseName": "CC BY-SA 4.0 (CAD tham chiếu; mesh gói linh kiện của bên thứ ba có thể có điều khoản riêng)",
+      "attribution": "Tệp CAD Arduino Nano; phải giữ ghi công nguồn và điều khoản chia sẻ tương tự.",
+      "confidenceNote": "Viewer theo thiết kế CAD V3.3; không đại diện cho mọi Nano clone.",
+      "unresolvedIssues": [
+        "Linh kiện USB-serial khác nhau giữa các revision Nano và clone.",
+        "Một số thân package là model dùng chung."
+      ],
+      "published": true
+    }
+  },
+  {
+    "id": "arduino-mega-2560",
+    "asset": "/models/arduino-mega-2560-r3.glb?v=adf1fcf07b4a",
+    "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+    "clip": {
+      "x": 70,
+      "y": 192,
+      "width": 500,
+      "height": 254
+    },
+    "imageSha256": "db2cceb7efcc276098f65a9ef98e6765a9f7ed78283f022a68a292b4e74e6d3b",
+    "modelSha256": "adf1fcf07b4a6d9ae8cd0cede3570019b85ae57c0370d2305c3e5ccc4cd2d408",
+    "evidence": {
+      "status": "source-verified-cad",
+      "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+      "sourceUrl": "https://docs.arduino.cc/hardware/mega-2560",
+      "licenseName": "CC BY-SA 4.0 (CAD tham chiếu; mesh gói linh kiện của bên thứ ba có thể có điều khoản riêng)",
+      "attribution": "Tệp CAD Arduino Mega 2560 Rev3; phải giữ ghi công nguồn và điều khoản chia sẻ tương tự.",
+      "confidenceNote": "Vị trí PCB theo CAD tham chiếu Rev3; thân package dùng chung chỉ để minh họa.",
+      "unresolvedIssues": [
+        "Clone và các revision sản xuất có thể thay linh kiện lắp.",
+        "Package dùng chung không xác nhận được ký hiệu nhà sản xuất."
+      ],
+      "published": true
+    }
+  },
+  {
+    "id": "raspberry-pi-pico",
+    "asset": "/models/raspberry-pi-pico.glb?v=aa1b6f4bb7b9",
+    "revision": "Pico R3 · CAD tham chiếu chính hãng",
+    "clip": {
+      "x": 257,
+      "y": 184,
+      "width": 126,
+      "height": 278
+    },
+    "imageSha256": "a662cc34c53e093bb2c2118ce85f93bf32699b9dccc26b8d549676d2f8c7bfc2",
+    "modelSha256": "aa1b6f4bb7b95187569451feb6f5d1f0ff4eb2b5ab42791d68a25c9e320f2671",
+    "evidence": {
+      "status": "source-verified-cad",
+      "revision": "Raspberry Pi Pico R3 · official STEP reference",
+      "sourceUrl": "https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#board-design-files",
+      "licenseName": "MIT (tệp model Raspberry Pi; mesh của bên thứ ba đi kèm giữ điều khoản riêng)",
+      "attribution": "Raspberry Pi Ltd.; tệp thiết kế board Pico R3. Khi phân phối lại phải kèm thông báo giấy phép.",
+      "confidenceNote": "Viewer được chuyển từ CAD cơ khí chính thức. Pin J0 lấy trực tiếp từ Allegro R3 và chức năng từ sơ đồ pinout hãng; chưa đo trên board vật lý.",
+      "unresolvedIssues": [
+        "Tên nhóm mesh không xác nhận BOM hoặc kết nối điện.",
+        "Mesh bên thứ ba có thể chịu điều khoản riêng."
+      ],
+      "noticeUrl": "/cad/raspberry-pi-model-license.txt",
+      "published": true
+    }
+  },
+  {
+    "id": "stm32-blue-pill-f103",
+    "asset": "/models/stm32-blue-pill-f103.glb?v=a520c6f436e2",
+    "revision": "Tái dựng giáo dục · bản Blue Pill phổ biến 53,34 × 22,86 mm",
+    "clip": {
+      "x": 135,
+      "y": 243,
+      "width": 370,
+      "height": 146
+    },
+    "imageSha256": "c9ccd5f45782092abd47557cc369aa256c156414c037dbe75a6b8627bbb6e710",
+    "modelSha256": "a520c6f436e242e3c4b9032e3efcf90e180c1d41c09a8adf86f849c1c0932ec2",
+    "evidence": {
+      "status": "educational-reconstruction",
+      "revision": "STM32F103C8T6 Blue Pill · bản phổ biến 53,34 × 22,86 mm · tái dựng giáo dục",
+      "sourceUrl": "https://stm32-base.org/boards/STM32F103C8T6-Blue-Pill.html",
+      "licenseName": "Package KiCad CC BY-SA 4.0 (kèm ngoại lệ thư viện)",
+      "attribution": "KiCad Libraries Contributors (package 3D). Blue Pill là họ board clone không thương hiệu; không liên kết với ST.",
+      "confidenceNote": "Dựng bằng scripts/build-stm32-education-boards.py: kích thước, hai hàng 1×20 cách 15,24 mm và thứ tự chân theo stm32-base; vị trí thạch anh, LDO, LED, nút và jumper là ước lượng. Chưa chạy code STM32.",
+      "unresolvedIssues": [
+        "Nhiều nhà sản xuất khác nhau về vị trí linh kiện, LDO và chip (STM32/CKS32/GD32).",
+        "Cạnh nào nằm trên khi đặt USB bên trái cần đối chiếu chữ in trên board thật."
+      ],
+      "noticeUrl": "/models/stm32-blue-pill-f103.NOTICE.txt",
+      "published": true
+    }
+  },
+  {
+    "id": "stm32-nucleo-f401re",
+    "asset": "/models/stm32-nucleo-f401re.glb?v=9124a49017a5",
+    "revision": "Tái dựng giáo dục · Nucleo-64 70 × 82,5 mm (không dùng CAD của ST)",
+    "clip": {
+      "x": 141,
+      "y": 112,
+      "width": 358,
+      "height": 421
+    },
+    "imageSha256": "189688417e9a9dff688e84578b8cff74648a23a94a5c732d154f34717929f6b5",
+    "modelSha256": "9124a49017a50e7627f3d7c6e3100b3778c3f603ec4e8d883881d1ec3019ddbd",
+    "evidence": {
+      "status": "educational-reconstruction",
+      "revision": "NUCLEO-F401RE · Nucleo-64 · tái dựng giáo dục (không dùng CAD MB1136 của ST)",
+      "sourceUrl": "https://www.st.com/en/evaluation-tools/nucleo-f401re.html",
+      "licenseName": "Package KiCad CC BY-SA 4.0 (kèm ngoại lệ thư viện); hình học header Arduino lấy từ CAD Arduino Uno R3, CC BY-SA 4.0.",
+      "attribution": "KiCad Libraries Contributors (package 3D), Arduino (hình học header Uno R3). Không liên kết hay được ST xác nhận.",
+      "confidenceNote": "Dựng bằng scripts/build-stm32-education-boards.py: kích thước 70 × 82,5 mm và đánh số header theo UM1724; header Arduino cùng hình học Uno R3; vị trí linh kiện phụ và header morpho là ước lượng. Chưa chạy code STM32.",
+      "unresolvedIssues": [
+        "Vị trí U1, ST-LINK, nút, LED và header morpho CN7/CN10 là ước lượng, chưa đo trên board thật.",
+        "Chân morpho chỉ có số thứ tự, chưa gắn tên tín hiệu.",
+        "File CAD MB1136 của ST vẫn không được phân phối lại (ST OPLA)."
+      ],
+      "noticeUrl": "/models/stm32-nucleo-f401re.NOTICE.txt",
+      "published": true
+    }
+  }
+]

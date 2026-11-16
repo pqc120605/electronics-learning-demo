@@ -1,0 +1,48 @@
+A freerouting rc 0 190s
+A track mm {'F.Cu': 1277} vias 21 unconnected 62
+swig/python detected a memory leak of type 'PCB_TRACK *', no destrucripped IC-net tracks 592
+A(saved) track mm {'F.Cu': 309} vias 0 unconnected 231
+B freerouting rc 0 288s
+B track mm {'F.Cu': 1960, 'B.Cu': 207} vias 77 unconnected 2
+C cost 2.0 freerouting rc 0 170s
+C track mm {'F.Cu': 1962, 'B.Cu': 207} vias 77 unconnected 2
+C cost 1.0 freerouting rc 0 73s
+C track mm {'F.Cu': 1962, 'B.Cu': 207} vias 77 unconnected 2
+C cost 1.0 freerouting rc 0 119s
+C track mm {'F.Cu': 1962, 'B.Cu': 207} vias 77 unconnected 2
+Found 291 violations
+Found 2 unconnected items
+Found 0 schematic parity issues
+widened 2
+stitch failures 0
+grid vias 466
+removed 1
+components 1 main size 809
+ref to F.Fab: R47
+ref to F.Fab: R46
+ref to F.Fab: R30
+ref to F.Fab: R50
+ref to F.Fab: R42
+ref to F.Fab: C27
+ref to F.Fab: R44
+ref to F.Fab: R10
+ref to F.Fab: QD
+ref to F.Fab: U8
+ref to F.Fab: U1
+ref to F.Fab: U7
+refs placed 132 refs to F.Fab 12 texts placed 6 texts stuck 0
+Found 1 violations
+Found 2 unconnected items
+Found 0 schematic parity issues
+      2 [unconnected_items]
+      1 [track_dangling]
+[track_dangling]: Track has unconnected end
+    @(8.0099 mm, 51.7500 mm): Track [/STAT_K] on F.Cu, length 0.7690 mm
+[unconnected_items]: Missing connection between items
+    @(80.8625 mm, 25.6750 mm): Pad 5 [/MB2] of U6 on F.Cu
+    @(91.5000 mm, 20.0000 mm): PTH pad 1 [/MB2] of J7
+[unconnected_items]: Missing connection between items
+    @(9.0125 mm, 56.2500 mm): Pad 2 [/STAT_K] of U7 on F.Cu
+    @(8.0099 mm, 51.7500 mm): Track [/STAT_K] on F.Cu, length 0.7690 mm
+F.Cu fragments 38
+B.Cu fragments 1

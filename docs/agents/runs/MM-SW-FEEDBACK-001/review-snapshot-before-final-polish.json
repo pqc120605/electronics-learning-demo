@@ -1,0 +1,15 @@
+{
+  "at": "2026-11-15T17:35:11.999Z",
+  "hashes": {
+    "e2e/feedback.spec.mjs": "1f4ce476cfb7b05ec1aa45deed87f151e487dc982b0e3d33008a553a51789e30",
+    "src/App.tsx": "f7580e8838267a42a901e1b4e0284ad8e9b7470c055133cf90657ece115e4bf3",
+    "src/components/SiteShell.tsx": "35a07589939a51865c0410a1cec632fd7caa86b5f7d7762ba79ef0d1a83cccea",
+    "src/components/onboarding/Onboarding.tsx": "db051a1346ffb2cbb6c9b0f936b18d7b0492908dfc06326f022fde76ce299126",
+    "src/data/developerProfile.ts": "242446aac52ff8c4605c6fbbfef21030d6984db5c19b7635678e4494428f5d73",
+    "src/data/productRoutes.ts": "75946bdc3fb51463c70957059b8ca38b1f981310bed9510281b2f4a9e050283d",
+    "src/lib/feedbackDraft.ts": "623c57997ce83f927a34a8eeccd0463ad36c842842266ca9b897bfb4ecc84be7",
+    "src/pages/FeedbackPage.css": "e12d26fc51e162c33ff807864c5e10fd5673ede0c99b5625485e6770f1a477d5",
+    "src/pages/FeedbackPage.tsx": "bb13eba708cf8af3749fef87c04dd411faa901064f1423ccb286394f79576d88",
+    "tests/feedback-draft.test.mjs": "066144181a92563878fea376f54ef7811054a7c15a75528e97c10e4168300a95"
+  }
+}

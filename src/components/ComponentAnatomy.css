@@ -1,0 +1,66 @@
+/* Sơ đồ cấu tạo linh kiện (Đợt 2, 2026-11-14) */
+.component-anatomy { container-type: inline-size; display: grid; gap: 10px; margin: 0 0 14px; padding: 12px; border: 1px solid var(--line-dark); border-radius: var(--mm-radius-lg); background: var(--mm-surface); }
+.component-anatomy figcaption { display: grid; gap: 3px; }
+.component-anatomy figcaption strong { color: var(--mm-ink); font: 700 13px/1.3 var(--mm-font-display); letter-spacing: .05em; text-transform: uppercase; }
+.component-anatomy figcaption span,.component-anatomy-note,.component-anatomy-source { margin: 0; color: var(--mm-muted); font-size: var(--mm-text-sm); line-height: 1.5; }
+.component-anatomy-body { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(220px, 1fr); gap: 14px; align-items: start; }
+.component-anatomy svg { width: 100%; height: auto; }
+.component-anatomy-info { display: grid; gap: 8px; }
+.component-anatomy-info h3 { margin: 0; color: var(--mm-ink); font-size: 16px; }
+.component-anatomy-info > p { margin: 0; color: var(--mm-text); font-size: 13px; line-height: 1.55; }
+.component-anatomy-pins { display: grid; gap: 4px; margin: 0; padding: 8px 0 0; border-top: 1px solid var(--mm-line); }
+.component-anatomy-pins div { display: grid; grid-template-columns: 64px 1fr; gap: 8px; font-size: var(--mm-text-sm); }
+.component-anatomy-pins dt { font: 700 var(--mm-text-sm) var(--mm-font-mono); }
+.component-anatomy-pins dd { margin: 0; color: var(--mm-text); }
+.anat-board { stroke: rgb(0 0 0 / 35%); stroke-width: 2; }
+.anat-hole { fill: var(--mm-surface); stroke: #c9b37a; stroke-width: 3; }
+.anat-part { cursor: pointer; }
+.anat-focus { fill: none; stroke: transparent; stroke-width: 2.5; }
+.anat-part:hover .anat-focus { stroke: rgb(255 255 255 / 55%); }
+.anat-part.is-selected .anat-focus { stroke: #ffd36b; stroke-dasharray: 5 3; }
+.anat-part:focus-visible { outline: none; }
+.anat-part:focus-visible .anat-focus { stroke: #fff; stroke-width: 3; }
+.anat-label { fill: #f5f1e6; font: 700 var(--mm-text-sm) var(--mm-font-mono); text-anchor: middle; paint-order: stroke; stroke: rgb(0 0 0 / 55%); stroke-width: 3px; pointer-events: none; }
+.anat-label.is-inside { stroke: none; }
+.anat-chip { fill: #1b1c20; stroke: #3c3e45; }
+.anat-leg,.anat-header-pin { fill: #c9c9c4; }
+.anat-pin1 { fill: #55575e; }
+.anat-pcb-module { fill: #1b1c20; }
+.anat-can { fill: #c7cbd0; stroke: #8f949a; stroke-width: 2; }
+.anat-antenna { fill: none; stroke: #c9a24a; stroke-width: 3; }
+.anat-crystal { fill: #d6d9dc; stroke: #8f949a; stroke-width: 2; }
+.anat-smd-cap { fill: #b78c5a; stroke: #6c5232; }
+.anat-smd-res { fill: #1b1c20; stroke: #c9c9c4; stroke-width: 1.5; }
+.anat-res-code { fill: #f2efe6; font: 700 var(--mm-text-sm) var(--mm-font-mono); text-anchor: middle; }
+.anat-elcap { fill: #262b33; stroke: #c9c9c4; stroke-width: 2; }
+.anat-elcap-band { fill: none; stroke: #c9c9c4; stroke-width: 4; }
+.anat-led { fill: #e2483b; stroke: #f6c1b8; stroke-width: 1.5; }
+.anat-led-shine { fill: rgb(255 255 255 / 60%); }
+.anat-button { fill: #b8bcbf; stroke: #6d7175; stroke-width: 1.5; }
+.anat-button-cap { fill: #24272e; }
+.anat-pot { fill: #2f6bc1; stroke: #19417a; stroke-width: 1.5; }
+.anat-pot-knob { fill: #e9ecef; }
+.anat-pot-cross { stroke: #555; stroke-width: 2.5; }
+.anat-mesh { fill: #3a3d43; }
+.anat-mesh-line { stroke: #6f737a; stroke-width: 2; }
+.anat-terminal { fill: #2f74c9; stroke: #1b4a86; stroke-width: 1.5; }
+.anat-screw { fill: #d3d6d9; stroke: #7b7f84; stroke-width: 1.5; }
+.anat-screw-slot { stroke: #555; stroke-width: 2; }
+.anat-relay { fill: #2f74c9; stroke: #1b4a86; stroke-width: 2; }
+.anat-relay-text { fill: #e8f0ff; font: 700 var(--mm-text-sm) var(--mm-font-mono); text-anchor: middle; }
+.anat-heatsink { fill: #2b2e33; }
+.anat-fin { fill: #5b6068; }
+.anat-usb { fill: #c7cbd0; stroke: #8f949a; stroke-width: 2; }
+.anat-usb-mouth { fill: #2b2e33; }
+.anat-lens { fill: #f3f1ea; stroke: #cfcabb; stroke-width: 2; }
+.anat-lens-ring { fill: none; stroke: #ddd8c9; stroke-width: 1.5; }
+.anat-display { fill: #1b1c20; }
+.anat-display-glass { fill: #0f1a24; stroke: #2a3a4a; }
+.anat-jumper { fill: #1b1c20; }
+.anat-jumper-pin { fill: #d9c27a; }
+.anat-diode { fill: #24272e; }
+.anat-diode-band { fill: #c9c9c4; }
+.anat-sensor { fill: #1b1c20; stroke: #6f737a; stroke-width: 2; }
+.anat-pin-label { font: 700 var(--mm-text-sm) var(--mm-font-mono); }
+@media (max-width: 760px) { .component-anatomy-body { grid-template-columns: minmax(0, 1fr); } }
+@container (max-width: 640px) { .component-anatomy-body { grid-template-columns: minmax(0, 1fr); } }

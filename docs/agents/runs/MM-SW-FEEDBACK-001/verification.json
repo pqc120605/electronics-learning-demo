@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-16",
+  "checkedAt": "2026-11-15T17:50:34.178Z",
+  "snapshot": "docs/agents/runs/MM-SW-FEEDBACK-001/review-snapshot.json",
+  "sourceHashMatches": 10,
+  "snapshot_sha256": "2f4bdbbc284ad62c3b51990f3b1988e008fa84c725eb69cc5de9ee53f00819ca",
+  "review": "Independent source QA PASS",
+  "commands": [
+    {
+      "command": "npm.cmd run typecheck",
+      "exit_code": 0
+    },
+    {
+      "command": "npm.cmd test",
+      "exit_code": 0,
+      "tests": 647,
+      "passed": 647,
+      "failed": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "command": "npm.cmd run build:local",
+      "exit_code": 0,
+      "distribution": "internal-only"
+    },
+    {
+      "command": "npm.cmd run test:e2e -- --config .tmp/pw-redesign.config.mjs --workers=1",
+      "exit_code": 0,
+      "tests": 170,
+      "passed": 170,
+      "failed": 0,
+      "retries": 0
+    }
+  ],
+  "browser": "Chromium 156.0.8078.4",
+  "browserConfig": "Inherits repository config/assertions; production preview port 5311 instead of occupied 5196; workers1/retries0",
+  "physicalHardware": "NOT_RUN",
+  "publicDeploy": "NOT_RUN",
+  "evidence_hashes": {
+    "node": {
+      "file": "docs/agents/runs/MM-SW-FEEDBACK-001/npm-test-final.txt",
+      "sha256": "ce357090cea0cfb06b363bb1097e099a1d37964f0171090a82d9ce899f265263"
+    },
+    "browser": {
+      "file": "docs/agents/runs/MM-SW-FEEDBACK-001/e2e-final.txt",
+      "sha256": "68ddd8a0307b4b0eee02169aca9e4b301836ebb41ee5e9a8c34c66f255e9bc87"
+    },
+    "typecheck": {
+      "file": "docs/agents/runs/MM-SW-FEEDBACK-001/typecheck-final.txt",
+      "sha256": "aed1c139a3382e941c2db5a93942e7071a48537206764175bd26142cb3c23655"
+    },
+    "build": {
+      "file": "docs/agents/runs/MM-SW-FEEDBACK-001/build-local-final.txt",
+      "sha256": "79dc8d97a8f7cb4c8c50513c3bb0da324f60d5ddccdcba7bbb8887ab893094b1"
+    }
+  }
+}

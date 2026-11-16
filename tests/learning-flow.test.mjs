@@ -40,7 +40,7 @@ test('next lesson follows the path and ends cleanly', () => {
 
 test('each lesson opens its goal and board page before the lab', () => {
   for (const lesson of m.curriculumLessons) {
-    assert.equal(m.getLessonEntryRoute(lesson), lesson.id === 'blink' ? '/learn/esp32-led' : `/learn/${lesson.id}`)
+    assert.equal(m.getLessonEntryRoute(lesson), `/learn/${lesson.id}`)
   }
 })
 
@@ -61,7 +61,7 @@ test('preflight pins come from the lesson circuit and the chosen board', () => {
   assert.equal(row(uno, 'input').boardLabel, 'D2')
   assert.equal(row(uno, 'ledOut').sourceBacked, true)
   assert.equal(row(uno, 'input').sourceBacked, false)
-  assert.equal(esp.startRoute, '/build?lesson=button-led&guided=1')
+  assert.equal(esp.startRoute, '/build?lesson=button-led&guided=1&board=esp32-devkit')
   assert.equal(uno.startRoute, '/build?lesson=button-led&guided=1&board=arduino-uno-r3')
 })
 
@@ -92,7 +92,8 @@ test('preflight reports a locked board instead of offering a start', () => {
 
 test('preflight offers the 3D board link only when a viewer exists', () => {
   assert.equal(m.getLessonPreflight('button-led', 'arduino-uno-r3').hasBoardViewer, true)
-  assert.equal(m.getLessonPreflight('button-led', 'stm32-nucleo').hasBoardViewer, false)
+  // 2026-11-14: Nucleo now has an educational KiCad reconstruction viewer; a catalog-only board still has none.
+  assert.equal(m.getLessonPreflight('button-led', 'stm32-nucleo').hasBoardViewer, true)
 })
 
 test('path highlight starts at the first lesson and resumes from progress', () => {
@@ -211,7 +212,7 @@ test('an unconnected pin reports no peers', () => {
 
 test('dashboard CTA covers a new learner, an open lesson, partial completion and a finished path', () => {
   const order = m.learningPathOrder
-  assert.deepEqual(m.getLearningResume(undefined, []), { state: 'new', label: 'Bắt đầu bài LED', lessonId: 'blink', route: '/learn/esp32-led' })
+  assert.deepEqual(m.getLearningResume(undefined, []), { state: 'new', label: 'Bắt đầu bài LED', lessonId: 'blink', route: '/learn/blink' })
   assert.deepEqual(m.getLearningResume('button-led', []), { state: 'in-progress', label: 'Tiếp tục học', lessonId: 'button-led', route: '/learn/button-led' })
   assert.deepEqual(m.getLearningResume('button-led', ['button-led']), { state: 'next', label: 'Học bài tiếp theo', lessonId: order[3], route: `/learn/${order[3]}` })
   assert.deepEqual(m.getLearningResume(order.at(-1), order), { state: 'all-complete', label: 'Xem lại lộ trình', route: '/topics' })

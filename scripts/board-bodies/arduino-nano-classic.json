@@ -1,0 +1,42 @@
+{
+ "J1": [
+  {
+   "fp": "Connector_PinHeader_2.54mm/PinHeader_1x15_P2.54mm_Vertical",
+   "model": "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x15_P2.54mm_Vertical.step",
+   "rotateX": 180,
+   "z": -1.6
+  }
+ ],
+ "J2": [
+  {
+   "fp": "Connector_PinHeader_2.54mm/PinHeader_1x15_P2.54mm_Vertical",
+   "model": "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x15_P2.54mm_Vertical.step",
+   "rotateX": 180,
+   "z": -1.6
+  }
+ ],
+ "Y1": [
+  {
+   "fp": "Crystal/Resonator_SMD_Murata_CSTxExxV-3Pin_3.0x1.1mm",
+   "model": "Crystal.3dshapes/Resonator_SMD_Murata_CSTxExxV-3Pin_3.0x1.1mm.step",
+   "tolerance": 0.25
+  }
+ ],
+ "SW1": [
+  {
+   "fp": "Button_Switch_SMD/SW_Push_1P1T_NO_CK_KMR2",
+   "model": "Button_Switch_SMD.3dshapes/SW_Push_1P1T_NO_CK_KMR2.step",
+   "map": {
+    "1": [
+     -2.05,
+     0.0
+    ],
+    "2": [
+     2.05,
+     0.0
+    ]
+   },
+   "tolerance": 0.1
+  }
+ ]
+}

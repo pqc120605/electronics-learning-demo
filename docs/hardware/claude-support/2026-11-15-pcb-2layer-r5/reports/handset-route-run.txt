@@ -1,0 +1,32 @@
+A freerouting rc 0 104s
+A track mm {'F.Cu': 804} vias 0 unconnected 29
+swig/python detecteripped IC-net tracks 274
+A(saved) track mm {'F.Cu': 426} vias 0 unconnected 104
+B freerouting rc 0 121s
+B track mm {'F.Cu': 1200, 'B.Cu': 94} vias 35 unconnected 1
+C cost 2.0 freerouting rc 0 70s
+C track mm {'F.Cu': 1200, 'B.Cu': 94} vias 35 unconnected 1
+C cost 1.0 freerouting rc 0 64s
+C track mm {'F.Cu': 1200, 'B.Cu': 94} vias 35 unconnected 1
+C cost 1.0 freerouting rc 0 49s
+C track mm {'F.Cu': 1200, 'B.Cu': 94} vias 35 unconnected 1
+Found 157 violations
+Found 1 unconnected items
+Found 0 schematic parity issues
+widened 2
+stitch failures 0
+grid vias 381
+removed 1
+components 1 main size 574
+ref to F.Fab: R33
+ref to F.Fab: R36
+refs placed 85 refs to F.Fab 2 texts placed 4 texts stuck 0
+Found 0 violations
+Found 1 unconnected items
+Found 0 schematic parity issues
+      1 [unconnected_items]
+[unconnected_items]: Missing connection between items
+    @(22.2000 mm, 65.0000 mm): Pad 1 [/LX1] of L1 on F.Cu
+    @(25.2600 mm, 63.7500 mm): Pad 3 [/LX1] of U1 on F.Cu
+F.Cu fragments 23
+B.Cu fragments 1

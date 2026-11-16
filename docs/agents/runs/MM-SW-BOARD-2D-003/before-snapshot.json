@@ -1,0 +1,20 @@
+{
+  "at": "2026-11-15T18:09:39.999Z",
+  "hashes": {
+    "src/lib/boardTopView.ts": null,
+    "src/data/boardTopViews.json": null,
+    "src/lib/freestyle/freestylePresentation.ts": "5dee4b9f3769c238cd35bddcaa78cf122ee3a0b7b539d54e4d0770b5907da6dd",
+    "src/components/freestyle/FreestyleBoardArt.tsx": "dadb5f19627c34a7b2056d104ed86b3df7b446d9435b444634085b42b759bb15",
+    "src/lib/breadboardDiagram.ts": "0210a769a1add1830750a750a59a8d791608595afd2f826f9ec8afdaf51d50b7",
+    "src/components/builder/BreadboardDiagram.tsx": "37dbc3ba419934b5c0ee12d744ad54d46a216aa714722953aecd61c145e15c03",
+    "src/components/builder/BreadboardEditor.tsx": "ef79c4b46151b2e10f04d289f957c860441de17c7b82af7fcf01402da34fbc53",
+    "src/components/freestyle/FreestyleBench.tsx": "19428698646e5af4a6061669ff55af104eae0adb383814725d3d843d0aa27acf",
+    "scripts/render-board-topviews.mjs": null,
+    "scripts/board-topview-render.ts": null,
+    "tests/board-top-view.test.mjs": null,
+    "tests/breadboard-diagram.test.mjs": "852c8d2c9fa0914e97d2f625bd342b8c0a1c2b00c85b6039fb3aac0c997c183e",
+    "e2e/board-top-view.spec.mjs": null,
+    "tests/freestyle-presentation.test.mjs": "9021e022488b129121dce598594d8b139d57b589ba98250a2965335fe85a5da0",
+    "e2e/freestyle-views.spec.mjs": "782495bfb023965a386f0fc00cc106ef5a99a8f196d032889374db3e25b1f74a"
+  }
+}

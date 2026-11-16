@@ -1,0 +1,23 @@
+# Builder handoff — MM-SW-COMMUNITY-ATTACH-001
+
+Implementation package prepared 16/11/2026 within software_engineer lease; independent QA and tester verdicts belong to the lead. See `implementation-snapshot.json` for exact file hashes and checks.
+
+- Helpers enforce max5 files,10MiB/file,25MiB/post; allowlisted extensions; raster signature + browser decode; safe download names and forced octet download. No HTML/SVG/JS renderer or code execution.
+- Preview repository preserves v1 local posts/comments/reports, adds optional attachments, waits for IndexedDB transaction commit, and attempts blob rollback if metadata write fails. IndexedDB/storage failures retain compose input; no memory fallback success. Browser eviction remains possible and is labeled.
+- Text drafts are auto-saved separately; selected files only live in form memory until posting. Failure retains both. Async attachment lifecycles guard against stale updates and revoke image object URLs on remove/unmount. Missing blobs explicitly disable download with a notice.
+- Configured Supabase defaults online. Explicit source switch reloads and keeps legacy local posts without auto-upload. Read/schema/storage errors surface rather than silently falling back. Server Auth identifies writers; remote adapter ignores caller author; all writes use ownership-enforcing RPCs.
+- SQL creates a private bucket and new community tables/functions, restrictive Storage guards, per-owner paths, draft reservations, atomic publication from Storage records, account rate limits, server Auth authors, published public reads, and private reports. No frontend service role. Publish retries reuse an ID for unchanged content; abandoned/failed drafts remain private for manual founder cleanup, described in guide. Client SHA fingerprints bind retry input but do not prove server content integrity.
+
+Fresh checks: focused Node 25/25 exit0; `npm.cmd run typecheck` exit0. Test-first red observed for missing helpers/repository, fake MIME upload behavior, then green. An IndexedDB test initially needed an event-loop turn before the async open continuation; corrected fixture timing, not production assertions. Initial typecheck UUID inference mismatch fixed by an explicit string parameter type. No build/full-suite/dev-server/browser run by this builder. E2E specs authored for lead-run375/1440 checks, persistence/download/remove/missing blobs, fake files, bound rejection and IndexedDB failure.
+
+NOT_RUN: real PostgreSQL execution/SQL apply; cloud Auth, Storage service metadata compatibility, signed URL expiry, concurrent upload/publish boundary and two-account RLS checks. README supplies setup plus the exact verification matrix. The package must not be described as a live online community before those checks.
+
+Residual limits: Storage size trust assumes server-maintained metadata and bucket actual-byte limit; trigger fails closed when size absent. No malware scan/server transcoding/content verification, CAPTCHA, global account storage quota, moderator UI/SLA, server draft recovery/GC, pagination/search across arbitrarily large datasets, or background sync. Image pixel cap is checked after decode, so no claim of decoder resource exhaustion protection. File downloads from strangers remain untrusted. Local posts are not backed up automatically; download files needed for recovery.
+
+No dependencies installed; no external deployment/cloud apply, secrets read, commits, device actions or unrelated paths changed. Lead owns canonical queue/final status.
+
+## Independent QA fixes — 16/11/2026
+
+Fixed only the two verified storage-denial findings: `communityStore` reads native `window.localStorage` under catch instead of accepting workspaceStorage's RAM fallback; denied persistence now rejects posting, retaining composer fields and not running successful-publication draft cleanup. `communityAttachmentStore` resolves the IndexedDB factory lazily inside a caught operation; a SecurityError getter no longer runs at singleton/module initialization and rejects only the attempted file operation with the explicit unavailable-storage message.
+
+Both getter-denial Node cases failed before the fixes and passed after. Fresh focused suite25/25 exit0, typecheck exit0, `node --check e2e/community-attachments.spec.mjs` exit0. Existing quota/abort/rollback assertions retained. Added browser regressions for both actual throwing getters: local denied posting preserves live input and a preexisting recoverable text draft; IndexedDB denial leaves page usable and files/text in place. Browser execution remains NOT_RUN by this builder (lead owns ports/build). SQL and other source unchanged; prior live backend NOT_RUN gates unchanged.

@@ -19,7 +19,7 @@ export function BuilderStepper({ step, onChange, completed }: Props) {
     <p className="builder-step-count">Bước {currentIndex + 1}/4</p>
     <ol>{steps.map((item, index) => <li key={item.id}>
       <button type="button" className={step === item.id ? 'builder-step-current' : ''} aria-current={step === item.id ? 'step' : undefined} onClick={() => onChange(item.id)}>
-        <span className="builder-step-number" aria-hidden="true">{completed[item.id] && step !== item.id ? '✓' : String(index + 1).padStart(2, '0')}</span>
+        <span className="builder-step-number" aria-hidden="true">{completed[item.id] && index < currentIndex ? '✓' : String(index + 1).padStart(2, '0')}</span>
         <span>{item.label}</span>
       </button>
     </li>)}</ol>

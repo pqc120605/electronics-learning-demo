@@ -1,0 +1,75 @@
+import{test,expect}from'@playwright/test'
+async function quiet(page){await page.addInitScript(()=>localStorage.setItem('mm-tour-seen',JSON.stringify({home:1,lab:1,lesson:1}))) }
+test('fresh lessons and direct lab links ask for a board without writing a default draft',async({page})=>{
+ await quiet(page)
+ for(const path of ['/learn/esp32-led','/learn/blink','/learn/button-led','/build?lesson=blink&guided=1']){
+  await page.goto(path)
+  await expect(page.locator('.lesson-board-chooser')).toBeVisible()
+  await expect(page.getByLabel('Board của bạn',{exact:true})).toHaveValue('')
+  await expect(page.locator('[data-board-art],.builder-workbench')).toHaveCount(0)
+ }
+ expect(await page.evaluate(()=>localStorage.getItem('machmo-builder-session'))).toBeNull()
+})
+test('Uno choice configures the lesson circuit and labels instead of an ESP32 picture',async({page})=>{
+ await quiet(page);await page.goto('/learn/blink')
+ await page.getByLabel('Board của bạn',{exact:true}).selectOption('arduino-uno-r3')
+ await expect(page).toHaveURL(/board=arduino-uno-r3/)
+ await page.getByRole('link',{name:/Bắt đầu thực hành/}).click()
+ await expect(page).toHaveURL(/board=arduino-uno-r3/)
+ await page.getByRole('button',{name:'Lắp dây · breadboard',exact:true}).click()
+ await expect(page.locator('[data-board-art] image')).toHaveAttribute('href','/board-reference/topview/arduino-uno-r3.png')
+ await expect(page.locator('[data-diagram-endpoint="board-1:ledOut"]')).toHaveAttribute('aria-label',/D13/)
+ await expect(page.locator('[data-board-art="esp32-devkit"]')).toHaveCount(0)
+})
+test('unknown board stays unselected and unsupported target lessons explain the missing profile',async({page})=>{
+ await quiet(page);await page.goto('/learn/button-led?board=unknown-clone')
+ await expect(page.getByRole('alert')).toContainText('không tự đổi sang ESP32')
+ await expect(page.locator('[data-board-art]')).toHaveCount(0)
+ await page.goto('/learn/analog-potentiometer?board=raspberry-pi-pico')
+ await expect(page.locator('.lesson-preflight')).toContainText('chưa xác minh dải ADC')
+ await expect(page.getByRole('link',{name:/Bắt đầu thực hành/})).toHaveCount(0)
+})
+for(const[alias,name]of [['arduino-nano','Arduino Nano'],['arduino-mega-2560','Arduino Mega'],['stm32-nucleo-f401re','NUCLEO']])test(`accepted alias ${alias} initializes its canonical target without an ESP32 fallback`,async({page})=>{
+ await quiet(page)
+  await page.goto(`/build?lesson=blink&guided=1&board=${alias}`)
+  await page.getByRole('button',{name:'Lắp dây · breadboard',exact:true}).click()
+  await expect(page.locator('[data-board-art]')).not.toHaveAttribute('data-board-art','esp32-devkit')
+  await expect(page.locator('[data-board-art]')).toContainText(new RegExp(name,'i'))
+})
+test('a saved legacy simBoard opens the known selected board without rewriting it to a default',async({page})=>{
+ await quiet(page)
+ await page.goto('/build')
+ await page.evaluate(()=>localStorage.setItem('machmo-builder-session',JSON.stringify({simBoard:'arduino-uno-r3',lesson:'blink',placed:[{id:'board-1',type:'board',x:10,y:20}],wires:[],code:'// existing user draft',codeMode:'cpp'})))
+ await page.reload()
+ await expect(page.locator('.lesson-board-chooser')).toHaveCount(0)
+ await page.getByRole('button',{name:'Lắp mạch',exact:true}).click()
+ await page.getByRole('button',{name:'Lắp dây · breadboard',exact:true}).click()
+ await expect(page.locator('[data-board-art]')).toHaveAttribute('data-board-art','arduino-uno-r3')
+})
+test('saved v5 alias keeps the selected board, circuit and user code on recovery',async({page})=>{
+ await quiet(page);await page.goto('/build?board=arduino-nano-classic')
+ await page.getByRole('button',{name:'Lắp mạch',exact:true}).click()
+ await page.getByRole('button',{name:'Lắp dây · breadboard',exact:true}).click()
+ await page.getByRole('button',{name:/Tạo bản nháp (v5|để chỉnh sửa)/}).first().click()
+ const original=await page.evaluate(()=>{
+  const key='machmo-builder-session-v5',doc=JSON.parse(localStorage.getItem(key))
+  doc.boardId='arduino-nano';doc.workspaceFields.code='// preserved user code'
+  localStorage.setItem(key,JSON.stringify(doc));return doc.circuit
+ })
+ await page.goto('/build')
+ await page.getByRole('button',{name:'Lắp mạch',exact:true}).click()
+ await page.getByRole('button',{name:'Lắp dây · breadboard',exact:true}).click()
+ await expect(page.locator('[data-board-art]')).toHaveAttribute('data-board-art','arduino-nano-classic')
+ const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('machmo-builder-session-v5')))
+ expect(saved.boardId).toBe('arduino-nano-classic');expect(saved.workspaceFields.code).toBe('// preserved user code')
+ expect(saved.circuit).toEqual(original)
+})
+for(const width of[375,1440])test(`board chooser works with keyboard and no overflow at ${width}`,async({page})=>{
+ await page.setViewportSize({width,height:width===375?812:900});await quiet(page);await page.goto('/app/learn/button-led')
+ await page.getByLabel('Board của bạn',{exact:true}).focus();await page.keyboard.press('ArrowDown');await page.keyboard.press('Enter')
+ await expect(page).toHaveURL(/board=/)
+ // Dismiss a native select popup before capturing/closing its browser context.
+ await page.keyboard.press('Escape');await page.keyboard.press('Tab')
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)
+ await page.screenshot({path:`docs/agents/runs/MM-SW-LESSON-TARGET-001/chooser-${width}.png`})
+})

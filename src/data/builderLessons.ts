@@ -56,7 +56,7 @@ export const builderLessons: BuilderLesson[] = [
   {
     id: 'ultrasonic-distance', title: 'Cảm biến siêu âm HC-SR04', summary: 'Phát xung TRIG, đo ECHO và báo khi vật ở gần.', inputLabel: 'Khoảng cách mô phỏng',
     code: (target, inputPin) => `const int ledPin = ${target.codePin};\nconst int trigPin = ${inputPin};\nconst int echoPin = ${inputPin + 1};\n\nvoid setup() {\n  pinMode(ledPin, OUTPUT);\n  pinMode(trigPin, OUTPUT);\n  pinMode(echoPin, INPUT);\n}\n\nvoid loop() {\n  digitalWrite(trigPin, LOW);\n  delayMicroseconds(2);\n  digitalWrite(trigPin, HIGH);\n  delayMicroseconds(10);\n  digitalWrite(trigPin, LOW);\n  long duration = pulseIn(echoPin, HIGH);\n  float distanceCm = duration * 0.034 / 2;\n  if (distanceCm < 20) {\n    digitalWrite(ledPin, HIGH);\n  } else {\n    digitalWrite(ledPin, LOW);\n  }\n  delay(100);\n}`,
-    flow: (_pressed, _detected, distanceCm) => ['MCU phát xung khoảng 10 µs tại TRIG.', 'HC-SR04 phát sóng âm và chờ tín hiệu phản hồi ở ECHO.', `Mô hình đầu vào đang đặt vật ở ${distanceCm} cm.`, `distanceCm ${distanceCm < 20 ? '< 20 cm' : '≥ 20 cm'} nên LED báo ${distanceCm < 20 ? 'sáng' : 'tắt'}.`],
+    flow: (_pressed, _detected, distanceCm) => ['MCU phát xung khoảng 10 µs tại TRIG.', 'HC-SR04 (nuôi 5 V) phát sóng âm và chờ tín hiệu phản hồi ở ECHO; xung ECHO 5 V qua cầu chia 1 kΩ/2 kΩ còn khoảng 3,3 V trước khi vào GPIO.', `Mô hình đầu vào đang đặt vật ở ${distanceCm} cm.`, `distanceCm ${distanceCm < 20 ? '< 20 cm' : '≥ 20 cm'} nên LED báo ${distanceCm < 20 ? 'sáng' : 'tắt'}.`],
     outcome: (_pressed, _detected, distanceCm) => distanceCm < 20,
   },
   {
@@ -67,8 +67,10 @@ export const builderLessons: BuilderLesson[] = [
   },
   {
     id: 'source-led', title: 'Nguồn thấp áp, điện trở và LED', summary: 'Lần theo đường nguồn → điện trở → LED → GND; học cực tính và vai trò hạn dòng.', inputLabel: 'Chọn nguồn mô phỏng', outputLabel: 'LED',
-    code: (target) => outputCode(target.codePin, '  digitalWrite(ledPin, HIGH);\n  delay(500);\n  digitalWrite(ledPin, LOW);\n  delay(500);'),
-    flow: () => ['Nguồn thấp áp tạo chênh lệch điện thế cho mạch.', 'Dòng đi qua điện trở nối tiếp để giới hạn dòng LED.', 'Dòng thuận đi vào anode và ra cathode về GND.', 'GPIO chỉ điều khiển trạng thái logic trong mô hình; nguồn và dòng điện thực không được tính.'],
+    // Battery-powered by default (2026-11-14): no microcontroller, so the lesson is a fixed scenario, not code.
+    // Previous default: outputCode(target.codePin, blink statements) with the GPIO preset.
+    code: () => '// Mạch nguồn trực tiếp: nguồn DC (+) -> điện trở -> anode LED -> cathode -> nguồn DC (-).\n// Không có vi điều khiển, không có firmware: LED sáng khi nguồn được cấp và LED đúng chiều.\n// Thử đảo chiều LED hoặc bỏ điện trở để xem chẩn đoán mạch.',
+    flow: () => ['Nguồn DC thấp áp tạo chênh lệch điện thế giữa cực + và cực −.', 'Dòng đi qua điện trở nối tiếp để giới hạn dòng LED.', 'Dòng thuận đi vào anode, ra cathode rồi về cực âm của nguồn.', 'LED sáng liên tục khi mạch kín; mô hình không tính dòng hay điện áp thực.'],
     outcome: () => false,
   },
   {
@@ -79,13 +81,13 @@ export const builderLessons: BuilderLesson[] = [
   },
   {
     id: 'dc-motor-driver', title: 'Điều khiển motor DC bằng TB6612FNG', summary: 'GPIO phát lệnh logic tới driver; nguồn motor riêng, GND chung và STBY cần được chú ý.', inputLabel: 'Lệnh motor ảo', outputLabel: 'Chiều motor',
-    code: () => '// Mô hình lệnh logic cho TB6612FNG (không nạp trực tiếp).\n// AIN1=HIGH, AIN2=LOW: chiều thuận.\n// PWMA đặt độ rộng xung; STBY=HIGH để cho phép hoạt động.\n// Nguồn motor VM tách khỏi nguồn logic VCC khi phù hợp.' ,
+    code: () => '// Mô hình lệnh logic cho TB6612FNG (không nạp trực tiếp).\n// Chân: AIN1 = chân đầu vào, AIN2 = chân LED, PWMA = chân kế tiếp (có PWM), STBY = chân 7 đoạn cuối.\n// AIN1=HIGH, AIN2=LOW: chiều thuận.\n// PWMA đặt độ rộng xung; STBY=HIGH để cho phép hoạt động.\n// Nguồn motor VM tách khỏi nguồn logic VCC khi phù hợp.' ,
     flow: () => ['MCU đặt AIN1/AIN2 để chọn chiều quay.', 'PWMA biểu diễn mức PWM và tốc độ tương đối, không tính RPM.', 'STBY cho phép driver hoạt động; VCC là logic, VM là nguồn motor.', 'Driver cấp dòng cho motor; GND cần chung theo cấu hình module.'],
     outcome: () => false,
   },
   {
     id: 'mosfet-switch', title: 'MOSFET đóng cắt tải thấp áp', summary: 'Tìm hiểu công tắc low-side và diode bảo vệ cho tải cảm bằng luồng minh họa.', inputLabel: 'Cổng MOSFET ảo', outputLabel: 'Tải',
-    code: () => '// Mô hình khái niệm MOSFET low-side.\n// GPIO -> điện trở cổng -> Gate; Source -> GND.\n// Tải nối từ nguồn thấp áp tới Drain.\n// Tải cảm cần diode hồi tiếp đúng chiều; không mô phỏng dòng điện.' ,
+    code: () => '// Mô hình khái niệm MOSFET low-side.\n// GPIO -> điện trở cổng -> Gate; Source -> GND.\n// Điện trở 10 kΩ Gate–GND giữ MOSFET tắt khi GPIO còn thả nổi (lúc reset).\n// Tải nối từ nguồn thấp áp tới Drain.\n// Tải cảm cần diode hồi tiếp đúng chiều; không mô phỏng dòng điện.' ,
     flow: () => ['GPIO chỉ cấp tín hiệu điều khiển Gate, không cấp dòng tải.', 'MOSFET logic-level đóng cắt đường Drain–Source khi phù hợp VGS.', 'Nguồn tải đi qua tải rồi qua Drain–Source về GND.', 'Tải cảm cần đường hồi tiếp bảo vệ; chọn linh kiện theo datasheet.'],
     outcome: () => false,
   },
@@ -117,6 +119,8 @@ export function getInputAlias(target: SimulationTarget, lesson?: BuilderLessonId
 const pinsUsedByLesson = (target: SimulationTarget, lesson: BuilderLessonId): number[] => {
   const input = getInputAlias(target, lesson).pin
   if (lesson === 'ultrasonic-distance') return [target.codePin, input, input + 1]
+  // TB6612: AIN1 = input alias, AIN2 = LED pin, PWMA = next pin (PWM-capable D3 on AVR), STBY = last 7-segment pin.
+  if (lesson === 'dc-motor-driver') return [target.codePin, input, input + 1, ...(target.sevenSegmentPins ? [target.sevenSegmentPins[6]] : [])]
   if (lesson === 'button-led' || lesson === 'ir-alert' || lesson === 'analog-potentiometer' || lesson === 'analog-ldr') return [target.codePin, input]
   return [target.codePin]
 }
@@ -128,6 +132,9 @@ export function getLessonBoardSupport(target: SimulationTarget, lesson: BuilderL
   }
   if (lesson === 'seven-segment-counter') {
     return target.sevenSegmentPins ? { supported: true } : { supported: false, reason: `Bài LED 7 đoạn đang khóa trên ${target.name} vì chưa có bảng chân đã xác minh.` }
+  }
+  if (lesson === 'dc-motor-driver' && !target.sevenSegmentPins) {
+    return { supported: false, reason: `Bài motor đang khóa trên ${target.name} vì chưa có chân GPIO đã xác minh cho STBY.` }
   }
   const pins = pinsUsedByLesson(target, lesson)
   if (new Set(pins).size !== pins.length) {

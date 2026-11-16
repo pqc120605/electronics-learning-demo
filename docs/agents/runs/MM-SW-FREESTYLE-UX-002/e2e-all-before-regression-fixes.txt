@@ -1,0 +1,672 @@
+
+> mach-mo-learning-demo@0.1.0 test:e2e
+> node scripts/run-browser-tests.mjs test --config .tmp/pw-redesign.config.mjs --workers=1
+
+vite v8.3.5 building client environment for production...
+transforming...
+[EVAL] Use of direct `eval` function is strongly discouraged as it poses security risks and may cause issues with minification.
+   ╭─[ node_modules/rp2040js/dist/esm/utils/time.js:6:27 ]
+   │
+ 6 │         return Math.floor(eval('require')('perf_hooks').performance.now() * 1000);
+   │                           ──┬─  
+   │                             ╰─── Use of direct `eval` here.
+   │ 
+   │ Help: Consider using indirect eval. For more information, check the documentation: https://rolldown.rs/guide/troubleshooting#avoiding-direct-eval
+───╯
+
+[EVAL] Use of direct `eval` function is strongly discouraged as it poses security risks and may cause issues with minification.
+   ╭─[ node_modules/rp2040js/dist/esm/utils/time.js:6:27 ]
+   │
+ 6 │         return Math.floor(eval('require')('perf_hooks').performance.now() * 1000);
+   │                           ──┬─  
+   │                             ╰─── Use of direct `eval` here.
+   │ 
+   │ Help: Consider using indirect eval. For more information, check the documentation: https://rolldown.rs/guide/troubleshooting#avoiding-direct-eval
+───╯
+
+✓ 654 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                             1.29 kB │ gzip:   0.69 kB
+dist/assets/spice.worker-UGhK8qvg.js                        8.63 kB
+dist/assets/avr8js.worker-BY4E7cJu.js                      45.14 kB
+dist/assets/avrLive.worker-B2sgvO7g.js                     47.73 kB
+dist/assets/rp2040.worker-DvRxpH7G.js                     142.30 kB
+dist/assets/micropython.worker-BmevX4Ld.js                149.23 kB
+dist/assets/mach-mo-logo-concept-v1-LHG9N2oJ.png          542.91 kB
+dist/assets/mach-mo-mascot-concept-v1-BUXvN7TZ.png      1,063.68 kB
+dist/assets/LessonProgressToggle-BUSCUcQQ.css               0.72 kB │ gzip:   0.35 kB
+dist/assets/LearningActivity--1xr_iVx.css                   1.62 kB │ gzip:   0.56 kB
+dist/assets/SignalFlowPanel-DRoZm1sI.css                    1.96 kB │ gzip:   0.69 kB
+dist/assets/LearningPath-Bij5-DgI.css                       2.07 kB │ gzip:   0.68 kB
+dist/assets/DigitalWaveform-Cfl6uqW1.css                    2.42 kB │ gzip:   0.84 kB
+dist/assets/CircuitGatePanel-BV_xjpIH.css                   2.48 kB │ gzip:   0.73 kB
+dist/assets/ComponentVisual-DCrWaGWD.css                    3.91 kB │ gzip:   1.21 kB
+dist/assets/LessonPage-Dfvn01s9.css                         4.36 kB │ gzip:   1.24 kB
+dist/assets/ElectronicsCalculatorsPage-Cg69sARI.css         4.44 kB │ gzip:   1.10 kB
+dist/assets/SketchRunnerPage-ClZRXKIF.css                   5.10 kB │ gzip:   1.51 kB
+dist/assets/RobotSimulationLessonPage-DuahMEj-.css          5.40 kB │ gzip:   1.54 kB
+dist/assets/Pcb2DViewer-Cmahj3Nv.css                        7.11 kB │ gzip:   1.93 kB
+dist/assets/AppHomePage-BbUfD9k2.css                        8.58 kB │ gzip:   1.93 kB
+dist/assets/FirmwareHexToolPage-DzDQW5kf.css                9.76 kB │ gzip:   2.11 kB
+dist/assets/AssemblyStage-CXPzF89O.css                      9.86 kB │ gzip:   2.42 kB
+dist/assets/ClassroomKitPage-DQX2BcpX.css                  10.22 kB │ gzip:   2.21 kB
+dist/assets/Community-D-fQOHE3.css                         12.67 kB │ gzip:   2.66 kB
+dist/assets/CircuitBuilderPage-BzHnrVGA.css                13.65 kB │ gzip:   2.67 kB
+dist/assets/SpiceWorkbenchPage-CfVGdmO9.css                15.14 kB │ gzip:   3.21 kB
+dist/assets/FreestyleBench-CTahYhDF.css                    18.45 kB │ gzip:   3.72 kB
+dist/assets/LessonPreflightPage-fM-hFUmt.css               19.28 kB │ gzip:   4.14 kB
+dist/assets/CircuitSchematicV2-Dhu79Vah.css                21.18 kB │ gzip:   4.96 kB
+dist/assets/index-DRBBtT2b.css                            243.91 kB │ gzip:  43.59 kB
+dist/assets/componentDisplayLabel-TquZyH0J.js               0.15 kB │ gzip:   0.15 kB
+dist/assets/FreestyleLabPage-D14-MVlB.js                    0.24 kB │ gzip:   0.20 kB
+dist/assets/useProductRoute-BHpJr7Qk.js                     0.24 kB │ gzip:   0.21 kB
+dist/assets/useLearningProgress-CFWA5m7H.js                 0.46 kB │ gzip:   0.25 kB
+dist/assets/firmwareTarget-D4jArK8e.js                      0.51 kB │ gzip:   0.28 kB
+dist/assets/workspaceSimulationSession-D9t-MQH_.js          0.58 kB │ gzip:   0.36 kB
+dist/assets/CapabilityBadge-DT_KN8D5.js                     0.62 kB │ gzip:   0.36 kB
+dist/assets/PrivacyPage-QzEjXsgY.js                         1.73 kB │ gzip:   0.93 kB
+dist/assets/circuitNets-CvwZy5uq.js                         1.79 kB │ gzip:   0.86 kB
+dist/assets/SignalFlowPanel-CirEW2Ay.js                     1.82 kB │ gzip:   0.92 kB
+dist/assets/board-pin-anchors-ByLb6gbo.js                   1.89 kB │ gzip:   0.69 kB
+dist/assets/LearningActivity-C3Rp7GPB.js                    1.99 kB │ gzip:   1.05 kB
+dist/assets/capabilityRegistry-BPl7pPAF.js                  2.05 kB │ gzip:   1.00 kB
+dist/assets/learningPath-CZCHZOHV.js                        2.21 kB │ gzip:   1.14 kB
+dist/assets/ComponentModelViewer-i85mydoy.js                2.33 kB │ gzip:   1.02 kB
+dist/assets/componentCatalog-BJuhTKM6.js                    2.40 kB │ gzip:   1.20 kB
+dist/assets/AuthCallbackPage-CgV532px.js                    2.47 kB │ gzip:   1.07 kB
+dist/assets/AdminLoginPage-o5HzQY4M.js                      2.69 kB │ gzip:   1.20 kB
+dist/assets/LessonProgressToggle-DKOnIVLV.js                2.81 kB │ gzip:   1.26 kB
+dist/assets/learningProgress-CZjtSPpJ.js                    3.02 kB │ gzip:   1.14 kB
+dist/assets/simulationTargets-BuBdisSE.js                   3.25 kB │ gzip:   0.82 kB
+dist/assets/BoardPinoutExplorer-BNCE1MiR.js                 3.36 kB │ gzip:   1.47 kB
+dist/assets/MarkdownEditor-Cgxa0-HT.js                      3.39 kB │ gzip:   1.43 kB
+dist/assets/lessonPreflight-5SsKGgLu.js                     3.56 kB │ gzip:   1.82 kB
+dist/assets/intelHex-DI7JuvBg.js                            3.72 kB │ gzip:   1.84 kB
+dist/assets/RobotSimulationLessonPage-BfExkedT.js           3.92 kB │ gzip:   1.47 kB
+dist/assets/CommunityNewPostPage-BrG7uKO_.js                4.08 kB │ gzip:   1.80 kB
+dist/assets/simpleMarkdown-Cm93M-pQ.js                      4.18 kB │ gzip:   2.08 kB
+dist/assets/LoginPage-BVE1TkbH.js                           4.36 kB │ gzip:   2.08 kB
+dist/assets/TopicsPage-CpCVci7r.js                          4.40 kB │ gzip:   1.89 kB
+dist/assets/CommunityPage-IVByq0OL.js                       4.69 kB │ gzip:   1.98 kB
+dist/assets/FreestyleAssemblyView-ErWUrjbn.js               5.38 kB │ gzip:   2.61 kB
+dist/assets/DigitalWaveform-CRTTUERj.js                     5.43 kB │ gzip:   2.28 kB
+dist/assets/lessons-y6AMeByE.js                             5.86 kB │ gzip:   2.31 kB
+dist/assets/CommunityPostPage-W9pJOcq9.js                   6.00 kB │ gzip:   2.20 kB
+dist/assets/pbrShading-C7SjCDSv.js                          6.01 kB │ gzip:   2.47 kB
+dist/assets/lessonCircuits-DQGbTCMl.js                      6.07 kB │ gzip:   1.75 kB
+dist/assets/spiceNetlist-BkI0dwl6.js                        6.26 kB │ gzip:   2.82 kB
+dist/assets/LearningPath-BrwRd__o.js                        6.58 kB │ gzip:   2.38 kB
+dist/assets/sceneMath-priN2BlL.js                           7.16 kB │ gzip:   3.20 kB
+dist/assets/ExplorePage-DxUEmJcy.js                         7.26 kB │ gzip:   2.31 kB
+dist/assets/ComponentIllustration-qwz-Iuwf.js               7.52 kB │ gzip:   2.32 kB
+dist/assets/calculatorSpice-DuhzmK5W.js                     7.85 kB │ gzip:   3.55 kB
+dist/assets/AppHomePage-DE_QNfBF.js                         8.05 kB │ gzip:   2.84 kB
+dist/assets/AdminDashboardPage-CjLTf-GK.js                  8.44 kB │ gzip:   2.69 kB
+dist/assets/supabase-D3Ctfmow.js                            8.65 kB │ gzip:   3.49 kB
+dist/assets/jsx-runtime-DyZJNswf.js                         8.78 kB │ gzip:   3.33 kB
+dist/assets/SketchRunnerPage-DiD9jBa8.js                    9.02 kB │ gzip:   3.62 kB
+dist/assets/circuitNetsV2-DBs6-dHy.js                      10.15 kB │ gzip:   4.09 kB
+dist/assets/CppPracticeEditor-CoOAqG0S.js                  10.69 kB │ gzip:   4.24 kB
+dist/assets/BoardScene-Bbl7dbaI.js                         10.78 kB │ gzip:   4.15 kB
+dist/assets/BoardViewer-CkaoKYdR.js                        11.05 kB │ gzip:   4.27 kB
+dist/assets/ElectronicsCalculatorsPage-BGO_RQ0z.js         12.48 kB │ gzip:   3.91 kB
+dist/assets/savedProjects-CEaasmYv.js                      13.29 kB │ gzip:   4.50 kB
+dist/assets/workspaceSpice-LwzBjCT5.js                     14.07 kB │ gzip:   5.42 kB
+dist/assets/curriculumSchema-DW6zc7qX.js                   14.63 kB │ gzip:   4.80 kB
+dist/assets/assemblyLayout-BfBmYe8X.js                     14.64 kB │ gzip:   5.89 kB
+dist/assets/AssemblyScene-43LA4ftU.js                      14.66 kB │ gzip:   5.33 kB
+dist/assets/ProjectsPage-CiHATvMj.js                       15.71 kB │ gzip:   5.60 kB
+dist/assets/componentRegistry-zn0PQHUW.js                  15.74 kB │ gzip:   5.03 kB
+dist/assets/Pcb2DViewer-BrSTR3zX.js                        17.34 kB │ gzip:   6.53 kB
+dist/assets/freestyleCircuit-CQX53GHO.js                   20.00 kB │ gzip:   7.23 kB
+dist/assets/esp32DevkitModel-Cn3ZYT2i.js                   20.12 kB │ gzip:   7.64 kB
+dist/assets/BoardCatalogPage-A9AGJDwl.js                   21.47 kB │ gzip:   7.18 kB
+dist/assets/FirmwareHexToolPage-vtjEDf4-.js                21.71 kB │ gzip:   7.27 kB
+dist/assets/sketchInterpreter-Cr2vFJlH.js                  22.83 kB │ gzip:   8.93 kB
+dist/assets/esp32-s3-devkitc-1.pin-anchors-DKL-GEzx.js     24.20 kB │ gzip:   6.77 kB
+dist/assets/stm32BoardModels-BOrrWuDv.js                   24.36 kB │ gzip:   7.46 kB
+dist/assets/boardCapabilityRegistry-C9Cjy7gQ.js            29.26 kB │ gzip:   8.19 kB
+dist/assets/ClassroomKitPage-DDv6_3Wn.js                   29.54 kB │ gzip:   9.27 kB
+dist/assets/ComponentVisual-mzPmT4Yk.js                    30.04 kB │ gzip:  10.15 kB
+dist/assets/GuidePanel-DLddu7Xv.js                         30.09 kB │ gzip:  11.20 kB
+dist/assets/CircuitGatePanel-Pj_utNd9.js                   31.84 kB │ gzip:  12.01 kB
+dist/assets/componentModels-Cb3EtJiU.js                    31.85 kB │ gzip:   9.19 kB
+dist/assets/AssemblyStage-Bwt9H12j.js                      32.50 kB │ gzip:  11.57 kB
+dist/assets/LessonPreflightPage-D3tfQfMs.js                33.16 kB │ gzip:  10.96 kB
+dist/assets/FreestyleBench-AUmo0Ax8.js                     41.76 kB │ gzip:  14.45 kB
+dist/assets/LessonPage-BRosGqUH.js                         42.75 kB │ gzip:  12.88 kB
+dist/assets/boards-nRlijR4q.js                             47.12 kB │ gzip:  11.12 kB
+dist/assets/espressifBoardModels-iUNPCTmq.js               48.78 kB │ gzip:   9.35 kB
+dist/assets/SpiceWorkbenchPage-DPbahVT0.js                 52.26 kB │ gzip:  17.15 kB
+dist/assets/CircuitSchematicV2-lm8J6iIm.js                 60.95 kB │ gzip:  19.74 kB
+dist/assets/raspberryPiBoardModels-DTWK13TA.js             82.45 kB │ gzip:  18.71 kB
+dist/assets/ComponentsPage-DQ-QjULZ.js                     84.95 kB │ gzip:  24.79 kB
+dist/assets/seeedBoardModels-DSaGukvo.js                  114.67 kB │ gzip:  24.65 kB
+dist/assets/CircuitBuilderPage-D3Vk_i6S.js                209.71 kB │ gzip:  64.82 kB
+dist/assets/index-Bp3JK4_T.js                             345.26 kB │ gzip: 110.41 kB
+
+[EVAL] Use of direct `eval` function is strongly discouraged as it poses security risks and may cause issues with minification.
+   ╭─[ node_modules/rp2040js/dist/esm/utils/time.js:6:27 ]
+   │
+ 6 │         return Math.floor(eval('require')('perf_hooks').performance.now() * 1000);
+   │                           ──┬─  
+   │                             ╰─── Use of direct `eval` here.
+   │ 
+   │ Help: Consider using indirect eval. For more information, check the documentation: https://rolldown.rs/guide/troubleshooting#avoiding-direct-eval
+───╯
+
+✓ built in 896ms
+[WebServer] (node:29752) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 156 tests using 1 worker
+
+(node:21500) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok   1 e2e\accessibility.spec.mjs:4:59 › a11y 375px / (3.3s)
+  ok   2 e2e\accessibility.spec.mjs:4:59 › a11y 375px /app (2.3s)
+  ok   3 e2e\accessibility.spec.mjs:4:59 › a11y 375px /learn/button-led (4.7s)
+  ok   4 e2e\accessibility.spec.mjs:4:59 › a11y 375px /boards?board=seeed-xiao-esp32-s3 (2.6s)
+  ok   5 e2e\accessibility.spec.mjs:4:59 › a11y 375px /components?component=resistor (2.6s)
+  x    6 e2e\accessibility.spec.mjs:4:59 › a11y 375px /build?lesson=blink&guided=1 (5.2s)
+(node:26228) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok   7 e2e\accessibility.spec.mjs:4:59 › a11y 375px /tools/electronics-calculators (1.3s)
+  ok   8 e2e\accessibility.spec.mjs:4:59 › a11y 375px /app/classroom-kits (1.5s)
+  ok   9 e2e\accessibility.spec.mjs:4:59 › a11y 1440px / (2.0s)
+  ok  10 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /app (2.2s)
+  ok  11 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /learn/button-led (4.5s)
+  ok  12 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /boards?board=seeed-xiao-esp32-s3 (2.5s)
+  ok  13 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /components?component=resistor (2.5s)
+  ok  14 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /build?lesson=blink&guided=1 (6.5s)
+  ok  15 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /tools/electronics-calculators (1.5s)
+  ok  16 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /app/classroom-kits (2.1s)
+  ok  17 e2e\auth-community.spec.mjs:6:1 › login page shows a clear unconfigured state and never fakes a session (934ms)
+  ok  18 e2e\auth-community.spec.mjs:15:1 › header and workspace topbar expose login while keeping guest mode (2.8s)
+  ok  19 e2e\auth-community.spec.mjs:27:1 › community lists groups, filters by search, group and tag (1.9s)
+  ok  20 e2e\auth-community.spec.mjs:47:1 › guest can draft a post with code, comment and report; HTML stays text (3.1s)
+  ok  21 e2e\auth-community.spec.mjs:85:62 › a11y 375px /login (1.7s)
+  ok  22 e2e\auth-community.spec.mjs:85:62 › a11y 375px /app/login (1.3s)
+  ok  23 e2e\auth-community.spec.mjs:85:62 › a11y 375px /community (1.7s)
+  ok  24 e2e\auth-community.spec.mjs:85:62 › a11y 375px /app/community (2.4s)
+  ok  25 e2e\auth-community.spec.mjs:85:62 › a11y 375px /community/esp32-gpio-34-khong-output (2.0s)
+  ok  26 e2e\auth-community.spec.mjs:85:62 › a11y 375px /community/new (2.1s)
+  ok  27 e2e\auth-community.spec.mjs:85:62 › a11y 1440px /login (1.5s)
+  ok  28 e2e\auth-community.spec.mjs:85:62 › a11y 1440px /app/login (1.9s)
+  ok  29 e2e\auth-community.spec.mjs:85:62 › a11y 1440px /community (2.2s)
+  ok  30 e2e\auth-community.spec.mjs:85:62 › a11y 1440px /app/community (2.1s)
+  ok  31 e2e\auth-community.spec.mjs:85:62 › a11y 1440px /community/esp32-gpio-34-khong-output (1.6s)
+  ok  32 e2e\auth-community.spec.mjs:85:62 › a11y 1440px /community/new (1.7s)
+  ok  33 e2e\auth-community.spec.mjs:95:3 › no document scroll at 1280x720 for login/community (2.9s)
+  ok  34 e2e\auth-community.spec.mjs:95:3 › no document scroll at 1440x900 for login/community (3.2s)
+  ok  35 e2e\freestyle-bench.spec.mjs:47:1 › Uno: build an LED circuit by hand, write Blink, compile with arduino-cli and watch the LED blink (11.0s)
+  ok  36 e2e\freestyle-bench.spec.mjs:82:1 › Pico: MicroPython runs for real on rp2040js and blinks the LED wired to GP15 (12.2s)
+  ok  37 e2e\freestyle-bench.spec.mjs:100:1 › without the local service the bench falls back to the interpreter and says so (6.7s)
+  ok  38 e2e\freestyle-bench.spec.mjs:124:1 › full-screen room keeps the circuit, gathers the tools and fits one screen (6.3s)
+  ok  39 e2e\freestyle-bench.spec.mjs:154:5 › a11y + layout 375px / (3.4s)
+  ok  40 e2e\freestyle-bench.spec.mjs:154:5 › a11y + layout 375px /build/freestyle (3.1s)
+  ok  41 e2e\freestyle-bench.spec.mjs:154:5 › a11y + layout 1440px / (3.5s)
+  ok  42 e2e\freestyle-bench.spec.mjs:154:5 › a11y + layout 1440px /build/freestyle (3.1s)
+  ok  43 e2e\freestyle-views.spec.mjs:12:1 › fresh home and room have no implicit board, circuit, code, or saved replacement (2.9s)
+  ok  44 e2e\freestyle-views.spec.mjs:24:1 › board selection changes 2D art, accessible pins, schematic and correct 3D assets (12.7s)
+  ok  45 e2e\freestyle-views.spec.mjs:48:1 › draft is opt-in and byte-preserved until resumed or safely backed up (6.7s)
+  ok  46 e2e\freestyle-views.spec.mjs:74:1 › later blank/sample replacements keep the latest custom work recoverable in the draft dialog (3.7s)
+  ok  47 e2e\freestyle-views.spec.mjs:90:1 › runtime waveform captures actual samples and invalidates when code or board changes (2.6s)
+  ok  48 e2e\freestyle-views.spec.mjs:102:1 › backup failure preserves the old raw draft while the new bench remains usable in memory (3.5s)
+  ok  49 e2e\freestyle-views.spec.mjs:117:1 › switching board during a pending compile rejects the stale completion and error (2.6s)
+  ok  50 e2e\freestyle-views.spec.mjs:132:1 › home full-screen action preserves unsaved session-only work in place (2.6s)
+  ok  51 e2e\freestyle-views.spec.mjs:143:1 › combined board and bench-part URL handoff is atomic and survives a reload (3.0s)
+  ok  52 e2e\freestyle-views.spec.mjs:152:1 › stopping after the first runtime frame flushes Serial and waveform before the 80ms UI interval (3.3s)
+  ok  53 e2e\freestyle-views.spec.mjs:164:31 › workspace stays legible, keyboard reachable and expandable at 375px (2.7s)
+  ok  54 e2e\freestyle-views.spec.mjs:164:31 › workspace stays legible, keyboard reachable and expandable at 1440px (3.5s)
+  x   55 e2e\journeys.spec.mjs:4:1 › mobile selected-wire controls remain fully exposed above the playback console (16.6s)
+(node:40824) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  56 e2e\journeys.spec.mjs:38:3 › 3D event marker excludes selected pins outside the current frame at 1440px (9.3s)
+  ok  57 e2e\journeys.spec.mjs:38:3 › 3D event marker excludes selected pins outside the current frame at 375px (6.5s)
+  ok  58 e2e\journeys.spec.mjs:70:3 › signal playback follows one event across projections at 1440px (13.0s)
+  ok  59 e2e\journeys.spec.mjs:70:3 › signal playback follows one event across projections at 375px (12.8s)
+  ok  60 e2e\journeys.spec.mjs:162:1 › reduced motion keeps signal playback manual and stops an active timer (6.2s)
+  ok  61 e2e\journeys.spec.mjs:188:3 › button LED wiring preserves endpoint identity and rejects invalid edits at 1440×900 (13.7s)
+  x   62 e2e\journeys.spec.mjs:188:3 › button LED wiring preserves endpoint identity and rejects invalid edits at 375×812 (23.1s)
+(node:42228) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  63 e2e\journeys.spec.mjs:332:1 › button LED workspace keeps the desktop scene, navigation, and typed result in one viewport (10.2s)
+  ok  64 e2e\journeys.spec.mjs:402:1 › button LED mobile views preserve input, selection, and code and invalidate old results (3.3s)
+  ok  65 e2e\journeys.spec.mjs:451:3 › teaching schematic preserves keyboard net selection and code highlights at 1440px (3.9s)
+  ok  66 e2e\journeys.spec.mjs:451:3 › teaching schematic preserves keyboard net selection and code highlights at 375px (2.9s)
+  ok  67 e2e\journeys.spec.mjs:498:1 › an unknown board keeps the button lesson in a labeled reference view without 3D or trace (1.3s)
+  ok  68 e2e\journeys.spec.mjs:508:1 › PCB copper viewer keeps controls readable in the warm interface and renders the selected CAD layer (3.2s)
+  ok  69 e2e\journeys.spec.mjs:576:1 › beginner follows curriculum into an editable guided lesson (5.7s)
+  ok  70 e2e\journeys.spec.mjs:594:1 › learner discovers and completes the conceptual robot lesson across narrow and desktop viewports (5.3s)
+  ok  71 e2e\journeys.spec.mjs:616:1 › real pointer drag creates exactly one wire and undo restores the circuit (2.7s)
+  ok  72 e2e\journeys.spec.mjs:674:1 › schematic pins can be connected with Tab and Enter (3.1s)
+  ok  73 e2e\journeys.spec.mjs:681:1 › 3D view pins can be connected with Tab and Enter (4.3s)
+  ok  74 e2e\journeys.spec.mjs:696:1 › draft warning is announced once and clears after storage recovers (1.6s)
+  ok  75 e2e\journeys.spec.mjs:722:1 › accepting a v4 migration preview keeps source bytes while v5 jumpers and cross-view selection persist (12.3s)
+  ok  76 e2e\journeys.spec.mjs:815:1 › 3D lesson preview ignores stale legacy parts and keeps its inventory on the CircuitDocV2 source (5.5s)
+  ok  77 e2e\journeys.spec.mjs:847:1 › lesson code steps highlight the corresponding canonical circuit net and board feature selection is shared (17.9s)
+  ok  78 e2e\journeys.spec.mjs:910:1 › pin focus does not select its part and part shortcuts do not bubble from pins (4.7s)
+  ok  79 e2e\journeys.spec.mjs:975:1 › XIAO S3 reference viewer has no duplicate React key or asset-load error (3.1s)
+  ok  80 e2e\journeys.spec.mjs:987:1 › compatible sample firmware requires target confirmation and emits captured D13 transitions (3.5s)
+  ok  81 e2e\journeys.spec.mjs:1003:1 › SPICE solves its RC example and exports solver data (2.9s)
+  ok  82 e2e\journeys.spec.mjs:1013:1 › saved project can be opened and exported/imported without losing circuit or drafts (6.9s)
+  ok  83 e2e\journeys.spec.mjs:1041:1 › file import preserves portable identity and conflicting drafts without serializing branch defaults (6.8s)
+  ok  84 e2e\journeys.spec.mjs:1069:1 › library identity round trip updates only the opened entry and keeps the portable document (19.3s)
+  ok  85 e2e\journeys.spec.mjs:1184:3 › slow Builder import preserves the latest linked draft when confirmed (7.2s)
+  ok  86 e2e\journeys.spec.mjs:1184:3 › slow Builder import preserves the latest linked draft when cancelled (9.0s)
+  ok  87 e2e\journeys.spec.mjs:1249:1 › supplied and learner-edited branch drafts survive reload including empty drafts (21.0s)
+  ok  88 e2e\journeys.spec.mjs:1282:1 › classroom kit includes station accessories in the downloaded CSV (2.4s)
+  ok  89 e2e\journeys.spec.mjs:1292:1 › legacy v1 kit in localStorage reloads byte-identically and shows the documented 10 kΩ LDR resistor (2.0s)
+  ok  90 e2e\journeys.spec.mjs:1313:1 › legacy family-level resistor override shows a preview and waits for an explicit variant mapping (2.3s)
+  ok  91 e2e\journeys.spec.mjs:1343:1 › ambiguous legacy localStorage override is previewed and is not applied before a choice (1.7s)
+  ok  92 e2e\journeys.spec.mjs:1372:3 › unreadable saved kit (future schema) is preserved until an explicit replacement (3.0s)
+  ok  93 e2e\journeys.spec.mjs:1372:3 › unreadable saved kit (malformed JSON) is preserved until an explicit replacement (3.2s)
+  ok  94 e2e\journeys.spec.mjs:1372:3 › unreadable saved kit (empty saved value) is preserved until an explicit replacement (3.0s)
+  ok  95 e2e\mascot-guide.spec.mjs:10:31 › guide opens, answers locally and preserves workspace at 375px (16.6s)
+  ok  96 e2e\mascot-guide.spec.mjs:10:31 › guide opens, answers locally and preserves workspace at 1440px (16.8s)
+  ok  97 e2e\mascot-guide.spec.mjs:33:1 › mascot uses the approved logo, can be hidden and reopened, and respects reduced motion (4.0s)
+  ok  98 e2e\mascot-guide.spec.mjs:44:1 › visible launcher has the same accessible name as its text (3.1s)
+  ok  99 e2e\mascot-guide.spec.mjs:50:1 › 3D failure leaves the original mascot image and local help usable (3.5s)
+  ok 100 e2e\mascot-guide.spec.mjs:58:1 › guide reads actual workspace context and hands off to the existing tour (12.7s)
+  ok 101 e2e\mascot-guide.spec.mjs:66:1 › dark guide is readable and loads no AI/network service (14.2s)
+  ok 102 e2e\mascot-guide.spec.mjs:76:1 › ADC answer opens the real guided potentiometer lesson (10.7s)
+  ok 103 e2e\mascot-guide.spec.mjs:83:1 › unknown board remains a reference fallback in the guide context (9.4s)
+  ok 104 e2e\mascot-guide.spec.mjs:90:1 › tour text stays opaque throughout its entrance on mobile (2.9s)
+  ok 105 e2e\offline.spec.mjs:8:1 › app opens offline and a new worker deploy removes its previous cache (6.5s)
+  x  106 e2e\onboarding-tour.spec.mjs:8:1 › an unsupported board handoff explains the fallback without losing the existing bench (15.8s)
+(node:46024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 107 e2e\onboarding-tour.spec.mjs:15:34 › app tours highlight real regions and keep mobile navigation reachable at 375px (26.6s)
+  ok 108 e2e\onboarding-tour.spec.mjs:15:34 › app tours highlight real regions and keep mobile navigation reachable at 1440px (25.8s)
+  ok 109 e2e\onboarding-tour.spec.mjs:48:1 › first visit invites a tour; keyboard drives it, focus stays inside, Esc skips and the choice is remembered (3.4s)
+  ok 110 e2e\onboarding-tour.spec.mjs:78:1 › Help menu reopens this page tour and opens another page tour (8.6s)
+  ok 111 e2e\onboarding-tour.spec.mjs:102:34 › lesson and freestyle tours have no serious axe violations while open at 375px (11.0s)
+  ok 112 e2e\onboarding-tour.spec.mjs:102:34 › lesson and freestyle tours have no serious axe violations while open at 1440px (12.6s)
+  ok 113 e2e\onboarding-tour.spec.mjs:119:1 › reduced motion turns tour and page animations off (1.9s)
+  x  114 e2e\onboarding-tour.spec.mjs:131:1 › top navigation shows five areas and the library opens items on the freestyle bench (18.3s)
+(node:46028) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 115 e2e\one-screen-layout.spec.mjs:8:3 › no document vertical scroll at 1440x900 (21.7s)
+  ok 116 e2e\one-screen-layout.spec.mjs:8:3 › no document vertical scroll at 1366x768 (23.5s)
+  ok 117 e2e\one-screen-layout.spec.mjs:20:1 › mobile routes never scroll horizontally (9.1s)
+  ok 118 e2e\one-screen-layout.spec.mjs:29:1 › lesson panel tabs show one section at a time and keep the circuit stage visible (2.0s)
+  ok 119 e2e\one-screen-layout.spec.mjs:44:1 › lesson wires show the trace level only while a HIGH/LOW action is selected (2.6s)
+  ok 120 e2e\route-card-contrast.spec.mjs:6:3 › light /privacy card text has direct WCAG contrast (1.8s)
+  ok 121 e2e\route-card-contrast.spec.mjs:6:3 › light /khong-co-trang-nay card text has direct WCAG contrast (1.2s)
+  ok 122 e2e\route-card-contrast.spec.mjs:6:3 › dark /privacy card text has direct WCAG contrast (1.5s)
+  ok 123 e2e\route-card-contrast.spec.mjs:6:3 › dark /khong-co-trang-nay card text has direct WCAG contrast (1.2s)
+  ok 124 e2e\signal-flow.spec.mjs:12:1 › ultrasonic run labels 5V / ECHO divider and highlights the LED write (4.9s)
+  ok 125 e2e\signal-flow.spec.mjs:28:1 › blink serial log records each level change from the engine (3.5s)
+  ok 126 e2e\signal-flow.spec.mjs:36:1 › CircuitDocV2 lessons (ESP32 blink) also show the signal-flow panel (4.8s)
+  ok 127 e2e\signal-flow.spec.mjs:42:1 › concept lessons say the flow is illustrative (2.8s)
+  ok 128 e2e\signal-flow.spec.mjs:48:1 › reduced motion stops the schematic dash animation (2.3s)
+  ok 129 e2e\signal-flow.spec.mjs:57:1 › legacy schematic cards never overlap in any lesson (26.2s)
+  ok 130 e2e\signal-flow.spec.mjs:71:1 › 3D view spins the motor with the frame direction (10.4s)
+  ok 131 e2e\signal-flow.spec.mjs:82:1 › 3D ultrasonic run labels supply and ECHO wires like the 2D panel (39.3s)
+  ok 132 e2e\signal-flow.spec.mjs:92:1 › reduced motion freezes the 3D motor spin (10.6s)
+  ok 133 e2e\sketch-and-pico.spec.mjs:4:1 › ESP32 button sketch runs in the browser and reacts to a held input (1.8s)
+  ok 134 e2e\sketch-and-pico.spec.mjs:18:1 › sketch errors point at the line and switching board changes pin rules (1.6s)
+  ok 135 e2e\sketch-and-pico.spec.mjs:28:1 › Pico demo firmware executes on rp2040js and toggles GP25 (5.5s)
+  ok 136 e2e\spice-probes.spec.mjs:4:1 › SPICE probe map reads node voltage and branch current solved by ngspice (2.3s)
+  ok 137 e2e\spice-probes.spec.mjs:19:1 › transient probe follows the time cursor and the plot cursor (3.1s)
+  ok 138 e2e\theme.spec.mjs:12:1 › theme defaults to light, persists dark and follows an explicit system preference without altering a draft (4.5s)
+  x  139 e2e\theme.spec.mjs:33:34 › dark UI has no serious accessibility issues at 375px (4.3s)
+(node:35624) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  140 e2e\theme.spec.mjs:33:34 › dark UI has no serious accessibility issues at 1440px (5.7s)
+(node:45196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  141 e2e\theme.spec.mjs:51:112 › dark detail controls remain readable on /learn/esp32-led (11.2s)
+(node:37884) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 142 e2e\theme.spec.mjs:51:112 › dark detail controls remain readable on /learn/button-led (10.9s)
+  ok 143 e2e\theme.spec.mjs:51:112 › dark detail controls remain readable on /tools/firmware-hex (2.6s)
+  ok 144 e2e\theme.spec.mjs:51:112 › dark detail controls remain readable on /app/robot-simulation (2.5s)
+  ok 145 e2e\theme.spec.mjs:60:1 › kit print sheet stays on white paper when screen theme is dark (1.4s)
+  ok 146 e2e\workspace-interaction-regressions.spec.mjs:3:1 › selecting a component body in the lesson opens that component in the inspector (3.2s)
+  ok 147 e2e\workspace-interaction-regressions.spec.mjs:17:1 › breadboard diagram exposes one tab stop for holes and supports arrow navigation (1.8s)
+  ok 148 e2e\workspace-interaction-regressions.spec.mjs:34:1 › read-only lesson preview never renders wire mutation controls until a local draft exists (3.3s)
+  ok 149 e2e\workspace-interaction-regressions.spec.mjs:80:1 › CircuitDocV2 lesson trace is available and highlights the same circuit across views (42.6s)
+  ok 150 e2e\workspace-interaction-regressions.spec.mjs:104:1 › selecting a schematic component highlights the same part on the breadboard (8.2s)
+  ok 151 e2e\workspace-interaction-regressions.spec.mjs:132:1 › selecting a schematic net cross-highlights all of its breadboard wires (8.3s)
+  ok 152 e2e\workspace-interaction-regressions.spec.mjs:163:1 › selecting a schematic pin cross-probes the corresponding breadboard pin (3.0s)
+  ok 153 e2e\workspace-interaction-regressions.spec.mjs:182:1 › selecting a schematic pin shows the same endpoint in the 3D scene (7.3s)
+  ok 154 e2e\workspace-interaction-regressions.spec.mjs:200:1 › CircuitDocV2 breadboard connects a board pin to a real hole and can remove that wire (3.3s)
+  ok 155 e2e\workspace-interaction-regressions.spec.mjs:230:1 › PCB copper view fits the CAD board outline instead of leaving a tall empty canvas (1.4s)
+  ok 156 e2e\workspace-interaction-regressions.spec.mjs:257:1 › PCB copper viewer stays within a 375px screen and switches layers without horizontal overflow (1.3s)
+
+
+  1) e2e\accessibility.spec.mjs:4:59 › a11y 375px /build?lesson=blink&guided=1 ─────────────────────
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "id": "label-content-name-mismatch",
+    +     "nodes": Array [
+    +       Array [
+    +         ".diagram-board-body-control",
+    +       ],
+    +     ],
+    +   },
+    + ]
+
+       8 |   const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']).analyze()
+       9 |   await testInfo.attach('axe-results',{body:JSON.stringify(result.violations,null,2),contentType:'application/json'})
+    > 10 |   expect(result.violations.filter(v=>v.impact==='serious'||v.impact==='critical').map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)}))).toEqual([])
+         |                                                                                                                                       ^
+      11 |   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)
+      12 | })
+      13 |
+        at D:\StartupOS\electronics-learning-demo\e2e\accessibility.spec.mjs:10:135
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\accessibility-a11y-375px-build-lesson-blink-guided-1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .tmp\pw-redesign-results\accessibility-a11y-375px-build-lesson-blink-guided-1\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\accessibility-a11y-375px-build-lesson-blink-guided-1\trace.zip
+    Usage:
+
+        npx playwright show-trace .tmp\pw-redesign-results\accessibility-a11y-375px-build-lesson-blink-guided-1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) e2e\journeys.spec.mjs:4:1 › mobile selected-wire controls remain fully exposed above the playback console 
+
+    Error: expect(locator).toBeInViewport() failed
+
+    Locator:  locator('.button-lab').getByRole('region', { name: 'Lắp mạch trên breadboard' }).getByRole('region', { name: 'Chỉnh dây w-input-to-button' }).getByRole('button', { name: 'Đổi điểm bắt đầu' })
+    Expected: in viewport
+    Received: viewport ratio 0.4293869435787201
+    Timeout:  15000ms
+
+    Call log:
+      - Expect "toBeInViewport" locator('.button-lab').getByRole('region', { name: 'Lắp mạch trên breadboard' }).getByRole('region', { name: 'Chỉnh dây w-input-to-button' }).getByRole('button', { name: 'Đổi điểm bắt đầu' }) with timeout 15000ms
+      - waiting for locator('.button-lab').getByRole('region', { name: 'Lắp mạch trên breadboard' }).getByRole('region', { name: 'Chỉnh dây w-input-to-button' }).getByRole('button', { name: 'Đổi điểm bắt đầu' })
+        33 × locator resolved to <button type="button" aria-pressed="false">Đổi điểm bắt đầu</button>
+           - unexpected value "viewport ratio 0.4293869435787201"
+
+
+      21 |       wire.getByRole('button', { name: 'Xóa dây w-input-to-button' }),
+      22 |       lab.getByRole('button', { name: 'Khôi phục mạch' }),
+    > 23 |     ]) await expect(control).toBeInViewport({ ratio: 1 })
+         |                              ^
+      24 |     await expect(lab.locator('.button-lab-result')).toHaveAttribute('data-state', state === 'stale' ? 'stale' : 'ready')
+      25 |     await expect(lab.locator('.button-lab-result')).toHaveAttribute('data-event', state === 'stale' ? '' : state)
+      26 |   }
+        at D:\StartupOS\electronics-learning-demo\e2e\journeys.spec.mjs:23:30
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\journeys-mobile-selected-w-1ead5--above-the-playback-console\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .tmp\pw-redesign-results\journeys-mobile-selected-w-1ead5--above-the-playback-console\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\journeys-mobile-selected-w-1ead5--above-the-playback-console\trace.zip
+    Usage:
+
+        npx playwright show-trace .tmp\pw-redesign-results\journeys-mobile-selected-w-1ead5--above-the-playback-console\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) e2e\journeys.spec.mjs:188:3 › button LED wiring preserves endpoint identity and rejects invalid edits at 375×812 
+
+    Error: expect(locator).toBeInViewport() failed
+
+    Locator:  locator('.button-lab').getByRole('region', { name: 'Lắp mạch trên breadboard' }).getByRole('button', { name: 'Chọn', exact: true })
+    Expected: in viewport
+    Received: viewport ratio 0
+    Timeout:  15000ms
+
+    Call log:
+      - Expect "toBeInViewport" locator('.button-lab').getByRole('region', { name: 'Lắp mạch trên breadboard' }).getByRole('button', { name: 'Chọn', exact: true }) with timeout 15000ms
+      - waiting for locator('.button-lab').getByRole('region', { name: 'Lắp mạch trên breadboard' }).getByRole('button', { name: 'Chọn', exact: true })
+        32 × locator resolved to <button type="button" aria-pressed="true">Chọn</button>
+           - unexpected value "viewport ratio 0"
+
+
+      284 |     await expect(trace).toHaveAttribute('data-state', 'stale')
+      285 |     await lab.locator('.button-lab-stage-scroll').evaluate(stage => { stage.scrollTop = 0 })
+    > 286 |     await expect(select).toBeInViewport()
+          |                          ^
+      287 |     await expect(connect).toBeInViewport()
+      288 |     await expect(wire.getByRole('button', { name: 'Đổi điểm bắt đầu' })).toBeInViewport()
+      289 |     await expect(wire.getByRole('button', { name: 'Đổi điểm kết thúc' })).toBeInViewport()
+        at D:\StartupOS\electronics-learning-demo\e2e\journeys.spec.mjs:286:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\journeys-button-LED-wiring-cbf9a-ts-invalid-edits-at-375×812\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .tmp\pw-redesign-results\journeys-button-LED-wiring-cbf9a-ts-invalid-edits-at-375×812\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\journeys-button-LED-wiring-cbf9a-ts-invalid-edits-at-375×812\trace.zip
+    Usage:
+
+        npx playwright show-trace .tmp\pw-redesign-results\journeys-button-LED-wiring-cbf9a-ts-invalid-edits-at-375×812\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) e2e\onboarding-tour.spec.mjs:8:1 › an unsupported board handoff explains the fallback without losing the existing bench 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('status').filter({ hasText: /chưa có trên bàn tự do; đang dùng/ })
+    Expected substring: "not-a-supported-board"
+    Timeout: 15000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" getByRole('status').filter({ hasText: /chưa có trên bàn tự do; đang dùng/ }) with timeout 15000ms
+      - waiting for getByRole('status').filter({ hasText: /chưa có trên bàn tự do; đang dùng/ })
+
+
+       8 | test('an unsupported board handoff explains the fallback without losing the existing bench', async ({ page }) => {
+       9 |   await page.goto('/build/freestyle?board=not-a-supported-board')
+    > 10 |   await expect(page.getByRole('status').filter({ hasText: /chưa có trên bàn tự do; đang dùng/ })).toContainText('not-a-supported-board')
+         |                                                                                                   ^
+      11 |   await expect(page).toHaveURL(/\/build\/freestyle$/)
+      12 |   await expect(page.locator('.freestyle-bench')).toBeVisible()
+      13 | })
+        at D:\StartupOS\electronics-learning-demo\e2e\onboarding-tour.spec.mjs:10:99
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\onboarding-tour-an-unsuppo-95ce1-t-losing-the-existing-bench\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .tmp\pw-redesign-results\onboarding-tour-an-unsuppo-95ce1-t-losing-the-existing-bench\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\onboarding-tour-an-unsuppo-95ce1-t-losing-the-existing-bench\trace.zip
+    Usage:
+
+        npx playwright show-trace .tmp\pw-redesign-results\onboarding-tour-an-unsuppo-95ce1-t-losing-the-existing-bench\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) e2e\onboarding-tour.spec.mjs:131:1 › top navigation shows five areas and the library opens items on the freestyle bench 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByRole('tab', { name: /Thêm linh kiện/ })
+    Expected: "true"
+    Received: "false"
+    Timeout:  15000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByRole('tab', { name: /Thêm linh kiện/ }) with timeout 15000ms
+      - waiting for getByRole('tab', { name: /Thêm linh kiện/ })
+        34 × locator resolved to <button role="tab" type="button" tabindex="-1" aria-selected="false" id="freestyle-step-parts" aria-controls="freestyle-step-panel">…</button>
+           - unexpected value "false"
+
+
+      137 |   await page.getByRole('link', { name: /Lắp thử trên bàn tự do/ }).click()
+      138 |   await expect(page).toHaveURL(/\/build\/freestyle$/)
+    > 139 |   await expect(page.getByRole('tab', { name: /Thêm linh kiện/ })).toHaveAttribute('aria-selected', 'true')
+          |                                                                   ^
+      140 |   await expect(page.getByLabel(/^Linh kiện đang chọn led\d+$/)).toBeVisible()
+      141 |
+      142 |   await page.goto('/boards')
+        at D:\StartupOS\electronics-learning-demo\e2e\onboarding-tour.spec.mjs:139:67
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\onboarding-tour-top-naviga-020a9-tems-on-the-freestyle-bench\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .tmp\pw-redesign-results\onboarding-tour-top-naviga-020a9-tems-on-the-freestyle-bench\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\onboarding-tour-top-naviga-020a9-tems-on-the-freestyle-bench\trace.zip
+    Usage:
+
+        npx playwright show-trace .tmp\pw-redesign-results\onboarding-tour-top-naviga-020a9-tems-on-the-freestyle-bench\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) e2e\theme.spec.mjs:33:34 › dark UI has no serious accessibility issues at 375px ───────────────
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "id": "color-contrast",
+    +     "nodes": Array [
+    +       Array [
+    +         ".freestyle-view-tabs > button:nth-child(1)",
+    +       ],
+    +     ],
+    +   },
+    + ]
+
+      38 |     await expect(page.locator('main h1').first()).toBeVisible()
+      39 |     const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze()
+    > 40 |     expect(result.violations.filter(v => ['serious', 'critical'].includes(v.impact)).map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) }))).toEqual([])
+         |                                                                                                                                                   ^
+      41 |   }
+      42 |   await page.getByRole('button', { name: 'Trợ giúp', exact: true }).click()
+      43 |   await expect(page.getByRole('radiogroup', { name: 'Giao diện' })).toBeVisible()
+        at D:\StartupOS\electronics-learning-demo\e2e\theme.spec.mjs:40:147
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\theme-dark-UI-has-no-serious-accessibility-issues-at-375px\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .tmp\pw-redesign-results\theme-dark-UI-has-no-serious-accessibility-issues-at-375px\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\theme-dark-UI-has-no-serious-accessibility-issues-at-375px\trace.zip
+    Usage:
+
+        npx playwright show-trace .tmp\pw-redesign-results\theme-dark-UI-has-no-serious-accessibility-issues-at-375px\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) e2e\theme.spec.mjs:33:34 › dark UI has no serious accessibility issues at 1440px ──────────────
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "id": "color-contrast",
+    +     "nodes": Array [
+    +       Array [
+    +         ".freestyle-view-tabs > button:nth-child(1)",
+    +       ],
+    +     ],
+    +   },
+    + ]
+
+      38 |     await expect(page.locator('main h1').first()).toBeVisible()
+      39 |     const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze()
+    > 40 |     expect(result.violations.filter(v => ['serious', 'critical'].includes(v.impact)).map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) }))).toEqual([])
+         |                                                                                                                                                   ^
+      41 |   }
+      42 |   await page.getByRole('button', { name: 'Trợ giúp', exact: true }).click()
+      43 |   await expect(page.getByRole('radiogroup', { name: 'Giao diện' })).toBeVisible()
+        at D:\StartupOS\electronics-learning-demo\e2e\theme.spec.mjs:40:147
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\theme-dark-UI-has-no-serious-accessibility-issues-at-1440px\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .tmp\pw-redesign-results\theme-dark-UI-has-no-serious-accessibility-issues-at-1440px\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\theme-dark-UI-has-no-serious-accessibility-issues-at-1440px\trace.zip
+    Usage:
+
+        npx playwright show-trace .tmp\pw-redesign-results\theme-dark-UI-has-no-serious-accessibility-issues-at-1440px\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) e2e\theme.spec.mjs:51:112 › dark detail controls remain readable on /learn/esp32-led ──────────
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "id": "label-content-name-mismatch",
+    +     "nodes": Array [
+    +       Array [
+    +         ".diagram-board-body-control",
+    +       ],
+    +     ],
+    +   },
+    + ]
+
+      54 |   await expect(page.locator('main h1').first()).toBeVisible()
+      55 |   const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze()
+    > 56 |   expect(result.violations.filter(v => ['serious', 'critical'].includes(v.impact)).map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) }))).toEqual([])
+         |                                                                                                                                                 ^
+      57 |   await page.screenshot({ path: `${proof}/dark-${route.slice(1).replaceAll('/', '-')}.png` })
+      58 | })
+      59 |
+        at D:\StartupOS\electronics-learning-demo\e2e\theme.spec.mjs:56:145
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\theme-dark-detail-controls-ad19c-readable-on-learn-esp32-led\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .tmp\pw-redesign-results\theme-dark-detail-controls-ad19c-readable-on-learn-esp32-led\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .tmp\pw-redesign-results\theme-dark-detail-controls-ad19c-readable-on-learn-esp32-led\trace.zip
+    Usage:
+
+        npx playwright show-trace .tmp\pw-redesign-results\theme-dark-detail-controls-ad19c-readable-on-learn-esp32-led\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8 failed
+    e2e\accessibility.spec.mjs:4:59 › a11y 375px /build?lesson=blink&guided=1 ──────────────────────
+    e2e\journeys.spec.mjs:4:1 › mobile selected-wire controls remain fully exposed above the playback console 
+    e2e\journeys.spec.mjs:188:3 › button LED wiring preserves endpoint identity and rejects invalid edits at 375×812 
+    e2e\onboarding-tour.spec.mjs:8:1 › an unsupported board handoff explains the fallback without losing the existing bench 
+    e2e\onboarding-tour.spec.mjs:131:1 › top navigation shows five areas and the library opens items on the freestyle bench 
+    e2e\theme.spec.mjs:33:34 › dark UI has no serious accessibility issues at 375px ────────────────
+    e2e\theme.spec.mjs:33:34 › dark UI has no serious accessibility issues at 1440px ───────────────
+    e2e\theme.spec.mjs:51:112 › dark detail controls remain readable on /learn/esp32-led ───────────
+  148 passed (17.4m)

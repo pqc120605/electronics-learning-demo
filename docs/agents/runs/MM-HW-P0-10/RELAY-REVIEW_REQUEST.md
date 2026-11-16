@@ -8,7 +8,7 @@ scope: documentary consolidation + conditional design analysis; no gate/MPN/hash
 configuration: MOBOT-V2-CONFIG-r12-HANDSET
 configuration_sha256: 8b3456545639db7b559eb06ad798b10f0d406ae1326403216302504fe104427b
 packet_manifest: docs/agents/runs/MM-HW-P0-10/packet-snapshot.json
-packet_manifest_sha256: a7a444cab53c5fc3397642cf4b2d6d40285222c81f359b99e497f829ef004f89
+packet_manifest_sha256: 29793c0ec7975129aae8c851e72393cb3bae8c161c944424fb7b89b3bf5b0676
 
 ## Đọc và kiểm
 

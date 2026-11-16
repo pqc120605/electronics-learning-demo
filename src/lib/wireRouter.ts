@@ -109,6 +109,29 @@ function simplify(points: RouterPoint[]): RouterPoint[] {
   return output
 }
 
+function snapToRouterGrid(point: RouterPoint, pitch: number): RouterPoint {
+  return [Math.round(point[0] / pitch) * pitch, Math.round(point[1] / pitch) * pitch]
+}
+
+/** Connect an exact component terminal to the A* grid using only orthogonal segments. */
+function orthogonalStub(point: RouterPoint, gridPoint: RouterPoint): RouterPoint[] {
+  if (samePoint(point, gridPoint)) return [gridPoint]
+  const elbow: RouterPoint = [gridPoint[0], point[1]]
+  return samePoint(elbow, gridPoint) ? [gridPoint] : [elbow, gridPoint]
+}
+
+function segmentCrossesObstacle(a: RouterPoint, b: RouterPoint, obstacle: RouterObstacle, padding: number): boolean {
+  const left = obstacle.x - padding, right = obstacle.x + obstacle.width + padding
+  const top = obstacle.y - padding, bottom = obstacle.y + obstacle.height + padding
+  if (Math.abs(a[1] - b[1]) < 1e-8) {
+    return a[1] > top && a[1] < bottom && Math.max(Math.min(a[0], b[0]), left) < Math.min(Math.max(a[0], b[0]), right)
+  }
+  if (Math.abs(a[0] - b[0]) < 1e-8) {
+    return a[0] > left && a[0] < right && Math.max(Math.min(a[1], b[1]), top) < Math.min(Math.max(a[1], b[1]), bottom)
+  }
+  return true
+}
+
 function bendsOf(points: readonly RouterPoint[]): number {
   let bends = 0
   for (let index = 2; index < points.length; index += 1) {
@@ -197,17 +220,27 @@ export function routeWires(wires: readonly RouterWire[], obstacles: readonly Rou
   for (const wire of [...wires].sort((a, b) => a.id.localeCompare(b.id, 'en'))) {
     const coordinates = [...wire.from, ...wire.to]
     if (!wire.id || coordinates.some(value => !Number.isFinite(value))) { errors.push({ wireId: wire.id, reason: 'Dây thiếu id hoặc tọa độ không hữu hạn.' }); continue }
-    if (coordinates.some(value => Math.abs(value / pitch - Math.round(value / pitch)) > 1e-6)) { errors.push({ wireId: wire.id, reason: 'Endpoint không nằm trên lưới định tuyến.' }); continue }
-    const from = exitCell(wire.from, wire.fromExit, wire.fromObstacleId, obstacles, padding, pitch)
-    const to = exitCell(wire.to, wire.toExit, wire.toObstacleId, obstacles, padding, pitch)
+    const fromGridPoint = snapToRouterGrid(wire.from, pitch)
+    const toGridPoint = snapToRouterGrid(wire.to, pitch)
+    const fromStub = orthogonalStub(wire.from, fromGridPoint)
+    const toStub = orthogonalStub(wire.to, toGridPoint)
+    const connectorBlocked = (stub: readonly RouterPoint[], ownerId: string | undefined) => stub.slice(1).some((point, index) => {
+      const start = stub[index]
+      return obstacles.some(obstacle => obstacle.id !== ownerId && segmentCrossesObstacle(start, point, obstacle, padding))
+    })
+    if (connectorBlocked(fromStub, wire.fromObstacleId) || connectorBlocked(toStub, wire.toObstacleId)) {
+      errors.push({ wireId: wire.id, reason: 'Đoạn nối vuông góc từ terminal tới lưới đi xuyên footprint khác.' }); continue
+    }
+    const from = exitCell(fromGridPoint, wire.fromExit, wire.fromObstacleId, obstacles, padding, pitch)
+    const to = exitCell(toGridPoint, wire.toExit, wire.toObstacleId, obstacles, padding, pitch)
     if (!from || !to) { errors.push({ wireId: wire.id, reason: 'Không thoát được khỏi footprint theo một đoạn vuông góc.' }); continue }
-    if (leadOverlaps(wire.from, from, occupied, pitch) || leadOverlaps(wire.to, to, occupied, pitch)) { errors.push({ wireId: wire.id, reason: 'Đoạn thoát của dây sẽ chồng lên dây đã định tuyến.' }); continue }
+    if (leadOverlaps(fromGridPoint, from, occupied, pitch) || leadOverlaps(toGridPoint, to, occupied, pitch)) { errors.push({ wireId: wire.id, reason: 'Đoạn thoát của dây sẽ chồng lên dây đã định tuyến.' }); continue }
     const routeOccupied: OccupiedEdges = { all: new Set(occupied.all), horizontal: new Set(occupied.horizontal), vertical: new Set(occupied.vertical) }
     addOccupiedSegment(routeOccupied, wire.from, from.lead, pitch)
     addOccupiedSegment(routeOccupied, wire.to, to.lead, pitch)
     const path = findPath(from.cell, to.cell, pitch, obstacles, padding, routeOccupied, maxExpanded)
     if (!path) { errors.push({ wireId: wire.id, reason: 'Không tìm thấy đường orthogonal tránh footprint và dây chồng.' }); continue }
-    const points = simplify([wire.from, from.lead, ...path.slice(1, -1), to.lead, wire.to])
+    const points = simplify([wire.from, ...fromStub, from.lead, ...path.slice(1, -1), to.lead, ...[...toStub].reverse(), wire.to])
     const bends = bendsOf(points)
     routes.push({ id: wire.id, points, bends, ...(bends > 3 ? { warning: 'Dây có hơn 3 góc rẽ.' } : {}) })
     for (let index = 1; index < points.length; index += 1) addOccupiedSegment(occupied, points[index - 1], points[index], pitch)

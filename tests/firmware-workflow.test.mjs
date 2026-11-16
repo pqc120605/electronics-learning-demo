@@ -36,3 +36,15 @@ test('CSV exports captured AVR transitions with source and units, not inferred e
   assert.equal(Number(lines[1].split(',')[4]), frame.pinTransitionEvents[0].cycles)
   assert.doesNotMatch(csv, /voltage|current|amperes/)
 })
+
+test('logic analyzer channels come from the emulated ports and agree with the D13 trace', () => {
+  const frame = runner.createAtmega328pMachine(demo.avr8jsD13TestHex).step(200_000)
+  assert.ok(frame.channels.D13?.length, 'D13 is recorded as an output channel')
+  assert.deepEqual(frame.channels.D13.slice(0, frame.pinTransitionEvents.length).map(event => event.level), frame.pinTransitionEvents.map(event => event.level))
+  for (const [name, events] of Object.entries(frame.channels)) {
+    assert.match(name, /^(D([0-9]|1[0-3])|A[0-5])$/)
+    for (const event of events) assert.ok(event.simulatedMilliseconds >= 0 && Number.isInteger(event.cycles))
+  }
+  assert.equal(Object.values(frame.channels).flat().length <= 2048, true)
+  assert.equal(runner.createAtmega328pMachine(demo.avr8jsD13TestHex).step(100).channelsTruncated, false)
+})

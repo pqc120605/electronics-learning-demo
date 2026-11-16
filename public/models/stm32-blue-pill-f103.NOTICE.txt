@@ -1,0 +1,16 @@
+stm32-blue-pill-f103 · Mạch Mở educational reconstruction (2026-11-14)
+
+What this is
+- A board assembled with KiCad 10.0.7 by scripts/build-stm32-education-boards.py from KiCad standard
+  library footprints and 3D package models, then exported with kicad-cli (pcb export glb).
+- Board size, header pitch/row spacing and pin order follow public documentation
+  (Blue Pill: stm32-base.org; Nucleo-64: ST UM1724). Positions of secondary parts are approximate.
+- It is NOT vendor CAD and NOT a scan of a physical board. Do not use it for fabrication or wiring sign-off.
+
+
+3D package models
+- KiCad Libraries Contributors, kicad-packages3D, CC BY-SA 4.0 with the KiCad library exception:
+  https://www.kicad.org/libraries/license/ · https://gitlab.com/kicad/libraries/kicad-packages3D
+- Package bodies are generic (e.g. LQFP-48/64, pin headers, USB connectors), not manufacturer-specific parts.
+
+STM32 and STMicroelectronics are trademarks of STMicroelectronics. This viewer is not affiliated with or endorsed by ST.

@@ -9,6 +9,9 @@ type Props = {
   signalName?: string
   variant?: 'dark' | 'light'
   truncated?: boolean
+  /** Engine sinh trace (mặc định AVR8js) và giới hạn số lần chuyển mức lưu lại. */
+  engineLabel?: string
+  maxEvents?: number
 }
 
 function formatTime(value: number) {
@@ -17,7 +20,7 @@ function formatTime(value: number) {
   return `${value.toFixed(1)} ms`
 }
 
-export function DigitalWaveform({ events, simulatedMilliseconds, signalName = 'D13 / PB5', variant = 'dark', truncated = false }: Props) {
+export function DigitalWaveform({ events, simulatedMilliseconds, signalName = 'D13 / PB5', variant = 'dark', truncated = false, engineLabel = 'AVR8js', maxEvents = 128 }: Props) {
   const [cursorA, setCursorA] = useState(0)
   const [cursorB, setCursorB] = useState(Math.max(events.length - 1, 0))
   if (events.length === 0) {
@@ -85,6 +88,6 @@ export function DigitalWaveform({ events, simulatedMilliseconds, signalName = 'D
       <summary>Danh sách chuyển mức có timestamp</summary>
       <ol>{events.map((event, index) => <li key={`${event.cycles}-${index}`}><code>{formatTime(event.simulatedMilliseconds - firstTime)}</code><b>{event.level ? 'HIGH' : 'LOW'}</b><span>{event.cycles.toLocaleString('vi-VN')} chu kỳ CPU</span></li>)}</ol>
     </details>
-    <small className="digital-waveform-disclaimer">Trục thời gian lấy từ chu kỳ CPU mô phỏng AVR8js, bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; {truncated ? 'trace đã bị cắt sau 128 lần chuyển mức.' : 'trace lưu tối đa 128 lần chuyển mức.'}</small>
+    <small className="digital-waveform-disclaimer">Trục thời gian lấy từ chu kỳ CPU mô phỏng {engineLabel}, bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; {truncated ? `trace đã bị cắt sau ${maxEvents.toLocaleString('vi-VN')} lần chuyển mức.` : `trace lưu tối đa ${maxEvents.toLocaleString('vi-VN')} lần chuyển mức.`}</small>
   </figure>
 }

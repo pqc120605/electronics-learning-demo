@@ -6,10 +6,10 @@ import { createServer } from 'vite'
 
 const server = await createServer({ configFile: 'vite.config.ts', logLevel: 'silent', server: { middlewareMode: true } })
 const load = (path) => server.ssrLoadModule(path)
-const [{ esp32DevkitModel }, { arduinoBoardModels }, { raspberryPiBoardModels }, { communityBoardModels }, { adafruitBoardModels }, { seeedBoardModels }, { espressifBoardModels }] = await Promise.all(['/src/data/esp32DevkitModel.ts', '/src/data/arduinoBoardModels.ts', '/src/data/raspberryPiBoardModels.ts', '/src/data/communityBoardModels.ts', '/src/data/adafruitBoardModels.ts', '/src/data/seeedBoardModels.ts', '/src/data/espressifBoardModels.ts'].map(load))
+const [{ esp32DevkitModel }, { arduinoBoardModels }, { raspberryPiBoardModels }, { communityBoardModels }, { adafruitBoardModels }, { seeedBoardModels }, { espressifBoardModels }, { stm32BoardModels }] = await Promise.all(['/src/data/esp32DevkitModel.ts', '/src/data/arduinoBoardModels.ts', '/src/data/raspberryPiBoardModels.ts', '/src/data/communityBoardModels.ts', '/src/data/adafruitBoardModels.ts', '/src/data/seeedBoardModels.ts', '/src/data/espressifBoardModels.ts', '/src/data/stm32BoardModels.ts'].map(load))
 
 const lock = {}
-for (const model of [esp32DevkitModel, ...arduinoBoardModels, ...raspberryPiBoardModels, ...communityBoardModels, ...adafruitBoardModels, ...seeedBoardModels, ...espressifBoardModels]) {
+for (const model of [esp32DevkitModel, ...arduinoBoardModels, ...raspberryPiBoardModels, ...communityBoardModels, ...adafruitBoardModels, ...seeedBoardModels, ...espressifBoardModels, ...stm32BoardModels]) {
   for (const scene of model.scenes) {
     const path = scene.assetUrl.split('?')[0]
     const file = new URL(`../public${path}`, import.meta.url)

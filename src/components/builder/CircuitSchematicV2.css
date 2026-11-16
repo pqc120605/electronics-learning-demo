@@ -1,7 +1,7 @@
 .circuit-schematic-v2{min-width:0;border:1px solid #d7c6a8;border-radius:14px;background:#fffaf0;color:#1b2a44;overflow:hidden}
 .circuit-schematic-v2>header{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:12px 16px;border-bottom:1px solid #e5d8c3}
 .circuit-schematic-v2>header div{display:grid;gap:4px}
-.circuit-schematic-v2>header small,.circuit-schematic-v2>header span{color:#526176;font-size:.78rem;max-width:55ch}
+.circuit-schematic-v2>header small,.circuit-schematic-v2>header span{color:#526176;font-size:var(--mm-text-sm);max-width:55ch}
 .circuit-schematic-scroll{max-width:100%;overflow:auto;padding:12px;background:#e9e4d9}
 .circuit-schematic-svg{display:block;width:100%;min-width:780px;max-height:72vh}
 .schematic-sheet{fill:#fffdf7;stroke:#7c8790;stroke-width:2}
@@ -16,6 +16,8 @@
 .circuit-net-line>path{cursor:pointer;pointer-events:stroke}
 .circuit-net-line.net-selected,.circuit-net-bridges.bridge-selected{color:#a15b00}
 .circuit-net-line.net-active,.circuit-net-bridges.bridge-active{color:#a34419}
+.circuit-net-line.net-cross-probed,.circuit-net-bridges.net-cross-probed{color:#087f9b}
+.circuit-net-line.net-cross-probed>path,.circuit-net-bridges.net-cross-probed .schematic-crossing-bridge{stroke-width:4}
 .circuit-net-line.net-selected>path,.circuit-net-line.net-active>path,.bridge-selected .schematic-crossing-bridge,.bridge-active .schematic-crossing-bridge{stroke-width:4}
 .circuit-schematic-v2 .circuit-net-bridges .schematic-crossing-gap{stroke:#fffaf0;stroke-width:9;stroke-linecap:butt}
 .circuit-schematic-v2 .circuit-net-bridges[data-lesson-net-selected] .schematic-crossing-bridge{stroke:var(--lab-teal,#19777a);stroke-width:6}
@@ -26,6 +28,9 @@
 .circuit-symbol-board rect,.circuit-symbol-unsupported rect{fill:#eef5ef}
 .circuit-symbol text{fill:#172f4d;stroke:none;text-anchor:middle;font:600 13px system-ui,sans-serif}
 .schematic-terminal circle{fill:#fffaf0;stroke:#19777a;stroke-width:2}
+.schematic-terminal[role='button']{cursor:crosshair}
+.schematic-terminal.is-selected circle{fill:#35b7c6;stroke:#084c61;stroke-width:3}
+.schematic-terminal[role='button']:focus-visible{outline:none;filter:drop-shadow(0 0 3px #1688a0)}
 .schematic-terminal path{fill:none;stroke:#172f4d;stroke-width:2}
 .schematic-terminal text{fill:#263b58;stroke:none;font:12px system-ui,sans-serif}
 .schematic-part-v2{cursor:pointer}
@@ -40,6 +45,6 @@
 .circuit-schematic-net-list button{width:100%;min-height:44px;display:grid;gap:4px;text-align:left;background:#fff;border:1px solid #dfd0b7;border-radius:8px;padding:10px;color:inherit;overflow-wrap:anywhere}
 .circuit-schematic-net-list small,.circuit-schematic-net-list button span{color:#526176}
 .schematic-net-holes{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
-.schematic-net-holes span{padding:2px 4px;border:1px solid #dfd0b7;border-radius:3px;font-size:.75rem;overflow-wrap:anywhere}
+.schematic-net-holes span{padding:2px 4px;border:1px solid #dfd0b7;border-radius:3px;font-size:var(--mm-text-sm);overflow-wrap:anywhere}
 .schematic-diagnostic{margin:8px 16px;color:#804513;font-size:.85rem;overflow-wrap:anywhere}
 @media(max-width:600px){.circuit-schematic-v2>header{align-items:flex-start;flex-direction:column;gap:6px}.circuit-schematic-scroll{padding:6px}.circuit-schematic-svg{max-height:none}.circuit-schematic-net-list ol{grid-template-columns:1fr}}

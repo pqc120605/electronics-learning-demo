@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from 'react'
 import { arduinoBoardModels } from '../../data/arduinoBoardModels'
 import { getBoardModelEvidence } from '../../data/boardModelSources'
 import type { BuilderLessonId } from '../../data/builderLessons'
@@ -8,7 +8,7 @@ import { esp32DevkitModel } from '../../data/esp32DevkitModel'
 import { raspberryPiBoardModels } from '../../data/raspberryPiBoardModels'
 import type { SimulationTarget } from '../../data/simulationTargets'
 import { assignCallouts, freezeAssembly, getAssemblyPlan, getAssemblyPlanV2, nudgePart, snapPart, type Callout } from '../../lib/assemblyLayout'
-import type { CircuitDocV2 } from '../../lib/circuitDocV2'
+import type { CircuitDocV2, CircuitEndpointV2 } from '../../lib/circuitDocV2'
 import type { PartPinConnection } from '../../lib/circuitNets'
 import type { WireFlow } from '../../lib/logicTrace'
 import { assemblyModelLabels, getFeatureInfo, getPartInfo } from '../../lib/partInfo'
@@ -31,6 +31,8 @@ type Props = {
   flows: Map<string, WireFlow>
   running: boolean
   litPartIds: string[]
+  /** Spin state per motor part from the simulation frame: direction and PWM %. Speed is illustrative. */
+  motorStates?: Readonly<Record<string, { direction: -1 | 0 | 1; pwm: number }>>
   connections: PartPinConnection[]
   lockReason?: string
   nameFor: (part: CircuitPart) => string
@@ -49,11 +51,14 @@ type Props = {
   onDrop: (id: string, x: number, y: number) => void
   onAssemblyChange: (mounts: Record<string, AssemblyMount> | null) => void
   circuitDocV2?: CircuitDocV2
+  selectedEndpointKey?: string
   selectedWireId?: string | null
+  highlightedNetKey?: string | null
+  highlightedWireIds?: ReadonlySet<string>
   layoutReadOnly?: boolean
 }
 
-type Overlay = { width: number; height: number; points: Record<string, { x: number; y: number; visible: boolean }>; chips: Array<{ id: string; label: string; x: number; y: number; signal: string }>; pin?: { x: number; y: number; label: string } }
+type Overlay = { width: number; height: number; points: Record<string, { x: number; y: number; visible: boolean }>; chips: Array<{ id: string; label: string; x: number; y: number; signal: string }>; pin?: { x: number; y: number; label: string }; selectedPin?: { key: string; x: number; y: number; label: string } }
 type Drag = { pointerId: number; x: number; y: number; moved: boolean; partId?: string; grabX?: number; grabZ?: number; heightMm?: number; startParts?: CircuitPart[] }
 
 const FEATURE_LIST_LIMIT = 40
@@ -63,9 +68,15 @@ const boardManifest = (boardId: string) => boardId === 'esp32-devkit' ? esp32Dev
 const signalColors: Record<WireFlow['signal'], [number, number, number]> = { power: [0.86, 0.22, 0.18], ground: [0.56, 0.6, 0.62], high: [0.12, 0.72, 0.62], low: [0.34, 0.4, 0.46], pulse: [0.56, 0.36, 0.86], analog: [0.92, 0.62, 0.2], active: [0.12, 0.72, 0.62] }
 const hexToColor = (hex: string): [number, number, number] => { const value = parseInt(hex.slice(1), 16); return [(value >> 16 & 255) / 255, (value >> 8 & 255) / 255, (value & 255) / 255] }
 const reducedMotion = () => globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
+const sceneEndpoint = (endpoint: CircuitEndpoint | CircuitEndpointV2): CircuitEndpoint => {
+  if (!('kind' in endpoint)) return endpoint
+  return endpoint.kind === 'pin'
+    ? { partId: endpoint.partId, pinId: endpoint.pinId }
+    : { partId: 'bb1', pinId: endpoint.holeId }
+}
 
 export function AssemblyStage(props: Props) {
-  const { parts, wires, definitions, target, lessonId, lessonMode, code, selectedPartId, flows, running, litPartIds, connections, lockReason, nameFor, describe, pinLabel, colorWire, active, activePart, tracedPin, pending, onSelect, onRotate, onRemove, onDrop, onAssemblyChange, circuitDocV2, selectedWireId, layoutReadOnly = false } = props
+  const { parts, wires, definitions, target, lessonId, lessonMode, code, selectedPartId, flows, running, litPartIds, motorStates, connections, lockReason, nameFor, describe, pinLabel, colorWire, active, activePart, tracedPin, pending, onSelect, onRotate, onRemove, onDrop, onAssemblyChange, circuitDocV2, selectedEndpointKey = '', selectedWireId, highlightedNetKey = null, highlightedWireIds, layoutReadOnly = false } = props
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const sceneRef = useRef<AssemblyScene | null>(null)
   const dragRef = useRef<Drag | null>(null)
@@ -82,15 +93,20 @@ export function AssemblyStage(props: Props) {
   const hotspots = manifest?.scenes[0]?.hotspots ?? []
   const circuitProjection = useMemo(() => circuitDocV2 ? getAssemblySceneProjection(circuitDocV2) : null, [circuitDocV2])
   const sceneParts = circuitProjection?.parts ?? parts
+  const describeSceneEndpoint = (endpoint: CircuitEndpoint) => endpoint.partId === 'bb1' && circuitProjection
+    ? circuitProjection.describeEndpoint(endpoint)
+    : describe(endpoint)
   const shownParts = circuitProjection?.parts ?? dragParts ?? parts
   const scenePending = circuitProjection ? null : pending
   // Lesson callers pass a trace derived from this same CircuitDocV2. Builder preview
   // callers suppress legacy trace explicitly before they reach this projection.
+  // 2026-11-15: phòng lắp mạch truyền tracedPin='' khi đang dùng CircuitDocV2 (trace cũ không khớp mạch v5).
   const sceneTracedPin = circuitProjection && flows.size === 0 ? '' : tracedPin
   const boardPart = sceneParts.find((part) => part.type === 'board')
   const sceneSelectedPartId = sceneParts.some((part) => part.id === selectedPartId)
     ? selectedPartId
     : boardPart?.id ?? sceneParts[0]?.id ?? selectedPartId
+  const sceneSelectedEndpointKey = selectedEndpointKey.startsWith(`${sceneSelectedPartId}:`) ? selectedEndpointKey : ''
   const baseOptions = useMemo(() => ({ boardId: target.boardId, target, lessonId }), [target, lessonId])
   const failedUrls = useMemo(() => new Set(assets.failedUrls), [assets.failedUrls])
   const basePlan = useMemo(() => circuitDocV2 ? getAssemblyPlanV2(circuitDocV2, baseOptions) : getAssemblyPlan(shownParts, wires, baseOptions), [circuitDocV2, shownParts, wires, baseOptions])
@@ -112,7 +128,7 @@ export function AssemblyStage(props: Props) {
     for (const part of sceneParts) { const top = scene.partTop(part.id); if (top) points[part.id] = scene.project(top) }
     for (const { feature, nodeNames } of features) { const top = scene.nodeTop(boardPart?.id ?? '', nodeNames[0]); if (top) points[`feature:${feature.id}`] = scene.project(top) }
     const seen = new Set<string>(), chips: Overlay['chips'] = []
-    for (const [id, flow] of circuitProjection ? [] : flowsRef.current) {
+    for (const [id, flow] of flowsRef.current) {
       if (!flow.label || seen.has(flow.label + flow.signal) || chips.length >= 8) continue
       const middle = scene.wireMiddle(id)
       if (!middle) continue
@@ -125,7 +141,10 @@ export function AssemblyStage(props: Props) {
     const pinWorld = pinKey ? planRef.current.pinPoints[pinKey] : undefined
     const pinScreen = pinWorld ? scene.project(pinWorld.map((value) => value / 1000) as [number, number, number]) : undefined
     const [pinPart, pinId] = pinKey ? [pinKey.slice(0, pinKey.lastIndexOf(':')), pinKey.slice(pinKey.lastIndexOf(':') + 1)] : ['', '']
-    setOverlay({ width: canvas.clientWidth, height: canvas.clientHeight, points, chips, pin: pinScreen?.visible ? { x: pinScreen.x, y: pinScreen.y, label: circuitProjection?.describeEndpoint({ partId: pinPart, pinId }) ?? describe({ partId: pinPart, pinId }) } : undefined })
+    const selectedPinWorld = sceneSelectedEndpointKey ? planRef.current.pinPoints[sceneSelectedEndpointKey] : undefined
+    const selectedPinScreen = selectedPinWorld ? scene.project(selectedPinWorld.map((value) => value / 1000) as [number, number, number]) : undefined
+    const [selectedPinPart, selectedPinId] = sceneSelectedEndpointKey ? [sceneSelectedEndpointKey.slice(0, sceneSelectedEndpointKey.lastIndexOf(':')), sceneSelectedEndpointKey.slice(sceneSelectedEndpointKey.lastIndexOf(':') + 1)] : ['', '']
+    setOverlay({ width: canvas.clientWidth, height: canvas.clientHeight, points, chips, pin: pinScreen?.visible ? { x: pinScreen.x, y: pinScreen.y, label: describeSceneEndpoint({ partId: pinPart, pinId }) } : undefined, selectedPin: selectedPinScreen?.visible ? { key: sceneSelectedEndpointKey, x: selectedPinScreen.x, y: selectedPinScreen.y, label: describeSceneEndpoint({ partId: selectedPinPart, pinId: selectedPinId }) } : undefined })
   }
   const refreshRef = useRef(refreshOverlay)
   refreshRef.current = refreshOverlay
@@ -168,22 +187,22 @@ export function AssemblyStage(props: Props) {
     refreshRef.current()
   }, [plan, boardPart, sceneParts])
 
-  const hasDirectedFlow = !circuitProjection && [...flows.values()].some((flow) => flow.direction !== 'none')
+  const hasDirectedFlow = [...flows.values()].some((flow) => flow.direction !== 'none')
   useEffect(() => {
     const styles = new Map<string, SceneWireStyle>()
     for (const wire of circuitDocV2?.wires ?? wires) {
-      const flow = circuitProjection ? undefined : flows.get(wire.id)
-      const traced = !circuitDocV2 && ('from' in wire && 'partId' in wire.from && 'partId' in wire.to ? active(wire as CircuitConnection) : Boolean(flow))
+      const flow = flows.get(wire.id)
+      const traced = circuitDocV2 ? Boolean(flow) : ('from' in wire && 'partId' in wire.from && 'partId' in wire.to ? active(wire as CircuitConnection) : Boolean(flow))
       const roleColor = 'role' in wire ? wire.role === 'ground' ? '#101820' : wire.role === 'power' ? '#e4483e' : '#287fbc' : '#287fbc'
       const base = flow ? signalColors[flow.signal] : hexToColor('role' in wire ? roleColor : colorWire(wire as CircuitConnection))
       const color: [number, number, number] = !flow && base.every((value) => value < 0.2) ? signalColors.ground : base
-      styles.set(wire.id, { color: selectedWireId === wire.id ? [1, 0.88, 0.32] : traced && !flow ? signalColors.active : color, stripes: Boolean(flow && flow.direction !== 'none'), direction: flow?.direction === 'forward' ? 1 : flow?.direction === 'reverse' ? -1 : 0, selected: selectedWireId === wire.id })
+      styles.set(wire.id, { color: selectedWireId === wire.id ? [1, 0.88, 0.32] : highlightedWireIds?.has(wire.id) ? [0.03, 0.58, 0.72] : traced && !flow ? signalColors.active : color, stripes: Boolean(flow && flow.direction !== 'none'), direction: flow?.direction === 'forward' ? 1 : flow?.direction === 'reverse' ? -1 : 0, selected: selectedWireId === wire.id })
     }
     sceneRef.current?.setWireStyles(styles, hasDirectedFlow && running && !reducedMotion())
     refreshRef.current()
-  }, [wires, circuitDocV2, circuitProjection, selectedWireId, flows, active, colorWire, running, hasDirectedFlow, generation])
+  }, [wires, circuitDocV2, circuitProjection, selectedWireId, highlightedWireIds, flows, active, colorWire, running, hasDirectedFlow, generation])
 
-  useEffect(() => { sceneRef.current?.setSelection(sceneSelectedPartId, activeFeature?.nodeNames ?? []); refreshRef.current() }, [sceneSelectedPartId, activeFeature, generation, scenePending, sceneTracedPin])
+  useEffect(() => { sceneRef.current?.setSelection(sceneSelectedPartId, activeFeature?.nodeNames ?? []); refreshRef.current() }, [sceneSelectedPartId, activeFeature, generation, scenePending, sceneTracedPin, sceneSelectedEndpointKey])
   useEffect(() => { sceneRef.current?.setHighlights(circuitProjection ? [] : parts.filter(activePart).map((part) => part.id), circuitProjection ? [] : litPartIds) }, [parts, activePart, litPartIds, circuitProjection, generation])
 
   const commitMount = useCallback((partId: string, mount: AssemblyMount) => {
@@ -267,11 +286,13 @@ export function AssemblyStage(props: Props) {
   const listParts = sceneParts.filter((part) => matches(nameFor(part)))
   const matchingFeatures = features.filter(({ feature }) => matches(`${feature.name} ${feature.designator ?? ''}`))
   const listFeatures = matchingFeatures.slice(0, FEATURE_LIST_LIMIT)
-  const flowRows = [...new Map((circuitProjection ? [] : wires).flatMap((wire) => {
+  const flowRows = [...new Map((circuitDocV2?.wires ?? wires).flatMap((wire) => {
     const flow = flows.get(wire.id)
     if (!flow?.label) return []
-    const end = wire.to.partId === boardPart?.id ? wire.to : wire.from
-    const name = describe(end)
+    const to = sceneEndpoint(wire.to)
+    const from = sceneEndpoint(wire.from)
+    const end = to.partId === boardPart?.id ? to : from
+    const name = describeSceneEndpoint(end)
     return [[name, { name, flow }] as const]
   })).values()].slice(0, 8)
   const concept = lessonMode === 'fixed-scenario'
@@ -288,18 +309,19 @@ export function AssemblyStage(props: Props) {
   const hiddenDots = sceneParts.length + (sceneSelectedPartId === boardPart?.id ? features.length : 0) - partDots.length - featureDots.length
   const boardNote = plan.notes.boardPins === 'cad-pad' ? 'Đầu dây ở board nằm trên pad theo CAD; tên chân theo profile bài học.' : 'Đầu dây ở board là vị trí minh họa, vì chưa có dữ liệu pad đáng tin.'
   const displayedConnections = selectedPart && circuitProjection ? circuitProjection.connectionsFor(selectedPart.id) : connections
-  const describeDisplayedEndpoint = circuitProjection ? circuitProjection.describeEndpoint : describe
+  const describeDisplayedEndpoint = describeSceneEndpoint
 
   return <div className="assembly-stage">
     {graphics === 'lost' && <p className="assembly-stage-warning" role="alert">Trình duyệt vừa tạm mất kết nối đồ họa. Cảnh 3D sẽ tự dựng lại khi kết nối trở lại; mạch của bạn không bị ảnh hưởng.</p>}
-    <div className="assembly-stage-view">
+    <div className="assembly-stage-view mm-keep-light">
       <canvas ref={canvasRef} aria-label="Cảnh lắp mạch 3D. Dùng danh sách linh kiện bên dưới để chọn bằng bàn phím." role="img" onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={pointerCancel} />
       <div className="assembly-stage-overlay">
         <svg aria-hidden="true" width={overlay.width} height={overlay.height}>{callouts.map((item) => { const left = item.corner.endsWith('left'), top = item.corner.startsWith('top'); return <line key={item.id} x1={left ? 186 : overlay.width - 186} y1={top ? 34 : overlay.height - 88} x2={item.x} y2={item.y} className={item.id === sceneSelectedPartId ? 'assembly-leader assembly-leader-selected' : 'assembly-leader'} /> })}</svg>
         {partDots.map((part) => { const point = overlay.points[part.id]; return <button key={part.id} type="button" aria-label={`Chọn ${nameFor(part)}`} title={nameFor(part)} aria-pressed={part.id === sceneSelectedPartId && !activeFeature} className="assembly-dot" style={{ left: point.x, top: point.y }} onClick={() => selectPart(part.id)}><i /></button> })}
         {featureDots.map(({ feature }) => { const point = overlay.points[`feature:${feature.id}`]; return <button key={feature.id} type="button" aria-label={`Chọn ${feature.name} trên board`} title={feature.name} aria-pressed={feature.id === featureId} className="assembly-dot assembly-dot-feature" style={{ left: point.x, top: point.y }} onClick={() => setFeatureId(feature.id)}><i /></button> })}
-        {overlay.chips.map((chip) => <span key={chip.id} aria-hidden="true" className={`assembly-chip assembly-chip-${chip.signal}`} style={{ left: chip.x, top: chip.y }}>{chip.label}</span>)}
+        {Object.entries(motorStates ?? {}).map(([partId, motor]) => { const point = overlay.points[partId]; if (!point?.visible) return null; return <span key={`motor-${partId}`} className={`assembly-motor-spin${motor.direction === 0 ? ' is-stopped' : motor.direction < 0 ? ' is-reverse' : ''}`} data-motor-direction={motor.direction} style={{ left: point.x, top: point.y, ['--motor-spin' as string]: `${(1.8 * 100 / Math.max(10, motor.pwm)).toFixed(2)}s` } as CSSProperties} role="img" aria-label={motor.direction === 0 ? 'Motor dừng · minh họa' : `Motor quay ${motor.direction > 0 ? 'thuận' : 'ngược'} · PWM ${motor.pwm}% · minh họa`}><b aria-hidden="true">{motor.direction < 0 ? '⟲' : '⟳'}</b><small>{motor.direction === 0 ? 'dừng' : `PWM ${motor.pwm}%`} · minh họa</small></span> })}{overlay.chips.map((chip) => <span key={chip.id} aria-hidden="true" className={`assembly-chip assembly-chip-${chip.signal}`} style={{ left: chip.x, top: chip.y }}>{chip.label}</span>)}
         {overlay.pin && <span aria-hidden="true" className="assembly-pin-marker" style={{ left: overlay.pin.x, top: overlay.pin.y }}>{overlay.pin.label}</span>}
+        {overlay.selectedPin && <span className="assembly-selected-pin-marker" data-pin-key={overlay.selectedPin.key} style={{ left: overlay.selectedPin.x, top: overlay.selectedPin.y }}>Chân đang xem · {overlay.selectedPin.label}<small>Vị trí theo model 3D</small></span>}
         {callouts.map((item) => { const part = sceneParts.find((entry) => entry.id === item.id); return part ? <button key={item.id} type="button" className={`assembly-callout assembly-callout-${item.corner}`} aria-pressed={item.id === sceneSelectedPartId} aria-label={`Chọn ${nameFor(part)}`} onClick={() => selectPart(item.id)}><strong>{nameFor(part)}</strong><small>{definitions.find((entry) => entry.id === part.type)?.category}</small></button> : null })}
       </div>
       <div className="assembly-stage-controls" role="group" aria-label="Điều khiển góc nhìn">
@@ -310,6 +332,9 @@ export function AssemblyStage(props: Props) {
         <button type="button" aria-label="Thu nhỏ" onClick={() => sceneRef.current?.zoom(-1)}>−</button>
         <button type="button" aria-label="Phóng to" onClick={() => sceneRef.current?.zoom(1)}>+</button>
         <button type="button" onClick={() => sceneRef.current?.resetView()}>Đặt lại</button>
+        <button type="button" aria-label="Góc nhìn từ trên xuống" onClick={() => sceneRef.current?.setPreset('top')}>Trên</button>
+        <button type="button" aria-label="Góc nhìn chính diện" onClick={() => sceneRef.current?.setPreset('front')}>Trước</button>
+        <button type="button" aria-label="Góc nhìn cận cảnh" onClick={() => sceneRef.current?.setPreset('close')}>Cận</button>
       </div>
       {assets.loading > 0 && <p className="assembly-stage-loading" role="status">Đang tải {assets.loading} model…</p>}
     </div>
@@ -328,7 +353,8 @@ export function AssemblyStage(props: Props) {
 
     <div className="assembly-stage-flow">
       <strong>Luồng logic minh họa</strong>
-      <p>{lockReason ?? (circuitProjection ? 'Bản xem trước CircuitDocV2 chỉ trình bày cấu trúc nối dây; chưa có trace thực thi cho tài liệu này.' : flows.size ? (concept ? 'Bài khái niệm: chỉ tô các nhóm dây theo từng bước, không có mức logic hay hướng.' : 'Mức logic và hướng lấy từ chương trình và sơ đồ bài học; không phải dòng điện hay điện áp đo được.') : 'Chưa chạy, nên chưa có trạng thái nào. Bấm chạy mô phỏng để xem.')}</p>
+      {highlightedNetKey && <p className="assembly-net-cross-probe" role="status">Đang xem net <code>{highlightedNetKey}</code> từ sơ đồ nguyên lý; dây được viền xanh lam, không biểu thị dòng điện.</p>}
+      <p>{lockReason ?? (circuitProjection ? flows.size ? 'Trace bài học được chiếu lên các dây trong CircuitDocV2; nhãn trạng thái là logic giáo dục, không phải kết quả đo.' : 'Bản xem CircuitDocV2 hiện chưa có trạng thái trace. Chạy bài học được hỗ trợ để xem luồng.' : flows.size ? (concept ? 'Bài khái niệm: chỉ tô các nhóm dây theo từng bước, không có mức logic hay hướng.' : 'Mức logic và hướng lấy từ chương trình và sơ đồ bài học; không phải dòng điện hay điện áp đo được.') : 'Chưa chạy, nên chưa có trạng thái nào. Bấm chạy mô phỏng để xem.')}</p>
       {flowRows.length > 0 && <ul>{flowRows.map(({ name, flow }) => <li key={name}><i className={`assembly-swatch assembly-chip-${flow.signal}`} aria-hidden="true" />{name}: <b>{flow.label}</b></li>)}</ul>}
     </div>
 

@@ -5,7 +5,6 @@ import { createServer } from 'vite'
 let server
 let getAssemblyPlanV2
 let getLessonCircuitDoc
-let formatHole
 let holeToMm
 let getSimulationTarget
 let footprintHoles
@@ -21,7 +20,6 @@ before(async () => {
   ])
   getAssemblyPlanV2 = assembly.getAssemblyPlanV2
   getLessonCircuitDoc = fixture.getLessonCircuitDoc
-  formatHole = grid.formatHole
   holeToMm = grid.holeToMm
   getSimulationTarget = targets.getSimulationTarget
   footprintHoles = mount.footprintHoles
@@ -50,18 +48,16 @@ test('unresolved V2 endpoints produce diagnostics instead of a fabricated wire s
   assert.ok(plan.diagnostics.some(item => item.wireId === doc.wires[0].id && item.code === 'UNRESOLVED_ENDPOINT'))
 })
 
-test('V2 assembly and the circuit mount resolver agree on all four button holes', () => {
+test('V2 assembly keeps the 6 mm button on the bench when its CAD pins do not fit the breadboard grid', () => {
   const doc = getLessonCircuitDoc('button-led')
   assert.ok(doc)
   const button = doc.parts.find(part => part.type === 'button')
   const plan = getAssemblyPlanV2(doc, { ...options, target: getSimulationTarget(options.boardId), lessonId: doc.lessonId })
   const placement = plan.placements.find(part => part.partId === button.id)
-  assert.equal(placement?.mount, 'breadboard')
-  assert.equal(placement.rotationDeg, 90)
-  assert.ok(placement.snapErrorMm <= 0.7)
-  assert.deepEqual(placement.legs.map(leg => leg.pinId), ['contactA', 'contactA', 'contactB', 'contactB'])
-  const assemblyHoles = placement.legs.map(leg => formatHole({ kind: 'grid', board: 'bb1', column: leg.column + 1, row: 'abcdefghij'[leg.row] }))
-  assert.deepEqual(assemblyHoles, ['bb1:20f', 'bb1:20e', 'bb1:22f', 'bb1:22e'])
-  assert.deepEqual(assemblyHoles, footprintHoles(button).map(formatHole))
+  assert.equal(placement?.mount, 'bench')
+  assert.equal(placement.legs?.length ?? 0, 0)
+  assert.deepEqual(footprintHoles(button), [])
+  assert.ok(plan.wireEnds['w-input-to-button'])
+  assert.ok(plan.wireEnds['w-button-to-gnd'])
   assert.deepEqual(plan.diagnostics, [])
 })

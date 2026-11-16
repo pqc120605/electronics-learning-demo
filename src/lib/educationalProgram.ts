@@ -18,7 +18,7 @@ export type EducationalProgram =
   | { kind:'ultrasonic'; outputPin:number; triggerPin:number; echoPin:number; thresholdCm:number; whenNear:'HIGH'|'LOW'; whenFar:'HIGH'|'LOW'; sampleMs:number }
   | { kind:'seven-segment'; pins:number[]; digits:number[][]; common:'cathode'|'anode'; stepMs:number }
   | { kind:'analog-threshold'; inputPin:number; outputPin:number; threshold:number; above:'HIGH'|'LOW'; below:'HIGH'|'LOW'; sampleMs:number; sensor:'potentiometer'|'ldr'; adcFullScale:number }
-  | { kind:'concept'; lesson:'buck-boost-concept'|'dc-motor-driver'|'mosfet-switch' }
+  | { kind:'concept'; lesson:'buck-boost-concept'|'dc-motor-driver'|'mosfet-switch'|'source-led' }
 export type ProgramParseResult = {ok:true;program:EducationalProgram}|{ok:false;line:number;message:string}
 
 const MAX_SOURCE_CHARACTERS=20_000
@@ -103,12 +103,11 @@ function parseInputBranch(source: string, lesson: 'button-led' | 'ir-alert', boa
 export function parseEducationalProgram(source:string,lesson:BuilderLessonId,boardId?:string):ProgramParseResult {
   if(typeof source!=='string')return fail('Bản nháp code không hợp lệ. Hãy khôi phục code mẫu của bài.')
   if(source.length>MAX_SOURCE_CHARACTERS)return fail(`Code quá dài cho mô phỏng bài học (tối đa ${MAX_SOURCE_CHARACTERS} ký tự). Hãy khôi phục code mẫu.`)
-  if(lesson==='buck-boost-concept'||lesson==='dc-motor-driver'||lesson==='mosfet-switch'){
+  if(lesson==='buck-boost-concept'||lesson==='dc-motor-driver'||lesson==='mosfet-switch'||lesson==='source-led'){
     const expected=getBuilderLesson(lesson).code({codePin:0} as SimulationTarget,0)
     if(source.trim()!==expected.trim())return fail('Bài này dùng kịch bản khái niệm có kiểm soát; sửa code tùy ý chưa được chạy mô phỏng. Khôi phục code mẫu hoặc dùng bài GPIO để tự luyện cú pháp được hỗ trợ.')
     return {ok:true,program:{kind:'concept',lesson}}
   }
-  if(lesson==='source-led')lesson='blink'
   const inputLesson = lesson === 'button-led' || lesson === 'ir-alert' ? lesson : undefined
   // C++ splices continued lines before interpreting comments. Reject that syntax before masking.
   if (inputLesson && /\\[ \t\f\v]*(?:\r\n|\r|\n)/.test(source)) {
@@ -178,6 +177,7 @@ export function parseEducationalProgram(source:string,lesson:BuilderLessonId,boa
 export function evaluateProgram(program:EducationalProgram,inputs:{pressed?:boolean;detected?:boolean;distanceCm?:number;potPercent?:number;lightPercent?:number;elapsedMs?:number;digit?:number;conceptValue?:number;converterMode?:'buck'|'boost';motorCommand?:'forward'|'reverse'|'stop'}){
   if(program.kind==='concept'){
     const command=inputs.motorCommand??'forward'
+    if(program.lesson==='source-led')return {pin:0,level:'HIGH' as const,ledOn:true,digit:0,trace:['Nguồn DC cấp điện áp giữa cực + và cực −.','Dòng đi qua điện trở hạn dòng vào anode LED.','LED phân cực thuận nên sáng; dòng ra cathode về cực âm.','Không có GPIO hay firmware; mô hình không tính dòng/điện áp thực.']}
     if(program.lesson==='buck-boost-concept'){const input=inputs.conceptValue??5,mode=inputs.converterMode??'buck',output=mode==='buck'?input/2:input*2;return {pin:0,level:'LOW' as const,ledOn:false,digit:0,converter:{input,output,mode},trace:[`Nguồn đầu vào ảo: ${input.toFixed(1)} V.`,`Chọn ${mode} (${mode==='buck'?'hạ áp':'tăng áp'}) với mục tiêu minh họa ${output.toFixed(1)} V.`,`Đây chỉ là tỷ lệ khái niệm, không phải phép tính điện áp đầu ra module thật.`]}}
     if(program.lesson==='dc-motor-driver'){const direction=command==='stop'?'Dừng':command==='reverse'?'Đảo chiều':'Thuận chiều';return {pin:0,level:'LOW' as const,ledOn:false,digit:0,motor:{direction,enabled:command!=='stop',pwm:command==='stop'?0:65},trace:[`AIN1/AIN2 biểu diễn lệnh ${direction.toLocaleLowerCase('vi-VN')}.`,`PWMA ảo: ${command==='stop'?0:65}% · STBY được giả định HIGH.`,`Hình ảnh không tính RPM, mô-men, dòng, nhiệt hoặc stall; cần kiểm tra đúng module và datasheet.`]}}
     const enabled=Boolean(inputs.pressed);return {pin:0,level:'LOW' as const,ledOn:false,digit:0,loadEnabled:enabled,trace:[`GPIO điều khiển Gate: ${enabled?'HIGH · MOSFET bật theo giả định logic-level':'LOW · MOSFET tắt'}.`,`Nguồn tải đi qua tải và đường Drain–Source; GPIO không cấp dòng cho motor.`,`Tải cảm cần diode hồi tiếp đúng chiều; mô phỏng không tính dòng hay xung áp.`]}

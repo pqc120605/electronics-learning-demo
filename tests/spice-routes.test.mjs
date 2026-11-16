@@ -20,7 +20,7 @@ test('SPICE workbench is registered in public and app namespaces', () => {
 
 test('SPICE is discoverable from both navigation shells', () => {
   assert.match(registry, /type ProductFeatureId[^\n]*'spice'/)
-  assert.match(registry, /\['calculators', 'spice', 'firmware'\]/)
+  assert.match(registry, /\['calculators', 'spice', 'firmware'(?:, '[a-z]+')*\]/)
   assert.match(nav, /F\.spice\.publicRoute/)
   assert.match(workspaceNav, /appNavigationGroups/)
 })

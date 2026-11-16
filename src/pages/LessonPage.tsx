@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Link, Navigate, useSearchParams } from 'react-router-dom'
 import { ComponentDetails } from '../components/ComponentDetails'
 import { LearningActivity } from '../components/LearningActivity'
 import { BoardViewer } from '../components/board/BoardViewer'
@@ -33,7 +33,19 @@ import { useLearningProgress } from '../lib/useLearningProgress'
 import { getLessonCircuitDoc } from '../data/lessonCircuitDocs'
 import { LessonCircuitWorkspace, type LessonCircuitAction } from '../components/lesson/LessonCircuitWorkspace'
 
+import {LessonBoardChooser} from '../components/lesson/LessonBoardChooser'
+import {resolveLessonBoardChoice} from '../lib/lessonBoardSelection'
+
+type LessonTabId = 'prepare' | 'wiring' | 'board' | 'code' | 'check'
+
 export function LessonPage() {
+ const [params,setParams]=useSearchParams()
+ const route=useProductRoute(),choice=resolveLessonBoardChoice(params.get('board'))
+ if(choice.kind!=='selected')return <LessonBoardChooser lessonId="blink" requestedId={params.get('board')} onChoose={board=>setParams({board})}/>
+ if(choice.target.boardId!=='esp32-devkit')return <Navigate replace to={route(`/learn/blink?board=${encodeURIComponent(choice.target.boardId)}`)}/>
+ return <SelectedEsp32LessonPage/>
+}
+function SelectedEsp32LessonPage() {
   const productRoute = useProductRoute()
   const learningProgress = useLearningProgress()
   const lesson = esp32LedLesson
@@ -64,6 +76,8 @@ export function LessonPage() {
   const [codeDraft, setCodeDraft] = useState(generateLedCpp(starterLedProgram))
   const [programFlowIndex, setProgramFlowIndex] = useState(0)
   const [programFlowPlaying, setProgramFlowPlaying] = useState(false)
+  const [lessonTab, setLessonTab] = useState<LessonTabId>('prepare')
+  const previousLessonTab = useRef(lessonTab)
   const parsedCode = useMemo(() => parseSupportedArduinoSubset(codeDraft), [codeDraft])
   const intervalProgram = useMemo(() => ({ ...lessonProgram, loop: lessonProgram.loop.map(action => action.kind === 'delay' ? { ...action, milliseconds: blinkInterval } : action) }), [lessonProgram, blinkInterval])
   const activeFlowProgram = codeMode === 'blocks' ? intervalProgram : parsedCode.ok ? parsedCode.program : null
@@ -142,6 +156,15 @@ export function LessonPage() {
     }
   }, [requestedBoardId, selectedBoardId, availableBoards])
 
+  useEffect(() => {
+    if (previousLessonTab.current === lessonTab) return
+    previousLessonTab.current = lessonTab
+    const panel = document.querySelector<HTMLElement>('.lesson-panel-body > [role="tabpanel"]:not([hidden])')
+    panel?.closest<HTMLElement>('.lesson-panel-body')?.scrollTo({ top: 0 })
+    if (!panel || window.matchMedia('(prefers-reduced-motion: reduce)').matches || typeof panel.animate !== 'function') return
+    panel.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 220, easing: 'cubic-bezier(.2,.7,.2,1)' })
+  }, [lessonTab])
+
   async function copyCode() {
     try {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable')
@@ -189,8 +212,23 @@ export function LessonPage() {
     if (flowId === 'led') setSelectedSceneId('assembly')
   }
 
+  const lessonTabs: { id: LessonTabId; label: string; panelId: string }[] = [
+    { id: 'prepare', label: 'Chuẩn bị', panelId: 'lesson-parts' },
+    { id: 'wiring', label: 'Lắp mạch', panelId: 'lesson-wiring' },
+    { id: 'board', label: 'Board và pinout', panelId: 'lesson-board' },
+    { id: 'code', label: 'Code', panelId: 'lesson-code' },
+    { id: 'check', label: 'Kiểm tra', panelId: 'lesson-check' },
+  ]
+  const lessonTabIndex = lessonTabs.findIndex((tab) => tab.id === lessonTab)
+  function focusLessonTab(index: number) {
+    const next = lessonTabs[(index + lessonTabs.length) % lessonTabs.length]
+    setLessonTab(next.id)
+    window.requestAnimationFrame(() => document.getElementById(`lesson-tab-${next.id}`)?.focus())
+  }
+  const lessonCircuitDoc = isEsp32Board ? getLessonCircuitDoc('blink') : undefined
+
   return (
-    <div className="lesson-page">
+    <div className="lesson-page lesson-studio mm-fit">
       <div className="lesson-breadcrumb"><Link to={productRoute('/')}>Bắt đầu học</Link><span>/</span><span>ESP32</span><span>/</span><span>Đèn LED</span><Link className="lesson-builder-link" to={productRoute('/build?board=esp32-devkit')}>Mở phòng thử ↗</Link></div>
       <section className="lesson-heading">
         <div>
@@ -207,80 +245,98 @@ export function LessonPage() {
           <div><dt>Thời lượng</dt><dd>{lesson.estimatedMinutes} phút</dd></div>
           <div><dt>Mức mô phỏng</dt><dd><CapabilityBadge id="behavior-simulation" /></dd></div>
         </dl>
-        <Link className="button-primary" to={productRoute('/build?lesson=blink&guided=1')}>Thực hành trong phòng thử <span aria-hidden="true">↗</span></Link>
+        <Link className="button-primary" to={productRoute('/build?lesson=blink&guided=1&board=esp32-devkit')}>Thực hành trong phòng thử <span aria-hidden="true">↗</span></Link>
       </section>
       {!isEsp32Board && <p className="board-reference-warning lesson-board-notice" role="status">Bạn đang xem {activeBoardName} ở chế độ tham khảo. Bài LED, bảng nối chân, code và mô phỏng dưới đây vẫn dành cho ESP32 DevKit V1. <Link to={productRoute(`/boards?board=${activeBoard.id}`)}>Xem hồ sơ board này</Link>{getBoardPracticeRoute(activeBoard.id) && <>{' · '}<Link to={productRoute(getBoardPracticeRoute(activeBoard.id)!)}>Thực hành bài LED trên board này</Link></>}</p>}
       {requestedWithoutModel && <p className="board-reference-warning lesson-board-notice" role="status">{requestedBoardProfile ? `${requestedBoardProfile.name} chưa có mô hình 3D, nên trang đang hiện ESP32 DevKit V1.` : 'Không tìm thấy board trong liên kết, nên trang đang hiện ESP32 DevKit V1.'}{requestedBoardProfile && <> <Link to={productRoute(`/boards?board=${requestedBoardProfile.id}`)}>Xem hồ sơ tra cứu</Link></>}</p>}
-      <nav className="lesson-jump" aria-label="Các phần của bài">
-        <a href="#lesson-parts">Chuẩn bị</a><a href="#lesson-wiring">Lắp mạch</a><a href="#lesson-board">Board và pinout</a><a href="#lesson-code">Code</a><a href="#lesson-check">Kiểm tra</a>
+
+      <div className="lesson-studio-body">
+        <section className="lesson-stage" aria-label="Mạch và chương trình của bài">
+          {lessonCircuitDoc
+            ? <LessonCircuitWorkspace doc={lessonCircuitDoc} activeAction={activeLessonCircuitAction} selectedPartId={selectedPartId === 'esp32' ? 'board-1' : selectedPartId === 'resistor' ? 'res-1' : selectedPartId === 'led' ? 'led-1' : selectedPartId === 'breadboard' ? 'bb-1' : 'board-1'} onSelectPart={id => { const next = id === 'board-1' ? 'esp32' : id === 'res-1' ? 'resistor' : id === 'led-1' ? 'led' : id === 'bb-1' ? 'breadboard' : id; selectPart(next) }} onSelectFeature={selectFeature} />
+            : <p className="board-reference-warning">Mạch bài học chỉ có cho ESP32 DevKit V1. Mở tab “Board và pinout” để khám phá board tham chiếu.</p>}
+          <ProgramFlowPlayer program={activeFlowProgram} activeIndex={programFlowIndex} onActiveIndex={setProgramFlowIndex} playing={programFlowPlaying} onPlaying={setProgramFlowPlaying} onUnsupported={codeFailureMessage} />
+        </section>
+
+        <div className="lesson-panel">
+          <div className="lesson-studio-tabs" role="tablist" aria-label="Các phần của bài">
+            {lessonTabs.map((tab, index) => <button key={tab.id} id={`lesson-tab-${tab.id}`} type="button" role="tab" aria-selected={lessonTab === tab.id} aria-controls={tab.panelId} tabIndex={lessonTab === tab.id ? 0 : -1} onClick={() => setLessonTab(tab.id)} onKeyDown={(event) => { if (event.key === 'ArrowRight') { event.preventDefault(); focusLessonTab(index + 1) } else if (event.key === 'ArrowLeft') { event.preventDefault(); focusLessonTab(index - 1) } else if (event.key === 'Home') { event.preventDefault(); focusLessonTab(0) } else if (event.key === 'End') { event.preventDefault(); focusLessonTab(lessonTabs.length - 1) } }}><span className="lesson-tab-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{tab.label}</button>)}
+          </div>
+          <div className="lesson-panel-body">
+            <section className="lesson-section parts-section" id="lesson-parts" role="tabpanel" aria-labelledby="lesson-tab-prepare" hidden={lessonTab !== 'prepare'}>
+              <div className="lesson-objectives">
+                <div className="objective-title"><span className="objective-mark">✓</span><h2>Sau bài này, bạn sẽ biết</h2></div>
+                <div className="objective-list">{lesson.objectives.map((objective, index) => <p key={objective}><span>0{index + 1}</span>{objective}</p>)}</div>
+              </div>
+              <div className="lesson-section-heading"><div><p className="eyebrow">CHUẨN BỊ</p><h2>Những thứ bạn cần</h2></div><span className="small-count">{lesson.parts.length} linh kiện</span></div>
+              <div className="setup-requirements"><strong>Để nạp và chạy bài học, chuẩn bị thêm:</strong><span>Máy tính</span><span>Cáp USB truyền dữ liệu</span><span>Arduino IDE</span></div>
+              <div className="parts-list">{lesson.parts.map((part, index) => <button className={`part-row ${selectedPart.id === part.id ? 'part-row-active' : ''}`} key={part.id} type="button" aria-pressed={selectedPart.id === part.id} onClick={() => selectPart(part.id)}>
+                <span className="part-index">0{index + 1}</span><span className={`part-swatch swatch-${part.id}`} aria-hidden="true">{part.id === 'led' ? '●' : part.id === 'resistor' ? '⌁' : part.id === 'jumper' ? '╱' : part.id === 'breadboard' ? '▦' : '▤'}</span><span className="part-name">{part.name}<small>{part.technicalRole}</small></span><span className="part-view">{part.id === 'esp32' && isEsp32Board ? 'Xem trên PCB ↗' : 'Dùng ở bước lắp mạch'}</span>
+              </button>)}</div>
+              <p className="power-warning"><span>!</span> Chưa cắm cáp USB trong khi lắp mạch. Luôn rút nguồn trước khi thay dây.</p>
+            </section>
+
+            <section className="lesson-section wiring-section" id="lesson-wiring" role="tabpanel" aria-labelledby="lesson-tab-wiring" hidden={lessonTab !== 'wiring'}>
+              <div className="lesson-section-heading"><div><p className="eyebrow">LẮP TỪNG BƯỚC</p><h2>Nối mạch theo thứ tự</h2></div><p>Làm chậm và kiểm tra từng kết nối trước khi cấp nguồn.</p></div>
+              <div className="wiring-layout">
+                <ol className="step-list">{lesson.steps.map((step, index) => <li key={step.title} className={activeStepIndex === index ? 'step-row-active' : ''}><span className="step-number">{String(index + 1).padStart(2, '0')}</span><button type="button" aria-current={activeStepIndex === index ? 'step' : undefined} onClick={() => setActiveStepIndex(index)}><h3>{step.title}</h3><p>{step.description}</p></button></li>)}</ol>
+                <section className="pin-map"><p className="pin-map-label">BẢNG NỐI CHÂN</p><h3>Hai kết nối chính</h3>{lesson.pinMap.map((connection) => <div className="pin-connection" key={connection.from}><span>{connection.from}</span><i aria-hidden="true">↓</i><strong>{connection.to}</strong></div>)}<p className="pin-tip">Điện trở có thể đặt trước hoặc sau LED, miễn là mắc nối tiếp trong cùng một đường dòng điện.</p></section>
+              </div>
+            </section>
+
+            <section className="lesson-section circuit-section" id="lesson-board" role="tabpanel" aria-labelledby="lesson-tab-board" hidden={lessonTab !== 'board'}>
+              <div className="lesson-section-heading"><div><p className="eyebrow">KHÁM PHÁ MẠCH 3D</p><h2 id="circuit-heading">{isEsp32Board ? 'Mỗi linh kiện giữ một vai trò' : 'Khám phá PCB theo CAD tham chiếu'}</h2></div><p>{isEsp32Board ? 'Chọn trực tiếp một bộ phận trên mô hình hoặc trong danh sách.' : 'Xoay mô hình CAD tham chiếu; chọn khối chức năng bên dưới để đọc giải thích.'}</p></div>
+              <div className="active-step-note"><span className="active-step-count">BƯỚC {String(activeStepIndex + 1).padStart(2, '0')} / {String(lesson.steps.length).padStart(2, '0')}</span><div><strong>{activeStep.title}</strong><p>{activeStep.description}</p></div><div className="step-switcher"><button type="button" onClick={() => setActiveStepIndex((step) => Math.max(0, step - 1))} disabled={activeStepIndex === 0}>Trước</button><button type="button" onClick={() => setActiveStepIndex((step) => Math.min(lesson.steps.length - 1, step + 1))} disabled={activeStepIndex === lesson.steps.length - 1}>Tiếp theo <span aria-hidden="true">→</span></button></div></div>
+              {isEsp32Board && <div className="blink-lab" role="group" aria-label="Bàn thử nhịp nhấp nháy LED">
+                <div className="blink-lab-copy"><span className="blink-lab-icon" aria-hidden="true">◉</span><div><strong>Thử đổi nhịp đèn</strong><p>Thay thời gian trong lệnh <code>delay()</code>, rồi xem trạng thái LED ở ô bên cạnh.</p></div></div>
+                <label className="blink-range">Mỗi trạng thái kéo dài <output htmlFor="blink-interval">{blinkInterval} ms</output><input id="blink-interval" aria-label="Thời gian mỗi trạng thái LED" type="range" min="200" max="1200" step="100" value={blinkInterval} onChange={(event) => setBlinkInterval(Number(event.target.value))} /></label>
+                <button className="blink-toggle" type="button" aria-pressed={simulationPlaying} onClick={() => setSimulationPlaying((playing) => !playing)}>{simulationPlaying ? 'Dừng thử' : 'Chạy thử'}</button>
+                <span className={`blink-state ${simulationPlaying ? 'blink-state-running' : ''}`} aria-label={simulationPlaying ? (ledLit ? 'LED đang sáng' : 'LED đang tắt') : 'Đang dừng'}><i />{simulationPlaying ? (ledLit ? 'LED đang sáng' : 'LED đang tắt') : 'Đang dừng'}</span>
+                <p className="blink-lab-note">Minh họa: chỉ mô phỏng nhịp bật/tắt bằng hình ảnh; không chạy firmware hay tính toán điện.</p>
+              </div>}
+              <div className="board-catalog-picker"><label htmlFor="board-model-select">BOARD ĐANG KHÁM PHÁ</label><select id="board-model-select" value={selectedBoardId} onChange={(event) => { const id = event.target.value; setSelectedBoardId(id); setSearchParams({ board: id === esp32DevkitModel.id ? 'esp32-devkit' : id }); setSelectedSceneId('pcb'); setSelectedPinId(''); setHoveredFeatureId(''); setSelectedFeatureId(getDefaultBoardFeatureId(id)) }}><option value={esp32DevkitModel.id}>ESP32 DevKit V1 · 30 chân</option>{arduinoBoardModels.map((board) => <option key={board.id} value={board.id}>{board.id === 'arduino-uno-r3' ? 'Arduino Uno R3' : board.id === 'arduino-nano-classic' ? 'Arduino Nano classic' : 'Arduino Mega 2560 R3'}</option>)}{raspberryPiBoardModels.map((board) => <option key={board.id} value={board.id}>{board.id === 'raspberry-pi-pico-w' ? 'Raspberry Pi Pico W' : board.id === 'raspberry-pi-pico-2-h' ? 'Raspberry Pi Pico 2 H' : board.id === 'raspberry-pi-pico-2' ? 'Raspberry Pi Pico 2' : 'Raspberry Pi Pico'}</option>)}{adafruitBoardModels.map((board) => <option key={board.id} value={board.id}>{board.id === 'adafruit-qtpy-esp32-c3-5405' ? 'Adafruit QT Py ESP32-C3 · #5405' : board.id === 'adafruit-feather-esp32-s3-tft-5483' ? 'Adafruit Feather ESP32-S3 TFT · #5483' : 'Adafruit Feather ESP32-S3 · #5323'}</option>)}{seeedBoardModels.map((board) => <option key={board.id} value={board.id}>{board.id === 'seeed-xiao-esp32c3' ? 'Seeed Studio XIAO ESP32-C3 · v1.3' : 'Seeed Studio XIAO ESP32-S3 · bản thường'}</option>)}{espressifBoardModels.map((board) => <option key={board.id} value={board.id}>Espressif ESP32-S3-DevKitC-1 · V1.1</option>)}</select><span>Board tham chiếu để khám phá linh kiện; bài LED và code bên dưới vẫn dành cho ESP32.</span></div>
+              {!isEsp32Board && <p className="board-reference-warning">Bạn đang xem {activeBoard.id.startsWith('raspberry-pi-') ? 'mô hình CAD Raspberry Pi' : activeBoard.id.startsWith('stm32-') ? 'mô hình CAD STM32' : activeBoard.id.startsWith('adafruit-') ? 'mô hình CAD Adafruit' : activeBoard.id.startsWith('seeed-') ? 'mô hình CAD Seeed Studio' : activeBoard.id === 'esp32-s3-devkitc-1' ? 'mô hình CAD tham chiếu Espressif' : 'mô hình CAD Arduino'} ở chế độ tham khảo. Board, sơ đồ đấu nối, mô phỏng LED và code của bài học bên dưới không tự chuyển theo board này.</p>}
+              {lessonTab === 'board' && <div className="interactive-circuit">
+                <BoardViewer manifest={activeBoard} selectedSceneId={isEsp32Board ? selectedSceneId : 'pcb'} onSelectScene={setSelectedSceneId} selectedFeatureId={selectedFeatureId} highlightedFeatureIds={isEsp32Board ? [...highlightedFeatureIds, ...(activeProgramActions[programFlowIndex]?.featureIds ?? [])] : []} onSelectFeature={selectFeature} onHoverFeature={setHoveredFeatureId} selectedPinId={selectedPinId} onSelectPin={selectPin} />
+                <ComponentDetails part={selectedPin ?? hoveredFeature ?? selectedFeature ?? (isEsp32Board ? selectedPart : activeBoard.features[0])} referenceBoard={!isEsp32Board} />
+              </div>}
+              <BoardModelEvidencePanel evidence={getBoardModelEvidence(activeBoard.id)} />
+              {activeBoard.pins.length > 0 && <PinFlowExplorer manifest={activeBoard} selectedPinId={selectedPinId} onSelectPin={setSelectedPinId} activeFlowId={activeFlowId} onSelectFlow={selectFlow} />}
+              <div className="board-assumption"><span>BOARD TRONG BÀI</span><p>{lesson.boardAssumption}</p></div>
+            </section>
+
+            <section className="lesson-section code-section" id="lesson-code" role="tabpanel" aria-labelledby="lesson-tab-code" hidden={lessonTab !== 'code'}>
+              <div className="lesson-section-heading"><div><p className="eyebrow">GIỜ ĐẾN LƯỢT CODE</p><h2>Chương trình làm đèn nhấp nháy</h2></div><p>Chọn cách viết phù hợp: ráp khối cho người mới hoặc tự thực hành C++. Dòng đang chạy hiện trên mạch bên trái.</p></div>
+              <div className="lesson-code-tabs" role="group" aria-label="Chọn cách lập trình"><button type="button" aria-pressed={codeMode === 'blocks'} className={codeMode === 'blocks' ? 'lesson-code-tab-active' : ''} disabled={codeMode === 'cpp' && !parsedCode.ok} title={codeMode === 'cpp' && !parsedCode.ok ? 'Sửa cú pháp chưa hỗ trợ hoặc khôi phục mẫu trước khi chuyển sang khối.' : undefined} onClick={() => { if (parsedCode.ok) { setLessonProgram(parsedCode.program); setCodeMode('blocks'); setProgramFlowIndex(0) } }}>Khối lệnh · bắt đầu dễ</button><button type="button" aria-pressed={codeMode === 'cpp'} className={codeMode === 'cpp' ? 'lesson-code-tab-active' : ''} onClick={() => setCodeMode('cpp')}>Tự viết code C++</button></div>
+              {codeMode === 'blocks' ? <BlockCodeWorkspace program={lessonProgram} onChange={(program) => { setLessonProgram(program); setCodeDraft(generateLedCpp(program)); setProgramFlowIndex(0) }} activeActionIndex={programFlowIndex} onActiveAction={setProgramFlowIndex} /> : <CppPracticeEditor source={codeDraft} onSource={setCodeDraft} activeLine={flowCodeLine} onImport={(program) => { setLessonProgram(program); setCodeDraft(generateLedCpp(program)); setCodeMode('blocks'); setProgramFlowIndex(0) }} onActiveLine={(line) => { if (activeFlowProgram) { const match = activeProgramActions.findIndex((item) => item.action.line === line); if (match >= 0) setProgramFlowIndex(match) } }} />}
+              {codeMode === 'cpp' && !parsedCode.ok && <p className="flow-code-warning" role="status">{codeFailureMessage} Code vẫn được giữ nguyên; hãy sửa dòng này hoặc khôi phục ví dụ để bật luồng.</p>}
+              <div className="code-card">
+                <div className="code-topbar"><span><i /><i /><i /> <b>esp32_led.ino</b></span><button type="button" onClick={copyCode}>{copyStatus === 'copied' ? 'Đã sao chép ✓' : 'Sao chép code ⧉'}</button></div>
+                <pre><code>{interactiveCode}</code></pre>
+                {copyStatus === 'unavailable' && <p className="copy-message" role="status">Trình duyệt chưa cho phép sao chép tự động. Bạn có thể bôi đen code rồi sao chép thủ công.</p>}
+              </div>
+              <div className="code-explanations">{lesson.codeExplanations.map((item, index) => <article key={item.code}><code>{item.code.replace(/\b500\b/g, String(blinkInterval))}</code><p><span>{String(index + 1).padStart(2, '0')}</span>{item.explanation.replace(/\b500\b/g, String(blinkInterval))}</p></article>)}</div>
+              <section className="upload-note"><span aria-hidden="true">↗</span><p><strong>Nạp chương trình</strong>Chọn “ESP32 Dev Module” trong Arduino IDE. Board có thể cần nhấn giữ nút BOOT trong lúc bắt đầu nạp.</p></section>
+            </section>
+
+            <section className="lesson-section finish-section" id="lesson-check" role="tabpanel" aria-labelledby="lesson-tab-check" hidden={lessonTab !== 'check'}>
+              <div className="lesson-section-heading"><div><p className="eyebrow">KIỂM TRA KẾT QUẢ</p><h2>Đèn đã nhấp nháy chưa?</h2></div><span className="check-progress">{getKnownChecklistItems(checkedItems, lesson.verificationChecklist).length}/{lesson.verificationChecklist.length} đã kiểm tra</span></div>
+              <div className="finish-layout"><div className="checklist">{lesson.verificationChecklist.map((item) => <label className="check-item" key={item}><input type="checkbox" checked={checkedItems.includes(item)} onChange={() => toggleChecklist(item)} /><span className="custom-check" aria-hidden="true">✓</span><span>{item}</span></label>)}</div><section className="trouble-card"><p className="eyebrow">NẾU CHƯA CHẠY</p><h3>Thử kiểm tra những điểm này</h3>{lesson.troubleshooting.map((item) => <details key={item.symptom}><summary>{item.symptom}</summary><p>{item.check}</p></details>)}</section></div>
+              <section className="lesson-end"><span>✳</span><div><strong>Đã có chiếc đèn đầu tiên?</strong><p>Thử đổi thời gian chờ trong code, sau đó mở phòng thử để lắp và chạy bài LED.</p></div><Link to={productRoute('/build?lesson=blink&guided=1&board=esp32-devkit')}>Thực hành bài LED <span aria-hidden="true">↗</span></Link><LessonProgressToggle lessonId="blink" />{nextLesson && <Link to={productRoute(getLessonEntryRoute(nextLesson,'esp32-devkit'))}>Bài tiếp theo: {nextLesson.title} <span aria-hidden="true">→</span></Link>}</section>
+              <LearningActivity attempts={learningProgress.simulationAttempts} lessonId="blink" routeFor={productRoute} />
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <nav className="lesson-studio-dock" aria-label="Chuyển phần bài học">
+        <button type="button" onClick={() => setLessonTab(lessonTabs[Math.max(0, lessonTabIndex - 1)].id)} disabled={lessonTabIndex === 0}><span aria-hidden="true">←</span> {lessonTabIndex > 0 ? lessonTabs[lessonTabIndex - 1].label : 'Trước'}</button>
+        <span className="lesson-dock-step" aria-live="polite">Phần {lessonTabIndex + 1}/{lessonTabs.length} · {lessonTabs[lessonTabIndex].label}</span>
+        <span className="lesson-dock-spacer" />
+        {lessonTabIndex < lessonTabs.length - 1
+          ? <button className="lesson-dock-primary" type="button" onClick={() => setLessonTab(lessonTabs[lessonTabIndex + 1].id)}>Tiếp: {lessonTabs[lessonTabIndex + 1].label} <span aria-hidden="true">→</span></button>
+          : nextLesson ? <Link className="lesson-dock-primary" to={productRoute(getLessonEntryRoute(nextLesson,'esp32-devkit'))}>Bài tiếp theo: {nextLesson.title} <span aria-hidden="true">→</span></Link> : null}
       </nav>
-
-      <section className="lesson-objectives">
-        <div className="objective-title"><span className="objective-mark">✓</span><h2>Sau bài này, bạn sẽ biết</h2></div>
-        <div className="objective-list">{lesson.objectives.map((objective, index) => <p key={objective}><span>0{index + 1}</span>{objective}</p>)}</div>
-      </section>
-
-      <section className="lesson-section parts-section" id="lesson-parts">
-        <div className="lesson-section-heading"><div><p className="eyebrow">CHUẨN BỊ</p><h2>Những thứ bạn cần</h2></div><span className="small-count">{lesson.parts.length} linh kiện</span></div>
-        <div className="setup-requirements"><strong>Để nạp và chạy bài học, chuẩn bị thêm:</strong><span>Máy tính</span><span>Cáp USB truyền dữ liệu</span><span>Arduino IDE</span></div>
-        <div className="parts-list">{lesson.parts.map((part, index) => <button className={`part-row ${selectedPart.id === part.id ? 'part-row-active' : ''}`} key={part.id} type="button" aria-pressed={selectedPart.id === part.id} onClick={() => selectPart(part.id)}>
-          <span className="part-index">0{index + 1}</span><span className={`part-swatch swatch-${part.id}`} aria-hidden="true">{part.id === 'led' ? '●' : part.id === 'resistor' ? '⌁' : part.id === 'jumper' ? '╱' : part.id === 'breadboard' ? '▦' : '▤'}</span><span className="part-name">{part.name}<small>{part.technicalRole}</small></span><span className="part-view">{part.id === 'esp32' && isEsp32Board ? 'Xem trên PCB ↗' : 'Dùng ở bước lắp mạch'}</span>
-        </button>)}</div>
-        <p className="power-warning"><span>!</span> Chưa cắm cáp USB trong khi lắp mạch. Luôn rút nguồn trước khi thay dây.</p>
-      </section>
-
-      <section className="lesson-section wiring-section" id="lesson-wiring">
-        <div className="lesson-section-heading"><div><p className="eyebrow">LẮP TỪNG BƯỚC</p><h2>Nối mạch theo thứ tự</h2></div><p>Làm chậm và kiểm tra từng kết nối trước khi cấp nguồn.</p></div>
-        <div className="wiring-layout">
-          <ol className="step-list">{lesson.steps.map((step, index) => <li key={step.title} className={activeStepIndex === index ? 'step-row-active' : ''}><span className="step-number">{String(index + 1).padStart(2, '0')}</span><button type="button" aria-current={activeStepIndex === index ? 'step' : undefined} onClick={() => setActiveStepIndex(index)}><h3>{step.title}</h3><p>{step.description}</p></button></li>)}</ol>
-          <section className="pin-map"><p className="pin-map-label">BẢNG NỐI CHÂN</p><h3>Hai kết nối chính</h3>{lesson.pinMap.map((connection) => <div className="pin-connection" key={connection.from}><span>{connection.from}</span><i aria-hidden="true">↓</i><strong>{connection.to}</strong></div>)}<p className="pin-tip">Điện trở có thể đặt trước hoặc sau LED, miễn là mắc nối tiếp trong cùng một đường dòng điện.</p></section>
-        </div>
-      </section>
-
-      <section className="lesson-section circuit-section" id="lesson-board" aria-labelledby="circuit-heading">
-        <div className="lesson-section-heading"><div><p className="eyebrow">KHÁM PHÁ MẠCH 3D</p><h2 id="circuit-heading">{isEsp32Board ? 'Mỗi linh kiện giữ một vai trò' : 'Khám phá PCB theo CAD tham chiếu'}</h2></div><p>{isEsp32Board ? 'Chọn trực tiếp một bộ phận trên mô hình hoặc trong danh sách.' : 'Xoay mô hình CAD tham chiếu; chọn khối chức năng bên dưới để đọc giải thích.'}</p></div>
-        <div className="active-step-note"><span className="active-step-count">BƯỚC {String(activeStepIndex + 1).padStart(2, '0')} / {String(lesson.steps.length).padStart(2, '0')}</span><div><strong>{activeStep.title}</strong><p>{activeStep.description}</p></div><div className="step-switcher"><button type="button" onClick={() => setActiveStepIndex((step) => Math.max(0, step - 1))} disabled={activeStepIndex === 0}>Trước</button><button type="button" onClick={() => setActiveStepIndex((step) => Math.min(lesson.steps.length - 1, step + 1))} disabled={activeStepIndex === lesson.steps.length - 1}>Tiếp theo <span aria-hidden="true">→</span></button></div></div>
-        {isEsp32Board && <div className="blink-lab" role="group" aria-label="Bàn thử nhịp nhấp nháy LED">
-          <div className="blink-lab-copy"><span className="blink-lab-icon" aria-hidden="true">◉</span><div><strong>Thử đổi nhịp đèn</strong><p>Thay thời gian trong lệnh <code>delay()</code>, rồi xem trạng thái LED ở ô bên cạnh.</p></div></div>
-          <label className="blink-range">Mỗi trạng thái kéo dài <output htmlFor="blink-interval">{blinkInterval} ms</output><input id="blink-interval" aria-label="Thời gian mỗi trạng thái LED" type="range" min="200" max="1200" step="100" value={blinkInterval} onChange={(event) => setBlinkInterval(Number(event.target.value))} /></label>
-          <button className="blink-toggle" type="button" aria-pressed={simulationPlaying} onClick={() => setSimulationPlaying((playing) => !playing)}>{simulationPlaying ? 'Dừng thử' : 'Chạy thử'}</button>
-          <span className={`blink-state ${simulationPlaying ? 'blink-state-running' : ''}`} aria-label={simulationPlaying ? (ledLit ? 'LED đang sáng' : 'LED đang tắt') : 'Đang dừng'}><i />{simulationPlaying ? (ledLit ? 'LED đang sáng' : 'LED đang tắt') : 'Đang dừng'}</span>
-          <p className="blink-lab-note">Chỉ mô phỏng nhịp bật/tắt bằng hình ảnh; không chạy firmware hay tính toán điện.</p>
-        </div>}
-        <div className="board-catalog-picker"><label htmlFor="board-model-select">BOARD ĐANG KHÁM PHÁ</label><select id="board-model-select" value={selectedBoardId} onChange={(event) => { const id = event.target.value; setSelectedBoardId(id); setSearchParams({ board: id === esp32DevkitModel.id ? 'esp32-devkit' : id }); setSelectedSceneId('pcb'); setSelectedPinId(''); setHoveredFeatureId(''); setSelectedFeatureId(getDefaultBoardFeatureId(id)) }}><option value={esp32DevkitModel.id}>ESP32 DevKit V1 · 30 chân</option>{arduinoBoardModels.map((board) => <option key={board.id} value={board.id}>{board.id === 'arduino-uno-r3' ? 'Arduino Uno R3' : board.id === 'arduino-nano-classic' ? 'Arduino Nano classic' : 'Arduino Mega 2560 R3'}</option>)}{raspberryPiBoardModels.map((board) => <option key={board.id} value={board.id}>{board.id === 'raspberry-pi-pico-w' ? 'Raspberry Pi Pico W' : board.id === 'raspberry-pi-pico-2-h' ? 'Raspberry Pi Pico 2 H' : board.id === 'raspberry-pi-pico-2' ? 'Raspberry Pi Pico 2' : 'Raspberry Pi Pico'}</option>)}{adafruitBoardModels.map((board) => <option key={board.id} value={board.id}>{board.id === 'adafruit-qtpy-esp32-c3-5405' ? 'Adafruit QT Py ESP32-C3 · #5405' : board.id === 'adafruit-feather-esp32-s3-tft-5483' ? 'Adafruit Feather ESP32-S3 TFT · #5483' : 'Adafruit Feather ESP32-S3 · #5323'}</option>)}{seeedBoardModels.map((board) => <option key={board.id} value={board.id}>{board.id === 'seeed-xiao-esp32c3' ? 'Seeed Studio XIAO ESP32-C3 · v1.3' : 'Seeed Studio XIAO ESP32-S3 · bản thường'}</option>)}{espressifBoardModels.map((board) => <option key={board.id} value={board.id}>Espressif ESP32-S3-DevKitC-1 · V1.1</option>)}</select><span>Board tham chiếu để khám phá linh kiện; bài LED và code bên dưới vẫn dành cho ESP32.</span></div>
-          {!isEsp32Board && <p className="board-reference-warning">Bạn đang xem {activeBoard.id.startsWith('raspberry-pi-') ? 'mô hình CAD Raspberry Pi' : activeBoard.id.startsWith('stm32-') ? 'mô hình CAD STM32' : activeBoard.id.startsWith('adafruit-') ? 'mô hình CAD Adafruit' : activeBoard.id.startsWith('seeed-') ? 'mô hình CAD Seeed Studio' : activeBoard.id === 'esp32-s3-devkitc-1' ? 'mô hình CAD tham chiếu Espressif' : 'mô hình CAD Arduino'} ở chế độ tham khảo. Board, sơ đồ đấu nối, mô phỏng LED và code của bài học bên dưới không tự chuyển theo board này.</p>}
-        <div className="interactive-circuit">
-          <BoardViewer manifest={activeBoard} selectedSceneId={isEsp32Board ? selectedSceneId : 'pcb'} onSelectScene={setSelectedSceneId} selectedFeatureId={selectedFeatureId} highlightedFeatureIds={isEsp32Board ? [...highlightedFeatureIds, ...(activeProgramActions[programFlowIndex]?.featureIds ?? [])] : []} onSelectFeature={selectFeature} onHoverFeature={setHoveredFeatureId} selectedPinId={selectedPinId} onSelectPin={selectPin} />
-          <ComponentDetails part={selectedPin ?? hoveredFeature ?? selectedFeature ?? (isEsp32Board ? selectedPart : activeBoard.features[0])} referenceBoard={!isEsp32Board} />
-        </div>
-        <BoardModelEvidencePanel evidence={getBoardModelEvidence(activeBoard.id)} />
-        {activeBoard.pins.length > 0 && <PinFlowExplorer manifest={activeBoard} selectedPinId={selectedPinId} onSelectPin={setSelectedPinId} activeFlowId={activeFlowId} onSelectFlow={selectFlow} />}
-        {isEsp32Board && getLessonCircuitDoc('blink') && <LessonCircuitWorkspace doc={getLessonCircuitDoc('blink')!} activeAction={activeLessonCircuitAction} selectedPartId={selectedPartId === 'esp32' ? 'board-1' : selectedPartId === 'resistor' ? 'res-1' : selectedPartId === 'led' ? 'led-1' : selectedPartId === 'breadboard' ? 'bb-1' : 'board-1'} onSelectPart={id => { const next = id === 'board-1' ? 'esp32' : id === 'res-1' ? 'resistor' : id === 'led-1' ? 'led' : id === 'bb-1' ? 'breadboard' : id; selectPart(next) }} onSelectFeature={selectFeature} />}
-        <div className="board-assumption"><span>BOARD TRONG BÀI</span><p>{lesson.boardAssumption}</p></div>
-      </section>
-
-      <section className="lesson-section code-section" id="lesson-code">
-        <div className="lesson-section-heading"><div><p className="eyebrow">GIỜ ĐẾN LƯỢT CODE</p><h2>Chương trình làm đèn nhấp nháy</h2></div><p>Chọn cách viết phù hợp: ráp khối cho người mới hoặc tự thực hành C++.</p></div>
-        <div className="lesson-code-tabs" role="group" aria-label="Chọn cách lập trình"><button type="button" aria-pressed={codeMode === 'blocks'} className={codeMode === 'blocks' ? 'lesson-code-tab-active' : ''} disabled={codeMode === 'cpp' && !parsedCode.ok} title={codeMode === 'cpp' && !parsedCode.ok ? 'Sửa cú pháp chưa hỗ trợ hoặc khôi phục mẫu trước khi chuyển sang khối.' : undefined} onClick={() => { if (parsedCode.ok) { setLessonProgram(parsedCode.program); setCodeMode('blocks'); setProgramFlowIndex(0) } }}>Khối lệnh · bắt đầu dễ</button><button type="button" aria-pressed={codeMode === 'cpp'} className={codeMode === 'cpp' ? 'lesson-code-tab-active' : ''} onClick={() => setCodeMode('cpp')}>Tự viết code C++</button></div>
-        {codeMode === 'blocks' ? <BlockCodeWorkspace program={lessonProgram} onChange={(program) => { setLessonProgram(program); setCodeDraft(generateLedCpp(program)); setProgramFlowIndex(0) }} activeActionIndex={programFlowIndex} onActiveAction={setProgramFlowIndex} /> : <CppPracticeEditor source={codeDraft} onSource={setCodeDraft} activeLine={flowCodeLine} onImport={(program) => { setLessonProgram(program); setCodeDraft(generateLedCpp(program)); setCodeMode('blocks'); setProgramFlowIndex(0) }} onActiveLine={(line) => { if (activeFlowProgram) { const match = activeProgramActions.findIndex((item) => item.action.line === line); if (match >= 0) setProgramFlowIndex(match) } }} />}
-        <ProgramFlowPlayer program={activeFlowProgram} activeIndex={programFlowIndex} onActiveIndex={setProgramFlowIndex} playing={programFlowPlaying} onPlaying={setProgramFlowPlaying} onUnsupported={codeFailureMessage} />
-        {codeMode === 'cpp' && !parsedCode.ok && <p className="flow-code-warning" role="status">{codeFailureMessage} Code vẫn được giữ nguyên; hãy sửa dòng này hoặc khôi phục ví dụ để bật luồng.</p>}
-        <div className="code-card">
-          <div className="code-topbar"><span><i /><i /><i /> <b>esp32_led.ino</b></span><button type="button" onClick={copyCode}>{copyStatus === 'copied' ? 'Đã sao chép ✓' : 'Sao chép code ⧉'}</button></div>
-          <pre><code>{interactiveCode}</code></pre>
-          {copyStatus === 'unavailable' && <p className="copy-message" role="status">Trình duyệt chưa cho phép sao chép tự động. Bạn có thể bôi đen code rồi sao chép thủ công.</p>}
-        </div>
-          <div className="code-explanations">{lesson.codeExplanations.map((item, index) => <article key={item.code}><code>{item.code.replace(/\b500\b/g, String(blinkInterval))}</code><p><span>{String(index + 1).padStart(2, '0')}</span>{item.explanation.replace(/\b500\b/g, String(blinkInterval))}</p></article>)}</div>
-        <section className="upload-note"><span aria-hidden="true">↗</span><p><strong>Nạp chương trình</strong>Chọn “ESP32 Dev Module” trong Arduino IDE. Board có thể cần nhấn giữ nút BOOT trong lúc bắt đầu nạp.</p></section>
-      </section>
-
-      <section className="lesson-section finish-section" id="lesson-check">
-        <div className="lesson-section-heading"><div><p className="eyebrow">KIỂM TRA KẾT QUẢ</p><h2>Đèn đã nhấp nháy chưa?</h2></div><span className="check-progress">{getKnownChecklistItems(checkedItems, lesson.verificationChecklist).length}/{lesson.verificationChecklist.length} đã kiểm tra</span></div>
-        <div className="finish-layout"><div className="checklist">{lesson.verificationChecklist.map((item) => <label className="check-item" key={item}><input type="checkbox" checked={checkedItems.includes(item)} onChange={() => toggleChecklist(item)} /><span className="custom-check" aria-hidden="true">✓</span><span>{item}</span></label>)}</div><section className="trouble-card"><p className="eyebrow">NẾU CHƯA CHẠY</p><h3>Thử kiểm tra những điểm này</h3>{lesson.troubleshooting.map((item) => <details key={item.symptom}><summary>{item.symptom}</summary><p>{item.check}</p></details>)}</section></div>
-      </section>
-
-      <section className="lesson-end"><span>✳</span><div><strong>Đã có chiếc đèn đầu tiên?</strong><p>Thử đổi thời gian chờ trong code, sau đó mở phòng thử để lắp và chạy bài LED.</p></div><Link to={productRoute('/build?lesson=blink&guided=1')}>Thực hành bài LED <span aria-hidden="true">↗</span></Link><LessonProgressToggle lessonId="blink" />{nextLesson && <Link to={productRoute(getLessonEntryRoute(nextLesson))}>Bài tiếp theo: {nextLesson.title} <span aria-hidden="true">→</span></Link>}</section>
-      <LearningActivity attempts={learningProgress.simulationAttempts} lessonId="blink" routeFor={productRoute} />
     </div>
   )
 }

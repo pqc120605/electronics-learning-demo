@@ -79,7 +79,7 @@ export function layout2D(doc: CircuitDocV2): Layout2DResult {
     const localCenterY = mesh ? (mesh.boundsMm.min[2] + mesh.boundsMm.max[2]) / 2 : 0
     if (!anchorMm || !lead || !mesh) { unplaced.push(part.id); continue }
     const offset = rotate(localCenterX - lead.x, localCenterY - lead.z, mount.rotation)
-    placements.push(entry(part, breadboardCenterX + anchorMm[0] + offset[0], anchorMm[1] + offset[1], 'mounted', mount.rotation))
+    placements.push(entry(part, breadboardCenterX + anchorMm[0] + offset[0], anchorMm[2] + offset[1], 'mounted', mount.rotation))
     if (!footprintHoles(part)) unplaced.push(part.id)
   }
 

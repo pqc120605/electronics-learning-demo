@@ -4,10 +4,16 @@ import { createServer } from 'vite'
 
 let server
 let migrate
+let gates
+let nets
 
 before(async () => {
   server = await createServer({ configFile: 'vite.config.ts', logLevel: 'silent', server: { middlewareMode: true } })
-  migrate = await server.ssrLoadModule('/src/lib/migrateV1toV2.ts')
+  ;[migrate, gates, nets] = await Promise.all([
+    server.ssrLoadModule('/src/lib/migrateV1toV2.ts'),
+    server.ssrLoadModule('/src/lib/circuitGates.ts'),
+    server.ssrLoadModule('/src/lib/circuitNetsV2.ts'),
+  ])
 })
 
 after(async () => { await server?.close() })
@@ -58,6 +64,19 @@ test('migrates v4 workspace while retaining identity, topology, and non-circuit 
   assert.deepEqual(result.workspace.placed, input.placed)
   assert.deepEqual(result.workspace.wires, input.wires)
   assert.ok(result.warnings.some(warning => warning.toLowerCase().includes('chân chưa có net')))
+})
+
+test('migration netCount matches connected nets reported by the circuit gate', () => {
+  const result = migrate.migrateWorkspaceV1ToV2(legacyWorkspace())
+  assert.equal(result.status, 'migrated')
+
+  const connectedNetCount = nets.createNetIndexV2(result.doc).netsList()
+    .filter(net => net.endpoints.size > 1 || net.wireIds.size > 0).length
+  assert.equal(result.doc.expect.netCount, connectedNetCount)
+
+  const g1 = gates.evaluateCircuitGates(result.doc).gates.find(gate => gate.id === 'G1')
+  assert.notEqual(g1.status, 'fail', JSON.stringify(g1.diagnostics))
+  assert.equal(g1.diagnostics.some(message => message.includes('expect.netCount')), false)
 })
 
 test('writes one v2 workspace key while leaving the other three persisted key families untouched', () => {

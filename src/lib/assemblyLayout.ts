@@ -131,7 +131,7 @@ function boardPinLocal(boardId: string, target: SimulationTarget, lessonId: Buil
   const input = getInputAlias(target, lessonId).label.split(' ')[0]
   const segment = /^seg(\d)$/.exec(pinId)
   const nextDigital = input.startsWith('D') ? `D${Number(input.slice(1)) + 1}` : undefined
-  const label = pinId === 'ledOut' ? `D${target.codePin}` : pinId === 'input' || pinId === 'trig' ? input : pinId === 'echo' ? nextDigital : pinId === 'gnd' ? 'GND' : pinId === 'vcc' ? (target.logicLevel.includes('5') ? '5V' : '3V3') : segment ? `D${target.sevenSegmentPins?.[Number(segment[1])]}` : undefined
+  const label = pinId === 'ledOut' ? `D${target.codePin}` : pinId === 'input' || pinId === 'trig' ? input : pinId === 'echo' ? nextDigital : pinId === 'gnd' ? 'GND' : pinId === 'vcc' ? (target.logicLevel.includes('5') ? '5V' : '3V3') : pinId === 'v5' ? '5V' : segment ? `D${target.sevenSegmentPins?.[Number(segment[1])]}` : undefined
   const pad = label ? pads.pins[label] : undefined
   return pad ? [pad[0], pads.topYMm, pad[1]] : undefined
 }
@@ -142,7 +142,7 @@ export function getBoardPinAnchors(boardId: string, target: SimulationTarget, le
   const byGpio = (gpio: number | undefined) => pins.find((pin) => pin.gpio === gpio)?.anchor as Vec3 | undefined
   const byLabel = (label: string) => pins.find((pin) => pin.label === label)?.anchor as Vec3 | undefined
   const input = getInputAlias(target, lessonId).pin
-  const entries: Array<[string, Vec3 | undefined]> = [['ledOut', byGpio(target.codePin)], ['input', byGpio(input)], ['trig', byGpio(input)], ['echo', byGpio(input + 1)], ['vcc', byLabel('3V3')], ['gnd', byLabel('GND')], ...(target.sevenSegmentPins ?? []).map((gpio, index): [string, Vec3 | undefined] => [`seg${index}`, byGpio(gpio)])]
+  const entries: Array<[string, Vec3 | undefined]> = [['ledOut', byGpio(target.codePin)], ['input', byGpio(input)], ['trig', byGpio(input)], ['echo', byGpio(input + 1)], ['vcc', byLabel('3V3')], ['v5', byLabel('5V')], ['gnd', byLabel('GND')], ...(target.sevenSegmentPins ?? []).map((gpio, index): [string, Vec3 | undefined] => [`seg${index}`, byGpio(gpio)])]
   return Object.fromEntries(entries.filter((entry): entry is [string, Vec3] => Boolean(entry[1])))
 }
 
@@ -268,20 +268,25 @@ export function getAssemblyPlan(rawParts: Part[], wires: CircuitConnection[], op
     const rotations = explicit ? rotationOrder(explicit.rotation + preferred - (explicit.partRotation ?? 0)) : rotationOrder(preferred)
     let best: { attempt: MountAttempt; placement: AssemblyPlacement; score: number } | undefined
     const wiredColumns = (pinId: string) => { const net = netOf(`${part.id}:${pinId}`); return [...state!.strips].filter(([, value]) => value === net).map(([strip]) => Number(strip.split(':')[1])) }
-    for (const rotation of rotations) for (let column = 0; column < grid.columns; column += 1) for (let row = 0; row < grid.rows.length; row += 1) {
-      const attempt = tryMount(legs, grid, column, row, rotation)
-      if (!attempt) continue
-      const placement = mountedPlacement(base, grid, attempt)
-      if (!isLegal(state, part.id, attempt, footprintBox(placement))) continue
-      let score = explicit ? -Math.hypot(column - explicit.column, row - explicit.row) * 10 : -Math.abs(column - LEFT_OF_BOARD) * 0.4
-      if (!explicit) for (const leg of attempt.legs) {
-        const net = netOf(`${part.id}:${leg.pinId}`), strip = stripOf(leg.column, leg.row)
-        if (state.strips.get(strip) === net && typeof net !== 'string') score += 1000
-        const columns = wiredColumns(leg.pinId)
-        if (columns.length) score -= Math.min(...columns.map((value) => Math.abs(value - leg.column))) * 3
+    for (const rotation of rotations) {
+      for (let column = 0; column < grid.columns; column += 1) for (let row = 0; row < grid.rows.length; row += 1) {
+        const attempt = tryMount(legs, grid, column, row, rotation)
+        if (!attempt) continue
+        const placement = mountedPlacement(base, grid, attempt)
+        if (!isLegal(state, part.id, attempt, footprintBox(placement))) continue
+        let score = explicit ? -Math.hypot(column - explicit.column, row - explicit.row) * 10 : -Math.abs(column - LEFT_OF_BOARD) * 0.4
+        if (!explicit) for (const leg of attempt.legs) {
+          const net = netOf(`${part.id}:${leg.pinId}`), strip = stripOf(leg.column, leg.row)
+          if (state.strips.get(strip) === net && typeof net !== 'string') score += 1000
+          const columns = wiredColumns(leg.pinId)
+          if (columns.length) score -= Math.min(...columns.map((value) => Math.abs(value - leg.column))) * 3
+        }
+        if (rotation !== preferred) score -= 0.5
+        if (!best || score > best.score) best = { attempt, placement, score }
       }
-      if (rotation !== preferred) score -= 0.5
-      if (!best || score > best.score) best = { attempt, placement, score }
+      // An explicit layout records the learner's intended orientation. Relocate it
+      // before changing that orientation to resolve a footprint collision.
+      if (explicit && best?.attempt.rotation === rotation) break
     }
     if (!best) return false
     commit(state, part.id, best.placement, best.attempt)
@@ -361,10 +366,10 @@ export function getAssemblyPlan(rawParts: Part[], wires: CircuitConnection[], op
 export function getAssemblyPlanV2(doc: CircuitDocV2, options: AssemblyOptions): AssemblyPlan {
   const parts: CircuitPart[] = doc.parts.map((part, index) => {
     const mount: AssemblyMount | undefined = part.mount.kind === 'breadboard'
-      ? { kind: 'breadboard', column: part.mount.col - 1, row: part.mount.row, rotation: part.mount.rotation }
+      ? { kind: 'breadboard', column: part.mount.col - 1, row: part.mount.row, rotation: part.mount.rotation, partRotation: part.mount.rotation }
       : part.type === 'board' || part.type === 'breadboard'
         ? undefined
-        : { kind: 'bench', x: part.mount.lane === 'left' ? -65 : part.mount.lane === 'right' ? 65 : 0, z: part.mount.order * 18 }
+        : { kind: 'bench', x: part.mount.lane === 'left' ? -90 : part.mount.lane === 'right' ? 90 : 0, z: part.mount.lane === 'bottom' ? 82 + part.mount.order * 18 : part.mount.order * 18 }
     const value = part.value?.label ?? (part.value?.ohm !== undefined ? `${part.value.ohm} Ω` : part.value?.farad !== undefined ? `${part.value.farad} F` : undefined)
     return { id: part.id, type: part.type, x: index * 10, y: 50, rotation: part.mount.kind === 'breadboard' ? part.mount.rotation : 0, ...(value ? { value } : {}), ...(mount ? { assembly: mount } : {}) }
   })

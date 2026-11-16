@@ -59,11 +59,11 @@ test('every mounted leg lands on a breadboard hole', () => {
   }
 })
 
-test('LED, resistor, button and HC-SR04 are mounted, not left beside the breadboard', () => {
+test('breadboard-compatible parts mount on holes; parts with incompatible leads remain on the bench', () => {
   const mounted = (lesson, type) => plan(lesson).result.placements.find((item) => item.type === type).mount
   assert.equal(mounted('blink', 'led'), 'breadboard')
   assert.equal(mounted('blink', 'resistor'), 'breadboard')
-  assert.equal(mounted('button-led', 'button'), 'breadboard')
+  assert.equal(mounted('button-led', 'button'), 'bench')
   assert.equal(mounted('ultrasonic-distance', 'ultrasonic'), 'breadboard')
   assert.equal(mounted('seven-segment-counter', 'seven-segment'), 'breadboard')
   assert.equal(plan('seven-segment-counter').result.placements.filter((item) => item.type === 'resistor' && item.mount === 'breadboard').length, 7)

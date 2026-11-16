@@ -11,7 +11,7 @@
 "D4","LED PGOOD","LED_SMD:LED_0603_1608Metric","","1","DNP"
 "F1","PTC 2A","Fuse:Fuse_1812_4532Metric","MF-MSMF200/8X","1",""
 "J1","DevKit hang trai","Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical","","1",""
-"J2","DevKit hang phai (3 vi tri)","mobot:PinSocket_1x15_Alt3Rows_22.86_25.40_27.94","","1",""
+"J2","DevKit hang phai (25.40 mm)","Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical","","1",""
 "J3","3xAA","Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical","B2B-XH-A","1",""
 "J4","USB-C chi sac","Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal","USB4105-GF-A","1","DNP"
 "J5","UART GND TX0 RX0 EN","Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical","","1",""

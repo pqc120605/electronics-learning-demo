@@ -88,7 +88,7 @@ NETL = {"GND": "GND", "D13": "L3_G", "D27": "B3_G", "D26": "B2_G", "D25": "B1_G"
 NETR = {"3V3": "V3V3_DEV", "GND": "GND", "D18": "B4_G", "D19": "B5_G", "RX0": "RX0_G", "TX0": "TX0_G", "D23": "B6_G"}
 P("J1", "DevKit hang trai", SOCK15, {i + 1: NETL.get(n) for i, n in enumerate(LEFT) if NETL.get(n)}, B4,
   {i + 1: n for i, n in enumerate(LEFT)})
-P("J2", "DevKit hang phai (3 vi tri)", "mobot:PinSocket_1x15_Alt3Rows_22.86_25.40_27.94",
+P("J2", "DevKit hang phai (25.40 mm)", SOCK15,
   {i + 1: NETR[x] for i, x in enumerate(RIGHT) if x in NETR}, B4, {i + 1: x for i, x in enumerate(RIGHT)})
 P("J5", "UART GND TX0 RX0 EN", "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
   {1: "GND", 2: "TX0_H", 3: "RX0_H", 4: "ESP_EN"}, B4, {1: "GND", 2: "TX0", 3: "RX0", 4: "EN"})
@@ -96,10 +96,13 @@ R("R29", "100", "TX0_G", "TX0_H", B4)
 R("R30", "100", "RX0_G", "RX0_H", B4)
 
 # ---- 5 joystick, nút, đo pin
-JOY = "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
-JN = {1: "GND", 2: "VCC", 3: "VRx", 4: "VRy", 5: "SW"}
-P("J6", "Joystick trai (KY-023)", JOY, {1: "GND", 2: "V3V3_DEV", 3: "JLX", 4: "JLY", 5: "L3"}, B5, JN)
-P("J7", "Joystick phai (KY-023)", JOY, {1: "GND", 2: "V3V3_DEV", 3: "JRX", 4: "JRY", 5: "R3"}, B5, JN)
+# Joystick trần (không có PCB con), hàn thẳng lên bo. Footprint lấy từ SparkFun-KiCad-Libraries
+# (SparkFun-Switch.pretty/Joystick_PTH, linh kiện COM-09032). Pad đặt tên bằng chữ.
+# Select-NC1/NC2 và MOUNT1..4 để hở. [chưa xác minh] với joystick thực tế của founder.
+JOY = "mobot:Joystick_PTH"
+JN = {"GND": "GND", "VCC": "VCC", "Horizontal": "VRx", "Vertical": "VRy", "Select": "SW"}
+P("J6", "Joystick trai (tran, 2 truc + nut)", JOY, {"GND": "GND", "VCC": "V3V3_DEV", "Horizontal": "JLX", "Vertical": "JLY", "Select": "L3"}, B5, JN)
+P("J7", "Joystick phai (tran, 2 truc + nut)", JOY, {"GND": "GND", "VCC": "V3V3_DEV", "Horizontal": "JRX", "Vertical": "JRY", "Select": "R3"}, B5, JN)
 for i, n in enumerate(("JLX", "JLY", "JRX", "JRY")):
     R("R%d" % (15 + i), "1k", n, n + "_G", B5)
     C("C%d" % (9 + i), "100n", n + "_G", "GND", B5)
@@ -144,34 +147,36 @@ for i, n in enumerate(("VBAT_F", "VBAT_SW", "EN_BB", "V3V3_BB", "V3V3_DEV", "GND
 for i in range(4):
     P("H%d" % (i + 1), "M3", HOLE, {}, B7, nobom=True)
 
-W, H = 80.0, 66.0
+# Bố cục theo bo tham chiếu ME4169: nguồn vào ở góc dưới trái và chạy dọc mép trái, MCU ở giữa,
+# đầu nối ra mép, nút bấm ở hai bên, linh kiện thụ động nằm sát IC của nó.
+W, H = 80.0, 76.0
 XL = 27.30
 FIXED = {
-    "H1": (3.5, 3.5, 0), "H2": (76.5, 3.5, 0), "H3": (3.5, 62.5, 0), "H4": (76.5, 62.5, 0),
-    "J1": (XL, 53.05, 180), "J2": (XL + 22.86, 53.05, 180),
-    "J6": (5.0, 12.0, 90), "J7": (64.8, 12.0, 90),
-    "SW2": (2.5, 30.0, 0), "SW3": (7.5, 39.5, 0), "SW4": (13.5, 30.0, 0),
-    "SW5": (60.0, 30.0, 0), "SW6": (65.5, 39.5, 0), "SW7": (71.0, 30.0, 0),
-    "J3": (4.0, 51.5, 0), "J9": (12.5, 60.0, 0),
-    "J5": (61.0, 50.5, 90), "J8": (62.0, 57.0, 0),
-    "J4": (40.0, 61.6, 0),
+    "H1": (3.5, 3.5, 0), "H2": (76.5, 3.5, 0), "H3": (3.5, 72.5, 0), "H4": (76.5, 72.5, 0),
+    "J1": (XL, 53.05, 180), "J2": (XL + 25.40, 53.05, 180),
+    "J6": (12.5, 16.5, 0), "J7": (69.0, 16.5, 0),
+    "SW2": (2.5, 40.0, 0), "SW3": (7.5, 49.5, 0), "SW4": (13.5, 40.0, 0),
+    "SW5": (60.0, 40.0, 0), "SW6": (65.5, 49.5, 0), "SW7": (71.0, 40.0, 0),
+    "J3": (4.0, 61.5, 0), "J9": (12.5, 70.0, 0),
+    "J5": (61.0, 60.5, 90), "J8": (62.0, 67.0, 0),
+    "J4": (40.0, 71.6, 0),
 }
 REGIONS = [
-    (30.6, 17.2, 47.9, 31.8, ["U4", "C14", "C15", "C16", "R31", "R32", "R33", "R34", "R35", "R36", "R37", "D3", "R38", "D4", "Q2", "R6"], 0.7),
-    (30.6, 32.3, 47.9, 58.3, ["U1", "L1", "C1", "C2", "C3", "R2", "R3", "U3", "C6", "C7", "R9", "R10",
+    (30.6, 17.2, 50.4, 31.8, ["U4", "C14", "C15", "C16", "R31", "R32", "R33", "R34", "R35", "R36", "R37", "D3", "R38", "D4"], 0.7),
+    (30.6, 32.3, 50.4, 58.3, [("U1", 180), "L1", "C1", "C2", "C3", "R2", "R3", "U3", "C6", "C7", "R9", "R10",
                               "U2", "R4", "R5", "C4", "R7", "C5"], 0.7),
-    (11.5, 45.5, 23.8, 58.5, ["F1", "Q1", "R1", "JP2", "Q3", "R8", "D1"], 0.6),
-    (2.0, 18.0, 23.0, 27.5, ["R15", "C9", "R16", "C10", "R25", "R19", "R20", "R21"], 0.8),
-    (58.5, 17.5, 78.5, 28.0, ["R17", "C11", "R18", "C12", "R26", "R22", "R23", "R24", "R27", "R28", "C13", "R29", "R30"], 0.9),
-    (70.5, 50.5, 78.5, 58.5, ["R14", "D2"], 0.8),
-    (20.0, 60.5, 33.0, 65.0, ["TP1", "TP2", "TP3"], 1.0),
-    (47.5, 60.5, 60.0, 65.0, ["TP4", "TP5", "TP6"], 1.0),
+    (11.5, 55.5, 23.8, 68.5, ["F1", "Q1", "R1", "JP2", "Q3", "R8", "D1"], 0.6),
+    (2.0, 29.5, 23.0, 38.5, ["R15", "C9", "R16", "C10", "R25", "R19", "R20", "R21"], 0.8),
+    (58.5, 29.5, 78.5, 39.5, ["R17", "C11", "R18", "C12", "R26", "R22", "R23", "R24", "R27", "R28", "C13", "R29", "R30", "Q2", "R6"], 0.7),
+    (70.5, 60.5, 78.5, 68.5, ["R14", "D2"], 0.8),
+    (20.0, 70.5, 33.0, 75.0, ["TP1", "TP2", "TP3"], 1.0),
+    (47.5, 70.5, 60.0, 75.0, ["TP4", "TP5", "TP6"], 1.0),
 ]
 DESIGN = dict(
     title="MoBot tay cầm EVT0 r3", rev="r3", paper="A1", size=(W, H), clearance=0.15, parts=PARTS,
     fixed=FIXED, regions=REGIONS, keepout=[(23.0, 0.0, 57.0, 15.0)],
     netclass={"VBAT_RAW": "w", "VBAT_F": "w", "VAA": "w", "VSYS_IN": "w", "VBAT_SW": "w",
               "V3V3_BB": "m", "V3V3_DEV": "m", "LX1": "m", "LX2": "m", "VBUS_CHG": "m", "VLIPO": "m", "LIPO_OUT": "m"},
-    silk=[("MoBot HANDSET EVT0 r3", 40.0, 64.9, 1.0), ("ANTEN - CAM DONG", 40.0, 7.5, 1.2),
-          ("GND TX0 RX0 EN", 66.0, 52.6, 0.8), ("3xAA", 6.0, 57.5, 1.0), ("SW", 15.0, 64.8, 1.0)],
+    silk=[("MoBot HANDSET EVT0 r3", 40.0, 67.0, 1.0), ("ANTEN - CAM DONG", 40.0, 7.5, 1.2),
+          ("GND TX0 RX0 EN", 66.0, 62.6, 0.8), ("3xAA", 6.0, 67.5, 1.0), ("SW", 15.0, 74.8, 1.0)],
 )

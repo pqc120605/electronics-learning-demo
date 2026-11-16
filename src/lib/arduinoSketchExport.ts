@@ -14,7 +14,7 @@ export type ArduinoSketchExportResult =
   | { ok: false; message: string }
 
 export function canExportArduinoSketch(boardId:string,lessonId:BuilderLessonId):boolean {
-  return ['arduino-uno-r3','arduino-nano-classic','arduino-mega-2560-r3'].includes(boardId)&&['blink','source-led'].includes(lessonId)
+  return ['arduino-uno-r3','arduino-nano-classic','arduino-mega-2560-r3'].includes(boardId)&&['blink'].includes(lessonId)
 }
 
 export function findProgramTargetMismatch(program: EducationalProgram, target: SimulationTarget, lessonId: BuilderLessonId): string | undefined {

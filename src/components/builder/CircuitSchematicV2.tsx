@@ -3,7 +3,7 @@ import { layoutSchematicV2, type SchematicPartV2 } from '../../lib/schematicLayo
 import type { CircuitDocV2 } from '../../lib/circuitDocV2'
 import './CircuitSchematicV2.css'
 
-type Props = { doc: CircuitDocV2; selectedKey?: string | null; selectedWireId?: string | null; activeKeys?: ReadonlySet<string>; onSelectPart?: (partId: string) => void; onSelectWire?: (wireId: string) => void; onSelectNet?: (netKey: string) => void; onExportTarget?: (element: HTMLDivElement | null) => void }
+type Props = { doc: CircuitDocV2; boardLabel?: string; boardPinLabels?: Record<string,string>; selectedKey?: string | null; selectedWireId?: string | null; selectedEndpointKey?: string | null; highlightedNetKey?: string | null; activeKeys?: ReadonlySet<string>; onSelectPart?: (partId: string) => void; onSelectEndpoint?: (endpointKey: string) => void; onSelectWire?: (wireId: string) => void; onSelectNet?: (netKey: string) => void; onExportTarget?: (element: HTMLDivElement | null) => void }
 
 function keyboardSelect(event: KeyboardEvent<SVGElement>, select: () => void) {
   // A lesson wrapper may already have activated the target in its capture handler.
@@ -24,7 +24,7 @@ function Symbol({ part }: { part: SchematicPartV2 }) {
   </g>
 }
 
-export function CircuitSchematicV2({ doc, selectedKey = null, selectedWireId = null, activeKeys = new Set(), onSelectPart = () => {}, onSelectWire = () => {}, onSelectNet = () => {}, onExportTarget }: Props) {
+export function CircuitSchematicV2({ doc, boardLabel, boardPinLabels, selectedKey = null, selectedWireId = null, selectedEndpointKey = null, highlightedNetKey = null, activeKeys = new Set(), onSelectPart = () => {}, onSelectEndpoint = () => {}, onSelectWire = () => {}, onSelectNet = () => {}, onExportTarget }: Props) {
   const layout = useMemo(() => layoutSchematicV2(doc), [doc])
   const selectNet = (key: string, wireIds: string[]) => {
     if (wireIds[0]) onSelectWire(wireIds[0])
@@ -34,12 +34,12 @@ export function CircuitSchematicV2({ doc, selectedKey = null, selectedWireId = n
     const prefix = bridges ? 'bridge' : 'net'
     return `${bridges ? 'circuit-net-bridges' : 'circuit-net-line'} ${wireIds.includes(selectedWireId ?? '') ? `${prefix}-selected` : ''} ${endpoints.some(key => activeKeys.has(key)) ? `${prefix}-active` : ''}`
   }
-  return <div ref={element => onExportTarget?.(element)}><section className="circuit-schematic-v2" aria-label="Sơ đồ nguyên lý theo kết nối CircuitDocV2">
+  return <div className="mm-keep-light" ref={element => onExportTarget?.(element)}><section className="circuit-schematic-v2" aria-label="Sơ đồ nguyên lý theo kết nối CircuitDocV2">
     <header><div><strong>Sơ đồ nguyên lý</strong><small>Các đường biểu diễn net khai báo · không phải kết quả ERC hay mô phỏng điện</small></div><span>● nhánh nối · cầu vượt: không nối · nguồn/GND theo vai trò dây</span></header>
     <div className="circuit-schematic-scroll" tabIndex={0} role="region" aria-label="Vùng sơ đồ có thể cuộn ngang"><svg viewBox={`0 0 ${layout.width} ${layout.height}`} role="group" aria-label="Sơ đồ nguyên lý của mạch" className="circuit-schematic-svg">
       <defs><pattern id="schematic-minor-grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".75" fill="#d8d2c6"/></pattern><pattern id="schematic-major-grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M100 0H0V100" fill="none" stroke="#d8d2c6" strokeWidth="1"/></pattern></defs>
       <rect className="schematic-sheet" x="2" y="2" width={layout.width - 4} height={layout.height - 4} rx="3"/><rect className="schematic-sheet-dots" x="10" y="10" width={layout.width - 20} height={layout.height - 20}/><rect className="schematic-sheet-grid" x="10" y="10" width={layout.width - 20} height={layout.height - 20}/><rect className="schematic-sheet-frame" x="18" y="18" width={layout.width - 36} height={layout.height - 36}/>
-      {layout.nets.map((net, netIndex) => <g key={net.key} className={netClass(net.wireIds, net.endpoints)} data-net-key={net.key}>
+      {layout.nets.map((net, netIndex) => <g key={net.key} className={`${netClass(net.wireIds, net.endpoints)} ${net.key === highlightedNetKey ? 'net-cross-probed' : ''}`} data-net-key={net.key}>
         {net.segments.map((segment, i) => <path key={`${net.key}-s${i}`} d={`M${segment.from[0]} ${segment.from[1]}L${segment.to[0]} ${segment.to[1]}`} onClick={() => selectNet(net.key, net.wireIds)} onKeyDown={event => keyboardSelect(event, () => selectNet(net.key, net.wireIds))} role="button" tabIndex={i === 0 ? 0 : -1} aria-label={`Chọn net ${net.key}`} />)}
         {net.junctions.map(([x, y], i) => <circle key={i} className="schematic-junction" cx={x} cy={y} r="4" />)}
         {net.segments[0] && <text className="schematic-net-reference" x={net.segments[0].to[0] + 5} y={net.segments[0].to[1] + 18}>N{netIndex + 1}</text>}
@@ -47,16 +47,16 @@ export function CircuitSchematicV2({ doc, selectedKey = null, selectedWireId = n
           {net.role === 'ground' ? <><path d="M0 0v18m-12 0h24m-9 6H9m-5 6H4"/><text x="-18" y="28" textAnchor="end">GND</text></> : <><path d="M0 0v-18m-9 9 9-9 9 9"/><text x="14" y="-14">Nguồn</text></>}
         </g>}
       </g>)}
-      {layout.nets.map(net => <g key={`bridges-${net.key}`} data-net-key={net.key} className={netClass(net.wireIds, net.endpoints, true)} aria-hidden="true">
+      {layout.nets.map(net => <g key={`bridges-${net.key}`} data-net-key={net.key} className={`${netClass(net.wireIds, net.endpoints, true)} ${net.key === highlightedNetKey ? 'net-cross-probed' : ''}`} aria-hidden="true">
         {net.crossings.map(([x, y], i) => <g className="schematic-crossing" key={i}><path className="schematic-crossing-gap" d={`M${x - 7} ${y}h14`}/><path className="schematic-crossing-bridge" d={`M${x - 7} ${y}q7 -13 14 0`}/></g>)}
       </g>)}
-      {layout.parts.map(part => <g key={part.partId} transform={`translate(${part.x} ${part.y})`} onClick={() => onSelectPart(part.partId)} onKeyDown={event => keyboardSelect(event, () => onSelectPart(part.partId))} className={`schematic-part-v2 ${selectedKey === part.partId ? 'part-selected' : ''}`} role="button" tabIndex={0} aria-label={`Chọn ${part.label} ${part.partId}`}>
+      {layout.parts.map(part => <g key={part.partId} transform={`translate(${part.x} ${part.y})`} onClick={() => onSelectPart(part.partId)} onKeyDown={event => keyboardSelect(event, () => onSelectPart(part.partId))} className={`schematic-part-v2 ${selectedKey === part.partId ? 'part-selected' : ''}`} role="button" tabIndex={0} aria-pressed={selectedKey === part.partId} aria-label={`Chọn ${part.label} ${part.partId}`}>
         <title>{`${part.partId} · ${part.label}${part.value ? ` · ${part.value}` : ''}`}</title>
-        <Symbol part={part}/>
-        {part.terminals.map(terminal => <g key={terminal.key} className="schematic-terminal" data-pin-key={terminal.key}>
+        <Symbol part={boardLabel && part.symbolKind==='board'?{...part,partId:boardLabel}:part}/>
+        {part.terminals.map(terminal => <g key={terminal.key} className={`schematic-terminal ${selectedEndpointKey === terminal.key ? 'is-selected' : ''}`} data-pin-key={terminal.key} role="button" tabIndex={0} aria-pressed={selectedEndpointKey === terminal.key} aria-label={`Chọn chân ${terminal.key} · ${part.symbolKind==='board'?boardPinLabels?.[terminal.key.split(':').at(-1)??'']??terminal.label:terminal.label}`} onClick={event => { event.stopPropagation(); onSelectEndpoint(terminal.key) }} onKeyDown={event => { event.stopPropagation(); keyboardSelect(event, () => onSelectEndpoint(terminal.key)) }}>
           {part.symbolKind === 'board' && <path d={`M65 ${terminal.y - part.y}h10`}/>}
           <circle cx={terminal.x - part.x} cy={terminal.y - part.y} r="3"/>
-          <text x={part.symbolKind === 'board' ? 56 : terminal.x - part.x} y={terminal.y - part.y - 10} textAnchor={part.symbolKind === 'board' ? 'end' : terminal.x < part.x ? 'end' : 'start'}>{terminal.label}</text>
+          <text x={part.symbolKind === 'board' ? 56 : terminal.x - part.x} y={terminal.y - part.y - 10} textAnchor={part.symbolKind === 'board' ? 'end' : terminal.x < part.x ? 'end' : 'start'}>{part.symbolKind==='board'?boardPinLabels?.[terminal.key.split(':').at(-1)??'']??terminal.label:terminal.label}</text>
         </g>)}
       </g>)}
       <g className="schematic-title-block" aria-label="Thông tin bản vẽ">

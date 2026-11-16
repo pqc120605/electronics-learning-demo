@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "source": "assets/brand/concepts/2026-11-15/mach-mo-mascot-concept-v1.png",
+  "source_sha256": "a53acd020c4f970b83039d9c7fab9e0f1742fbb85977ad3acdde6325c96c6a56",
+  "model_sha256": "e396ecb1b6799bbe3f44c5df6afc73def210f69168c770b6c004945faebee702",
+  "generator": "scripts/generate-mascot-model.mjs",
+  "parts": 53,
+  "purpose": "Original web illustration adapted from approved project concept; prop is not a circuit design.",
+  "animation": "Application-owned node transforms; no third-party model or animation."
+}

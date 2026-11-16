@@ -6,12 +6,14 @@ let server
 let layout2D
 let migrateWorkspaceV1ToV2
 let circuitForLesson
+let getComponentMesh
 
 before(async () => {
   server = await createServer({ configFile: 'vite.config.ts', logLevel: 'silent', server: { middlewareMode: true } })
   ;({ layout2D } = await server.ssrLoadModule('/src/lib/layout2D.ts'))
   ;({ migrateWorkspaceV1ToV2 } = await server.ssrLoadModule('/src/lib/migrateV1toV2.ts'))
   ;({ circuitForLesson } = await server.ssrLoadModule('/src/data/lessonCircuits.ts'))
+  ;({ getComponentMesh } = await server.ssrLoadModule('/src/data/componentModels.ts'))
 })
 
 after(async () => { await server?.close() })
@@ -48,6 +50,17 @@ test('breadboard part locations follow physical hole coordinates and preserve ro
   const led = result.placements.find(part => part.partId === 'led-1')
   assert.ok(resistor.x < led.x)
   assert.equal(led.rotation, 180)
+})
+
+test('mounted parts use the breadboard row coordinate instead of stacking on one line', () => {
+  const circuit = doc()
+  const led = circuit.parts.find(part => part.id === 'led-1')
+  const firstRow = led.mount.row
+  const firstY = layout2D(circuit).placements.find(part => part.partId === 'led-1').y
+  led.mount.row = 5
+  const secondY = layout2D(circuit).placements.find(part => part.partId === 'led-1').y
+  const rowDelta = getComponentMesh('breadboard').gridMm.rows[5] - getComponentMesh('breadboard').gridMm.rows[firstRow]
+  assert.ok(Math.abs((secondY - firstY) - rowDelta) < 1e-9)
 })
 
 test('bench footprints have at least 0.5 mm clearance within each lane', () => {

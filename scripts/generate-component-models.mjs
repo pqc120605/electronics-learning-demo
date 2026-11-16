@@ -74,7 +74,7 @@ const parametricPins = {
   'rotary-encoder': { mount: 'bench', pins: { clk: [-5.08, 2, -7.62], dt: [-2.54, 2, -7.62], sw: [0, 2, -7.62], vcc: [2.54, 2, -7.62], gnd: [5.08, 2, -7.62] } },
   rfid: { mount: 'bench', pins: { sda: [-8.89, 2, -15.24], sck: [-6.35, 2, -15.24], mosi: [-3.81, 2, -15.24], miso: [-1.27, 2, -15.24], irq: [1.27, 2, -15.24], gnd: [3.81, 2, -15.24], rst: [6.35, 2, -15.24], vcc: [8.89, 2, -15.24] } },
   oled: { mount: 'breadboard', pins: { vcc: [-3.81, 0, 0], gnd: [-1.27, 0, 0], sda: [1.27, 0, 0], scl: [3.81, 0, 0] } },
-  tb6612: { mount: 'breadboard', pins: { vm: [-8.89, 0, -8.89], vcc: [-6.35, 0, -8.89], gnd: [-3.81, 0, -8.89], a01: [-1.27, 0, -8.89], a02: [1.27, 0, -8.89], stby: [-1.27, 0, 8.89], ain1: [1.27, 0, 8.89], ain2: [3.81, 0, 8.89], pwma: [6.35, 0, 8.89] } },
+  tb6612: { mount: 'breadboard', pins: { vm: [-8.89, 0, -8.89], vcc: [-6.35, 0, -8.89], gnd: [-3.81, 0, -8.89], a01: [-1.27, 0, -8.89], a02: [1.27, 0, -8.89], pwma: [-8.89, 0, 8.89], ain2: [-6.35, 0, 8.89], ain1: [-3.81, 0, 8.89], stby: [-1.27, 0, 8.89] } },
   'ir-sensor': { mount: 'bench', pins: { out: [-23, 3, -2.54], gnd: [-23, 3, 0], vcc: [-23, 3, 2.54] } },
   'buck-converter': { mount: 'bench', pins: { inPlus: [-20, 1.7, -8.5], inMinus: [-20, 1.7, 8.5], outPlus: [20, 1.7, -8.5], outMinus: [20, 1.7, 8.5] } },
   'boost-converter': { mount: 'bench', pins: { inPlus: [-16, 1.7, -6.5], inMinus: [-16, 1.7, 6.5], outPlus: [16, 1.7, -6.5], outMinus: [16, 1.7, 6.5] } },

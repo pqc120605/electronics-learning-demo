@@ -80,6 +80,8 @@ export function footprintHoles(part: CircuitPartV2, registry: readonly CircuitRe
   const grid = getComponentMesh('breadboard')?.gridMm
   const legs = geometry?.legsMm
   const mount = part.mount
+  // A geometric projection alone must not make a bench-only model appear electrically seated.
+  if (geometry?.mount !== 'breadboard') return null
   if (!grid || !legs?.length || !Number.isInteger(mount.col) || !Number.isInteger(mount.row)
     || mount.col < 1 || mount.col > BREADBOARD_ELECTRICAL_SPEC.columns
     || mount.row < 0 || mount.row >= grid.rows.length

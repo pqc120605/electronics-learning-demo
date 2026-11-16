@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
 import { componentRegistry } from '../../data/componentRegistry'
+import {lessonBoardPresentation} from '../../lib/lessonBoardPresentation'
+import {getSimulationTarget} from '../../data/simulationTargets'
 import { esp32DevkitModel } from '../../data/esp32DevkitModel'
 import { getBoardModelEvidence } from '../../data/boardModelSources'
 import { addWire, editWireEndpoint, removeWire, setWireRole } from '../../lib/circuitDocEdits'
@@ -10,7 +12,7 @@ import { CircuitSchematicV2 } from '../builder/CircuitSchematicV2'
 import './LessonCircuitWorkspace.css'
 
 export type LessonCircuitAction = { kind: 'pinMode' | 'write' | 'delay'; pin: number; value?: 'HIGH' | 'LOW'; previousLedLit?: boolean; line?: number }
-export type LessonCircuitFlow = { wireIds: Set<string>; activeKeys: Set<string>; complete: boolean; label: string }
+export type LessonCircuitFlow = { wireIds: Set<string>; activeKeys: Set<string>; complete: boolean; label: string; level: 'HIGH' | 'LOW' | null }
 
 export function isLessonCircuitConnected(doc: CircuitDocV2): boolean {
   const index = createNetIndexV2(doc)
@@ -21,7 +23,7 @@ export function isLessonCircuitConnected(doc: CircuitDocV2): boolean {
 
 /** Educational code-to-topology mapping. It highlights declared nets, never voltage/current. */
 export function getLessonCircuitFlow(doc: CircuitDocV2, action: LessonCircuitAction | null): LessonCircuitFlow {
-  const empty = (label: string): LessonCircuitFlow => ({ wireIds: new Set(), activeKeys: new Set(), complete: false, label })
+  const empty = (label: string): LessonCircuitFlow => ({ wireIds: new Set(), activeKeys: new Set(), complete: false, label, level: null })
   if (!action) return empty('Chưa có dòng lệnh được chọn.')
   if (action.pin !== 23) return empty(`GPIO ${action.pin} chưa có ánh xạ đường mạch trong bài này.`)
   if (action.kind === 'pinMode') return empty('Cấu hình GPIO 23 là OUTPUT; chưa có lệnh đặt mức.')
@@ -36,13 +38,14 @@ export function getLessonCircuitFlow(doc: CircuitDocV2, action: LessonCircuitAct
   const groundConnected = Boolean(ground?.endpoints.has('board-1:gnd'))
   if (!source || !outputConnected || !resistorOut || !ledConnected || !ground || !groundConnected) {
     const wires = new Set(source?.wireIds ?? [])
-    return { wireIds: wires, activeKeys: new Set(source?.endpoints ?? []), complete: false, label: `GPIO 23 = ${level}; đường đi chưa khép kín theo các net hiện tại.` }
+    return { wireIds: wires, activeKeys: new Set(source?.endpoints ?? []), complete: false, level, label: `GPIO 23 = ${level}; đường đi chưa khép kín theo các net hiện tại.` }
   }
   const nets = [source, resistorOut, ground]
   return {
     wireIds: new Set(nets.flatMap(net => [...net.wireIds])),
     activeKeys: new Set(nets.flatMap(net => [...net.endpoints])),
     complete: true,
+    level,
     label: `GPIO 23 = ${level} · đường khai báo đi qua điện trở, LED và GND. Đây là trace bài học, không phải dòng điện hay điện áp đã giải.`
   }
 }
@@ -57,6 +60,8 @@ type Props = {
 
 type InfoTab = 'overview' | 'pins' | 'example' | 'specs'
 
+import { GuideContextBridge } from '../guide/GuideContext'
+
 export function LessonCircuitWorkspace({ doc: initialDoc, activeAction, selectedPartId, onSelectPart, onSelectFeature = () => {} }: Props) {
   const [doc, setDoc] = useState(() => structuredClone(initialDoc))
   const [view, setView] = useState<'breadboard' | 'schematic'>('breadboard')
@@ -70,6 +75,7 @@ export function LessonCircuitWorkspace({ doc: initialDoc, activeAction, selected
   const definition = componentRegistry.find(item => item.id === part?.type)
   const feature = esp32DevkitModel.features.find(item => item.id === featureId)
   const connected = isLessonCircuitConnected(doc)
+  const litPartIds = useMemo(() => new Set(flow.complete && flow.level === 'HIGH' ? ['led-1'] : []), [flow])
 
   function update(result: { doc: CircuitDocV2; issues: Array<{ severity: string; message: string }> }) {
     const error = result.issues.find(issue => issue.severity === 'error')
@@ -83,7 +89,8 @@ export function LessonCircuitWorkspace({ doc: initialDoc, activeAction, selected
     update(addWire(doc, { id, from, to, role: 'signal' }))
   }
 
-  return <section className="lesson-circuit-workspace" aria-label="Mạch bài học dùng CircuitDocV2">
+  return <section className="lesson-circuit-workspace mm-keep-light" aria-label="Mạch bài học dùng CircuitDocV2">
+    <GuideContextBridge snapshot={{owner:"lesson-circuit",priority:90,lesson:"Bài LED nhập môn",board:{id:"esp32-devkit",name:"ESP32 DevKit V1 · tham chiếu bài học",reference:true},part:part&&definition?{id:part.id,type:part.type,name:part.type==="resistor"?"Điện trở":definition.label,summary:definition.explanation,pins:definition.pins.map(pin=>pin.label),note:definition.safetyNotes}:undefined,status:activeAction?"Trace bài học đang hiển thị":"Chưa chạy trace",issues:connected?[]:["Đường GPIO → điện trở → LED → GND của bài chưa nối đủ."]}} />
     <div className="lesson-circuit-heading"><div><p className="eyebrow">MẠCH BÀI HỌC · CÙNG MỘT TOPOLOGY</p><h3>Lắp dây, sơ đồ và đường lệnh</h3></div><span>{doc.parts.length} linh kiện · {doc.wires.length} dây</span></div>
     <div className="lesson-circuit-layout">
       <div className="lesson-circuit-main">
@@ -92,7 +99,7 @@ export function LessonCircuitWorkspace({ doc: initialDoc, activeAction, selected
           <button type="button" role="tab" aria-selected={view === 'schematic'} onClick={() => setView('schematic')}>Schematic</button>
         </div>
         {view === 'breadboard'
-          ? <BreadboardEditor doc={doc} selectedWireId={selectedWireId} pendingEndpoint={pendingEndpoint} activeWireIds={flow.wireIds} onSelectEndpoint={endpoint => { setPendingEndpoint(endpoint); if (endpoint.kind === 'pin') onSelectPart(endpoint.partId) }} onSelectWire={setSelectedWireId} onCommitWire={commitWire} onEditWireEndpoint={(id, end, endpoint) => update(editWireEndpoint(doc, id, end, endpoint))} onSetWireRole={(id, role) => update(setWireRole(doc, id, role))} onRemoveWire={id => update(removeWire(doc, id))} notice={notice} />
+          ? <BreadboardEditor presentation={lessonBoardPresentation(getSimulationTarget('esp32-devkit'),'blink')} doc={doc} selectedWireId={selectedWireId} pendingEndpoint={pendingEndpoint} activeWireIds={flow.wireIds} traceLevel={flow.level} litPartIds={litPartIds} onSelectEndpoint={endpoint => { setPendingEndpoint(endpoint); if (endpoint.kind === 'pin') onSelectPart(endpoint.partId) }} onSelectWire={setSelectedWireId} onCommitWire={commitWire} onEditWireEndpoint={(id, end, endpoint) => update(editWireEndpoint(doc, id, end, endpoint))} onSetWireRole={(id, role) => update(setWireRole(doc, id, role))} onRemoveWire={id => update(removeWire(doc, id))} notice={notice} />
           : <CircuitSchematicV2 doc={doc} selectedKey={selectedPartId} selectedWireId={selectedWireId} activeKeys={flow.activeKeys} onSelectPart={onSelectPart} onSelectWire={setSelectedWireId} />}
         <div className={`lesson-signal-flow ${flow.complete ? 'is-complete' : ''}`} role="status" aria-live="polite">
           <strong>Luồng theo dòng code đang chọn</strong><p>{flow.label}</p>

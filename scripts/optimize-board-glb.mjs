@@ -120,7 +120,8 @@ function optimize(source) {
   return { output: writeGlbFile(json, Buffer.concat(positions), Buffer.concat(normals), Buffer.concat(indices)), before: glb }
 }
 
-const backupDir = 'assets/boards/unoptimized-glb'
+// GLB_BACKUP_DIR lets builds that must not write under assets/ keep their backups elsewhere.
+const backupDir = process.env.GLB_BACKUP_DIR ?? 'assets/boards/unoptimized-glb'
 await mkdir(backupDir, { recursive: true })
 for (const path of process.argv.slice(2)) {
   const source = await readFile(path)

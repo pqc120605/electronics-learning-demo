@@ -5,6 +5,7 @@ import { inspectIntelHex, type IntelHexImage } from '../lib/intelHex'
 import { atmega328pFirmwareTargets, canRunAtmega328pFirmware, getAtmega328pFirmwareTarget, type Atmega328pBoardId } from '../lib/firmwareTarget'
 import type { Atmega328pSnapshot } from '../lib/avr8jsRunner'
 import { DigitalWaveform } from '../components/builder/DigitalWaveform'
+import { Rp2040FirmwarePanel } from '../components/firmware/Rp2040FirmwarePanel'
 import { createSimulationRunId, isCurrentSimulationRun } from '../lib/workspaceSimulationSession'
 import type { AVR8jsWorkerResponse } from '../simulation/avr8jsProtocol'
 import { useProductRoute } from '../lib/useProductRoute'
@@ -276,6 +277,7 @@ export function FirmwareHexToolPage() {
           </div>
         )}
       </section>
+      <Rp2040FirmwarePanel />
       <section className="firmware-tool-note">
         <strong>Phân biệt hai tệp mẫu</strong>
         <p>Trang có hai HEX mẫu cho ATmega328P: một bản assembly bare-metal và một bản biên dịch từ sketch Arduino Uno bằng Arduino IDE 2.3.10, Arduino AVR Boards 1.8.8 (arduino:avr:uno). Chọn Uno R3 hoặc Nano classic để chạy cùng core ATmega328P 16 MHz và quan sát D13/PB5. Đây không phải bằng chứng mô phỏng đầy đủ firmware hoặc mạch điện; các board khác chưa chạy firmware trong công cụ này.</p>

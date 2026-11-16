@@ -38,6 +38,7 @@ function boardPinLabel(target: SimulationTarget, lesson: CurriculumLesson, pinId
   const input = getInputAlias(target, lesson.id).label
   if (pinId === 'gnd') return 'GND'
   if (pinId === 'vcc') return `Nguồn logic · ${target.logicLevel}`
+  if (pinId === 'v5') return 'Nguồn 5 V / VIN'
   if (lesson.simulationMode === 'fixed-scenario') return 'Chân tín hiệu · alias học tập'
   if (pinId === 'ledOut') return target.pinLabel
   if (pinId === 'input' || pinId === 'trig') return input
@@ -101,7 +102,7 @@ export function getLessonPreflight(lessonId: BuilderLessonId, boardId: string): 
       return { type, catalogId, catalogRoute: type === 'board' ? boardRoute : catalogId ? `/components?component=${encodeURIComponent(catalogId)}` : undefined, count, label }
     }),
     pins,
-    startRoute: target.boardId === 'esp32-devkit' ? lesson.route : `${lesson.route}&board=${target.boardId}`,
+    startRoute: `${lesson.route}&board=${encodeURIComponent(target.boardId)}`,
   }
 }
 

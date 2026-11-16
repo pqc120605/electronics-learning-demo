@@ -1,0 +1,340 @@
+
+> mach-mo-learning-demo@0.1.0 test:e2e
+> node scripts/run-browser-tests.mjs test --config .tmp/pw-redesign.config.mjs --workers=1
+
+vite v8.3.5 building client environment for production...
+transforming...
+[EVAL] Use of direct `eval` function is strongly discouraged as it poses security risks and may cause issues with minification.
+   ╭─[ node_modules/rp2040js/dist/esm/utils/time.js:6:27 ]
+   │
+ 6 │         return Math.floor(eval('require')('perf_hooks').performance.now() * 1000);
+   │                           ──┬─  
+   │                             ╰─── Use of direct `eval` here.
+   │ 
+   │ Help: Consider using indirect eval. For more information, check the documentation: https://rolldown.rs/guide/troubleshooting#avoiding-direct-eval
+───╯
+
+[EVAL] Use of direct `eval` function is strongly discouraged as it poses security risks and may cause issues with minification.
+   ╭─[ node_modules/rp2040js/dist/esm/utils/time.js:6:27 ]
+   │
+ 6 │         return Math.floor(eval('require')('perf_hooks').performance.now() * 1000);
+   │                           ──┬─  
+   │                             ╰─── Use of direct `eval` here.
+   │ 
+   │ Help: Consider using indirect eval. For more information, check the documentation: https://rolldown.rs/guide/troubleshooting#avoiding-direct-eval
+───╯
+
+✓ 658 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                             1.29 kB │ gzip:   0.69 kB
+dist/assets/spice.worker-UGhK8qvg.js                        8.63 kB
+dist/assets/avr8js.worker-BY4E7cJu.js                      45.14 kB
+dist/assets/avrLive.worker-B2sgvO7g.js                     47.73 kB
+dist/assets/rp2040.worker-DvRxpH7G.js                     142.30 kB
+dist/assets/micropython.worker-BmevX4Ld.js                149.23 kB
+dist/assets/mach-mo-logo-concept-v1-LHG9N2oJ.png          542.91 kB
+dist/assets/mach-mo-mascot-concept-v1-BUXvN7TZ.png      1,063.68 kB
+dist/assets/LessonProgressToggle-BUSCUcQQ.css               0.72 kB │ gzip:   0.35 kB
+dist/assets/LearningActivity--1xr_iVx.css                   1.62 kB │ gzip:   0.56 kB
+dist/assets/SignalFlowPanel-DRoZm1sI.css                    1.96 kB │ gzip:   0.69 kB
+dist/assets/LearningPath-Bij5-DgI.css                       2.07 kB │ gzip:   0.68 kB
+dist/assets/DigitalWaveform-Cfl6uqW1.css                    2.42 kB │ gzip:   0.84 kB
+dist/assets/CircuitGatePanel-BV_xjpIH.css                   2.48 kB │ gzip:   0.73 kB
+dist/assets/ComponentVisual-DCrWaGWD.css                    3.91 kB │ gzip:   1.21 kB
+dist/assets/LessonPage-Dfvn01s9.css                         4.36 kB │ gzip:   1.24 kB
+dist/assets/ElectronicsCalculatorsPage-Cg69sARI.css         4.44 kB │ gzip:   1.10 kB
+dist/assets/SketchRunnerPage-ClZRXKIF.css                   5.10 kB │ gzip:   1.51 kB
+dist/assets/RobotSimulationLessonPage-DuahMEj-.css          5.40 kB │ gzip:   1.54 kB
+dist/assets/FeedbackPage-Jt4I-Lgn.css                       5.59 kB │ gzip:   1.47 kB
+dist/assets/Pcb2DViewer-Cmahj3Nv.css                        7.11 kB │ gzip:   1.93 kB
+dist/assets/AppHomePage-BbUfD9k2.css                        8.58 kB │ gzip:   1.93 kB
+dist/assets/FirmwareHexToolPage-DzDQW5kf.css                9.76 kB │ gzip:   2.11 kB
+dist/assets/AssemblyStage-CXPzF89O.css                      9.86 kB │ gzip:   2.42 kB
+dist/assets/ClassroomKitPage-DQX2BcpX.css                  10.22 kB │ gzip:   2.21 kB
+dist/assets/Community-D-fQOHE3.css                         12.67 kB │ gzip:   2.66 kB
+dist/assets/CircuitBuilderPage-BzHnrVGA.css                13.65 kB │ gzip:   2.67 kB
+dist/assets/SpiceWorkbenchPage-CfVGdmO9.css                15.14 kB │ gzip:   3.21 kB
+dist/assets/LessonPreflightPage-fM-hFUmt.css               19.28 kB │ gzip:   4.14 kB
+dist/assets/FreestyleBench-CPqB-Nna.css                    20.54 kB │ gzip:   4.05 kB
+dist/assets/CircuitSchematicV2-Dhu79Vah.css                21.18 kB │ gzip:   4.96 kB
+dist/assets/index-DRBBtT2b.css                            243.91 kB │ gzip:  43.59 kB
+dist/assets/componentDisplayLabel-TquZyH0J.js               0.15 kB │ gzip:   0.15 kB
+dist/assets/FreestyleLabPage-7nRpqQFk.js                    0.24 kB │ gzip:   0.20 kB
+dist/assets/useProductRoute-DLjG45y4.js                     0.24 kB │ gzip:   0.21 kB
+dist/assets/useLearningProgress-CFWA5m7H.js                 0.46 kB │ gzip:   0.25 kB
+dist/assets/firmwareTarget-D4jArK8e.js                      0.51 kB │ gzip:   0.28 kB
+dist/assets/workspaceSimulationSession-D9t-MQH_.js          0.58 kB │ gzip:   0.36 kB
+dist/assets/CapabilityBadge-DT_KN8D5.js                     0.62 kB │ gzip:   0.36 kB
+dist/assets/PrivacyPage-BNoW-lXN.js                         1.73 kB │ gzip:   0.93 kB
+dist/assets/circuitNets-CvwZy5uq.js                         1.79 kB │ gzip:   0.86 kB
+dist/assets/SignalFlowPanel-CirEW2Ay.js                     1.82 kB │ gzip:   0.92 kB
+dist/assets/board-pin-anchors-ByLb6gbo.js                   1.89 kB │ gzip:   0.69 kB
+dist/assets/LearningActivity-BcnNjxtJ.js                    1.99 kB │ gzip:   1.05 kB
+dist/assets/capabilityRegistry-BPl7pPAF.js                  2.05 kB │ gzip:   1.00 kB
+dist/assets/learningPath-CZCHZOHV.js                        2.21 kB │ gzip:   1.14 kB
+dist/assets/ComponentModelViewer-i85mydoy.js                2.33 kB │ gzip:   1.02 kB
+dist/assets/componentCatalog-BJuhTKM6.js                    2.40 kB │ gzip:   1.20 kB
+dist/assets/AuthCallbackPage-XSMwsPhW.js                    2.47 kB │ gzip:   1.07 kB
+dist/assets/AdminLoginPage-DPs-oG9B.js                      2.69 kB │ gzip:   1.20 kB
+dist/assets/LessonProgressToggle-DKOnIVLV.js                2.81 kB │ gzip:   1.26 kB
+dist/assets/learningProgress-CZjtSPpJ.js                    3.02 kB │ gzip:   1.14 kB
+dist/assets/simulationTargets-BuBdisSE.js                   3.25 kB │ gzip:   0.82 kB
+dist/assets/BoardPinoutExplorer-BNCE1MiR.js                 3.36 kB │ gzip:   1.47 kB
+dist/assets/MarkdownEditor-BC40ur3t.js                      3.39 kB │ gzip:   1.43 kB
+dist/assets/lessonPreflight-DjNjv796.js                     3.56 kB │ gzip:   1.82 kB
+dist/assets/intelHex-DI7JuvBg.js                            3.72 kB │ gzip:   1.84 kB
+dist/assets/RobotSimulationLessonPage-BfExkedT.js           3.92 kB │ gzip:   1.47 kB
+dist/assets/CommunityNewPostPage-Ex9X4x89.js                4.08 kB │ gzip:   1.79 kB
+dist/assets/simpleMarkdown-CNnbtaS-.js                      4.18 kB │ gzip:   2.08 kB
+dist/assets/LoginPage-B7Xj2Yww.js                           4.36 kB │ gzip:   2.08 kB
+dist/assets/TopicsPage-Bt6mJXt9.js                          4.40 kB │ gzip:   1.89 kB
+dist/assets/CommunityPage-Cm1owdI2.js                       4.69 kB │ gzip:   1.98 kB
+dist/assets/FreestyleAssemblyView-CNiGlZvI.js               5.38 kB │ gzip:   2.62 kB
+dist/assets/DigitalWaveform-CRTTUERj.js                     5.43 kB │ gzip:   2.28 kB
+dist/assets/lessons-y6AMeByE.js                             5.86 kB │ gzip:   2.31 kB
+dist/assets/CommunityPostPage-Ce09vVXB.js                   6.00 kB │ gzip:   2.19 kB
+dist/assets/pbrShading-C7SjCDSv.js                          6.01 kB │ gzip:   2.47 kB
+dist/assets/lessonCircuits-DQGbTCMl.js                      6.07 kB │ gzip:   1.75 kB
+dist/assets/spiceNetlist-BkI0dwl6.js                        6.26 kB │ gzip:   2.82 kB
+dist/assets/LearningPath-DLgldRSo.js                        6.58 kB │ gzip:   2.38 kB
+dist/assets/sceneMath-priN2BlL.js                           7.16 kB │ gzip:   3.20 kB
+dist/assets/ExplorePage-CzWke9SB.js                         7.26 kB │ gzip:   2.31 kB
+dist/assets/ComponentIllustration-qwz-Iuwf.js               7.52 kB │ gzip:   2.32 kB
+dist/assets/calculatorSpice-DuhzmK5W.js                     7.85 kB │ gzip:   3.55 kB
+dist/assets/AppHomePage-lEq9Ymr4.js                         8.05 kB │ gzip:   2.84 kB
+dist/assets/AdminDashboardPage-CKeBesLt.js                  8.44 kB │ gzip:   2.69 kB
+dist/assets/supabase-D3Ctfmow.js                            8.65 kB │ gzip:   3.49 kB
+dist/assets/jsx-runtime-DyZJNswf.js                         8.78 kB │ gzip:   3.33 kB
+dist/assets/SketchRunnerPage-DiD9jBa8.js                    9.02 kB │ gzip:   3.62 kB
+dist/assets/circuitNetsV2-CRd7ICO6.js                      10.15 kB │ gzip:   4.09 kB
+dist/assets/FeedbackPage-6yukW03R.js                       10.21 kB │ gzip:   4.09 kB
+dist/assets/CppPracticeEditor-CoOAqG0S.js                  10.69 kB │ gzip:   4.24 kB
+dist/assets/BoardScene-Bbl7dbaI.js                         10.78 kB │ gzip:   4.15 kB
+dist/assets/BoardViewer-CkaoKYdR.js                        11.05 kB │ gzip:   4.27 kB
+dist/assets/ElectronicsCalculatorsPage-CuYmGZzm.js         12.48 kB │ gzip:   3.91 kB
+dist/assets/savedProjects-Cu5CZyLU.js                      13.29 kB │ gzip:   4.50 kB
+dist/assets/workspaceSpice-LwzBjCT5.js                     14.07 kB │ gzip:   5.42 kB
+dist/assets/curriculumSchema-DW6zc7qX.js                   14.63 kB │ gzip:   4.80 kB
+dist/assets/assemblyLayout-DiFGmrQq.js                     14.64 kB │ gzip:   5.89 kB
+dist/assets/AssemblyScene-kK0yOHB_.js                      14.66 kB │ gzip:   5.34 kB
+dist/assets/ProjectsPage-BK3jXkCK.js                       15.71 kB │ gzip:   5.61 kB
+dist/assets/componentRegistry-zn0PQHUW.js                  15.74 kB │ gzip:   5.03 kB
+dist/assets/Pcb2DViewer-BrSTR3zX.js                        17.34 kB │ gzip:   6.53 kB
+dist/assets/freestyleCircuit-BuWPm0xW.js                   20.00 kB │ gzip:   7.23 kB
+dist/assets/esp32DevkitModel-Cn3ZYT2i.js                   20.12 kB │ gzip:   7.64 kB
+dist/assets/BoardCatalogPage-BIhuyDKF.js                   21.47 kB │ gzip:   7.18 kB
+dist/assets/FirmwareHexToolPage-DA9Z4Qk8.js                21.71 kB │ gzip:   7.27 kB
+dist/assets/sketchInterpreter-Cr2vFJlH.js                  22.83 kB │ gzip:   8.93 kB
+dist/assets/esp32-s3-devkitc-1.pin-anchors-DKL-GEzx.js     24.20 kB │ gzip:   6.77 kB
+dist/assets/stm32BoardModels-BOrrWuDv.js                   24.36 kB │ gzip:   7.46 kB
+dist/assets/boardCapabilityRegistry-C9Cjy7gQ.js            29.26 kB │ gzip:   8.19 kB
+dist/assets/ClassroomKitPage-DNOU4DFk.js                   29.54 kB │ gzip:   9.27 kB
+dist/assets/ComponentVisual-BDQclg0u.js                    30.04 kB │ gzip:  10.15 kB
+dist/assets/GuidePanel-BS54x5bi.js                         30.09 kB │ gzip:  11.20 kB
+dist/assets/CircuitGatePanel-BEopypsd.js                   31.84 kB │ gzip:  12.01 kB
+dist/assets/componentModels-Cb3EtJiU.js                    31.85 kB │ gzip:   9.19 kB
+dist/assets/AssemblyStage-DQYiC92k.js                      32.50 kB │ gzip:  11.57 kB
+dist/assets/LessonPreflightPage-CBRh_e0J.js                33.16 kB │ gzip:  10.96 kB
+dist/assets/FreestyleBench-MjY22La5.js                     42.47 kB │ gzip:  14.64 kB
+dist/assets/LessonPage-C8YY-FMZ.js                         42.75 kB │ gzip:  12.88 kB
+dist/assets/boards-nRlijR4q.js                             47.12 kB │ gzip:  11.12 kB
+dist/assets/espressifBoardModels-iUNPCTmq.js               48.78 kB │ gzip:   9.35 kB
+dist/assets/SpiceWorkbenchPage-0nmuJW8J.js                 52.26 kB │ gzip:  17.15 kB
+dist/assets/CircuitSchematicV2-Qhv8KFgW.js                 61.06 kB │ gzip:  19.78 kB
+dist/assets/raspberryPiBoardModels-DTWK13TA.js             82.45 kB │ gzip:  18.71 kB
+dist/assets/ComponentsPage-wUsCTr-F.js                     84.95 kB │ gzip:  24.79 kB
+dist/assets/seeedBoardModels-DSaGukvo.js                  114.67 kB │ gzip:  24.65 kB
+dist/assets/CircuitBuilderPage-DOQEf2Nq.js                209.71 kB │ gzip:  64.81 kB
+dist/assets/index-BO94ex_P.js                             346.19 kB │ gzip: 110.64 kB
+
+[EVAL] Use of direct `eval` function is strongly discouraged as it poses security risks and may cause issues with minification.
+   ╭─[ node_modules/rp2040js/dist/esm/utils/time.js:6:27 ]
+   │
+ 6 │         return Math.floor(eval('require')('perf_hooks').performance.now() * 1000);
+   │                           ──┬─  
+   │                             ╰─── Use of direct `eval` here.
+   │ 
+   │ Help: Consider using indirect eval. For more information, check the documentation: https://rolldown.rs/guide/troubleshooting#avoiding-direct-eval
+───╯
+
+✓ built in 1.35s
+[WebServer] (node:39992) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 170 tests using 1 worker
+
+(node:30620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok   1 e2e\accessibility.spec.mjs:4:59 › a11y 375px / (3.6s)
+  ok   2 e2e\accessibility.spec.mjs:4:59 › a11y 375px /app (2.8s)
+  ok   3 e2e\accessibility.spec.mjs:4:59 › a11y 375px /learn/button-led (6.7s)
+  ok   4 e2e\accessibility.spec.mjs:4:59 › a11y 375px /boards?board=seeed-xiao-esp32-s3 (4.5s)
+  ok   5 e2e\accessibility.spec.mjs:4:59 › a11y 375px /components?component=resistor (2.8s)
+  ok   6 e2e\accessibility.spec.mjs:4:59 › a11y 375px /build?lesson=blink&guided=1 (7.6s)
+  ok   7 e2e\accessibility.spec.mjs:4:59 › a11y 375px /tools/electronics-calculators (7.1s)
+  ok   8 e2e\accessibility.spec.mjs:4:59 › a11y 375px /app/classroom-kits (3.4s)
+  ok   9 e2e\accessibility.spec.mjs:4:59 › a11y 1440px / (2.6s)
+  ok  10 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /app (2.9s)
+  ok  11 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /learn/button-led (5.1s)
+  ok  12 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /boards?board=seeed-xiao-esp32-s3 (3.1s)
+  ok  13 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /components?component=resistor (2.2s)
+  ok  14 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /build?lesson=blink&guided=1 (5.1s)
+  ok  15 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /tools/electronics-calculators (1.8s)
+  ok  16 e2e\accessibility.spec.mjs:4:59 › a11y 1440px /app/classroom-kits (2.0s)
+  ok  17 e2e\auth-community.spec.mjs:6:1 › login page shows a clear unconfigured state and never fakes a session (784ms)
+  ok  18 e2e\auth-community.spec.mjs:15:1 › header and workspace topbar expose login while keeping guest mode (2.8s)
+  ok  19 e2e\auth-community.spec.mjs:27:1 › community lists groups, filters by search, group and tag (2.0s)
+  ok  20 e2e\auth-community.spec.mjs:47:1 › guest can draft a post with code, comment and report; HTML stays text (2.5s)
+  ok  21 e2e\auth-community.spec.mjs:85:62 › a11y 375px /login (1.2s)
+  ok  22 e2e\auth-community.spec.mjs:85:62 › a11y 375px /app/login (1.6s)
+  ok  23 e2e\auth-community.spec.mjs:85:62 › a11y 375px /community (1.6s)
+  ok  24 e2e\auth-community.spec.mjs:85:62 › a11y 375px /app/community (1.4s)
+  ok  25 e2e\auth-community.spec.mjs:85:62 › a11y 375px /community/esp32-gpio-34-khong-output (1.1s)
+  ok  26 e2e\auth-community.spec.mjs:85:62 › a11y 375px /community/new (1.3s)
+  ok  27 e2e\auth-community.spec.mjs:85:62 › a11y 1440px /login (1.5s)
+  ok  28 e2e\auth-community.spec.mjs:85:62 › a11y 1440px /app/login (1.5s)
+  ok  29 e2e\auth-community.spec.mjs:85:62 › a11y 1440px /community (1.9s)
+  ok  30 e2e\auth-community.spec.mjs:85:62 › a11y 1440px /app/community (2.0s)
+  ok  31 e2e\auth-community.spec.mjs:85:62 › a11y 1440px /community/esp32-gpio-34-khong-output (1.8s)
+  ok  32 e2e\auth-community.spec.mjs:85:62 › a11y 1440px /community/new (1.5s)
+  ok  33 e2e\auth-community.spec.mjs:95:3 › no document scroll at 1280x720 for login/community (3.0s)
+  ok  34 e2e\auth-community.spec.mjs:95:3 › no document scroll at 1440x900 for login/community (3.1s)
+  ok  35 e2e\feedback.spec.mjs:17:1 › public and app routes show only the approved developer contacts and no delivery claim (1.2s)
+  ok  36 e2e\feedback.spec.mjs:31:1 › help carries only the current route and developer footer opens the profile (1.4s)
+  ok  37 e2e\feedback.spec.mjs:42:1 › review validates fields and downloads the exact unsent report without making a form request (1.5s)
+  ok  38 e2e\feedback.spec.mjs:67:1 › clipboard denial offers a selected report instead of claiming copied or sent (1.2s)
+  ok  39 e2e\feedback.spec.mjs:78:1 › tab draft survives reload while unknown original bytes are preserved and recoverable (2.2s)
+  ok  40 e2e\feedback.spec.mjs:92:1 › blocked session storage still allows review and a file from the current input (1.1s)
+  ok  41 e2e\feedback.spec.mjs:101:1 › a denied storage getter never claims tab durability and still exports the in-memory report (1.5s)
+  ok  42 e2e\feedback.spec.mjs:115:67 › feedback is usable with keyboard and has no serious accessibility violations at 375px light (2.1s)
+  ok  43 e2e\feedback.spec.mjs:115:67 › feedback is usable with keyboard and has no serious accessibility violations at 375px dark (2.1s)
+  ok  44 e2e\feedback.spec.mjs:115:67 › feedback is usable with keyboard and has no serious accessibility violations at 1440px light (1.8s)
+  ok  45 e2e\feedback.spec.mjs:115:67 › feedback is usable with keyboard and has no serious accessibility violations at 1440px dark (1.9s)
+  ok  46 e2e\freestyle-bench.spec.mjs:47:1 › Uno: build an LED circuit by hand, write Blink, compile with arduino-cli and watch the LED blink (10.2s)
+  ok  47 e2e\freestyle-bench.spec.mjs:82:1 › Pico: MicroPython runs for real on rp2040js and blinks the LED wired to GP15 (7.4s)
+  ok  48 e2e\freestyle-bench.spec.mjs:100:1 › without the local service the bench falls back to the interpreter and says so (4.3s)
+  ok  49 e2e\freestyle-bench.spec.mjs:124:1 › full-screen room keeps the circuit, gathers the tools and fits one screen (4.1s)
+  ok  50 e2e\freestyle-bench.spec.mjs:154:5 › a11y + layout 375px / (1.9s)
+  ok  51 e2e\freestyle-bench.spec.mjs:154:5 › a11y + layout 375px /build/freestyle (1.7s)
+  ok  52 e2e\freestyle-bench.spec.mjs:154:5 › a11y + layout 1440px / (2.1s)
+  ok  53 e2e\freestyle-bench.spec.mjs:154:5 › a11y + layout 1440px /build/freestyle (1.6s)
+  ok  54 e2e\freestyle-views.spec.mjs:13:1 › fresh home and room have no implicit board, circuit, code, or saved replacement (2.3s)
+  ok  55 e2e\freestyle-views.spec.mjs:25:1 › board selection changes 2D art, accessible pins, schematic and correct 3D assets (10.8s)
+  ok  56 e2e\freestyle-views.spec.mjs:51:1 › draft is opt-in and byte-preserved until resumed or safely backed up (4.9s)
+  ok  57 e2e\freestyle-views.spec.mjs:77:1 › later blank/sample replacements keep the latest custom work recoverable in the draft dialog (2.7s)
+  ok  58 e2e\freestyle-views.spec.mjs:93:1 › runtime waveform captures actual samples and invalidates when code or board changes (2.7s)
+  ok  59 e2e\freestyle-views.spec.mjs:105:1 › backup failure preserves the old raw draft while the new bench remains usable in memory (2.9s)
+  ok  60 e2e\freestyle-views.spec.mjs:120:1 › switching board during a pending compile rejects the stale completion and error (2.5s)
+  ok  61 e2e\freestyle-views.spec.mjs:135:1 › home full-screen action preserves unsaved session-only work in place (2.1s)
+  ok  62 e2e\freestyle-views.spec.mjs:146:1 › combined board and bench-part URL handoff is atomic and survives a reload (2.1s)
+  ok  63 e2e\freestyle-views.spec.mjs:155:1 › stopping after the first runtime frame flushes Serial and waveform before the 80ms UI interval (2.2s)
+  ok  64 e2e\freestyle-views.spec.mjs:167:31 › workspace stays legible, keyboard reachable and expandable at 375px (2.1s)
+  ok  65 e2e\freestyle-views.spec.mjs:167:31 › workspace stays legible, keyboard reachable and expandable at 1440px (2.2s)
+  ok  66 e2e\freestyle-views.spec.mjs:182:1 › mobile virtual controls stay with the visible circuit and release on blur or pointer cancel (3.0s)
+  ok  67 e2e\freestyle-views.spec.mjs:206:1 › mobile knob changes are usable beside the waveform without restarting the runtime (2.2s)
+  ok  68 e2e\freestyle-views.spec.mjs:219:1 › short landscape keeps controls reachable without horizontal page overflow (2.1s)
+  ok  69 e2e\journeys.spec.mjs:4:1 › mobile selected-wire controls remain fully exposed above the playback console (3.5s)
+  ok  70 e2e\journeys.spec.mjs:38:3 › 3D event marker excludes selected pins outside the current frame at 1440px (6.7s)
+  ok  71 e2e\journeys.spec.mjs:38:3 › 3D event marker excludes selected pins outside the current frame at 375px (5.5s)
+  ok  72 e2e\journeys.spec.mjs:70:3 › signal playback follows one event across projections at 1440px (12.6s)
+  ok  73 e2e\journeys.spec.mjs:70:3 › signal playback follows one event across projections at 375px (9.8s)
+  ok  74 e2e\journeys.spec.mjs:162:1 › reduced motion keeps signal playback manual and stops an active timer (4.4s)
+  ok  75 e2e\journeys.spec.mjs:188:3 › button LED wiring preserves endpoint identity and rejects invalid edits at 1440×900 (6.3s)
+  ok  76 e2e\journeys.spec.mjs:188:3 › button LED wiring preserves endpoint identity and rejects invalid edits at 375×812 (6.1s)
+  ok  77 e2e\journeys.spec.mjs:332:1 › button LED workspace keeps the desktop scene, navigation, and typed result in one viewport (5.8s)
+  ok  78 e2e\journeys.spec.mjs:402:1 › button LED mobile views preserve input, selection, and code and invalidate old results (3.3s)
+  ok  79 e2e\journeys.spec.mjs:451:3 › teaching schematic preserves keyboard net selection and code highlights at 1440px (2.5s)
+  ok  80 e2e\journeys.spec.mjs:451:3 › teaching schematic preserves keyboard net selection and code highlights at 375px (2.7s)
+  ok  81 e2e\journeys.spec.mjs:498:1 › an unknown board keeps the button lesson in a labeled reference view without 3D or trace (1.0s)
+  ok  82 e2e\journeys.spec.mjs:508:1 › PCB copper viewer keeps controls readable in the warm interface and renders the selected CAD layer (2.6s)
+  ok  83 e2e\journeys.spec.mjs:576:1 › beginner follows curriculum into an editable guided lesson (3.7s)
+  ok  84 e2e\journeys.spec.mjs:594:1 › learner discovers and completes the conceptual robot lesson across narrow and desktop viewports (3.7s)
+  ok  85 e2e\journeys.spec.mjs:616:1 › real pointer drag creates exactly one wire and undo restores the circuit (1.8s)
+  ok  86 e2e\journeys.spec.mjs:674:1 › schematic pins can be connected with Tab and Enter (2.5s)
+  ok  87 e2e\journeys.spec.mjs:681:1 › 3D view pins can be connected with Tab and Enter (2.6s)
+  ok  88 e2e\journeys.spec.mjs:696:1 › draft warning is announced once and clears after storage recovers (1.4s)
+  ok  89 e2e\journeys.spec.mjs:722:1 › accepting a v4 migration preview keeps source bytes while v5 jumpers and cross-view selection persist (8.0s)
+  ok  90 e2e\journeys.spec.mjs:815:1 › 3D lesson preview ignores stale legacy parts and keeps its inventory on the CircuitDocV2 source (4.0s)
+  ok  91 e2e\journeys.spec.mjs:847:1 › lesson code steps highlight the corresponding canonical circuit net and board feature selection is shared (12.2s)
+  ok  92 e2e\journeys.spec.mjs:910:1 › pin focus does not select its part and part shortcuts do not bubble from pins (3.0s)
+  ok  93 e2e\journeys.spec.mjs:975:1 › XIAO S3 reference viewer has no duplicate React key or asset-load error (1.1s)
+  ok  94 e2e\journeys.spec.mjs:987:1 › compatible sample firmware requires target confirmation and emits captured D13 transitions (2.3s)
+  ok  95 e2e\journeys.spec.mjs:1003:1 › SPICE solves its RC example and exports solver data (1.4s)
+  ok  96 e2e\journeys.spec.mjs:1013:1 › saved project can be opened and exported/imported without losing circuit or drafts (3.6s)
+  ok  97 e2e\journeys.spec.mjs:1041:1 › file import preserves portable identity and conflicting drafts without serializing branch defaults (3.5s)
+  ok  98 e2e\journeys.spec.mjs:1069:1 › library identity round trip updates only the opened entry and keeps the portable document (8.4s)
+  ok  99 e2e\journeys.spec.mjs:1184:3 › slow Builder import preserves the latest linked draft when confirmed (2.4s)
+  ok 100 e2e\journeys.spec.mjs:1184:3 › slow Builder import preserves the latest linked draft when cancelled (2.5s)
+  ok 101 e2e\journeys.spec.mjs:1249:1 › supplied and learner-edited branch drafts survive reload including empty drafts (4.9s)
+  ok 102 e2e\journeys.spec.mjs:1282:1 › classroom kit includes station accessories in the downloaded CSV (1.3s)
+  ok 103 e2e\journeys.spec.mjs:1292:1 › legacy v1 kit in localStorage reloads byte-identically and shows the documented 10 kΩ LDR resistor (1.4s)
+  ok 104 e2e\journeys.spec.mjs:1313:1 › legacy family-level resistor override shows a preview and waits for an explicit variant mapping (1.3s)
+  ok 105 e2e\journeys.spec.mjs:1343:1 › ambiguous legacy localStorage override is previewed and is not applied before a choice (1.1s)
+  ok 106 e2e\journeys.spec.mjs:1372:3 › unreadable saved kit (future schema) is preserved until an explicit replacement (1.9s)
+  ok 107 e2e\journeys.spec.mjs:1372:3 › unreadable saved kit (malformed JSON) is preserved until an explicit replacement (2.3s)
+  ok 108 e2e\journeys.spec.mjs:1372:3 › unreadable saved kit (empty saved value) is preserved until an explicit replacement (2.2s)
+  ok 109 e2e\mascot-guide.spec.mjs:10:31 › guide opens, answers locally and preserves workspace at 375px (6.6s)
+  ok 110 e2e\mascot-guide.spec.mjs:10:31 › guide opens, answers locally and preserves workspace at 1440px (7.1s)
+  ok 111 e2e\mascot-guide.spec.mjs:33:1 › mascot uses the approved logo, can be hidden and reopened, and respects reduced motion (3.0s)
+  ok 112 e2e\mascot-guide.spec.mjs:44:1 › visible launcher has the same accessible name as its text (2.2s)
+  ok 113 e2e\mascot-guide.spec.mjs:50:1 › 3D failure leaves the original mascot image and local help usable (2.0s)
+  ok 114 e2e\mascot-guide.spec.mjs:58:1 › guide reads actual workspace context and hands off to the existing tour (3.5s)
+  ok 115 e2e\mascot-guide.spec.mjs:66:1 › dark guide is readable and loads no AI/network service (6.2s)
+  ok 116 e2e\mascot-guide.spec.mjs:76:1 › ADC answer opens the real guided potentiometer lesson (3.6s)
+  ok 117 e2e\mascot-guide.spec.mjs:83:1 › unknown board remains a reference fallback in the guide context (3.1s)
+  ok 118 e2e\mascot-guide.spec.mjs:90:1 › tour text stays opaque throughout its entrance on mobile (2.1s)
+  ok 119 e2e\offline.spec.mjs:8:1 › app opens offline and a new worker deploy removes its previous cache (4.3s)
+  ok 120 e2e\onboarding-tour.spec.mjs:8:1 › an unsupported board handoff stays empty and explains the unsupported board without inventing a fallback (822ms)
+  ok 121 e2e\onboarding-tour.spec.mjs:17:34 › app tours highlight real regions and keep mobile navigation reachable at 375px (11.1s)
+  ok 122 e2e\onboarding-tour.spec.mjs:17:34 › app tours highlight real regions and keep mobile navigation reachable at 1440px (15.7s)
+  ok 123 e2e\onboarding-tour.spec.mjs:50:1 › first visit invites a tour; keyboard drives it, focus stays inside, Esc skips and the choice is remembered (2.0s)
+  ok 124 e2e\onboarding-tour.spec.mjs:80:1 › Help menu reopens this page tour and opens another page tour (5.0s)
+  ok 125 e2e\onboarding-tour.spec.mjs:104:34 › lesson and freestyle tours have no serious axe violations while open at 375px (4.1s)
+  ok 126 e2e\onboarding-tour.spec.mjs:104:34 › lesson and freestyle tours have no serious axe violations while open at 1440px (4.0s)
+  ok 127 e2e\onboarding-tour.spec.mjs:121:1 › reduced motion turns tour and page animations off (1.3s)
+  ok 128 e2e\onboarding-tour.spec.mjs:133:1 › top navigation shows five areas and the library opens items on the freestyle bench (3.0s)
+  ok 129 e2e\one-screen-layout.spec.mjs:8:3 › no document vertical scroll at 1440x900 (6.7s)
+  ok 130 e2e\one-screen-layout.spec.mjs:8:3 › no document vertical scroll at 1366x768 (6.1s)
+  ok 131 e2e\one-screen-layout.spec.mjs:20:1 › mobile routes never scroll horizontally (5.9s)
+  ok 132 e2e\one-screen-layout.spec.mjs:29:1 › lesson panel tabs show one section at a time and keep the circuit stage visible (1.5s)
+  ok 133 e2e\one-screen-layout.spec.mjs:44:1 › lesson wires show the trace level only while a HIGH/LOW action is selected (1.7s)
+  ok 134 e2e\route-card-contrast.spec.mjs:6:3 › light /privacy card text has direct WCAG contrast (1.1s)
+  ok 135 e2e\route-card-contrast.spec.mjs:6:3 › light /khong-co-trang-nay card text has direct WCAG contrast (467ms)
+  ok 136 e2e\route-card-contrast.spec.mjs:6:3 › dark /privacy card text has direct WCAG contrast (1.1s)
+  ok 137 e2e\route-card-contrast.spec.mjs:6:3 › dark /khong-co-trang-nay card text has direct WCAG contrast (623ms)
+  ok 138 e2e\signal-flow.spec.mjs:12:1 › ultrasonic run labels 5V / ECHO divider and highlights the LED write (2.2s)
+  ok 139 e2e\signal-flow.spec.mjs:28:1 › blink serial log records each level change from the engine (2.2s)
+  ok 140 e2e\signal-flow.spec.mjs:36:1 › CircuitDocV2 lessons (ESP32 blink) also show the signal-flow panel (1.8s)
+  ok 141 e2e\signal-flow.spec.mjs:42:1 › concept lessons say the flow is illustrative (1.5s)
+  ok 142 e2e\signal-flow.spec.mjs:48:1 › reduced motion stops the schematic dash animation (1.5s)
+  ok 143 e2e\signal-flow.spec.mjs:57:1 › legacy schematic cards never overlap in any lesson (14.1s)
+  ok 144 e2e\signal-flow.spec.mjs:71:1 › 3D view spins the motor with the frame direction (5.2s)
+  ok 145 e2e\signal-flow.spec.mjs:82:1 › 3D ultrasonic run labels supply and ECHO wires like the 2D panel (15.9s)
+  ok 146 e2e\signal-flow.spec.mjs:92:1 › reduced motion freezes the 3D motor spin (4.4s)
+  ok 147 e2e\sketch-and-pico.spec.mjs:4:1 › ESP32 button sketch runs in the browser and reacts to a held input (1.4s)
+  ok 148 e2e\sketch-and-pico.spec.mjs:18:1 › sketch errors point at the line and switching board changes pin rules (1.2s)
+  ok 149 e2e\sketch-and-pico.spec.mjs:28:1 › Pico demo firmware executes on rp2040js and toggles GP25 (3.4s)
+  ok 150 e2e\spice-probes.spec.mjs:4:1 › SPICE probe map reads node voltage and branch current solved by ngspice (1.5s)
+  ok 151 e2e\spice-probes.spec.mjs:19:1 › transient probe follows the time cursor and the plot cursor (1.7s)
+  ok 152 e2e\theme.spec.mjs:12:1 › theme defaults to light, persists dark and follows an explicit system preference without altering a draft (2.4s)
+  ok 153 e2e\theme.spec.mjs:33:34 › dark UI has no serious accessibility issues at 375px (5.4s)
+  ok 154 e2e\theme.spec.mjs:33:34 › dark UI has no serious accessibility issues at 1440px (5.3s)
+  ok 155 e2e\theme.spec.mjs:51:112 › dark detail controls remain readable on /learn/esp32-led (4.4s)
+  ok 156 e2e\theme.spec.mjs:51:112 › dark detail controls remain readable on /learn/button-led (4.5s)
+  ok 157 e2e\theme.spec.mjs:51:112 › dark detail controls remain readable on /tools/firmware-hex (1.3s)
+  ok 158 e2e\theme.spec.mjs:51:112 › dark detail controls remain readable on /app/robot-simulation (1.6s)
+  ok 159 e2e\theme.spec.mjs:60:1 › kit print sheet stays on white paper when screen theme is dark (986ms)
+  ok 160 e2e\workspace-interaction-regressions.spec.mjs:3:1 › selecting a component body in the lesson opens that component in the inspector (1.7s)
+  ok 161 e2e\workspace-interaction-regressions.spec.mjs:17:1 › breadboard diagram exposes one tab stop for holes and supports arrow navigation (1.1s)
+  ok 162 e2e\workspace-interaction-regressions.spec.mjs:34:1 › read-only lesson preview never renders wire mutation controls until a local draft exists (2.1s)
+  ok 163 e2e\workspace-interaction-regressions.spec.mjs:80:1 › CircuitDocV2 lesson trace is available and highlights the same circuit across views (7.1s)
+  ok 164 e2e\workspace-interaction-regressions.spec.mjs:104:1 › selecting a schematic component highlights the same part on the breadboard (4.7s)
+  ok 165 e2e\workspace-interaction-regressions.spec.mjs:132:1 › selecting a schematic net cross-highlights all of its breadboard wires (4.5s)
+  ok 166 e2e\workspace-interaction-regressions.spec.mjs:163:1 › selecting a schematic pin cross-probes the corresponding breadboard pin (1.7s)
+  ok 167 e2e\workspace-interaction-regressions.spec.mjs:182:1 › selecting a schematic pin shows the same endpoint in the 3D scene (3.9s)
+  ok 168 e2e\workspace-interaction-regressions.spec.mjs:200:1 › CircuitDocV2 breadboard connects a board pin to a real hole and can remove that wire (2.1s)
+  ok 169 e2e\workspace-interaction-regressions.spec.mjs:230:1 › PCB copper view fits the CAD board outline instead of leaving a tall empty canvas (1.1s)
+  ok 170 e2e\workspace-interaction-regressions.spec.mjs:257:1 › PCB copper viewer stays within a 375px screen and switches layers without horizontal overflow (1.0s)
+
+  170 passed (9.8m)

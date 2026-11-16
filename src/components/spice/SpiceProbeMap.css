@@ -1,0 +1,36 @@
+/* Sơ đồ đo SPICE (2026-11-14). Số liệu từ ngspice; animation chỉ phản ánh chiều/độ lớn đã giải. */
+.spice-probe-map { display: grid; gap: 8px; margin: 14px 0; padding: 12px 14px; border: 1px solid var(--line-dark); border-radius: var(--mm-radius-lg, 12px); background: var(--mm-surface, #fbf6ec); }
+.spice-probe-map figcaption { display: grid; gap: 3px; }
+.spice-probe-map figcaption strong { color: var(--mm-ink, #1d2b49); font: 700 14px/1.2 var(--mm-font-display, sans-serif); letter-spacing: .04em; text-transform: uppercase; }
+.spice-probe-map figcaption span,.spice-probe-note { color: var(--mm-muted, #5b6272); font-size: var(--mm-text-sm); line-height: 1.5; }
+.spice-probe-map svg { width: 100%; height: auto; overflow: visible; }
+.spice-probe-ground { stroke: var(--mm-gnd, #2b3242); stroke-width: 3; stroke-linecap: round; }
+.spice-probe-ground-label,.spice-probe-node-name { fill: var(--mm-muted, #5b6272); font: 700 var(--mm-text-sm) var(--mm-font-mono, monospace); text-transform: uppercase; }
+.spice-probe-node { cursor: pointer; }
+.spice-probe-node circle { fill: var(--mm-surface, #fbf6ec); stroke: var(--mm-ink, #1d2b49); stroke-width: 2.5; }
+.spice-probe-node.is-selected circle { fill: var(--mm-signal, #0f7c80); stroke: var(--mm-ink, #1d2b49); }
+.spice-probe-node-value { fill: var(--mm-ink, #1d2b49); font: 700 var(--mm-text-sm) var(--mm-font-mono, monospace); }
+.spice-probe-branch { cursor: pointer; }
+.spice-probe-hit { fill: none; stroke: transparent; stroke-width: 18; }
+.spice-probe-wire { fill: none; stroke: #8a7f6e; stroke-linecap: round; }
+.spice-probe-branch.kind-v .spice-probe-wire { stroke: var(--mm-power, #c8372d); }
+.spice-probe-branch.is-flowing .spice-probe-wire { stroke: var(--mm-signal, #0f7c80); }
+.spice-probe-branch.kind-v.is-flowing .spice-probe-wire { stroke: var(--mm-power, #c8372d); }
+.spice-probe-branch.is-selected .spice-probe-wire { stroke: var(--mm-accent, #b82f28); }
+#spice-probe-arrow path { fill: var(--mm-ink, #1d2b49); }
+.spice-probe-flow { fill: none; stroke: #fffaf0; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 2 12; pointer-events: none; }
+.spice-probe-branch-label { fill: var(--mm-ink, #1d2b49); font: 700 var(--mm-text-sm) var(--mm-font-mono, monospace); paint-order: stroke; stroke: var(--mm-surface, #fbf6ec); stroke-width: 4px; }
+.spice-probe-branch:focus-visible,.spice-probe-node:focus-visible { outline: 3px solid var(--mm-signal, #0f7c80); outline-offset: 2px; }
+@media (prefers-reduced-motion: no-preference) {
+  .spice-probe-flow { animation: mm-spice-flow calc(2.4s - 1.6s * var(--flow-ratio, 0)) linear infinite; }
+  .spice-probe-branch.is-reverse .spice-probe-flow { animation-direction: reverse; }
+}
+@keyframes mm-spice-flow { to { stroke-dashoffset: -28; } }
+
+.spice-probe-cursor { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px; margin: 6px 0; color: var(--mm-text, #3f4656); font-size: var(--mm-text-sm); }
+.spice-probe-cursor input { width: 100%; accent-color: var(--mm-signal, #0f7c80); }
+.spice-probe-cursor output { color: var(--mm-ink, #1d2b49); font: 700 var(--mm-text-sm) var(--mm-font-mono, monospace); }
+.spice-probe-readout { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 4px 0 0; padding: 8px 10px; border: 1px solid rgb(var(--mm-signal-rgb, 15 124 128) / 30%); border-radius: var(--mm-radius-md, 8px); background: rgb(var(--mm-signal-rgb, 15 124 128) / 8%); color: var(--mm-text, #3f4656); font-size: var(--mm-text-sm); }
+.spice-probe-readout strong { color: var(--mm-ink, #1d2b49); font-family: var(--mm-font-mono, monospace); }
+.spice-plot-cursor { stroke: var(--mm-accent, #b82f28); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.spice-plot-cursor-dot { fill: var(--mm-accent, #b82f28); }

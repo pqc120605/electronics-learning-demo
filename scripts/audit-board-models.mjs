@@ -16,13 +16,14 @@ const { communityBoardModels } = await load('/src/data/communityBoardModels.ts')
 const { adafruitBoardModels } = await load('/src/data/adafruitBoardModels.ts')
 const { seeedBoardModels } = await load('/src/data/seeedBoardModels.ts')
 const { espressifBoardModels } = await load('/src/data/espressifBoardModels.ts')
+const { stm32BoardModels } = await load('/src/data/stm32BoardModels.ts')
 
 // Same transform BoardScene applies to pin anchors in the LED assembly scene.
 const sceneAnchor = (scene) => (pin) => scene.id === 'assembly' ? [0.0510577 - pin.anchor[2], pin.anchor[1], pin.anchor[0] - 0.1501492] : pin.anchor
 
 const report = []
 const nodeListBoard = process.argv.includes('--nodes') ? process.argv[process.argv.indexOf('--nodes') + 1] : undefined
-for (const manifest of [esp32DevkitModel, ...arduinoBoardModels, ...raspberryPiBoardModels, ...communityBoardModels, ...adafruitBoardModels, ...seeedBoardModels, ...espressifBoardModels]) {
+for (const manifest of [esp32DevkitModel, ...arduinoBoardModels, ...raspberryPiBoardModels, ...communityBoardModels, ...adafruitBoardModels, ...seeedBoardModels, ...espressifBoardModels, ...stm32BoardModels]) {
   for (const scene of manifest.scenes) {
     const url = scene.assetUrl.split('?')[0]
     const bytes = readFileSync(`public${url}`)

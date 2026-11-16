@@ -52,10 +52,10 @@ test('wire roles never infer a supply and conflicts are diagnosed without a mark
   assert.ok(layoutSchematicV2(doc).nets.every(n => n.role === null))
   doc.wires[0].role = 'power'
   assert.equal(layoutSchematicV2(doc).nets.find(n => n.wireIds.includes(doc.wires[0].id)).role, 'power')
-  doc.wires[1].role = 'ground'
-  doc.wires[2].role = 'power'
+  doc.wires[2].role = 'ground'
+  doc.wires[3].role = 'power'
   const result = layoutSchematicV2(doc)
-  assert.equal(result.nets.find(n => n.wireIds.includes(doc.wires[1].id)).role, null)
+  assert.equal(result.nets.find(n => n.wireIds.includes(doc.wires[2].id)).role, null)
   assert.ok(result.diagnostics.some(d => d.code === 'CONFLICTING_ROLES'))
 })
 

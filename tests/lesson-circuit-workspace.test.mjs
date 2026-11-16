@@ -29,10 +29,12 @@ test('supported HIGH and LOW code actions highlight only the canonical LED path'
   const high = getLessonCircuitFlow(doc, { kind: 'write', pin: 23, value: 'HIGH' })
   const low = getLessonCircuitFlow(doc, { kind: 'write', pin: 23, value: 'LOW' })
   assert.equal(high.complete, true)
-  assert.deepEqual([...high.wireIds].sort(), ['w-gpio-to-resistor', 'w-led-cathode-to-rail', 'w-rail-to-gnd'])
+  assert.deepEqual([...high.wireIds].sort(), ['w-gpio-to-resistor', 'w-led-cathode-to-rail', 'w-rail-to-gnd', 'w-resistor-to-led'])
   assert.deepEqual([...low.wireIds].sort(), [...high.wireIds].sort())
   assert.match(high.label, /GPIO 23 = HIGH/)
   assert.match(low.label, /GPIO 23 = LOW/)
+  assert.equal(high.level, 'HIGH')
+  assert.equal(low.level, 'LOW')
   assert.match(high.label, /không phải dòng điện hay điện áp đã giải/)
 })
 
@@ -40,6 +42,8 @@ test('delay retains its previous lesson state; unsupported pins and setup action
   const doc = getLessonCircuitDoc('blink')
   assert.equal(getLessonCircuitFlow(doc, { kind: 'delay', pin: 23, previousLedLit: true }).complete, true)
   assert.equal(getLessonCircuitFlow(doc, { kind: 'pinMode', pin: 23 }).wireIds.size, 0)
+  assert.equal(getLessonCircuitFlow(doc, { kind: 'pinMode', pin: 23 }).level, null)
+  assert.equal(getLessonCircuitFlow(doc, { kind: 'delay', pin: 23, previousLedLit: true }).level, 'HIGH')
   assert.equal(getLessonCircuitFlow(doc, { kind: 'write', pin: 18, value: 'HIGH' }).wireIds.size, 0)
 })
 

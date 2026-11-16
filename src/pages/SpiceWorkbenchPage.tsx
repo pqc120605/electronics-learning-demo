@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ChangeEvent } from 'react'
+import { SpiceProbeMap } from '../components/spice/SpiceProbeMap'
+import { formatEngineering, parseSpiceTopology, probeValue } from '../simulation/spiceProbes'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useProductRoute } from '../lib/useProductRoute'
 import { readCalculatorSpiceHandoff, type CalculatorSpiceHandoff } from '../lib/calculatorSpice'
@@ -12,7 +14,7 @@ import { AnalysisPicker } from '../components/spice/AnalysisPicker'
 import './SpiceWorkbenchPage.css'
 
 type SpiceSeries = { name: string; type: string; values: number[] }
-type SpiceResult = { analysis: string; dataType: 'real' | 'complex'; numPoints: number; displayedPoints: number; series: SpiceSeries[]; warnings: string[] }
+type SpiceResult = { analysis: string; dataType: 'real' | 'complex'; numPoints: number; displayedPoints: number; series: SpiceSeries[]; warnings: string[]; netlist?: string }
 type SpiceWorkerMessage =
   | { type: 'progress'; runId: string; stage: 'loading' | 'initializing' | 'solving'; message: string }
   | { type: 'result'; runId: string; analysis: string; dataType: 'real' | 'complex'; numPoints: number; displayedPoints: number; series: SpiceSeries[]; warnings: string[] }
@@ -74,7 +76,7 @@ function downloadCsv(result: SpiceResult) {
   window.setTimeout(() => URL.revokeObjectURL(url), 0)
 }
 
-function SpicePlot({ x, y, complex }: { x: SpiceSeries; y: SpiceSeries; complex: boolean }) {
+function SpicePlot({ x, y, complex, cursorIndex }: { x: SpiceSeries; y: SpiceSeries; complex: boolean; cursorIndex?: number }) {
   const points = Math.min(x.values.length, y.values.length)
   if (points < 2) return <p className="spice-plot-note">Phép phân tích có một điểm; xem giá trị trong bảng kết quả.</p>
 
@@ -105,6 +107,7 @@ function SpicePlot({ x, y, complex }: { x: SpiceSeries; y: SpiceSeries; complex:
       <line x1={pad.left} x2={pad.left} y1={pad.top} y2={height - pad.bottom} className="spice-axis-line" />
       <line x1={pad.left} x2={width - pad.right} y1={height - pad.bottom} y2={height - pad.bottom} className="spice-axis-line" />
       <path d={path} className="spice-plot-line" />
+      {cursorIndex !== undefined && cursorIndex < points && (() => { const cx = pad.left + ((xValues[cursorIndex] - xMin) / xSpan) * innerW; const cy = pad.top + innerH - ((yValues[cursorIndex] - yMin) / ySpan) * innerH; return <g aria-hidden="true"><line x1={cx} x2={cx} y1={pad.top} y2={height - pad.bottom} className="spice-plot-cursor" /><circle cx={cx} cy={cy} r="4" className="spice-plot-cursor-dot" /></g> })()}
       <text x={pad.left} y={height - 9} className="spice-axis-label">{compact(xMin)} {x.type}</text>
       <text x={width - pad.right} y={height - 9} textAnchor="end" className="spice-axis-label">{compact(xMax)} {x.type}</text>
       <text x={pad.left - 8} y={pad.top + 5} textAnchor="end" className="spice-axis-label">{compact(yMax)}</text>
@@ -121,15 +124,24 @@ function Results({ result, onDownload }: { result: SpiceResult; onDownload: () =
   const [selectedSeriesName, setSelectedSeriesName] = useState(defaultSeries?.name ?? '')
   const selected = candidates.find(series => series.name === selectedSeriesName) ?? defaultSeries
   const indices = [...new Set([0, Math.floor((result.displayedPoints - 1) / 2), Math.max(0, result.displayedPoints - 1)])]
+  const topology = useMemo(() => result.netlist ? parseSpiceTopology(result.netlist) : undefined, [result.netlist])
+  const lastIndex = Math.max(0, result.displayedPoints - 1)
+  const [cursorIndex, setCursorIndex] = useState(lastIndex)
+  const cursorX = x?.values[Math.min(cursorIndex, lastIndex)]
+  const selectedUnit = selected?.type === 'current' ? 'A' : selected?.type === 'voltage' ? 'V' : ''
 
   useEffect(() => { setSelectedSeriesName(defaultSeries?.name ?? '') }, [seriesSignature])
+  useEffect(() => { setCursorIndex(lastIndex) }, [lastIndex, seriesSignature])
 
   return <section className="spice-results" aria-labelledby="spice-results-heading">
     <div className="spice-results-heading"><div><p>KẾT QUẢ · NGSPICE WASM</p><h2 id="spice-results-heading">Mô phỏng hoàn tất</h2></div><button type="button" onClick={onDownload}>Tải CSV</button></div>
     <p className="spice-result-meta">Phân tích {result.analysis.toUpperCase()} · {result.numPoints.toLocaleString('vi-VN')} điểm solver · hiển thị {result.displayedPoints.toLocaleString('vi-VN')} điểm để giữ giao diện nhẹ.</p>
     {result.warnings.length > 0 && <details className="spice-warnings"><summary>{result.warnings.length} thông báo từ engine</summary><ul>{result.warnings.map((warning, index) => <li key={`${warning}-${index}`}>{warning}</li>)}</ul></details>}
+    {topology && topology.elements.length > 0 && <SpiceProbeMap topology={topology} series={result.series} index={Math.min(cursorIndex, lastIndex)} magnitudeOnly={result.dataType === 'complex'} selectedProbe={selected?.name ?? ''} onSelectProbe={name => { if (candidates.some(item => item.name === name)) setSelectedSeriesName(name) }} />}
+    {x && lastIndex > 0 && <label className="spice-probe-cursor"><span>Thời điểm đo</span><input type="range" min={0} max={lastIndex} value={Math.min(cursorIndex, lastIndex)} onChange={event => setCursorIndex(Number(event.target.value))} aria-label={`Chọn điểm dữ liệu theo ${x.name}`} /><output>{formatEngineering(cursorX, x.type === 'time' ? 's' : x.type === 'frequency' ? 'Hz' : '')}</output></label>}
+    {selected && <p className="spice-probe-readout" role="status" aria-live="polite"><span>Probe</span><strong>{selected.name}</strong><span>=</span><strong>{formatEngineering(probeValue(result.series, selected.name.toLowerCase(), Math.min(cursorIndex, lastIndex)), selectedUnit)}</strong>{x && <span>tại {formatEngineering(cursorX, x.type === 'time' ? 's' : x.type === 'frequency' ? 'Hz' : '')}</span>}<span>· số từ ngspice; dòng qua R/C/L/D đo bằng nguồn 0 V nối tiếp do Mạch Mở chèn. Mô phỏng, không phải phép đo thực.</span></p>}
     {x && candidates.length > 1 && <div className="spice-plot-series-picker"><label htmlFor="spice-plot-series">Tín hiệu trên đồ thị</label><select id="spice-plot-series" aria-label="Tín hiệu trên đồ thị" value={selected?.name ?? ''} onChange={event => setSelectedSeriesName(event.target.value)}>{candidates.map(series => <option key={series.name} value={series.name}>{series.name}{series.type !== 'notype' ? ` · ${series.type}` : ''}</option>)}</select></div>}
-    {x && selected && <SpicePlot x={x} y={selected} complex={result.dataType === 'complex'} />}
+    {x && selected && <SpicePlot x={x} y={selected} complex={result.dataType === 'complex'} cursorIndex={Math.min(cursorIndex, lastIndex)} />}
     {!x && <p className="spice-plot-note">Kết quả điểm làm việc/đường quét được trình bày dưới dạng bảng dữ liệu.</p>}
     <div className="spice-table-wrap" role="region" aria-label="Bảng mẫu kết quả mô phỏng" tabIndex={0}>
       <table><caption>Một số điểm lấy từ dữ liệu hiển thị</caption><thead><tr>{result.series.map(series => <th key={series.name} scope="col">{series.name}{series.type !== 'notype' ? ` · ${series.type}` : ''}</th>)}</tr></thead>
@@ -291,7 +303,7 @@ export function SpiceWorkbenchPage() {
         setRunState('error')
         setError(event.data.message)
       } else {
-        setResult(event.data)
+        setResult({ ...event.data, netlist })
         setRunState('complete')
         if (workspaceHandoff && workspaceSpiceId) {
           const fingerprint = workspaceHandoff.workspaceFingerprint

@@ -2,6 +2,9 @@ export type GpuBatch = {
   nodeName: string
   materialIndex: number
   color: [number, number, number]
+  /** glTF metallicFactor/roughnessFactor; defaults chosen for KiCad exports that omit them. */
+  metallic: number
+  roughness: number
   positions: Float32Array
   normals: Float32Array
   indices: Uint32Array
@@ -34,6 +37,8 @@ type Group = {
   nodeName: string
   materialIndex: number
   color: [number, number, number]
+  metallic: number
+  roughness: number
   positions: number[]
   normals: number[]
   indices: number[]
@@ -210,7 +215,7 @@ export function parseBoardGlb(buffer: ArrayBuffer): ParsedBoardGlb {
         const key = `${node.name}::${materialIndex}`
         let group = groups.get(key)
         if (!group) {
-          group = { nodeName: node.name, materialIndex, color, positions: [], normals: [], indices: [] }
+          group = { nodeName: node.name, materialIndex, color, metallic: typeof pbr?.metallicFactor === 'number' ? pbr.metallicFactor : 0, roughness: typeof pbr?.roughnessFactor === 'number' ? pbr.roughnessFactor : 0.6, positions: [], normals: [], indices: [] }
           groups.set(key, group)
         }
         const vertexOffset = group.positions.length / 3
@@ -250,6 +255,8 @@ export function parseBoardGlb(buffer: ArrayBuffer): ParsedBoardGlb {
       nodeName: group.nodeName,
       materialIndex: group.materialIndex,
       color: group.color,
+      metallic: group.metallic,
+      roughness: group.roughness,
       positions: new Float32Array(group.positions),
       normals: new Float32Array(group.normals),
       indices: new Uint32Array(group.indices),

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { componentMeshKindLabels, componentMeshNotes, getComponentMesh, getComponentMeshForCatalog, kicadModelSource } from '../data/componentModels'
 import { getComponentVisualNotice } from '../lib/componentVisualStatus'
 import { ComponentIllustration } from './ComponentIllustration'
+import { ComponentAnatomy } from './ComponentAnatomy'
+import { getComponentAnatomy } from '../data/componentAnatomy'
 
 const ComponentModelViewer = lazy(() => import('./ComponentModelViewer').then((module) => ({ default: module.ComponentModelViewer })))
 const formatSize = (size: number[]) => size.map((value) => value.toLocaleString('vi-VN', { maximumFractionDigits: 1 })).join(' × ')
@@ -14,7 +16,8 @@ export function ComponentVisual({ illustrationId, modelId, name, className, show
   const mesh = getComponentMeshForCatalog(illustrationId) ?? (modelId ? getComponentMesh(modelId) : undefined)
   const [show3d, setShow3d] = useState(false)
   const [failed, setFailed] = useState(false)
-  const illustration = <ComponentIllustration id={illustrationId} name={name} className={className} />
+  const anatomy = getComponentAnatomy(illustrationId)
+  const illustration = anatomy ? <ComponentAnatomy anatomy={anatomy} /> : <ComponentIllustration id={illustrationId} name={name} className={`${className ?? ''} mm-keep-light`} />
   if (!mesh) {
     if (!showModelStatus) return illustration
     const notice = getComponentVisualNotice({ hasPartMesh: false, boardModelHref })

@@ -1,0 +1,29 @@
+.auth-menu { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+.auth-menu-user { display: inline-flex; align-items: center; gap: 8px; min-width: 0; color: var(--mm-ink); font-size: var(--mm-text-sm); font-weight: 650; }
+.auth-menu-name { overflow: hidden; max-width: 140px; text-overflow: ellipsis; white-space: nowrap; }
+.auth-menu-button { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--mm-line); border-radius: var(--mm-radius-md); background: var(--mm-surface); color: var(--mm-ink); font: 650 var(--mm-text-sm)/1 var(--mm-font-body); text-decoration: none; white-space: nowrap; cursor: pointer; }
+.auth-menu-button:hover { border-color: var(--mm-signal); color: var(--mm-signal); }
+.auth-menu-button:disabled { opacity: .6; cursor: progress; }
+.header-auth { margin-left: 10px; }
+.site-nav-auth { display: none; }
+.user-avatar { display: inline-grid; flex: none; place-items: center; border-radius: 50%; object-fit: cover; background: var(--mm-bg-deep); }
+.user-avatar-fallback { border: 1px solid var(--mm-line); color: var(--mm-ink); font-family: var(--mm-font-display); font-weight: 700; }
+
+/* Header công khai: ở màn có nút Menu, đăng nhập chuyển vào panel menu. */
+@media (max-width: 760px) {
+  .header-auth { display: none; }
+  .site-nav-root .main-nav .site-nav-auth { display: block; margin-top: 6px; padding-top: 10px; border-top: 1px solid var(--mm-line-soft); }
+  .site-nav-auth .auth-menu { flex-wrap: wrap; }
+  .site-nav-auth .auth-menu-button { min-height: 44px; }
+}
+
+/* Topbar workspace hẹp: rút gọn để không xuống dòng. */
+@media (max-width: 680px) {
+  .auth-menu-app .auth-menu-name { display: none; }
+  .auth-menu-app .auth-menu-button { min-height: 36px; padding: 0 9px; font-size: var(--mm-text-sm); }
+  .workspace-web-link { white-space: nowrap; }
+}
+@media (max-width: 420px) {
+  .workspace-current > span { display: none; }
+  .workspace-current strong { max-width: 92px; }
+}

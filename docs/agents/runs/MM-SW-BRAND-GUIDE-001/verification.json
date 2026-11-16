@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-15",
+  "sourceSnapshot": "final-snapshot.json",
+  "sourceFiles": 27,
+  "changedFiles": 25,
+  "sourceArtworkUnchanged": true,
+  "checks": [
+    {
+      "command": "npm.cmd run typecheck",
+      "exit": 0
+    },
+    {
+      "command": "npm.cmd test",
+      "exit": 0,
+      "pass": 630,
+      "skip": 0,
+      "note": "Full run started before final small QA corrections; affected9 unit and final144 browser verify those deltas."
+    },
+    {
+      "command": "node --test tests/guide-knowledge.test.mjs tests/mascot-model.test.mjs tests/onboarding-tours.test.mjs",
+      "exit": 0,
+      "pass": 9
+    },
+    {
+      "command": "npm.cmd run build:local",
+      "exit": 0
+    },
+    {
+      "command": "Playwright .tmp/pw-redesign.config.mjs (no retries/skips)",
+      "exit": 0,
+      "pass": 144
+    },
+    {
+      "command": "git diff --check (scoped)",
+      "exit": 0
+    }
+  ],
+  "evidence": [
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/red-unit.log",
+      "stage": "expected_initial_failure",
+      "sha256": "4efc0199032bea88edd10da9ef77110217e4e5db1d57ee0eda7d7a10ec02e255"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/green-unit.log",
+      "stage": "initial_model_knowledge_pass",
+      "sha256": "e49592ce87acef0fb95c9b524a385e403fe9094b6d23e58f060617c51827f886"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/red-browser.log",
+      "stage": "expected_missing_feature",
+      "sha256": "55e1d7bec4145c7ee47e34955c4b920dd23b036222717b124f239978fb8ec1d5"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/face-red.log",
+      "stage": "reproduced_mesh_occlusion",
+      "sha256": "071dce660bcd7f6b571dc8cec13a82929e1172b81e74f70eab092f4d3182bfde"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/browser-focused.log",
+      "stage": "intermediate_issues",
+      "sha256": "62afe0acd44a16403262f74228f467f9b3fe58c5aac8f6fda150575d2ceb949d"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/browser-focused-final.log",
+      "stage": "six_case_pass_before_QA_delta",
+      "sha256": "f3accb6ddfb1ca7ec74613654229c84eab1f0c01d310a6281e9e56dbf635b4bd"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/qa-red.log",
+      "stage": "two_QA_issues_reproduced",
+      "sha256": "f7f2efc2569b7a57ae180665d9c48baf1a69c7b73aece415607acd96caef562a"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/qa-green.log",
+      "stage": "affected_five_tests_pass",
+      "sha256": "dc373b6e4c5b57d98ee9a7ff12119f5b41694965c4b6bc2194e6c90825f9743c"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/qa-browser.log",
+      "stage": "new_test_selector_ambiguity",
+      "sha256": "75f3739e76d7c0aaf02a1addb60ba379c21f08dff96f71a944796cf1eeaaee0c"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/qa-browser-final.log",
+      "stage": "three_final_regression_cases_pass",
+      "sha256": "d6d33eb124160f2b9f31bee7cc67c26b335596d7cb8d4b16cb61597c655d927d"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/launcher-regression.log",
+      "stage": "partial_full_run_stopped_after_defect",
+      "sha256": "dded968c2c05997ef7ac61742e3bcbe17d51a5d6f3e090fcccac7be99a5386a0"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/tour-regression.log",
+      "stage": "full_run_stopped_after_transient_tour_contrast",
+      "sha256": "a8c639b3eb1f516a82b5225746abdceecbde1403df8b8d96c3ccdac17e857f66"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/tour-opacity-red.log",
+      "stage": "reproduced_transient_text_opacity",
+      "sha256": "38a6aa6ad52c7c505496203b076585d373cbcd93b2b8e396b4a802103c9eb49a"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/tour-opacity-green.log",
+      "stage": "tour_mobile_desktop_and_opacity_pass",
+      "sha256": "dc8b68ad6536a66d5a28ee5cb1f5e176c338671228e435cffc4c71da18cc14f4"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/pico-regression.log",
+      "stage": "full_run_pico_LED_timing_failure",
+      "sha256": "4fd999586689b029d10a5d73addf7b29a3df2fcf77f4605feba8704ffef530d2"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/pico-recheck.log",
+      "stage": "same_source_Pico_case_pass_without_changes",
+      "sha256": "33c5d78ec3108b269eec2b41c7f33e3a08730594bfdbc8fe95feb2ec8b330cfa"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/final-scoped-unit.log",
+      "stage": "final_affected_nine_unit_pass",
+      "sha256": "f10208923ba8558b8831f2bef666a88d0cf9cd26ff5f471ddae785b91ef3995b"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/typecheck-final.log",
+      "stage": "final_typecheck",
+      "sha256": "aed1c139a3382e941c2db5a93942e7071a48537206764175bd26142cb3c23655"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/build-final.log",
+      "stage": "final_build",
+      "sha256": "627b9a530b311775755c75efba7258f2f6a06cb3d9504460c1562d83eddd21cb"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/unit-full.log",
+      "stage": "full630_pass_before_final_minor_QA_fixes",
+      "sha256": "f9db7bc26efeef55bafbbf4a1be9ff3eec3f0a99286854618f2570202983704b"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/e2e-final.log",
+      "stage": "final_full144_pass",
+      "sha256": "8811c76869e311aa523962af701e99e2facdcbfbb0f7658c6a2d5f500e33453f"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/capture.log",
+      "stage": "final_visual_keyboard_rotation_capture",
+      "sha256": "b7a305438343219a4aaf71bf2a979ca161f99a4f6cb944abf5de6bc7558b7122"
+    },
+    {
+      "file": "docs/agents/runs/MM-SW-BRAND-GUIDE-001/evidence/queue-final.log",
+      "stage": "final_completed_queue_validation",
+      "sha256": "6368daeb998256a8ade30353da3a144ab822195caf301c25d2431ec301baf680"
+    }
+  ],
+  "capture": {
+    "url": "http://127.0.0.1:5320/",
+    "viewports": [
+      "1440x900",
+      "375x812"
+    ],
+    "errors": [],
+    "images": 6,
+    "keyboardRotationChangesPixels": true
+  }
+}
