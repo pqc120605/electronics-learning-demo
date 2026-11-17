@@ -3,7 +3,7 @@ import type { BoardDiagramPresentation } from '../../lib/boardTopView'
 import { adjacentBreadboardHole, buildBreadboardDiagram, breadboardDiagramWireColor, type DiagramPart, type DiagramPin } from '../../lib/breadboardDiagram'
 import type { CircuitDocV2, CircuitEndpointV2 } from '../../lib/circuitDocV2'
 import { useState } from 'react'
-import type { KeyboardEvent, MouseEvent, PointerEvent } from 'react'
+import type { CSSProperties, KeyboardEvent, MouseEvent, PointerEvent } from 'react'
 
 export type WireSignalLabel = { text: string; tone: 'high' | 'low' | 'power' | 'ground' | 'other'; flowing: boolean }
 
@@ -80,7 +80,7 @@ function PartBody({ part, selected, lit = false, selectedEndpointId, onSelect, o
       {part.value && <text className="diagram-component-value" x="0" y={-part.height / 2 - 8} textAnchor="middle">{part.value}</text>}
     </g>}
     </g>
-    {part.pins.map(pin => <circle key={pin.key} className={`diagram-part-pin ${selectedEndpointId === pin.key ? 'is-selected' : ''}`} cx={pin.x} cy={pin.y} r="6.5" data-diagram-endpoint={pin.key} data-circuit-endpoint={pin.key} aria-label={`${part.id} ${pin.label}${pin.holeId ? `, lỗ ${pin.holeId}` : ', đầu nối trên bàn'}`} role="button" tabIndex={0} onClick={event => onActivateEndpoint(event, { kind: 'pin', partId: pin.partId, pinId: pin.pinId })} onPointerDown={event => onStartEndpointDrag(event, { kind: 'pin', partId: pin.partId, pinId: pin.pinId })} onKeyDown={event => selectByKeyboard(event, () => onChoosePin(pin))} />)}
+    {part.pins.map(pin => <g key={pin.key}><circle className="diagram-part-pin-visible" cx={pin.x} cy={pin.y} r="6.5" aria-hidden="true" /><circle className={`diagram-part-pin ${selectedEndpointId === pin.key ? 'is-selected' : ''}`} cx={pin.x} cy={pin.y} r="11" data-diagram-endpoint={pin.key} data-circuit-endpoint={pin.key} aria-label={`${part.id} ${pin.label}${pin.holeId ? `, lỗ ${pin.holeId}` : ', đầu nối trên bàn'}`} role="button" tabIndex={0} onClick={event => onActivateEndpoint(event, { kind: 'pin', partId: pin.partId, pinId: pin.pinId })} onPointerDown={event => onStartEndpointDrag(event, { kind: 'pin', partId: pin.partId, pinId: pin.pinId })} onKeyDown={event => selectByKeyboard(event, () => onChoosePin(pin))} /></g>)}
   </g>
 }
 
@@ -95,7 +95,9 @@ function WireLevelPill({ path, signal }: { path: string; signal: WireSignalLabel
 
 export function BreadboardDiagram({ doc, presentation, selectedWireId = null, selectedPartId = null, selectedEndpointId = null, focusedHoleId = 'bb1:1a', showHeading = false, activeWireIds = new Set<string>(), highlightedWireIds = new Set<string>(), traceLevel = null, litPartIds = new Set<string>(), wireSignals, onChooseEndpoint, onActivateEndpoint, onStartEndpointDrag, onMoveEndpointDrag, onFinishEndpointDrag, onCancelEndpointDrag, onSelectWire, onSelectPart, onFocusHole }: Props) {
   const [zoom,setZoom]=useState(1)
+  const [fit, setFit] = useState(false)
   const diagram = buildBreadboardDiagram(doc,presentation)
+  const occupiedHoleIds = new Set(diagram.parts.flatMap(part => part.pins.flatMap(pin => pin.holeId ? [pin.holeId] : [])))
   const signalOf = (wireId: string): WireSignalLabel | null => !activeWireIds.has(wireId) ? null : wireSignals?.get(wireId) ?? (traceLevel ? { text: traceLevel, tone: traceLevel === 'HIGH' ? 'high' : 'low', flowing: traceLevel === 'HIGH' } : null)
   const choosePin = (pin: DiagramPin) => onChooseEndpoint({ kind: 'pin', partId: pin.partId, pinId: pin.pinId })
   const rowHole = (holeId: string) => onChooseEndpoint({ kind: 'hole', holeId })
@@ -110,9 +112,10 @@ export function BreadboardDiagram({ doc, presentation, selectedWireId = null, se
   return <section className="breadboard-diagram" aria-label="Mạch lắp thử nhìn từ trên xuống">
     {showHeading && <header className="breadboard-diagram-header"><div><p className="breadboard-editor-eyebrow">MẠCH LẮP · CÙNG CIRCUITDOC V2</p><h3>Breadboard và dây nối</h3></div><p>Lỗ cắm, chân linh kiện và từng dây lấy từ cùng sơ đồ mạch; chọn điểm để nối hoặc xem net.</p></header>}
     <p className="breadboard-diagram-assumption" role="note">Lưới minh họa 400 tie-point. Số lỗ và cách nối dải ray là giả định của mô hình, chưa xác minh trên mẫu vật lý.</p>
-    {doc.lessonId==='freestyle' && <div className="freestyle-view-controls" aria-label="Thu phóng mạch 2D"><button onClick={()=>setZoom(z=>Math.max(1,z-.5))} disabled={zoom<=1} aria-label="Thu nhỏ mạch 2D">−</button><span>{Math.round(zoom*100)}%</span><button onClick={()=>setZoom(z=>Math.min(3,z+.5))} disabled={zoom>=3} aria-label="Phóng to mạch 2D">+</button><button onClick={()=>setZoom(1)}>Vừa khung 2D</button></div>}
-    <div className="breadboard-diagram-scroll mm-keep-light">
-      <svg className="breadboard-diagram-svg" style={zoom>1?{width:`${zoom*100}%`,maxHeight:'none'}:undefined} viewBox={`0 0 ${diagram.width} ${diagram.height}`} role="group" aria-label={`${presentation?.name ?? (board ? "Board ESP32" : "Chưa chọn board")}, breadboard, linh kiện và dây jumper`} onPointerMove={onMoveEndpointDrag} onPointerUp={onFinishEndpointDrag} onPointerCancel={onCancelEndpointDrag}>
+    <div className="freestyle-view-controls" aria-label="Thu phóng mạch 2D"><button onClick={()=>{setFit(false);setZoom(z=>Math.max(1,z-.5))}} disabled={zoom<=1&&!fit} aria-label="Thu nhỏ mạch 2D">−</button><span>{fit ? 'Tổng quan' : `${Math.round(zoom*100)}%`}</span><button onClick={()=>{setFit(false);setZoom(z=>Math.min(4,z+.5))}} disabled={zoom>=4&&!fit} aria-label="Phóng to mạch 2D">+</button><button onClick={()=>{setZoom(1);setFit(true)}}>Vừa khung 2D</button></div>
+    <p className="diagram-navigation-hint">Cuộn trong khung để di chuyển, phóng to để chọn điểm cắm. Có thể nối bằng danh sách chân và lưới lỗ bên dưới.</p>
+    <div className="breadboard-diagram-scroll mm-keep-light" tabIndex={0} role="region" aria-label="Khung mạch 2D có thể cuộn và thu phóng">
+      <svg className="breadboard-diagram-svg" data-fit={fit} style={{ '--diagram-natural-width': `${diagram.width}px`, ...(zoom>1?{width:`${diagram.width*zoom}px`,maxHeight:'none'}:{}) } as CSSProperties} viewBox={`0 0 ${diagram.width} ${diagram.height}`} role="group" aria-label={`${presentation?.name ?? (board ? "Board ESP32" : "Chưa chọn board")}, breadboard, linh kiện và dây jumper`} onPointerMove={onMoveEndpointDrag} onPointerUp={onFinishEndpointDrag} onPointerCancel={onCancelEndpointDrag}>
         <defs>
           <linearGradient id="diagram-board" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stopColor="#1d7769"/><stop offset="1" stopColor="#103e39"/></linearGradient>
           <filter id="diagram-shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="5" floodColor="#23353a" floodOpacity=".2"/></filter>
@@ -170,7 +173,7 @@ export function BreadboardDiagram({ doc, presentation, selectedWireId = null, se
           {diagram.parts.map(part => <PartBody key={part.id} part={part} selected={selectedPartId === part.id} lit={litPartIds.has(part.id)} selectedEndpointId={selectedEndpointId} onSelect={() => onSelectPart(part.id)} onChoosePin={choosePin} onActivateEndpoint={onActivateEndpoint} onStartEndpointDrag={onStartEndpointDrag} />)}
         </g>
         <g className="diagram-hole-hit-layer" role="group" aria-label="Điểm chọn lỗ breadboard">
-          {diagram.holes.map(hole => <circle key={hole.id} className={`diagram-hole-hit-target ${hole.kind === 'rail' ? 'is-rail' : ''} ${selectedEndpointId === hole.id ? 'is-selected' : ''}`} cx={hole.x} cy={hole.y} r={hole.kind === 'rail' ? 3.2 : 3.4} data-diagram-endpoint={hole.id} data-circuit-endpoint={hole.id} role="button" tabIndex={hole.id === focusedHoleId ? 0 : -1} aria-label={`${hole.id} · net ${hole.net ?? 'chưa rõ'}`} onFocus={() => onFocusHole?.(hole.id)} onClick={event => onActivateEndpoint(event, { kind: 'hole', holeId: hole.id })} onPointerDown={event => onStartEndpointDrag(event, { kind: 'hole', holeId: hole.id })} onKeyDown={event => navigateHoleByKeyboard(event, hole.id, () => rowHole(hole.id))} />)}
+          {diagram.holes.map(hole => <circle key={hole.id} className={`diagram-hole-hit-target ${hole.kind === 'rail' ? 'is-rail' : ''} ${selectedEndpointId === hole.id ? 'is-selected' : ''}`} cx={hole.x} cy={hole.y} r={11} style={occupiedHoleIds.has(hole.id) ? { pointerEvents: 'none' } : undefined} data-occupied={occupiedHoleIds.has(hole.id)} data-diagram-endpoint={hole.id} data-circuit-endpoint={hole.id} role="button" tabIndex={hole.id === focusedHoleId ? 0 : -1} aria-label={`${hole.id} · net ${hole.net ?? 'chưa rõ'}${occupiedHoleIds.has(hole.id) ? ' · đang có chân linh kiện; dùng bàn phím hoặc lưới chi tiết để chọn lỗ' : ''}`} onFocus={() => onFocusHole?.(hole.id)} onClick={event => onActivateEndpoint(event, { kind: 'hole', holeId: hole.id })} onPointerDown={event => onStartEndpointDrag(event, { kind: 'hole', holeId: hole.id })} onKeyDown={event => navigateHoleByKeyboard(event, hole.id, () => rowHole(hole.id))} />)}
         </g>
         {doc.breadboards.length > 0 && <g className="diagram-rail-labels" aria-hidden="true">
           <text x={diagram.breadboard.x + 28} y={diagram.holes.find(hole => hole.id === 'bb1:T+:1')?.y! + 4}>+</text>

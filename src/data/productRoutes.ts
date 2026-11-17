@@ -72,6 +72,7 @@ const PAGE_TITLES: Readonly<Record<string, string>> = {
   [PRODUCT_ROUTES.publicTopics]: 'Chủ đề học — Mạch Mở',
   [PRODUCT_ROUTES.publicProjects]: 'Dự án thực hành — Mạch Mở',
   [PRODUCT_ROUTES.appClassroomKit]: 'Lớp học & bộ kit — Mạch Mở',
+  '/app/robot-simulation': 'Khám phá robot · mô phỏng khái niệm — Mạch Mở',
   [PRODUCT_ROUTES.publicCommunity]: 'Cộng đồng — Mạch Mở',
   [PRODUCT_ROUTES.publicLogin]: 'Đăng nhập — Mạch Mở',
   [PRODUCT_ROUTES.authCallback]: 'Hoàn tất đăng nhập — Mạch Mở',

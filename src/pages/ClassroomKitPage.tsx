@@ -47,6 +47,8 @@ function readSavedState() {
 export function ClassroomKitPage() {
   const [initial] = useState(readSavedState)
   const [bundle, setBundle] = useState(initial.bundle)
+  const [stationInput, setStationInput] = useState(String(initial.bundle.stationCount))
+  const [stationError, setStationError] = useState('')
   const [message, setMessage] = useState('')
   const [componentToAdd, setComponentToAdd] = useState('')
   const [pendingLegacy, setPendingLegacy] = useState<{ bundle: ClassroomKitBundle; preview: NonNullable<ReturnType<typeof getLegacyResistorOverridePreview>> } | null>(initial.pendingLegacy)
@@ -61,6 +63,18 @@ export function ClassroomKitPage() {
   const usedIds = new Set(inventory.map(row => row.componentId))
   if (inventory.some(row => row.bomKey?.startsWith('resistor:ohm:'))) usedIds.add('resistor')
   const remainingComponents = componentRegistry.filter(item => item.id !== 'board' && !usedIds.has(item.id))
+
+  useEffect(() => {
+    setStationInput(String(bundle.stationCount))
+    setStationError('')
+  }, [bundle.stationCount])
+
+  function validateStationInput(value = stationInput) {
+    const number = Number(value)
+    const valid = value.trim() !== '' && Number.isInteger(number) && number >= 1 && number <= 100
+    setStationError(valid ? '' : `Nhập số nguyên từ 1 đến 100 trạm. Danh sách vẫn giữ ${bundle.stationCount} trạm cho đến khi nhập hợp lệ.`)
+    return valid
+  }
 
   useEffect(() => {
     if (storageRecovery) return
@@ -94,6 +108,7 @@ export function ClassroomKitPage() {
   }
 
   function exportBundle() {
+    if (!validateStationInput()) return
     const blob = new Blob([serializeClassroomKitBundle(bundle)], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
     const anchor = document.createElement('a')
@@ -105,6 +120,7 @@ export function ClassroomKitPage() {
   }
 
   function exportCsv() {
+    if (!validateStationInput()) return
     const csv = serializeClassroomKitCsv(bundle, inventory)
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' })
     const url = URL.createObjectURL(blob)
@@ -117,6 +133,7 @@ export function ClassroomKitPage() {
   }
 
   function exportSharePack() {
+    if (!validateStationInput()) return
     const pack = serializeClassroomKitSharePack(bundle)
     const blob = new Blob([pack], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
@@ -205,7 +222,7 @@ export function ClassroomKitPage() {
           <p className="classroom-kit-intro">Chọn board, bài học và số trạm để tính danh sách dụng cụ dùng lại qua các buổi. Lưu trên thiết bị hoặc xuất gói để chia sẻ thủ công.</p>
         </div>
         <div className="classroom-kit-actions">
-          <button type="button" className="secondary" onClick={() => window.print()}>In phiếu chuẩn bị</button>
+          <button type="button" className="secondary" onClick={() => { if (validateStationInput()) window.print() }}>In phiếu chuẩn bị</button>
           <button type="button" onClick={exportBundle}>Tải gói JSON</button>
           <button type="button" className="secondary" onClick={exportSharePack}>Tải gói chia sẻ</button>
           <button type="button" className="secondary" onClick={exportCsv}>Tải danh sách CSV</button>
@@ -267,11 +284,13 @@ export function ClassroomKitPage() {
             </select>
           </label>
           <label className="classroom-kit-field">Số trạm thực hành
-            <input type="number" min={1} max={100} step={1} value={bundle.stationCount} onChange={event => {
-              const value = Number(event.currentTarget.value)
-              if (Number.isInteger(value) && value >= 1 && value <= 100) updateBundle({ stationCount: value })
+            <input type="number" min={1} max={100} step={1} value={stationInput} aria-invalid={Boolean(stationError)} aria-describedby="kit-station-help kit-station-error" onBlur={() => validateStationInput()} onChange={event => {
+              const value = event.currentTarget.value
+              setStationInput(value)
+              if (validateStationInput(value)) updateBundle({ stationCount: Number(value) })
             }} />
-            <small>Từ 1 đến 100 trạm. Số lượng đề xuất tính cho cấu hình lớn nhất của một bài tại mỗi trạm.</small>
+            <small id="kit-station-help">Từ 1 đến 100 trạm. Số lượng đề xuất tính cho cấu hình lớn nhất của một bài tại mỗi trạm.</small>
+            <span id="kit-station-error" role={stationError ? 'alert' : undefined}>{stationError}</span>
           </label>
           <label className="classroom-kit-field">Quyền chia sẻ cấu hình do bạn tạo
             <select value={bundle.configurationLicense} onChange={event => updateBundle({ configurationLicense: event.target.value as ClassroomKitBundle['configurationLicense'] })}>

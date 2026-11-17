@@ -9,7 +9,7 @@ type BoardPinoutExplorerProps = {
 }
 
 export function BoardPinoutExplorer({ pins, selectedPinId, onSelectPin, evidence, coordinatePicking }: BoardPinoutExplorerProps) {
-  const hasCoordinatePicking = coordinatePicking ?? pins.every((pin) => Boolean(pin.anchor))
+  const hasCoordinatePicking = coordinatePicking === true
   const selectedPin = pins.find((pin) => pin.id === selectedPinId)
   const groups = (['left', 'right', 'reference'] as const).map((side) => ({
     side,

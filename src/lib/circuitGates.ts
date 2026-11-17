@@ -13,6 +13,7 @@ import { getAssemblyPlanV2, footprintBox, rotateXZ } from './assemblyLayout'
 import { formatHole, holeToMm } from './breadboardGrid'
 import { BENCH_MM } from './assemblyLayout'
 import type { BuilderLessonId } from '../data/builderLessons'
+import type { BoardDiagramPresentation } from './boardTopView'
 
 export type CircuitGateId = 'G1' | 'G2' | 'G3' | 'G4' | 'G5' | 'G6' | 'G7' | 'G8' | 'G9' | 'G10'
 export type CircuitGateStatus = 'pass' | 'fail' | 'warning' | 'not_applicable'
@@ -79,10 +80,10 @@ function pointInside(point: readonly [number, number], obstacle: RouterObstacle)
     && point[1] >= obstacle.y && point[1] <= obstacle.y + obstacle.height
 }
 
-function evaluateG6(doc: CircuitDocV2): CircuitGateResult {
+function evaluateG6(doc: CircuitDocV2, presentation?: BoardDiagramPresentation): CircuitGateResult {
   const issues: string[] = []
   const warnings: string[] = []
-  const target = getSimulationTarget('esp32-devkit')
+  const target = getSimulationTarget(presentation?.id ?? 'esp32-devkit')
   let plan: ReturnType<typeof getAssemblyPlanV2>
   try {
     plan = getAssemblyPlanV2(doc, { boardId: target.boardId, target, lessonId: doc.lessonId as BuilderLessonId })
@@ -99,6 +100,27 @@ function evaluateG6(doc: CircuitDocV2): CircuitGateResult {
     if (!plan.wireEnds[wire.id]) issues.push(`Dây “${wire.id}” không có đủ tọa độ hai đầu từ hình học đã khai báo.`)
   }
   if (issues.length) return makeGate('G6', 'fail', issues)
+
+  // The displayed CAD projection is a different geometry from the 3D plan.
+  // When a caller displays it, validate those exact routes and all wire IDs;
+  // an omitted visual wire must never be hidden behind a green routing gate.
+  if (presentation) {
+    const diagram = buildBreadboardDiagram(doc, presentation)
+    issues.push(...diagram.diagnostics)
+    for (const wire of doc.wires) {
+      if (!diagram.wires.some(route => route.id === wire.id)) issues.push(`Dây “${wire.id}” thiếu đường vẽ trong khung breadboard đang hiển thị.`)
+    }
+    for (const route of diagram.wires) {
+      const bends = route.points.slice(2).filter((point, index) => {
+        const a = route.points[index], b = route.points[index + 1]
+        return Math.abs((b.x - a.x) * (point.y - b.y) - (b.y - a.y) * (point.x - b.x)) > EPSILON_MM
+      }).length
+      if (bends > 3) warnings.push(`Dây “${route.id}” trên breadboard có ${bends} góc rẽ; hơn 3 là cảnh báo theo R8.`)
+    }
+    if (issues.length) return makeGate('G6', 'fail', issues)
+    // Continue the 3D routing checks too; a correct 2D projection does not
+    // replace the previous assembly-space checks when the view is switched.
+  }
 
   const obstacles: RouterObstacle[] = plan.placements
     .filter(placement => placement.type !== 'breadboard' && placement.kind !== 'fallback-box')
@@ -298,7 +320,7 @@ function evaluateG10(doc: CircuitDocV2): CircuitGateResult {
 }
 
 /** Evaluates the ten SIM v2 circuit gates without changing the document. */
-export function evaluateCircuitGates(value: unknown): CircuitGateReport {
+export function evaluateCircuitGates(value: unknown, options: { presentation?: BoardDiagramPresentation } = {}): CircuitGateReport {
   const doc = value as CircuitDocV2
   const lessonId = isRecord(value) && typeof value.lessonId === 'string' ? value.lessonId : '(không rõ bài)'
   const validation = validateCircuitDoc(value)
@@ -316,7 +338,7 @@ export function evaluateCircuitGates(value: unknown): CircuitGateReport {
     gateFromValidation('G4', validation),
   ]
   try { gates.push(evaluateG5(doc)) } catch (error) { gates.push(makeGate('G5','fail',[`Không tính được bố cục: ${String(error)}`])) }
-  try { gates.push(evaluateG6(doc)) } catch (error) { gates.push(makeGate('G6','fail',[`Không kiểm được định tuyến: ${String(error)}`])) }
+  try { gates.push(evaluateG6(doc, options.presentation)) } catch (error) { gates.push(makeGate('G6','fail',[`Không kiểm được định tuyến: ${String(error)}`])) }
   try { gates.push(evaluateG7(doc, netIndex)) } catch (error) { gates.push(makeGate('G7','fail',[`Không kiểm được chân hở: ${String(error)}`])) }
   try { gates.push(evaluateG8(doc, netIndex)) } catch (error) { gates.push(makeGate('G8','fail',[`Không kiểm được nguồn/GND: ${String(error)}`])) }
   try { gates.push(evaluateG9(doc)) } catch (error) { gates.push(makeGate('G9','fail',[`Không kiểm được cầu SPICE: ${String(error)}`])) }

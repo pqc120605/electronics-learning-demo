@@ -245,14 +245,41 @@ export function buildSampleCircuit(sampleId: FreestyleSampleId, boardId: string)
     const r = place(doc, 'resistor', 4, 2); doc = r.doc
     const q = place(doc, 'transistor', 12, 2); doc = q.doc
     const m = placePart(doc, 'dc-motor'); doc = m.doc
+    const supply = placePart(doc, 'battery'); doc = supply.doc
+    const flyback = place(doc, 'diode', 20, 2); doc = flyback.doc
     doc = link(doc, { part: 'board', pin: 'ledOut' }, { part: r.id, pin: 'a' })
     doc = link(doc, { part: r.id, pin: 'b' }, { part: q.id, pin: 'base' })
     doc = link(doc, { part: q.id, pin: 'emitter' }, { rail: 'B-' }, 'ground')
     doc = link(doc, { part: q.id, pin: 'collector' }, { part: m.partId!, pin: 'negative' })
-    // Chân 5 V của part board chưa có tọa độ trên sơ đồ breadboard nên mẫu lấy nguồn từ chân VCC của board.
-    doc = link(doc, { part: 'board', pin: 'vcc' }, { part: m.partId!, pin: 'positive' }, 'power')
+    // An independent ideal load supply is explicit; missing board artwork must
+    // never decide where a motor gets its power. No real voltage/current rating
+    // is inferred by this educational state model.
+    doc = link(doc, { part: supply.partId!, pin: 'positive' }, { part: m.partId!, pin: 'positive' }, 'power')
+    doc = link(doc, { part: supply.partId!, pin: 'negative' }, { rail: 'B-' }, 'ground')
+    doc = link(doc, { part: flyback.id, pin: 'cathode' }, { part: m.partId!, pin: 'positive' }, 'power')
+    doc = link(doc, { part: flyback.id, pin: 'anode' }, { part: m.partId!, pin: 'negative' })
   }
   return { doc: withExpect(doc), pinMap }
+}
+
+/** Topology disclosure only: never infers electrical ratings or rewrites drafts. */
+export function getMotorProtection(doc: CircuitDocV2): { independentSupply: boolean; commonGround: boolean; flyback: boolean } {
+  const motors = doc.parts.filter(part => part.type === 'dc-motor')
+  if (motors.length !== 1) return { independentSupply: false, commonGround: false, flyback: false }
+  const motor = motors[0], board = doc.parts.find(part => part.type === 'board')
+  const index = createNetIndexV2(doc)
+  const sameNet = (a: string, b: string) => {
+    const key = index.netOf(a)?.key
+    return Boolean(key && key === index.netOf(b)?.key)
+  }
+  const positive = `${motor.id}:positive`, negative = `${motor.id}:negative`
+  const supply = doc.parts.find(part => part.type === 'battery' && sameNet(`${part.id}:positive`, positive)
+    && (!board || !['vcc', 'v5'].some(pin => sameNet(`${board.id}:${pin}`, positive))))
+  return {
+    independentSupply: Boolean(supply),
+    commonGround: Boolean(supply && board && sameNet(`${supply.id}:negative`, `${board.id}:gnd`)),
+    flyback: !sameNet(positive, negative) && doc.parts.some(part => part.type === 'diode' && sameNet(`${part.id}:anode`, negative) && sameNet(`${part.id}:cathode`, positive)),
+  }
 }
 
 /** Chân có PWM + ADC cho mẫu biến trở. */

@@ -35,6 +35,11 @@ export function searchGuide(question:string,curated:readonly GuideArticle[],snap
   let hits=entities(q)
   let explicitBoards=hits.filter(h=>h.entry.family==='board')
   if(explicitBoards.length>1)return unknown(`Câu hỏi nhắc nhiều board (${explicitBoards.map(h=>h.entry.title).join('; ')}). Hãy chọn một board và chức năng cần đối chiếu; Mở chưa có đối chiếu chân/phần cứng giữa các board.`)
+  // Tool scope is independent of board variant. Exact pin/rating questions still
+  // go through the board guard; mentioning ESP32 must not hide SPICE's limits.
+  const tool = hits.filter(hit => hit.entry.family === 'feature' && ['spice', 'firmware', 'sketch'].includes(hit.entry.entityId)).sort((a, b) => a.start - b.start)[0]
+  const asksHardwareDetails = /\b(?:gpio|gp\d+|p[abc]\d+|pinout|chan|chiu|dinh muc|dien ap|volt|adc|pwm)\b/.test(q) || /\b\d+\s*v\b/.test(q)
+  if (tool && !asksHardwareDetails) return { kind: 'matches', articles: [tool.entry] }
   if(!explicitBoards.length&&/\b(?:esp32|stm32|arduino|pico|nucleo|xiao|feather)\b/.test(q)&&!hits.some(h=>h.entry.family==='component'&&h.entry.evidence.some(s=>s.includes('components.ts'))))return unknown('Tên họ board chưa đủ để chọn đúng profile. Hãy nêu đầy đủ biến thể như Arduino Uno R3, Pico W hoặc ESP32-C3-DevKitM-1; Mở không tự lấy profile của board khác.')
   // Snapshot context is opt-in via a reference in the question, never private post/code ingestion.
   if(!explicitBoards.length&&/\b(?:board dang chon|board nay|board hien tai)\b/.test(q)){

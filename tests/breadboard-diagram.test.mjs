@@ -117,3 +117,18 @@ test('editor shows the mounted parts and wire paths on the physical-style diagra
   assert.equal((html.match(/data-circuit-endpoint="bb1:10a"/g) ?? []).length, 1)
   assert.match(html, /400 tie-point.*chưa xác minh/i)
 })
+
+test('occupied holes retain keyboard endpoints without covering component terminals for pointer input', () => {
+  const html = renderToStaticMarkup(createElement(Editor, {
+    doc: getLessonCircuitDoc('blink'), selectedWireId: null, pendingEndpoint: null,
+    lessonWiring: { noticeIsError: false, onClearNotice() {} },
+    onSelectEndpoint() {}, onSelectWire() {}, onCommitWire() {}, onEditWireEndpoint() {}, onSetWireRole() {}, onRemoveWire() {},
+  }))
+  const hole = html.match(/<circle[^>]*data-circuit-endpoint="bb1:10c"[^>]*>/)?.[0]
+  assert.ok(hole, 'the occupied hole remains in the keyboard navigation grid')
+  assert.match(hole, /data-occupied="true"/)
+  assert.match(hole, /pointer-events:none/)
+  assert.match(hole, /role="button"/)
+  assert.match(hole, /chân linh kiện/)
+  assert.match(html, /data-circuit-endpoint="res-1:a"/)
+})

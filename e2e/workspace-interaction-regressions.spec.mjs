@@ -208,6 +208,8 @@ test('CircuitDocV2 breadboard connects a board pin to a real hole and can remove
 
   await expect(editor.locator('[data-diagram-wire]')).toHaveCount(5)
   const newWire = editor.locator('[data-diagram-wire="wire-v2-5"]')
+  // The newly connected hole can be visible while the jumper runs above the pane.
+  await newWire.scrollIntoViewIfNeeded()
   const wirePoint = await newWire.evaluate(element => {
     const path = element.querySelector('path.diagram-wire-color')
     if (!(path instanceof SVGPathElement)) return null

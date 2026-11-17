@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type DragEvent } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { BreadboardEditor } from '../builder/BreadboardEditor'
+import { getFreestyleBoardId, getFreestylePartId } from '../../lib/catalogPracticeLinks'
 import type { WireSignalLabel } from '../builder/BreadboardDiagram'
 import { SignalFlowPanel } from '../builder/SignalFlowPanel'
 import { componentRegistry } from '../../data/componentRegistry'
@@ -13,7 +14,7 @@ import type { LivePinState } from '../../lib/avrLiveMachine'
 import { getBrowserStorage } from '../../lib/workspaceStorage'
 import {
   FREESTYLE_STORAGE_KEY, SIGNAL_PINS, SIGNAL_PIN_LABELS, addFreestyleWire, availablePins, buildSampleCircuit, controlsFor, createEmptyFreestyleDoc, blankFreestyleWorkspace, isBreadboardPart,
-  workspaceWithFreestyleBoard, evaluateFreestyleCircuit, freestyleBoards, freestyleSamples, getFreestyleBoard, movePart,
+  workspaceWithFreestyleBoard, evaluateFreestyleCircuit, freestyleBoards, freestyleSamples, getFreestyleBoard, getMotorProtection, movePart,
   parseFreestyleWorkspace, pinDisplayName, placePart, placeableParts, removePartAndWires, rotatePart, sampleCode,
   type ControlState, type FreestyleLanguage, type FreestyleSampleId, type FreestyleWorkspace, type PinMap, type SignalPin,
 } from '../../lib/freestyle/freestyleCircuit'
@@ -201,12 +202,14 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
     intentApplied.current = true
     let intended=workspace,changed=false
     if(boardParam){
-      if(freestyleBoards.some(item=>item.id===boardParam)){intended=workspaceWithFreestyleBoard(intended,boardParam);changed=true;setStep('board')}
+      const canonicalBoard = getFreestyleBoardId(boardParam)
+      if(canonicalBoard){intended=workspaceWithFreestyleBoard(intended,canonicalBoard);changed=true;setStep('board')}
       else setNotice(`Board ${boardParam.slice(0,100)} chưa có trên bàn tự do; không đổi mạch hiện tại.`)
     }
-    if(partParam&&placeableParts.some(item=>item.id===partParam)){
-      const mountingDoc=isBreadboardPart(partParam)&&!intended.doc.breadboards.length?{...intended.doc,breadboards:createEmptyFreestyleDoc().breadboards}:intended.doc
-      const added=placePart(mountingDoc,partParam)
+    const canonicalPart = partParam && (placeableParts.some(item=>item.id===partParam) ? partParam : getFreestylePartId(partParam))
+    if(canonicalPart){
+      const mountingDoc=isBreadboardPart(canonicalPart)&&!intended.doc.breadboards.length?{...intended.doc,breadboards:createEmptyFreestyleDoc().breadboards}:intended.doc
+      const added=placePart(mountingDoc,canonicalPart)
       if(added.partId){intended={...intended,doc:added.doc,sampleId:undefined};changed=true;setSelectedPartId(added.partId);setStep('parts')}
       else setNotice(added.error??'Chưa thêm được linh kiện.')
     }
@@ -303,6 +306,7 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
   const serialEntries: SerialEntry[] = useMemo(() => serial.split(/\r?\n/).filter(Boolean).slice(-12).map((text, index) => ({ atMs: index, text })), [serial])
   const outputPins = pins ? Object.entries(pins).filter(([, state]) => state.mode === 'output').map(([pin, state]) => ({ pin: Number(pin), ...state })).sort((a, b) => a.pin - b.pin) : []
   const lineCount = code.split('\n').length
+  const motorProtection = useMemo(() => getMotorProtection(doc), [doc])
   const visibleParts = placeableParts.filter(part => !partFilter || `${part.label} ${part.category}`.toLowerCase().includes(partFilter.toLowerCase()))
   const HeadingTag = variant === 'full' ? 'h1' : 'h2'
 
@@ -407,6 +411,7 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
       </div>
 
       <div className="freestyle-stage" onDragOver={event => { if (event.dataTransfer.types.includes('application/x-machmo-part')) event.preventDefault() }} onDrop={dropPart}>
+        {workspace.sampleId === 'motor' && <p className="freestyle-note" role="note">{motorProtection.independentSupply && motorProtection.commonGround && motorProtection.flyback ? 'Mạch này có nguồn tải lý tưởng riêng, GND chung và diode mắc ngược song song motor.' : 'Bản nháp motor này chưa có đủ nguồn tải riêng, GND chung hoặc diode đúng chiều. Mạch đang được giữ nguyên. Hãy tải bản nháp trước khi chọn “Dựng mạch mẫu” để dùng mẫu mới.'} Hoạt cảnh chỉ minh họa đóng/ngắt; chưa tính dòng tải, sụt áp, xung ngược, nhiệt hoặc chọn định mức linh kiện thật.</p>}
         {!doc.parts.length&&!doc.breadboards.length&&view!=='wave' ? <div className="freestyle-blank"><span aria-hidden="true">＋</span><h3>Bàn của bạn, bắt đầu từ trống</h3><p>Chọn board, thêm breadboard và linh kiện; tự nối dây và viết code. Không có mạch nào được dựng sẵn.</p><button className="freestyle-run-button" onClick={()=>{setStep('board');setPanelOpen(true)}}>Chọn board</button><button className="freestyle-button" onClick={()=>{const bb=createEmptyFreestyleDoc();updateDoc({...doc,breadboards:bb.breadboards});setStep('parts');setPanelOpen(true)}}>Thêm breadboard</button></div> : view==='3d' ? <Suspense fallback={<p>Đang mở cảnh 3D…</p>}><FreestyleAssemblyView key={boardId} doc={doc} boardId={boardId} pinMap={pinMap} selectedPartId={selectedPartId} wireSignals={wireSignals} litPartIds={evaluation.litPartIds} onSelectPart={setSelectedPartId}/></Suspense> : view==='wave' ? <FreestyleWaveform preferredPins={wiredSignals.map(role=>pinMap[role])} samples={trace} boardId={boardId} source={boardId?engine.label:'Chưa chọn runtime'} running={running}/> : view==='schematic' ? <><p className="freestyle-note">{boardId?board.name:'Chưa chọn board'} · {wiredSignals.map(role=>`${SIGNAL_PIN_LABELS[role]} = ${pinDisplayName(boardId,pinMap[role])}`).join(' · ')}</p><CircuitSchematicV2 doc={doc} boardLabel={boardId?board.short:undefined} boardPinLabels={boardId?freestylePresentation(boardId,pinMap).pinLabels:undefined} selectedKey={selectedPartId} selectedWireId={selectedWireId} onSelectPart={setSelectedPartId} onSelectWire={setSelectedWireId}/></> : <BreadboardEditor
           compact
           presentation={boardId?freestylePresentation(boardId,pinMap):undefined}

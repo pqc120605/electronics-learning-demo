@@ -175,3 +175,25 @@ body { background: var(--mm-bg); color: var(--mm-text); }
 .rp2040-note,.rp2040-source { margin: 0; color: var(--mm-muted); font-size: var(--mm-text-sm); line-height: 1.5; }
 .simulation-logic-analyzer { display: grid; gap: 8px; }
 .simulation-logic-analyzer > strong { color: var(--mm-ink); font-size: 13px; }
+
+/* Audit F10: use a readable working scale and local pan; fit is an explicit overview. */
+.builder-check-details { min-width:0; border:1px solid var(--mm-line); border-radius:8px; padding:8px; }
+.builder-check-details > summary { min-height:40px; cursor:pointer; font-weight:650; color:var(--mm-ink); }
+.builder-check-details[open] > summary { margin-bottom:8px; }
+@media (max-width:767px) {
+  .freestyle-stage .breadboard-diagram-svg:not([data-fit="true"]),
+  .builder-main .breadboard-diagram-svg:not([data-fit="true"]) {
+    min-width:calc(var(--diagram-natural-width) * 1.12);
+    max-height:none;
+  }
+  .freestyle-stage .breadboard-diagram-svg[data-fit="true"],
+  .builder-main .breadboard-diagram-svg[data-fit="true"] { min-width:0; width:100%; max-height:none; }
+  .breadboard-diagram-scroll { max-height:58dvh; min-height:220px; overscroll-behavior:contain; }
+  /* Controls stay above the independently scrolling canvas, never over pins. */
+  .breadboard-diagram .freestyle-view-controls { position:static; padding:4px; background:var(--mm-surface); }
+  .breadboard-diagram .freestyle-view-controls button { min-width:40px; min-height:40px; }
+  .builder-content[data-step="assemble"] .builder-palette { max-height:240px; overflow:auto; overscroll-behavior:contain; }
+  .builder-content[data-step="assemble"] .builder-grid { min-height:0; }
+  .board-section.catalog-page-section .board-list { max-height:42dvh; overflow:auto; overscroll-behavior:contain; }
+  .board-section.catalog-page-section .board-row { padding-block:14px; }
+}

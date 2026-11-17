@@ -199,7 +199,17 @@ for (const { width, height, keyboard } of [
     const trace = lab.locator('.button-lab-result')
     const endpoint = id => editor.locator(`[data-circuit-endpoint="${id}"]`)
     const activate = (control, key = 'Enter') => keyboard ? control.press(key) : control.click()
-    const choose = (id, key) => activate(endpoint(id), key)
+    const choose = async (id, key) => {
+      const target = endpoint(id)
+      if (!keyboard && await target.getAttribute('data-occupied') === 'true') {
+        // The terminal owns pointer input at an occupied hole. Use the explicit
+        // hole grid to request that hole itself and verify the G4 rejection.
+        const details = editor.locator('.breadboard-grid-details')
+        await details.locator('summary').click()
+        await editor.locator(`[data-breadboard-control-endpoint="${id}"]`).click()
+        await details.locator('summary').click()
+      } else await activate(target, key)
+    }
     const newWire = () => list.locator('option[value="lesson-wire-1"]')
     const geometry = lab.locator('.button-lab-wire-overlay path[data-wire-id="lesson-wire-1"]')
     const wireCount = count => expect(list.locator('option:not([value=""])')).toHaveCount(count)

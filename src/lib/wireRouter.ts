@@ -217,6 +217,18 @@ export function routeWires(wires: readonly RouterWire[], obstacles: readonly Rou
   const errors: WireRouteResult['errors'] = []
   const routes: RoutedWire[] = []
   const occupied: OccupiedEdges = { all: new Set(), horizontal: new Set(), vertical: new Set() }
+  // Reserve every terminal's escape before routing the first wire. Otherwise
+  // an early A* path can consume a later terminal's only legal escape segment,
+  // making a valid circuit lose a wire solely because of wire ID sort order.
+  const reserved: OccupiedEdges = { all: new Set(), horizontal: new Set(), vertical: new Set() }
+  for (const wire of wires) {
+    if ([...wire.from, ...wire.to].some(value => !Number.isFinite(value))) continue
+    for (const [point, preferred, owner] of [[wire.from, wire.fromExit, wire.fromObstacleId], [wire.to, wire.toExit, wire.toObstacleId]] as const) {
+      const snapped = snapToRouterGrid(point, pitch)
+      const exit = exitCell(snapped, preferred, owner, obstacles, padding, pitch)
+      if (exit) addOccupiedSegment(reserved, snapped, exit.lead, pitch)
+    }
+  }
   for (const wire of [...wires].sort((a, b) => a.id.localeCompare(b.id, 'en'))) {
     const coordinates = [...wire.from, ...wire.to]
     if (!wire.id || coordinates.some(value => !Number.isFinite(value))) { errors.push({ wireId: wire.id, reason: 'Dây thiếu id hoặc tọa độ không hữu hạn.' }); continue }
@@ -235,7 +247,11 @@ export function routeWires(wires: readonly RouterWire[], obstacles: readonly Rou
     const to = exitCell(toGridPoint, wire.toExit, wire.toObstacleId, obstacles, padding, pitch)
     if (!from || !to) { errors.push({ wireId: wire.id, reason: 'Không thoát được khỏi footprint theo một đoạn vuông góc.' }); continue }
     if (leadOverlaps(fromGridPoint, from, occupied, pitch) || leadOverlaps(toGridPoint, to, occupied, pitch)) { errors.push({ wireId: wire.id, reason: 'Đoạn thoát của dây sẽ chồng lên dây đã định tuyến.' }); continue }
-    const routeOccupied: OccupiedEdges = { all: new Set(occupied.all), horizontal: new Set(occupied.horizontal), vertical: new Set(occupied.vertical) }
+    const routeOccupied: OccupiedEdges = {
+      all: new Set([...occupied.all, ...reserved.all]),
+      horizontal: new Set([...occupied.horizontal, ...reserved.horizontal]),
+      vertical: new Set([...occupied.vertical, ...reserved.vertical]),
+    }
     addOccupiedSegment(routeOccupied, wire.from, from.lead, pitch)
     addOccupiedSegment(routeOccupied, wire.to, to.lead, pitch)
     const path = findPath(from.cell, to.cell, pitch, obstacles, padding, routeOccupied, maxExpanded)

@@ -166,8 +166,8 @@ export function BreadboardEditor(props: Props) {
   function moveDrag(event: PointerEvent<HTMLElement | SVGSVGElement>) {
     const current = dragRef.current
     if (!current || current.pointerId !== event.pointerId) return
-    const x = lessonWiring ? current.startX : current.x
-    const y = lessonWiring ? current.startY : current.y
+    const x = current.startX
+    const y = current.startY
     const moved = current.moved || Math.hypot(event.clientX - x, event.clientY - y) > 5
     if (lessonWiring && !moved) return
     dragRef.current = { ...current, x: event.clientX, y: event.clientY, moved }
@@ -178,8 +178,8 @@ export function BreadboardEditor(props: Props) {
     const current = dragRef.current
     if (!current || current.pointerId !== event.pointerId) return
     clearDrag()
-    const x = lessonWiring ? current.startX : current.x
-    const y = lessonWiring ? current.startY : current.y
+    const x = current.startX
+    const y = current.startY
     if (!current.moved && Math.hypot(event.clientX - x, event.clientY - y) <= 5) return
     suppressClickRef.current = true
     const target = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>('[data-circuit-endpoint]')
