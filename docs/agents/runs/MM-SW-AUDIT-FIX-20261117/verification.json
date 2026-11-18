@@ -1,0 +1,93 @@
+{
+  "taskId": "MM-SW-AUDIT-FIX-20261117",
+  "reviewedSnapshot": "review-snapshot-5.json",
+  "independentReview": {
+    "verdict": "pass",
+    "changedFiles": 26,
+    "hashMismatches": 0,
+    "report": "review.md"
+  },
+  "checks": {
+    "typecheck": {
+      "command": "npm.cmd run typecheck",
+      "exitCode": 0,
+      "snapshot": "review-snapshot-4.json",
+      "log": ".tmp/agent-checks/MM-SW-AUDIT-FIX-20261117/typecheck-final-4.log"
+    },
+    "unit": {
+      "command": "npm.cmd test",
+      "exitCode": 0,
+      "total": 696,
+      "pass": 696,
+      "skip": 0,
+      "snapshot": "review-snapshot-4.json",
+      "log": ".tmp/agent-checks/MM-SW-AUDIT-FIX-20261117/unit-final-4.log"
+    },
+    "buildLocal": {
+      "command": "npm.cmd run build:local",
+      "exitCode": 0,
+      "snapshot": "review-snapshot-4.json",
+      "log": ".tmp/agent-checks/MM-SW-AUDIT-FIX-20261117/build-final-4.log"
+    },
+    "e2e": {
+      "command": "npm.cmd run test:e2e",
+      "exitCode": 0,
+      "status": "passed",
+      "snapshot": "review-snapshot-5.json",
+      "log": ".tmp/agent-checks/MM-SW-AUDIT-FIX-20261117/e2e-final-5.log",
+      "total": 200,
+      "pass": 200,
+      "fail": 0,
+      "skip": 0,
+      "logSha256": "debcab9962c96bf5a14f430aec55ad0eba640bba904c730884468f59aa113923",
+      "runFinishedAt": "2026-11-17T11:14:08.337Z"
+    }
+  },
+  "contexts": {
+    "snapshotDelta": "Snapshot 5 adds only an E2E scroll step to the 25 reviewed files in snapshot 4.",
+    "concurrentChanges": "Ten separate SPICE paths changed between checkouts. Final E2E rebuilds from the current checkout. The unit count is from snapshot 4.",
+    "browser": "Chromium production preview, original playwright.config.mjs, fixed 127.0.0.1:5196"
+  },
+  "reruns": {
+    "unitBaseline": {
+      "snapshot": "Web audit baseline",
+      "total": 680,
+      "pass": 676,
+      "fail": 4,
+      "reason": "Arduino15 toolchain/index sandbox access. Existing installed toolchain passed in final authorized run."
+    },
+    "focusedUnit": {
+      "total": 15,
+      "pass": 15,
+      "log": ".tmp/agent-checks/MM-SW-AUDIT-FIX-20261117/occupied-hole-green.log"
+    },
+    "affectedE2e": {
+      "total": 8,
+      "pass": 8,
+      "exitCode": 0,
+      "log": ".tmp/agent-checks/MM-SW-AUDIT-FIX-20261117/e2e-affected-4.log"
+    },
+    "fullE2e4": {
+      "total": 200,
+      "pass": 198,
+      "fail": 2,
+      "exitCode": 1,
+      "log": ".tmp/agent-checks/MM-SW-AUDIT-FIX-20261117/e2e-final-4.log"
+    },
+    "isolatedE2e": {
+      "total": 2,
+      "pass": 1,
+      "fail": 1,
+      "exitCode": 1,
+      "log": ".tmp/agent-checks/MM-SW-AUDIT-FIX-20261117/e2e-two-recheck.log",
+      "results": [
+        "Ultrasonic 3D passed after prior browser context teardown timeout.",
+        "Wire click assertion reproduced clipping in the guided pane. Manual recheck confirmed selection/removal after scroll."
+      ]
+    }
+  },
+  "reviewedFilesAfterTests": {
+    "count": 26,
+    "hashMismatches": 0
+  }
+}

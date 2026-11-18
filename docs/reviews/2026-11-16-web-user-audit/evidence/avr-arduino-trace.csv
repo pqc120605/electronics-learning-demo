@@ -1,0 +1,4 @@
+source,target,signal,simulated_ms,cycles,level,trace_truncated
+avr8js,arduino-uno-r3-atmega328p,D13/PB5,0.01125,180,LOW,false
+avr8js,arduino-uno-r3-atmega328p,D13/PB5,0.0144375,231,HIGH,false
+avr8js,arduino-uno-r3-atmega328p,D13/PB5,500.022875,8000366,LOW,false

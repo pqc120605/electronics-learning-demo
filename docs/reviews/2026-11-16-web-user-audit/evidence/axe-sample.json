@@ -1,0 +1,91 @@
+[
+  {
+    "route": "/",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "violations": [],
+    "passes": 30,
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": 2
+      },
+      {
+        "id": "color-contrast",
+        "nodes": 13
+      }
+    ]
+  },
+  {
+    "route": "/build/freestyle",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "violations": [],
+    "passes": 27,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 7
+      }
+    ]
+  },
+  {
+    "route": "/build?lesson=button-led&board=esp32-devkit",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "violations": [],
+    "passes": 10,
+    "incomplete": []
+  },
+  {
+    "route": "/tools/spice",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "violations": [],
+    "passes": 26,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 12
+      }
+    ]
+  },
+  {
+    "route": "/feedback",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "violations": [],
+    "passes": 28,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 11
+      }
+    ]
+  },
+  {
+    "route": "/community/new",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "violations": [],
+    "passes": 28,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": 24
+      }
+    ]
+  }
+]

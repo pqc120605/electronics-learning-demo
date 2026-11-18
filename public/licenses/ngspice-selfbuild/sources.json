@@ -1,0 +1,7 @@
+{
+  "ngspice": { "repository": "https://github.com/danchitnis/ngspice-sf-mirror", "tag": "ngspice-45.2", "commit": "724dc77b9153dc75eaec474b1f7a44f1fcf5f362" },
+  "wrapper": { "repository": "https://github.com/eelab-dev/EEcircuit-engine", "commit": "be15b07abaf2c8a77623e4fc700d260004fbfa5a" },
+  "emscripten": { "version": "4.0.10", "image": "docker.io/emscripten/emsdk@sha256:90b757eb11fa9a0e3ce4d2d9f76d932a56018e4accc37b5a28b2783751e60eb7" },
+  "jobs": 2,
+  "distributionStatus": "pending-build-and-review"
+}

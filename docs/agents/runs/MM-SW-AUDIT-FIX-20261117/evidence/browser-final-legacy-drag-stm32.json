@@ -1,0 +1,25 @@
+{
+  "cases": [
+    {
+      "id": "F16-legacy-motor-preserved-final",
+      "url": "http://127.0.0.1:5320/build/freestyle?resume=1",
+      "screenshot": "F16-legacy-motor-preserved-final.png",
+      "rawPreserved": true
+    },
+    {
+      "id": "F03-slow-drag-final",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "screenshot": "F03-slow-drag-final.png",
+      "wires": 5
+    },
+    {
+      "id": "F07-blue-pill-final",
+      "url": "http://127.0.0.1:5320/boards?board=stm32-blue-pill-f103",
+      "screenshot": "F07-blue-pill-final.png",
+      "copy": [
+        "Chưa có model CAD chuẩn dùng chung cho mọi Blue Pill; reconstruction không chạy firmware STM32"
+      ]
+    }
+  ],
+  "pageErrors": []
+}

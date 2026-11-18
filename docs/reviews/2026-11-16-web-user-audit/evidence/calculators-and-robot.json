@@ -1,0 +1,92 @@
+{
+  "cases": [
+    {
+      "case": "robot-completed",
+      "url": "http://127.0.0.1:5320/app/robot-simulation",
+      "title": "Không tìm thấy trang — Mạch Mở",
+      "text": "BÀI HỌC TƯƠNG TÁC · MÔ PHỎNG KHÁI NIỆM\n\nKhám phá chuyển động của robot\n\nRobot cần nhận lệnh để tiến, lùi, rẽ hoặc dừng. Hãy quan sát cách thay đổi hướng đi trong hoạt cảnh ảo.\n\nGiới hạn: Đây là hoạt động khái niệm chạy ngay trong trình duyệt. Hình ảnh và trạng thái là minh họa; chúng không điều khiển, đo đạc hay xác nhận robot hoặc phần cứng thật.\n\nSÂN THỬ ẢO\n\nChọn một lệnh chuyển động\nMô phỏng khái niệm\n🤖\n▧\nVật cản ảo\n\nTrạng thái ảo: Dừng trước chướng ngại vật\n\nTiến\nLùi\nRẽ trái\nRẽ phải\nDừng\nThử tình huống chướng ngại vật\n\nLÀM THEO TỪNG BƯỚC\n\nQuan sát, thử và suy nghĩ\n1. Quan sát hướng\n\nNhấn Tiến hoặc Lùi và quan sát trạng thái ảo.\n\nĐã hoàn thành: Quan sát hướng\n2. Thử một lệnh\n\nThử rẽ trái, rẽ phải rồi nhấn Dừng.\n\nĐã hoàn thành: Thử một lệnh\n3. Gặp chướng ngại vật\n\nChọn tình huống vật cản và quan sát robot dừng lại.\n\nĐã hoàn thành: Gặp chướng ngại vật\n\nĐã tự đánh dấu 3/3 bước. Đây không phải đánh giá năng lực.",
+      "screenshot": "robot-checklist.png",
+      "alerts": []
+    },
+    {
+      "case": "defaults",
+      "url": "http://127.0.0.1:5320/tools/electronics-calculators",
+      "title": "Công cụ tính điện tử — Mạch Mở",
+      "text": "BỘ CÔNG CỤ · TÍNH TOÁN CƠ BẢN\n\nTính nhanh, hiểu rõ giả định.\n\nƯớc lượng linh kiện và thời gian mạch từ thông số bạn nhập. Mỗi kết quả đi kèm công thức để bạn kiểm tra lại.\n\nThử lắp mạch ↗\n01\n\nĐẦU RA · LED\n\nĐiện trở hạn dòng LED\nĐiện áp nguồn\nV\nĐiện áp thuận LED (Vf)\nV\nDòng mục tiêu\nmA\nĐiện trở E24 đề xuất\n130 Ω\n\nDòng ước tính 10 mA · Công suất trên R 13 mW\n\nMô phỏng giá trị này trong SPICE\n\nR = (V nguồn − Vf) / I · Chọn giá trị E24 bằng hoặc lớn hơn giá trị tính.\n\n02\n\nĐẦU VÀO · ADC\n\nBộ chia áp bảo vệ ADC\nĐiện áp đầu vào tối đa\nV\nGiới hạn ADC\nV\nĐiện trở dưới (R2)\nkΩ\nĐiện trở trên tối thiểu theo E24\n30 kΩ\n\nVout ước tính 3 V · Dòng qua cầu chia 300 µA\n\nMô phỏng giá trị này trong SPICE\n\nVout = Vin × R2 / (R1 + R2) · Kiểm tra giới hạn ADC và trở kháng nguồn trong datasheet.\n\n03\n\nBUS · I²C\n\nĐiện trở kéo lên I²C\nĐiện áp bus (VDD)\nV\nĐiện dung bus ước tính\npF\nTốc độ bus\nStandard · 100 kHz\nFast · 400 kHz\nFast Plus · 1 MHz\nDải R ước tính · khuyến nghị E24\n1,8 kΩ\n\n966,667 Ω – 3,541 kΩ · tr lên tối đa 300 ns\n\nMô phỏng sườn lên tương đương trong SPICE\n\nRmin theo dòng kéo xuống; Rmax ≈ tr / (0,8473 × Cbus). Kết quả phụ thuộc điện dung thực, mức VOL và chuẩn bus.\n\n04\n\nTÍN HIỆU · RC\n\nHằng số thời gian RC\nĐiện trở\nkΩ\nTụ điện\nµF\nHằng số thời gian (τ)\n10 ms\n\nĐạt 63,2% sau 1τ · tần số cắt −3 dB khoảng 15,915 Hz\n\nMô phỏng giá trị này trong SPICE\n\nτ = R × C · Mốc phần trăm giả định bước điện áp và mạch RC lý tưởng bậc một.\n\nPhạm vi và an toàn\n\nCác kết quả là phép tính giáo dục lý tưởng, chưa mô phỏng sai số linh kiện, tải, nhiệt, dung sai, công suất thực tế hay toàn bộ đặc tính MCU. Đối chiếu datasheet, điện áp tuyệt đối tối đa và công suất linh kiện trước khi lắp mạch thật. Công cụ này không phải SPICE/ERC.",
+      "screenshot": "calculators-valid.png",
+      "alerts": []
+    },
+    {
+      "case": "led-zero-current",
+      "url": "http://127.0.0.1:5320/tools/electronics-calculators",
+      "title": "Công cụ tính điện tử — Mạch Mở",
+      "text": "BỘ CÔNG CỤ · TÍNH TOÁN CƠ BẢN\n\nTính nhanh, hiểu rõ giả định.\n\nƯớc lượng linh kiện và thời gian mạch từ thông số bạn nhập. Mỗi kết quả đi kèm công thức để bạn kiểm tra lại.\n\nThử lắp mạch ↗\n01\n\nĐẦU RA · LED\n\nĐiện trở hạn dòng LED\nĐiện áp nguồn\nV\nĐiện áp thuận LED (Vf)\nV\nDòng mục tiêu\nmA\nDòng LED phải là số dương.\n\nSửa ô được đánh dấu để xem kết quả.\n\nR = (V nguồn − Vf) / I · Chọn giá trị E24 bằng hoặc lớn hơn giá trị tính.\n\n02\n\nĐẦU VÀO · ADC\n\nBộ chia áp bảo vệ ADC\nĐiện áp đầu vào tối đa\nV\nGiới hạn ADC\nV\nĐiện trở dưới (R2)\nkΩ\nĐiện trở trên tối thiểu theo E24\n30 kΩ\n\nVout ước tính 3 V · Dòng qua cầu chia 300 µA\n\nMô phỏng giá trị này trong SPICE\n\nVout = Vin × R2 / (R1 + R2) · Kiểm tra giới hạn ADC và trở kháng nguồn trong datasheet.\n\n03\n\nBUS · I²C\n\nĐiện trở kéo lên I²C\nĐiện áp bus (VDD)\nV\nĐiện dung bus ước tính\npF\nTốc độ bus\nStandard · 100 kHz\nFast · 400 kHz\nFast Plus · 1 MHz\nDải R ước tính · khuyến nghị E24\n1,8 kΩ\n\n966,667 Ω – 3,541 kΩ · tr lên tối đa 300 ns\n\nMô phỏng sườn lên tương đương trong SPICE\n\nRmin theo dòng kéo xuống; Rmax ≈ tr / (0,8473 × Cbus). Kết quả phụ thuộc điện dung thực, mức VOL và chuẩn bus.\n\n04\n\nTÍN HIỆU · RC\n\nHằng số thời gian RC\nĐiện trở\nkΩ\nTụ điện\nµF\nHằng số thời gian (τ)\n10 ms\n\nĐạt 63,2% sau 1τ · tần số cắt −3 dB khoảng 15,915 Hz\n\nMô phỏng giá trị này trong SPICE\n\nτ = R × C · Mốc phần trăm giả định bước điện áp và mạch RC lý tưởng bậc một.\n\nPhạm vi và an toàn\n\nCác kết quả là phép tính giáo dục lý tưởng, chưa mô phỏng sai số linh kiện, tải, nhiệt, dung sai, công suất thực tế hay toàn bộ đặc tính MCU. Đối chiếu datasheet, điện áp tuyệt đối tối đa và công suất linh kiện trước khi lắp mạch thật. Công cụ này không phải SPICE/ERC.",
+      "screenshot": "calculator-led-zero-current.png",
+      "alerts": [
+        "Sửa ô được đánh dấu để xem kết quả."
+      ]
+    },
+    {
+      "case": "adc-negative-limit",
+      "url": "http://127.0.0.1:5320/tools/electronics-calculators",
+      "title": "Công cụ tính điện tử — Mạch Mở",
+      "text": "BỘ CÔNG CỤ · TÍNH TOÁN CƠ BẢN\n\nTính nhanh, hiểu rõ giả định.\n\nƯớc lượng linh kiện và thời gian mạch từ thông số bạn nhập. Mỗi kết quả đi kèm công thức để bạn kiểm tra lại.\n\nThử lắp mạch ↗\n01\n\nĐẦU RA · LED\n\nĐiện trở hạn dòng LED\nĐiện áp nguồn\nV\nĐiện áp thuận LED (Vf)\nV\nDòng mục tiêu\nmA\nDòng LED phải là số dương.\n\nSửa ô được đánh dấu để xem kết quả.\n\nR = (V nguồn − Vf) / I · Chọn giá trị E24 bằng hoặc lớn hơn giá trị tính.\n\n02\n\nĐẦU VÀO · ADC\n\nBộ chia áp bảo vệ ADC\nĐiện áp đầu vào tối đa\nV\nGiới hạn ADC\nV\nV ADC phải là số dương.\nĐiện trở dưới (R2)\nkΩ\n\nSửa ô được đánh dấu để xem kết quả.\n\nVout = Vin × R2 / (R1 + R2) · Kiểm tra giới hạn ADC và trở kháng nguồn trong datasheet.\n\n03\n\nBUS · I²C\n\nĐiện trở kéo lên I²C\nĐiện áp bus (VDD)\nV\nĐiện dung bus ước tính\npF\nTốc độ bus\nStandard · 100 kHz\nFast · 400 kHz\nFast Plus · 1 MHz\nDải R ước tính · khuyến nghị E24\n1,8 kΩ\n\n966,667 Ω – 3,541 kΩ · tr lên tối đa 300 ns\n\nMô phỏng sườn lên tương đương trong SPICE\n\nRmin theo dòng kéo xuống; Rmax ≈ tr / (0,8473 × Cbus). Kết quả phụ thuộc điện dung thực, mức VOL và chuẩn bus.\n\n04\n\nTÍN HIỆU · RC\n\nHằng số thời gian RC\nĐiện trở\nkΩ\nTụ điện\nµF\nHằng số thời gian (τ)\n10 ms\n\nĐạt 63,2% sau 1τ · tần số cắt −3 dB khoảng 15,915 Hz\n\nMô phỏng giá trị này trong SPICE\n\nτ = R × C · Mốc phần trăm giả định bước điện áp và mạch RC lý tưởng bậc một.\n\nPhạm vi và an toàn\n\nCác kết quả là phép tính giáo dục lý tưởng, chưa mô phỏng sai số linh kiện, tải, nhiệt, dung sai, công suất thực tế hay toàn bộ đặc tính MCU. Đối chiếu datasheet, điện áp tuyệt đối tối đa và công suất linh kiện trước khi lắp mạch thật. Công cụ này không phải SPICE/ERC.",
+      "screenshot": "calculator-adc-negative-limit.png",
+      "alerts": [
+        "Sửa ô được đánh dấu để xem kết quả.",
+        "Sửa ô được đánh dấu để xem kết quả."
+      ]
+    },
+    {
+      "case": "i2c-blank",
+      "url": "http://127.0.0.1:5320/tools/electronics-calculators",
+      "title": "Công cụ tính điện tử — Mạch Mở",
+      "text": "BỘ CÔNG CỤ · TÍNH TOÁN CƠ BẢN\n\nTính nhanh, hiểu rõ giả định.\n\nƯớc lượng linh kiện và thời gian mạch từ thông số bạn nhập. Mỗi kết quả đi kèm công thức để bạn kiểm tra lại.\n\nThử lắp mạch ↗\n01\n\nĐẦU RA · LED\n\nĐiện trở hạn dòng LED\nĐiện áp nguồn\nV\nĐiện áp thuận LED (Vf)\nV\nDòng mục tiêu\nmA\nDòng LED phải là số dương.\n\nSửa ô được đánh dấu để xem kết quả.\n\nR = (V nguồn − Vf) / I · Chọn giá trị E24 bằng hoặc lớn hơn giá trị tính.\n\n02\n\nĐẦU VÀO · ADC\n\nBộ chia áp bảo vệ ADC\nĐiện áp đầu vào tối đa\nV\nGiới hạn ADC\nV\nV ADC phải là số dương.\nĐiện trở dưới (R2)\nkΩ\n\nSửa ô được đánh dấu để xem kết quả.\n\nVout = Vin × R2 / (R1 + R2) · Kiểm tra giới hạn ADC và trở kháng nguồn trong datasheet.\n\n03\n\nBUS · I²C\n\nĐiện trở kéo lên I²C\nĐiện áp bus (VDD)\nV\nĐiện dung bus ước tính\npF\nĐiện dung bus phải là số dương.\nTốc độ bus\nStandard · 100 kHz\nFast · 400 kHz\nFast Plus · 1 MHz\n\nSửa ô được đánh dấu để xem kết quả.\n\nRmin theo dòng kéo xuống; Rmax ≈ tr / (0,8473 × Cbus). Kết quả phụ thuộc điện dung thực, mức VOL và chuẩn bus.\n\n04\n\nTÍN HIỆU · RC\n\nHằng số thời gian RC\nĐiện trở\nkΩ\nTụ điện\nµF\nHằng số thời gian (τ)\n10 ms\n\nĐạt 63,2% sau 1τ · tần số cắt −3 dB khoảng 15,915 Hz\n\nMô phỏng giá trị này trong SPICE\n\nτ = R × C · Mốc phần trăm giả định bước điện áp và mạch RC lý tưởng bậc một.\n\nPhạm vi và an toàn\n\nCác kết quả là phép tính giáo dục lý tưởng, chưa mô phỏng sai số linh kiện, tải, nhiệt, dung sai, công suất thực tế hay toàn bộ đặc tính MCU. Đối chiếu datasheet, điện áp tuyệt đối tối đa và công suất linh kiện trước khi lắp mạch thật. Công cụ này không phải SPICE/ERC.",
+      "screenshot": "calculator-i2c-blank.png",
+      "alerts": [
+        "Sửa ô được đánh dấu để xem kết quả.",
+        "Sửa ô được đánh dấu để xem kết quả.",
+        "Sửa ô được đánh dấu để xem kết quả."
+      ]
+    },
+    {
+      "case": "rc-negative",
+      "url": "http://127.0.0.1:5320/tools/electronics-calculators",
+      "title": "Công cụ tính điện tử — Mạch Mở",
+      "text": "BỘ CÔNG CỤ · TÍNH TOÁN CƠ BẢN\n\nTính nhanh, hiểu rõ giả định.\n\nƯớc lượng linh kiện và thời gian mạch từ thông số bạn nhập. Mỗi kết quả đi kèm công thức để bạn kiểm tra lại.\n\nThử lắp mạch ↗\n01\n\nĐẦU RA · LED\n\nĐiện trở hạn dòng LED\nĐiện áp nguồn\nV\nĐiện áp thuận LED (Vf)\nV\nDòng mục tiêu\nmA\nDòng LED phải là số dương.\n\nSửa ô được đánh dấu để xem kết quả.\n\nR = (V nguồn − Vf) / I · Chọn giá trị E24 bằng hoặc lớn hơn giá trị tính.\n\n02\n\nĐẦU VÀO · ADC\n\nBộ chia áp bảo vệ ADC\nĐiện áp đầu vào tối đa\nV\nGiới hạn ADC\nV\nV ADC phải là số dương.\nĐiện trở dưới (R2)\nkΩ\n\nSửa ô được đánh dấu để xem kết quả.\n\nVout = Vin × R2 / (R1 + R2) · Kiểm tra giới hạn ADC và trở kháng nguồn trong datasheet.\n\n03\n\nBUS · I²C\n\nĐiện trở kéo lên I²C\nĐiện áp bus (VDD)\nV\nĐiện dung bus ước tính\npF\nĐiện dung bus phải là số dương.\nTốc độ bus\nStandard · 100 kHz\nFast · 400 kHz\nFast Plus · 1 MHz\n\nSửa ô được đánh dấu để xem kết quả.\n\nRmin theo dòng kéo xuống; Rmax ≈ tr / (0,8473 × Cbus). Kết quả phụ thuộc điện dung thực, mức VOL và chuẩn bus.\n\n04\n\nTÍN HIỆU · RC\n\nHằng số thời gian RC\nĐiện trở\nkΩ\nR phải là số dương.\nTụ điện\nµF\n\nSửa ô được đánh dấu để xem kết quả.\n\nτ = R × C · Mốc phần trăm giả định bước điện áp và mạch RC lý tưởng bậc một.\n\nPhạm vi và an toàn\n\nCác kết quả là phép tính giáo dục lý tưởng, chưa mô phỏng sai số linh kiện, tải, nhiệt, dung sai, công suất thực tế hay toàn bộ đặc tính MCU. Đối chiếu datasheet, điện áp tuyệt đối tối đa và công suất linh kiện trước khi lắp mạch thật. Công cụ này không phải SPICE/ERC.",
+      "screenshot": "calculator-rc-negative.png",
+      "alerts": [
+        "Sửa ô được đánh dấu để xem kết quả.",
+        "Sửa ô được đánh dấu để xem kết quả.",
+        "Sửa ô được đánh dấu để xem kết quả.",
+        "Sửa ô được đánh dấu để xem kết quả."
+      ]
+    }
+  ],
+  "errors": {
+    "errors": [],
+    "failed": [
+      {
+        "url": "http://127.0.0.1:5320/models/arduino-uno-r3.glb?v=53330cd2b0d2",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/models/esp32-devkit-v1-30pin.glb?v=b3d0a6b0be09",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "bad": []
+  }
+}

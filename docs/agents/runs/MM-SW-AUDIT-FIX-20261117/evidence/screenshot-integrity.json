@@ -1,0 +1,142 @@
+{
+  "F01-ceramic.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "4f2e6e59393199bd349c3146674a38b3d30e62efad4afdf14fe5b14ac38e7f7a"
+  },
+  "F01-electrolytic.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "e5a4d2d883ed9a9b839e9fb1bf5380b10637fe039d2991583b1cce6e32069fb6"
+  },
+  "F02-F11-six-wires-final.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "4c13ed0d18964dc5efac57324a3e614f16dc6d13f330ad1ea367318935ddca90"
+  },
+  "F02-g6-final.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "d87542cbf26cae39540297fd731e0631cc2e5a229abe291daabc85042af07c64"
+  },
+  "F03-slow-drag-final.png": {
+    "width": 1440,
+    "height": 900,
+    "sha256": "af16db87c339a6e544b425e38fc8571ceaee38da11dbd7735f51f8eeb1016bc1"
+  },
+  "F04-mega-picking.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "8533876fb80f6e664ac8ee0993bc65263252bc7035d9c952bc3a5a66c64382e1"
+  },
+  "F05-D18.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "f79bd700cd1bf4ca44cd6d9081c500421c264bd475ee593d890627396e42bf68"
+  },
+  "F05-D3.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "75b24d93025ababdfe98a7e213d5bd6934e557015c2e2cb4a84bad9bd37caf65"
+  },
+  "F06-S3-source.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "6c60f3754c1dd4291000f4e3db81413d8cc0f958236e67cbd05a4410e298ff38"
+  },
+  "F07-blue-pill-final.png": {
+    "width": 1440,
+    "height": 900,
+    "sha256": "8f812924c86bc3a87b3252f5e470584452353bd5e2f0d950ffbd7bc41fd6e8b4"
+  },
+  "F08-reference-board-final-stable.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "2904ec8094ee0c9fda253c9c5d4b876f8ec696980ab01ed378badeeeae96abad"
+  },
+  "F08-reference-board-final.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "df4170568c51e8867348eabddada91badfe412ff2992880b05c0b2381765df13"
+  },
+  "F09-arduino-mega-2560-r3.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "5d876799d22cfc5cb1721900c86ff9a76f05194f16003d0112226891bb1c6556"
+  },
+  "F09-arduino-nano-classic.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "7786e73f996b4fdc15133e2088034fb0760db87eb7625c2236ee899424fb54d2"
+  },
+  "F09-stm32-nucleo.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "db6d29c95630cd1be8ae9c86d624fed3ed19ce7878cecff07a55683fd20c3e7d"
+  },
+  "F10-mobile-boards.png": {
+    "width": 375,
+    "height": 812,
+    "sha256": "646e62a8888b6f3acd5d5fdac209b8e78001e76618ed7c522cbcae0a0d5872e3"
+  },
+  "F10-mobile-overview-final.png": {
+    "width": 375,
+    "height": 812,
+    "sha256": "2f517ce5ae877d3cf5037e3ea7491255eba01d7b6f4abfc98ff095a9e504e78f"
+  },
+  "F10-mobile-working-final.png": {
+    "width": 375,
+    "height": 812,
+    "sha256": "35583fad26f39469ad41b604a39f81025a1f89e4a8267026d77483ccb8496d65"
+  },
+  "F12-answer-final.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "e77abdbf59c0eb1d5d92a54b0d1b7f8653b20b9643ba0ea237764cd7e9a24b46"
+  },
+  "F14-title-final.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "31d7b607a4785c7cf6e13fa4dbb73713bb68fc0bd849558f15637cb1d52693ea"
+  },
+  "F15-validation-final.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "8158eb22b1047d74eed04e1f8d41c16029f935f3e8202eac63934c6bb525ac58"
+  },
+  "F16-legacy-motor-preserved-final.png": {
+    "width": 1440,
+    "height": 900,
+    "sha256": "b40b392bc3559bced14f3efac28d2a17c67d3e2a871667e0ae0e4cf27ffaa0d2"
+  },
+  "F16-motor-protection-final.png": {
+    "width": 1440,
+    "height": 900,
+    "sha256": "013231ca117a610076266d3b431be7f8fe167c7e4cf7ad54a5d243d5897eaaa2"
+  },
+  "occupied-hole-keyboard-after.png": {
+    "width": 375,
+    "height": 812,
+    "sha256": "297ac5b921947233bff8d89ad1ab715be29b7b8a0784f4172144b462affd8fb3"
+  },
+  "regression-toolbar-overlay-after.png": {
+    "width": 375,
+    "height": 812,
+    "sha256": "6d4fe49da0d60b69fb1c94a702c807b604ef70a1e4f5fb0a1887deea79d1ef3e"
+  },
+  "regression-toolbar-overlay-before.png": {
+    "width": 375,
+    "height": 812,
+    "sha256": "2f50cf3ab4fadec2aea6b10c9b620ed37110aade39f2edd3e2224514d73880e0"
+  },
+  "regression-wire-selection-after.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "d8e3e90b4fa722dfb5edff7c5334505b4be00031a83f0cc5cc2b656a34da8260"
+  },
+  "regression-wire-selection-before.png": {
+    "width": 1440,
+    "height": 1000,
+    "sha256": "c0121b6046617035f7ddd41aa2f77a3637e4f3befd41f69b85b95ec8ca41cb29"
+  }
+}

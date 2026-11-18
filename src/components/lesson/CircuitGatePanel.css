@@ -25,3 +25,15 @@
 .builder-circuit-gates .circuit-gate-scope { font-size: var(--mm-text-sm); }
 .builder-circuit-gates .circuit-gate-list summary { grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; }
 .builder-circuit-gates .circuit-gate-status { grid-column: auto; text-align: right; }
+
+.circuit-gate-diagnostics li { min-width: 0; overflow-wrap: anywhere; }
+.circuit-diagnostic-action { display: grid; justify-items: start; gap: 5px; margin-top: 4px; }
+.circuit-diagnostic-action p { margin: 0; color: var(--ink-soft); }
+.circuit-diagnostic-action button, .circuit-diagnostic-inspection button { max-width: 100%; min-height: 36px; white-space: normal; }
+.circuit-diagnostic-action button:focus-visible, .circuit-diagnostic-inspection button:focus-visible, .circuit-diagnostic-view:focus-visible { outline: 3px solid var(--lab-teal, #087f84); outline-offset: 3px; }
+.circuit-diagnostic-inspection { min-width: 0; padding: 10px; margin-bottom: 10px; border-left: 3px solid var(--lab-teal, #087f84); background: var(--paper-bright); color: var(--ink); overflow-wrap: anywhere; }
+.circuit-diagnostic-inspection p { margin: 6px 0; font-size: var(--mm-text-sm); }
+@media (max-width: 600px) {
+  .builder-circuit-gates .circuit-gate-list summary { grid-template-columns: auto minmax(0, 1fr); }
+  .builder-circuit-gates .circuit-gate-status { grid-column: 2; text-align: left; }
+}

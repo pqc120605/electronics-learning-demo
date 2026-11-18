@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "title": "AUDIT-ISOLATED-KIT",
+  "boardId": "esp32-devkit",
+  "lessonIds": [
+    "blink"
+  ],
+  "stationCount": 8,
+  "quantityOverrides": {},
+  "configurationLicense": "private"
+}

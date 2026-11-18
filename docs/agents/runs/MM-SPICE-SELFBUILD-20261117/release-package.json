@@ -1,0 +1,8 @@
+{
+  "path": ".tmp/ngspice-rebuild/mach-mo-web-2026-11-17.tar.gz",
+  "bytes": 69691229,
+  "sha256": "4d174aa8b56056fd27cf468ad0090b08214fe6d954c9a82cf27c5b86dc632b51",
+  "build": "npm.cmd run build:public",
+  "gate": "pass",
+  "deployed": false
+}

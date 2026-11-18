@@ -1,0 +1,2192 @@
+{
+  "components": [
+    {
+      "id": "seeed-xiao-esp32c3",
+      "name": "Seeed Studio XIAO ESP32-C3",
+      "url": "http://127.0.0.1:5320/components?component=seeed-xiao-esp32c3",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nPCB · MINH HỌA\nHình minh họa giáo dục · không phải CAD sản phẩm\n\nChưa có model 3D riêng cho linh kiện này · Board có mô hình CAD 3D tham khảo. Xem mô hình board 3D\n\nSeeed Studio XIAO ESP32-C3\nChỉ tra cứu\n\nBoard IoT mini dùng ESP32-C3, Wi‑Fi 2,4 GHz, BLE và USB-C; viewer 3D giáo dục có 14 chân J1/J2 chọn theo pad PCB KiCad v1.3.\n\nẢNH LINH KIỆN THAM KHẢO\nSơ đồ chân hai mặt · XIAO ESP32-C3\nHình pinout theo tài liệu Seeed; tên chân được xác nhận bởi tài liệu, nhưng chưa đo board vật lý hoặc revision clone.\nẢnh: Seeed Studio · CC BY-SA 4.0 · Sao chép PNG nguồn nguyên trạng. · Nguồn ↗ · Giấy phép ↗\nSơ đồ chân mặt sau · XIAO ESP32-C3\nSơ đồ tham khảo từ tài liệu hãng, không phải ảnh board vật lý hay bằng chứng về mọi revision.\nẢnh: Seeed Studio · CC BY-SA 4.0 · Sao chép PNG nguồn nguyên trạng. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nD0–D10; 3V3, 5V, GND; D4/D5 là SDA/SCL, D6/D7 là TX/RX, D8/D9/D10 là SCK/MISO/MOSI theo tài liệu hãng.\nDÙNG ĐỂ LÀM GÌ?\nTra pinout, chọn một trong 14 chân header trên cảnh 3D hoặc danh sách trợ năng, và xem net CAD/chức năng tương ứng.\nĐIỂM CẦN LƯU Ý\nGPIO2, GPIO8, GPIO9 là strapping pins; GPIO chỉ mức 3,3 V, không đưa 5 V vào. Chọn chân không tô đường đồng/net và không mô phỏng điện; mesh package không thể hiện marking riêng của linh kiện.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nSeeed XIAO ESP32-C3 · hướng dẫn, thông số và pinout ↗\nTài liệu board · Nguồn hãng cho XIAO ESP32-C3; đối chiếu đúng revision trước khi nối thật. GPIO là 3,3 V; GPIO2/GPIO8/GPIO9 là chân strapping; GPIO5/A3 dùng ADC2.\nSchematic XIAO ESP32-C3 v1.3 · CC BY-SA 4.0 ↗\nTài liệu board · Schematic revision v1.3, dùng để tra mạch nguồn và kết nối trên board; không phải netlist của viewer.\nSeeed XIAO Hardware Resources · KiCad, schematic symbol, DXF và 3D ↗\nTài liệu board · Trang tài nguyên phần cứng chính hãng và Design Kit dùng chung cho dòng XIAO; từng archive có thể có điều khoản riêng, cần giữ notice đi kèm khi tái sử dụng.\nKiCad project XIAO ESP32-C3 v1.3 · ZIP ↗\nTài liệu board · Gói KiCad v1.3 là nguồn cho viewer PCB, vị trí footprint và gán pad/net. Có 68 footprint CAD chọn được, 47 mesh package tham khảo, 14 anchor header J1/J2 chọn được; thao tác chọn không tô luồng net. Archive không kèm LICENSE riêng; xem notice của model trước khi phân phối lại.\nKiCad footprints dòng XIAO · ZIP ↗\nTài liệu board · Footprint dùng chung giúp kiểm tra land pattern; không thay thế PCB/CAD hoàn chỉnh của XIAO ESP32-C3.\nĐiều khoản nội dung Seeed · CC BY-SA 4.0 ↗\nTài liệu board · Điều khoản hãng ghi tài liệu, hướng dẫn và hình ảnh liên quan theo CC BY-SA 4.0; nội dung của bên thứ ba có thể theo giấy phép riêng.\nSeeed XIAO Series · KiCad, DXF và model 3D ↗\nTài liệu board · Trang hãng liên kết tài nguyên thiết kế. STEP dẫn qua GrabCAD; license riêng của tệp cần kiểm tra trước khi tái phân phối.\nESP32-C3\nSeeed\nXIAO\nWi-Fi\nBLE\nUSB-C\nXem hồ sơ board ↗Thử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Xem mô hình board 3D",
+          "href": "/boards?board=seeed-xiao-esp32c3"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://wiki.seeedstudio.com/License/"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://wiki.seeedstudio.com/License/"
+        },
+        {
+          "text": "Seeed XIAO ESP32-C3 · hướng dẫn, thông số và pinout ↗",
+          "href": "https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/"
+        },
+        {
+          "text": "Schematic XIAO ESP32-C3 v1.3 · CC BY-SA 4.0 ↗",
+          "href": "https://files.seeedstudio.com/wiki/XIAO_WiFi/Resources/XIAO_ESP32C3_v1.3_SCH_260116.pdf"
+        },
+        {
+          "text": "Seeed XIAO Hardware Resources · KiCad, schematic symbol, DXF và 3D ↗",
+          "href": "https://www.seeedstudio.com/xiao-series-page/res/"
+        },
+        {
+          "text": "KiCad project XIAO ESP32-C3 v1.3 · ZIP ↗",
+          "href": "https://files.seeedstudio.com/wiki/XIAO_WiFi/Resources/XIAO_ESP32C3_v1.3_KiCad_260116.zip"
+        },
+        {
+          "text": "KiCad footprints dòng XIAO · ZIP ↗",
+          "href": "https://files.seeedstudio.com/wiki/XIAO-KiCad-Library/New_XIAO_Series_Footprints.zip"
+        },
+        {
+          "text": "Điều khoản nội dung Seeed · CC BY-SA 4.0 ↗",
+          "href": "https://wiki.seeedstudio.com/License/"
+        },
+        {
+          "text": "Seeed XIAO Series · KiCad, DXF và model 3D ↗",
+          "href": "https://wiki.seeedstudio.com/SeeedStudio_XIAO_Series_Introduction/"
+        },
+        {
+          "text": "Xem hồ sơ board ↗",
+          "href": "/boards?board=seeed-xiao-esp32c3"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-01-seeed-xiao-esp32c3-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "seeed-xiao-esp32-s3",
+      "name": "Seeed Studio XIAO ESP32-S3",
+      "url": "http://127.0.0.1:5320/components?component=seeed-xiao-esp32-s3",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nPCB · MINH HỌA\nHình minh họa giáo dục · không phải CAD sản phẩm\n\nChưa có model 3D riêng cho linh kiện này · Board có mô hình CAD 3D tham khảo. Xem mô hình board 3D\n\nSeeed Studio XIAO ESP32-S3\nChỉ tra cứu\n\nBoard IoT mini ESP32-S3R8, Wi-Fi/BLE và USB-C; viewer STEP chính hãng có 14 pad header chọn được theo PCB KiCad Seeed OPL, không phải Sense.\n\nẢNH LINH KIỆN THAM KHẢO\nRender CAD chính hãng · mặt trên\nẢnh render lấy trong gói model của board thường; không phải ảnh board vật lý hay bằng chứng về revision bán lẻ.\nẢnh: Seeed Studio · CC BY-SA 4.0 · Đóng gói từ archive nguồn nguyên trạng; không chỉnh sửa ảnh. · Nguồn ↗ · Giấy phép ↗\nRender CAD chính hãng · mặt dưới\nTên chân được nhập thành danh sách tra cứu theo guide hãng; ảnh này chưa được dùng để đo anchor hoặc xác nhận vị trí pad.\nẢnh: Seeed Studio · CC BY-SA 4.0 · Đóng gói từ archive nguồn nguyên trạng; không chỉnh sửa ảnh. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\n5V, GND, 3V3 và D0–D10: click pad J1/J2 hoặc chọn tên để xem GPIO/chức năng; tọa độ lấy từ OPL và căn với STEP.\nDÙNG ĐỂ LÀM GÌ?\nKhám phá board, tài liệu, ảnh hai mặt và chọn pad header trong viewer 3D của XIAO ESP32-S3 bản thường.\nĐIỂM CẦN LƯU Ý\nGPIO mức 3,3 V; header có thể chưa hàn. File PCB OPL không ghi revision và chưa được đối chiếu với board thật; tên net CAD không khẳng định tuyến điện ở mọi revision. Viewer không mô phỏng điện hoặc firmware.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nSchematic XIAO ESP32-S3 v1.3 · CC BY-SA 4.0 ↗\nTài liệu board · Dùng để tra mạch nguồn và kết nối của board; viewer 3D hiện chưa nhập netlist từ schematic.\nDatasheet Espressif ESP32-S3 ↗\nDatasheet chip · Datasheet của họ ESP32-S3, không phải BOM hoặc datasheet riêng của toàn bộ board XIAO.\nPinout XIAO ESP32-S3 · tài liệu đúng bản thường ↗\nTài liệu board · Mở mục pinout của bản thường. Viewer cho chọn 14 pad header lấy từ PCB Seeed OPL đã căn với STEP; không dùng spreadsheet Sense để suy ra vị trí và chưa xác nhận revision của board vật lý.\nPCB KiCad Seeed OPL · dữ liệu pad J1/J2 ↗\nTài liệu board · Nguồn vị trí 14 anchor header. File không ghi rõ revision; tọa độ được căn theo outline STEP, không dùng tên net CAD để khẳng định luồng điện ở board bán lẻ.\nModel 3D Seeed Studio · CC BY-SA 4.0 ↗\nTài liệu board · Ghi công/điều khoản model. Tệp đã chuyển thành GLB, căn giữa và gom nhóm mesh; chi tiết ở notice đi kèm viewer.\nESP32-S3\nSeeed\nXIAO\nWi-Fi\nBLE\nUSB-C\nXem hồ sơ board ↗Thử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Xem mô hình board 3D",
+          "href": "/boards?board=seeed-xiao-esp32-s3"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Schematic XIAO ESP32-S3 v1.3 · CC BY-SA 4.0 ↗",
+          "href": "https://files.seeedstudio.com/wiki/SeeedStudio-XIAO-ESP32S3/res/XIAO_ESP32S3_V1.3_SCH_260115.pdf"
+        },
+        {
+          "text": "Datasheet Espressif ESP32-S3 ↗",
+          "href": "https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf"
+        },
+        {
+          "text": "Pinout XIAO ESP32-S3 · tài liệu đúng bản thường ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "PCB KiCad Seeed OPL · dữ liệu pad J1/J2 ↗",
+          "href": "https://github.com/Seeed-Studio/OPL_Kicad_Library/blob/master/Seeed%20Studio%20XIAO%20ESP32S3/ESP32S3.kicad_pcb"
+        },
+        {
+          "text": "Model 3D Seeed Studio · CC BY-SA 4.0 ↗",
+          "href": "https://www.printables.com/model/1344060-3d-model-for-seeed-studio-xiao-esp32-s3"
+        },
+        {
+          "text": "Xem hồ sơ board ↗",
+          "href": "/boards?board=seeed-xiao-esp32-s3"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-02-seeed-xiao-esp32-s3-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "esp32-devkit",
+      "name": "ESP32 DevKit V1",
+      "url": "http://127.0.0.1:5320/components?component=esp32-devkit",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nCẤU TẠO MẠCH · ESP32 DEVKIT V1 (BẢN 30 CHÂN PHỔ BIẾN)\nBấm vào từng linh kiện trên board để xem vai trò. Sơ đồ vẽ lại theo bản phổ biến, không phải ảnh hay CAD của hãng.\nESP32-WROOM-32\nUSB\nCP2102\nAMS1117\nEN\nBOOT\nLED GPIO2\nPWR\nQ1, Q2\n3V3\nGND\nGPIO\nADC\nVIN\n\nESP32-WROOM-32\n\nModule ESP32-WROOM-32\n\nChip ESP32 (2 nhân Xtensa LX6 240 MHz) + flash 4 MB + anten PCB, có vỏ chống nhiễu.\n\n3V3\nRa 3,3 V từ LDO\nGND\nĐất\nGPIO\nChân I/O 3,3 V, không chịu 5 V\nADC\nADC1 dùng được khi bật WiFi (GPIO 32–39)\nVIN\nVào 5 V (từ USB hoặc nguồn ngoài)\n\nBản clone khác nhau về chip USB–UART, LED và số chân; đối chiếu chữ in trên board.\n\nNguồn đối chiếu: Espressif ESP32-WROOM-32 datasheet · Espressif ESP32 DevKitC schematic (tham khảo bố cục)\n\nChưa có model 3D riêng cho linh kiện này · Board có mô hình CAD 3D tham khảo. Xem mô hình board 3D\n\nESP32 DevKit V1\nCó trong một số bài mẫu\n\nBoard phát triển ESP32 có Wi‑Fi và Bluetooth; MCU dùng mức I/O 3,3 V.\n\nCHÂN THƯỜNG GẶP\nGPIO, 3V3, GND, VIN; pin khả dụng tùy revision.\nDÙNG ĐỂ LÀM GÌ?\nĐọc cảm biến, điều khiển đầu ra và gửi dữ liệu không dây.\nĐIỂM CẦN LƯU Ý\nKhông đưa 5 V vào GPIO; chân strapping/boot và ADC có giới hạn riêng.\nTrong workspace\n\nĐọc tín hiệu vào và xuất lệnh điều khiển. Các số chân trong bài có thể là alias học tập, không phải pin map vật lý của mọi board.\n\nChân mô hình: GPIO LED (ledOut) · GND (gnd) · 3V3 (vcc) · GPIO IN (input) · TRIG (trig) · ECHO (echo) · 2 (seg0) · 3 (seg1) · 4 (seg2) · 5 (seg3) · 6 (seg4) · 7 (seg5) · 8 (seg6) · 5V / VIN (v5)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nESP32 Dev Kit Clone · schematic và PCB nguồn ↗\nTài liệu board · Thiết kế clone 30 chân mà model web dựa vào; không đại diện mọi board bán dưới tên DevKit V1.\nDOIT ESP32 DevKit V1 30P · ảnh tham khảo hai mặt ↗\nHướng dẫn tham khảo · Nguồn cộng đồng cho một biến thể DOIT 30 chân; chỉ đối chiếu ảnh và bố trí tổng quát, không coi là board nguồn BrijModi hay tương đương revision.\nESP32-DevKitC V4 · hướng dẫn phần cứng ↗\nHướng dẫn tham khảo · Board tham khảo chính hãng Espressif; khác ESP32 DevKit V1 clone, không dùng ảnh/pinout này để xác nhận model hiện tại.\nESP32\nWi-Fi\nBluetooth\nIoT\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Xem mô hình board 3D",
+          "href": "/boards?board=esp32-devkit"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "ESP32 Dev Kit Clone · schematic và PCB nguồn ↗",
+          "href": "https://github.com/BrijModi/ESP32-Dev-Kit-Clone"
+        },
+        {
+          "text": "DOIT ESP32 DevKit V1 30P · ảnh tham khảo hai mặt ↗",
+          "href": "https://github.com/TronixLab/DOIT_ESP32_DevKit-v1_30P"
+        },
+        {
+          "text": "ESP32-DevKitC V4 · hướng dẫn phần cứng ↗",
+          "href": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/esp32-devkitc/user_guide.html"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-03-esp32-devkit-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "adafruit-qtpy-esp32-c3-5405",
+      "name": "Adafruit QT Py ESP32-C3 · #5405",
+      "url": "http://127.0.0.1:5320/components?component=adafruit-qtpy-esp32-c3-5405",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nPCB · MINH HỌA\nHình minh họa giáo dục · không phải CAD sản phẩm\n\nChưa có model 3D riêng cho linh kiện này · Board có mô hình CAD 3D tham khảo. Xem mô hình board 3D\n\nAdafruit QT Py ESP32-C3 · #5405\nChỉ tra cứu\n\nBoard ESP32-C3 Rev B siêu nhỏ, USB-C và đầu nối STEMMA QT; viewer CAD có 14 pad JP1/JP3 chọn để tra cứu pinout tĩnh.\n\nCHÂN THƯỜNG GẶP\n14 pad JP1/JP3 trên CAD; GPIO, 3V3, GND, USB-C và STEMMA QT theo tài liệu Adafruit của đúng Rev B.\nDÙNG ĐỂ LÀM GÌ?\nKhám phá board ESP32-C3 nhỏ gọn, vị trí linh kiện CAD và chọn pad breakout trên cảnh/danh sách để xem thông tin pinout.\nĐIỂM CẦN LƯU Ý\nMức I/O 3,3 V. Chọn pad chỉ tra cứu, không tạo netlist, tô đồng, mô phỏng firmware hoặc xác nhận board vật lý.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit QT Py ESP32-C3 · hướng dẫn và pinout ↗\nTài liệu board · Nguồn chính hãng cho sản phẩm #5405; xác nhận Rev B trên board trước khi lắp thật.\nBoard CAD Eagle, schematic và pinout PDF ↗\nTài liệu board · Nguồn CAD Rev B/#5405; viewer có 14 anchor JP1/JP3 và tra cứu pinout tĩnh, không tạo netlist hay tô đường đồng.\nCAD 3D STEP #5405 ↗\nTài liệu board · Nguồn geometry; xem NOTICE kèm viewer để biết ghi công, giấy phép và các chuyển đổi.\nESP32-C3\nQT Py\nAdafruit\nSTEMMA QT\nUSB-C\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Xem mô hình board 3D",
+          "href": "/boards?board=adafruit-qtpy-esp32-c3-5405"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit QT Py ESP32-C3 · hướng dẫn và pinout ↗",
+          "href": "https://learn.adafruit.com/adafruit-qt-py-esp32-c3-wifi-dev-board"
+        },
+        {
+          "text": "Board CAD Eagle, schematic và pinout PDF ↗",
+          "href": "https://github.com/adafruit/Adafruit-QT-Py-ESP32-C3-PCB"
+        },
+        {
+          "text": "CAD 3D STEP #5405 ↗",
+          "href": "https://github.com/adafruit/Adafruit_CAD_Parts/tree/main/5405%20QTPy%20ESP32%20C3"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-04-adafruit-qtpy-esp32-c3-5405-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "adafruit-feather-esp32-s3-tft-5483",
+      "name": "Adafruit Feather ESP32-S3 TFT · #5483",
+      "url": "http://127.0.0.1:5320/components?component=adafruit-feather-esp32-s3-tft-5483",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nPCB · MINH HỌA\nHình minh họa giáo dục · không phải CAD sản phẩm\n\nChưa có model 3D riêng cho linh kiện này · Board có mô hình CAD 3D tham khảo. Xem mô hình board 3D\n\nAdafruit Feather ESP32-S3 TFT · #5483\nChỉ tra cứu\n\nBoard tham chiếu ESP32-S3 có màn TFT 1,14 inch 240×135, USB-C, sạc LiPo, 4 MB flash và 2 MB PSRAM; có 28 pad header tra cứu.\n\nCHÂN THƯỜNG GẶP\n28 pad JP1/JP3 chọn được; GPIO theo pinout và Arduino core variant riêng PID #5483. TFT dùng SPI.\nDÙNG ĐỂ LÀM GÌ?\nKhám phá vị trí MCU, màn TFT, nguồn/sạc và footprint trong CAD; chọn pad header để tra net CAD và chức năng pin.\nĐIỂM CẦN LƯU Ý\nTra cứu pin tĩnh theo đúng PID #5483; không có mô phỏng màn hình, điện hoặc firmware, không tô luồng copper/net. Không dùng mapping của #5323 hoặc các PID khác.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit ESP32-S3 TFT Feather · hướng dẫn và pinout ↗\nTài liệu board · PID #5483 có 4 MB flash + 2 MB PSRAM và TFT 240×135; pin anchor viewer đọc tĩnh theo đúng biến thể.\nArduino ESP32 core variant · GPIO của #5483 TFT ↗\nTài liệu board · Variant TFT riêng; không dùng pin alias của Feather #5323 vì các chân I²C và UART khác nhau.\nEagle CAD, schematic và README nguồn ↗\nTài liệu board · Viewer dùng vị trí/footprint CAD; schematic không được hiểu là mô phỏng điện trong trang.\nModel STEP chính hãng #5483 ↗\nTài liệu board · Nguồn geometry MIT; board CAD và vị trí giữ CC BY-SA 3.0. Xem NOTICE kèm viewer.\nESP32-S3\nFeather\nAdafruit\nTFT\n5483\nPSRAM\nSPI\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Xem mô hình board 3D",
+          "href": "/boards?board=adafruit-feather-esp32-s3-tft-5483"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit ESP32-S3 TFT Feather · hướng dẫn và pinout ↗",
+          "href": "https://learn.adafruit.com/adafruit-esp32-s3-tft-feather/pinouts"
+        },
+        {
+          "text": "Arduino ESP32 core variant · GPIO của #5483 TFT ↗",
+          "href": "https://raw.githubusercontent.com/espressif/arduino-esp32/master/variants/adafruit_feather_esp32s3_tft/pins_arduino.h"
+        },
+        {
+          "text": "Eagle CAD, schematic và README nguồn ↗",
+          "href": "https://github.com/adafruit/Adafruit-ESP32-S3-TFT-Feather-PCB"
+        },
+        {
+          "text": "Model STEP chính hãng #5483 ↗",
+          "href": "https://github.com/adafruit/Adafruit_CAD_Parts/tree/main/5483%20Feather%20ESP32-S3%20TFT"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-05-adafruit-feather-esp32-s3-tft-5483-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "adafruit-feather-esp32-s3-5323",
+      "name": "Adafruit Feather ESP32-S3 · #5323",
+      "url": "http://127.0.0.1:5320/components?component=adafruit-feather-esp32-s3-5323",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nPCB · MINH HỌA\nHình minh họa giáo dục · không phải CAD sản phẩm\n\nChưa có model 3D riêng cho linh kiện này · Board có mô hình CAD 3D tham khảo. Xem mô hình board 3D\n\nAdafruit Feather ESP32-S3 · #5323\nChỉ tra cứu\n\nBoard tham chiếu ESP32-S3 có USB-C native, sạc LiPo, NeoPixel, 8 MB flash và không có PSRAM; footprint BME280 không được lắp sẵn.\n\nCHÂN THƯỜNG GẶP\n28 pad JP1/JP3 chọn được; GPIO theo pinout và Arduino core variant riêng PID #5323.\nDÙNG ĐỂ LÀM GÌ?\nKhám phá MCU, nguồn/sạc, NeoPixel và footprint dự phòng BME280 trên CAD; chọn pad header để tra net CAD và pinout.\nĐIỂM CẦN LƯU Ý\nTra cứu pin tĩnh theo đúng PID #5323; không có mô phỏng điện/firmware hoặc tô luồng copper/net. Không áp dụng cho PID #5477/#5885.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit Feather ESP32-S3 · hướng dẫn và pinout ↗\nTài liệu board · PID #5323: 8 MB flash, không PSRAM; pin anchor viewer đọc tĩnh theo đúng biến thể. BME280 là footprint dự phòng, không lắp sẵn; các PID #5477/#5885 có cấu hình khác.\nArduino ESP32 core variant · GPIO của #5323 ↗\nTài liệu board · Đối chiếu alias Arduino TX/RX, A0–A5, SPI và I²C với variant dành cho Feather ESP32-S3 không TFT.\nEagle CAD, schematic và README nguồn ↗\nTài liệu board · Viewer dùng board CAD này để đưa footprint, designator và vị trí vào hồ sơ tham chiếu.\nModel STEP chính hãng #5323 ↗\nTài liệu board · Nguồn hình học board; xem NOTICE đi kèm để biết license, ghi công và các thay đổi chuyển đổi.\nESP32-S3\nFeather\nAdafruit\nNeoPixel\nLiPo\n8MB\nno-PSRAM\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Xem mô hình board 3D",
+          "href": "/boards?board=adafruit-feather-esp32-s3-5323"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit Feather ESP32-S3 · hướng dẫn và pinout ↗",
+          "href": "https://learn.adafruit.com/adafruit-esp32-s3-feather/pinouts"
+        },
+        {
+          "text": "Arduino ESP32 core variant · GPIO của #5323 ↗",
+          "href": "https://raw.githubusercontent.com/espressif/arduino-esp32/master/variants/adafruit_feather_esp32s3/pins_arduino.h"
+        },
+        {
+          "text": "Eagle CAD, schematic và README nguồn ↗",
+          "href": "https://github.com/adafruit/Adafruit-Feather-ESP32-S3-PCB"
+        },
+        {
+          "text": "Model STEP chính hãng #5323 ↗",
+          "href": "https://github.com/adafruit/Adafruit_CAD_Parts/tree/main/5323%20Feather%20ESP32-S3"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-06-adafruit-feather-esp32-s3-5323-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "arduino-uno",
+      "name": "Arduino Uno R3",
+      "url": "http://127.0.0.1:5320/components?component=arduino-uno",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nCẤU TẠO MẠCH · ARDUINO UNO R3\nBấm vào từng linh kiện trên board để xem vai trò. Sơ đồ vẽ lại theo bản phổ biến, không phải ảnh hay CAD của hãng.\nATmega328P\nATmega16U2\n16 MHz\nUSB-B\nDC\nNCP1117 5V\nLP2985 3V3\nRESET\nL (D13)\nTX RX\nICSP\nD0–D13\nA0–A5\n5V\n3.3V\nGND\nVIN\n\nATmega328P\n\nVi điều khiển chính\n\nAVR 8 bit 16 MHz, flash 32 KB, SRAM 2 KB; chạy sketch.\n\nD0–D13\nI/O 5 V; D0/D1 là UART; ~3,5,6,9,10,11 có PWM\nA0–A5\nADC 10 bit; A4/A5 là I²C\n5V\nRa 5 V\n3.3V\nRa 3,3 V (≤50 mA)\nGND\nĐất\nVIN\nVào 7–12 V qua jack DC\n\nThông số theo Arduino Uno R3 chính hãng; bản clone thường dùng CH340 thay ATmega16U2.\n\nNguồn đối chiếu: Arduino UNO R3 datasheet & schematic (arduino.cc, CC BY-SA)\n\nChưa có model 3D riêng cho linh kiện này · Board có mô hình CAD 3D tham khảo. Xem mô hình board 3D\n\nArduino Uno R3\nChỉ tra cứu\n\nBoard nhập môn phổ biến dùng ATmega328P, mức logic 5 V.\n\nCHÂN THƯỜNG GẶP\nD0–D13, A0–A5, 5V, 3V3, GND.\nDÙNG ĐỂ LÀM GÌ?\nHọc GPIO, ADC, PWM, UART, I²C và SPI.\nĐIỂM CẦN LƯU Ý\nKhông cấp dòng tải lớn trực tiếp từ chân I/O.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nArduino Uno Rev3 · tài liệu hãng, pinout, schematic và CAD ↗\nTài liệu board · Nguồn chuẩn để đối chiếu board Uno Rev3; trang hãng cung cấp pinout, schematic và CAD, không xác nhận board clone.\nẢnh đối chiếu mặt trước/sau · MikroE ↗\nHướng dẫn tham khảo · Ảnh tham khảo Uno Rev3 từ bên thứ ba; chỉ dùng để quan sát, không nhúng lại/phân phối và không thay ảnh của chính board đang mô hình hóa.\nArduino\nATmega328P\n5V\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Xem mô hình board 3D",
+          "href": "/boards?board=arduino-uno-r3"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Arduino Uno Rev3 · tài liệu hãng, pinout, schematic và CAD ↗",
+          "href": "https://docs.arduino.cc/hardware/uno-rev3"
+        },
+        {
+          "text": "Ảnh đối chiếu mặt trước/sau · MikroE ↗",
+          "href": "https://embeddedwiki.com/articles/template38-with-gyro-3-click/gyro-3-click-arduino-uno-rev3-necto-atmega328p"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-07-arduino-uno-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "arduino-nano",
+      "name": "Arduino Nano classic",
+      "url": "http://127.0.0.1:5320/components?component=arduino-nano",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nPCB · MINH HỌA\nHình minh họa giáo dục · không phải CAD sản phẩm\n\nChưa có model 3D riêng cho linh kiện này · Board có mô hình CAD 3D tham khảo. Xem mô hình board 3D\n\nArduino Nano classic\nChỉ tra cứu\n\nBoard ATmega328P dạng nhỏ, tiện cắm breadboard.\n\nCHÂN THƯỜNG GẶP\nD0–D13, A0–A7, 5V, GND; pinout clone cần kiểm tra.\nDÙNG ĐỂ LÀM GÌ?\nMạch nhúng gọn, cảm biến và robot nhỏ.\nĐIỂM CẦN LƯU Ý\nNano classic khác Nano Every/Nano ESP32; kiểm tra chip và USB-serial.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nArduino Nano classic · tài liệu hãng ↗\nTài liệu board · Không áp dụng mặc định cho Nano Every, Nano ESP32 hoặc clone khác.\nẢnh hai mặt Nano V3.3 · blog kỹ thuật ↗\nHướng dẫn tham khảo · Ảnh của biến thể Nano V3.3 trong bài viết; có thể là clone khác BOM/layout Arduino chính hãng. Chỉ làm ảnh tham khảo, không sao chép vào tài sản web.\nArduino\nNano\nATmega328P\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Xem mô hình board 3D",
+          "href": "/boards?board=arduino-nano-classic"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Arduino Nano classic · tài liệu hãng ↗",
+          "href": "https://docs.arduino.cc/hardware/nano"
+        },
+        {
+          "text": "Ảnh hai mặt Nano V3.3 · blog kỹ thuật ↗",
+          "href": "https://iot-kmutnb.github.io/blogs/arduino/arduino_nano/"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-08-arduino-nano-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "arduino-mega",
+      "name": "Arduino Mega 2560 R3",
+      "url": "http://127.0.0.1:5320/components?component=arduino-mega",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nPCB · MINH HỌA\nHình minh họa giáo dục · không phải CAD sản phẩm\n\nChưa có model 3D riêng cho linh kiện này · Board có mô hình CAD 3D tham khảo. Xem mô hình board 3D\n\nArduino Mega 2560 R3\nChỉ tra cứu\n\nBoard 5 V có nhiều chân và nhiều UART phần cứng.\n\nCHÂN THƯỜNG GẶP\nD0–D53, A0–A15, 5V, GND.\nDÙNG ĐỂ LÀM GÌ?\nDự án nhiều cảm biến, LCD, robot hoặc nhiều thiết bị nối tiếp.\nĐIỂM CẦN LƯU Ý\nKhông nhầm pinout Mega với Uno; chú ý tổng dòng các cổng.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nArduino Mega 2560 Rev3 · tài liệu hãng, pinout, schematic và CAD ↗\nTài liệu board · Nguồn chuẩn để đối chiếu revision Mega 2560 Rev3; trang hãng cung cấp pinout, schematic và CAD, clone có thể khác.\nẢnh đối chiếu mặt trước/sau · MikroE ↗\nHướng dẫn tham khảo · Ảnh tham khảo Mega Rev3 từ bên thứ ba; chỉ dùng để quan sát, không nhúng lại/phân phối và không thay ảnh của chính board đang mô hình hóa.\nArduino\nMega\nATmega2560\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Xem mô hình board 3D",
+          "href": "/boards?board=arduino-mega-2560-r3"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Arduino Mega 2560 Rev3 · tài liệu hãng, pinout, schematic và CAD ↗",
+          "href": "https://docs.arduino.cc/hardware/mega-2560"
+        },
+        {
+          "text": "Ảnh đối chiếu mặt trước/sau · MikroE ↗",
+          "href": "https://embeddedwiki.com/articles/template39-with-angle-6-click/angle-6-click-arduino-mega-2560-rev3-necto-atmega2560"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-09-arduino-mega-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "stm32-f401",
+      "name": "STM32 NUCLEO-F401RE",
+      "url": "http://127.0.0.1:5320/components?component=stm32-f401",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nCẤU TẠO MẠCH · STM32 NUCLEO-F401RE (NUCLEO-64)\nBấm vào từng linh kiện trên board để xem vai trò. Sơ đồ vẽ lại theo bản phổ biến, không phải ảnh hay CAD của hãng.\nSTM32F401RET6\nST-LINK/V2-1\nmini-USB\nB1 USER\nB2 RESET\nLD2\nLD1 COM\nLD39050 3V3\n32.768 kHz\nCN7 · CN10\nCN5/CN9 · D0–D15\nCN8 · A0–A5\nCN6 · 3V3, 5V, VIN\nGND\nCN7/CN10 · morpho\n\nSTM32F401RET6\n\nVi điều khiển chính\n\nArm Cortex-M4F 84 MHz, flash 512 KB, SRAM 96 KB; vỏ LQFP-64 xoay 45°.\n\nCN5/CN9 · D0–D15\nHeader Arduino: I/O 3,3 V của STM32F401RE (vd. D13 = PA5)\nCN8 · A0–A5\nADC 12 bit; A4/A5 có thể là I²C tùy solder bridge\nCN6 · 3V3, 5V, VIN\nNguồn kiểu Arduino\nGND\nĐất\nCN7/CN10 · MORPHO\n2×19 chân mỗi bên: gần như mọi chân MCU (xem UM1724)\n\nBố cục là tái dựng giáo dục từ footprint/model thư viện KiCad theo kích thước công bố; không dựng từ file CAD của ST. Vị trí chính xác xem UM1724.\n\nNguồn đối chiếu: ST UM1724 · STM32 Nucleo-64 boards (MB1136) · ST STM32F401xD/xE datasheet\n\nChưa có model 3D · Hình trên là minh họa 2D.\n\nSTM32 NUCLEO-F401RE\nChỉ tra cứu\n\nBoard STM32 Nucleo-64 có ST-LINK tích hợp, I/O 3,3 V.\n\nCHÂN THƯỜNG GẶP\nHeader Arduino-compatible và Morpho; đối chiếu UM1724/revision.\nDÙNG ĐỂ LÀM GÌ?\nHọc Cortex-M, timer, ADC và debug bằng ST-LINK.\nĐIỂM CẦN LƯU Ý\nKhông xem tương thích header là tương đương mức điện áp 5 V.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nST UM1724 · hướng dẫn Nucleo-64 ↗\nTài liệu board · Tài liệu cho họ MB1136; kiểm tra mã board/revision trước khi đấu thật.\nSTM32\nNucleo\nCortex-M4\nXem hồ sơ board ↗Thử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "ST UM1724 · hướng dẫn Nucleo-64 ↗",
+          "href": "https://www.st.com/resource/en/user_manual/dm00105823.pdf"
+        },
+        {
+          "text": "Xem hồ sơ board ↗",
+          "href": "/boards?board=stm32-nucleo"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-10-stm32-f401-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "stm32-blue-pill",
+      "name": "STM32F103C8T6 Blue Pill",
+      "url": "http://127.0.0.1:5320/components?component=stm32-blue-pill",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nCẤU TẠO MẠCH · STM32F103C8T6 \"BLUE PILL\" (BẢN PHỔ BIẾN)\nBấm vào từng linh kiện trên board để xem vai trò. Sơ đồ vẽ lại theo bản phổ biến, không phải ảnh hay CAD của hãng.\nSTM32F103C8T6\nmicro-USB\n8 MHz\n32.768 kHz\nLDO 3V3\nBOOT0/BOOT1\nRESET\nSWD\nPWR\nPC13\nPA0–PA15, PB0–PB15, PC13–PC15\nPA0–PA7, PB0–PB1\n3.3\n5V\nG\nR / VB\n\nSTM32F103C8T6\n\nVi điều khiển chính\n\nArm Cortex-M3 72 MHz, flash 64 KB (thường đọc được 128 KB), SRAM 20 KB; vỏ LQFP-48 xoay 45°.\n\nPA0–PA15, PB0–PB15, PC13–PC15\nGPIO 3,3 V; nhiều chân chịu 5 V (FT) nhưng không phải tất cả, xem datasheet\nPA0–PA7, PB0–PB1\nADC 12 bit\n3.3\nRa 3,3 V từ LDO\n5V\nVào/ra 5 V của cổng USB\nG\nĐất\nR / VB\nReset (NRST) / pin dự phòng VBAT\n\nBlue Pill là họ board clone không thương hiệu; vị trí linh kiện phụ là ước lượng giáo dục. Một số bản có chip giả/khác (CKS32, GD32) hoặc điện trở D+ sai giá trị.\n\nNguồn đối chiếu: STMicroelectronics STM32F103x8 datasheet · stm32-base.org · STM32F103C8T6 Blue Pill (pinout, kích thước)\n\nChưa có model 3D · Hình trên là minh họa 2D.\n\nSTM32F103C8T6 Blue Pill\nChỉ tra cứu\n\nBoard clone dạng dài dùng STM32F103C8T6 (Cortex-M3 72 MHz), I/O 3,3 V, nạp qua SWD hoặc UART1.\n\nCHÂN THƯỜNG GẶP\nHai hàng 1×20 cách 15,24 mm; thứ tự chân theo bản phổ biến, đối chiếu chữ in trên board.\nDÙNG ĐỂ LÀM GÌ?\nHọc Cortex-M giá rẻ, GPIO, timer, ADC và nạp bằng ST-LINK.\nĐIỂM CẦN LƯU Ý\nHọ clone: chip, LDO và điện trở USB có thể khác; chỉ chân FT mới chịu 5 V.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nTheo chip. Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nST STM32F103x8/xB datasheet ↗\nDatasheet chip · Datasheet của chip STM32F103C8; không mô tả board Blue Pill clone, cần đối chiếu board thật.\nstm32-base.org · Blue Pill ↗\nHướng dẫn tham khảo · Trang cộng đồng về kích thước và thứ tự chân của bản Blue Pill phổ biến; không phải tài liệu của nhà sản xuất.\nSTM32\nBlue Pill\nCortex-M3\nXem hồ sơ board ↗Thử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "ST STM32F103x8/xB datasheet ↗",
+          "href": "https://www.st.com/resource/en/datasheet/stm32f103c8.pdf"
+        },
+        {
+          "text": "stm32-base.org · Blue Pill ↗",
+          "href": "https://stm32-base.org/boards/STM32F103C8T6-Blue-Pill.html"
+        },
+        {
+          "text": "Xem hồ sơ board ↗",
+          "href": "/boards?board=stm32-blue-pill-f103"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-11-stm32-blue-pill-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "rp2040-pico",
+      "name": "Raspberry Pi Pico (RP2040)",
+      "url": "http://127.0.0.1:5320/components?component=rp2040-pico",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nPCB · MINH HỌA\nHình minh họa giáo dục · không phải CAD sản phẩm\n\nChưa có model 3D riêng cho linh kiện này · Board có mô hình CAD 3D tham khảo. Xem mô hình board 3D\n\nRaspberry Pi Pico (RP2040)\nChỉ tra cứu\n\nBoard vi điều khiển hai lõi với GPIO và PIO, mức I/O 3,3 V.\n\nCHÂN THƯỜNG GẶP\nGPIO0–GPIO28 (một số chân không đưa ra header), 3V3, VSYS, GND.\nDÙNG ĐỂ LÀM GÌ?\nMicroPython/C++, PIO, cảm biến và điều khiển thời gian thực.\nĐIỂM CẦN LƯU Ý\nGPIO không chịu 5 V; Pico thường không có Wi‑Fi.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nRaspberry Pi Pico · tài liệu board ↗\nTài liệu board · Trang tài liệu chính thức; chọn đúng Pico/Pico W/Pico 2/Pico 2 H và revision.\nRP2040\nPico\nMicroPython\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Xem mô hình board 3D",
+          "href": "/boards?board=raspberry-pi-pico"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Raspberry Pi Pico · tài liệu board ↗",
+          "href": "https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-12-rp2040-pico-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "rp2350-pico-2-h",
+      "name": "Raspberry Pi Pico 2 H (RP2350)",
+      "url": "http://127.0.0.1:5320/components?component=rp2350-pico-2-h",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nPCB · MINH HỌA\nHình minh họa giáo dục · không phải CAD sản phẩm\n\nChưa có model 3D riêng cho linh kiện này · Board có mô hình CAD 3D tham khảo. Xem mô hình board 3D\n\nRaspberry Pi Pico 2 H (RP2350)\nChỉ tra cứu\n\nBoard Raspberry Pi Pico 2 H chính hãng có header hàn sẵn, dựa trên RP2350; model CAD 3D nội bộ theo SC1632.\n\nCHÂN THƯỜNG GẶP\n40 chân header J0 chọn được để tra cứu tĩnh; bố trí kế thừa pinout Pico theo tài liệu Raspberry Pi, không phải vị trí trích từ Allegro riêng Pico 2 H.\nDÙNG ĐỂ LÀM GÌ?\nKhám phá kiểu dáng board có header và tra cứu ngoại vi theo tài liệu Pico 2.\nĐIỂM CẦN LƯU Ý\nChọn chân chỉ mở thông tin, không tạo netlist/kết nối, mô phỏng hay nạp firmware. I/O 3,3 V; không đưa 5 V vào GPIO.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nRaspberry Pi Pico 2 H · trang sản phẩm SC1632 ↗\nTài liệu board · Nguồn chính thức cho biến thể Pico 2 H có header hàn sẵn; CAD chỉ để tham khảo/fit-check, không xác nhận mọi revision hoặc kết nối điện.\nPico series · pinout, datasheet và cảnh báo CAD ↗\nTài liệu board · Pico 2 H có thể chọn 40 chân J0 để tra cứu tĩnh; tọa độ kế thừa layout Pico theo tài liệu hãng, chưa có Allegro riêng cho Pico 2 H. Không có netlist hay mô phỏng.\nRP2350\nPico 2 H\nSC1632\nRaspberry Pi\nheader\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Xem mô hình board 3D",
+          "href": "/boards?board=raspberry-pi-pico-2-h"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Raspberry Pi Pico 2 H · trang sản phẩm SC1632 ↗",
+          "href": "https://pip.raspberrypi.com/categories/1264-raspberry-pi-pico-2-h"
+        },
+        {
+          "text": "Pico series · pinout, datasheet và cảnh báo CAD ↗",
+          "href": "https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-13-rp2350-pico-2-h-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "esp32-s3",
+      "name": "ESP32-S3 DevKitC-1",
+      "url": "http://127.0.0.1:5320/components?component=esp32-s3",
+      "has3d": 0,
+      "canvas": 0,
+      "modelText": "",
+      "detail": "MCU\n\nPCB · MINH HỌA\nHình minh họa giáo dục · không phải CAD sản phẩm\n\nChưa có model 3D · Hình trên là minh họa 2D.\n\nESP32-S3 DevKitC-1\nChỉ tra cứu\n\nBoard Wi‑Fi/BLE với USB native; nhiều biến thể module và bộ nhớ.\n\nCHÂN THƯỜNG GẶP\nGPIO, USB, 3V3, GND; dùng pinout chính xác theo module/revision.\nDÙNG ĐỂ LÀM GÌ?\nIoT, USB device và ứng dụng cần nhiều tài nguyên hơn ESP32 cơ bản.\nĐIỂM CẦN LƯU Ý\nESP32-S3 không giống ESP32-WROOM-32; không dùng nhầm pin map.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nĐúng sản phẩm. Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nESP32-S3-DevKitC-1 · hướng dẫn phần cứng ↗\nTài liệu board · Pinout thay đổi theo biến thể module và revision.\nESP32-S3\nUSB\nWi-Fi\nBLE\nXem hồ sơ board ↗Thử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "ESP32-S3-DevKitC-1 · hướng dẫn phần cứng ↗",
+          "href": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp32-s3-devkitc-1/user_guide_v1.1.html"
+        },
+        {
+          "text": "Xem hồ sơ board ↗",
+          "href": "/boards?board=esp32-s3-devkitc-1"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-14-esp32-s3-2d.png",
+      "image3d": null
+    },
+    {
+      "id": "resistor",
+      "name": "Điện trở xuyên lỗ",
+      "url": "http://127.0.0.1:5320/components?component=resistor",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Điện trở trục DIN 0207 · khoảng 10,8 × 5,5 × 2,5 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "LINH KIỆN CƠ BẢN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Điện trở trục DIN 0207 · khoảng 10,8 × 5,5 × 2,5 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nĐiện trở xuyên lỗ\nCó trong một số bài mẫu\n\nHạn chế dòng điện và tạo phân áp.\n\nLắp thử trên bàn tự do\n↗\nẢNH LINH KIỆN THAM KHẢO\nẢnh điện trở xuyên lỗ nhiều dạng\nẢnh minh họa nhiều họ điện trở; không dùng để đọc trị số hay công suất của linh kiện mẫu.\nẢnh: FDominec · CC BY-SA 3.0 · Dùng thumbnail Commons rộng 1280 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nHai đầu không phân cực.\nDÙNG ĐỂ LÀM GÌ?\nMắc nối tiếp LED hoặc làm pull-up/pull-down.\nĐIỂM CẦN LƯU Ý\nChọn đúng trị số và công suất; công thức LED: R ≈ (Vnguồn − Vf)/I.\nTrong workspace\n\nHạn dòng cho LED trong bài mẫu. Điện trở không phân cực.\n\nChân mô hình: Đầu 1 (a) · Đầu 2 (b)\n\nDùng trong bài\nLED nhấp nháy\nNguồn thấp áp, điện trở và LED\nNút nhấn điều khiển LED\nBiến trở bật/tắt LED theo ngưỡng\nQuang trở LDR bật/tắt LED\nCảm biến hồng ngoại\nCảm biến siêu âm HC-SR04\nĐếm số với LED 7 đoạn\nSo sánh mạch hạ áp và tăng áp\nMOSFET low-side và diode bảo vệ\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · mạch LED nối tiếp điện trở ↗\nHướng dẫn tham khảo · Ví dụ giáo dục về vòng mạch nguồn–điện trở–LED; không thay việc tính công suất theo linh kiện thật.\nresistor\nđiện trở\n220Ω\n330Ω\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=resistor"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:Electronic_component_resistors.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        {
+          "text": "LED nhấp nháy",
+          "href": "/learn/blink"
+        },
+        {
+          "text": "Nguồn thấp áp, điện trở và LED",
+          "href": "/learn/source-led"
+        },
+        {
+          "text": "Nút nhấn điều khiển LED",
+          "href": "/learn/button-led"
+        },
+        {
+          "text": "Biến trở bật/tắt LED theo ngưỡng",
+          "href": "/learn/analog-potentiometer"
+        },
+        {
+          "text": "Quang trở LDR bật/tắt LED",
+          "href": "/learn/analog-ldr"
+        },
+        {
+          "text": "Cảm biến hồng ngoại",
+          "href": "/learn/ir-alert"
+        },
+        {
+          "text": "Cảm biến siêu âm HC-SR04",
+          "href": "/learn/ultrasonic-distance"
+        },
+        {
+          "text": "Đếm số với LED 7 đoạn",
+          "href": "/learn/seven-segment-counter"
+        },
+        {
+          "text": "So sánh mạch hạ áp và tăng áp",
+          "href": "/learn/buck-boost-concept"
+        },
+        {
+          "text": "MOSFET low-side và diode bảo vệ",
+          "href": "/learn/mosfet-switch"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · mạch LED nối tiếp điện trở ↗",
+          "href": "https://learn.adafruit.com/lets-put-leds-in-things/from-scratch"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-15-resistor-2d.png",
+      "image3d": "component-15-resistor-3d.png"
+    },
+    {
+      "id": "potentiometer",
+      "name": "Biến trở 10 kΩ",
+      "url": "http://127.0.0.1:5320/components?component=potentiometer",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Biến trở xoay 10 kΩ có núm (kiểu RV09). · khoảng 12 × 13,9 × 22,4 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.",
+      "detail": "LINH KIỆN CƠ BẢN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Biến trở xoay 10 kΩ có núm (kiểu RV09). · khoảng 12 × 13,9 × 22,4 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.\n\nBiến trở 10 kΩ\nCó trong một số bài mẫu\n\nĐiện trở thay đổi bằng núm xoay; chân giữa là cần gạt.\n\nLắp thử trên bàn tự do\n↗\nẢNH LINH KIỆN THAM KHẢO\nẢnh một biến trở xoay\nĐây là biến trở xoay cỡ lớn; ảnh không xác nhận footprint breadboard hoặc trị số 10 kΩ của linh kiện trong danh mục.\nẢnh: Evan-Amos · Public domain (PD-self) · Dùng thumbnail Commons rộng 1280 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nHai đầu ngoài tạo dải điện áp; chân giữa ra tín hiệu.\nDÙNG ĐỂ LÀM GÌ?\nTạo tín hiệu analog điều chỉnh được cho ADC.\nĐIỂM CẦN LƯU Ý\nĐảm bảo điện áp wiper không vượt miền ADC của board.\nTrong workspace\n\nChân giữa (wiper) tạo mức tín hiệu thay đổi, thường đọc bằng ADC. Bài biến trở mô phỏng đầu vào chuẩn hóa 0–100.\n\nChân mô hình: VCC (vcc) · SIG / wiper (wiper) · GND (gnd)\n\nDùng trong bài\nBiến trở bật/tắt LED theo ngưỡng\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit Arduino Lesson 8 · biến trở và analog input ↗\nHướng dẫn tham khảo · Minh họa hai đầu ngoài và chân wiper; dải điện áp phải phù hợp ADC board thật.\nbiến trở\npot\nanalog\n10k\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=potentiometer"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:Electronic-Component-Potentiometer.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://commons.wikimedia.org/wiki/Commons:Licensing#Public_domain"
+        },
+        {
+          "text": "Biến trở bật/tắt LED theo ngưỡng",
+          "href": "/learn/analog-potentiometer"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit Arduino Lesson 8 · biến trở và analog input ↗",
+          "href": "https://learn.adafruit.com/adafruit-arduino-lesson-8-analog-inputs/variable-resistors-pots"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-16-potentiometer-2d.png",
+      "image3d": "component-16-potentiometer-3d.png"
+    },
+    {
+      "id": "led",
+      "name": "LED 5 mm",
+      "url": "http://127.0.0.1:5320/components?component=led",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · LED tròn 5 mm · khoảng 5,4 × 14,1 × 5,8 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "ĐẦU RA\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · LED tròn 5 mm · khoảng 5,4 × 14,1 × 5,8 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nLED 5 mm\nCó trong một số bài mẫu\n\nDiode phát sáng; chỉ dẫn điện thuận theo một chiều.\n\nLắp thử trên bàn tự do\n↗\nẢNH LINH KIỆN THAM KHẢO\nẢnh LED xuyên lỗ\nẢnh một LED đỏ xuyên lỗ; cực tính trong mạch cần xác nhận trên LED thật, không suy từ ảnh đơn lẻ.\nẢnh: Evan-Amos · Public domain (PD-self) · Dùng thumbnail Commons rộng 1280 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nAnode (+, chân dài) và cathode (−, cạnh phẳng/chân ngắn).\nDÙNG ĐỂ LÀM GÌ?\nBáo trạng thái hoặc tạo đầu ra quang.\nĐIỂM CẦN LƯU Ý\nLuôn dùng điện trở hạn dòng khi nối GPIO/nguồn.\nTrong workspace\n\nDiode phát sáng khi dòng đi theo chiều thuận.\n\nChân mô hình: Anode (+) (anode) · Cathode (−) (cathode)\n\nDùng trong bài\nLED nhấp nháy\nNguồn thấp áp, điện trở và LED\nNút nhấn điều khiển LED\nBiến trở bật/tắt LED theo ngưỡng\nQuang trở LDR bật/tắt LED\nCảm biến hồng ngoại\nCảm biến siêu âm HC-SR04\nSo sánh mạch hạ áp và tăng áp\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · LED và mạch nối tiếp ↗\nHướng dẫn tham khảo · Giải thích cực tính và điện trở nối tiếp trong mạch mẫu.\nLED\nđèn\nđầu ra\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=led"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:Electronic-Component-Red-LED.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://commons.wikimedia.org/wiki/Commons:Licensing#Public_domain"
+        },
+        {
+          "text": "LED nhấp nháy",
+          "href": "/learn/blink"
+        },
+        {
+          "text": "Nguồn thấp áp, điện trở và LED",
+          "href": "/learn/source-led"
+        },
+        {
+          "text": "Nút nhấn điều khiển LED",
+          "href": "/learn/button-led"
+        },
+        {
+          "text": "Biến trở bật/tắt LED theo ngưỡng",
+          "href": "/learn/analog-potentiometer"
+        },
+        {
+          "text": "Quang trở LDR bật/tắt LED",
+          "href": "/learn/analog-ldr"
+        },
+        {
+          "text": "Cảm biến hồng ngoại",
+          "href": "/learn/ir-alert"
+        },
+        {
+          "text": "Cảm biến siêu âm HC-SR04",
+          "href": "/learn/ultrasonic-distance"
+        },
+        {
+          "text": "So sánh mạch hạ áp và tăng áp",
+          "href": "/learn/buck-boost-concept"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · LED và mạch nối tiếp ↗",
+          "href": "https://learn.adafruit.com/lets-put-leds-in-things/from-scratch"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-17-led-2d.png",
+      "image3d": "component-17-led-3d.png"
+    },
+    {
+      "id": "button",
+      "name": "Nút nhấn 4 chân",
+      "url": "http://127.0.0.1:5320/components?component=button",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Nút nhấn 6 mm · khoảng 7,2 × 7,8 × 6 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "ĐẦU VÀO\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Nút nhấn 6 mm · khoảng 7,2 × 7,8 × 6 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nNút nhấn 4 chân\nCó trong một số bài mẫu\n\nCông tắc tạm thời; hai chân cùng một phía thường nối chung.\n\nLắp thử trên bàn tự do\n↗\nẢNH LINH KIỆN THAM KHẢO\nẢnh các biến thể tactile switch\nẢnh cho thấy các biến thể tactile switch; không xác nhận kích thước hoặc bố trí bốn chân của nút 6×6 mm trong danh mục.\nẢnh: Scwerllguy · CC BY-SA 3.0 · Dùng thumbnail Commons nguyên kích thước 509 × 318 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nHai cặp chân; khi nhấn hai phía được nối với nhau.\nDÙNG ĐỂ LÀM GÌ?\nĐọc thao tác người dùng với INPUT_PULLUP hoặc điện trở kéo.\nĐIỂM CẦN LƯU Ý\nTránh để đầu vào trôi; xử lý dội phím bằng phần cứng hoặc phần mềm.\nTrong workspace\n\nNút nhấn tạm thời nối hai phía khi ấn. Bài mẫu dùng INPUT_PULLUP.\n\nChân mô hình: Tiếp điểm A (contactA) · Tiếp điểm B (contactB)\n\nDùng trong bài\nNút nhấn điều khiển LED\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · nút nhấn và pull-up ↗\nHướng dẫn tham khảo · Mô tả đầu vào bị thả nổi và cách pull-up giữ trạng thái xác định.\nbutton\nnút nhấn\ndigital input\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=button"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:Tactile_switches.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        {
+          "text": "Nút nhấn điều khiển LED",
+          "href": "/learn/button-led"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · nút nhấn và pull-up ↗",
+          "href": "https://learn.adafruit.com/experimenters-guide-for-metro/circ07-intro"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-18-button-2d.png",
+      "image3d": "component-18-button-3d.png"
+    },
+    {
+      "id": "ldr",
+      "name": "Quang trở LDR",
+      "url": "http://127.0.0.1:5320/components?component=ldr",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · LDR 4,9 × 4,2 mm · khoảng 4,9 × 7 × 4,2 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · LDR 4,9 × 4,2 mm · khoảng 4,9 × 7 × 4,2 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nQuang trở LDR\nCó trong một số bài mẫu\n\nĐiện trở thay đổi theo cường độ ánh sáng.\n\nLắp thử trên bàn tự do\n↗\nẢNH LINH KIỆN THAM KHẢO\nẢnh quang trở GL5528\nẢnh các quang trở CdS GL5528, có mẫu khác kiểu; đặc tuyến điện trở vẫn phải đo/đối chiếu đúng linh kiện.\nẢnh: Retired electrician · CC0 1.0 · Dùng thumbnail Commons rộng 1280 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nKhông phân cực; thường dùng trong mạch phân áp.\nDÙNG ĐỂ LÀM GÌ?\nĐọc sáng/tối qua ADC.\nĐIỂM CẦN LƯU Ý\nCần điện trở cố định tạo phân áp; chiều giá trị tăng phụ thuộc cách mắc.\nTrong workspace\n\nĐiện trở thay đổi theo ánh sáng; bài học dùng bộ chia áp LDR phía VCC + R cố định 10 kΩ phía GND để tính Vout theo điện trở giả định.\n\nChân mô hình: Đầu 1 (a) · Đầu 2 (b)\n\nDùng trong bài\nQuang trở LDR bật/tắt LED\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · Photocells/LDR ↗\nHướng dẫn tham khảo · Đặc tuyến quang trở thay đổi lớn theo từng linh kiện; ví dụ không đo lux chính xác.\nLDR\nánh sáng\nanalog\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=ldr"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:GL5528_photoresistors_01.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "text": "Quang trở LDR bật/tắt LED",
+          "href": "/learn/analog-ldr"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · Photocells/LDR ↗",
+          "href": "https://learn.adafruit.com/photocells"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-19-ldr-2d.png",
+      "image3d": "component-19-ldr-3d.png"
+    },
+    {
+      "id": "ntc",
+      "name": "Điện trở nhiệt NTC",
+      "url": "http://127.0.0.1:5320/components?component=ntc",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Nhiệt điện trở NTC dạng giọt epoxy (kiểu MF52). · khoảng 3,8 × 12,6 × 3,8 mm. Hình dạng giọt epoxy minh họa. Không gắn mã B, R25 hay đường cong nhiệt độ cụ thể; xem datasheet linh kiện thật.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Nhiệt điện trở NTC dạng giọt epoxy (kiểu MF52). · khoảng 3,8 × 12,6 × 3,8 mm. Hình dạng giọt epoxy minh họa. Không gắn mã B, R25 hay đường cong nhiệt độ cụ thể; xem datasheet linh kiện thật.\n\nĐiện trở nhiệt NTC\nChỉ hiển thị / tra cứu\n\nĐiện trở thường giảm khi nhiệt độ tăng.\n\nẢNH LINH KIỆN THAM KHẢO\nẢnh nhiệt điện trở NTC dạng bead\nẢnh NTC dạng bead; không xác nhận đường cong R–T, trị số R25, hệ số beta hay độ chính xác của NTC trong danh mục.\nẢnh: Ansgar Hellwig · CC BY-SA 2.0 Germany · Sao lưu ảnh Commons nguyên bản 581 × 524 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nKhông phân cực; cần mạch phân áp.\nDÙNG ĐỂ LÀM GÌ?\nƯớc lượng nhiệt độ từ giá trị ADC sau hiệu chuẩn.\nĐIỂM CẦN LƯU Ý\nĐọc ADC thô không phải độ C; cần đặc tuyến/hiệu chuẩn.\nTrong workspace\n\nĐiện trở thường giảm khi nhiệt độ tăng; dùng cầu phân áp để đọc ADC.\n\nChân mô hình: Đầu 1 (a) · Đầu 2 (b)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · Thermistor/NTC ↗\nHướng dẫn tham khảo · Giải thích NTC, mạch phân áp và hiệu chuẩn ví dụ; hệ số beta, trị số và độ chính xác phải lấy từ mã thermistor thật.\nNTC\nnhiệt độ\nthermistor\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:NTC_bead.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/2.0/de/"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · Thermistor/NTC ↗",
+          "href": "https://learn.adafruit.com/thermistor"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-20-ntc-2d.png",
+      "image3d": "component-20-ntc-3d.png"
+    },
+    {
+      "id": "dht22",
+      "name": "Module DHT22 / AM2302",
+      "url": "http://127.0.0.1:5320/components?component=dht22",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module AM2302/DHT22 trên PCB 3 chân · khoảng 15,2 × 11,6 × 20 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module AM2302/DHT22 trên PCB 3 chân · khoảng 15,2 × 11,6 × 20 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nModule DHT22 / AM2302\nChỉ tra cứu\n\nCảm biến nhiệt độ và độ ẩm số.\n\nCHÂN THƯỜNG GẶP\nVCC, DATA, GND; sơ đồ breakout có thể khác.\nDÙNG ĐỂ LÀM GÌ?\nBài đọc dữ liệu môi trường.\nĐIỂM CẦN LƯU Ý\nTuân thủ điện áp, pull-up và chu kỳ đọc trong datasheet/module.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nTheo chip. Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAM2302 · datasheet cảm biến ↗\nDatasheet chip · Datasheet của cảm biến, Adafruit lưu bản sao; module gắn sẵn điện trở kéo lên có thể khác sơ đồ chân.\nDHT22 / AM2302 · hướng dẫn và tài liệu ↗\nHướng dẫn tham khảo · Nguồn hướng dẫn linh kiện; breakout khác nhau có thể đổi pull-up và pinout.\nDHT22\nđộ ẩm\nnhiệt độ\ndigital\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "AM2302 · datasheet cảm biến ↗",
+          "href": "https://cdn-shop.adafruit.com/datasheets/Digital+humidity+and+temperature+sensor+AM2302.pdf"
+        },
+        {
+          "text": "DHT22 / AM2302 · hướng dẫn và tài liệu ↗",
+          "href": "https://learn.adafruit.com/dht"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-21-dht22-2d.png",
+      "image3d": "component-21-dht22-3d.png"
+    },
+    {
+      "id": "hc-sr04",
+      "name": "Cảm biến siêu âm HC-SR04",
+      "url": "http://127.0.0.1:5320/components?component=hc-sr04",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module siêu âm HC-SR04 (45 × 20 mm) · khoảng 45 × 28,2 × 16,2 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module siêu âm HC-SR04 (45 × 20 mm) · khoảng 45 × 28,2 × 16,2 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nCảm biến siêu âm HC-SR04\nCó trong một số bài mẫu\n\nƯớc lượng khoảng cách từ thời gian phản hồi sóng siêu âm.\n\nẢNH LINH KIỆN THAM KHẢO\nẢnh module HC-SR04 tham khảo\nẢnh của một module tương thích HC-SR04; module khác có thể đổi bo mạch, silkscreen hoặc thứ tự chân—hãy kiểm tra board thật.\nẢnh: Suyash Dwivedi · CC BY-SA 4.0 · Tạo thumbnail rộng tối đa 1200 px từ ảnh Commons; giữ nguyên nội dung ảnh. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nVCC, TRIG, ECHO, GND.\nDÙNG ĐỂ LÀM GÌ?\nĐo khoảng cách trong robot hoặc cảnh báo vật cản.\nĐIỂM CẦN LƯU Ý\nECHO thường mức 5 V; cần chia áp khi nối MCU 3,3 V.\nTrong workspace\n\nTRIG khởi tạo phép đo; ECHO mang độ rộng xung theo thời gian khứ hồi.\n\nChân mô hình: TRIG (trig) · ECHO (echo) · VCC (vcc) · GND (gnd)\n\nDùng trong bài\nCảm biến siêu âm HC-SR04\nTÀI LIỆU THAM KHẢO\n\nTheo chip. Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nHC-SR04 · tài liệu module ↗\nDatasheet chip · Bản do SparkFun lưu; module này không có một hãng duy nhất nên bản clone có thể khác, cần đo mức ECHO trước khi nối 3,3 V.\nAdafruit · cảm biến siêu âm HC-SR04 ↗\nHướng dẫn tham khảo · Nguồn hướng dẫn nêu ECHO 5 V cần chia áp khi nối hệ logic 3,3 V; vẫn phải xác nhận revision/module cụ thể.\nHC-SR04\nsiêu âm\nkhoảng cách\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:HC_SR04_Ultrasonic_Module.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        {
+          "text": "Cảm biến siêu âm HC-SR04",
+          "href": "/learn/ultrasonic-distance"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "HC-SR04 · tài liệu module ↗",
+          "href": "https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf"
+        },
+        {
+          "text": "Adafruit · cảm biến siêu âm HC-SR04 ↗",
+          "href": "https://learn.adafruit.com/ultrasonic-sonar-distance-sensors"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-22-hc-sr04-2d.png",
+      "image3d": "component-22-hc-sr04-3d.png"
+    },
+    {
+      "id": "pir",
+      "name": "Cảm biến chuyển động PIR",
+      "url": "http://127.0.0.1:5320/components?component=pir",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module PIR HC-SR501 với thấu kính Fresnel (32 × 24 mm) · khoảng 35,3 × 21,2 × 24,5 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module PIR HC-SR501 với thấu kính Fresnel (32 × 24 mm) · khoảng 35,3 × 21,2 × 24,5 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nCảm biến chuyển động PIR\nChỉ tra cứu\n\nPhát hiện biến đổi bức xạ hồng ngoại do vật thể chuyển động.\n\nCHÂN THƯỜNG GẶP\nVCC, OUT, GND; module có thể có biến trở chỉnh.\nDÙNG ĐỂ LÀM GÌ?\nĐèn tự bật khi có chuyển động.\nĐIỂM CẦN LƯU Ý\nThời gian ổn định và mức OUT tùy module.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · PIR với Arduino ↗\nHướng dẫn tham khảo · Ví dụ này dùng module PIR Adafruit; thời gian ổn định, mức OUT, jumper và chân module khác phải kiểm tra theo phần cứng thật.\nPIR\nmotion\nchuyển động\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · PIR với Arduino ↗",
+          "href": "https://learn.adafruit.com/pir-passive-infrared-proximity-motion-sensor/using-a-pir-w-arduino"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-23-pir-2d.png",
+      "image3d": "component-23-pir-3d.png"
+    },
+    {
+      "id": "slide-switch",
+      "name": "Công tắc gạt",
+      "url": "http://127.0.0.1:5320/components?component=slide-switch",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Công tắc gạt SPDT OS102011MS2Q · khoảng 8,6 × 11,5 × 4,3 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "ĐẦU VÀO\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Công tắc gạt SPDT OS102011MS2Q · khoảng 8,6 × 11,5 × 4,3 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nCông tắc gạt\nChỉ hiển thị / tra cứu\n\nCông tắc giữ trạng thái, nối chân chung với một trong hai ngả.\n\nLắp thử trên bàn tự do\n↗\nCHÂN THƯỜNG GẶP\nCOM, A, B; sơ đồ chân cần đối chiếu linh kiện cụ thể.\nDÙNG ĐỂ LÀM GÌ?\nChọn chế độ hoặc bật tắt một đường tín hiệu thấp áp.\nĐIỂM CẦN LƯU Ý\nKiểm tra sơ đồ chân và định mức dòng áp của đúng linh kiện.\nTrong workspace\n\nChuyển COM nối với một trong hai ngả.\n\nChân mô hình: COM (common) · A (a) · B (b)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nSparkFun · nguyên lý nút nhấn và công tắc ↗\nHướng dẫn tham khảo · Giải thích SPDT và tiếp điểm chung; không xác nhận chân COM/vị trí chân hoặc định mức của công tắc cụ thể.\nswitch\ncông tắc\nSPDT\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=slide-switch"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "SparkFun · nguyên lý nút nhấn và công tắc ↗",
+          "href": "https://learn.sparkfun.com/tutorials/button-and-switch-basics"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-24-slide-switch-2d.png",
+      "image3d": "component-24-slide-switch-3d.png"
+    },
+    {
+      "id": "limit-switch",
+      "name": "Công tắc hành trình",
+      "url": "http://127.0.0.1:5320/components?component=limit-switch",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Công tắc hành trình micro (KW11) có cần gạt và bánh xe. · khoảng 22,4 × 15,8 × 9,5 mm. Hình dạng micro switch minh họa; vị trí chân COM/NO/NC và định mức thay đổi theo mã sản phẩm, đối chiếu ký hiệu in trên vỏ.",
+      "detail": "ĐẦU VÀO\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Công tắc hành trình micro (KW11) có cần gạt và bánh xe. · khoảng 22,4 × 15,8 × 9,5 mm. Hình dạng micro switch minh họa; vị trí chân COM/NO/NC và định mức thay đổi theo mã sản phẩm, đối chiếu ký hiệu in trên vỏ.\n\nCông tắc hành trình\nChỉ hiển thị / tra cứu\n\nCông tắc cơ xác nhận vị trí cuối hành trình bằng tiếp điểm COM, NO và NC.\n\nLắp thử trên bàn tự do\n↗\nCHÂN THƯỜNG GẶP\nCOM (chung), NO (thường mở), NC (thường đóng).\nDÙNG ĐỂ LÀM GÌ?\nPhát hiện vị trí cuối hành trình cho robot, cửa hoặc cơ cấu tuyến tính.\nĐIỂM CẦN LƯU Ý\nChọn NO/NC theo trạng thái an toàn mong muốn; kiểm tra định mức tiếp điểm và chống dội tín hiệu.\nTrong workspace\n\nCông tắc cơ đổi trạng thái tiếp điểm khi cần gạt bị nhấn. Hình học trong thư viện là minh họa tham số, không đại diện một mã sản phẩm cụ thể.\n\nChân mô hình: COM · chung (com) · NO · thường mở (no) · NC · thường đóng (nc)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nSparkFun · nguyên lý công tắc và tiếp điểm ↗\nHướng dẫn tham khảo · Nguồn nền tảng về tiếp điểm công tắc; không xác nhận COM/NO/NC, hành trình hay định mức của microswitch cụ thể.\nlimit switch\ncông tắc hành trình\nCOM\nNO\nNC\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=limit-switch"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "SparkFun · nguyên lý công tắc và tiếp điểm ↗",
+          "href": "https://learn.sparkfun.com/tutorials/button-and-switch-basics"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-25-limit-switch-2d.png",
+      "image3d": "component-25-limit-switch-3d.png"
+    },
+    {
+      "id": "buzzer",
+      "name": "Buzzer chủ động",
+      "url": "http://127.0.0.1:5320/components?component=buzzer",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Buzzer Ø12 mm, chân 7,6 mm · khoảng 12 × 12,5 × 12 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "ĐẦU RA\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Buzzer Ø12 mm, chân 7,6 mm · khoảng 12 × 12,5 × 12 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nBuzzer chủ động\nChỉ hiển thị / tra cứu\n\nPhát âm báo khi được cấp đúng nguồn; loại chủ động tự tạo dao động.\n\nLắp thử trên bàn tự do\n↗\nẢNH LINH KIỆN THAM KHẢO\nẢnh buzzer điện từ chủ động KS-3206\nẢnh nguồn ghi model KS-3206, buzzer chủ động điện từ định mức 6 V; không áp dụng định mức đó cho buzzer hoặc piezo thụ động khác.\nẢnh: Nvtj · CC BY-SA 3.0 · Dùng thumbnail Commons rộng 1280 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nVCC/+ và GND/−; module có thể thêm chân SIG.\nDÙNG ĐỂ LÀM GÌ?\nBáo hiệu đơn giản theo trạng thái chương trình.\nĐIỂM CẦN LƯU Ý\nPhân biệt active buzzer với passive buzzer; không vượt dòng GPIO.\nTrong workspace\n\nBộ rung nhận tín hiệu điều khiển; loại chủ động tự tạo dao động.\n\nChân mô hình: SIG (signal) · GND (gnd)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · piezo buzzer và phát âm ↗\nHướng dẫn tham khảo · Hướng dẫn này dành cho piezo thụ động; danh mục đang mô tả buzzer chủ động nên không dùng nguồn này để xác định chân, dòng hay cách phát âm của buzzer cụ thể.\nbuzzer\ncòi\nâm thanh\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=buzzer"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:KS-3206_6VDC_Electronic_Buzzer.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · piezo buzzer và phát âm ↗",
+          "href": "https://learn.adafruit.com/using-piezo-buzzers-with-circuitpython-arduino"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-26-buzzer-2d.png",
+      "image3d": "component-26-buzzer-3d.png"
+    },
+    {
+      "id": "servo",
+      "name": "Servo micro SG90 (tham chiếu)",
+      "url": "http://127.0.0.1:5320/components?component=servo",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Servo micro 9 g kiểu SG90 (vỏ xanh, tai bắt vít, cánh tay và dây 3 màu). · khoảng 38,2 × 30,5 × 11,9 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.",
+      "detail": "CƠ ĐIỆN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Servo micro 9 g kiểu SG90 (vỏ xanh, tai bắt vít, cánh tay và dây 3 màu). · khoảng 38,2 × 30,5 × 11,9 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.\n\nServo micro SG90 (tham chiếu)\nChỉ hiển thị / tra cứu\n\nĐộng cơ servo điều khiển vị trí bằng xung PWM dạng servo.\n\nLắp thử trên bàn tự do\n↗\nẢNH LINH KIỆN THAM KHẢO\nẢnh servo nhỏ tham khảo\nẢnh servo hobby để nhận diện hình thức; không xác nhận đây là TowerPro SG90 chính hãng, cũng không xác nhận góc quay, dòng stall hay pinout của clone.\nẢnh: AnasBHX · CC BY-SA 4.0 · Dùng thumbnail Commons rộng 1280 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nGND, V+, signal; thứ tự dây phụ thuộc nhà sản xuất.\nDÙNG ĐỂ LÀM GÌ?\nĐiều khiển góc cánh tay hoặc cơ cấu nhỏ.\nĐIỂM CẦN LƯU Ý\nDòng khởi động có thể lớn; ưu tiên nguồn riêng chung GND.\nTrong workspace\n\nServo nhận xung PWM dạng servo để đặt vị trí.\n\nChân mô hình: GND (gnd) · V+ (vcc) · Signal (signal)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nTowerPro SG90 Digital · trang nhà sản xuất ↗\nHướng dẫn tham khảo · Mã tham chiếu là SG90 Digital chính hãng TowerPro; hàng clone có thể khác cơ khí, điện áp và đặc tuyến. Servo cần nguồn phù hợp, không cấp trực tiếp từ GPIO.\nAdafruit · điều khiển servo ↗\nHướng dẫn tham khảo · Hướng dẫn cách điều khiển servo; màu dây, điện áp và dòng stall phụ thuộc servo cụ thể, không mặc định cấp từ GPIO.\nservo\nSG90\nmotor\nPWM\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=servo"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:Servo_Motor.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "TowerPro SG90 Digital · trang nhà sản xuất ↗",
+          "href": "https://towerpro.com.tw/product/sg90-7/"
+        },
+        {
+          "text": "Adafruit · điều khiển servo ↗",
+          "href": "https://learn.adafruit.com/using-servos-with-circuitpython"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-27-servo-2d.png",
+      "image3d": "component-27-servo-3d.png"
+    },
+    {
+      "id": "dc-motor",
+      "name": "Động cơ DC chổi than",
+      "url": "http://127.0.0.1:5320/components?component=dc-motor",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Motor DC 130 có vỏ kim loại, nắp nhựa và 2 cực hàn. · khoảng 38 × 20 × 20 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.",
+      "detail": "CƠ ĐIỆN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Motor DC 130 có vỏ kim loại, nắp nhựa và 2 cực hàn. · khoảng 38 × 20 × 20 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.\n\nĐộng cơ DC chổi than\nChỉ hiển thị / tra cứu\n\nĐộng cơ quay khi cấp điện; đảo cực để đổi chiều.\n\nLắp thử trên bàn tự do\n↗\nẢNH LINH KIỆN THAM KHẢO\nẢnh motor DC 3 V tham khảo\nTrang nguồn mô tả motor DC 3 V; ảnh không xác nhận mã, dòng khởi động, tốc độ, mô-men hay khả năng tải của motor trong danh mục.\nẢnh: Dcaldero8983 · CC BY-SA 3.0 · Dùng ảnh Commons nguyên bản 450 × 450 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nHai đầu động cơ.\nDÙNG ĐỂ LÀM GÌ?\nXe robot, quạt và mô hình chuyển động.\nĐIỂM CẦN LƯU Ý\nKhông nối trực tiếp GPIO; dùng driver và nguồn phù hợp.\nTrong workspace\n\nĐộng cơ quay khi được cấp nguồn DC phù hợp; đảo cực có thể đổi chiều.\n\nChân mô hình: M+ (positive) · M− (negative)\n\nDùng trong bài\nĐiều khiển motor DC bằng TB6612FNG\nMOSFET low-side và diode bảo vệ\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · nguyên lý điều khiển động cơ DC ↗\nHướng dẫn tham khảo · Giải thích transistor/PWM và cầu H; dòng khởi động, diode và nguồn phải chọn theo motor/driver thực tế.\nDC motor\nđộng cơ\nrobot\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=dc-motor"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:3V_DC_Motor.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        {
+          "text": "Điều khiển motor DC bằng TB6612FNG",
+          "href": "/learn/dc-motor-driver"
+        },
+        {
+          "text": "MOSFET low-side và diode bảo vệ",
+          "href": "/learn/mosfet-switch"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · nguyên lý điều khiển động cơ DC ↗",
+          "href": "https://learn.adafruit.com/adafruit-motor-selection-guide/dc-motor-control"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-28-dc-motor-2d.png",
+      "image3d": "component-28-dc-motor-3d.png"
+    },
+    {
+      "id": "motor-driver",
+      "name": "Driver cầu H TB6612FNG",
+      "url": "http://127.0.0.1:5320/components?component=motor-driver",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Breakout TB6612FNG 2×8 chân (20,3 × 20,3 mm) · khoảng 20,3 × 12,3 × 20,3 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CƠ ĐIỆN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Breakout TB6612FNG 2×8 chân (20,3 × 20,3 mm) · khoảng 20,3 × 12,3 × 20,3 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nDriver cầu H TB6612FNG\nChỉ hiển thị / tra cứu\n\nMạch driver điều khiển hai động cơ DC theo chiều và tốc độ.\n\nCHÂN THƯỜNG GẶP\nVM, VCC, GND, AIN/BIN, PWMA/PWMB, AO/BO.\nDÙNG ĐỂ LÀM GÌ?\nĐiều khiển xe robot hai bánh.\nĐIỂM CẦN LƯU Ý\nĐối chiếu dòng liên tục/đỉnh và mức logic theo datasheet breakout.\nTrong workspace\n\nIC cầu H nhận tín hiệu logic và điều khiển chiều/tốc độ một hoặc hai động cơ DC qua ngõ ra driver.\n\nChân mô hình: VCC logic (vcc) · VM motor (vm) · GND (gnd) · AIN1 (ain1) · AIN2 (ain2) · PWMA (pwma) · STBY (stby) · AO1 (a01) · AO2 (a02)\n\nDùng trong bài\nĐiều khiển motor DC bằng TB6612FNG\nTÀI LIỆU THAM KHẢO\n\nTheo chip. Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit TB6612 breakout · hướng dẫn sản phẩm #2448 ↗\nHướng dẫn tham khảo · Module breakout #2448: logic 2.7–5.5 V, nguồn motor 4.5–13.5 V; dòng và nhiệt phụ thuộc điều kiện dùng. Không đại diện mọi board TB6612.\nToshiba TB6612FNG · datasheet ↗\nDatasheet chip · Datasheet của IC; giới hạn module hoàn chỉnh còn phụ thuộc PCB và tản nhiệt.\nTB6612FNG\nmotor driver\nH-bridge\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Điều khiển motor DC bằng TB6612FNG",
+          "href": "/learn/dc-motor-driver"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit TB6612 breakout · hướng dẫn sản phẩm #2448 ↗",
+          "href": "https://learn.adafruit.com/adafruit-tb6612-h-bridge-dc-stepper-motor-driver-breakout?view=all"
+        },
+        {
+          "text": "Toshiba TB6612FNG · datasheet ↗",
+          "href": "https://toshiba.semicon-storage.com/info/TB6612FNG_datasheet_en_20141001.pdf?did=10660&prodName=TB6612FNG"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-29-motor-driver-2d.png",
+      "image3d": "component-29-motor-driver-3d.png"
+    },
+    {
+      "id": "mosfet",
+      "name": "MOSFET logic-level N-channel",
+      "url": "http://127.0.0.1:5320/components?component=mosfet",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Vỏ TO-220-3 · khoảng 10,3 × 28,5 × 4,5 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "ĐẦU RA\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Vỏ TO-220-3 · khoảng 10,3 × 28,5 × 4,5 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nMOSFET logic-level N-channel\nChỉ hiển thị / tra cứu\n\nCông tắc bán dẫn điều khiển tải DC bằng tín hiệu cổng.\n\nLắp thử trên bàn tự do\n↗\nCHÂN THƯỜNG GẶP\nGate, Drain, Source.\nDÙNG ĐỂ LÀM GÌ?\nĐiều khiển LED công suất, bơm hoặc tải DC thấp áp.\nĐIỂM CẦN LƯU Ý\nChọn MOSFET có RDS(on) phù hợp ở VGS thực tế; thêm bảo vệ tải cảm.\nTrong workspace\n\nCông tắc điện tử điều khiển bằng điện áp cổng.\n\nChân mô hình: G (gate) · D (drain) · S (source)\n\nDùng trong bài\nMOSFET low-side và diode bảo vệ\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nSeeed Grove MOSFET · SKU 103020008 ↗\nHướng dẫn tham khảo · Nguồn sản phẩm để nhận diện SKU; tài liệu này không đồng nhất với MOSFET rời hay mọi module MOSFET.\nSeeed · Grove MOSFET wiki ↗\nHướng dẫn tham khảo · Ví dụ module MOSFET Grove (SKU tham khảo 103020008); không đồng nhất với MOSFET rời hay mọi module MOSFET. Nguồn này không xác nhận loại tải, cực tính hay giới hạn dòng của module người học đang có; kiểm tra datasheet trước khi đấu thật.\nSparkFun · mức logic và linh kiện bán dẫn ↗\nHướng dẫn tham khảo · Tài liệu nền về miền logic; không xác nhận MOSFET là logic-level. Chọn theo RDS(on) tại VGS thực dùng và datasheet mã linh kiện.\nInfineon IRLZ44N · ví dụ MOSFET logic-level ↗\nHướng dẫn tham khảo · Chỉ là một ví dụ để đọc RDS(on) theo VGS; bài học không chỉ định mã này.\nMOSFET\ntransistor\ndriver\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=mosfet"
+        },
+        {
+          "text": "MOSFET low-side và diode bảo vệ",
+          "href": "/learn/mosfet-switch"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Seeed Grove MOSFET · SKU 103020008 ↗",
+          "href": "https://jp.seeedstudio.com/Grove-MOSFET.html"
+        },
+        {
+          "text": "Seeed · Grove MOSFET wiki ↗",
+          "href": "https://wiki.seeedstudio.com/Grove-MOSFET/"
+        },
+        {
+          "text": "SparkFun · mức logic và linh kiện bán dẫn ↗",
+          "href": "https://learn.sparkfun.com/tutorials/logic-levels"
+        },
+        {
+          "text": "Infineon IRLZ44N · ví dụ MOSFET logic-level ↗",
+          "href": "https://www.infineon.com/dgdl/irlz44npbf.pdf"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-30-mosfet-2d.png",
+      "image3d": "component-30-mosfet-3d.png"
+    },
+    {
+      "id": "relay",
+      "name": "Module relay 1 kênh",
+      "url": "http://127.0.0.1:5320/components?component=relay",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module relay 1 kênh 5 V (SRD-05VDC) · khoảng 50 × 19,1 × 30,5 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "ĐẦU RA\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module relay 1 kênh 5 V (SRD-05VDC) · khoảng 50 × 19,1 × 30,5 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nModule relay 1 kênh\nChỉ hiển thị / tra cứu\n\nĐóng/ngắt tải bằng tiếp điểm cơ điện.\n\nLắp thử trên bàn tự do\n↗\nẢNH LINH KIỆN THAM KHẢO\nẢnh module relay 5 V một kênh tham khảo\nẢnh module một kênh dùng relay SRD-05VDC-SL-C; đây không phải Grove Relay 103020005 và không xác nhận cách ly, active level hay định mức của module relay khác. Chỉ tham khảo tải thấp áp.\nẢnh: Suyash Dwivedi · CC BY-SA 4.0 · Dùng thumbnail Commons rộng 1280 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nVCC, GND, IN; tiếp điểm COM/NO/NC.\nDÙNG ĐỂ LÀM GÌ?\nMinh hoạ điều khiển tải qua relay.\nĐIỂM CẦN LƯU Ý\nĐiện lưới nguy hiểm; demo giáo dục chỉ dùng tải thấp áp, cách ly đúng chuẩn.\nTrong workspace\n\nCuộn dây điều khiển tiếp điểm COM/NO/NC; nhiều module có driver tích hợp.\n\nChân mô hình: IN (in) · VCC (vcc) · GND (gnd) · COM (com) · NO (no) · NC (nc)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nSeeed Grove Relay · hướng dẫn và revision V1.1/V1.2 ↗\nHướng dẫn tham khảo · Trang hãng ghi V1.1 cần 5 V, V1.2 hỗ trợ 3.3–5 V. Định mức tiếp điểm không phải lời khuyên thao tác điện lưới; Mạch Mở chỉ hướng dẫn tải thấp áp.\nAdafruit · dùng transistor điều khiển relay ↗\nHướng dẫn tham khảo · Ví dụ dùng transistor và diode dập xung cho cuộn relay; tải demo chỉ dùng điện áp thấp, không suy ra định mức module khác.\nrelay\nđóng ngắt\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=relay"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:SRD-05VDC-SL-C_5V_one-channel_relay_module.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Seeed Grove Relay · hướng dẫn và revision V1.1/V1.2 ↗",
+          "href": "https://wiki.seeedstudio.com/Grove-Relay/"
+        },
+        {
+          "text": "Adafruit · dùng transistor điều khiển relay ↗",
+          "href": "https://learn.adafruit.com/experimenters-guide-for-metro/circ11-intro"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-31-relay-2d.png",
+      "image3d": "component-31-relay-3d.png"
+    },
+    {
+      "id": "oled",
+      "name": "OLED I²C 0.96 inch (SSD1306)",
+      "url": "http://127.0.0.1:5320/components?component=oled",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module OLED 0,96\" I²C SSD1306 (27,3 × 27,8 mm) · khoảng 27,3 × 11,8 × 27,8 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "HIỂN THỊ\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module OLED 0,96\" I²C SSD1306 (27,3 × 27,8 mm) · khoảng 27,3 × 11,8 × 27,8 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nOLED I²C 0.96 inch (SSD1306)\nChỉ hiển thị / tra cứu\n\nMàn hình đơn sắc giao tiếp I²C phổ biến.\n\nLắp thử trên bàn tự do\n↗\nCHÂN THƯỜNG GẶP\nGND, VCC, SDA, SCL; địa chỉ tùy module.\nDÙNG ĐỂ LÀM GÌ?\nHiển thị số đo cảm biến và trạng thái.\nĐIỂM CẦN LƯU Ý\nĐiện áp cấp và mức logic tùy module; kiểm tra datasheet.\nTrong workspace\n\nMàn hình giao tiếp I²C dùng hai đường dữ liệu SDA/SCL.\n\nChân mô hình: VCC (vcc) · GND (gnd) · SDA (sda) · SCL (scl)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nTheo chip. Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit monochrome OLED breakout · product #326 ↗\nHướng dẫn tham khảo · Sản phẩm tham chiếu 0.96 inch, 128×64 dùng SSD1306; cấu hình giao tiếp, jumper, địa chỉ và chân tùy breakout. Không khẳng định mọi OLED trong thư viện cùng SKU.\nSSD1306 · datasheet controller ↗\nDatasheet chip · Datasheet của IC điều khiển; thứ tự chân, địa chỉ I²C và ổn áp trên breakout không nằm trong tài liệu này.\nSSD1306 OLED · hướng dẫn kết nối ↗\nHướng dẫn tham khảo · Breakout SSD1306 có thể khác giao tiếp, địa chỉ I²C, regulator và pull-up.\nOLED\nSSD1306\nI2C\ndisplay\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=oled"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit monochrome OLED breakout · product #326 ↗",
+          "href": "https://learn.adafruit.com/monochrome-oled-breakouts"
+        },
+        {
+          "text": "SSD1306 · datasheet controller ↗",
+          "href": "https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf"
+        },
+        {
+          "text": "SSD1306 OLED · hướng dẫn kết nối ↗",
+          "href": "https://learn.adafruit.com/ssd1306-oled-displays-with-raspberry-pi-and-beaglebone-black"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-32-oled-2d.png",
+      "image3d": "component-32-oled-3d.png"
+    },
+    {
+      "id": "lcd1602",
+      "name": "LCD 1602 + backpack I²C",
+      "url": "http://127.0.0.1:5320/components?component=lcd1602",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · LCD 16×2 HD44780 + backpack I²C PCF8574 (80 × 36 mm) · khoảng 80 × 21,3 × 36 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "HIỂN THỊ\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · LCD 16×2 HD44780 + backpack I²C PCF8574 (80 × 36 mm) · khoảng 80 × 21,3 × 36 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nLCD 1602 + backpack I²C\nChỉ tra cứu\n\nMàn hình ký tự 16×2, backpack thường dùng PCF8574.\n\nCHÂN THƯỜNG GẶP\nGND, VCC, SDA, SCL.\nDÙNG ĐỂ LÀM GÌ?\nHiển thị giá trị và thông báo đơn giản.\nĐIỂM CẦN LƯU Ý\nNhiều backpack chạy 5 V và kéo SDA/SCL lên 5 V; kiểm tra tương thích MCU.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nTheo chip. Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nSeeed Grove LCD RGB Backlight · V5 ↗\nHướng dẫn tham khảo · Chỉ là lựa chọn tham chiếu cho LCD 16×2 Grove. V5 đổi driver RGB sang SGM31323, địa chỉ RGB từ 0x62 sang 0x30 và thêm tương thích 3.3/5 V; không phải LCD backpack PCF8574 và không khớp mặc định với mô hình hiện tại.\nPCF8574 · datasheet bộ mở rộng I²C ↗\nDatasheet chip · Datasheet TI của chip thường gặp trên backpack; backpack cụ thể có thể dùng biến thể khác và địa chỉ khác.\nHD44780 · datasheet controller LCD ↗\nDatasheet chip · Controller ký tự mà nhiều LCD 16×2 tương thích; không xác nhận mọi module dùng đúng chip này.\nAdafruit · màn hình ký tự 16×2 ↗\nHướng dẫn tham khảo · Hướng dẫn LCD ký tự; backpack I²C, địa chỉ, mức pull-up và điện áp logic cần kiểm tra riêng.\nLCD1602\nPCF8574\nI2C\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Seeed Grove LCD RGB Backlight · V5 ↗",
+          "href": "https://wiki.seeedstudio.com/Grove-LCD_RGB_Backlight/"
+        },
+        {
+          "text": "PCF8574 · datasheet bộ mở rộng I²C ↗",
+          "href": "https://www.ti.com/lit/ds/symlink/pcf8574.pdf"
+        },
+        {
+          "text": "HD44780 · datasheet controller LCD ↗",
+          "href": "https://cdn-shop.adafruit.com/datasheets/HD44780.pdf"
+        },
+        {
+          "text": "Adafruit · màn hình ký tự 16×2 ↗",
+          "href": "https://learn.adafruit.com/character-lcds"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-33-lcd1602-2d.png",
+      "image3d": "component-33-lcd1602-3d.png"
+    },
+    {
+      "id": "neopixel",
+      "name": "LED RGB addressable WS2812B",
+      "url": "http://127.0.0.1:5320/components?component=neopixel",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · LED RGB địa chỉ WS2812B 5050 (PLCC4) · khoảng 5,4 × 1,6 × 5 mm. Thư viện 3D KiCad 10.0.7 (CC BY-SA 4.0). Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "ĐẦU RA\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · LED RGB địa chỉ WS2812B 5050 (PLCC4) · khoảng 5,4 × 1,6 × 5 mm. Thư viện 3D KiCad 10.0.7 (CC BY-SA 4.0). Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nLED RGB addressable WS2812B\nChỉ tra cứu\n\nChuỗi LED RGB dùng một đường dữ liệu tuần tự.\n\nCHÂN THƯỜNG GẶP\n5V, GND, DIN, DOUT.\nDÙNG ĐỂ LÀM GÌ?\nTạo hiệu ứng màu và minh hoạ truyền dữ liệu số.\nĐIỂM CẦN LƯU Ý\nTính dòng nguồn; có thể cần level shifter và điện trở data.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nTheo chip. Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nWS2812B · datasheet LED ↗\nDatasheet chip · Datasheet của LED, Adafruit lưu bản sao; dải LED bán sẵn và mức logic thực tế cần đối chiếu riêng.\nAdafruit · NeoPixel: nguồn và đấu nối ↗\nHướng dẫn tham khảo · Nêu dòng tải, tụ nguồn và điện trở data tham khảo; yêu cầu chính xác phụ thuộc loại LED, số pixel và nguồn.\nWS2812B\nNeoPixel\nRGB\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "WS2812B · datasheet LED ↗",
+          "href": "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+        },
+        {
+          "text": "Adafruit · NeoPixel: nguồn và đấu nối ↗",
+          "href": "https://learn.adafruit.com/adafruit-neopixel-uberguide/powering-neopixels"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-34-neopixel-2d.png",
+      "image3d": "component-34-neopixel-3d.png"
+    },
+    {
+      "id": "rgb-led",
+      "name": "LED RGB 4 chân",
+      "url": "http://127.0.0.1:5320/components?component=rgb-led",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · LED RGB 5 mm 4 chân · khoảng 6,9 × 13,6 × 5,8 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "ĐẦU RA\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · LED RGB 5 mm 4 chân · khoảng 6,9 × 13,6 × 5,8 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nLED RGB 4 chân\nChỉ hiển thị / tra cứu\n\nBa LED đỏ, lục, lam trong một vỏ, dùng chung một chân.\n\nLắp thử trên bàn tự do\n↗\nCHÂN THƯỜNG GẶP\nR, G, B và chân chung; chân chung là anode hoặc cathode tùy linh kiện.\nDÙNG ĐỂ LÀM GÌ?\nTrộn màu bằng cách điều khiển từng kênh, thường qua PWM.\nĐIỂM CẦN LƯU Ý\nMỗi kênh cần điện trở riêng; xác định loại chân chung theo datasheet. Khác LED địa chỉ hóa WS2812B.\nTrong workspace\n\nBa kênh LED màu trong một package; có thể là common anode hoặc common cathode.\n\nChân mô hình: R (red) · G (green) · B (blue) · COM (common)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · bài học LED RGB 4 chân ↗\nHướng dẫn tham khảo · Nguồn minh họa mạch LED RGB common-cathode và yêu cầu điện trở riêng cho từng kênh; phải xác định loại chân chung của linh kiện thực tế.\nRGB\nLED\nPWM\ncommon anode\ncommon cathode\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=rgb-led"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · bài học LED RGB 4 chân ↗",
+          "href": "https://learn.adafruit.com/adafruit-arduino-lesson-3-rgb-leds/breadboard-layout"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-35-rgb-led-2d.png",
+      "image3d": "component-35-rgb-led-3d.png"
+    },
+    {
+      "id": "ir-obstacle",
+      "name": "Module cảm biến vật cản hồng ngoại",
+      "url": "http://127.0.0.1:5320/components?component=ir-obstacle",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module cảm biến vật cản hồng ngoại FC-51 (31 × 14 mm) · khoảng 31 × 17,1 × 15,1 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module cảm biến vật cản hồng ngoại FC-51 (31 × 14 mm) · khoảng 31 × 17,1 × 15,1 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nModule cảm biến vật cản hồng ngoại\nCó trong một số bài mẫu\n\nLED phát và mắt thu hồng ngoại trên một module, báo có vật cản ở chân OUT.\n\nCHÂN THƯỜNG GẶP\nVCC, GND, OUT; thứ tự chân tùy module.\nDÙNG ĐỂ LÀM GÌ?\nPhát hiện vật cản gần cho robot hoặc cảnh báo đơn giản.\nĐIỂM CẦN LƯU Ý\nBài mẫu lấy Seeed Grove v1.2 làm ví dụ: OUT active LOW khi phát hiện; module/clone khác có thể active HIGH hoặc khác tầm phát hiện theo bề mặt, ánh sáng và cách chỉnh.\nTrong workspace\n\nModule phát/thu tia hồng ngoại và báo trạng thái vật cản ở OUT.\n\nChân mô hình: OUT (out) · VCC (vcc) · GND (gnd)\n\nDùng trong bài\nCảm biến hồng ngoại\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nSeeed Grove Infrared Reflective Sensor · SKU 101020029 ↗\nHướng dẫn tham khảo · Seeed ghi SKU này đã ngừng bán; giữ làm ví dụ tham chiếu có tài liệu, không phải gợi ý mua hàng hiện tại.\nSeeed · hướng dẫn và thông số v1.2 ↗\nHướng dẫn tham khảo · Module tham chiếu cụ thể dùng RPR-220; tài liệu Seeed mô tả OUT active LOW khi phát hiện và HIGH khi không phát hiện. Bài học mô phỏng theo polarity của ví dụ này nhưng không xác minh phần cứng người học đang có; đối chiếu revision, pinout và điện áp trước khi dùng.\nVishay TCRT5000 · datasheet cảm biến phản xạ ↗\nHướng dẫn tham khảo · Chỉ tham khảo nguyên lý cặp phát/thu hồng ngoại của cảm biến TCRT5000 rời; không xác nhận module vật cản, sơ đồ chân, mức OUT hoặc ngưỡng của breakout bất kỳ.\nIR\nhồng ngoại\nvật cản\ndigital\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Cảm biến hồng ngoại",
+          "href": "/learn/ir-alert"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Seeed Grove Infrared Reflective Sensor · SKU 101020029 ↗",
+          "href": "https://www.seeedstudio.com/Grove-Infrared-Reflective-Sensor-p-1230.html"
+        },
+        {
+          "text": "Seeed · hướng dẫn và thông số v1.2 ↗",
+          "href": "https://wiki.seeedstudio.com/Grove-Infrared_Reflective_Sensor/"
+        },
+        {
+          "text": "Vishay TCRT5000 · datasheet cảm biến phản xạ ↗",
+          "href": "https://www.vishay.com/docs/83760/tcrt5000.pdf"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-36-ir-obstacle-2d.png",
+      "image3d": "component-36-ir-obstacle-3d.png"
+    },
+    {
+      "id": "photoresistor-module",
+      "name": "Module cảm biến ánh sáng AO/DO",
+      "url": "http://127.0.0.1:5320/components?component=photoresistor-module",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module quang trở LDR + LM393 (32 × 14 mm) · khoảng 32 × 17,1 × 14 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module quang trở LDR + LM393 (32 × 14 mm) · khoảng 32 × 17,1 × 14 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nModule cảm biến ánh sáng AO/DO\nChỉ tra cứu\n\nLDR kèm comparator, cho đầu ra analog và ngưỡng số trên một số module.\n\nCHÂN THƯỜNG GẶP\nVCC, GND, AO, DO.\nDÙNG ĐỂ LÀM GÌ?\nSo sánh đọc ADC với ngưỡng digital.\nĐIỂM CẦN LƯU Ý\nPinout và mức logic module khác nhau; kiểm tra trước khi nối.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · quang trở và mạch phân áp ↗\nHướng dẫn tham khảo · Giải thích LDR rời và cách đọc analog; không xác nhận comparator, ngưỡng, AO/DO hay pinout của module cụ thể.\nTI LM393 · ví dụ comparator ↗\nHướng dẫn tham khảo · Comparator thường gặp trên module này, nhưng module cụ thể có thể dùng chip khác.\nlight sensor\nLDR module\nAO\nDO\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · quang trở và mạch phân áp ↗",
+          "href": "https://learn.adafruit.com/photocells"
+        },
+        {
+          "text": "TI LM393 · ví dụ comparator ↗",
+          "href": "https://www.ti.com/lit/ds/symlink/lm393.pdf"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-37-photoresistor-module-2d.png",
+      "image3d": "component-37-photoresistor-module-3d.png"
+    },
+    {
+      "id": "soil",
+      "name": "Cảm biến độ ẩm đất điện dung",
+      "url": "http://127.0.0.1:5320/components?component=soil",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Đầu dò độ ẩm đất dạng nĩa (16 × 60 mm) · khoảng 16 × 11,6 × 60 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Đầu dò độ ẩm đất dạng nĩa (16 × 60 mm) · khoảng 16 × 11,6 × 60 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nCảm biến độ ẩm đất điện dung\nChỉ tra cứu\n\nĐo tương đối độ ẩm đất bằng biến đổi điện dung.\n\nCHÂN THƯỜNG GẶP\nVCC, GND, AOUT.\nDÙNG ĐỂ LÀM GÌ?\nDự án tưới cây IoT và đọc ADC.\nĐIỂM CẦN LƯU Ý\nCần hiệu chuẩn theo đất/môi trường; tránh ngâm phần mạch.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nSparkFun · cảm biến độ ẩm đất ↗\nHướng dẫn tham khảo · Tài liệu áp dụng cho sensor SparkFun cụ thể; giá trị ADC cần hiệu chuẩn theo nguồn cấp, đất và module thực.\nsoil moisture\nđộ ẩm đất\ncapacitive\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "SparkFun · cảm biến độ ẩm đất ↗",
+          "href": "https://learn.sparkfun.com/tutorials/soil-moisture-sensor-hookup-guide"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-38-soil-2d.png",
+      "image3d": "component-38-soil-3d.png"
+    },
+    {
+      "id": "mpu6050",
+      "name": "IMU MPU-6050 breakout",
+      "url": "http://127.0.0.1:5320/components?component=mpu6050",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module GY-521 MPU-6050 (21 × 16 mm) · khoảng 21 × 11,6 × 16 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module GY-521 MPU-6050 (21 × 16 mm) · khoảng 21 × 11,6 × 16 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nIMU MPU-6050 breakout\nChỉ tra cứu\n\nGia tốc kế và con quay hồi chuyển 6 trục.\n\nCHÂN THƯỜNG GẶP\nVCC, GND, SDA, SCL, INT (tùy board).\nDÙNG ĐỂ LÀM GÌ?\nĐọc nghiêng/chuyển động và nhập môn I²C.\nĐIỂM CẦN LƯU Ý\nMức điện áp phụ thuộc breakout, không chỉ riêng chip.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nTheo chip. Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nMPU-6050 · product specification ↗\nDatasheet chip · Datasheet áp dụng cho chip; breakout có thể thêm ổn áp/chuyển mức.\nMPU6050\nIMU\nI2C\ngia tốc\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "MPU-6050 · product specification ↗",
+          "href": "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet.pdf"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-39-mpu6050-2d.png",
+      "image3d": "component-39-mpu6050-3d.png"
+    },
+    {
+      "id": "bmp280",
+      "name": "Cảm biến áp suất BMP280 breakout",
+      "url": "http://127.0.0.1:5320/components?component=bmp280",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module GY-BMP280 (11,5 × 15 mm) · khoảng 15,2 × 11,6 × 15 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module GY-BMP280 (11,5 × 15 mm) · khoảng 15,2 × 11,6 × 15 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nCảm biến áp suất BMP280 breakout\nChỉ tra cứu\n\nCảm biến áp suất khí quyển và nhiệt độ, thường dùng I²C/SPI.\n\nCHÂN THƯỜNG GẶP\nVCC, GND, SCL, SDA, CSB, SDO (tùy module).\nDÙNG ĐỂ LÀM GÌ?\nTrạm thời tiết và đo độ cao tương đối.\nĐIỂM CẦN LƯU Ý\nPhân biệt BMP280 với BME280; breakout có thể khác mức logic.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nTheo chip. Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nBosch BMP280 · datasheet và tài liệu ↗\nDatasheet chip · Thông số chip không tự xác nhận mạch breakout hoặc mức điện áp cấp của module.\nBMP280\náp suất\nI2C\nSPI\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Bosch BMP280 · datasheet và tài liệu ↗",
+          "href": "https://www.bosch-sensortec.com/products/environmental-sensors/pressure-sensors/bmp280/"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-40-bmp280-2d.png",
+      "image3d": "component-40-bmp280-3d.png"
+    },
+    {
+      "id": "ir-receiver",
+      "name": "Mắt thu hồng ngoại 38 kHz",
+      "url": "http://127.0.0.1:5320/components?component=ir-receiver",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Mắt thu hồng ngoại 3 chân (vỏ Vishay MOLD, kiểu VS1838B/TSOP) · khoảng 6 × 13,3 × 5,6 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Mắt thu hồng ngoại 3 chân (vỏ Vishay MOLD, kiểu VS1838B/TSOP) · khoảng 6 × 13,3 × 5,6 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nMắt thu hồng ngoại 38 kHz\nChỉ tra cứu\n\nGiải mã tín hiệu điều khiển từ remote hồng ngoại.\n\nCHÂN THƯỜNG GẶP\nOUT, GND, VCC; pinout phụ thuộc package.\nDÙNG ĐỂ LÀM GÌ?\nĐiều khiển thiết bị bằng remote.\nĐIỂM CẦN LƯU Ý\nXác nhận đúng thứ tự chân theo datasheet của linh kiện cụ thể.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · thu tín hiệu remote hồng ngoại ↗\nHướng dẫn tham khảo · Ví dụ dùng đầu thu 38 kHz cụ thể; package, pinout, tần số trung tâm và giao thức cần đối chiếu part thật.\nIR\nhồng ngoại\nremote\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · thu tín hiệu remote hồng ngoại ↗",
+          "href": "https://learn.adafruit.com/using-an-infrared-library"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-41-ir-receiver-2d.png",
+      "image3d": "component-41-ir-receiver-3d.png"
+    },
+    {
+      "id": "diode",
+      "name": "Diode chỉnh lưu / bảo vệ",
+      "url": "http://127.0.0.1:5320/components?component=diode",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Diode DO-41 · khoảng 11 × 5,7 × 2,7 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "LINH KIỆN CƠ BẢN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Diode DO-41 · khoảng 11 × 5,7 × 2,7 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nDiode chỉnh lưu / bảo vệ\nChỉ hiển thị / tra cứu\n\nCho dòng đi theo một chiều; diode bảo vệ thường mắc song song tải cảm.\n\nLắp thử trên bàn tự do\n↗\nẢNH LINH KIỆN THAM KHẢO\nẢnh một số loại diode xuyên lỗ\nẢnh tập hợp diode nhiều loại; vạch cathode và hình dáng không xác nhận mã, dòng thuận hay điện áp ngược của diode cụ thể.\nẢnh: FDominec · CC BY-SA 3.0 · Dùng thumbnail Commons rộng 1280 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nAnode và cathode (vạch thường đánh dấu cathode).\nDÙNG ĐỂ LÀM GÌ?\nChống ngược cực hoặc dập xung ngược cuộn dây.\nĐIỂM CẦN LƯU Ý\nChọn đúng loại, dòng và điện áp ngược; không thay tùy tiện.\nTrong workspace\n\nDẫn điện chủ yếu từ anode sang cathode; vạch thường đánh dấu cathode.\n\nChân mô hình: Anode (A) (anode) · Cathode (K) (cathode)\n\nDùng trong bài\nMOSFET low-side và diode bảo vệ\nTÀI LIỆU THAM KHẢO\n\nTheo chip. Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nVishay 1N4148 · datasheet ↗\nDatasheet chip · Áp dụng cho đúng mã 1N4148 của Vishay, là diode tín hiệu nhỏ, không dùng làm diode nguồn.\nVishay 1N4001–1N4007 · datasheet ↗\nDatasheet chip · Áp dụng cho họ diode chỉnh lưu này; chọn đúng mã theo điện áp ngược của mạch.\nSparkFun · diode và cực tính ↗\nHướng dẫn tham khảo · Giải thích nguyên lý diode; dòng thuận, điện áp ngược và chọn diode dập xung phải căn cứ mã linh kiện/tải.\ndiode\n1N4148\n1N4007\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=diode"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:Electronic_component_diodes.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        {
+          "text": "MOSFET low-side và diode bảo vệ",
+          "href": "/learn/mosfet-switch"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Vishay 1N4148 · datasheet ↗",
+          "href": "https://www.vishay.com/docs/81857/1n4148.pdf"
+        },
+        {
+          "text": "Vishay 1N4001–1N4007 · datasheet ↗",
+          "href": "https://www.vishay.com/docs/88503/1n4001.pdf"
+        },
+        {
+          "text": "SparkFun · diode và cực tính ↗",
+          "href": "https://learn.sparkfun.com/tutorials/diodes"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-42-diode-2d.png",
+      "image3d": "component-42-diode-3d.png"
+    },
+    {
+      "id": "capacitor",
+      "name": "Tụ điện gốm",
+      "url": "http://127.0.0.1:5320/components?component=capacitor",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Tụ gốm đĩa Ø5 mm, chân 5 mm · khoảng 5,5 × 7,1 × 2,5 mm. Thư viện 3D KiCad 10.0.7 (CC BY-SA 4.0). Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "LINH KIỆN CƠ BẢN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Tụ gốm đĩa Ø5 mm, chân 5 mm · khoảng 5,5 × 7,1 × 2,5 mm. Thư viện 3D KiCad 10.0.7 (CC BY-SA 4.0). Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nTụ điện gốm\nChỉ tra cứu\n\nTích trữ điện tích; tụ gốm thường không phân cực.\n\nLắp thử trên bàn tự do\n↗\nẢNH LINH KIỆN THAM KHẢO\nẢnh tụ gốm xuyên lỗ\nẢnh tụ gốm dạng đĩa; không xác nhận điện dung, điện áp định mức hay dielectric của tụ trong mạch.\nẢnh: Evan-Amos · Public domain (PD-self) · Dùng thumbnail Commons rộng 1280 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nHai đầu; loại gốm thường không phân cực.\nDÙNG ĐỂ LÀM GÌ?\nBypass nguồn gần IC, lọc nhiễu cao tần.\nĐIỂM CẦN LƯU Ý\nChọn điện dung, điện áp định mức và dielectric phù hợp.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · kiến thức cơ bản về tụ điện ↗\nHướng dẫn tham khảo · Giải thích điện dung và vai trò cơ bản; không thay datasheet điện áp/dielectric.\ncapacitor\ntụ điện\n100nF\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=capacitor"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:Electronic-Component-Ceramic-Capacitor.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://commons.wikimedia.org/wiki/Commons:Licensing#Public_domain"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · kiến thức cơ bản về tụ điện ↗",
+          "href": "https://learn.adafruit.com/circuit-playground-c-is-for-capacitor/what-is-a-capacitor"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-43-capacitor-2d.png",
+      "image3d": "component-43-capacitor-3d.png"
+    },
+    {
+      "id": "electrolytic",
+      "name": "Tụ điện hoá",
+      "url": "http://127.0.0.1:5320/components?component=electrolytic",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Tụ hóa Ø8 mm, chân 5 mm · khoảng 8 × 10 × 8 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "LINH KIỆN CƠ BẢN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Tụ hóa Ø8 mm, chân 5 mm · khoảng 8 × 10 × 8 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nTụ điện hoá\nChỉ hiển thị / tra cứu\n\nTụ dung lượng lớn dùng lọc gợn nguồn và dự trữ năng lượng.\n\nẢNH LINH KIỆN THAM KHẢO\nẢnh các tụ điện hoá\nẢnh các tụ điện hoá ở nhiều kích thước; phải đọc cực tính và điện áp ngay trên linh kiện thật.\nẢnh: FDominec · CC BY-SA 3.0 · Dùng thumbnail Commons rộng 1280 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nChân dương và âm có phân cực.\nDÙNG ĐỂ LÀM GÌ?\nỔn định nguồn ở mức thấp tần.\nĐIỂM CẦN LƯU Ý\nLắp ngược cực có thể gây hỏng; không vượt điện áp định mức.\nTrong workspace\n\nTụ phân cực có thể làm phẳng dao động nguồn hoặc tạo mạch RC.\n\nChân mô hình: Cực + (plus) · Cực − (minus)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · nguồn và tụ điện phân cực ↗\nHướng dẫn tham khảo · Lưu ý phân cực tụ điện hóa và gợn nguồn; luôn kiểm tra điện áp định mức.\ntụ hoá\nelectrolytic\nuF\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:Electronic_component_electrolytic_capacitors.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · nguồn và tụ điện phân cực ↗",
+          "href": "https://learn.adafruit.com/power-supplies"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-44-electrolytic-2d.png",
+      "image3d": "component-44-electrolytic-3d.png"
+    },
+    {
+      "id": "transistor-bjt",
+      "name": "Transistor NPN 2N2222 (tham chiếu)",
+      "url": "http://127.0.0.1:5320/components?component=transistor-bjt",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Vỏ TO-92, chân 2,54 mm · khoảng 5,6 × 10 × 3,7 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "ĐẦU RA\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · Vỏ TO-92, chân 2,54 mm · khoảng 5,6 × 10 × 3,7 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nTransistor NPN 2N2222 (tham chiếu)\nChỉ hiển thị / tra cứu\n\nTransistor BJT có thể khuếch đại hoặc làm công tắc tải nhỏ.\n\nẢNH LINH KIỆN THAM KHẢO\nẢnh các kiểu vỏ transistor\nẢnh minh họa nhiều transistor và package; không dùng để suy chân B/C/E, gate/drain/source, cực tính hay giới hạn điện của mã bất kỳ.\nẢnh: Honina (ảnh gốc; bản Commons bởi Mister rf) · CC BY-SA 3.0 · Dùng thumbnail Commons rộng 1280 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nBase, Collector, Emitter; sơ đồ chân tùy package/nhà sản xuất.\nDÙNG ĐỂ LÀM GÌ?\nĐiều khiển buzzer/relay nhỏ qua điện trở base.\nĐIỂM CẦN LƯU Ý\nXác nhận chân theo datasheet; không tải dòng lớn từ MCU.\nTrong workspace\n\nCó thể làm công tắc tải; GPIO điều khiển base qua điện trở.\n\nChân mô hình: B (base) · C (collector) · E (emitter)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · transistor và diode bảo vệ tải motor ↗\nHướng dẫn tham khảo · Ví dụ dùng PN2222/NPN để đóng cắt tải nhỏ; sơ đồ chân, dòng và SOA không áp dụng cho mọi transistor.\n2N2222\nNPN\ntransistor\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:Transistor-photo.JPG"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · transistor và diode bảo vệ tải motor ↗",
+          "href": "https://learn.adafruit.com/adafruit-arduino-lesson-13-dc-motors/transistors"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-45-transistor-bjt-2d.png",
+      "image3d": "component-45-transistor-bjt-3d.png"
+    },
+    {
+      "id": "breadboard",
+      "name": "Breadboard 400 điểm",
+      "url": "http://127.0.0.1:5320/components?component=breadboard",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · khoảng 83 × 8,5 × 55 mm. Mạch Mở dựng theo kích thước thường gặp để dễ nhận biết. Module thật khác nhau về bố trí, kích thước và thứ tự chân.",
+      "detail": "KẾT NỐI\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · khoảng 83 × 8,5 × 55 mm. Mạch Mở dựng theo kích thước thường gặp để dễ nhận biết. Module thật khác nhau về bố trí, kích thước và thứ tự chân.\n\nBreadboard 400 điểm\nChỉ hiển thị / tra cứu\n\nBảng cắm thử không hàn cho mạch nguyên mẫu.\n\nẢNH LINH KIỆN THAM KHẢO\nẢnh hai mặt breadboard 400 điểm\nẢnh cho thấy một breadboard 400 điểm cụ thể; rail nguồn trên các mẫu khác có thể bị ngắt đoạn hoặc bố trí khác.\nẢnh: Guhuru · CC0 1.0 · Dùng thumbnail Commons rộng 1280 px; giữ định dạng PNG, không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nNhóm 5 lỗ giữa nối theo hàng; rãnh giữa tách hai bên; rail có thể đứt đoạn.\nDÙNG ĐỂ LÀM GÌ?\nThử mạch, thay linh kiện nhanh và học đường nối.\nĐIỂM CẦN LƯU Ý\nKhông dùng điện áp/dòng vượt định mức; kiểm tra continuity rail.\nTrong workspace\n\nBảng cắm thử không hàn. Cấu trúc rail/hàng thay đổi theo mẫu; các lỗ cùng nhóm thường được nối nội bộ.\n\nChân mô hình: rail + (railPlus) · rail − (railMinus) · hàng A (rowA) · hàng B (rowB)\n\nDùng trong bài\nLED nhấp nháy\nNguồn thấp áp, điện trở và LED\nNút nhấn điều khiển LED\nBiến trở bật/tắt LED theo ngưỡng\nQuang trở LDR bật/tắt LED\nCảm biến hồng ngoại\nCảm biến siêu âm HC-SR04\nĐếm số với LED 7 đoạn\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · breadboard cho người mới ↗\nHướng dẫn tham khảo · Giải thích nhóm lỗ và rail; một số rail bị ngắt đoạn tùy breadboard.\nbreadboard\nprotoboard\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:Breadboard.png"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "text": "LED nhấp nháy",
+          "href": "/learn/blink"
+        },
+        {
+          "text": "Nguồn thấp áp, điện trở và LED",
+          "href": "/learn/source-led"
+        },
+        {
+          "text": "Nút nhấn điều khiển LED",
+          "href": "/learn/button-led"
+        },
+        {
+          "text": "Biến trở bật/tắt LED theo ngưỡng",
+          "href": "/learn/analog-potentiometer"
+        },
+        {
+          "text": "Quang trở LDR bật/tắt LED",
+          "href": "/learn/analog-ldr"
+        },
+        {
+          "text": "Cảm biến hồng ngoại",
+          "href": "/learn/ir-alert"
+        },
+        {
+          "text": "Cảm biến siêu âm HC-SR04",
+          "href": "/learn/ultrasonic-distance"
+        },
+        {
+          "text": "Đếm số với LED 7 đoạn",
+          "href": "/learn/seven-segment-counter"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · breadboard cho người mới ↗",
+          "href": "https://learn.adafruit.com/breadboards-for-beginners"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-46-breadboard-2d.png",
+      "image3d": "component-46-breadboard-3d.png"
+    },
+    {
+      "id": "jumper",
+      "name": "Dây jumper Dupont",
+      "url": "http://127.0.0.1:5320/components?component=jumper",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Dây jumper Dupont đực–đực 10 cm (minh họa tham số). · khoảng 50,5 × 2,5 × 25,2 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.",
+      "detail": "KẾT NỐI\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Dây jumper Dupont đực–đực 10 cm (minh họa tham số). · khoảng 50,5 × 2,5 × 25,2 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.\n\nDây jumper Dupont\nChỉ tra cứu\n\nDây nối board, breadboard và module.\n\nẢNH LINH KIỆN THAM KHẢO\nẢnh dây jumper cho breadboard\nẢnh dây jumper stranded 22 AWG với đầu cứng; màu dây chỉ là quy ước, không tự cho biết VCC/GND/tín hiệu và không xác nhận dòng cho phép của dây thật.\nẢnh: oomlout · CC BY-SA 2.0 · Dùng thumbnail Commons rộng 1280 px; không cắt ghép nội dung. · Nguồn ↗ · Giấy phép ↗\nCHÂN THƯỜNG GẶP\nMale-male, male-female hoặc female-female.\nDÙNG ĐỂ LÀM GÌ?\nTạo kết nối tạm cho prototype.\nĐIỂM CẦN LƯU Ý\nKiểm tra nguồn, GND chung và tránh cắm lệch chân.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · breadboard và dây jumper ↗\nHướng dẫn tham khảo · Minh họa cách dùng jumper trên breadboard; đầu nối, chiều dài và dòng cho phép phụ thuộc loại dây thật.\njumper\nDupont\nwire\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Nguồn ↗",
+          "href": "https://commons.wikimedia.org/wiki/File:A_few_Jumper_Wires.jpg"
+        },
+        {
+          "text": "Giấy phép ↗",
+          "href": "https://creativecommons.org/licenses/by-sa/2.0/"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · breadboard và dây jumper ↗",
+          "href": "https://learn.adafruit.com/breadboards-for-beginners"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-47-jumper-2d.png",
+      "image3d": "component-47-jumper-3d.png"
+    },
+    {
+      "id": "usb-cable",
+      "name": "Cáp USB truyền dữ liệu",
+      "url": "http://127.0.0.1:5320/components?component=usb-cable",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Cáp USB-A sang micro-USB (minh họa tham số). · khoảng 86 × 7,3 × 15 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.",
+      "detail": "NGUỒN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Cáp USB-A sang micro-USB (minh họa tham số). · khoảng 86 × 7,3 × 15 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.\n\nCáp USB truyền dữ liệu\nChỉ tra cứu\n\nCấp nguồn và/hoặc truyền dữ liệu nạp chương trình.\n\nCHÂN THƯỜNG GẶP\nPhụ thuộc đầu nối và board.\nDÙNG ĐỂ LÀM GÌ?\nKết nối MCU với máy tính.\nĐIỂM CẦN LƯU Ý\nMột số cáp chỉ có dây nguồn, không truyền data.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nArduino · khắc phục board không được nhận diện ↗\nHướng dẫn tham khảo · Hướng dẫn kiểm tra cáp truyền dữ liệu; đầu cắm phải hợp board và cáp charge-only không nạp/serial được.\nUSB\ncáp\npower\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Arduino · khắc phục board không được nhận diện ↗",
+          "href": "https://support.arduino.cc/hc/en-us/articles/4412955149586-If-your-board-is-not-detected-by-Arduino-IDE"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-48-usb-cable-2d.png",
+      "image3d": "component-48-usb-cable-3d.png"
+    },
+    {
+      "id": "logic-level",
+      "name": "Module chuyển mức logic 4 kênh",
+      "url": "http://127.0.0.1:5320/components?component=logic-level",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module chuyển mức logic 4 kênh BSS138 · khoảng 15,2 × 11,6 × 13 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "KẾT NỐI\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module chuyển mức logic 4 kênh BSS138 · khoảng 15,2 × 11,6 × 13 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nModule chuyển mức logic 4 kênh\nChỉ tra cứu\n\nGiúp nối tín hiệu số giữa các miền điện áp khác nhau.\n\nCHÂN THƯỜNG GẶP\nHV, LV, GND và các kênh HVx/LVx.\nDÙNG ĐỂ LÀM GÌ?\nGiao tiếp các module logic 5 V với MCU 3,3 V khi phù hợp.\nĐIỂM CẦN LƯU Ý\nKhông phải mọi mạch/chân analog hoặc tốc độ cao đều tương thích module MOSFET phổ thông.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nSparkFun · logic levels và tương thích tín hiệu ↗\nHướng dẫn tham khảo · Tài liệu nền về miền điện áp logic; module MOSFET phổ thông không đảm bảo phù hợp mọi bus, analog hay tín hiệu tốc độ cao.\nlevel shifter\nlogic level\nI2C\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "SparkFun · logic levels và tương thích tín hiệu ↗",
+          "href": "https://learn.sparkfun.com/tutorials/logic-levels"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-49-logic-level-2d.png",
+      "image3d": "component-49-logic-level-3d.png"
+    },
+    {
+      "id": "dc-supply",
+      "name": "Nguồn DC thấp áp",
+      "url": "http://127.0.0.1:5320/components?component=dc-supply",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Hộp pin 2×AA (Keystone 2462) · khoảng 59,5 × 20 × 32,9 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "NGUỒN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Hộp pin 2×AA (Keystone 2462) · khoảng 59,5 × 20 × 32,9 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nNguồn DC thấp áp\nChỉ hiển thị / tra cứu\n\nNguồn một chiều riêng cấp cho tải hoặc mạch công suất trong bài.\n\nCHÂN THƯỜNG GẶP\nCực + và cực −.\nDÙNG ĐỂ LÀM GÌ?\nTách nguồn tải khỏi nguồn logic của board.\nĐIỂM CẦN LƯU Ý\nĐiện áp và dòng phụ thuộc nguồn thật; nối chung GND khi sơ đồ yêu cầu và không cấp đồng thời nhiều nguồn khi chưa hiểu mạch.\nTrong workspace\n\nCấp nguồn DC cho mạch trong giới hạn phù hợp.\n\nChân mô hình: + (positive) · − (negative)\n\nDùng trong bài\nNguồn thấp áp, điện trở và LED\nSo sánh mạch hạ áp và tăng áp\nĐiều khiển motor DC bằng TB6612FNG\nMOSFET low-side và diode bảo vệ\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · kiến thức nguồn DC ↗\nHướng dẫn tham khảo · Giải thích điện áp và dòng của nguồn; trị số, cực tính và khả năng cấp dòng phải lấy từ nhãn/datasheet của nguồn thật.\nnguồn\nDC\npin\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "Nguồn thấp áp, điện trở và LED",
+          "href": "/learn/source-led"
+        },
+        {
+          "text": "So sánh mạch hạ áp và tăng áp",
+          "href": "/learn/buck-boost-concept"
+        },
+        {
+          "text": "Điều khiển motor DC bằng TB6612FNG",
+          "href": "/learn/dc-motor-driver"
+        },
+        {
+          "text": "MOSFET low-side và diode bảo vệ",
+          "href": "/learn/mosfet-switch"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · kiến thức nguồn DC ↗",
+          "href": "https://learn.adafruit.com/power-supplies"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-50-dc-supply-2d.png",
+      "image3d": "component-50-dc-supply-3d.png"
+    },
+    {
+      "id": "power-bank",
+      "name": "Nguồn USB 5 V",
+      "url": "http://127.0.0.1:5320/components?component=power-bank",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Pin dự phòng USB 5 V (minh họa tham số). · khoảng 98,5 × 22,2 × 62 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.",
+      "detail": "NGUỒN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Pin dự phòng USB 5 V (minh họa tham số). · khoảng 98,5 × 22,2 × 62 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.\n\nNguồn USB 5 V\nChỉ tra cứu\n\nNguồn thấp áp tiện dụng cho board và tải công suất nhỏ.\n\nCHÂN THƯỜNG GẶP\n5 V và GND qua cổng/adapter phù hợp.\nDÙNG ĐỂ LÀM GÌ?\nCấp nguồn cho prototype qua cổng USB hoặc bộ chuyển đổi.\nĐIỂM CẦN LƯU Ý\nKhông nối 5 V trực tiếp vào chân 3V3/GPIO; kiểm tra dòng tải.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nArduino · nguồn cấp cho board ↗\nHướng dẫn tham khảo · Hướng dẫn cấp nguồn cho các board Arduino; không xác nhận mạch bảo vệ, điện áp sụt, dòng ra hoặc khả năng cấp tải của power bank cụ thể.\npower\n5V\nUSB\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Arduino · nguồn cấp cho board ↗",
+          "href": "https://support.arduino.cc/hc/en-us/articles/360018922259-What-power-supply-can-I-use-with-my-Arduino-board"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-51-power-bank-2d.png",
+      "image3d": "component-51-power-bank-3d.png"
+    },
+    {
+      "id": "buck",
+      "name": "Module hạ áp DC-DC",
+      "url": "http://127.0.0.1:5320/components?component=buck",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module hạ áp LM2596 (43 × 21 mm) · khoảng 43 × 17,1 × 21 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "NGUỒN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module hạ áp LM2596 (43 × 21 mm) · khoảng 43 × 17,1 × 21 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nModule hạ áp DC-DC\nChỉ hiển thị / tra cứu\n\nChuyển điện áp DC cao hơn xuống điện áp thấp hơn hiệu quả.\n\nCHÂN THƯỜNG GẶP\nIN+, IN−, OUT+, OUT−.\nDÙNG ĐỂ LÀM GÌ?\nCấp nguồn ổn định cho board và động cơ từ nguồn phù hợp.\nĐIỂM CẦN LƯU Ý\nChỉnh và đo điện áp đầu ra trước khi cắm MCU; chú ý dòng/nhiệt.\nTrong workspace\n\nBộ chuyển đổi buck hạ điện áp DC đầu vào xuống mức đầu ra có thể chỉnh hoặc cố định.\n\nChân mô hình: IN+ (inPlus) · IN− (inMinus) · OUT+ (outPlus) · OUT− (outMinus)\n\nDùng trong bài\nSo sánh mạch hạ áp và tăng áp\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nPololu D24V5F5 · bộ hạ áp cố định 5 V, item #2843 ↗\nHướng dẫn tham khảo · Module cụ thể: Vin 5.1–36 V, 5 V đầu ra, dòng liên tục tối đa điển hình 500 mA và phụ thuộc Vin/tản nhiệt. Đây không phải module LM2596 chỉnh áp.\nSparkFun · bộ chuyển đổi DC-DC buck-boost ↗\nHướng dẫn tham khảo · Hướng dẫn board SparkFun/TPS63070 cụ thể, không phải thông số mọi module buck; đo đầu ra và kiểm tra giới hạn dòng trước khi nối tải.\nTI LM2596 · ví dụ IC hạ áp ↗\nHướng dẫn tham khảo · IC thường gặp trên module hạ áp giá rẻ; module cụ thể có thể dùng chip khác, kể cả chip nhái.\nbuck\nDC-DC\nnguồn\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "So sánh mạch hạ áp và tăng áp",
+          "href": "/learn/buck-boost-concept"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Pololu D24V5F5 · bộ hạ áp cố định 5 V, item #2843 ↗",
+          "href": "https://www.pololu.com/product/2843"
+        },
+        {
+          "text": "SparkFun · bộ chuyển đổi DC-DC buck-boost ↗",
+          "href": "https://learn.sparkfun.com/tutorials/buck-boost-hookup-guide"
+        },
+        {
+          "text": "TI LM2596 · ví dụ IC hạ áp ↗",
+          "href": "https://www.ti.com/lit/ds/symlink/lm2596.pdf"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-52-buck-2d.png",
+      "image3d": "component-52-buck-3d.png"
+    },
+    {
+      "id": "boost",
+      "name": "Module tăng áp DC-DC",
+      "url": "http://127.0.0.1:5320/components?component=boost",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module tăng áp MT3608 (36 × 17 mm) · khoảng 36 × 17,1 × 17 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "NGUỒN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module tăng áp MT3608 (36 × 17 mm) · khoảng 36 × 17,1 × 17 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nModule tăng áp DC-DC\nChỉ hiển thị / tra cứu\n\nTăng điện áp DC đầu vào lên điện áp đầu ra cao hơn bằng bộ chuyển đổi switching.\n\nCHÂN THƯỜNG GẶP\nIN+, IN−, OUT+, OUT−.\nDÙNG ĐỂ LÀM GÌ?\nHọc nguyên lý nâng áp và cấp nguồn cho tải phù hợp.\nĐIỂM CẦN LƯU Ý\nĐầu ra có thể cao hơn nhiều so với đầu vào; chỉnh và đo VOUT khi chưa nối board. Bản mô phỏng chỉ minh họa khối chức năng.\nTrong workspace\n\nBộ chuyển đổi boost nâng điện áp DC đầu vào lên mức đầu ra cao hơn.\n\nChân mô hình: IN+ (inPlus) · IN− (inMinus) · OUT+ (outPlus) · OUT− (outMinus)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nPololu U3V16F5 · bộ tăng áp cố định 5 V, item #4941 ↗\nHướng dẫn tham khảo · Module cụ thể: khởi động từ 2.7 V, sau khi chạy có thể hoạt động từ 1.3 V; dòng liên tục phụ thuộc Vin và nhiệt. Không đại diện module MT3608 chỉnh áp phổ thông.\nSparkFun · bộ chuyển đổi DC-DC buck-boost ↗\nHướng dẫn tham khảo · Hướng dẫn board SparkFun/TPS63070 cụ thể, không phải thông số mọi module boost; đầu ra có thể gây hỏng tải nếu chỉnh sai.\nboost\nDC-DC\ntăng áp\nnguồn\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Pololu U3V16F5 · bộ tăng áp cố định 5 V, item #4941 ↗",
+          "href": "https://www.pololu.com/product/4941"
+        },
+        {
+          "text": "SparkFun · bộ chuyển đổi DC-DC buck-boost ↗",
+          "href": "https://learn.sparkfun.com/tutorials/buck-boost-hookup-guide"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-53-boost-2d.png",
+      "image3d": "component-53-boost-3d.png"
+    },
+    {
+      "id": "h-bridge-l298n",
+      "name": "Module cầu H L298N",
+      "url": "http://127.0.0.1:5320/components?component=h-bridge-l298n",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module cầu H L298N (43 × 43 mm) · khoảng 47,4 × 28,5 × 44,6 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CƠ ĐIỆN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module cầu H L298N (43 × 43 mm) · khoảng 47,4 × 28,5 × 44,6 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nModule cầu H L298N\nChỉ hiển thị / tra cứu\n\nModule driver cầu H phổ biến để đảo chiều hai động cơ DC nhỏ trong các bộ robot nhập môn.\n\nCHÂN THƯỜNG GẶP\nVS, 5V logic, GND, IN1–IN4, ENA/ENB, OUT1–OUT4.\nDÙNG ĐỂ LÀM GÌ?\nTìm hiểu chiều quay, PWM và đường cấp nguồn tách cho motor.\nĐIỂM CẦN LƯU Ý\nL298N có sụt áp và tỏa nhiệt đáng kể; kiểm tra đúng phiên bản module, tản nhiệt, giới hạn dòng/áp. Chỉ dùng tải thấp áp trong demo.\nTrong workspace\n\nModule cầu H điều khiển đảo chiều động cơ DC; một số board còn có jumper và bộ ổn áp.\n\nChân mô hình: 5V logic (logicVcc) · VS motor (motorVcc) · GND (gnd) · IN1 (in1) · IN2 (in2) · ENA / PWM (ena) · OUT1 (out1) · OUT2 (out2)\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nTheo chip. Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nST L298 · datasheet ↗\nDatasheet chip · Datasheet IC không xác nhận jumper hay tản nhiệt của mọi module L298N.\nL298N\nH-bridge\nmotor driver\nrobot\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "ST L298 · datasheet ↗",
+          "href": "https://www.st.com/resource/en/datasheet/l298.pdf"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-54-h-bridge-l298n-2d.png",
+      "image3d": "component-54-h-bridge-l298n-3d.png"
+    },
+    {
+      "id": "soil-relay-pump",
+      "name": "Bơm DC mini (tải tham chiếu)",
+      "url": "http://127.0.0.1:5320/components?component=soil-relay-pump",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Bơm chìm mini 3–5 V và ống dẫn cho bộ tưới tự động (minh họa tham số). · khoảng 55 × 24,2 × 25,2 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.",
+      "detail": "CƠ ĐIỆN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMinh họa tham số · Bơm chìm mini 3–5 V và ống dẫn cho bộ tưới tự động (minh họa tham số). · khoảng 55 × 24,2 × 25,2 mm. Mạch Mở dựng chi tiết theo kích thước phổ biến vì không có model 3D nguồn mở phù hợp; module thật khác nhau về bố trí và kích thước.\n\nBơm DC mini (tải tham chiếu)\nChỉ tra cứu\n\nTải cơ điện dùng minh hoạ hệ thống tưới cây.\n\nCHÂN THƯỜNG GẶP\nHai dây nguồn; không nối trực tiếp vào GPIO.\nDÙNG ĐỂ LÀM GÌ?\nĐiều khiển qua MOSFET/driver và nguồn riêng.\nĐIỂM CẦN LƯU Ý\nCần diode bảo vệ nếu là tải cảm; tránh nước tiếp xúc điện tử.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · tải motor DC và mạch driver ↗\nHướng dẫn tham khảo · Chỉ tham khảo nguyên lý tải motor; không xác nhận lưu lượng, dòng khởi động, khả năng chạy khô hay cấp nước của bơm cụ thể.\npump\nbơm\nIoT\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · tải motor DC và mạch driver ↗",
+          "href": "https://learn.adafruit.com/adafruit-motor-selection-guide/dc-motor-control"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-55-soil-relay-pump-2d.png",
+      "image3d": "component-55-soil-relay-pump-3d.png"
+    },
+    {
+      "id": "rotary-encoder",
+      "name": "Encoder xoay KY-040",
+      "url": "http://127.0.0.1:5320/components?component=rotary-encoder",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module encoder xoay KY-040 (24 × 18 mm) · khoảng 24 × 26,5 × 18,5 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module encoder xoay KY-040 (24 × 18 mm) · khoảng 24 × 26,5 × 18,5 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nEncoder xoay KY-040\nChỉ tra cứu\n\nĐọc bước quay và nút nhấn để làm giao diện điều khiển.\n\nCHÂN THƯỜNG GẶP\nCLK, DT, SW, VCC, GND.\nDÙNG ĐỂ LÀM GÌ?\nMenu, đặt ngưỡng cảm biến và điều khiển số.\nĐIỂM CẦN LƯU Ý\nPinout module không thống nhất hoàn toàn; cần debounce.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nSparkFun · nguyên lý encoder xoay số ↗\nHướng dẫn tham khảo · Chỉ tham khảo khái niệm encoder quay; nguồn này dùng encoder Qwiic I²C, không xác nhận pinout KY-040, mức logic hoặc sơ đồ A/B/SW của module trong danh mục.\nencoder\nKY-040\ndigital\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "SparkFun · nguyên lý encoder xoay số ↗",
+          "href": "https://learn.sparkfun.com/tutorials/qwiic-twist-hookup-guide/introduction"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-56-rotary-encoder-2d.png",
+      "image3d": "component-56-rotary-encoder-3d.png"
+    },
+    {
+      "id": "rfid",
+      "name": "RFID RC522 breakout",
+      "url": "http://127.0.0.1:5320/components?component=rfid",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module RFID RC522 13,56 MHz (40 × 60 mm) · khoảng 40 × 11,6 × 60 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "CẢM BIẾN\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module RFID RC522 13,56 MHz (40 × 60 mm) · khoảng 40 × 11,6 × 60 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nRFID RC522 breakout\nChỉ tra cứu\n\nĐọc thẻ không tiếp xúc tần số 13,56 MHz.\n\nCHÂN THƯỜNG GẶP\nSDA/SS, SCK, MOSI, MISO, IRQ, GND, RST, 3.3V.\nDÙNG ĐỂ LÀM GÌ?\nHệ thống nhận diện thẻ và kiểm soát truy cập demo.\nĐIỂM CẦN LƯU Ý\nModule dùng 3,3 V; không cấp 5 V nếu tài liệu module không cho phép.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nTheo chip. Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nNXP MFRC522 · datasheet chip RFID/NFC ↗\nDatasheet chip · Datasheet chip đọc 13,56 MHz, không phải module RC522 cụ thể; kiểm tra sơ đồ chân, ổn áp, mức logic và antenna trên breakout thật.\nRC522\nRFID\nSPI\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "NXP MFRC522 · datasheet chip RFID/NFC ↗",
+          "href": "https://www.nxp.com/docs/en/data-sheet/MFRC522.pdf"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-57-rfid-2d.png",
+      "image3d": "component-57-rfid-3d.png"
+    },
+    {
+      "id": "mosfet-module",
+      "name": "Module MOSFET 1 kênh",
+      "url": "http://127.0.0.1:5320/components?component=mosfet-module",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module MOSFET IRF520 · khoảng 37,4 × 28,5 × 24,5 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.",
+      "detail": "ĐẦU RA\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nModule dựng từ package KiCad · Module MOSFET IRF520 · khoảng 37,4 × 28,5 × 24,5 mm. PCB, chữ lụa và package lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0); vị trí linh kiện theo module phổ biến, không phải CAD của hãng.\n\nModule MOSFET 1 kênh\nChỉ tra cứu\n\nBoard công tắc MOSFET để điều khiển tải DC thấp áp.\n\nCHÂN THƯỜNG GẶP\nSIG, VCC/logic, GND và cọc tải; khác nhau theo module.\nDÙNG ĐỂ LÀM GÌ?\nĐèn DC, bơm mini hoặc quạt nhỏ.\nĐIỂM CẦN LƯU Ý\nĐối chiếu cực tính, dòng tải và điện áp định mức trên module.\nTrong workspace\n\nChưa có mô hình linh kiện tương ứng trong workspace.\n\nDùng trong bài\n\nChưa có bài nào dùng linh kiện này.\n\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nSparkFun · miền logic điều khiển ↗\nHướng dẫn tham khảo · Tài liệu chỉ giải thích miền logic; không xác nhận MOSFET, pin SIG, cực tính, dòng tải hay mức kích của module bất kỳ.\nMOSFET module\ndriver\nload\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "SparkFun · miền logic điều khiển ↗",
+          "href": "https://learn.sparkfun.com/tutorials/logic-levels"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-58-mosfet-module-2d.png",
+      "image3d": "component-58-mosfet-module-3d.png"
+    },
+    {
+      "id": "seven-segment",
+      "name": "LED 7 đoạn 1 chữ số",
+      "url": "http://127.0.0.1:5320/components?component=seven-segment",
+      "has3d": 1,
+      "canvas": 1,
+      "modelText": "←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · LED 7 đoạn 0,56 inch, gói LTS-6760 · khoảng 19,1 × 12 × 12,6 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.",
+      "detail": "HIỂN THỊ\n\n←\n→\n↑\n↓\n+\n−\nĐặt lại\nXem hình 2D\n\nMesh CAD · thư viện KiCad · LED 7 đoạn 0,56 inch, gói LTS-6760 · khoảng 19,1 × 12 × 12,6 mm. Vỏ linh kiện tiêu chuẩn, không phải model của một hãng hay mã sản phẩm cụ thể. Nguồn: KiCad Packages3D, CC BY-SA 4.0.\n\nLED 7 đoạn 1 chữ số\nCó trong một số bài mẫu\n\nTám LED nhỏ tạo bảy đoạn A–G và dấu chấm để hiển thị ký tự số.\n\nLắp thử trên bàn tự do\n↗\nCHÂN THƯỜNG GẶP\nA, B, C, D, E, F, G, DP và một/vài chân COM; chân COM là anode chung hoặc cathode chung tùy linh kiện.\nDÙNG ĐỂ LÀM GÌ?\nHiển thị số đếm, giá trị cảm biến hoặc trạng thái; bài mẫu trên web dùng loại cathode chung.\nĐIỂM CẦN LƯU Ý\nCần điện trở hạn dòng cho từng đoạn. Xác định sơ đồ chân và common-anode/common-cathode theo datasheet.\nTrong workspace\n\nTám LED biểu diễn bảy đoạn và dấu chấm. Mẫu bài học dùng cathode chung.\n\nChân mô hình: A (a) · B (b) · C (c) · D (d) · E (e) · F (f) · G (g) · DP (dp) · COM1 (com1) · COM2 (com2)\n\nDùng trong bài\nĐếm số với LED 7 đoạn\nTÀI LIỆU THAM KHẢO\n\nHướng dẫn chung. Nguồn chỉ giải thích nguyên lý hoặc một ví dụ khác. Chân, trị số và giới hạn điện phải lấy từ datasheet của linh kiện bạn dùng.\n\nXIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗\nTài liệu board · Có phân biệt bản thường với Sense/Plus, thông số board, quy trình header, nguồn và pinout. Bản thường không có camera, microphone hoặc khe SD của Sense.\nAdafruit · ví dụ LED 7 đoạn ↗\nHướng dẫn tham khảo · Tham khảo cách dùng display; loại common-anode/cathode và sơ đồ chân cần đối chiếu mã linh kiện.\n7 đoạn\nseven segment\ndisplay\nLED\ncommon cathode\nThử trong bàn lắp mạch ↗",
+      "links": [
+        {
+          "text": "KiCad Packages3D",
+          "href": "https://gitlab.com/kicad/libraries/kicad-packages3D"
+        },
+        {
+          "text": "Lắp thử trên bàn tự do\n↗",
+          "href": "/build/freestyle?part=seven-segment"
+        },
+        {
+          "text": "Đếm số với LED 7 đoạn",
+          "href": "/learn/seven-segment-counter"
+        },
+        {
+          "text": "XIAO ESP32-S3 · hướng dẫn và thông số chính hãng ↗",
+          "href": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+        },
+        {
+          "text": "Adafruit · ví dụ LED 7 đoạn ↗",
+          "href": "https://learn.adafruit.com/trinket-react-counter/7-segment-display"
+        },
+        {
+          "text": "Thử trong bàn lắp mạch ↗",
+          "href": "/build"
+        }
+      ],
+      "image2d": "component-59-seven-segment-2d.png",
+      "image3d": "component-59-seven-segment-3d.png"
+    }
+  ],
+  "errors": {
+    "errors": [],
+    "failed": [],
+    "bad": []
+  }
+}

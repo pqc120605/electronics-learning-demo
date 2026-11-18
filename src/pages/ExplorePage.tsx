@@ -1,3 +1,4 @@
+import { BeginnerResumeCard } from '../components/learning/BeginnerResumeCard'
 import { Link } from 'react-router-dom'
 import { FreestyleBench } from '../components/freestyle/FreestyleBench'
 
@@ -15,11 +16,12 @@ export function ExplorePage() {
         <p className="eyebrow"><span className="eyebrow-line" /> ĐIỆN TỬ · LẬP TRÌNH NHÚNG · IOT</p>
         <h1>Từ linh kiện nhỏ<br />đến thế giới <span>thông minh.</span></h1>
         <p className="hero-description">Lắp mạch, viết code và bấm Chạy ngay trên trình duyệt. Mạch Mở giúp bạn hiểu board, cảm biến và code qua những mạch thử trực quan.</p>
-        <div className="hero-actions"><Link className="button-primary" to="/learn/esp32-led">Bắt đầu bài đầu tiên <span aria-hidden="true">↗</span></Link><a className="text-link" href="#bat-dau">Ba cách bắt đầu <span aria-hidden="true">↓</span></a></div>
+        <div className="hero-actions"><Link className="button-primary" to="/learn/basics">Bắt đầu bài đầu tiên <span aria-hidden="true">↗</span></Link><a className="text-link" href="#bat-dau">Ba cách bắt đầu <span aria-hidden="true">↓</span></a></div>
         <div className="hero-note"><span className="note-icon">✳</span><span>Miễn phí để khám phá<br /><strong>Không cần tài khoản hay kinh nghiệm</strong></span></div>
       </div>
     </section>
     {/* 2026-11-14: bàn lắp mạch tự do thay chỗ model 3D ESP32 (FirstBoardStudio vẫn dùng ở /app). */}
+    <BeginnerResumeCard />
     <FreestyleBench />
     <section className="home-start" id="bat-dau" aria-labelledby="home-start-title">
       <div className="home-section-heading"><p className="eyebrow">BA CÁCH BẮT ĐẦU</p><h2 id="home-start-title">Chọn một đường, mỗi đường ba bước</h2><p>Không chắc bắt đầu từ đâu? Chọn “Học bài đầu tiên”.</p></div>

@@ -1,0 +1,35 @@
+{
+  "at": "2026-11-18T03:06:46.200Z",
+  "files": {
+    "src/lib/lessonBoardCapabilities.ts": "8aec6081efc1eaa0d16b90632f795eeb33fdb9dad50ed13be65a6b05e3c3494b",
+    "src/components/lesson/BoardCapabilityFinder.tsx": "828bdfc09d23e7447690f84a3fadc8ec3adfcbcc6fce4bda910ae4a12d0fd022",
+    "src/components/lesson/BoardCapabilityFinder.css": "d7cf4cbb3ca642f078cec24bfadafd2dd7eb371bd7f66b4c405c46590adce41b",
+    "src/components/lesson/LessonBoardChooser.tsx": "f1a4a2b60bf15ab158821549543eb00546eb1baffca687659d6d73d4a9706f0a",
+    "tests/lesson-board-capabilities.test.mjs": "3e262b6669ac08990ad1732e9a3384a603d4456c92949d07fc4a42953979db43",
+    "e2e/lesson-board-capabilities.spec.mjs": "8293d4ec0b26fde08a5501db29560894d20c54432b9980823cf8d18685958425"
+  },
+  "scope": {
+    "withinLease": [
+      "src/components/lesson/LessonBoardChooser.tsx",
+      "src/components/lesson/BoardCapabilityFinder.css",
+      "src/components/lesson/BoardCapabilityFinder.tsx",
+      "src/lib/lessonBoardCapabilities.ts",
+      "tests/lesson-board-capabilities.test.mjs",
+      "e2e/lesson-board-capabilities.spec.mjs"
+    ],
+    "parallelLeaseChanges": [
+      "src/components/lesson/CircuitGatePanel.css",
+      "src/components/lesson/CircuitGatePanel.tsx",
+      "src/lib/circuitGatePresentation.ts",
+      "src/lib/circuitGates.ts",
+      "src/pages/CircuitBuilderPage.tsx",
+      "tests/circuit-gate-presentation.test.mjs",
+      "tests/circuit-gates.test.mjs",
+      "e2e/workspace-interaction-regressions.spec.mjs",
+      "src/lib/circuitDiagnosticNavigation.ts",
+      "tests/circuit-diagnostic-navigation.test.mjs"
+    ],
+    "unexpected": [],
+    "missing": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "at": "2026-11-17T17:38:49.878Z",
+  "files": {
+    "src/lib/beginnerGuide.ts": "0b931c905d1952f21f4c0284ce4f81d762471c99bc3a2555f76fe792980fde7e",
+    "tests/beginner-guide.test.mjs": "84ce529cdebf0e5aa68872e9ec93555cda5ae38dcc112b4f3c223ad5504d4198",
+    "src/lib/guideKnowledge.ts": "e167dc01b6b92b8f46095bc7cd14b8ff3435184d0ccd0413613b0100f2ead592",
+    "src/components/guide/GuidePanel.tsx": "f30751e7a04a483dea9d8169d1eae801895b412d4f21a63e7c54bf59f5d897f4",
+    "src/components/guide/GuideHost.tsx": "249e38a7c7075630820848ce3f87cb77b320aa5937fd1c04305b26062f239248",
+    "src/pages/BeginnerLearningPage.tsx": "99824996aed3746ea6ff94faf8786bcbd4893f85669136f4b090448a71a5f68f",
+    "e2e/beginner-guide.spec.mjs": "aa0d127b5536856eacffb7dedc8fda4b12051f4cd5313408649e7061fee2dcd5"
+  },
+  "scope": {
+    "changed": [
+      "src/components/guide/GuideHost.tsx",
+      "src/components/guide/GuidePanel.tsx",
+      "src/lib/beginnerGuide.ts",
+      "src/lib/guideKnowledge.ts",
+      "src/pages/BeginnerLearningPage.tsx",
+      "tests/beginner-guide.test.mjs"
+    ],
+    "added": [
+      "e2e/beginner-guide.spec.mjs"
+    ],
+    "unexpected": [],
+    "missing": []
+  }
+}

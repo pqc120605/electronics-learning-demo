@@ -1,0 +1,36 @@
+.beginner-page{max-width:1220px;margin:0 auto;padding:24px 0 60px;color:var(--mm-ink);font-family:var(--mm-font-body)}
+.beginner-page h1,.beginner-page h2,.beginner-page h3{font-family:var(--mm-font-display);line-height:1.15}.beginner-page h1{font-size:clamp(2rem,5vw,3.5rem);margin:16px 0}.beginner-page h2{font-size:clamp(1.6rem,3vw,2.4rem)}
+.beginner-page p,.beginner-page li{max-width:80ch;line-height:1.55}.beginner-header{max-width:80ch}.beginner-evidence-note{border-left:3px solid var(--mm-signal);padding-left:12px;color:var(--mm-muted)}
+.beginner-storage{padding:16px 20px;background:var(--mm-bg-deep);border-radius:var(--mm-radius-md);margin:24px 0}.beginner-storage p{margin:6px 0;font-size:.9rem}.beginner-actions{display:flex;gap:10px;flex-wrap:wrap}
+.beginner-page button,.beginner-page select{font:inherit;color:var(--mm-ink);border:1px solid var(--mm-line);border-radius:var(--mm-radius-sm);background:var(--mm-surface);min-height:44px;padding:9px 12px;cursor:pointer;max-width:100%;white-space:normal}
+.beginner-page button:disabled{cursor:default;opacity:.55}.beginner-page :is(button,select,input,a,pre):focus-visible{outline:3px solid var(--mm-signal);outline-offset:3px}
+.beginner-activities{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:24px 0}.beginner-activities button{text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:8px}.beginner-activities button[aria-current]{border:2px solid var(--mm-signal);background:var(--mm-signal-soft)}.beginner-activities button>span{font-size:1.25rem;font-weight:700}.beginner-activities small{font-size:.8rem;color:var(--mm-muted)}
+.beginner-activity-intro{border-top:1px solid var(--mm-line);padding:8px 0 16px}.beginner-activity-intro p{margin:8px 0}.beginner-lab-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:28px}.beginner-lab-layout>*{min-width:0}
+.beginner-circuit,.beginner-breadboard{margin:0 0 24px;background:var(--mm-surface);padding:16px;border:1px solid var(--mm-line);border-radius:var(--mm-radius-md)}.beginner-circuit svg{width:100%;height:auto;display:block}.beginner-page figcaption{font-size:.88rem;line-height:1.5;color:var(--mm-muted)}.beginner-circuit details{margin-top:12px;font-size:.82rem;overflow-wrap:anywhere}.beginner-circuit summary{cursor:pointer;min-height:32px}.beginner-circuit li{font-family:var(--mm-font-mono);font-size:.78rem}
+.beginner-page fieldset{min-width:0;border:1px solid var(--mm-line);border-radius:var(--mm-radius-md);padding:16px;margin:0 0 20px}.beginner-page legend{font-weight:700;padding:0 6px}.beginner-choice,.beginner-toggle{display:flex;align-items:flex-start;gap:10px;min-height:44px;padding:9px 0;line-height:1.5}.beginner-page input[type=checkbox],.beginner-page input[type=radio]{width:20px;height:20px;flex:0 0 20px;margin:2px 0;accent-color:var(--mm-signal)}
+.beginner-cases{border-top:1px solid var(--mm-line-soft);padding-top:8px;margin-top:12px}.beginner-cases button{margin:4px 6px 4px 0;font-size:.9rem}.beginner-board{display:flex;flex-direction:column;gap:8px;font-weight:700}.beginner-board select{width:100%}.beginner-range{display:flex;flex-direction:column;gap:12px;margin:12px 0 24px}.beginner-range input{width:100%;min-height:28px;accent-color:var(--mm-signal)}
+.beginner-hole-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px 4px;margin:16px 0}.beginner-hole-grid>span{display:flex;justify-content:center;align-items:center;min-height:44px;border-bottom:2px solid var(--mm-line);font-family:var(--mm-font-mono);font-size:.85rem}.beginner-hole-grid button{padding:4px;font-size:.8rem}.beginner-hole-grid button[aria-pressed=true]{background:var(--mm-signal-soft);border:2px solid var(--mm-signal)}.beginner-hole-grid>.beginner-trench{margin-top:20px}.beginner-hole-grid>span:nth-child(n+7){margin-top:20px}
+.beginner-code pre{max-height:360px;overflow:auto;background:var(--mm-surface);border:1px solid var(--mm-line);padding:16px;font: .82rem/1.7 var(--mm-font-mono);white-space:pre-wrap;overflow-wrap:anywhere}.beginner-code h3{font-size:1.15rem}
+.beginner-page .beginner-observe{width:100%;background:var(--mm-signal);border-color:var(--mm-signal);color:white;font-weight:700}.beginner-result{padding:16px;margin:16px 0 24px;min-height:96px;background:var(--mm-signal-soft);border-left:4px solid var(--mm-signal);overflow-wrap:anywhere}.beginner-result h3{margin:0 0 8px}.beginner-result p{margin:6px 0}.beginner-hints li{margin:8px 0}.beginner-assessment{border-top:2px solid var(--mm-signal);padding-top:12px;margin-top:24px}.beginner-assessment h3{font-size:1.4rem}
+@media(max-width:760px){.beginner-page{padding-top:16px}.beginner-lab-layout{grid-template-columns:1fr;gap:16px}.beginner-activities{grid-template-columns:repeat(2,minmax(0,1fr))}.beginner-activities button:last-child{grid-column:1/-1}.beginner-storage{padding:16px}.beginner-page fieldset{padding:12px}.beginner-circuit{padding:8px}.beginner-actions{flex-direction:column;align-items:stretch}}
+@media(prefers-reduced-motion:reduce){.beginner-page *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+/* Keep the active experiment together on desktop; mobile uses the page scroll. */
+.beginner-header h1{margin:8px 0;font-size:clamp(2rem,4vw,3rem)}
+.beginner-header>p{margin:8px 0}
+.beginner-scope{font-size:.9rem;color:var(--mm-muted)}
+.beginner-scope summary,.beginner-storage summary{cursor:pointer;min-height:32px;padding:5px 0}
+.beginner-storage{margin:12px 0;padding:10px 16px}
+.beginner-storage>strong{font-size:.9rem}
+.beginner-storage details{font-size:.9rem}
+.beginner-activities{margin:16px 0}
+.beginner-activities button{font-size:.9rem;gap:4px;padding:10px}
+.beginner-activities button>span{font-size:1rem}
+.beginner-activity-intro h2{margin:12px 0}
+.beginner-lab-layout{max-height:clamp(360px,calc(100dvh - 470px),620px);overflow:auto;overscroll-behavior:contain;padding:4px 8px 8px 4px;scrollbar-gutter:stable}
+.beginner-activity-navigation{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+@media(max-width:760px){
+ .beginner-activities{display:flex;overflow-x:auto;gap:8px;padding:4px 2px 10px;scroll-snap-type:x proximity}
+ .beginner-activities button{flex:0 0 160px;scroll-snap-align:start}
+ .beginner-lab-layout{max-height:none;overflow:visible;padding:0;scrollbar-gutter:auto}
+ .beginner-page .beginner-observe{position:sticky;bottom:12px;z-index:2;box-shadow:0 3px 10px rgb(29 43 73 / 18%)}
+}

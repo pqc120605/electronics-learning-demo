@@ -1,0 +1,67 @@
+{
+  "cases": [
+    {
+      "case": "feedback-review",
+      "url": "http://127.0.0.1:5320/feedback",
+      "title": "Góp ý & báo lỗi — Mạch Mở",
+      "text": "Cùng xây dựng Mạch Mở\n\nGóp ý & báo lỗi\n\nGhi lại điều khiến bạn vướng mắc, hoặc một ý tưởng giúp việc học và lắp mạch dễ hơn.\n\n● Chưa gửi\n\nBạn có thể xem lại, sao chép và tải file. Form này chưa tự gửi nội dung tới người phát triển.\n\nBạn muốn chia sẻ điều gì?\nBáo lỗi\nGóp ý tính năng\nGóp ý bài học\nTiêu đề *\nMô tả của bạn *\nTrang liên quan (không bắt buộc)\nThêm chi tiết để dễ tái hiện lỗi\n\nNháp được giữ trong tab này. Đóng tab có thể mất nháp; tải file để giữ riêng.\n\nXem lại nội dung\nBản góp ý của bạn\n\nBạn có thể giữ bản này dưới dạng file hoặc sao chép.\n\nTải file góp ý (.md)\nSao chép\n\nCP\nNgười phát triển\nChiến Phan\n\nMạch Mở\n\nThông tin liên hệ của người phát triển, để bạn tìm hiểu thêm về người đang xây dựng Mạch Mở.\n\nGmail\nchienpq12.work@gmail.com\nFacebook\nFacebook của Chiến Phan\nPortfolio\nphanquocchien.vercel.app",
+      "screenshot": "feedback-review.png",
+      "alerts": []
+    },
+    {
+      "case": "community-new",
+      "url": "http://127.0.0.1:5320/community/new",
+      "title": "Viết bài mới — Cộng đồng Mạch Mở",
+      "text": "Cộng đồng\n/\nBài mới\nViết bài mới\n\nBẢN XEM TRƯỚC\nBài viết chưa đồng bộ: bài mẫu và bài/bình luận cục bộ chỉ có trên thiết bị này. Chữ lưu localStorage, tệp lưu IndexedDB; có thể bị trình duyệt xoá. Tệp đang chọn chỉ ở bộ nhớ cho tới khi đăng thành công.\nOnline chưa được kết nối. Founder cần tạo Supabase và áp dụng gói docs/software/community-online.\n\nBạn đang viết nháp dưới tên khách, chỉ lưu trên thiết bị này.\n\nNháp chữ tự lưu trên thiết bị. Tệp đang chọn chỉ ở bộ nhớ; cần chọn lại khi tải lại trang.\n\nTiêu đề\nNhóm chủ đề\nChọn nhóm…\nĐiện tử cơ bản\nVi điều khiển & nhúng\nIoT\nDự án\nHỏi đáp lỗi\nThẻ (cách nhau bằng dấu phẩy, tối đa 5)\nNội dung\nĐậm\nCode nội dòng\nChèn khối code\nXem trước\n\nHỗ trợ **đậm**, *nghiêng*, `code`, khối ``` code ```, danh sách - và liên kết https.\n46/10000\n\nẢnh / tệp đính kèm\n\nTối đa 5 tệp, 10 MiB/tệp, 25 MiB/bài. PNG/JPEG/WebP/GIF, PDF, văn bản, JSON và mã nguồn. Tệp chỉ ở bộ nhớ trước khi đăng; không thực thi mã hoặc hiển thị PDF/HTML.\n\nĐăng bài (lưu trên thiết bị)\nHuỷ\nQUY TẮC CỘNG ĐỒNG\nTôn trọng người hỏi; ai cũng từng là người mới.\nMô tả rõ board, sơ đồ nối dây, code và lỗi gặp phải.\nDán code trong khối ``` để dễ đọc; không đăng mật khẩu Wi-Fi, token hay khoá API.\nKhông hướng dẫn thao tác điện lưới 220V hay sạc pin Li-ion thiếu bảo vệ mà không cảnh báo an toàn.\nKhông spam, quảng cáo hay nội dung xúc phạm. Dùng nút “Báo cáo” khi thấy vi phạm.",
+      "screenshot": "community-compose.png",
+      "alerts": []
+    }
+  ],
+  "downloadName": "mach-mo-gop-y-2026-11-16T16-17-39.590Z.md",
+  "inputs": [
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": "_r_3_",
+      "label": null,
+      "placeholder": "vd: ESP32 không nhận cảm biến DHT22"
+    },
+    {
+      "tag": "SELECT",
+      "type": "select-one",
+      "id": "_r_4_",
+      "label": null,
+      "placeholder": null
+    },
+    {
+      "tag": "INPUT",
+      "type": "text",
+      "id": "_r_5_",
+      "label": null,
+      "placeholder": "esp32, i2c, cảm-biến"
+    },
+    {
+      "tag": "TEXTAREA",
+      "type": "textarea",
+      "id": "_r_6_",
+      "label": null,
+      "placeholder": null
+    },
+    {
+      "tag": "INPUT",
+      "type": "file",
+      "id": "_r_7_",
+      "label": null,
+      "placeholder": null
+    }
+  ],
+  "buttons": [
+    "?Trợ giúp",
+    "Đậm",
+    "Code nội dòng",
+    "Chèn khối code",
+    "Xem trước",
+    "Đăng bài (lưu trên thiết bị)",
+    "Hỏi MởCùng bạn làm mạch"
+  ]
+}

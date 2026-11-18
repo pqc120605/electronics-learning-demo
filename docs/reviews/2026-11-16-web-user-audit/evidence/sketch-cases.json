@@ -1,0 +1,152 @@
+{
+  "cases": [
+    {
+      "case": "esp32-blink",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.95 s ảo · loop()\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n\nESP32 · Xtensa LX6 · ADC 12 bit · GPIO 34–39 chỉ là input; GPIO 6–11 nối flash nên không dùng.\n\nCHÂN ĐẦU RA\nGPIO 2 · LED trên board\nLOW\nĐẦU VÀO\n\nSketch chưa đọc digitalRead/analogRead.\n\nSERIAL MONITOR\nESP32 bat dau nhay LED\r\nLED: BAT\r\nLED: TAT\r\n\nLOGIC ANALYZER\nLogic Analyzer · GPIO 2 · LED trên board\n2 lần đổi mức · 949.1 ms thời gian mô phỏng\n0.000 ms\n474.5 ms\n949.1 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\nCần ít nhất hai cạnh lên và cạnh xuống tương ứng để ước tính tần số/duty cycle.\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-esp32-blink.png",
+      "alerts": []
+    },
+    {
+      "case": "esp32-button",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.86 s ảo · loop()\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n\nESP32 · Xtensa LX6 · ADC 12 bit · GPIO 34–39 chỉ là input; GPIO 6–11 nối flash nên không dùng.\n\nCHÂN ĐẦU RA\nGPIO 2 · LED trên board\nLOW\nĐẦU VÀO\n\nGiữ nút GPIO 4 ở khung \"Đầu vào\".\n\nGiữ để nhấn · GPIO 4\nHIGH\nSERIAL MONITOR\nNhan\r\nNha\r\n\nLOGIC ANALYZER\nLogic Analyzer · GPIO 2 · LED trên board\n2 lần đổi mức · 175.8 ms thời gian mô phỏng\n0.000 ms\n87.9 ms\n175.8 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\nCần ít nhất hai cạnh lên và cạnh xuống tương ứng để ước tính tần số/duty cycle.\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-esp32-button.png",
+      "alerts": []
+    },
+    {
+      "case": "esp32-pot-pwm",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.98 s ảo · loop()\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n\nESP32 · Xtensa LX6 · ADC 12 bit · GPIO 34–39 chỉ là input; GPIO 6–11 nối flash nên không dùng.\n\nCHÂN ĐẦU RA\nGPIO 25\nPWM 100 %\nĐẦU VÀO\n\nKéo thanh trượt GPIO 34 ở khung \"Đầu vào\".\n\nGPIO 34 · 100 % Vref\nSERIAL MONITOR\nADC=0 duty=0%\nADC=0 duty=0%\nADC=0 duty=0%\nADC=0 duty=0%\nADC=4095 duty=100%\n\nLOGIC ANALYZER\nLogic Analyzer · GPIO 25\n1 lần đổi mức · 182.4 ms thời gian mô phỏng\n0.000 ms\n91.2 ms\n182.4 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\nCần ít nhất hai cạnh lên và cạnh xuống tương ứng để ước tính tần số/duty cycle.\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-esp32-pot-pwm.png",
+      "alerts": []
+    },
+    {
+      "case": "uno-traffic",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.87 s ảo · loop()\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n\nATmega328P · 16 MHz · ADC 10 bit · PWM trên D3, D5, D6, D9, D10, D11.\n\nCHÂN ĐẦU RA\nD11\nLOW\nD12\nLOW\nD13 · LED trên board\nHIGH\nĐẦU VÀO\n\nSketch chưa đọc digitalRead/analogRead.\n\nSERIAL MONITOR\nDen so 0\r\n\nLOGIC ANALYZER\nLogic Analyzer · D13 · LED trên board\n1 lần đổi mức · 871.0 ms thời gian mô phỏng\n0.000 ms\n435.5 ms\n871.0 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\nCần ít nhất hai cạnh lên và cạnh xuống tương ứng để ước tính tần số/duty cycle.\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-uno-traffic.png",
+      "alerts": []
+    },
+    {
+      "case": "pico-blink",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.84 s ảo · loop()\n1\n2\n3\n4\n5\n6\n7\n8\n9\n\nRP2040 · Cortex-M0+ · ADC 10 bit · Mặc định analogRead 10 bit như core Arduino-Pico.\n\nCHÂN ĐẦU RA\nGP25 · LED trên board\nLOW\nĐẦU VÀO\n\nSketch chưa đọc digitalRead/analogRead.\n\nSERIAL MONITOR\nChưa có dữ liệu Serial.\nLOGIC ANALYZER\nLogic Analyzer · GP25 · LED trên board\n4 lần đổi mức · 839.5 ms thời gian mô phỏng\n0.000 ms\n419.7 ms\n839.5 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\nCần ít nhất hai cạnh lên và cạnh xuống tương ứng để ước tính tần số/duty cycle.\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-pico-blink.png",
+      "alerts": []
+    },
+    {
+      "case": "board-esp32-devkit",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.53 s ảo · loop()\n1\n2\n\nESP32 · Xtensa LX6 · ADC 12 bit · GPIO 34–39 chỉ là input; GPIO 6–11 nối flash nên không dùng.\n\nCHÂN ĐẦU RA\nGPIO 2 · LED trên board\nLOW\nĐẦU VÀO\n\nSketch chưa đọc digitalRead/analogRead.\n\nSERIAL MONITOR\nAUDIT\r\nAUDIT\r\nAUDIT\r\n\nLOGIC ANALYZER\nLogic Analyzer · GPIO 2 · LED trên board\n6 lần đổi mức · 534.9 ms thời gian mô phỏng\n0.000 ms\n267.4 ms\n534.9 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\n5.00 Hz tần số ước tính (trace logic)\n50.0% duty cycle trung bình\n1 chu kỳ hoàn chỉnh\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-board-esp32-devkit.png",
+      "alerts": []
+    },
+    {
+      "case": "board-esp32-s3-devkitc-1",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.52 s ảo · loop()\n1\n2\n\nESP32-S3 · Xtensa LX7 · ADC 12 bit · LED trên board là RGB WS2812 (GPIO 48 hoặc 38 tùy revision), không có LED_BUILTIN đơn.\n\nCHÂN ĐẦU RA\nGPIO 2\nLOW\nĐẦU VÀO\n\nSketch chưa đọc digitalRead/analogRead.\n\nSERIAL MONITOR\nAUDIT\r\nAUDIT\r\nAUDIT\r\n\nLOGIC ANALYZER\nLogic Analyzer · GPIO 2\n6 lần đổi mức · 522.5 ms thời gian mô phỏng\n0.000 ms\n261.2 ms\n522.5 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\n5.00 Hz tần số ước tính (trace logic)\n50.0% duty cycle trung bình\n1 chu kỳ hoàn chỉnh\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-board-esp32-s3-devkitc-1.png",
+      "alerts": []
+    },
+    {
+      "case": "board-arduino-uno-r3",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.49 s ảo · loop()\n1\n2\n\nATmega328P · 16 MHz · ADC 10 bit · PWM trên D3, D5, D6, D9, D10, D11.\n\nCHÂN ĐẦU RA\nD2\nHIGH\nĐẦU VÀO\n\nSketch chưa đọc digitalRead/analogRead.\n\nSERIAL MONITOR\nAUDIT\r\nAUDIT\r\nAUDIT\r\n\nLOGIC ANALYZER\nLogic Analyzer · D2\n5 lần đổi mức · 489.6 ms thời gian mô phỏng\n0.000 ms\n244.8 ms\n489.6 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\n5.00 Hz tần số ước tính (trace logic)\n50.0% duty cycle trung bình\n1 chu kỳ hoàn chỉnh\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-board-arduino-uno-r3.png",
+      "alerts": []
+    },
+    {
+      "case": "board-arduino-nano",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.44 s ảo · loop()\n1\n2\n\nATmega328P · 16 MHz · ADC 10 bit · A6, A7 chỉ đọc analog.\n\nCHÂN ĐẦU RA\nD2\nHIGH\nĐẦU VÀO\n\nSketch chưa đọc digitalRead/analogRead.\n\nSERIAL MONITOR\nAUDIT\r\nAUDIT\r\nAUDIT\r\n\nLOGIC ANALYZER\nLogic Analyzer · D2\n5 lần đổi mức · 437.1 ms thời gian mô phỏng\n0.000 ms\n218.5 ms\n437.1 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\n5.00 Hz tần số ước tính (trace logic)\n50.0% duty cycle trung bình\n1 chu kỳ hoàn chỉnh\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-board-arduino-nano.png",
+      "alerts": []
+    },
+    {
+      "case": "board-arduino-mega-2560",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.50 s ảo · loop()\n1\n2\n\nATmega2560 · 16 MHz · ADC 10 bit · PWM trên D2–D13, D44–D46.\n\nCHÂN ĐẦU RA\nD2\nHIGH\nĐẦU VÀO\n\nSketch chưa đọc digitalRead/analogRead.\n\nSERIAL MONITOR\nAUDIT\r\nAUDIT\r\nAUDIT\r\n\nLOGIC ANALYZER\nLogic Analyzer · D2\n5 lần đổi mức · 499.9 ms thời gian mô phỏng\n0.000 ms\n249.9 ms\n499.9 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\n5.00 Hz tần số ước tính (trace logic)\n50.0% duty cycle trung bình\n1 chu kỳ hoàn chỉnh\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-board-arduino-mega-2560.png",
+      "alerts": []
+    },
+    {
+      "case": "board-raspberry-pi-pico",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.47 s ảo · loop()\n1\n2\n\nRP2040 · Cortex-M0+ · ADC 10 bit · Mặc định analogRead 10 bit như core Arduino-Pico.\n\nCHÂN ĐẦU RA\nGP2\nHIGH\nĐẦU VÀO\n\nSketch chưa đọc digitalRead/analogRead.\n\nSERIAL MONITOR\nAUDIT\r\nAUDIT\r\nAUDIT\r\n\nLOGIC ANALYZER\nLogic Analyzer · GP2\n5 lần đổi mức · 474.5 ms thời gian mô phỏng\n0.000 ms\n237.2 ms\n474.5 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\n5.00 Hz tần số ước tính (trace logic)\n50.0% duty cycle trung bình\n1 chu kỳ hoàn chỉnh\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-board-raspberry-pi-pico.png",
+      "alerts": []
+    },
+    {
+      "case": "board-stm32-blue-pill-f103",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.58 s ảo · loop()\n1\n2\n\nSTM32F103C8 · Cortex-M3 72 MHz · ADC 10 bit · Logic 3,3 V. LED trên board ở PC13, sáng khi xuất LOW. analogRead 10 bit như mặc định STM32duino. Chỉ chạy bằng trình thông dịch rút gọn.\n\nCHÂN ĐẦU RA\nGPIO 2\nLOW\nĐẦU VÀO\n\nSketch chưa đọc digitalRead/analogRead.\n\nSERIAL MONITOR\nAUDIT\r\nAUDIT\r\nAUDIT\r\n\nLOGIC ANALYZER\nLogic Analyzer · GPIO 2\n6 lần đổi mức · 582.6 ms thời gian mô phỏng\n0.000 ms\n291.3 ms\n582.6 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\n5.00 Hz tần số ước tính (trace logic)\n50.0% duty cycle trung bình\n1 chu kỳ hoàn chỉnh\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-board-stm32-blue-pill-f103.png",
+      "alerts": []
+    },
+    {
+      "case": "board-stm32-nucleo-f401re",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n■ Dừng\n0.48 s ảo · loop()\n1\n2\n\nSTM32F401RE · Cortex-M4 84 MHz · ADC 10 bit · Logic 3,3 V. LED LD2 ở D13/PA5, nút B1 ở PC13. Chỉ chạy bằng trình thông dịch rút gọn.\n\nCHÂN ĐẦU RA\nGPIO 2\nHIGH\nĐẦU VÀO\n\nSketch chưa đọc digitalRead/analogRead.\n\nSERIAL MONITOR\nAUDIT\r\nAUDIT\r\nAUDIT\r\n\nLOGIC ANALYZER\nLogic Analyzer · GPIO 2\n5 lần đổi mức · 482.9 ms thời gian mô phỏng\n0.000 ms\n241.4 ms\n482.9 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · HIGH → HIGH · giá trị là logic, không phải điện áp\n5.00 Hz tần số ước tính (trace logic)\n50.0% duty cycle trung bình\n1 chu kỳ hoàn chỉnh\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng trình thông dịch (thời gian ảo), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 512 lần chuyển mức.",
+      "screenshot": "sketch-board-stm32-nucleo-f401re.png",
+      "alerts": []
+    },
+    {
+      "case": "syntax-error",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "text": "CÔNG CỤ · CHẠY CODE TRÊN WEB\n\nChạy code Arduino / ESP32\n\nThông dịch Arduino C++ con ngay trong trình duyệt, theo thời gian ảo. Không biên dịch và không nạp firmware thật; WiFi, I²C, SPI chưa mô phỏng.\n\nVí dụ\nESP32 · Nháy LED trên board\nESP32 · Nút nhấn bật LED\nESP32 · Biến trở chỉnh độ sáng (PWM)\nArduino Uno · Đèn giao thông\nRaspberry Pi Pico · Nháy GP25\nBoard / MCU\nESP32 DevKit V1 (30 chân) · ESP32 · Xtensa LX6\nESP32-S3-DevKitC-1 · ESP32-S3 · Xtensa LX7\nArduino Uno R3 · ATmega328P · 16 MHz\nArduino Nano classic · ATmega328P · 16 MHz\nArduino Mega 2560 R3 · ATmega2560 · 16 MHz\nRaspberry Pi Pico (Arduino-Pico) · RP2040 · Cortex-M0+\nSTM32F103C8T6 Blue Pill · STM32F103C8 · Cortex-M3 72 MHz\nSTM32 NUCLEO-F401RE · STM32F401RE · Cortex-M4 84 MHz\n▶ Chạy\nChưa chạy\n1\n2\n3\n4\n\nDòng 2: Không hiểu ';'.\n\nSTM32F401RE · Cortex-M4 84 MHz · ADC 10 bit · Logic 3,3 V. LED LD2 ở D13/PA5, nút B1 ở PC13. Chỉ chạy bằng trình thông dịch rút gọn.\n\nCHÂN ĐẦU RA\n\nChưa có chân nào được đặt OUTPUT.\n\nĐẦU VÀO\n\nSketch chưa đọc digitalRead/analogRead.\n\nSERIAL MONITOR\nChưa có dữ liệu Serial.",
+      "screenshot": "sketch-syntax-error.png",
+      "alerts": [
+        "Dòng 2: Không hiểu ';'."
+      ]
+    }
+  ],
+  "errors": {
+    "errors": [],
+    "failed": [
+      {
+        "url": "http://127.0.0.1:5320/models/arduino-uno-r3.glb?v=53330cd2b0d2",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/models/esp32-devkit-v1-30pin.glb?v=b3d0a6b0be09",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/assets/circuitNets-CvwZy5uq.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/assets/sketchInterpreter-Cr2vFJlH.js",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "bad": []
+  }
+}

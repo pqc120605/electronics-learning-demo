@@ -15,11 +15,14 @@ export function GuideHost(){
   const focusedWorkspace=/^\/(?:app\/)?(?:build|lab|learn\/|tools\/)/.test(pathname)
   const opener=useRef<HTMLElement|null>(null)
   function show(){opener.current=document.activeElement instanceof HTMLElement?document.activeElement:null;setHidden(false);remember('mm-guide-hidden',false);setOpen(true)}
-  function close(){setOpen(false);requestAnimationFrame(()=>{
-    const previous=opener.current
-    if(previous?.isConnected&&previous.getClientRects().length)previous.focus()
-    else document.querySelector<HTMLButtonElement>('.help-menu-button')?.focus()
-  })}
+  function closeTo(target: HTMLElement | null) {
+    setOpen(false)
+    requestAnimationFrame(() => {
+      if (target?.isConnected && target.getClientRects().length) target.focus()
+      else document.querySelector<HTMLButtonElement>('.help-menu-button')?.focus()
+    })
+  }
+  function close() { closeTo(opener.current) }
   useEffect(()=>{const listener=()=>show();window.addEventListener(GUIDE_OPEN_EVENT,listener);return()=>window.removeEventListener(GUIDE_OPEN_EVENT,listener)},[])
   useEffect(()=>{
     const media=matchMedia('(prefers-reduced-motion: reduce)'),onChange=()=>setReduced(media.matches)
@@ -32,7 +35,7 @@ export function GuideHost(){
       <img src={mascot} alt="" width="56" height="64" decoding="async" /><span><strong>Hỏi Mở</strong><small>Cùng bạn làm mạch</small></span>
     </button>}
     {open&&<Suspense fallback={<aside className="guide-loading" role="status">Đang mở hướng dẫn… <button type="button" onClick={close}>Đóng</button></aside>}>
-      <GuidePanel pathname={pathname} motion={!still&&!reduced} reduced={reduced} onMotion={value=>{setStill(!value);remember('mm-guide-still',!value)}} onClose={close} onStartTour={()=>setOpen(false)} onHide={()=>{setHidden(true);remember('mm-guide-hidden',true);close()}} />
+      <GuidePanel pathname={pathname} motion={!still&&!reduced} reduced={reduced} onMotion={value=>{setStill(!value);remember('mm-guide-still',!value)}} onClose={close} onNavigate={closeTo} onStartTour={()=>setOpen(false)} onHide={()=>{setHidden(true);remember('mm-guide-hidden',true);close()}} />
     </Suspense>}
   </>
 }

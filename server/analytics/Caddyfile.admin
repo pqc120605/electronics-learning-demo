@@ -1,0 +1,26 @@
+http://127.0.0.1:8081 {
+    bind 127.0.0.1
+    root * {$MACH_MO_ROOT}
+    header {
+        Cache-Control "no-store"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+    }
+    handle /api/analytics/admin/summary {
+        reverse_proxy 127.0.0.1:8788
+    }
+    handle /api/* {
+        respond 404
+    }
+    @dashboard path / /admin
+    handle @dashboard {
+        rewrite * /index.html
+        file_server
+    }
+    handle /assets/* {
+        file_server
+    }
+    handle {
+        respond 404
+    }
+}

@@ -1,0 +1,37 @@
+{
+  "sources": {
+    "ngspice": {
+      "repository": "https://github.com/danchitnis/ngspice-sf-mirror",
+      "tag": "ngspice-45.2",
+      "commit": "724dc77b9153dc75eaec474b1f7a44f1fcf5f362"
+    },
+    "wrapper": {
+      "repository": "https://github.com/eelab-dev/EEcircuit-engine",
+      "commit": "be15b07abaf2c8a77623e4fc700d260004fbfa5a"
+    },
+    "emscripten": {
+      "version": "4.0.10",
+      "image": "docker.io/emscripten/emsdk@sha256:90b757eb11fa9a0e3ce4d2d9f76d932a56018e4accc37b5a28b2783751e60eb7"
+    },
+    "jobs": 2,
+    "distributionStatus": "pending-build-and-review"
+  },
+  "artifacts": {
+    "eecircuit-engine.mjs": {
+      "bytes": 11309,
+      "sha256": "2295aea8e872b2b4bc661204ae1e367e1639195ce8591937a2f3d36598188574"
+    },
+    "readOutput.mjs": {
+      "bytes": 5194,
+      "sha256": "1918e63074a6fb96db5df85c03cfc05b5fbc1922a0ca2691e8e974ebccffe945"
+    },
+    "spice.mjs": {
+      "bytes": 82511,
+      "sha256": "f3e6a6b7685424c1262b548a242ec4f79c49bc5298124b8bd8caa5ffe509aa19"
+    },
+    "spice.wasm": {
+      "bytes": 4519343,
+      "sha256": "3096ce2c499c3062472b9d7953f5141d75a019296e22b0142f4979e5894008ec"
+    }
+  }
+}

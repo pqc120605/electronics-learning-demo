@@ -1,0 +1,36 @@
+{
+  "sources": {
+    "ngspice": {
+      "repository": "https://github.com/danchitnis/ngspice-sf-mirror",
+      "tag": "ngspice-45.2",
+      "commit": "724dc77b9153dc75eaec474b1f7a44f1fcf5f362"
+    },
+    "wrapper": {
+      "repository": "https://github.com/eelab-dev/EEcircuit-engine",
+      "commit": "be15b07abaf2c8a77623e4fc700d260004fbfa5a"
+    },
+    "emscripten": {
+      "version": "4.0.10",
+      "image": "docker.io/emscripten/emsdk@sha256:90b757eb11fa9a0e3ce4d2d9f76d932a56018e4accc37b5a28b2783751e60eb7"
+    },
+    "jobs": 2,
+    "distributionStatus": "pending-build-and-review"
+  },
+  "artifacts": {
+    "ngspice.tar": {
+      "bytes": 63549440,
+      "sha256": "4377f222374f7081d59075f419e59da361785ca705875a3cf43ac9f5172807ce"
+    },
+    "wrapper.tar": {
+      "bytes": 4648960,
+      "sha256": "fe9a73db45be89969d43e21f4e29510610a08de09d0e7999e73f2ed018eb5345"
+    }
+  },
+  "recipes": {
+    "Containerfile": "da34f5e5ebaa83cb65a485586ed8eefc8f4523c69c1423436475b5bfe322bc79",
+    "build.sh": "d687de1c85d01056181488d638cf393a14ba0a775b9063ee2930d3b573c32836",
+    "sources.json": "ef9f32358f83b1e23d1632d5e531fbd9b7c2e5b39ef7348140dafa16d00a70db",
+    "assemble-wrapper.mjs": "74400256e26ba230a767aab3705c57e3fae982758c52b86079edaa581ae53c48",
+    "prepare-inputs.mjs": "f8b6e00a294fcc365316e3cf55a40bd43cba8c5f7beb8d837e283e6488fb07bf"
+  }
+}

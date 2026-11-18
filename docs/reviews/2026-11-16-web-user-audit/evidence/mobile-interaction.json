@@ -1,0 +1,106 @@
+[
+  {
+    "case": "mobile-canvas-after-hide-panel",
+    "url": "http://127.0.0.1:5320/build/freestyle",
+    "title": "Bàn lắp mạch tự do — Mạch Mở",
+    "text": "Tự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\nCHỌN BOARD\nTHÊM LINH KIỆN\nVIẾT CODE & CHẠY\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nDanh sách chân để nối bằng bàn phím\n−\n100%\n+\nVừa khung 2D\nESP32 DevKit V1\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n4 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.",
+    "screenshot": "mobile-canvas-after-hide-panel.png",
+    "alerts": [],
+    "sizes": [
+      {
+        "id": "board:vcc",
+        "w": 4.3570556640625,
+        "h": 4.357079982757568
+      },
+      {
+        "id": "board:input",
+        "w": 4.357061862945557,
+        "h": 4.357031345367432
+      },
+      {
+        "id": "board:trig",
+        "w": 4.357061862945557,
+        "h": 4.357079982757568
+      },
+      {
+        "id": "board:echo",
+        "w": 4.357061862945557,
+        "h": 4.357079982757568
+      },
+      {
+        "id": "board:seg0",
+        "w": 4.357068061828613,
+        "h": 4.357031345367432
+      },
+      {
+        "id": "board:seg1",
+        "w": 4.357068061828613,
+        "h": 4.357031345367432
+      }
+    ]
+  },
+  {
+    "case": "keyboard-controls",
+    "controls": [
+      {
+        "text": "board · GPIO 23",
+        "label": "Chọn chân board GPIO 23",
+        "id": "board:ledOut"
+      },
+      {
+        "text": "board · GND",
+        "label": "Chọn chân board GND",
+        "id": "board:gnd"
+      },
+      {
+        "text": "board · 3V3",
+        "label": "Chọn chân board 3V3",
+        "id": "board:vcc"
+      },
+      {
+        "text": "board · GPIO 34",
+        "label": "Chọn chân board GPIO 34",
+        "id": "board:input"
+      },
+      {
+        "text": "board · GPIO 5",
+        "label": "Chọn chân board GPIO 5",
+        "id": "board:trig"
+      },
+      {
+        "text": "board · GPIO 18",
+        "label": "Chọn chân board GPIO 18",
+        "id": "board:echo"
+      },
+      {
+        "text": "board · GPIO 13",
+        "label": "Chọn chân board GPIO 13",
+        "id": "board:seg0"
+      },
+      {
+        "text": "board · GPIO 14",
+        "label": "Chọn chân board GPIO 14",
+        "id": "board:seg1"
+      },
+      {
+        "text": "board · GPIO 27",
+        "label": "Chọn chân board GPIO 27",
+        "id": "board:seg2"
+      },
+      {
+        "text": "board · GPIO 26",
+        "label": "Chọn chân board GPIO 26",
+        "id": "board:seg3"
+      }
+    ]
+  },
+  {
+    "case": "reduced-motion",
+    "disabled": true,
+    "url": "http://127.0.0.1:5320/build/freestyle",
+    "title": "Bàn lắp mạch tự do — Mạch Mở",
+    "text": "Tự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\nCHỌN BOARD\nTHÊM LINH KIỆN\nVIẾT CODE & CHẠY\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nDanh sách chân để nối bằng bàn phím\nboard · GPIO 23\nboard · GND\nboard · 3V3\nboard · GPIO 34\nboard · GPIO 5\nboard · GPIO 18\nboard · GPIO 13\nboard · GPIO 14\nboard · GPIO 27\nboard · GPIO 26\nboard · GPIO 25\nboard · GPIO 33\nboard · GPIO 32\nboard · 5V\nresistor1 · Đầu 1\nresistor1 · Đầu 2\nled1 · Anode (+)\nled1 · Cathode (−)\n−\n100%\n+\nVừa khung 2D\nESP32 DevKit V1\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n4 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.",
+    "screenshot": "mobile-guide-reduced-motion.png",
+    "alerts": []
+  }
+]

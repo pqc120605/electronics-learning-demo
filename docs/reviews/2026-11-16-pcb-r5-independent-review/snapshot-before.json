@@ -1,0 +1,27 @@
+{
+  "at": "2026-11-16T09:26:09.272Z",
+  "hashes": {
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/handset/mobot-handset.kicad_pcb": "9ec9fecfbb70ed5de87cb2b02b6563bea883a822f7e405c898678684d86c8483",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/handset/mobot-handset.kicad_sch": "bfb452b671a3e1ed1b1b9b2bc1d653e24424568b3e52f95a23c1340a90e8a604",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/handset/mobot-handset.kicad_pro": "27c3d986fa5bcf1c1a5e0e754a6c9b68c3d578c27049f9d1b4c996b0c3d1199f",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/handset/bom.csv": "3a0d06d169fa756fd79bf8471ba351dd8b88f89fa4be002107f2a2242fc20df9",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/handset/pos.csv": "26be1f8f45339d47b6c1a8a421ab5db2fc2502a4e4bf8b355c28fee80f20a982",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/handset/mobot.kicad_sym": "2ca597fd083ee2aa50927e3dc628b5dc140ade7ae818d372b29ca185552cebdb",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/handset/fp-lib-table": "deac43a3e5da25f2d61e59c57fe344c54dd41c3175deafc83fa2e2e1579c4bdc",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/handset/sym-lib-table": "ed59dccd7e7ceca773f7e45d24a06b3b9fdbd22bece893c879ce267ce304e3ba",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/robot/mobot-robot.kicad_pcb": "1dca6bd6f646faff54b1aee246a85b822c76c47523913fb68e495169dca09071",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/robot/mobot-robot.kicad_sch": "cd36da43987b8c5b62cd02ba9a78e596bc7f5eb28c82f8632353d257df03d579",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/robot/mobot-robot.kicad_pro": "ebbf9214416b5d093eb398e51992a2ef56bde50dd3435c2f9ea723e14da3293b",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/robot/bom.csv": "51b5c128b3298bd9530d1f768f969b7a7165169cfdb84a4dd79a8e40f5d0cfcf",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/robot/pos.csv": "aa36a1c1781e9b7cb351743b0e7da80ad9bb47c27d245ce986541dc7c073d172",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/robot/mobot.kicad_sym": "86f0585236eed538a68e6e3d339600c4c59d618c2e5bc2d91099b629bf08f4c5",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/robot/fp-lib-table": "deac43a3e5da25f2d61e59c57fe344c54dd41c3175deafc83fa2e2e1579c4bdc",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/robot/sym-lib-table": "ed59dccd7e7ceca773f7e45d24a06b3b9fdbd22bece893c879ce267ce304e3ba",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/PLAN.md": "c79f0c787fca23b8704186300840162f33dddf0e2323a52a20d7983ba0017e4d",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/CHECKPOINT-2.md": "8a63843792d0bd19ea5a5a7282d3fe9baf2bd00b82a59e1de8a1443de6f48aa5",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/04-ket-qua-r5.md": "edeae3ae8c10cfddcf632ca1ae6949254f1eb30e53c50b2be06130effe0f9c7d",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/tools/design_handset.py": "5c6dcf82069b64c34a628c376f05b775d85e0a1e8372172c43f2812f562e6dd5",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/tools/design_robot.py": "500d19a84323e2fbaaa7abb1df8756c7c010975d9eb34983fc75cfaee8a21be6",
+    "docs/hardware/claude-support/2026-11-15-pcb-2layer-r5/kicad/tools/mobot_build.py": "61862d010e856c293ce60f8b1ff572944d770af14427b721a7443d929fe205eb"
+  }
+}

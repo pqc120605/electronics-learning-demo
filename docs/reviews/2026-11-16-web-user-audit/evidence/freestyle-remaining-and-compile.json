@@ -1,0 +1,111 @@
+{
+  "cases": [
+    {
+      "id": "stm32-blue-pill-f103",
+      "view": "2d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nDanh sách chân để nối bằng bàn phím\n−\n100%\n+\nVừa khung 2D\nSTM32 Blue Pill (F103C8)\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\n\nboard: chưa có tọa độ chân đủ nguồn cho ledOut, gnd, vcc, input, trig, echo, seg0, seg1, seg2, seg3, seg4, seg5, seg6, v5; các chân này chỉ có trong danh sách logic, không đặt ước lượng lên ảnh.\n\nw1: không vẽ dây vì thiếu vị trí của endpoint board:gnd.\n\nw2: không vẽ dây vì thiếu vị trí của endpoint board:ledOut.\n\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n4 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.",
+      "screenshot": "freestyle-stm32-blue-pill-f103-2d.png",
+      "alerts": []
+    },
+    {
+      "id": "stm32-blue-pill-f103",
+      "view": "schematic",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\n\nSTM32 Blue Pill (F103C8) · GPIO LED = PA5 · GPIO IN = PA1\n\nSơ đồ nguyên lý\nCác đường biểu diễn net khai báo · không phải kết quả ERC hay mô phỏng điện\n● nhánh nối · cầu vượt: không nối · nguồn/GND theo vai trò dây\nN1\nGND\nN2\nN3\nBlue Pill\nChân đang nối\nAlias theo bài học\nPA5\nGND\nresistor1\nĐầu 1\nĐầu 2\nled1\nLED\nAnode (+)\nCathode (−)\nMẠCH MỞ · SƠ ĐỒ NGUYÊN LÝ\nFREESTYLE · CIRCUITDOC V2\nTỜ 1/1\nERC: CHƯA CHẠY\n3 net · danh sách đầu nối và điểm breadboard",
+      "screenshot": "freestyle-stm32-blue-pill-f103-schematic.png",
+      "alerts": []
+    },
+    {
+      "id": "stm32-blue-pill-f103",
+      "view": "3d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nSTM32 Blue Pill (F103C8)\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 2 đầu dây chưa có tọa độ",
+      "screenshot": "freestyle-stm32-blue-pill-f103-3d.png",
+      "alerts": []
+    },
+    {
+      "id": "stm32-blue-pill-f103",
+      "view": "wave",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nDạng sóng logic\nTrình thông dịch rút gọn · đang lấy mẫu\n\nMẫu trạng thái từ runtime, tối đa 512 mẫu / 8 kênh. Xung nhanh có thể bị bỏ lỡ; khoảng trống là chưa có dữ liệu. HIGH/LOW không phải điện áp đo hay kết quả SPICE.\n\nƯu tiên kênh\nChân đang nối trong mạch\nPA5\nĐang vẽ 1/1 kênh có dữ liệu\n3.2 ms\n969.0 ms mô phỏng\nPA5\nLOW",
+      "screenshot": "freestyle-stm32-blue-pill-f103-wave.png",
+      "alerts": []
+    },
+    {
+      "id": "stm32-nucleo-f401re",
+      "view": "2d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nDanh sách chân để nối bằng bàn phím\n−\n100%\n+\nVừa khung 2D\nSTM32 Nucleo-F401RE\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\n\nboard: chưa có tọa độ chân đủ nguồn cho ledOut, gnd, vcc, input, trig, echo, seg0, seg1, seg2, seg3, seg4, seg5, seg6, v5; các chân này chỉ có trong danh sách logic, không đặt ước lượng lên ảnh.\n\nw1: không vẽ dây vì thiếu vị trí của endpoint board:gnd.\n\nw2: không vẽ dây vì thiếu vị trí của endpoint board:ledOut.\n\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n4 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.",
+      "screenshot": "freestyle-stm32-nucleo-f401re-2d.png",
+      "alerts": []
+    },
+    {
+      "id": "stm32-nucleo-f401re",
+      "view": "schematic",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\n\nSTM32 Nucleo-F401RE · GPIO LED = D13 · PA5 · GPIO IN = D2 · PA10\n\nSơ đồ nguyên lý\nCác đường biểu diễn net khai báo · không phải kết quả ERC hay mô phỏng điện\n● nhánh nối · cầu vượt: không nối · nguồn/GND theo vai trò dây\nN1\nGND\nN2\nN3\nNucleo\nChân đang nối\nAlias theo bài học\nD13 · PA5\nGND\nresistor1\nĐầu 1\nĐầu 2\nled1\nLED\nAnode (+)\nCathode (−)\nMẠCH MỞ · SƠ ĐỒ NGUYÊN LÝ\nFREESTYLE · CIRCUITDOC V2\nTỜ 1/1\nERC: CHƯA CHẠY\n3 net · danh sách đầu nối và điểm breadboard",
+      "screenshot": "freestyle-stm32-nucleo-f401re-schematic.png",
+      "alerts": []
+    },
+    {
+      "id": "stm32-nucleo-f401re",
+      "view": "3d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nSTM32 Nucleo-F401RE\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 2 đầu dây chưa có tọa độ",
+      "screenshot": "freestyle-stm32-nucleo-f401re-3d.png",
+      "alerts": []
+    },
+    {
+      "id": "stm32-nucleo-f401re",
+      "view": "wave",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nDạng sóng logic\nTrình thông dịch rút gọn · đang lấy mẫu\n\nMẫu trạng thái từ runtime, tối đa 512 mẫu / 8 kênh. Xung nhanh có thể bị bỏ lỡ; khoảng trống là chưa có dữ liệu. HIGH/LOW không phải điện áp đo hay kết quả SPICE.\n\nƯu tiên kênh\nChân đang nối trong mạch\nD13 · PA5\nĐang vẽ 1/1 kênh có dữ liệu\n7.1 ms\n956.0 ms mô phỏng\nD13 · PA5\nLOW",
+      "screenshot": "freestyle-stm32-nucleo-f401re-wave.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-uno-r3",
+      "view": "compile-observe",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nẨn bảng thao tác\nMở rộng bàn\n■ Dừng\nDanh sách chân để nối bằng bàn phím\n−\n100%\n+\nVừa khung 2D\nArduino Uno R3\nHIGH\nHIGH\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n4 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.\n\nDạng sóng đã thu · 6 mẫu\n■ Dừng\narduino-cli + avr8js\n0.23 s mô phỏng\n\nBiên dịch thật bằng arduino-cli trên máy, firmware .hex chạy trên lõi ATmega giả lập (avr8js).\n\nBiên dịch xong. Firmware đang chạy trên avr8js.\n\nKết quả trên mạch\nled1: sáng\n\nChân OUTPUT: D13 HIGH\n\nSerial Monitor\nBat dau nhay LED\r\nLED: BAT\r\n\nLuồng tín hiệu\nw2 · HIGH\nw3 · HIGH\nconst int LED = 13;   // chân GPIO LED trên bàn lắp mạch\n \nvoid setup() {\n  pinMode(LED, OUTPUT);\n  Serial.begin(9600);\n  Serial.println(\"Bat dau nhay LED\");\n}\n \nvoid loop() {\n  digitalWrite(LED, HIGH);\n  Serial.println(\"LED: BAT\");\n  delay(500);\n  digitalWrite(LED, LOW);\n  Serial.println(\"LED: TAT\");\n  delay(500);\n}\n \nSerial (sự kiện mô phỏng)\n0.0 s Bat dau nhay LED\n0.0 s LED: BAT\n\nKết quả là mô phỏng logic trên máy tính, không phải đo trên mạch thật.",
+      "screenshot": "freestyle-uno-compile-result.png",
+      "alerts": []
+    }
+  ],
+  "errors": {
+    "errors": [],
+    "failed": [
+      {
+        "url": "http://127.0.0.1:5320/models/arduino-uno-r3.glb?v=53330cd2b0d2",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/models/esp32-devkit-v1-30pin.glb?v=b3d0a6b0be09",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "bad": []
+  }
+}

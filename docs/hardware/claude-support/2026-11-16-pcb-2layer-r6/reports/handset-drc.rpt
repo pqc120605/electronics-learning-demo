@@ -1,0 +1,27 @@
+** Drc report for mobot-handset.kicad_pcb **
+** Created on 2026-11-16T23:00:40 **
+** Report includes: Errors, Warnings, Exclusions **
+
+** Found 2 DRC violations **
+[track_not_centered_on_via]: Track endpoint not centered on via
+    Local override; warning
+    @(70.8200 mm, 70.8059 mm): Track [/GND] on F.Cu, length 3.3479 mm
+    @(70.9500 mm, 70.9500 mm): Via [/GND] on F.Cu - B.Cu
+[track_not_centered_on_via]: Track endpoint not centered on via
+    Local override; warning
+    @(70.8200 mm, 72.6750 mm): Track [/GND] on F.Cu, length 1.8691 mm
+    @(70.9500 mm, 70.9500 mm): Via [/GND] on F.Cu - B.Cu
+
+** Found 1 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(50.0500 mm, 38.5750 mm): Pad 2 [/RX0_H] of R30 on F.Cu
+    @(62.0800 mm, 57.5000 mm): PTH pad 3 [/RX0_H] of J5
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+
+** End of Report **

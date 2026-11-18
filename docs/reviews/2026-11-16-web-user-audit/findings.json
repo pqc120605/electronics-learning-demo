@@ -1,0 +1,392 @@
+{
+  "taskId": "MM-SW-USER-AUDIT-20261116",
+  "date": "2026-11-16–17",
+  "verdict": "CHANGES_REQUESTED",
+  "counts": {
+    "P1": 2,
+    "P2": 10,
+    "P3": 4
+  },
+  "findings": [
+    {
+      "id": "F01",
+      "priority": "P1",
+      "title": "Sai loại linh kiện: tụ gốm mở thành tụ hóa",
+      "route": "/components → thẻ Tụ gốm → mở bàn tự do",
+      "actual": "Thẻ tụ gốm không cực, chưa chốt điện dung cụ thể; link part=capacitor lại chèn tụ phân cực 100 µF.",
+      "expected": "Giữ đúng identity, trị số và cực tính từ thư viện tới bàn lắp.",
+      "reproduction": "Mở thư viện linh kiện; chọn tụ gốm; mở liên kết thực hành; đọc linh kiện được thêm.",
+      "source": [
+        "src/pages/ComponentsPage.tsx:65",
+        "src/data/components.ts:48",
+        "src/data/componentRegistry.ts:60",
+        "src/data/componentModels.ts:40"
+      ],
+      "screenshots": [
+        "issue-capacitor-catalog.png",
+        "issue-capacitor-freestyle.png"
+      ],
+      "evidence": [
+        "confirmed-integration-cases.json"
+      ],
+      "proposal": "Giải liên kết bằng catalogId có mapping tường minh; chặn link khi chưa có part tương ứng. Thêm kiểm tra identity/cực tính xuyên màn hình.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F02",
+      "priority": "P1",
+      "title": "Breadboard bỏ một dây nhưng G6 vẫn đạt",
+      "route": "/build?lesson=button-led&board=esp32-devkit",
+      "actual": "Danh sách có 6 dây; SVG chỉ có 5 .diagram-wire; w-gpio-to-resistor lỗi định tuyến. G6 vẫn ghi Dây có đường đi hợp lệ / Đạt trong mô hình.",
+      "expected": "Trạng thái kiểm tra phải phản ánh đúng projection mà người học đang nhìn; không được báo hoàn chỉnh khi thiếu dây.",
+      "reproduction": "Mở bài nút nhấn trên ESP32; xem Breadboard, diagnostic, danh sách 6 dây rồi phần G6.",
+      "source": [
+        "src/pages/CircuitBuilderPage.tsx:225",
+        "src/lib/circuitGates.ts:85",
+        "src/lib/breadboardDiagram.ts:208",
+        "src/lib/breadboardDiagram.ts:225",
+        "src/components/builder/BreadboardDiagram.tsx:185"
+      ],
+      "screenshots": [
+        "issue-button-route-diagnostic.png",
+        "issue-button-g6.png"
+      ],
+      "evidence": [
+        "button-route-g6-recheck.json"
+      ],
+      "proposal": "Dùng chung đầu vào/điều kiện router giữa checker và renderer, hoặc kiểm riêng đủ dây theo view. Không bỏ dây im lặng; thêm ca preset button-led so IDs nguồn với dây được vẽ.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F03",
+      "priority": "P2",
+      "title": "Kéo dây chậm không tạo kết nối",
+      "route": "/build/freestyle",
+      "actual": "Cùng bb1:3a → bb1:4a: 20 bước chuột nhỏ giữ 4 dây; 1 bước lớn tạo dây thứ 5. Hit-test đích đúng trong cả hai.",
+      "expected": "Kết quả nối dây không phụ thuộc tốc độ chuột.",
+      "reproduction": "Phiên sạch, ESP32 + mẫu blink; drag hai lỗ trên bằng nhiều bước nhỏ; so với drag một bước. Click-click vẫn hoạt động.",
+      "source": [
+        "src/components/builder/BreadboardEditor.tsx:169",
+        "src/components/builder/BreadboardEditor.tsx:173",
+        "src/components/builder/BreadboardEditor.tsx:181"
+      ],
+      "screenshots": [
+        "fresh-drag-20.png",
+        "fresh-drag-1.png"
+      ],
+      "evidence": [
+        "wire-drag-fresh-comparison.json"
+      ],
+      "proposal": "Tính threshold từ startX/startY cho cả hai mode, không từ event trước. Test drag nhiều bước nhỏ, touch/cancel, click-click và pointer capture.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F04",
+      "priority": "P2",
+      "title": "Arduino hứa bấm chân trên 3D nhưng tắt pin picking",
+      "route": "/boards?board=arduino-uno-r3; Nano; Mega",
+      "actual": "UI hướng dẫn bấm chân trên model; source pinPicking:false nên getPinAt luôn trả null. Chọn từ danh sách vẫn được.",
+      "expected": "Lời hướng dẫn và affordance phải khớp khả năng thật của model.",
+      "reproduction": "Mở ba board Arduino, đọc hướng dẫn; đối chiếu pin picking và anchor. Đây là lỗi hợp đồng UI/source; chưa đo vật lý mọi pad.",
+      "source": [
+        "src/components/board/BoardPinoutExplorer.tsx:12",
+        "src/pages/BoardCatalogPage.tsx:90",
+        "src/data/arduinoBoardModels.ts:61",
+        "src/data/arduinoBoardModels.ts:74",
+        "src/components/board/BoardScene.ts:213"
+      ],
+      "screenshots": [
+        "board-pin-arduino-uno-r3-D13.png",
+        "board-pin-arduino-mega-2560-r3-D3.png"
+      ],
+      "evidence": [
+        "board-interactions.json"
+      ],
+      "proposal": "Truyền capability coordinatePicking tường minh; chỉ hứa thao tác khi có anchor đủ nguồn. Nếu chưa có, hướng dẫn chọn danh sách.",
+      "status": "OPEN",
+      "evidenceLevel": "UI + source contract"
+    },
+    {
+      "id": "F05",
+      "priority": "P2",
+      "title": "Thông tin chức năng chân Mega thiếu PWM/UART",
+      "route": "/boards?board=arduino-mega-2560-r3",
+      "actual": "D3 và D18 hiển thị Digital I/O chung; không thể hiện PWM D3 hoặc TX1 D18. Sketch lại liệt kê PWM D2–D13/44–46.",
+      "expected": "Metadata chân nhất quán và đủ chức năng theo đúng board.",
+      "reproduction": "Chọn D3 rồi D18 trong danh sách Mega; đọc chức năng và so pinout hãng.",
+      "source": [
+        "src/data/arduinoBoardModels.ts:14",
+        "src/data/arduinoBoardModels.ts:64"
+      ],
+      "screenshots": [
+        "board-pin-arduino-mega-2560-r3-D3.png",
+        "board-pin-arduino-mega-2560-r3-D18.png"
+      ],
+      "evidence": [
+        "board-interactions.json"
+      ],
+      "proposal": "Lập pin capabilities có cấu trúc theo pinout hãng; không suy từ chuỗi nhãn. Kiểm PWM/UART/ADC và đồng bộ tới các công cụ.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F06",
+      "priority": "P2",
+      "title": "Inspector ESP32-S3 ghi nhầm nguồn Seeed/ST",
+      "route": "/boards?board=esp32-s3-devkitc-1",
+      "actual": "Bảng pad của Espressif S3 còn câu KiCad v1.3, Seeed D0–D10; có copy manual ST. Nguồn dữ liệu S3 thực tế là PADS V1.1.",
+      "expected": "Tên nguồn, revision và cách đối chiếu phải theo đúng board đang xem.",
+      "reproduction": "Chọn ESP32-S3-DevKitC-1; chọn linh kiện; mở bảng pad/net; đọc ghi chú nguồn.",
+      "source": [
+        "src/pages/BoardCatalogPage.tsx:90",
+        "src/data/espressifBoardModels.ts:7"
+      ],
+      "screenshots": [
+        "s3-pad-source.png"
+      ],
+      "evidence": [
+        "board-interactions.json"
+      ],
+      "proposal": "Tách metadata theo provenance của từng model; render từ trường nguồn/revision thay vì câu dùng chung.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F07",
+      "priority": "P3",
+      "title": "Nhãn STM32 nói chưa có viewer dù đã vẽ được",
+      "route": "/boards",
+      "actual": "Nucleo nói viewer chưa sẵn sàng, Blue Pill nói đã gỡ viewer; cả hai đang có reconstruction tải và render.",
+      "expected": "Trạng thái availability phải khớp viewer hiện hành, vẫn giữ nhãn reconstruction/tham khảo.",
+      "reproduction": "Mở profile Nucleo và Blue Pill, so mô tả availability với canvas và giới hạn.",
+      "source": [
+        "src/data/boards.ts:223",
+        "src/data/boards.ts:227",
+        "src/data/stm32BoardModels.ts:144"
+      ],
+      "screenshots": [
+        "board-10-stm32-nucleo.png",
+        "board-14-stm32-blue-pill-f103.png"
+      ],
+      "evidence": [
+        "boards-browser.json"
+      ],
+      "proposal": "Derive nhãn từ capability registry; nêu rõ reconstruction và chưa xác minh phần cứng.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F08",
+      "priority": "P2",
+      "title": "Đổi board làm rời trải nghiệm bài LED năm tab",
+      "route": "/app/learn/esp32-led?board=esp32-devkit",
+      "actual": "Chọn Uno trong explorer chuyển tới /app/learn/blink?board=arduino-uno-r3, rời khung năm tab trong khi copy nói đang đổi board tham chiếu.",
+      "expected": "Đổi board giữ ngữ cảnh học hoặc giải thích rõ trước khi chuyển sang bài/flow khác.",
+      "reproduction": "Trong bài LED ESP32, đổi board khám phá sang Uno; quan sát URL/luồng.",
+      "source": [
+        "src/pages/LessonPage.tsx:43",
+        "src/pages/LessonPage.tsx:297"
+      ],
+      "screenshots": [
+        "issue-lesson-board-before.png",
+        "issue-lesson-board-after-stable.png"
+      ],
+      "evidence": [
+        "confirmed-integration-cases.json"
+      ],
+      "proposal": "Tách board tham chiếu khỏi lesson target, hoặc đổi nhãn hành động và bảo toàn tab/bước khi điều hướng.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F09",
+      "priority": "P2",
+      "title": "Một số board/linh kiện không có lối sang freestyle vì alias ID",
+      "route": "/boards; /components",
+      "actual": "Nano classic, Mega, Nucleo và 10 loại linh kiện mất launch link do so ID chuỗi trực tiếp, dù có builder representation tương ứng.",
+      "expected": "Mỗi capability có thể mở thực hành dùng canonical ID; profile-only phải giải thích rõ.",
+      "reproduction": "So link mở bàn của Uno với Nano/Mega/Nucleo; kiểm các thẻ ntc, hc-sr04, electrolytic...",
+      "source": [
+        "src/pages/BoardCatalogPage.tsx:25",
+        "src/pages/BoardCatalogPage.tsx:97",
+        "src/pages/ComponentsPage.tsx:12",
+        "src/pages/ComponentsPage.tsx:65",
+        "src/components/freestyle/FreestyleBench.tsx:203"
+      ],
+      "screenshots": [
+        "board-08-arduino-nano-classic.png",
+        "board-09-arduino-mega-2560-r3.png"
+      ],
+      "evidence": [
+        "boards-browser.json",
+        "components-browser.json"
+      ],
+      "proposal": "Dùng registry alias/canonical mapping chung cho route, lesson, viewer và freestyle; kiểm các link đến đích.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F10",
+      "priority": "P2",
+      "title": "Mạch mobile quá nhỏ, bài học còn nhiều cuộn lồng nhau",
+      "route": "375×812: /build/freestyle; /build?lesson=button-led&board=esp32-devkit",
+      "actual": "Sau Ẩn bảng thao tác, sơ đồ bị thu nhỏ; hitbox một số chân khoảng 4,36×4,36 CSS px. Bài nút nhấn cao 7497 px với 3 vùng cuộn. Boards cao 24025 px. Không phát hiện tràn ngang toàn trang trong 20 route mẫu.",
+      "expected": "Đọc/đấu nối được trên điện thoại; thao tác chính ở cùng viewport hoặc chuyển panel rõ ràng.",
+      "reproduction": "Mở mobile; chọn ESP32/blink; ẩn panel; quan sát điểm cắm và thử zoom. Mở bài nút nhấn, cuộn từng vùng.",
+      "source": [
+        "src/components/freestyle/FreestyleBench.tsx:308",
+        "src/components/builder/BreadboardDiagram.tsx:114"
+      ],
+      "screenshots": [
+        "mobile-canvas-after-hide-panel.png",
+        "mobile-08-build.png"
+      ],
+      "evidence": [
+        "mobile-routes.json",
+        "mobile-interaction.json"
+      ],
+      "proposal": "Giữ canvas đủ kích thước bằng pan/zoom; tăng hit target độc lập hình vẽ; inspector dạng sheet; hạn chế nested scroll và thu gọn cảnh báo dài. Kiểm lại touch thật.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F11",
+      "priority": "P2",
+      "title": "Thông báo provider/schema cũ trái với trace V2 đang chạy",
+      "route": "/build?lesson=blink&board=esp32-devkit",
+      "actual": "Banner nói provider chỉ chạy schema 4 và v5 bị khóa; cùng trang lại cho chạy trace CircuitDocV2. Nhiều thông tin triển khai chiếm chỗ mạch.",
+      "expected": "Trạng thái chạy và giới hạn phải lấy từ runtime đang hoạt động, diễn đạt cho người học.",
+      "reproduction": "Mở bài blink/button-led; đọc banner; chạy trace và đối chiếu nhãn nguồn kết quả.",
+      "source": [
+        "src/pages/CircuitBuilderPage.tsx:225"
+      ],
+      "screenshots": [
+        "lesson-blink-breadboard.png",
+        "lesson-blink-run.png"
+      ],
+      "evidence": [
+        "lessons-all.json"
+      ],
+      "proposal": "Xóa copy chuyển tiếp lỗi thời; derive thông báo từ engine/capabilities. Giữ thông tin schema trong chi tiết kỹ thuật.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F12",
+      "priority": "P2",
+      "title": "Mở Bot chặn nhầm câu hỏi khả năng SPICE",
+      "route": "Hỏi Mở: SPICE có chạy firmware ESP32 không",
+      "actual": "Không trả nội dung giới hạn SPICE có sẵn; yêu cầu chọn biến thể board vì thấy chữ ESP32.",
+      "expected": "Câu hỏi khả năng công cụ được trả lời trực tiếp; chỉ yêu cầu variant khi cần pin/điện áp cụ thể.",
+      "reproduction": "Mở Hỏi Mở, nhập nguyên câu; xem câu trả lời và nguồn.",
+      "source": [
+        "src/lib/guideSearch.ts:38",
+        "src/lib/guideCatalog.ts:69",
+        "src/lib/guideKnowledge.ts:53"
+      ],
+      "screenshots": [
+        "guide-question-03.png"
+      ],
+      "evidence": [
+        "community-and-guide.json"
+      ],
+      "proposal": "Phân loại intent công cụ/khái niệm trước guard biến thể; giữ guard cho pinout/định mức. Test các câu có họ board nhưng không hỏi pin.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F13",
+      "priority": "P3",
+      "title": "Provenance Arduino giữ hash model cũ",
+      "route": "Source audit.sourceRefs của Uno/Nano/Mega",
+      "actual": "Hash trong metadata nguồn không còn trùng GLB hiện hành; asset lock và file thật vẫn khớp nhau.",
+      "expected": "Các nhãn audit/provenance ghim đúng snapshot đang hiển thị.",
+      "reproduction": "So audit.sourceRefs với board-asset-lock và SHA-256 model hiện hành.",
+      "source": [
+        "src/data/arduinoBoardCadComponents.ts:4",
+        "src/data/board-asset-lock.json"
+      ],
+      "screenshots": [
+        "board-07-arduino-uno-r3.png"
+      ],
+      "evidence": [
+        "model-source-audit.json"
+      ],
+      "proposal": "Tạo metadata hash từ cùng lock hoặc cập nhật tự động; test chống drift. Không sửa hash để thay thế kiểm hình học.",
+      "status": "OPEN",
+      "evidenceLevel": "source + asset checksums"
+    },
+    {
+      "id": "F14",
+      "priority": "P3",
+      "title": "Trang robot có document title Không tìm thấy trang",
+      "route": "/app/robot-simulation",
+      "actual": "Nội dung hoạt động nhưng tab/history/accessibility title mang nhãn 404.",
+      "expected": "Title đúng tên bài robot.",
+      "reproduction": "Mở route; đọc document.title rồi thử các lệnh robot.",
+      "source": [
+        "src/App.tsx:147",
+        "src/components/SiteShell.tsx:24",
+        "src/data/productRoutes.ts:91"
+      ],
+      "screenshots": [
+        "025-app-robot-simulation-desktop.png",
+        "robot-checklist.png"
+      ],
+      "evidence": [
+        "route-smoke-desktop.json",
+        "calculators-and-robot.json"
+      ],
+      "proposal": "Đăng ký route title và kiểm route thật với title.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F15",
+      "priority": "P3",
+      "title": "Số trạm 0 âm thầm trở về 8",
+      "route": "/app/classroom-kits",
+      "actual": "Nhập 0, giá trị trở lại 8; không có giải thích inline ở lần thử.",
+      "expected": "Giữ giá trị nhập lỗi và giải thích phạm vi 1–100 hoặc thông báo rõ khi chuẩn hóa.",
+      "reproduction": "Đặt 8 trạm rồi nhập 0; quan sát value/alert.",
+      "source": [
+        "src/pages/ClassroomKitPage.tsx:270"
+      ],
+      "screenshots": [
+        "kit-zero-stations.png"
+      ],
+      "evidence": [
+        "kit-cases.json"
+      ],
+      "proposal": "Validate khi blur/submit, hiện lỗi có liên kết trường, không âm thầm thay bằng giá trị trước.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    },
+    {
+      "id": "F16",
+      "priority": "P2",
+      "title": "Mẫu motor còn thiếu phạm vi nguồn và bảo vệ để học lắp thật",
+      "route": "Freestyle → mẫu Động cơ DC qua transistor",
+      "actual": "Mẫu gồm R, NPN và motor, lấy nguồn từ board vcc vì chân 5 V chưa có tọa độ. Không có diode flyback trong doc; runtime vẫn minh họa quay/dừng.",
+      "expected": "Mẫu lắp mạch phải chỉ rõ phần bị giản lược, không để việc thiếu tọa độ quyết định nguồn cấp tải; tách demo logic khỏi mạch thực hành đã kiểm.",
+      "reproduction": "Chọn ESP32 → mẫu motor → 2D/schematic → chạy; xem danh sách phần tử và source buildSampleCircuit.",
+      "source": [
+        "src/lib/freestyle/freestyleCircuit.ts:244",
+        "src/lib/freestyle/freestyleCircuit.ts:252",
+        "src/lib/freestyle/freestyleCircuit.ts:403"
+      ],
+      "screenshots": [
+        "freestyle-sample-motor.png"
+      ],
+      "evidence": [
+        "freestyle-samples.json"
+      ],
+      "proposal": "Bổ sung nguồn tải/bảo vệ có model và giả thiết rõ; đối chiếu bài motor/MOSFET hiện có. Trước khi có cận dòng/điện áp, ghi demo trạng thái và không coi là sơ đồ lắp phần cứng hoàn chỉnh.",
+      "status": "OPEN",
+      "evidenceLevel": "browser + source/metrics"
+    }
+  ]
+}

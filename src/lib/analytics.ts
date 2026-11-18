@@ -1,10 +1,16 @@
 import { isSupabaseConfigured, supabase } from './supabase'
+import localAnalyticsPaths from '../../server/analytics/paths.json'
 
 export type AnalyticsEventName = 'page_view' | 'lesson_open' | 'component_select' | 'code_copy' | 'builder_run'
 
+export const localAnalyticsEnabled = import.meta.env.VITE_MACHMO_LOCAL_ANALYTICS === 'true'
+export function isLocalAnalyticsAdmin() {
+  return localAnalyticsEnabled && typeof window !== 'undefined' && window.location.origin === 'http://127.0.0.1:8081'
+}
+
 const allowedComponentIds = new Set(['esp32', 'breadboard', 'led', 'resistor', 'jumper'])
-let lastPageEvent = ''
-let lastPageEventAt = 0
+const allowedLocalPaths = new Set(localAnalyticsPaths)
+const lastPageEvents = new Map<'page_view' | 'lesson_open', { path: string; at: number }>()
 
 function createSessionId(): string {
   if (typeof crypto.randomUUID === 'function') return crypto.randomUUID()
@@ -30,30 +36,39 @@ function getSessionId(): string | null {
 }
 
 export function trackEvent(eventName: AnalyticsEventName, componentId?: string): void {
-  if (!isSupabaseConfigured || !supabase || typeof window === 'undefined') return
+  if (typeof window === 'undefined' || isLocalAnalyticsAdmin()) return
+  if (!localAnalyticsEnabled && (!isSupabaseConfigured || !supabase)) return
   if (eventName === 'component_select' && (!componentId || !allowedComponentIds.has(componentId))) return
 
   const sessionId = getSessionId()
   if (!sessionId) return
 
-  const path = window.location.pathname
-  if (path.length > 200 || !/^\/[A-Za-z0-9/_-]*$/.test(path) || path.startsWith('/admin')) return
+  let path = window.location.pathname.replace(/\/$/, '') || '/'
+  if (path.length > 200 || !/^\/[A-Za-z0-9/_-]*$/.test(path) || path.startsWith('/admin') || path === '/auth/callback') return
+  if (localAnalyticsEnabled && /^(?:\/app)?\/learn\/(?!esp32-led$)[^/]+$/.test(path)) path = path.replace(/[^/]+$/, 'lesson')
+  if (localAnalyticsEnabled && /^(?:\/app)?\/community\/(?!new$)[^/]+$/.test(path)) path = path.replace(/[^/]+$/, 'post')
+  if (localAnalyticsEnabled && !allowedLocalPaths.has(path)) return
 
-  const eventWrite = supabase.from('analytics_events').insert({
-      session_id: sessionId,
-      event_name: eventName,
-      path,
-      component_id: eventName === 'component_select' ? componentId! : null,
-    })
+  const payload = { session_id: sessionId, event_name: eventName, path, component_id: eventName === 'component_select' ? componentId : null }
+  if (localAnalyticsEnabled) {
+    void fetch('/api/analytics/events', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'omit',
+      keepalive: true, body: JSON.stringify(payload),
+    }).catch(() => undefined)
+    return
+  }
+  if (!supabase) return
+  const eventWrite = supabase.from('analytics_events').insert(payload)
   void Promise.resolve(eventWrite).catch(() => undefined)
 }
 
-export function trackPageView(eventName: 'page_view' | 'lesson_open'): void {
+export function trackPageView(eventName: 'page_view' | 'lesson_open', source: 'view' | 'router' = 'view'): void {
   if (typeof window === 'undefined') return
-  const key = `${eventName}:${window.location.pathname}`
+  if (localAnalyticsEnabled && eventName === 'page_view' && source !== 'router') return
+  const path = window.location.pathname
   const now = Date.now()
-  if (lastPageEvent === key && now - lastPageEventAt < 1000) return
-  lastPageEvent = key
-  lastPageEventAt = now
+  const previous = lastPageEvents.get(eventName)
+  if (previous?.path === path && now - previous.at < 1000) return
+  lastPageEvents.set(eventName, { path, at: now })
   trackEvent(eventName)
 }

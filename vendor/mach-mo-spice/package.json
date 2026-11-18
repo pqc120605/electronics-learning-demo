@@ -1,0 +1,14 @@
+{
+  "name": "eecircuit-engine",
+  "version": "1.9.0-machmo.1",
+  "type": "module",
+  "exports": {
+    ".": "./dist/eecircuit-engine.mjs"
+  },
+  "license": "SEE LICENSE IN THIRD-PARTY-NOTICES.txt",
+  "files": [
+    "dist",
+    "build-record.json",
+    "THIRD-PARTY-NOTICES.txt"
+  ]
+}

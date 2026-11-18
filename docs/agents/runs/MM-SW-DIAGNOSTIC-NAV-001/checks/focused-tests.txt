@@ -1,0 +1,27 @@
+✔ resolves an exact endpoint without changing document or report (15615.6177ms)
+✔ rejects stale report document board lesson and actions outside the current gate (49.5664ms)
+✔ resolves wire net from current topology and rejects a removed wire (30.7614ms)
+✔ resolves a LED warning to its exact part (47.4748ms)
+✔ presents all ten gates in beginner language and counts non-applicable separately (10868.0116ms)
+✔ does not describe warnings or educational checks as electrical measurements (0.9113ms)
+✔ renders an accessible, honest circuit-check panel with actionable open findings (15.746ms)
+✔ offers typed inspection actions only with a page callback and preserves next steps (3.0025ms)
+✔ runs G1-G10 on every registered CircuitDocV2 lesson document (15822.0029ms)
+✔ a malformed schema fails G1 while preserving the other gate results (41.3793ms)
+✔ an unknown part type fails G2 and an invalid pin endpoint fails G3 (73.6105ms)
+✔ an invalid hole fails G4 and a redundant same-net wire fails G6 (68.0295ms)
+✔ reports explicit open pins, supply and ground, analog SPICE applicability, and view parity (153.416ms)
+✔ G5 catches overlapping component footprints and G7 accepts explicit open-pin reasons (119.7427ms)
+✔ G6 passes an empty wiring set, and G10 passes when the physical mount matches its 2D holes (5.7881ms)
+✔ an explicit CircuitDocV2 rotation survives collision resolution in the 3D layout (0.7983ms)
+✔ the button lesson models a bench switch with a GPIO lead and a ground-rail jumper (0.5227ms)
+✔ G9 evaluates analog docs rather than silently treating them as not applicable (37.4432ms)
+✔ preserves exact typed targets alongside G6 G7 and G8 diagnostic strings (16.2741ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17493.931

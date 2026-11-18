@@ -1,0 +1,130 @@
+{
+  "format": "mach-mo-project",
+  "version": 1,
+  "exportedAt": "2026-11-16T16:27:51.435Z",
+  "workspace": {
+    "schemaVersion": 4,
+    "placed": [
+      {
+        "id": "board-1",
+        "type": "board",
+        "x": 20,
+        "y": 38
+      },
+      {
+        "id": "bread-1",
+        "type": "breadboard",
+        "x": 47,
+        "y": 55
+      },
+      {
+        "id": "led-1",
+        "type": "led",
+        "x": 72,
+        "y": 35
+      },
+      {
+        "id": "res-1",
+        "type": "resistor",
+        "x": 60,
+        "y": 72
+      }
+    ],
+    "wires": [
+      {
+        "id": "default-1",
+        "from": {
+          "partId": "board-1",
+          "pinId": "ledOut"
+        },
+        "to": {
+          "partId": "res-1",
+          "pinId": "a"
+        }
+      },
+      {
+        "id": "default-2",
+        "from": {
+          "partId": "res-1",
+          "pinId": "b"
+        },
+        "to": {
+          "partId": "led-1",
+          "pinId": "anode"
+        }
+      },
+      {
+        "id": "default-3",
+        "from": {
+          "partId": "led-1",
+          "pinId": "cathode"
+        },
+        "to": {
+          "partId": "board-1",
+          "pinId": "gnd"
+        }
+      }
+    ],
+    "simBoard": "esp32-devkit",
+    "code": "const int ledPin = 23;\n\nvoid setup() {\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(ledPin, HIGH);\n  delay(500);\n  digitalWrite(ledPin, LOW);\n  delay(500);\n}",
+    "lesson": "blink",
+    "codeMode": "blocks",
+    "blockProgram": {
+      "pin": 23,
+      "setup": [
+        {
+          "kind": "pinMode",
+          "pin": 23
+        }
+      ],
+      "loop": [
+        {
+          "kind": "write",
+          "pin": 23,
+          "value": "HIGH"
+        },
+        {
+          "kind": "delay",
+          "milliseconds": 500,
+          "pin": 23
+        },
+        {
+          "kind": "write",
+          "pin": 23,
+          "value": "LOW"
+        },
+        {
+          "kind": "delay",
+          "milliseconds": 500,
+          "pin": 23
+        }
+      ]
+    },
+    "analogCppDraft": "const int ledPin = 23;\nconst int potPin = 34;\n\nvoid setup() {\n  pinMode(ledPin, OUTPUT);\n  pinMode(potPin, INPUT);\n}\n\nvoid loop() {\n  int potPercent = map(analogRead(potPin), 0, 4095, 0, 100);\n  if (potPercent > 50) {\n    digitalWrite(ledPin, HIGH);\n  } else {\n    digitalWrite(ledPin, LOW);\n  }\n  delay(50);\n}",
+    "analogMode": "blocks",
+    "analogThreshold": 50,
+    "analogBlockOrder": [
+      "read",
+      "compare",
+      "above",
+      "otherwise",
+      "below"
+    ],
+    "projectName": "AUDIT-1611 — project round-trip"
+  },
+  "lessonDrafts": {
+    "blink": {
+      "esp32-devkit": "const int ledPin = 23;\n\nvoid setup() {\n  pinMode(ledPin, OUTPUT);\n}\n\nvoid loop() {\n  digitalWrite(ledPin, HIGH);\n  delay(500);\n  digitalWrite(ledPin, LOW);\n  delay(500);\n}"
+    }
+  },
+  "branchSession": {
+    "mode": "blocks",
+    "order": [
+      "read",
+      "compare",
+      "on",
+      "off"
+    ]
+  },
+  "branchDrafts": {}
+}

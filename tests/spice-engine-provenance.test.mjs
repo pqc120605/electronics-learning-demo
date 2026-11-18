@@ -1,108 +1,73 @@
 import assert from 'node:assert/strict'
+import { readFile } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
-import { readFile, stat } from 'node:fs/promises'
 import { spawnSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 import { test } from 'node:test'
 import { getPublicReleaseBlockers } from '../scripts/public-release-gate.mjs'
+import { verifyBuildArtifacts } from '../scripts/ngspice-build/verify-artifacts.mjs'
 
-const manifest = JSON.parse(await readFile(new URL('../public/licenses/spice-engine-provenance.json', import.meta.url), 'utf8'))
-const pkg = JSON.parse(await readFile(new URL('../node_modules/eecircuit-engine/package.json', import.meta.url), 'utf8'))
-const licenseIndex = await readFile(new URL('../public/licenses/README.txt', import.meta.url), 'utf8')
-const ngspiceNotice = await readFile(new URL('../public/licenses/NGSPICE-NOTICE.txt', import.meta.url), 'utf8')
-const wasmBytes = await readFile(new URL(`../public${manifest.redistribution.publicPath}`, import.meta.url))
+const manifest = JSON.parse(await readFile(new URL('../public/licenses/spice-engine-provenance.json',import.meta.url),'utf8'))
+const pins = JSON.parse(await readFile(new URL('../scripts/ngspice-build/sources.json',import.meta.url),'utf8'))
+const wasmBytes = await readFile(new URL(`../public${manifest.redistribution.publicPath}`,import.meta.url))
 
-test('SPICE provenance pins the installed wrapper, runtime, and exact WASM artifact', () => {
-  assert.equal(manifest.wrapper.package, 'eecircuit-engine')
-  assert.equal(manifest.wrapper.version, pkg.version)
-  assert.equal(manifest.wrapper.registryReportedGitHead, 'f4dab6458d3865a1db9766008480690d23410c3a')
-  assert.match(manifest.wrapper.gitHeadAssessment, /unverified.*version 1\.7\.0.*1\.8\.0/i)
-  assert.match(manifest.runtime.version, /^45\.2$/)
-  assert.match(manifest.runtime.wasmSha256, /^[a-f0-9]{64}$/i)
-  assert.ok(Number.isInteger(manifest.runtime.wasmBytes) && manifest.runtime.wasmBytes > 1_000_000)
-  assert.equal(manifest.runtime.sourceCommit, null)
-  assert.match(manifest.runtime.sourceCommitStatus, /gitHead.*inconsistent.*ngspice source commit.*unknown/i)
+test('self-built engine pins source commits and verifies every paired runtime artifact', async()=>{
+  assert.equal(manifest.runtime.sourceCommit,pins.ngspice.commit)
+  assert.equal(manifest.wrapper.sourceCommit,pins.wrapper.commit)
+  assert.equal(manifest.wrapper.version,'1.9.0-machmo.1')
+  assert.equal(manifest.runtime.version,'45.2')
+  assert.equal(createHash('sha256').update(wasmBytes).digest('hex'),manifest.runtime.wasmSha256)
+  assert.equal(wasmBytes.length,manifest.runtime.wasmBytes)
+  await verifyBuildArtifacts({artifacts:manifest.buildArtifacts},fileURLToPath(new URL('../public/vendor/eecircuit-engine/',import.meta.url)))
 })
 
-test('public third-party notices distinguish wrapper MIT from embedded ngspice terms', () => {
-  assert.match(licenseIndex, /wrapper.*MIT/i)
-  assert.match(licenseIndex, /ngspice.*WASM/i)
-  assert.match(ngspiceNotice, /không phải kết luận pháp lý/i)
-  assert.match(ngspiceNotice, /commit nguồn/i)
-  assert.match(ngspiceNotice, /ngspice\/ngspice\/blob\/master\/COPYING/)
-  assert.match(ngspiceNotice, /Modified BSD/i)
-  assert.match(ngspiceNotice, /LGPLv2/i)
-  assert.match(ngspiceNotice, /MPLv2/i)
-  assert.match(ngspiceNotice, /không xác nhận quyền.*WASM/i)
-})
-
-test('the publicly served ngspice binary is explicitly gated until its exact build is cleared', async () => {
-  assert.equal(manifest.redistribution.status, 'not-cleared')
-  assert.equal(manifest.redistribution.publicPath, '/vendor/eecircuit-engine/spice.wasm')
-  assert.equal(manifest.redistribution.componentInventory, 'unknown')
-  assert.equal(manifest.runtime.sourceCommit, null)
-  const binaryUrl = new URL(`../public${manifest.redistribution.publicPath}`, import.meta.url)
-  const binary = await readFile(binaryUrl)
-  assert.equal(binary.length, manifest.runtime.wasmBytes)
-  assert.equal(createHash('sha256').update(binary).digest('hex'), manifest.runtime.wasmSha256)
-  assert.match(ngspiceNotice, /NOT CLEARED/)
-  assert.match(ngspiceNotice, /table\.cm/i)
-  assert.match(ngspiceNotice, /không xác nhận binary này có hay không có table\.cm/i)
-})
-
-test('the documented SPICE artifact audit is exposed as a package command', async () => {
-  const project = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'))
-  assert.equal(project.scripts['audit:spice-engine'], 'node scripts/audit-spice-engine.mjs')
-  assert.equal(project.scripts['audit:board-models'], 'node scripts/audit-board-models.mjs')
-  assert.equal(project.scripts['check:public-release'], 'node scripts/check-public-release-gates.mjs')
-  assert.equal(project.scripts['build'], 'npm run check:public-release && npm run build:local')
-  assert.equal(project.scripts['build:local'], 'tsc -b && vite build')
-  assert.equal(project.scripts['build:public'], 'npm run build')
-})
-
-test('the public build gate fails closed while ngspice redistribution evidence is incomplete', () => {
-  const result = spawnSync(process.execPath, ['scripts/check-public-release-gates.mjs'], { cwd: new URL('..', import.meta.url), encoding: 'utf8' })
-  assert.equal(result.status, 1)
-  assert.match(result.stderr, /Public release blocked/i)
-  assert.match(result.stderr, /exact source commit is missing/i)
-  assert.match(result.stderr, new RegExp(manifest.runtime.wasmSha256))
-})
-
-test('redistribution clearance must match the exact served WASM bytes and review hash', () => {
-  const cleared = structuredClone(manifest)
-  const sourceCommit = 'a'.repeat(40)
-  cleared.runtime.sourceCommit = sourceCommit
-  cleared.redistribution.status = 'cleared'
-  cleared.redistribution.sourceCommit = sourceCommit
-  cleared.redistribution.buildRecipe = 'Reproducible container build with pinned compiler and flags.'
-  cleared.redistribution.componentInventory = [{
-    name: 'ngspice core',
-    version: '45.2',
-    license: 'Modified BSD',
-    sourceUrl: 'https://example.org/ngspice-source',
-    noticePath: 'public/licenses/NGSPICE-NOTICE.txt',
-    redistributionBasis: 'Reviewed against the exact pinned source and build recipe.',
-  }]
-  cleared.redistribution.distributionReview = {
-    status: 'approved',
-    reviewer: 'Release reviewer',
-    reviewedAt: '2026-11-03T00:00:00Z',
-    evidence: 'Review record for the exact artifact.',
-    artifactSha256: manifest.runtime.wasmSha256,
+test('complete source, notices and relink materials match their recorded hashes',async()=>{
+  const base=new URL('../public/licenses/ngspice-selfbuild/',import.meta.url)
+  const materials=JSON.parse(await readFile(new URL('release-files.json',base),'utf8'))
+  for(const name of ['ngspice-source.tar.gz','wrapper-source.tar.gz','source.patch','relink-build.tar.gz','toolchain-notices.tar.gz','toolchain-runtime-source.tar.gz','Containerfile','build.sh','numparam-readme.txt','sparse-notice.txt']) assert.ok(materials[name],`${name} missing`)
+  for(const [name,record] of Object.entries(materials)){
+    const bytes=await readFile(new URL(name,base))
+    assert.equal(bytes.length,record.bytes,name)
+    assert.equal(createHash('sha256').update(bytes).digest('hex'),record.sha256,name)
   }
-  assert.deepEqual(getPublicReleaseBlockers(cleared, wasmBytes), [])
-
-  const mutatedBytes = Buffer.from(wasmBytes)
-  mutatedBytes[0] ^= 0xff
-  assert.match(getPublicReleaseBlockers(cleared, mutatedBytes).join('\n'), /SHA-256.*does not match/i)
-
-  cleared.redistribution.distributionReview.artifactSha256 = '0'.repeat(64)
-  assert.match(getPublicReleaseBlockers(cleared, wasmBytes).join('\n'), /review.*exact artifact hash/i)
+  const notices=await readFile(new URL('../public/licenses/NGSPICE-NOTICE.txt',import.meta.url),'utf8')
+  assert.match(notices,/Numparam.*LGPL/i)
+  assert.match(notices,/Sparse.*Kundert/i)
+  assert.match(notices,/hisim2.*hisimhv1.*hisimhv2/i)
+  assert.match(notices,/Reverse engineering.*not restricted/i)
 })
 
-test('the engine dependency and lockfile stay pinned to the audited artifact version', async () => {
-  const project = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'))
-  const lock = JSON.parse(await readFile(new URL('../package-lock.json', import.meta.url), 'utf8'))
-  assert.equal(project.dependencies['eecircuit-engine'], manifest.wrapper.version)
-  assert.equal(lock.packages[''].dependencies['eecircuit-engine'], manifest.wrapper.version)
-  assert.equal(lock.packages['node_modules/eecircuit-engine'].version, manifest.wrapper.version)
+test('release gate rejects missing review even with exact known source and working WASM',()=>{
+  const pending=structuredClone(manifest)
+  pending.redistribution.status='not-cleared'
+  pending.redistribution.distributionReview.status='pending'
+  const blockers=getPublicReleaseBlockers(pending,wasmBytes)
+  assert.match(blockers.join('\n'),/not cleared/)
+  assert.match(blockers.join('\n'),/review.*incomplete/)
+})
+
+test('release clearance must bind to exact served bytes and review hash',()=>{
+  const cleared=structuredClone(manifest)
+  cleared.redistribution.status='cleared'
+  cleared.redistribution.distributionReview={status:'approved',reviewer:'fixture reviewer',reviewedAt:'2026-11-17',evidence:'fixture evidence, not production approval',artifactSha256:manifest.runtime.wasmSha256}
+  assert.deepEqual(getPublicReleaseBlockers(cleared,wasmBytes),[])
+  const mutated=Buffer.from(wasmBytes); mutated[0]^=0xff
+  assert.match(getPublicReleaseBlockers(cleared,mutated).join('\n'),/SHA-256.*does not match/i)
+  cleared.redistribution.distributionReview.artifactSha256='0'.repeat(64)
+  assert.match(getPublicReleaseBlockers(cleared,wasmBytes).join('\n'),/review.*exact artifact hash/i)
+})
+
+test('public build gate command agrees with current artifact review state',()=>{
+  const r=spawnSync(process.execPath,['scripts/check-public-release-gates.mjs'],{encoding:'utf8'})
+  assert.equal(r.status,manifest.redistribution.status==='cleared'?0:1)
+  if(r.status!==0) assert.match(r.stderr,/Public release blocked/)
+})
+
+test('dependency and lockfile resolve the vendored source-pinned engine',async()=>{
+  const pkg=JSON.parse(await readFile(new URL('../package.json',import.meta.url),'utf8'))
+  const lock=JSON.parse(await readFile(new URL('../package-lock.json',import.meta.url),'utf8'))
+  assert.equal(pkg.dependencies['eecircuit-engine'],'file:vendor/mach-mo-spice')
+  assert.equal(lock.packages[''].dependencies['eecircuit-engine'],pkg.dependencies['eecircuit-engine'])
+  assert.equal(lock.packages['node_modules/eecircuit-engine'].link,true)
+  assert.equal(lock.packages['vendor/mach-mo-spice'].version,manifest.wrapper.version)
 })

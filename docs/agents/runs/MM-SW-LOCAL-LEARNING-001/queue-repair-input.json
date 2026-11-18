@@ -1,0 +1,323 @@
+[
+  {
+    "id": "MM-SPICE-SELFBUILD-20261117",
+    "title": "Self-build source-pinned ngspice WASM before Arch mini-PC deployment",
+    "kind": "implementation",
+    "status": "done",
+    "priority": "P1",
+    "owner_role": "software_engineer",
+    "writer": "codex_lead",
+    "reviewer_role": "qa_safety_reviewer",
+    "tester_role": "tester",
+    "capability_ids": [
+      "OPS-09",
+      "SIM-02"
+    ],
+    "module_ids": [
+      "M07",
+      "M14"
+    ],
+    "depth_change": "Release evidence and compatibility only; no achieved depth claim",
+    "depends_on": [],
+    "allowed_paths": [
+      "scripts/ngspice-build/**",
+      "scripts/prepare-spice-engine.mjs",
+      "scripts/audit-spice-engine.mjs",
+      "scripts/public-release-gate.mjs",
+      "tests/spice-self-build.test.mjs",
+      "tests/spice-engine-provenance.test.mjs",
+      "tests/spice-engine-packaging.test.mjs",
+      "public/vendor/eecircuit-engine/**",
+      "public/licenses/**",
+      "vendor/mach-mo-spice/**",
+      "docs/agents/runs/MM-SPICE-SELFBUILD-20261117/**",
+      "docs/superpowers/plans/2026-11-17-ngspice-self-build.md",
+      "docs/spice-redistribution-audit-2026-11-03.md",
+      ".tmp/ngspice-rebuild/**",
+      "package.json",
+      "package-lock.json",
+      "tests/spice-browser-loader.test.mjs",
+      "docs/deployment/arch-mini-pc.md",
+      "README.md"
+    ],
+    "forbidden_paths": [
+      "app/**",
+      "docs/hardware/**",
+      "src/**"
+    ],
+    "deliverables": [
+      "Pinned source, toolchain, patches and candidate JS/WASM",
+      "Runtime compatibility evidence, component inventory and notices",
+      "Fail-closed release review and subsequent Linux deployment handoff"
+    ],
+    "acceptance": [
+      "No old-WASM/new-glue mixing",
+      "Reinstall cannot silently restore unreviewed binary",
+      "DC/transient/AC and worker compatibility verified",
+      "Distribution review bound to exact artifact hash before public build"
+    ],
+    "verification_plan": [
+      "Focused build/packaging/provenance tests",
+      "Numeric runtime and browser worker checks",
+      "Independent artifact review and public release gate"
+    ],
+    "readiness": {
+      "scope_complete": true,
+      "inputs_available": true,
+      "acceptance_defined": true,
+      "missing": []
+    },
+    "authorization": "User 2026-11-17 explicitly requested self-building ngspice before mini-PC deployment; no physical hardware or firmware work.",
+    "execution_requested": true,
+    "attempt": 1,
+    "review": {
+      "verdict": "pass",
+      "reviewer": "Independent Codex QA ngspice_review",
+      "reference": "docs/agents/runs/MM-SPICE-SELFBUILD-20261117/review.md",
+      "scope": "Exact JS/WASM, source/relink/notices; no legal certification",
+      "date": "2026-11-17"
+    },
+    "verification": {
+      "verdict": "pass",
+      "executed_by": "codex_lead",
+      "reference": "docs/agents/runs/MM-SPICE-SELFBUILD-20261117/report.md",
+      "date": "2026-11-17"
+    },
+    "gates": {
+      "software": "pass",
+      "public": "pass",
+      "hardware": "not_applicable"
+    },
+    "history": [
+      {
+        "event": "scope_and_start",
+        "at": "2026-11-17",
+        "actor": "codex_lead",
+        "reason": "Current explicit user request; existing unrelated audit tasks are in_review."
+      },
+      {
+        "event": "scope_refined",
+        "at": "2026-11-17",
+        "actor": "codex_lead",
+        "reason": "Use vendored source-pinned engine package so reinstall cannot restore untraceable npm WASM. Package metadata/lock changes necessary; no unrelated dependency updates."
+      },
+      {
+        "event": "review_test_complete",
+        "at": "2026-11-17",
+        "actor": "codex_lead",
+        "reason": "Independent materials review + final Node/runtime/browser/public gate evidence, bound to exact hashes."
+      }
+    ],
+    "write_lease": {
+      "owner": "codex_lead",
+      "status": "closed",
+      "allowed_paths": [
+        "scripts/ngspice-build/**",
+        "scripts/prepare-spice-engine.mjs",
+        "scripts/audit-spice-engine.mjs",
+        "scripts/public-release-gate.mjs",
+        "tests/spice-self-build.test.mjs",
+        "tests/spice-engine-provenance.test.mjs",
+        "tests/spice-engine-packaging.test.mjs",
+        "public/vendor/eecircuit-engine/**",
+        "public/licenses/**",
+        "vendor/mach-mo-spice/**",
+        "docs/agents/runs/MM-SPICE-SELFBUILD-20261117/**",
+        "docs/superpowers/plans/2026-11-17-ngspice-self-build.md",
+        "docs/spice-redistribution-audit-2026-11-03.md",
+        ".tmp/ngspice-rebuild/**",
+        "package.json",
+        "package-lock.json",
+        "tests/spice-browser-loader.test.mjs",
+        "docs/deployment/arch-mini-pc.md",
+        "README.md"
+      ]
+    },
+    "completion_summary": "Source-pinned self-built engine, source/relink/notice materials and independent review complete; focused/runtime/browser checks and public build gate pass. Mini-PC deployment has not occurred."
+  },
+  {
+    "id": "MM-ARCH-DEPLOY-20261117",
+    "title": "Deploy reviewed Mạch Mở release to Arch mini PC",
+    "kind": "deployment",
+    "status": "done",
+    "priority": "P1",
+    "writer": "codex_lead",
+    "owner_role": "software_engineer",
+    "capability_ids": [
+      "OPS-09"
+    ],
+    "module_ids": [
+      "M14"
+    ],
+    "depends_on": [
+      "MM-SPICE-SELFBUILD-20261117"
+    ],
+    "execution_requested": true,
+    "authorization": "User requested self-build then mini-PC Internet deployment; server terminal is available to user, no session connected yet.",
+    "allowed_paths": [
+      "docs/deployment/arch-mini-pc.md",
+      "docs/agents/runs/MM-ARCH-DEPLOY-20261117/**"
+    ],
+    "waiting": null,
+    "gates": {
+      "software": "pass",
+      "public": "pass",
+      "hardware": "not_applicable"
+    },
+    "deliverables": [
+      "Caddy static hosting, temporary external acceptance URL, server restart behavior and rollback record"
+    ],
+    "verification_plan": [
+      "Deep links, WASM MIME, SPICE solver and source archive downloads on mini PC",
+      "External mobile-network acceptance test"
+    ],
+    "readiness": {
+      "scope_complete": true,
+      "inputs_available": true,
+      "acceptance_defined": true,
+      "missing": []
+    },
+    "verification": {
+      "verdict": "pass",
+      "executed_by": "codex_lead",
+      "date": "2026-11-17",
+      "reference": "electronics-learning-demo/docs/agents/runs/MM-ARCH-DEPLOY-20261117/report.md",
+      "scope": "Caddy service, checksums, public HTTPS and two public Chromium SPICE flows. Linger enabled; reboot not exercised."
+    },
+    "completion_summary": "Reviewed release deployed to Arch and verified through temporary public HTTPS. Stable domain and named tunnel are separate follow-up scope.",
+    "history": [
+      {
+        "event": "deployment_verified",
+        "from": "waiting",
+        "to": "done",
+        "actor": "codex_lead",
+        "at": "2026-11-17",
+        "reason": "SSH handoff received, local and public acceptance passed."
+      }
+    ]
+  },
+  {
+    "id": "MM-ARCH-ANALYTICS-20261117",
+    "title": "Mini PC private analytics and public event ingestion",
+    "kind": "implementation",
+    "status": "waiting",
+    "priority": "P1",
+    "writer": "codex_lead",
+    "owner_role": "software_engineer",
+    "reviewer_role": "qa_safety_reviewer",
+    "tester_role": "tester",
+    "capability_ids": [
+      "OPS-05"
+    ],
+    "module_ids": [
+      "M14"
+    ],
+    "depth_change": "Pilot event ingest to verified storage/private reports; full D3 not claimed",
+    "depends_on": [
+      "MM-ARCH-DEPLOY-20261117"
+    ],
+    "input_refs": [
+      "electronics-learning-demo/docs/superpowers/specs/2026-11-17-mach-mo-mini-pc-analytics-design.md"
+    ],
+    "allowed_paths": [
+      "server/analytics/**",
+      "tests/local-analytics.test.mjs",
+      "e2e/local-analytics.spec.mjs",
+      "src/App.tsx",
+      "src/lib/analytics.ts",
+      "src/lib/admin.ts",
+      "src/components/AdminGate.tsx",
+      "src/pages/AdminDashboardPage.tsx",
+      "src/pages/PrivacyPage.tsx",
+      "docs/deployment/arch-mini-pc-analytics.md",
+      "docs/superpowers/plans/2026-11-17-mach-mo-mini-pc-analytics.md",
+      "docs/agents/runs/MM-ARCH-ANALYTICS-20261117/**"
+    ],
+    "forbidden_paths": [
+      "app/**",
+      "docs/hardware/**",
+      "scripts/public-release-gate.mjs"
+    ],
+    "deliverables": [
+      "Bounded event endpoint, local PostgreSQL, private dashboard mode, deployment and verification"
+    ],
+    "acceptance": [
+      "HTTPS events measured privately on target; public read route unavailable; malformed events rejected; backup restored"
+    ],
+    "verification_plan": [
+      "HTTP contract, real PostgreSQL, focused browser and public gate, mini PC smoke"
+    ],
+    "authorization": "User approved concrete analytics design and asked to build for mini PC.",
+    "execution_requested": true,
+    "attempt": 1,
+    "readiness": {
+      "scope_complete": true,
+      "inputs_available": true,
+      "acceptance_defined": true,
+      "missing": []
+    },
+    "review": {
+      "verdict": "pass",
+      "reviewer": "independent Codex QA analytics_qa",
+      "scope": "Code and rollout configuration follow-up; actual Arch deployment unverified.",
+      "reference": "electronics-learning-demo/docs/agents/runs/MM-ARCH-ANALYTICS-20261117/report.md"
+    },
+    "verification": {
+      "verdict": "pass",
+      "scope": "Local HTTP, PostgreSQL, backup/restore, browser, release build. Arch/Funnel deployment pending.",
+      "reference": "electronics-learning-demo/docs/agents/runs/MM-ARCH-ANALYTICS-20261117/report.md"
+    },
+    "waiting": {
+      "resume_state": "in_progress",
+      "blocker": "Verified bundle staged on Arch. Pacman has not completed installation of Node.js and PostgreSQL; check terminal prompt and resume after packages are ready.",
+      "owner": "user"
+    },
+    "gates": {
+      "software": "pass",
+      "public": "pass",
+      "hardware": "not_applicable"
+    },
+    "write_lease": {
+      "owner": "codex_lead",
+      "status": "released",
+      "allowed_paths": [
+        "server/analytics/**",
+        "tests/local-analytics.test.mjs",
+        "e2e/local-analytics.spec.mjs",
+        "src/App.tsx",
+        "src/lib/analytics.ts",
+        "src/lib/admin.ts",
+        "src/components/AdminGate.tsx",
+        "src/pages/AdminDashboardPage.tsx",
+        "src/pages/PrivacyPage.tsx",
+        "docs/deployment/arch-mini-pc-analytics.md",
+        "docs/superpowers/plans/2026-11-17-mach-mo-mini-pc-analytics.md",
+        "docs/agents/runs/MM-ARCH-ANALYTICS-20261117/**"
+      ]
+    },
+    "history": [
+      {
+        "event": "scope_and_start",
+        "actor": "codex_lead",
+        "at": "2026-11-17",
+        "reason": "Approved design and implementation scope."
+      },
+      {
+        "event": "deployment_waiting",
+        "from": "in_progress",
+        "to": "waiting",
+        "at": "2026-11-17",
+        "actor": "codex_lead",
+        "reason": "Built and locally verified; denied SSH authentication to Arch."
+      },
+      {
+        "event": "deployment_staged",
+        "from": "waiting",
+        "to": "waiting",
+        "at": "2026-11-17",
+        "actor": "codex_lead",
+        "reason": "SSH succeeded, bundle and WASM verified on target, current demo still active. Arch runtime packages missing."
+      }
+    ]
+  }
+]

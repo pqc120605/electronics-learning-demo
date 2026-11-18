@@ -48,6 +48,7 @@ export function presentCircuitGateReport(report: CircuitGateReport) {
       status: gate.status,
       statusLabel: statusLabels[gate.status],
       diagnostics: [...gate.diagnostics],
+      diagnosticActions: gate.diagnosticActions?.map(action => ({ ...action, target: structuredClone(action.target) })),
       emptyNote: emptyNote(gate.id, gate.status),
     })),
   }

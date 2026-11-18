@@ -1,0 +1,1560 @@
+{
+  "method": "Shortest connected track-centerline path; pad interiors and vias zero length; no plane conduction; hypothetical35um R excludes vias/pads/ground/temperature; not measured voltage or heat",
+  "routes": [
+    {
+      "board": "handset",
+      "from": "U1.1",
+      "to": "C2.1",
+      "net": "/V3V3_BB",
+      "straightMm": 1.773866,
+      "trackPathMm": 1.7738658348364456,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.002912518761198126,
+      "route": [
+        {
+          "start": [
+            25.26,
+            62.75
+          ],
+          "end": [
+            25.55,
+            61.0
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.7738658348364456
+        }
+      ]
+    },
+    {
+      "board": "handset",
+      "from": "U1.1",
+      "to": "C3.1",
+      "net": "/V3V3_BB",
+      "straightMm": 3.451174,
+      "trackPathMm": 3.9761373893909693,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.005082070852656411,
+      "route": [
+        {
+          "start": [
+            25.26,
+            62.75
+          ],
+          "end": [
+            25.55,
+            61.0
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.7738658348364456
+        },
+        {
+          "start": [
+            25.55,
+            61.0
+          ],
+          "end": [
+            23.85,
+            59.6
+          ],
+          "widthMm": 0.5,
+          "layer": "F.Cu",
+          "lengthMm": 2.2022715545545237
+        }
+      ]
+    },
+    {
+      "board": "handset",
+      "from": "U1.4",
+      "to": "C1.1",
+      "net": "/VBAT_SW",
+      "straightMm": 1.773866,
+      "trackPathMm": 1.7738658348364456,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.002912518761198126,
+      "route": [
+        {
+          "start": [
+            25.26,
+            64.25
+          ],
+          "end": [
+            25.55,
+            66.0
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.7738658348364456
+        }
+      ]
+    },
+    {
+      "board": "handset",
+      "from": "U1.3",
+      "to": "L1.1",
+      "net": "/LX1",
+      "straightMm": 3.305465,
+      "trackPathMm": 3.451496099885076,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.00566702788209702,
+      "route": [
+        {
+          "start": [
+            25.26,
+            63.75
+          ],
+          "end": [
+            24.0,
+            63.75
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.26
+        },
+        {
+          "start": [
+            24.0,
+            63.75
+          ],
+          "end": [
+            23.85,
+            63.85
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 0.18027756377319945
+        },
+        {
+          "start": [
+            23.85,
+            63.85
+          ],
+          "end": [
+            22.2,
+            65.0
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 2.0112185361118766
+        }
+      ]
+    },
+    {
+      "board": "handset",
+      "from": "U1.2",
+      "to": "L1.2",
+      "net": "/LX2",
+      "straightMm": 3.305465,
+      "trackPathMm": 3.451496099885076,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.00566702788209702,
+      "route": [
+        {
+          "start": [
+            25.26,
+            63.25
+          ],
+          "end": [
+            24.0,
+            63.25
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.26
+        },
+        {
+          "start": [
+            24.0,
+            63.25
+          ],
+          "end": [
+            23.85,
+            63.15
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 0.18027756377319945
+        },
+        {
+          "start": [
+            23.85,
+            63.15
+          ],
+          "end": [
+            22.2,
+            62.0
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 2.0112185361118766
+        }
+      ]
+    },
+    {
+      "board": "handset",
+      "from": "U3.1",
+      "to": "C6.1",
+      "net": "/V3V3_BB",
+      "straightMm": 1.864009,
+      "trackPathMm": 1.8640094554481208,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.002295394500851829,
+      "route": [
+        {
+          "start": [
+            43.3625,
+            60.05
+          ],
+          "end": [
+            41.5,
+            59.975
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 1.8640094554481208
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U7.17",
+      "to": "L2.2",
+      "net": "/SW_CHG",
+      "straightMm": 5.607575,
+      "trackPathMm": 5.022652224366697,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.009896059925495068,
+      "route": [
+        {
+          "start": [
+            12.9875,
+            56.25
+          ],
+          "end": [
+            14.5875,
+            54.521
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 2.35572515374778
+        },
+        {
+          "start": [
+            14.5875,
+            54.521
+          ],
+          "end": [
+            16.8875,
+            53.171
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 2.666927070618917
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U7.12",
+      "to": "C7.1",
+      "net": "/BTST",
+      "straightMm": 5.697162,
+      "trackPathMm": 5.734297796063807,
+      "vias": 2,
+      "hypotheticalTrackOhmsAt35um": 0.011298205029044573,
+      "route": [
+        {
+          "start": [
+            12.25,
+            58.9875
+          ],
+          "end": [
+            12.4,
+            59.325
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 0.36933216756735393
+        },
+        {
+          "via": true,
+          "xy": [
+            12.4,
+            59.325
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            12.4,
+            59.325
+          ],
+          "end": [
+            15.7,
+            57.225
+          ],
+          "widthMm": 0.25,
+          "layer": "B.Cu",
+          "lengthMm": 3.9115214431215892
+        },
+        {
+          "start": [
+            15.7,
+            57.225
+          ],
+          "end": [
+            17.15,
+            57.125
+          ],
+          "widthMm": 0.25,
+          "layer": "B.Cu",
+          "lengthMm": 1.4534441853748632
+        },
+        {
+          "via": true,
+          "xy": [
+            17.15,
+            57.125
+          ],
+          "lengthMm": 0
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U7.21",
+      "to": "C2.1",
+      "net": "/PMID",
+      "straightMm": 2.520448,
+      "trackPathMm": 2.5204476288945186,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.004966001956816172,
+      "route": [
+        {
+          "start": [
+            11.25,
+            55.0125
+          ],
+          "end": [
+            11.05,
+            52.5
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 2.5204476288945186
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U7.23",
+      "to": "C1.1",
+      "net": "/VBUS_CHG",
+      "straightMm": 2.112648,
+      "trackPathMm": 2.834446420502987,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.005584669290225313,
+      "route": [
+        {
+          "start": [
+            10.25,
+            55.0125
+          ],
+          "end": [
+            10.225,
+            53.75
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 1.2627475004924777
+        },
+        {
+          "start": [
+            10.225,
+            53.75
+          ],
+          "end": [
+            10.125,
+            53.6
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 0.18027756377319945
+        },
+        {
+          "start": [
+            10.125,
+            53.6
+          ],
+          "end": [
+            10.025,
+            53.5
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 0.14142135623730953
+        },
+        {
+          "start": [
+            10.025,
+            53.5
+          ],
+          "end": [
+            8.775,
+            53.5
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 1.25
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U2.3",
+      "to": "C10.1",
+      "net": "/VBAT_SW",
+      "straightMm": 2.073682,
+      "trackPathMm": 2.0736818102110073,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.002553591029145554,
+      "route": [
+        {
+          "start": [
+            8.8625,
+            22.45
+          ],
+          "end": [
+            8.55,
+            24.5
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 2.0736818102110073
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U2.6",
+      "to": "C13.1",
+      "net": "/BOOT_5V",
+      "straightMm": 1.836139,
+      "trackPathMm": 1.8361389517136224,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.0030147652883374143,
+      "route": [
+        {
+          "start": [
+            11.1375,
+            20.55
+          ],
+          "end": [
+            10.775,
+            18.75
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.8361389517136224
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U2.2",
+      "to": "L1.1",
+      "net": "/SW_5V",
+      "straightMm": 4.715947,
+      "trackPathMm": 6.989466602970982,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.0068856230991554135,
+      "route": [
+        {
+          "start": [
+            8.8625,
+            21.5
+          ],
+          "end": [
+            7.2625,
+            21.3
+          ],
+          "widthMm": 0.5,
+          "layer": "F.Cu",
+          "lengthMm": 1.6124515496597098
+        },
+        {
+          "start": [
+            7.2625,
+            21.3
+          ],
+          "end": [
+            7.1125,
+            21.2
+          ],
+          "widthMm": 0.5,
+          "layer": "F.Cu",
+          "lengthMm": 0.18027756377319945
+        },
+        {
+          "start": [
+            7.1125,
+            21.2
+          ],
+          "end": [
+            6.9625,
+            21.05
+          ],
+          "widthMm": 0.5,
+          "layer": "F.Cu",
+          "lengthMm": 0.21213203435596428
+        },
+        {
+          "start": [
+            6.9625,
+            21.05
+          ],
+          "end": [
+            6.9125,
+            20.75
+          ],
+          "widthMm": 0.5,
+          "layer": "F.Cu",
+          "lengthMm": 0.304138126514911
+        },
+        {
+          "start": [
+            6.9125,
+            20.75
+          ],
+          "end": [
+            6.9125,
+            20.25
+          ],
+          "widthMm": 0.5,
+          "layer": "F.Cu",
+          "lengthMm": 0.5
+        },
+        {
+          "start": [
+            6.9125,
+            20.25
+          ],
+          "end": [
+            6.9625,
+            20.05
+          ],
+          "widthMm": 0.5,
+          "layer": "F.Cu",
+          "lengthMm": 0.20615528128088303
+        },
+        {
+          "start": [
+            6.9625,
+            20.05
+          ],
+          "end": [
+            9.25,
+            16.8
+          ],
+          "widthMm": 0.5,
+          "layer": "F.Cu",
+          "lengthMm": 3.9743120473863147
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U4.4",
+      "to": "C14.1",
+      "net": "/V5",
+      "straightMm": 2.058557,
+      "trackPathMm": 2.058556836718384,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.0025349657046446388,
+      "route": [
+        {
+          "start": [
+            11.1375,
+            35.95
+          ],
+          "end": [
+            10.95,
+            38.0
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 2.058556836718384
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U8.12",
+      "to": "C16.1",
+      "net": "/VBAT_SW",
+      "straightMm": 2.605883,
+      "trackPathMm": 2.605882767892677,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.005134333590682257,
+      "route": [
+        {
+          "start": [
+            76.775,
+            61.6
+          ],
+          "end": [
+            76.95,
+            59.0
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 2.605882767892677
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U8.3",
+      "to": "C21.1",
+      "net": "/VAUX",
+      "straightMm": 2.176149,
+      "trackPathMm": 2.7594708075988477,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.005436945911200471,
+      "route": [
+        {
+          "start": [
+            74.85,
+            63.25
+          ],
+          "end": [
+            73.6,
+            63.3
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 1.2509996003196804
+        },
+        {
+          "start": [
+            73.6,
+            63.3
+          ],
+          "end": [
+            73.45,
+            63.45
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 0.21213203435596428
+        },
+        {
+          "start": [
+            73.45,
+            63.45
+          ],
+          "end": [
+            73.4,
+            63.55
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 0.11180339887498948
+        },
+        {
+          "start": [
+            73.4,
+            63.55
+          ],
+          "end": [
+            73.25,
+            64.725
+          ],
+          "widthMm": 0.25,
+          "layer": "F.Cu",
+          "lengthMm": 1.1845357740482134
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U6.12",
+      "to": "C26.1",
+      "net": "/VM_6V",
+      "straightMm": 2.911749,
+      "trackPathMm": 2.3907700119417594,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.00392541666722628,
+      "route": [
+        {
+          "start": [
+            75.1375,
+            25.675
+          ],
+          "end": [
+            72.75,
+            25.55
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 2.3907700119417594
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U6.6",
+      "to": "R28.1",
+      "net": "/ISEN_B",
+      "straightMm": 5.409309,
+      "trackPathMm": 7.948373768729419,
+      "vias": 2,
+      "hypotheticalTrackOhmsAt35um": 0.01305047274027573,
+      "route": [
+        {
+          "start": [
+            80.8625,
+            25.025
+          ],
+          "end": [
+            82.6625,
+            25.025
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.8
+        },
+        {
+          "via": true,
+          "xy": [
+            82.6625,
+            25.025
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            82.6625,
+            25.025
+          ],
+          "end": [
+            79.4625,
+            30.275
+          ],
+          "widthMm": 0.3,
+          "layer": "B.Cu",
+          "lengthMm": 6.148373768729419
+        },
+        {
+          "via": true,
+          "xy": [
+            79.4625,
+            30.275
+          ],
+          "lengthMm": 0
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U6.3",
+      "to": "R27.1",
+      "net": "/ISEN_A",
+      "straightMm": 2.949205,
+      "trackPathMm": 4.741088233970548,
+      "vias": 2,
+      "hypotheticalTrackOhmsAt35um": 0.007784415347966881,
+      "route": [
+        {
+          "start": [
+            80.8625,
+            26.975
+          ],
+          "end": [
+            82.6625,
+            26.975
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.8
+        },
+        {
+          "via": true,
+          "xy": [
+            82.6625,
+            26.975
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            82.6625,
+            26.975
+          ],
+          "end": [
+            81.7625,
+            29.775
+          ],
+          "widthMm": 0.3,
+          "layer": "B.Cu",
+          "lengthMm": 2.9410882339705484
+        },
+        {
+          "via": true,
+          "xy": [
+            81.7625,
+            29.775
+          ],
+          "lengthMm": 0
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "R28.1",
+      "to": "R30.1",
+      "net": "/ISEN_B",
+      "straightMm": 44.101107,
+      "trackPathMm": 61.791315238915146,
+      "vias": 6,
+      "hypotheticalTrackOhmsAt35um": 0.0787465658454287,
+      "route": [
+        {
+          "via": true,
+          "xy": [
+            79.4625,
+            30.275
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            82.6625,
+            25.025
+          ],
+          "end": [
+            79.4625,
+            30.275
+          ],
+          "widthMm": 0.3,
+          "layer": "B.Cu",
+          "lengthMm": 6.148373768729419
+        },
+        {
+          "start": [
+            82.6625,
+            23.4905
+          ],
+          "end": [
+            82.6625,
+            25.025
+          ],
+          "widthMm": 0.4,
+          "layer": "B.Cu",
+          "lengthMm": 1.5345
+        },
+        {
+          "via": true,
+          "xy": [
+            82.6625,
+            23.4905
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            81.1283,
+            21.9563
+          ],
+          "end": [
+            82.6625,
+            23.4905
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 2.169686447392803
+        },
+        {
+          "start": [
+            71.899,
+            21.9563
+          ],
+          "end": [
+            81.1283,
+            21.9563
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 9.2293
+        },
+        {
+          "start": [
+            71.311,
+            22.5443
+          ],
+          "end": [
+            71.899,
+            21.9563
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 0.8315575746753799
+        },
+        {
+          "via": true,
+          "xy": [
+            71.311,
+            22.5443
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            70.0153,
+            23.84
+          ],
+          "end": [
+            71.311,
+            22.5443
+          ],
+          "widthMm": 0.4,
+          "layer": "B.Cu",
+          "lengthMm": 1.8323965127668194
+        },
+        {
+          "start": [
+            64.6679,
+            23.84
+          ],
+          "end": [
+            70.0153,
+            23.84
+          ],
+          "widthMm": 0.4,
+          "layer": "B.Cu",
+          "lengthMm": 5.3474
+        },
+        {
+          "start": [
+            63.1094,
+            22.2815
+          ],
+          "end": [
+            64.6679,
+            23.84
+          ],
+          "widthMm": 0.4,
+          "layer": "B.Cu",
+          "lengthMm": 2.204051836958469
+        },
+        {
+          "via": true,
+          "xy": [
+            63.1094,
+            22.2815
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            59.0109,
+            26.38
+          ],
+          "end": [
+            63.1094,
+            22.2815
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 5.79615428538613
+        },
+        {
+          "start": [
+            39.4209,
+            26.38
+          ],
+          "end": [
+            59.0109,
+            26.38
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 19.59
+        },
+        {
+          "start": [
+            38.0761,
+            27.7248
+          ],
+          "end": [
+            39.4209,
+            26.38
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 1.9018343986793385
+        },
+        {
+          "start": [
+            37.9079,
+            27.7248
+          ],
+          "end": [
+            38.0761,
+            27.7248
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 0.1682
+        },
+        {
+          "start": [
+            37.8008,
+            27.6177
+          ],
+          "end": [
+            37.9079,
+            27.7248
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 0.15146227253015848
+        },
+        {
+          "start": [
+            37.8008,
+            27.6177
+          ],
+          "end": [
+            36.4203,
+            27.6177
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 1.3805
+        },
+        {
+          "start": [
+            36.4203,
+            27.6177
+          ],
+          "end": [
+            36.3802,
+            27.5776
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 0.05670996385116111
+        },
+        {
+          "via": true,
+          "xy": [
+            36.3802,
+            27.5776
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            36.3802,
+            27.3309
+          ],
+          "end": [
+            36.3802,
+            27.5776
+          ],
+          "widthMm": 0.4,
+          "layer": "B.Cu",
+          "lengthMm": 0.2467
+        },
+        {
+          "start": [
+            34.9755,
+            25.9262
+          ],
+          "end": [
+            36.3802,
+            27.3309
+          ],
+          "widthMm": 0.4,
+          "layer": "B.Cu",
+          "lengthMm": 1.986545791065487
+        },
+        {
+          "via": true,
+          "xy": [
+            34.9755,
+            25.9262
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            34.9755,
+            25.6995
+          ],
+          "end": [
+            34.9755,
+            25.9262
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 0.2267
+        },
+        {
+          "start": [
+            35.675,
+            25.0
+          ],
+          "end": [
+            34.9755,
+            25.6995
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 0.9892423868799801
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "J4.A4",
+      "to": "U7.23",
+      "net": "/VBUS_CHG",
+      "straightMm": 16.911122,
+      "trackPathMm": null,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0,
+      "route": []
+    },
+    {
+      "board": "robot",
+      "from": "J15.2",
+      "to": "U2.3",
+      "net": "/VBAT_SW",
+      "straightMm": 58.699629,
+      "trackPathMm": 69.50635552096826,
+      "vias": 4,
+      "hypotheticalTrackOhmsAt35um": 0.08559211208439232,
+      "route": [
+        {
+          "start": [
+            36.0,
+            74.5
+          ],
+          "end": [
+            36.0,
+            71.4555
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 3.0445
+        },
+        {
+          "start": [
+            36.0,
+            71.4555
+          ],
+          "end": [
+            36.8786,
+            70.5769
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 1.2425280359010014
+        },
+        {
+          "start": [
+            36.8786,
+            70.5769
+          ],
+          "end": [
+            34.4388,
+            68.1371
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 3.4503982494778778
+        },
+        {
+          "via": true,
+          "xy": [
+            34.4388,
+            68.1371
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            33.7187,
+            67.417
+          ],
+          "end": [
+            34.4388,
+            68.1371
+          ],
+          "widthMm": 0.4,
+          "layer": "B.Cu",
+          "lengthMm": 1.0183751862648658
+        },
+        {
+          "start": [
+            33.7187,
+            66.9141
+          ],
+          "end": [
+            33.7187,
+            67.417
+          ],
+          "widthMm": 0.4,
+          "layer": "B.Cu",
+          "lengthMm": 0.5029
+        },
+        {
+          "via": true,
+          "xy": [
+            33.7187,
+            66.9141
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            33.7187,
+            66.9141
+          ],
+          "end": [
+            33.7187,
+            52.1075
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 14.8066
+        },
+        {
+          "start": [
+            33.7187,
+            52.1075
+          ],
+          "end": [
+            27.1956,
+            45.5844
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 9.225056488715937
+        },
+        {
+          "start": [
+            19.3609,
+            45.5844
+          ],
+          "end": [
+            27.1956,
+            45.5844
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 7.8347
+        },
+        {
+          "start": [
+            17.6297,
+            43.8532
+          ],
+          "end": [
+            19.3609,
+            45.5844
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 2.4482865191803027
+        },
+        {
+          "start": [
+            17.2696,
+            43.8532
+          ],
+          "end": [
+            17.6297,
+            43.8532
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 0.3601
+        },
+        {
+          "via": true,
+          "xy": [
+            17.2696,
+            43.8532
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            13.514,
+            40.0976
+          ],
+          "end": [
+            17.2696,
+            43.8532
+          ],
+          "widthMm": 0.4,
+          "layer": "B.Cu",
+          "lengthMm": 5.311220454848397
+        },
+        {
+          "start": [
+            14.1589,
+            39.4527
+          ],
+          "end": [
+            13.514,
+            40.0976
+          ],
+          "widthMm": 0.4,
+          "layer": "B.Cu",
+          "lengthMm": 0.9120263263744091
+        },
+        {
+          "via": true,
+          "xy": [
+            14.1589,
+            39.4527
+          ],
+          "lengthMm": 0
+        },
+        {
+          "start": [
+            14.1589,
+            30.1089
+          ],
+          "end": [
+            14.1589,
+            39.4527
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 9.3438
+        },
+        {
+          "start": [
+            8.55,
+            24.5
+          ],
+          "end": [
+            14.1589,
+            30.1089
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 7.932182449994453
+        },
+        {
+          "start": [
+            8.8625,
+            22.45
+          ],
+          "end": [
+            8.55,
+            24.5
+          ],
+          "widthMm": 0.4,
+          "layer": "F.Cu",
+          "lengthMm": 2.0736818102110073
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U8.7",
+      "to": "U6.12",
+      "net": "/VM_6V",
+      "straightMm": 38.742445,
+      "trackPathMm": null,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0,
+      "route": []
+    },
+    {
+      "board": "robot",
+      "from": "U6.5",
+      "to": "J7.2",
+      "net": "/MB2",
+      "straightMm": 14.310819,
+      "trackPathMm": 14.584995779303037,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.023947174022398512,
+      "route": [
+        {
+          "start": [
+            80.8625,
+            25.675
+          ],
+          "end": [
+            82.7625,
+            25.7
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.9001644665659865
+        },
+        {
+          "start": [
+            82.7625,
+            25.7
+          ],
+          "end": [
+            92.6625,
+            21.25
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 10.854146673046206
+        },
+        {
+          "start": [
+            92.6625,
+            21.25
+          ],
+          "end": [
+            94.0,
+            20.0
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.8306846396908454
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U6.7",
+      "to": "J7.1",
+      "net": "/MB1",
+      "straightMm": 11.502045,
+      "trackPathMm": 11.61489372984622,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.01907054932405227,
+      "route": [
+        {
+          "start": [
+            80.8625,
+            24.375
+          ],
+          "end": [
+            82.5125,
+            24.3
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.651703665915893
+        },
+        {
+          "start": [
+            82.5125,
+            24.3
+          ],
+          "end": [
+            91.5,
+            20.0
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 9.963190063930327
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U6.4",
+      "to": "J6.2",
+      "net": "/MA2",
+      "straightMm": 13.243849,
+      "trackPathMm": 13.66275891377873,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.02243294892129003,
+      "route": [
+        {
+          "start": [
+            80.8625,
+            26.325
+          ],
+          "end": [
+            90.5125,
+            26.425
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 9.650518120805742
+        },
+        {
+          "start": [
+            90.5125,
+            26.425
+          ],
+          "end": [
+            92.4125,
+            26.625
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.91049731745428
+        },
+        {
+          "start": [
+            92.4125,
+            26.625
+          ],
+          "end": [
+            92.5625,
+            26.725
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 0.18027756377319945
+        },
+        {
+          "start": [
+            92.5625,
+            26.725
+          ],
+          "end": [
+            94.0,
+            28.0
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 1.9214659117455088
+        }
+      ]
+    },
+    {
+      "board": "robot",
+      "from": "U6.2",
+      "to": "J6.1",
+      "net": "/MA1",
+      "straightMm": 10.644108,
+      "trackPathMm": 10.644107818412966,
+      "vias": 0,
+      "hypotheticalTrackOhmsAt35um": 0.017476611313279954,
+      "route": [
+        {
+          "start": [
+            80.8625,
+            27.625
+          ],
+          "end": [
+            91.5,
+            28.0
+          ],
+          "widthMm": 0.3,
+          "layer": "F.Cu",
+          "lengthMm": 10.644107818412966
+        }
+      ]
+    }
+  ]
+}

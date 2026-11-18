@@ -1,0 +1,63 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-16T16:45:55",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.7",
+    "schematic_parity": [],
+    "source": "mobot-robot.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [/GND] on F.Cu, length 1.2375 mm",
+                    "pos": {
+                        "x": 11.75,
+                        "y": 55.0125
+                    },
+                    "uuid": "0001fd6a-6c37-4339-93b4-4a99d0ef1c2e"
+                },
+                {
+                    "description": "Via [/GND] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 11.9,
+                        "y": 56.1
+                    },
+                    "uuid": "e352008b-158b-427f-98aa-57c0102dc780"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [/GND] on F.Cu, length 1.0607 mm",
+                    "pos": {
+                        "x": 11.75,
+                        "y": 56.25
+                    },
+                    "uuid": "14817bd2-dd4f-4169-b337-4997ac221ce7"
+                },
+                {
+                    "description": "Via [/GND] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 11.9,
+                        "y": 56.1
+                    },
+                    "uuid": "e352008b-158b-427f-98aa-57c0102dc780"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import type { AdminAccess, AnalyticsSummary } from '../lib/admin'
-import { getAnalyticsSummary, signOutAdmin } from '../lib/admin'
+import { getAnalyticsSummary, getLocalAnalyticsSummary, signOutAdmin } from '../lib/admin'
 
 function formatLocalDate(date: Date): string {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Ho_Chi_Minh' }).format(date)
@@ -23,11 +23,12 @@ function eventNameLabel(eventName: string): string {
     lesson_open: 'Mở bài học',
     component_select: 'Chọn linh kiện',
     code_copy: 'Sao chép code',
+    builder_run: 'Chạy mô phỏng',
   }
   return labels[eventName] ?? 'Sự kiện khác'
 }
 
-export function AdminDashboardPage({ access }: { access: AdminAccess }) {
+export function AdminDashboardPage({ access, local = false }: { access?: AdminAccess; local?: boolean }) {
   const now = new Date()
   const [startDate, setStartDate] = useState(formatLocalDate(shiftDate(now, -6)))
   const [endDate, setEndDate] = useState(formatLocalDate(now))
@@ -49,15 +50,19 @@ export function AdminDashboardPage({ access }: { access: AdminAccess }) {
     setLoading(true)
     setError('')
     try {
-      const endExclusive = formatLocalDate(shiftDate(new Date(`${endDate}T00:00:00+07:00`), 1))
-      setSummary(await getAnalyticsSummary(startOfVietnamDay(startDate), startOfVietnamDay(endExclusive)))
+      if (local) {
+        setSummary(await getLocalAnalyticsSummary(startDate, endDate))
+      } else {
+        const endExclusive = formatLocalDate(shiftDate(new Date(`${endDate}T00:00:00+07:00`), 1))
+        setSummary(await getAnalyticsSummary(startOfVietnamDay(startDate), startOfVietnamDay(endExclusive)))
+      }
     } catch {
-      setError('Chưa tải được thống kê. Kiểm tra migration, quyền admin và kết nối Supabase rồi thử lại.')
+      setError(local ? 'Chưa tải được thống kê từ mini PC. Hãy thử tải lại.' : 'Chưa tải được thống kê. Hãy kiểm tra kết nối Supabase rồi thử lại.')
       setSummary(null)
     } finally {
       setLoading(false)
     }
-  }, [endDate, startDate])
+  }, [endDate, local, startDate])
 
   useEffect(() => { void loadSummary() }, [loadSummary])
 
@@ -79,7 +84,7 @@ export function AdminDashboardPage({ access }: { access: AdminAccess }) {
 
   return (
     <main className="admin-dashboard-page">
-      <header className="admin-topbar"><Link to="/" className="admin-brand"><span>M</span><strong>Mạch Mở</strong><small>QUẢN TRỊ</small></Link><div className="admin-user"><span>{access.user.email}</span><button type="button" onClick={logout} disabled={logoutBusy}>{logoutBusy ? 'Đang thoát…' : 'Đăng xuất'}</button></div></header>
+      <header className="admin-topbar"><Link to="/" className="admin-brand"><span>M</span><strong>Mạch Mở</strong><small>QUẢN TRỊ</small></Link><div className="admin-user"><span>{local ? 'Báo cáo trên mini PC' : access?.user.email}</span>{!local && <button type="button" onClick={logout} disabled={logoutBusy}>{logoutBusy ? 'Đang thoát…' : 'Đăng xuất'}</button>}</div></header>
       <div className="admin-dashboard-content">
         <div className="admin-dashboard-heading"><div><p className="eyebrow">TỔNG QUAN SỬ DỤNG</p><h1>Người học đang khám phá gì?</h1><p>Thống kê các phiên truy cập và thao tác trên nội dung miễn phí.</p></div><button className="refresh-button" type="button" onClick={() => void loadSummary()} disabled={loading}>↻ Làm mới</button></div>
 

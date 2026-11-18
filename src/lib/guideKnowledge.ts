@@ -1,4 +1,5 @@
-import { searchGuide } from './guideSearch'
+import { normalizeGuideText, searchGuide } from './guideSearch'
+import { getBeginnerGuideArticle, type BeginnerGuideContext, type BeginnerGuideAction } from './beginnerGuide'
 
 export type GuideSnapshot = {
   owner: string
@@ -9,6 +10,8 @@ export type GuideSnapshot = {
   status?: string
   issues?: string[]
   next?: string
+  beginner?: BeginnerGuideContext
+  actions?: readonly BeginnerGuideAction[]
 }
 export type GuideSource = { label: string; href: string }
 export type GuideArticle = { id: string; title: string; aliases: string[]; paragraphs: string[]; source: GuideSource; sources?: GuideSource[]; evidence: string[] }
@@ -92,7 +95,14 @@ export const GUIDE_ARTICLES: readonly GuideArticle[] = [
   ],'/app','Không gian học',['src/components/onboarding/Onboarding.tsx','src/lib/theme.ts']),
 ]
 
-export function findGuideAnswers(question: string, snapshot?: GuideSnapshot): GuideSearchResult { return searchGuide(question, GUIDE_ARTICLES, snapshot) }
+export function findGuideAnswers(question: string, snapshot?: GuideSnapshot): GuideSearchResult {
+  const intent = normalizeGuideText(question)
+  if (snapshot?.beginner && ['toi nen lam gi tiep', 'giai thich ket qua hien tai'].includes(intent)) {
+    const current = getBeginnerGuideArticle(snapshot)
+    if (current) return { kind: 'matches', articles: [current] }
+  }
+  return searchGuide(question, GUIDE_ARTICLES, snapshot)
+}
 export function getContextAdvice(snapshot?: GuideSnapshot): string[] {
   if (!snapshot) return ['Chưa có ngữ cảnh mạch được chia sẻ ở trang này. Bạn có thể hỏi về một khái niệm hoặc mở hướng dẫn trang.']
   const result: string[] = []
@@ -109,6 +119,7 @@ export function guideRoute(pathname: string) {
   const p=aliases[pathname]??pathname.replace(/^\/app\/learn\//,'/learn/')
   if(p==='/build/freestyle')return {title:'Bàn lắp mạch tự do',steps:['Bàn tự do bắt đầu trống; chọn board đúng biến thể rồi tự thêm linh kiện.','Thêm linh kiện; nối chân hoặc lỗ theo topology mong muốn.','Đọc giới hạn runtime, sửa code rồi bấm Chạy.','Quan sát vết logic và Serial; đọc lỗi trước khi thay đổi tiếp.'],href:'/build/freestyle'}
   if(p==='/build')return {title:'Phòng lắp mạch theo bài',steps:['Chọn bài và đọc mục tiêu trước khi chạy.','Dùng breadboard, schematic hoặc 3D để lần theo cùng một kết nối.','Chọn linh kiện, chân hoặc dây để xem thông tin; bản xem trước có thể chỉ đọc.','Đọc panel bước tiếp theo và giới hạn provider rồi mới chạy hoặc chạy từng bước.'],href:'/build'}
+  if(p==='/learn/basics')return {title:'Khóa nền tảng điện tử',steps:['Chọn một trong năm hoạt động: mạch kín, breadboard, LED, nút nhấn hoặc ngưỡng cảm biến.','Đặt thử nghiệm và chọn dự đoán trước khi bấm Quan sát mô hình.','So sánh kết quả với dự đoán, chọn cách giải thích rồi thử trường hợp còn thiếu.','Mở mục Đang làm để xem bước tiếp theo; Mở chỉ đưa bạn tới điều khiển, không chạy hoặc chọn đáp án hộ.'],href:'/learn/basics'}
   if(p.startsWith('/learn/'))return {title:'Bài học',steps:['Chọn đúng board/biến thể rồi đọc mục tiêu và mức mô phỏng của bài.','Chọn linh kiện để tìm hiểu chân, vai trò và lưu ý.','Đối chiếu lắp dây với sơ đồ và đoạn code.','Thay một điều mỗi lần, quan sát kết quả và xem lại phần chưa rõ.'],href:p}
   if(p==='/boards'||p==='/components')return {title:'Thư viện board và linh kiện',steps:['Tìm theo tên hoặc nhóm rồi chọn hồ sơ cần xem.','Đọc pinout, nguồn, revision và mức hỗ trợ; hình minh họa không thay datasheet.','Dùng liên kết lắp thử nếu hồ sơ có hỗ trợ.'],href:p}
   if(p==='/tools/spice')return {title:'Mô phỏng SPICE',steps:['Chọn ví dụ analog hoặc nhập netlist nằm trong phạm vi model hỗ trợ.','Chọn analysis và chạy SPICE để nhận kết quả solver.','Dùng probe và cursor để đọc waveform; đối chiếu đơn vị và trục thời gian.'],href:p}

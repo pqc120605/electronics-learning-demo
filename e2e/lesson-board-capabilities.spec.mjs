@@ -1,0 +1,61 @@
+import { test, expect } from '@playwright/test'
+
+async function start(page, path = '/learn/blink') {
+  await page.addInitScript(() => {
+    localStorage.setItem('mm-tour-seen', JSON.stringify({ home: 1, lesson: 1, lab: 1 }))
+    localStorage.setItem('machmo-builder-session', '{"keep":"capability-finder-source","revision":42}')
+  })
+  await page.goto(path)
+  await expect(page.getByRole('heading', { name: 'LED nhấp nháy', exact: true })).toBeVisible()
+}
+
+for (const width of [375, 1440]) {
+  test(`optional board comparison preserves choice and drafts at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: width === 375 ? 812 : 900 })
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await start(page)
+    const finder = page.locator('.board-capability-finder')
+    const search = finder.getByRole('searchbox', { name: 'Tìm board để so sánh', exact: true })
+    await expect(search).not.toBeVisible()
+    await finder.locator('summary').focus()
+    await page.keyboard.press('Enter')
+    await search.fill('Uno R3')
+    await finder.locator('[data-board-option="arduino-uno-r3"]').getByRole('checkbox').check()
+    await search.fill('F401RE')
+    await finder.locator('[data-board-option="stm32-nucleo"]').getByRole('checkbox').check()
+    const comparison = finder.getByRole('region', { name: 'Board đang so sánh', exact: true })
+    await expect(comparison.locator('article')).toHaveCount(2)
+    await expect(comparison.locator('[data-board-card="arduino-uno-r3"]')).toContainText('2/2')
+    await expect(comparison.locator('[data-board-card="stm32-nucleo"]')).toContainText('0/2')
+    await search.fill('ESP32 DevKit')
+    await expect(finder.locator('[data-board-option="esp32-devkit"]').getByRole('checkbox')).toBeDisabled()
+    expect(new URL(page.url()).search).toBe('')
+    expect(await page.evaluate(() => localStorage.getItem('machmo-builder-session'))).toBe('{"keep":"capability-finder-source","revision":42}')
+    await comparison.locator('[data-board-card="stm32-nucleo"]').getByRole('button', { name: /Bỏ so sánh/ }).click()
+    await expect(search).toBeFocused()
+    await finder.getByLabel('Lọc theo khả năng', { exact: true }).selectOption('hex')
+    await search.fill('')
+    await expect(finder.locator('[data-board-option]')).toHaveCount(2)
+    const bounds = await finder.boundingBox()
+    expect(bounds.x).toBeGreaterThanOrEqual(0)
+    expect(bounds.x + bounds.width).toBeLessThanOrEqual(width)
+    await comparison.getByRole('button', { name: 'Chọn Arduino Uno R3 cho bài này', exact: true }).focus()
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(/board=arduino-uno-r3/)
+    await expect(finder).not.toBeVisible()
+    expect(await page.evaluate(() => localStorage.getItem('machmo-builder-session'))).toBe('{"keep":"capability-finder-source","revision":42}')
+  })
+}
+
+test('reference-only comparison keeps identity and source without enabling a lesson', async ({ page }) => {
+  await start(page, '/app/learn/blink?board=unknown-clone-99')
+  const finder = page.locator('.board-capability-finder')
+  await finder.locator('summary').click()
+  await finder.getByRole('searchbox').fill('XIAO ESP32-S3')
+  await finder.locator('[data-board-option="seeed-xiao-esp32-s3"]').getByRole('checkbox').check()
+  const card = finder.locator('[data-board-card="seeed-xiao-esp32-s3"]')
+  await expect(card).toContainText('Hồ sơ tham khảo')
+  await expect(card.getByRole('button', { name: /cho bài này/ })).toHaveCount(0)
+  await expect(card.getByRole('link', { name: 'Hồ sơ board và nguồn', exact: true })).toHaveAttribute('href', '/app/boards?board=seeed-xiao-esp32-s3')
+  await expect(page).toHaveURL(/board=unknown-clone-99/)
+})

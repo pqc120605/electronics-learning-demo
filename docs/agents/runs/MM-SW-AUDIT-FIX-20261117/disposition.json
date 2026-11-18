@@ -1,0 +1,120 @@
+{
+  "taskId": "MM-SW-AUDIT-FIX-20261117",
+  "baselineAudit": "docs/reviews/2026-11-16-web-user-audit/findings.json",
+  "date": "2026-11-17",
+  "note": "Code dispositions; final suite gate is recorded separately in verification.json. RESOLVED_LIMIT means the audited misleading/usable behavior is addressed while the stated physical/capability limit remains.",
+  "findings": [
+    {
+      "id": "F01",
+      "status": "FIXED",
+      "change": "Catalog tụ gốm không còn mở nhầm tụ hóa; chỉ mở thực hành khi registry có đúng catalogId. Tụ hóa vẫn mở đúng part phân cực.",
+      "screenshot": "screenshots/F01-ceramic.png",
+      "checks": "catalog identity"
+    },
+    {
+      "id": "F02",
+      "status": "FIXED",
+      "change": "Router dành sẵn lối ra cho mọi đầu nối; preset button-led có đủ6 dây. G6 dùng cả diagnostics của hình2D đang hiển thị và kiểm3D, giữ cảnh báo số góc R8.",
+      "screenshot": "screenshots/F02-F11-six-wires-final.png",
+      "checks": "button routes + displayed G6"
+    },
+    {
+      "id": "F03",
+      "status": "FIXED",
+      "change": "Ngưỡng kéo tính từ điểm bắt đầu, độc lập số sự kiện chuột. Kéo40 bước tạo đúng1 dây.",
+      "screenshot": "screenshots/F03-slow-drag-final.png",
+      "checks": "slow incremental drag"
+    },
+    {
+      "id": "F04",
+      "status": "RESOLVED_LIMIT",
+      "change": "Chỉ hướng dẫn chọn trên model khi pinPicking được xác nhận. Arduino dùng danh sách tên chân; không bật coordinate picking từ anchor minh họa.",
+      "screenshot": "screenshots/F04-mega-picking.png",
+      "checks": "illustrative Arduino anchors"
+    },
+    {
+      "id": "F05",
+      "status": "FIXED",
+      "change": "Mega hiện PWM D2–13/44–46 và UART D14–19 đúng pinout hãng; giữ ADC.",
+      "screenshot": "screenshots/F05-D18.png",
+      "checks": "Mega functions"
+    },
+    {
+      "id": "F06",
+      "status": "FIXED",
+      "change": "Inspector lấy nguồn/revision từ board đang chọn. ESP32-S3 ghi PADS V1.1, không lẫn Seeed/ST.",
+      "screenshot": "screenshots/F06-S3-source.png",
+      "checks": "S3 pad"
+    },
+    {
+      "id": "F07",
+      "status": "FIXED",
+      "change": "STM32 mô tả đúng viewer reconstruction đang có, đồng thời giữ giới hạn CAD/board thật chưa xác minh.",
+      "screenshot": "screenshots/F07-blue-pill-final.png",
+      "checks": "STM32 availability"
+    },
+    {
+      "id": "F08",
+      "status": "FIXED",
+      "change": "referenceBoard độc lập board thực thi. Chọn Uno để tham khảo vẫn giữ bài ESP32 năm tab và nhãn giới hạn.",
+      "screenshot": "screenshots/F08-reference-board-final-stable.png",
+      "checks": "reference board selection"
+    },
+    {
+      "id": "F09",
+      "status": "FIXED",
+      "change": "Mapping catalog→canonical khôi phục link Nano/Mega/Nucleo và10 loại part tương ứng. Canonical URL cũ vẫn được nhận trước alias.",
+      "screenshot": "screenshots/F09-arduino-nano-classic.png",
+      "checks": "catalog identity"
+    },
+    {
+      "id": "F10",
+      "status": "RESOLVED_LIMIT",
+      "change": "Mobile có thang làm việc/pan và nút vừa khung riêng; hit target lỗ/chân đạt24.64px trong freestyle375px. Occupied hole vẫn có keyboard/grid, pointer tới chân. Giới hạn vùng palette/list; không hứa hết cuộn hoặc đã kiểm điện thoại thật.",
+      "screenshot": "screenshots/F10-mobile-working-final.png",
+      "checks": "mobile working zoom + existing wiring journeys"
+    },
+    {
+      "id": "F11",
+      "status": "FIXED",
+      "change": "Bỏ thông báo schema/provider cũ, dùng thông tin trace hiện tại; thu gọn kiểm tra vào details nhưng tự mở khi có lỗi.",
+      "screenshot": "screenshots/F02-F11-six-wires-final.png",
+      "checks": "displayed button lesson"
+    },
+    {
+      "id": "F12",
+      "status": "FIXED",
+      "change": "Ý định hỏi công cụ được xét trước guard họ board. SPICE+ESP32 trả giới hạn SPICE; vẫn guard clone/pin/định mức chưa đủ dữ liệu.",
+      "screenshot": "screenshots/F12-answer-final.png",
+      "checks": "SPICE capability + negative guards"
+    },
+    {
+      "id": "F13",
+      "status": "FIXED",
+      "change": "Provenance Arduino lấy hash từ asset lock hiện tại; test đối chiếu trực tiếp GLB và mesh-bearing nodes. Không tự công nhận footprint-only có body.",
+      "screenshot": null,
+      "checks": "Arduino provenance"
+    },
+    {
+      "id": "F14",
+      "status": "FIXED",
+      "change": "Đăng ký document title đúng trang robot, không còn title404.",
+      "screenshot": "screenshots/F14-title-final.png",
+      "checks": "robot title"
+    },
+    {
+      "id": "F15",
+      "status": "FIXED",
+      "change": "Nhập0 được giữ để sửa với lỗi tiếng Việt; bundle8 trạm hợp lệ cũ không bị ghi đè, xuất bị chặn tới khi nhập hợp lệ.",
+      "screenshot": "screenshots/F15-validation-final.png",
+      "checks": "invalid kit station"
+    },
+    {
+      "id": "F16",
+      "status": "FIXED",
+      "change": "Mẫu motor mới có nguồn tải lý tưởng riêng/GND chung/diode flyback; ghi rõ chưa tính điện/nhiệt thực. Note đọc topology thật; bản nháp cũ không bị tự dựng lại.",
+      "screenshot": "screenshots/F16-motor-protection-final.png",
+      "checks": "motor sample/protection + legacy bytes"
+    }
+  ]
+}

@@ -28,7 +28,7 @@
     "@stylexjs/stylex": "0.19.2",
     "@supabase/supabase-js": "^2.118.0",
     "avr8js": "file:vendor/avr8js-0.21.1.tgz",
-    "eecircuit-engine": "1.8.0",
+    "eecircuit-engine": "file:vendor/mach-mo-spice",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.4",

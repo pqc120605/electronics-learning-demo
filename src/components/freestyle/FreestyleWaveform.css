@@ -1,0 +1,16 @@
+.freestyle-waveform { min-width: 0; overflow-wrap: anywhere; }
+.freestyle-measure { min-width: 0; margin: 16px 0; padding: 12px; color: var(--mm-ink); border: 1px solid var(--mm-line); border-radius: 8px; }
+.freestyle-measure legend { padding: 0 6px; font-weight: 700; }
+.freestyle-measure-toolbar { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
+.freestyle-measure-picker { display: grid; gap: 4px; flex: 1 1 160px; min-width: 0; }
+.freestyle-measure select { width: 100%; min-width: 0; min-height: 44px; padding: 6px; font: inherit; color: var(--mm-ink); background: var(--mm-surface); border: 1px solid var(--mm-line); border-radius: 4px; }
+.freestyle-measure button { min-height: 44px; }
+.freestyle-measure p { font-size: .85rem; line-height: 1.5; }
+.freestyle-cursor { display: grid; grid-template-columns: 80px minmax(0, 1fr); align-items: center; gap: 4px 12px; margin: 12px 0; }
+.freestyle-cursor input { width: 100%; min-width: 0; min-height: 44px; margin: 0; accent-color: var(--mm-signal); }
+.freestyle-cursor output { grid-column: 1 / -1; font-variant-numeric: tabular-nums; font-size: .85rem; }
+.freestyle-measure-result { font-weight: 700; font-variant-numeric: tabular-nums; }
+.freestyle-measure :is(input, select, button):focus-visible { outline: 3px solid var(--mm-signal); outline-offset: 3px; }
+.freestyle-cursor-marker { fill: none; stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: none; }
+.freestyle-cursor-a { stroke: var(--mm-signal); }
+.freestyle-cursor-b { stroke: var(--mm-ink); stroke-dasharray: 4 3; }

@@ -1,0 +1,15 @@
+{
+  "verdict": "pass",
+  "scope": "MM-SW-LOCAL-GUIDE-001, current local learning guide integration",
+  "date": "2026-11-18",
+  "snapshot": "snapshot-reviewed.json",
+  "review": "review.md",
+  "commands": [
+    {"command":"npm.cmd run typecheck","exit":0,"log":"checks/typecheck.log"},
+    {"command":"npm.cmd test","exit":0,"passed":723,"failed":0,"skipped":0,"log":"checks/unit-full.log"},
+    {"command":"npm.cmd run build:local (child of the standard E2E wrapper)","exit":0,"log":"checks/e2e-affected.log"},
+    {"command":"npm.cmd run test:e2e -- e2e/beginner-course.spec.mjs e2e/beginner-guide.spec.mjs e2e/mascot-guide.spec.mjs e2e/guide-depth.spec.mjs","exit":0,"passed":25,"failed":0,"skipped":0,"log":"checks/e2e-affected.log"}
+  ],
+  "prior_global_regression": {"reference":"../MM-SW-LOCAL-LEARNING-001/verification.json","passed":207,"skipped":1,"failed":0,"scope":"Before guide integration; affected suites rerun afterward"},
+  "limits": ["Local deterministic course advice only; no generative AI service", "No physical measurements or real learner study", "Server analytics environment remains separate and deferred"]
+}

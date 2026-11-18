@@ -1,0 +1,7 @@
+source,target,signal,simulated_ms,cycles,level,trace_truncated
+avr8js,arduino-uno-r3-atmega328p,D13/PB5,0,0,LOW,false
+avr8js,arduino-uno-r3-atmega328p,D13/PB5,0.000125,2,HIGH,false
+avr8js,arduino-uno-r3-atmega328p,D13/PB5,245.76025,3932164,LOW,false
+avr8js,arduino-uno-r3-atmega328p,D13/PB5,491.5204375,7864327,HIGH,false
+avr8js,arduino-uno-r3-atmega328p,D13/PB5,737.2805625,11796489,LOW,false
+avr8js,arduino-uno-r3-atmega328p,D13/PB5,983.04075,15728652,HIGH,false

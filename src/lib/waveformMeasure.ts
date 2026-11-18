@@ -25,6 +25,14 @@ export function measureAnalogCursors(
 }
 
 export function measureLogicSignal(events: readonly LogicWaveformEvent[]) {
+  if (!Array.isArray(events) || events.length < 4) return null
+  let previousTime = -Infinity
+  for (const event of events) {
+    if (!event || typeof event !== 'object' || Array.isArray(event)
+      || typeof event.level !== 'boolean' || !Number.isFinite(event.time)
+      || event.time < 0 || event.time <= previousTime) return null
+    previousTime = event.time
+  }
   const rising = events.filter((event, index) => index > 0 && event.level && !events[index - 1].level)
   const periods: Array<{ duration: number; high: number }> = []
   for (let index = 0; index < rising.length - 1; index += 1) {
@@ -37,5 +45,8 @@ export function measureLogicSignal(events: readonly LogicWaveformEvent[]) {
   if (!periods.length) return null
   const mean = (key: 'duration' | 'high') => periods.reduce((sum, period) => sum + period[key], 0) / periods.length
   const period = mean('duration')
-  return { frequencyHz: 1000 / period, dutyCycle: mean('high') / period * 100, periods: periods.length, valueUnit: 'logic' as const }
+  const frequencyHz = 1000 / period
+  const dutyCycle = mean('high') / period * 100
+  if (!Number.isFinite(frequencyHz) || !Number.isFinite(dutyCycle) || frequencyHz <= 0 || dutyCycle < 0 || dutyCycle > 100) return null
+  return { frequencyHz, dutyCycle, periods: periods.length, valueUnit: 'logic' as const }
 }

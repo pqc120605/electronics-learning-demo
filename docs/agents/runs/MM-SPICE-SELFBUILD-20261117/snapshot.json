@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-17",
+  "scope": "Self-built ngspice engine only; no mini-PC deployment",
+  "files": {
+    "package.json": {
+      "bytes": 2046,
+      "sha256": "e75c51e1c9ec9e9db41f3208ad1f8f6b44a55770b44f8b4340fd8fe14f7ff7af"
+    },
+    "package-lock.json": {
+      "bytes": 34725,
+      "sha256": "7f683ca75cb6845d474c1428fca8481fba6ced1009e31ff737f7365cbf17e997"
+    },
+    "scripts/prepare-spice-engine.mjs": {
+      "bytes": 1614,
+      "sha256": "10fd4df73b18876d0180a167e7ec7217764de212fc5859f995856ef4e1b28a04"
+    },
+    "scripts/audit-spice-engine.mjs": {
+      "bytes": 3498,
+      "sha256": "01fad83a340174c03f1ed050495da70b61604b5f542f7852f8f243fa7d5d897e"
+    },
+    "scripts/ngspice-build/build.sh": {
+      "bytes": 5765,
+      "sha256": "d687de1c85d01056181488d638cf393a14ba0a775b9063ee2930d3b573c32836"
+    },
+    "scripts/ngspice-build/Containerfile": {
+      "bytes": 354,
+      "sha256": "da34f5e5ebaa83cb65a485586ed8eefc8f4523c69c1423436475b5bfe322bc79"
+    },
+    "scripts/ngspice-build/assemble-wrapper.mjs": {
+      "bytes": 3806,
+      "sha256": "74400256e26ba230a767aab3705c57e3fae982758c52b86079edaa581ae53c48"
+    },
+    "scripts/ngspice-build/prepare-inputs.mjs": {
+      "bytes": 1611,
+      "sha256": "f8b6e00a294fcc365316e3cf55a40bd43cba8c5f7beb8d837e283e6488fb07bf"
+    },
+    "scripts/ngspice-build/verify-artifacts.mjs": {
+      "bytes": 1152,
+      "sha256": "9941257ecc7983240d5fedcdacfc247aaf0890e8404d2215e10e9f7defa8d01b"
+    },
+    "public/licenses/spice-engine-provenance.json": {
+      "bytes": 5831,
+      "sha256": "ae5a2cccd60c70d4e0ef006cff1bfdc1c8f877dcb03f28cc8d98a94e2ed982b7"
+    },
+    "public/licenses/ngspice-selfbuild/release-files.json": {
+      "bytes": 2996,
+      "sha256": "55e64bf30de9b72fd947683b8187952de011abea19f871859612843db2b11be5"
+    },
+    "public/vendor/eecircuit-engine/eecircuit-engine.mjs": {
+      "bytes": 11309,
+      "sha256": "2295aea8e872b2b4bc661204ae1e367e1639195ce8591937a2f3d36598188574"
+    },
+    "public/vendor/eecircuit-engine/readOutput.mjs": {
+      "bytes": 5194,
+      "sha256": "1918e63074a6fb96db5df85c03cfc05b5fbc1922a0ca2691e8e974ebccffe945"
+    },
+    "public/vendor/eecircuit-engine/spice.mjs": {
+      "bytes": 82511,
+      "sha256": "f3e6a6b7685424c1262b548a242ec4f79c49bc5298124b8bd8caa5ffe509aa19"
+    },
+    "public/vendor/eecircuit-engine/spice.wasm": {
+      "bytes": 4519343,
+      "sha256": "3096ce2c499c3062472b9d7953f5141d75a019296e22b0142f4979e5894008ec"
+    },
+    "tests/spice-self-build.test.mjs": {
+      "bytes": 2498,
+      "sha256": "86e6addea98f4988484e5cb9971207a96bd895c4dc8412532fe06cc578b6b3cb"
+    },
+    "tests/spice-engine-provenance.test.mjs": {
+      "bytes": 4631,
+      "sha256": "d3c5ce25522f0892c66773a27bf377b9e7ca8bef5721986e0ba92cb02eb59d95"
+    }
+  }
+}

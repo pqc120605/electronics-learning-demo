@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "boardId": "esp32-devkit",
+  "doc": {
+    "schema": 2,
+    "lessonId": "freestyle",
+    "breadboards": [
+      {
+        "id": "bb1",
+        "spec": "400-30",
+        "railSplit": false
+      }
+    ],
+    "parts": [
+      {
+        "id": "board",
+        "type": "board",
+        "mount": {
+          "kind": "bench",
+          "lane": "left",
+          "order": 0
+        }
+      },
+      {
+        "id": "resistor1",
+        "type": "resistor",
+        "mount": {
+          "kind": "breadboard",
+          "board": "bb1",
+          "col": 4,
+          "row": 2,
+          "rotation": 0
+        }
+      },
+      {
+        "id": "led1",
+        "type": "led",
+        "mount": {
+          "kind": "breadboard",
+          "board": "bb1",
+          "col": 12,
+          "row": 2,
+          "rotation": 0
+        }
+      }
+    ],
+    "wires": [
+      {
+        "id": "w1",
+        "from": {
+          "kind": "pin",
+          "partId": "board",
+          "pinId": "gnd"
+        },
+        "to": {
+          "kind": "hole",
+          "holeId": "bb1:B-:1"
+        },
+        "role": "ground"
+      },
+      {
+        "id": "w3",
+        "from": {
+          "kind": "hole",
+          "holeId": "bb1:8e"
+        },
+        "to": {
+          "kind": "hole",
+          "holeId": "bb1:13e"
+        },
+        "role": "signal"
+      },
+      {
+        "id": "w4",
+        "from": {
+          "kind": "hole",
+          "holeId": "bb1:12e"
+        },
+        "to": {
+          "kind": "hole",
+          "holeId": "bb1:B-:2"
+        },
+        "role": "ground"
+      },
+      {
+        "id": "w2",
+        "from": {
+          "kind": "hole",
+          "holeId": "bb1:1a"
+        },
+        "to": {
+          "kind": "hole",
+          "holeId": "bb1:2a"
+        },
+        "role": "signal"
+      }
+    ],
+    "expect": {
+      "partCount": 3,
+      "wireCount": 4,
+      "netCount": 2
+    }
+  },
+  "pinMap": {
+    "ledOut": 23,
+    "input": 34,
+    "trig": 5,
+    "echo": 18,
+    "seg0": 13,
+    "seg1": 14,
+    "seg2": 27,
+    "seg3": 26,
+    "seg4": 25,
+    "seg5": 33,
+    "seg6": 32
+  },
+  "language": "cpp",
+  "code": "const int LED = 23;   // chân GPIO LED trên bàn lắp mạch\n\nvoid setup() {\n  pinMode(LED, OUTPUT);\n  Serial.begin(115200);\n  Serial.println(\"Bat dau nhay LED\");\n}\n\nvoid loop() {\n  digitalWrite(LED, HIGH);\n  Serial.println(\"LED: BAT\");\n  delay(500);\n  digitalWrite(LED, LOW);\n  Serial.println(\"LED: TAT\");\n  delay(500);\n}\n",
+  "updatedAt": "2026-11-16T16:33:42.315Z",
+  "sampleId": "blink"
+}

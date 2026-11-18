@@ -1,25 +1,12 @@
-NGSPICE WEBASSEMBLY — NOT CLEARED: CHƯA XÁC MINH ĐỦ ĐIỀU KIỆN PHÂN PHỐI
+Mạch Mở source-pinned ngspice WASM, 2026-11-17
 
-Artifact đang được ứng dụng phục vụ từ /vendor/eecircuit-engine/spice.wasm:
-- Wrapper npm: eecircuit-engine 1.8.0, khai báo MIT.
-- Runtime header: ngspice 45.2, build Sat Sep 5 01:00:10 UTC 2026.
-- Kích thước/hash: xem spice-engine-provenance.json; audit bằng npm run audit:spice-engine.
-- Commit nguồn ngspice: chưa ghi nhận. Build recipe/toolchain và danh mục mã được link vào WASM: chưa có.
+ngspice 45.2 source 724dc77b9153dc75eaec474b1f7a44f1fcf5f362; EEcircuit wrapper be15b07abaf2c8a77623e4fc700d260004fbfa5a.
+This is a locally modified build, not the upstream npm binary.
 
-MIT của wrapper không cấp phép thay cho mã được biên dịch vào WASM. Tài liệu ngspice mô tả Modified BSD làm giấy phép nền; tclspice và numparam theo LGPLv2; XSPICE thuộc public domain; giao diện OSDI theo MPLv2.0 (MPL 2.0). Cần giữ đúng các copyright, điều kiện và disclaimer áp dụng cho từng phần.
+ngspice core/models use Modified BSD except identified components. Numparam is LGPL version 2 or later; its license text and sources are provided. Sparse retains the exact Kundert/University of California permission and attribution. Emscripten generated JavaScript, musl libc/libm, compiler-rt and other toolchain notices are retained in toolchain-notices.tar.gz. EEcircuit wrapper is MIT. See the exact source headers and complete supplied notices.
 
-Manual ngspice có mục “Linking to GPLd libraries (e.g. readline, fftw, table.cm)”. Mục này cũng nói Modified BSD tương thích GPL và các hạn chế linking được nêu không còn áp dụng. Điều đó không xác nhận binary này có hay không có table.cm, cũng không xác định license obligations của các thành phần thực tế trong artifact.
+Modifications by Mạch Mở on 2026-11-17: asynchronous command hook; virtual-terminal input for Node/browser workers; HICUM2 and C++ removal; build profile excludes bsim4 (current ECL-2.0 model), hisim2, hisimhv1, hisimhv2, XSPICE, OSDI, CIDER, KLU, FFTW, readline and ADMS. Older BSIM4v5/v6/v7 remain; excluded models are not supported. Unused external PDK model cards are omitted from wrapper.
 
-KẾT LUẬN KIỂM KÊ: hiện chưa đủ bằng chứng để đánh dấu quyền tái phân phối công khai của đúng WASM này là đã được thông qua. Binary đang nằm trong thư mục public của dự án; đây là release gate cho việc phân phối/publish, không phải kết luận rằng binary chắc chắn vi phạm hoặc chắc chắn được phép. Không diễn giải việc package cài được hoặc smoke test chạy đạt thành xác nhận pháp lý.
+Source/relink materials: /licenses/ngspice-selfbuild/. Source archives include retained original copyrights. source.patch records C/build modifications. Wrapper transformations are in assemble-wrapper.mjs. Complete ngspice build objects and generated makefiles are in relink-build.tar.gz; rebuild or replace Numparam and relink without any application signing key. Reverse engineering/debugging modifications of LGPL-covered components is not restricted. No warranty; this is educational simulation, not hardware validation.
 
-Để đóng gate: tìm đúng source revision/patch set khớp hash; lưu build script, flags và toolchain; kiểm kê mọi code model/library được link; thêm các notice và source/relink materials mà license tương ứng yêu cầu; sau đó review quyền phân phối theo artifact thực tế.
-
-Gate tự động trong repo: `npm run check:public-release`; lệnh build phát hành `npm run build:public` phải chạy gate trước. `npm run build` chỉ dành cho build/kiểm tra thông thường và vẫn chứa WASM này trong output; không dùng output đó để deploy công khai khi gate còn fail. Chi tiết: `docs/spice-redistribution-audit-2026-11-03.md`.
-
-Nguồn chính:
-- https://ngspice.sourceforge.io/docs/ngspice-manual.pdf (Chapter 29, especially §§29.2, 29.4.5–29.4.7)
-- https://ngspice.sourceforge.io/devel.html
-- https://github.com/ngspice/ngspice/blob/master/COPYING
-- https://github.com/ngspice/ngspice/blob/master/FAQ
-
-Đây là ghi chú kiểm kê kỹ thuật, không phải kết luận pháp lý hoặc tư vấn; nó không xác nhận quyền tái phân phối công khai cho đúng WASM này.
+Artifact-specific technical distribution review is recorded in spice-engine-provenance.json; preserve the supplied source/relink/notice materials. Đây là hồ sơ kỹ thuật, không phải kết luận pháp lý.

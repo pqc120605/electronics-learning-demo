@@ -71,3 +71,10 @@ export async function getAnalyticsSummary(startAt: string, endAt: string): Promi
   if (error) throw error
   return data as AnalyticsSummary
 }
+
+export async function getLocalAnalyticsSummary(start: string, end: string): Promise<AnalyticsSummary> {
+  const query = new URLSearchParams({ start, end })
+  const response = await fetch(`/api/analytics/admin/summary?${query}`, { cache: 'no-store' })
+  if (!response.ok) throw new Error('Không tải được thống kê trên máy chủ.')
+  return response.json() as Promise<AnalyticsSummary>
+}

@@ -1,0 +1,4674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>D:\StartupOS\electronics-learning-demo\docs\hardware\claude-support\2026-11-15-pcb-2layer-r5\kicad\robot\mobot-robot.kicad_sch</source>
+    <date>2026-11-16T16:27:36</date>
+    <tool>Eeschema 10.0.7</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>MoBot robot EVT0 r5</title>
+        <company/>
+        <rev>r5</rev>
+        <date>2026-11-13</date>
+        <source>mobot-robot.kicad_sch</source>
+        <comment number="1" value="Sinh tự động từ tools/design_*.py — schematic dạng nhãn net"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>1u 16V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3035d4ba-2654-4e7d-beab-8bc710781320</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>10u 16V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0123074f-25b9-4cac-ba29-53f3e9bf318d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C3">
+      <value>22u 16V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>26de047d-202b-4aaa-b678-5b2b8d459644</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C4">
+      <value>22u 16V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>886d728a-9147-4f6f-8e96-763c499dfb82</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C5">
+      <value>10u 16V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>296afb32-b6d6-4823-a530-e268905c6496</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C6">
+      <value>10u 16V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>433deef8-85f8-4100-a311-5f29a97c97c2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C7">
+      <value>47n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f26f5872-d3a0-4ed5-8f56-c80824db9fe9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C8">
+      <value>4.7u</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>950d77a7-0a5f-4e2b-819a-efeddb3274aa</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C9">
+      <value>100n 16V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>021f6194-cc88-440d-8c81-7d14071af5eb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C10">
+      <value>10u 25V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1fb8fe5f-b9b1-41b0-be5a-e4a35f16665d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C11">
+      <value>22u 10V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e41a8bae-4c68-4274-a082-f617d08afca3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C12">
+      <value>22u 10V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>12624f25-771c-492a-963f-156d69cfd790</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C13">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e9e4ef4c-e832-457e-b14e-7f9f6da6dab7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C14">
+      <value>4.7u 10V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ddc1a891-ad7f-4d17-bda8-237615a5045c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C15">
+      <value>10u 10V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2517bf51-acd2-4249-8cf9-0d67f6f72411</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C16">
+      <value>10u 25V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ec47b71a-3f9b-4579-8f8b-ba73f21f4409</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C17">
+      <value>10u 25V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8af33e11-0927-45a0-a0aa-37dd7334a7de</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C18">
+      <value>22u 16V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>43c82d41-bd79-45d5-ab2f-273debd11ecd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C19">
+      <value>22u 16V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>190fd9c7-73fb-4b66-adea-4ce012450173</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C20">
+      <value>22u 16V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>be69bf38-764b-4aa4-92a0-7b8b8e085423</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C21">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bc5f14f4-2c19-4c0f-a23b-5a598a8053cb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C22">
+      <value>220u 16V polymer</value>
+      <footprint>Capacitor_SMD:CP_Elec_8x10</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:CP_Elec_8x10</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_0" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>683345b4-1c43-4cbd-b24a-00d298100690</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C23">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0679fb52-45c2-4c85-bc64-921424a96cc1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C24">
+      <value>10n 16V</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>12b6677a-c952-4731-b4af-1580e0fff551</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C25">
+      <value>2.2u</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>32e71887-bb9f-4b7d-a275-5322a986c1a7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C26">
+      <value>10u 25V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>06ebce5b-eb1c-42e7-a35f-3d7d34a3a49a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C27">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>425402cc-c54b-4f8e-8e5b-8a8cb046ade0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C28">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>004a23a6-555c-48f6-8dff-6bdfdfdc33cc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C29">
+      <value>1u</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>20f94f7b-2a4b-495e-a24a-2527c9bfab69</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C30">
+      <value>10u 10V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a5a40d53-3e65-4a97-a5a3-eabae7379693</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C31">
+      <value>1u</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a4616724-e40e-4935-901c-187a19ffc796</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C32">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3ce5d6cb-c1dd-4b81-951c-d74c60b9fdd5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D1">
+      <value>TVS TBD (du phong d2)</value>
+      <footprint>Diode_SMD:D_SMA</footprint>
+      <fields>
+        <field name="MPN">TBD</field>
+        <field name="Footprint">Diode_SMD:D_SMA</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_6" description=""/>
+      <property name="MPN" value="TBD"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9ba2aa33-5313-4dca-8ecc-83d57a9f513d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D2">
+      <value>LED nguon</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_6" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>69690a72-0ae0-409b-b31a-ef689f5d0f85</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D3">
+      <value>Schottky</value>
+      <footprint>Diode_SMD:D_SOD-323</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Diode_SMD:D_SOD-323</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_6" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9145cb00-0edb-4f16-982a-232346365940</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D4">
+      <value>Schottky</value>
+      <footprint>Diode_SMD:D_SOD-323</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Diode_SMD:D_SOD-323</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_6" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3bbf04da-c48f-4569-a0bb-fd674c9b96ab</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D5">
+      <value>LED sac</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_6" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a3ab251f-bc03-4a8c-bd64-a0d979fcf5bc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="F1">
+      <value>PTC 2.5A</value>
+      <footprint>Fuse:Fuse_1812_4532Metric</footprint>
+      <fields>
+        <field name="MPN">MF-MSMF250/16X</field>
+        <field name="Footprint">Fuse:Fuse_1812_4532Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value="MF-MSMF250/16X"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>aa8db389-2c3d-418c-a8b4-4489ad3c53ae</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H1">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S0_22" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6bb6343e-b4e9-4bad-9990-063a56eee1de</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H2">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S0_22" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e1ccbd22-6178-44a0-acdf-02628f122bde</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H3">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S0_22" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8a87acdb-c832-4292-9408-d203fe9a4b24</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H4">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S0_22" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f7ed7663-777c-4ace-bf2f-9312df25ebb6</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J1">
+      <value>DevKit hang trai</value>
+      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S15_15" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>92e9f357-b719-4eab-aa93-24908696a5e4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J2">
+      <value>DevKit hang phai (25.40 mm)</value>
+      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S15_16" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9b6b4308-c647-4a66-a857-c729bbf38d03</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J3">
+      <value>Pack 2S</value>
+      <footprint>Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="MPN">B2B-XH-A</field>
+        <field name="Footprint">Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_0" description=""/>
+      <property name="MPN" value="B2B-XH-A"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1910a5dd-6608-4e8a-997d-9af69c42c286</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J4">
+      <value>USB-C SAC</value>
+      <footprint>Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal</footprint>
+      <fields>
+        <field name="MPN">USB4105-GF-A</field>
+        <field name="Footprint">Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S17_4" description=""/>
+      <property name="MPN" value="USB4105-GF-A"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>18962e5d-9925-47a8-b7c4-e2417d55c428</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="A1"/>
+            <pin num="A4"/>
+            <pin num="A5"/>
+            <pin num="A6"/>
+            <pin num="A7"/>
+            <pin num="A8"/>
+            <pin num="A9"/>
+            <pin num="A12"/>
+            <pin num="B1"/>
+            <pin num="B4"/>
+            <pin num="B5"/>
+            <pin num="B6"/>
+            <pin num="B7"/>
+            <pin num="B8"/>
+            <pin num="B9"/>
+            <pin num="B12"/>
+            <pin num="SH"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J5">
+      <value>USB-A -&gt; ESP32 (cap A-&gt;DevKit)</value>
+      <footprint>Connector_USB:USB_A_Molex_67643_Horizontal</footprint>
+      <fields>
+        <field name="MPN">Molex 67643 (suffix TBD)</field>
+        <field name="Footprint">Connector_USB:USB_A_Molex_67643_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S5_14" description=""/>
+      <property name="MPN" value="Molex 67643 (suffix TBD)"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1c62c236-34cd-457d-b266-78f470eb52fc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="SH"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J6">
+      <value>Motor A</value>
+      <footprint>Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="MPN">B2B-XH-A</field>
+        <field name="Footprint">Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value="B2B-XH-A"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ac16e186-ce9c-4bc4-a24e-7cba38343242</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J7">
+      <value>Motor B</value>
+      <footprint>Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="MPN">B2B-XH-A</field>
+        <field name="Footprint">Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value="B2B-XH-A"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8827a5b9-168a-4bc7-8fb0-3533a816be2e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J8">
+      <value>OLED SSD1306</value>
+      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S4_17" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7d76bf34-5101-4a80-8bdd-18fd17d1ec2f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J9">
+      <value>HC-SR04</value>
+      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S4_18" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>48f7e49d-6f68-47a5-95a5-e77d9c8c91ca</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J10">
+      <value>TCRT5000 #1</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S3_19" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>19043864-a9a5-4e67-98f9-1e9c240c4e01</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J11">
+      <value>TCRT5000 #2</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S3_19" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7ee06a2f-d7d3-4cdf-b622-3a60cfad1999</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J12">
+      <value>Module MAX98357A</value>
+      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x07_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Connector_PinSocket_2.54mm:PinSocket_1x07_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S7_20" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ec33102a-f43c-4de7-91da-2a3b05c47861</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J13">
+      <value>NTC 10k (103AT-2)</value>
+      <footprint>Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical</footprint>
+      <fields>
+        <field name="MPN">B2B-PH-K-S</field>
+        <field name="Footprint">Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value="B2B-PH-K-S"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00abc125-e024-4498-85a2-a07ba5d24acd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J15">
+      <value>SW1 (cong tac roi &gt;=3A)</value>
+      <footprint>Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="MPN">B2B-XH-A</field>
+        <field name="Footprint">Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_3" description=""/>
+      <property name="MPN" value="B2B-XH-A"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>217d24df-1701-4883-8b50-4c4842676ba7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="L1">
+      <value>10uH 2A</value>
+      <footprint>Inductor_SMD:L_Taiyo-Yuden_NR-50xx</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Inductor_SMD:L_Taiyo-Yuden_NR-50xx</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>56c3f3ec-4373-49d8-8935-b3fd9e6cbfa5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="L2">
+      <value>1uH</value>
+      <footprint>Inductor_SMD:L_Vishay_IHLP-2525</footprint>
+      <fields>
+        <field name="MPN">IHLP2525CZER1R0M01</field>
+        <field name="Footprint">Inductor_SMD:L_Vishay_IHLP-2525</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value="IHLP2525CZER1R0M01"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2ddcdce6-6f51-4dfd-b342-30d77f8eb1da</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="L3">
+      <value>2.2uH 2.5A</value>
+      <footprint>Inductor_SMD:L_Changjiang_FNR4030S</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Inductor_SMD:L_Changjiang_FNR4030S</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9be44d71-7faa-4bb7-9b11-14f90ff4e4f5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="L4">
+      <value>1.5uH</value>
+      <footprint>Inductor_SMD:L_Changjiang_FNR4020S</footprint>
+      <fields>
+        <field name="MPN">XFL4020-152ME</field>
+        <field name="Footprint">Inductor_SMD:L_Changjiang_FNR4020S</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value="XFL4020-152ME"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ac511a2f-9e3b-4acc-94a5-27d00f83ab8e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q2">
+      <value>DMN2075U</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <fields>
+        <field name="MPN">DMN2075U-7</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S3_2" description=""/>
+      <property name="MPN" value="DMN2075U-7"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>629c9463-4357-4347-91bf-a0da663a21b1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q5">
+      <value>2N7002</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <fields>
+        <field name="MPN">2N7002</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S3_2" description=""/>
+      <property name="MPN" value="2N7002"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3a077fb1-bae6-42e9-8b97-be5c58dddf27</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q6">
+      <value>NFET clamp TBD</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <fields>
+        <field name="MPN">TBD</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S3_2" description=""/>
+      <property name="MPN" value="TBD"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c42d01cc-406d-4bab-9cb0-35e326079371</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="QA">
+      <value>PFET &gt;=20V TBD</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <fields>
+        <field name="MPN">TBD</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S3_2" description=""/>
+      <property name="MPN" value="TBD"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3d8e7880-3c12-42aa-b967-6a2c8d7e5280</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="QB">
+      <value>PFET &gt;=20V TBD</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <fields>
+        <field name="MPN">TBD</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S3_2" description=""/>
+      <property name="MPN" value="TBD"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bc44275c-01d8-44f1-9e0b-cd88dcd2f890</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="QD">
+      <value>2N7002</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <fields>
+        <field name="MPN">2N7002</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S3_2" description=""/>
+      <property name="MPN" value="2N7002"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>923d9e86-d811-4049-bb01-d85d3b6c7239</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>eb24c41c-3d41-42f7-9558-bee30e35a48f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0f9f7ff3-2555-4630-9b18-97355b3cea2d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>5.1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d2076e82-78b2-4dab-9a3c-d1de846a8838</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>5.1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ad8440d3-0335-481b-b25e-43fb631da3d4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>1.24k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a6aa64f8-ed39-4a1b-8979-761eb902d060</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>1.91k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7c6a14c6-96da-4c71-a0a9-2928c720b03f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R7">
+      <value>9.53k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1dbf0365-6501-4ca8-9519-2c21d0af106f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R8">
+      <value>511k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>98c277ab-adf6-4ac7-bc6e-1477073f96aa</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R9">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7412e14b-ef99-449f-ac79-09a2bff0cf27</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R10">
+      <value>2.2k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>008b8945-0589-408d-8605-3cc24d6ec4db</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R11">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>81decd2c-24aa-4cd5-b3f9-419f58c228b2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R12">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>154eda0a-50fa-440c-b204-766c55290541</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R13">
+      <value>180k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>aa660451-5411-464b-8c3a-d85d2085aa91</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R14">
+      <value>11.1k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c6105e02-503f-4a17-b95b-e5e7f00f6799</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R15">
+      <value>2.84M 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>42e9f16e-28fa-432a-97f1-2a32fb59ff66</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R16">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e17f1eb9-cdb4-44b7-884d-8d5f80aaa981</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R17">
+      <value>68k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7f42c18e-06cb-451c-9bc8-0bcf14fbc192</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R18">
+      <value>100k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a9d28561-7d73-4875-b0c9-9af3f6f6ef72</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R19">
+      <value>13.3k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cc1a9e6b-c1f7-4872-9a70-b1f4a62871b2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R20">
+      <value>453k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1bff18c3-d6b0-4500-9f8d-d335cc7b0b2e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R21">
+      <value>100k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>609b009a-dfdd-47a2-925a-b5101027202c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R22">
+      <value>649k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8c723ef9-bbbd-48db-abde-29a46549a2e6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R23">
+      <value>100k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dcec0280-27f2-4450-a673-c7a3016b3249</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R24">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2a28ccc9-9715-411f-9740-7422155db723</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R25">
+      <value>0R (loai tru R24)</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>021eb00a-ca16-460e-87a5-7fad776b3552</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R26">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c50607af-c9f0-49ce-a4ee-2bea840f0f32</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R27">
+      <value>0.62R 1% 0.25W</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>022a6806-04e8-4554-aefb-bbf92f9206e6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R28">
+      <value>0.62R 1% 0.25W</value>
+      <footprint>Resistor_SMD:R_1206_3216Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_1206_3216Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>79f135bf-4092-4d1a-8e2e-6bd0d6ee249c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R29">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d50ba2a1-b1a2-4832-b709-5571f8af7e55</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R30">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>069a39cc-6110-4f81-9fc0-f06f9f36ae08</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R31">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>08ea094b-7475-436c-bb8c-1aace78ca80e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R32">
+      <value>39.2k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1d57544c-dbcc-4068-b2a2-c0115b2bce3b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R35">
+      <value>470k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>db3f4ba4-f494-4941-88e6-66093bca42de</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R36">
+      <value>4.7k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7a703472-73cf-4729-96f2-ceb93288fac8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R37">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ef537798-8011-4426-a9d3-9a75b151bb5b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R38">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a43850da-f4d9-4f5d-b559-a58bf4cd774b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R39">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>56a83f49-1167-4cf5-9622-06962deebb23</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R40">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ddc21487-1c41-44f3-a62b-040e283c1298</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R41">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>24524c20-b31c-4582-aebf-5a998a3150fc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R42">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6380c6f5-40dd-4722-ac63-29ce5fcce044</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R43">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>87baad80-3fa5-4ec4-8d22-016a826f98bb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R44">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3004d98c-ba16-4fa1-befb-9d451f029648</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R45">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>68a6b444-da7b-45b1-a015-028394fd57cf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R46">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e90b5c31-0007-4a67-935d-f94a407090e4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R47">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1ab3d732-7de0-4ed7-9f74-53dcefdb97cf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R48">
+      <value>100</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>65356c78-9c14-489e-b6cb-a5487a3273c3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R49">
+      <value>100</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c42d982e-15ea-4f8e-92db-05b55dce23d0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R50">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5756409a-00cd-41bc-b647-c4ceca34963d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R51">
+      <value>20k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d628cdbb-17ae-4492-a893-93eef941eeac</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R52">
+      <value>100k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>568b1b7b-7c1b-45f5-b277-cc5f9e9a6b83</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R53">
+      <value>27k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>740d965e-7ad8-4187-8d85-375ae375bcdf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R54">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0af745ea-ab9d-4347-b85a-2309f0db5dcb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R55">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>802dfd2b-824f-4fb1-8cea-0b6afba9132d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R56">
+      <value>2.2k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>11907306-5702-41a8-9460-31663d87ac0f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R57">
+      <value>100k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6442270e-f7fe-45af-a1b8-c950ba7d9f17</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R58">
+      <value>100k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5ae8a935-a044-4dc6-8d14-91636af455bc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R59">
+      <value>TBD</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5498baa9-e557-4be9-b84c-18ee98e746c2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R60">
+      <value>TBD</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>904e49a7-bc1a-419b-acd7-a634703550be</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R61">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6c1c367d-4561-4d71-89b9-c41ab5f889b6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R62">
+      <value>TBD (xa nang luong)</value>
+      <footprint>Resistor_SMD:R_2512_6332Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_2512_6332Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0efb699c-f5ad-4b8d-bb14-4d53adddf0eb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP1">
+      <value>VBAT_PROT</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_21" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>413c5183-4234-4293-85c1-c13fdd48eb65</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP2">
+      <value>VBAT_SW</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_21" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>66502c9d-a24d-4247-8b9f-995ef910f40f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP3">
+      <value>EN_NODE</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_21" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4c79de40-a498-499a-af22-e948ae392c34</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP4">
+      <value>V5</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_21" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>caac6eab-c8d1-4b20-ba0e-a97e6a1c2084</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP5">
+      <value>V3V3_C</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_21" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8f15f60b-c15f-4ffe-b25f-6ce1aa6df059</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP6">
+      <value>VM_6V</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_21" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>213fc80b-d6ea-4557-841a-fb3ec2d6d008</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP7">
+      <value>VBUS_OUT</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_21" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>57356144-7fbe-42c6-acb6-051738277f0a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP8">
+      <value>MOTOR_EN</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_21" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e0eb4563-2a4f-4c99-ba91-9e389ca21b73</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP9">
+      <value>GND</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_21" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>55b9d9b9-a0ed-48d9-9d8d-75ed8acc409b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>TLV6710</value>
+      <footprint>Package_TO_SOT_SMD:TSOT-23-6</footprint>
+      <fields>
+        <field name="MPN">TLV6710DDCR</field>
+        <field name="Footprint">Package_TO_SOT_SMD:TSOT-23-6</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S6_7" description=""/>
+      <property name="MPN" value="TLV6710DDCR"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>efa97fc1-a428-467e-9df7-1d7d15e4ca05</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U2">
+      <value>TPS54302</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-6</footprint>
+      <fields>
+        <field name="MPN">TPS54302DDCR</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-6</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S6_8" description=""/>
+      <property name="MPN" value="TPS54302DDCR"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ffa0fdea-04c4-47e3-a0db-2dbd0b62d12e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U3">
+      <value>TPS2553</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-6</footprint>
+      <fields>
+        <field name="MPN">TPS2553DBVR</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-6</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S6_13" description=""/>
+      <property name="MPN" value="TPS2553DBVR"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4ae18e27-dc8e-46fe-bb50-4eeeb04cf7d2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U4">
+      <value>TLV62569</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
+      <fields>
+        <field name="MPN">TLV62569DBVR</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S5_9" description=""/>
+      <property name="MPN" value="TLV62569DBVR"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>501f489f-066a-40f6-b4b4-876278fe4f84</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U5">
+      <value>SN74LVC1G08</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
+      <fields>
+        <field name="MPN">SN74LVC1G08DBVR</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S5_11" description=""/>
+      <property name="MPN" value="SN74LVC1G08DBVR"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ec6c38c8-252d-40ee-8088-e66d7bc6a93e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U6">
+      <value>DRV8833</value>
+      <footprint>Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.46x2.31mm</footprint>
+      <fields>
+        <field name="MPN">DRV8833PWPR</field>
+        <field name="Footprint">Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.46x2.31mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S17_12" description=""/>
+      <property name="MPN" value="DRV8833PWPR"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6b91da1b-3cb3-4dca-8aae-16477442dfc6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U7">
+      <value>BQ25886</value>
+      <footprint>Package_DFN_QFN:VQFN-24-1EP_4x4mm_P0.5mm_EP2.45x2.45mm</footprint>
+      <fields>
+        <field name="MPN">BQ25886RGER</field>
+        <field name="Footprint">Package_DFN_QFN:VQFN-24-1EP_4x4mm_P0.5mm_EP2.45x2.45mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S25_5" description=""/>
+      <property name="MPN" value="BQ25886RGER"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d4da17a6-0140-4571-9935-9248207b8725</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+            <pin num="21"/>
+            <pin num="22"/>
+            <pin num="23"/>
+            <pin num="24"/>
+            <pin num="25"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U8">
+      <value>TPS63070</value>
+      <footprint>mobot:Texas_RNM0015A_VQFN-15_2.5x3mm</footprint>
+      <fields>
+        <field name="MPN">TPS63070RNMR</field>
+        <field name="Footprint">mobot:Texas_RNM0015A_VQFN-15_2.5x3mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S15_10" description=""/>
+      <property name="MPN" value="TPS63070RNMR"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3c57ea13-877b-4df1-804f-92f173c585d8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U9">
+      <value>Comparator+ref TBD</value>
+      <footprint>Package_TO_SOT_SMD:TSOT-23-6</footprint>
+      <fields>
+        <field name="MPN">TBD</field>
+        <field name="Footprint">Package_TO_SOT_SMD:TSOT-23-6</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S6_7" description=""/>
+      <property name="MPN" value="TBD"/>
+      <property name="Sheetname" value="mobot-robot"/>
+      <property name="Sheetfile" value="mobot-robot.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b1176147-0830-431b-9224-ee3d52bdf406</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="mobot" part="S0_22">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="mobot" part="S15_10">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="PS/SYNC" type="input"/>
+        <pin num="2" name="PG" type="open_collector"/>
+        <pin num="3" name="VAUX" type="passive"/>
+        <pin num="4" name="GND" type="power_in"/>
+        <pin num="5" name="FB" type="input"/>
+        <pin num="6" name="FB2" type="input"/>
+        <pin num="7" name="VOUT" type="power_out"/>
+        <pin num="8" name="VOUT" type="passive"/>
+        <pin num="9" name="L2" type="passive"/>
+        <pin num="10" name="PGND" type="power_in"/>
+        <pin num="11" name="L1" type="passive"/>
+        <pin num="12" name="VIN" type="power_in"/>
+        <pin num="13" name="VIN" type="power_in"/>
+        <pin num="14" name="EN" type="input"/>
+        <pin num="15" name="VSEL" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S15_15">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="VIN" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="D13" type="passive"/>
+        <pin num="4" name="D12" type="passive"/>
+        <pin num="5" name="D14" type="passive"/>
+        <pin num="6" name="D27" type="passive"/>
+        <pin num="7" name="D26" type="passive"/>
+        <pin num="8" name="D25" type="passive"/>
+        <pin num="9" name="D33" type="passive"/>
+        <pin num="10" name="D32" type="passive"/>
+        <pin num="11" name="D35" type="passive"/>
+        <pin num="12" name="D34" type="passive"/>
+        <pin num="13" name="VN" type="passive"/>
+        <pin num="14" name="VP" type="passive"/>
+        <pin num="15" name="EN" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S15_16">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="3V3" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="D15" type="passive"/>
+        <pin num="4" name="D2" type="passive"/>
+        <pin num="5" name="D4" type="passive"/>
+        <pin num="6" name="RX2" type="passive"/>
+        <pin num="7" name="TX2" type="passive"/>
+        <pin num="8" name="D5" type="passive"/>
+        <pin num="9" name="D18" type="passive"/>
+        <pin num="10" name="D19" type="passive"/>
+        <pin num="11" name="D21" type="passive"/>
+        <pin num="12" name="RX0" type="passive"/>
+        <pin num="13" name="TX0" type="passive"/>
+        <pin num="14" name="D22" type="passive"/>
+        <pin num="15" name="D23" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S17_12">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="nSLEEP" type="input"/>
+        <pin num="2" name="AOUT1" type="passive"/>
+        <pin num="3" name="AISEN" type="passive"/>
+        <pin num="4" name="AOUT2" type="passive"/>
+        <pin num="5" name="BOUT2" type="passive"/>
+        <pin num="6" name="BISEN" type="passive"/>
+        <pin num="7" name="BOUT1" type="passive"/>
+        <pin num="8" name="nFAULT" type="open_collector"/>
+        <pin num="9" name="BIN1" type="input"/>
+        <pin num="10" name="BIN2" type="input"/>
+        <pin num="11" name="VCP" type="passive"/>
+        <pin num="12" name="VM" type="power_in"/>
+        <pin num="13" name="GND" type="power_in"/>
+        <pin num="14" name="VINT" type="power_out"/>
+        <pin num="15" name="AIN2" type="input"/>
+        <pin num="16" name="AIN1" type="input"/>
+        <pin num="17" name="EP" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S17_4">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="A1" name="GND" type="passive"/>
+        <pin num="A4" name="VBUS" type="passive"/>
+        <pin num="A5" name="CC1" type="passive"/>
+        <pin num="A6" name="D+" type="passive"/>
+        <pin num="A7" name="D-" type="passive"/>
+        <pin num="A8" name="" type="passive"/>
+        <pin num="A9" name="" type="passive"/>
+        <pin num="A12" name="" type="passive"/>
+        <pin num="B1" name="" type="passive"/>
+        <pin num="B4" name="" type="passive"/>
+        <pin num="B5" name="CC2" type="passive"/>
+        <pin num="B6" name="" type="passive"/>
+        <pin num="B7" name="" type="passive"/>
+        <pin num="B8" name="" type="passive"/>
+        <pin num="B9" name="" type="passive"/>
+        <pin num="B12" name="" type="passive"/>
+        <pin num="SH" name="SHIELD" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S1_21">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S25_5">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="D-" type="passive"/>
+        <pin num="2" name="STAT" type="open_collector"/>
+        <pin num="3" name="CE" type="input"/>
+        <pin num="4" name="GND" type="power_in"/>
+        <pin num="5" name="OTG" type="input"/>
+        <pin num="6" name="VSET" type="input"/>
+        <pin num="7" name="TS" type="input"/>
+        <pin num="8" name="ILIM" type="input"/>
+        <pin num="9" name="PG" type="open_collector"/>
+        <pin num="10" name="ICHGSET" type="input"/>
+        <pin num="11" name="REGN" type="power_out"/>
+        <pin num="12" name="BTST" type="passive"/>
+        <pin num="13" name="BAT" type="passive"/>
+        <pin num="14" name="BAT" type="passive"/>
+        <pin num="15" name="SYS" type="power_out"/>
+        <pin num="16" name="SYS" type="passive"/>
+        <pin num="17" name="SW" type="passive"/>
+        <pin num="18" name="SW" type="passive"/>
+        <pin num="19" name="GND" type="power_in"/>
+        <pin num="20" name="GND" type="power_in"/>
+        <pin num="21" name="PMID" type="passive"/>
+        <pin num="22" name="PMID" type="passive"/>
+        <pin num="23" name="VBUS" type="power_in"/>
+        <pin num="24" name="D+" type="passive"/>
+        <pin num="25" name="EP" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S2_0">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S2_1">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S2_3">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="IN" type="passive"/>
+        <pin num="2" name="OUT" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S2_6">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S3_19">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="VCC" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="DO" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S3_2">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S4_17">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="passive"/>
+        <pin num="2" name="VCC" type="passive"/>
+        <pin num="3" name="SCL" type="passive"/>
+        <pin num="4" name="SDA" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S4_18">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="VCC" type="passive"/>
+        <pin num="2" name="TRIG" type="passive"/>
+        <pin num="3" name="ECHO" type="passive"/>
+        <pin num="4" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S5_11">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="input"/>
+        <pin num="2" name="B" type="input"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="Y" type="output"/>
+        <pin num="5" name="VCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S5_14">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="VBUS" type="passive"/>
+        <pin num="2" name="D-" type="passive"/>
+        <pin num="3" name="D+" type="passive"/>
+        <pin num="4" name="GND" type="passive"/>
+        <pin num="SH" name="SHIELD" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S5_9">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="EN" type="input"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="SW" type="passive"/>
+        <pin num="4" name="VIN" type="power_in"/>
+        <pin num="5" name="FB" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S6_13">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="IN" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="EN" type="input"/>
+        <pin num="4" name="FAULT" type="open_collector"/>
+        <pin num="5" name="ILIM" type="input"/>
+        <pin num="6" name="OUT" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S6_7">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="OUTA" type="open_collector"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="INA" type="input"/>
+        <pin num="4" name="INB" type="input"/>
+        <pin num="5" name="VDD" type="power_in"/>
+        <pin num="6" name="OUTB" type="open_collector"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S6_8">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="power_in"/>
+        <pin num="2" name="SW" type="passive"/>
+        <pin num="3" name="VIN" type="power_in"/>
+        <pin num="4" name="FB" type="input"/>
+        <pin num="5" name="EN" type="input"/>
+        <pin num="6" name="BOOT" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S7_20">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="LRC" type="passive"/>
+        <pin num="2" name="BCLK" type="passive"/>
+        <pin num="3" name="DIN" type="passive"/>
+        <pin num="4" name="GAIN" type="passive"/>
+        <pin num="5" name="SD" type="passive"/>
+        <pin num="6" name="GND" type="passive"/>
+        <pin num="7" name="VIN" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="mobot">
+      <uri>${KIPRJMOD}/mobot.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/AIN1_D" class="Default">
+      <node ref="R38" pin="2" pintype="passive"/>
+      <node ref="U6" pin="16" pinfunction="AIN1_16" pintype="input"/>
+    </net>
+    <net code="2" name="/AIN1_G" class="Default">
+      <node ref="J2" pin="6" pinfunction="RX2_6" pintype="passive"/>
+      <node ref="R38" pin="1" pintype="passive"/>
+    </net>
+    <net code="3" name="/AIN2_D" class="Default">
+      <node ref="R39" pin="2" pintype="passive"/>
+      <node ref="U6" pin="15" pinfunction="AIN2_15" pintype="input"/>
+    </net>
+    <net code="4" name="/AIN2_G" class="Default">
+      <node ref="J2" pin="7" pinfunction="TX2_7" pintype="passive"/>
+      <node ref="R39" pin="1" pintype="passive"/>
+    </net>
+    <net code="5" name="/BCLK_G" class="Default">
+      <node ref="J1" pin="7" pinfunction="D26_7" pintype="passive"/>
+      <node ref="R42" pin="1" pintype="passive"/>
+    </net>
+    <net code="6" name="/BIN1_D" class="Default">
+      <node ref="R40" pin="2" pintype="passive"/>
+      <node ref="U6" pin="9" pinfunction="BIN1_9" pintype="input"/>
+    </net>
+    <net code="7" name="/BIN1_G" class="Default">
+      <node ref="J2" pin="9" pinfunction="D18_9" pintype="passive"/>
+      <node ref="R40" pin="1" pintype="passive"/>
+    </net>
+    <net code="8" name="/BIN2_D" class="Default">
+      <node ref="R41" pin="2" pintype="passive"/>
+      <node ref="U6" pin="10" pinfunction="BIN2_10" pintype="input"/>
+    </net>
+    <net code="9" name="/BIN2_G" class="Default">
+      <node ref="J2" pin="10" pinfunction="D19_10" pintype="passive"/>
+      <node ref="R41" pin="1" pintype="passive"/>
+    </net>
+    <net code="10" name="/BOOT_5V" class="Default">
+      <node ref="C13" pin="1" pintype="passive"/>
+      <node ref="U2" pin="6" pinfunction="BOOT_6" pintype="passive"/>
+    </net>
+    <net code="11" name="/BTST" class="Default">
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="U7" pin="12" pinfunction="BTST_12" pintype="passive"/>
+    </net>
+    <net code="12" name="/CE_N" class="Default">
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="U7" pin="3" pinfunction="CE_3" pintype="input"/>
+    </net>
+    <net code="13" name="/CHG_CC1" class="Default">
+      <node ref="J4" pin="A5" pinfunction="CC1_A5" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+    </net>
+    <net code="14" name="/CHG_CC2" class="Default">
+      <node ref="J4" pin="B5" pinfunction="CC2_B5" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+    </net>
+    <net code="15" name="/CHG_DM" class="Default">
+      <node ref="J4" pin="A7" pinfunction="D-_A7" pintype="passive"/>
+      <node ref="J4" pin="B7" pintype="passive"/>
+      <node ref="U7" pin="1" pinfunction="D-_1" pintype="passive"/>
+    </net>
+    <net code="16" name="/CHG_DP" class="Default">
+      <node ref="J4" pin="A6" pinfunction="D+_A6" pintype="passive"/>
+      <node ref="J4" pin="B6" pintype="passive"/>
+      <node ref="U7" pin="24" pinfunction="D+_24" pintype="passive"/>
+    </net>
+    <net code="17" name="/CHG_SNS" class="Default">
+      <node ref="Q5" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="R11" pin="2" pintype="passive"/>
+      <node ref="R12" pin="1" pintype="passive"/>
+    </net>
+    <net code="18" name="/CLMP_D" class="Power">
+      <node ref="Q6" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="R62" pin="2" pintype="passive"/>
+    </net>
+    <net code="19" name="/CLMP_DIV" class="Default">
+      <node ref="R59" pin="2" pintype="passive"/>
+      <node ref="R60" pin="1" pintype="passive"/>
+      <node ref="U9" pin="3" pinfunction="INA_3" pintype="input"/>
+    </net>
+    <net code="20" name="/CLMP_G" class="Default">
+      <node ref="Q6" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="R61" pin="2" pintype="passive"/>
+      <node ref="U9" pin="1" pinfunction="OUTA_1" pintype="open_collector"/>
+    </net>
+    <net code="21" name="/DIN_G" class="Default">
+      <node ref="J1" pin="6" pinfunction="D27_6" pintype="passive"/>
+      <node ref="R44" pin="1" pintype="passive"/>
+    </net>
+    <net code="22" name="/ECHO_G" class="Default">
+      <node ref="J1" pin="12" pinfunction="D34_12" pintype="passive"/>
+      <node ref="R50" pin="2" pintype="passive"/>
+      <node ref="R51" pin="1" pintype="passive"/>
+    </net>
+    <net code="23" name="/EN_NODE" class="Default">
+      <node ref="Q2" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="Q5" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="R16" pin="2" pintype="passive"/>
+      <node ref="R17" pin="1" pintype="passive"/>
+      <node ref="TP3" pin="1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="OUTA_1" pintype="open_collector"/>
+      <node ref="U2" pin="5" pinfunction="EN_5" pintype="input"/>
+    </net>
+    <net code="24" name="/FB_3V3" class="Default">
+      <node ref="R20" pin="2" pintype="passive"/>
+      <node ref="R21" pin="1" pintype="passive"/>
+      <node ref="U4" pin="5" pinfunction="FB_5" pintype="input"/>
+    </net>
+    <net code="25" name="/FB_5V" class="Default">
+      <node ref="R18" pin="2" pintype="passive"/>
+      <node ref="R19" pin="1" pintype="passive"/>
+      <node ref="U2" pin="4" pinfunction="FB_4" pintype="input"/>
+    </net>
+    <net code="26" name="/FB_6V" class="Default">
+      <node ref="R22" pin="2" pintype="passive"/>
+      <node ref="R23" pin="1" pintype="passive"/>
+      <node ref="U8" pin="5" pinfunction="FB_5" pintype="input"/>
+    </net>
+    <net code="27" name="/GND" class="Default">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C10" pin="2" pintype="passive"/>
+      <node ref="C11" pin="2" pintype="passive"/>
+      <node ref="C12" pin="2" pintype="passive"/>
+      <node ref="C14" pin="2" pintype="passive"/>
+      <node ref="C15" pin="2" pintype="passive"/>
+      <node ref="C16" pin="2" pintype="passive"/>
+      <node ref="C17" pin="2" pintype="passive"/>
+      <node ref="C18" pin="2" pintype="passive"/>
+      <node ref="C19" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C20" pin="2" pintype="passive"/>
+      <node ref="C21" pin="2" pintype="passive"/>
+      <node ref="C22" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="C23" pin="2" pintype="passive"/>
+      <node ref="C25" pin="2" pintype="passive"/>
+      <node ref="C26" pin="2" pintype="passive"/>
+      <node ref="C27" pin="2" pintype="passive"/>
+      <node ref="C28" pin="2" pintype="passive"/>
+      <node ref="C29" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="C30" pin="2" pintype="passive"/>
+      <node ref="C31" pin="2" pintype="passive"/>
+      <node ref="C32" pin="2" pintype="passive"/>
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="C8" pin="2" pintype="passive"/>
+      <node ref="C9" pin="2" pintype="passive"/>
+      <node ref="D1" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="D2" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="D3" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="D4" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="J10" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="J11" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="J12" pin="6" pinfunction="GND_6" pintype="passive"/>
+      <node ref="J13" pin="2" pintype="passive"/>
+      <node ref="J2" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="J4" pin="A1" pinfunction="GND_A1" pintype="passive"/>
+      <node ref="J4" pin="A12" pintype="passive"/>
+      <node ref="J4" pin="B1" pintype="passive"/>
+      <node ref="J4" pin="B12" pintype="passive"/>
+      <node ref="J4" pin="SH" pinfunction="SHIELD_SH" pintype="passive"/>
+      <node ref="J5" pin="4" pinfunction="GND_4" pintype="passive"/>
+      <node ref="J5" pin="SH" pinfunction="SHIELD_SH" pintype="passive"/>
+      <node ref="J8" pin="1" pinfunction="GND_1" pintype="passive"/>
+      <node ref="J9" pin="4" pinfunction="GND_4" pintype="passive"/>
+      <node ref="Q5" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="Q6" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="QD" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="R12" pin="2" pintype="passive"/>
+      <node ref="R14" pin="2" pintype="passive"/>
+      <node ref="R17" pin="2" pintype="passive"/>
+      <node ref="R19" pin="2" pintype="passive"/>
+      <node ref="R21" pin="2" pintype="passive"/>
+      <node ref="R23" pin="2" pintype="passive"/>
+      <node ref="R25" pin="2" pintype="passive"/>
+      <node ref="R26" pin="2" pintype="passive"/>
+      <node ref="R27" pin="2" pintype="passive"/>
+      <node ref="R28" pin="2" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="R32" pin="2" pintype="passive"/>
+      <node ref="R36" pin="2" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="R51" pin="2" pintype="passive"/>
+      <node ref="R53" pin="2" pintype="passive"/>
+      <node ref="R54" pin="2" pintype="passive"/>
+      <node ref="R58" pin="2" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+      <node ref="R60" pin="2" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+      <node ref="TP9" pin="1" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="GND_2" pintype="power_in"/>
+      <node ref="U1" pin="4" pinfunction="INB_4" pintype="input"/>
+      <node ref="U2" pin="1" pinfunction="GND_1" pintype="power_in"/>
+      <node ref="U3" pin="2" pinfunction="GND_2" pintype="power_in"/>
+      <node ref="U4" pin="2" pinfunction="GND_2" pintype="power_in"/>
+      <node ref="U5" pin="3" pinfunction="GND_3" pintype="power_in"/>
+      <node ref="U6" pin="13" pinfunction="GND_13" pintype="power_in"/>
+      <node ref="U6" pin="17" pinfunction="EP_17" pintype="power_in"/>
+      <node ref="U7" pin="19" pinfunction="GND_19" pintype="power_in"/>
+      <node ref="U7" pin="20" pinfunction="GND_20" pintype="power_in"/>
+      <node ref="U7" pin="25" pinfunction="EP_25" pintype="power_in"/>
+      <node ref="U7" pin="4" pinfunction="GND_4" pintype="power_in"/>
+      <node ref="U7" pin="5" pinfunction="OTG_5" pintype="input"/>
+      <node ref="U8" pin="10" pinfunction="PGND_10" pintype="power_in"/>
+      <node ref="U8" pin="15" pinfunction="VSEL_15" pintype="input"/>
+      <node ref="U8" pin="4" pinfunction="GND_4" pintype="power_in"/>
+      <node ref="U9" pin="2" pinfunction="GND_2" pintype="power_in"/>
+      <node ref="U9" pin="4" pinfunction="INB_4" pintype="input"/>
+    </net>
+    <net code="28" name="/I2S_BCLK" class="Default">
+      <node ref="J12" pin="2" pinfunction="BCLK_2" pintype="passive"/>
+      <node ref="R42" pin="2" pintype="passive"/>
+    </net>
+    <net code="29" name="/I2S_DIN" class="Default">
+      <node ref="J12" pin="3" pinfunction="DIN_3" pintype="passive"/>
+      <node ref="R44" pin="2" pintype="passive"/>
+    </net>
+    <net code="30" name="/I2S_LRCLK" class="Default">
+      <node ref="J12" pin="1" pinfunction="LRC_1" pintype="passive"/>
+      <node ref="R43" pin="2" pintype="passive"/>
+    </net>
+    <net code="31" name="/ICHG_C" class="Default">
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="U7" pin="10" pinfunction="ICHGSET_10" pintype="input"/>
+    </net>
+    <net code="32" name="/ILIM_C" class="Default">
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="U7" pin="8" pinfunction="ILIM_8" pintype="input"/>
+    </net>
+    <net code="33" name="/ILIM_S" class="Default">
+      <node ref="R32" pin="1" pintype="passive"/>
+      <node ref="U3" pin="5" pinfunction="ILIM_5" pintype="input"/>
+    </net>
+    <net code="34" name="/IR1" class="Default">
+      <node ref="J10" pin="3" pinfunction="DO_3" pintype="passive"/>
+      <node ref="R46" pin="1" pintype="passive"/>
+    </net>
+    <net code="35" name="/IR1_G" class="Default">
+      <node ref="J1" pin="11" pinfunction="D35_11" pintype="passive"/>
+      <node ref="R46" pin="2" pintype="passive"/>
+    </net>
+    <net code="36" name="/IR2" class="Default">
+      <node ref="J11" pin="3" pinfunction="DO_3" pintype="passive"/>
+      <node ref="R47" pin="1" pintype="passive"/>
+    </net>
+    <net code="37" name="/IR2_G" class="Default">
+      <node ref="J1" pin="10" pinfunction="D32_10" pintype="passive"/>
+      <node ref="R47" pin="2" pintype="passive"/>
+    </net>
+    <net code="38" name="/ISA_ADC" class="Default">
+      <node ref="C27" pin="1" pintype="passive"/>
+      <node ref="J1" pin="14" pinfunction="VP_14" pintype="passive"/>
+      <node ref="R29" pin="2" pintype="passive"/>
+    </net>
+    <net code="39" name="/ISB_ADC" class="Default">
+      <node ref="C28" pin="1" pintype="passive"/>
+      <node ref="J1" pin="13" pinfunction="VN_13" pintype="passive"/>
+      <node ref="R30" pin="2" pintype="passive"/>
+    </net>
+    <net code="40" name="/ISEN_A" class="Power">
+      <node ref="D3" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="R27" pin="1" pintype="passive"/>
+      <node ref="R29" pin="1" pintype="passive"/>
+      <node ref="U6" pin="3" pinfunction="AISEN_3" pintype="passive"/>
+    </net>
+    <net code="41" name="/ISEN_B" class="Power">
+      <node ref="D4" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="R28" pin="1" pintype="passive"/>
+      <node ref="R30" pin="1" pintype="passive"/>
+      <node ref="U6" pin="6" pinfunction="BISEN_6" pintype="passive"/>
+    </net>
+    <net code="42" name="/L4_A" class="Power">
+      <node ref="L4" pin="1" pintype="passive"/>
+      <node ref="U8" pin="11" pinfunction="L1_11" pintype="passive"/>
+    </net>
+    <net code="43" name="/L4_B" class="Power">
+      <node ref="L4" pin="2" pintype="passive"/>
+      <node ref="U8" pin="9" pinfunction="L2_9" pintype="passive"/>
+    </net>
+    <net code="44" name="/LRCLK_G" class="Default">
+      <node ref="J1" pin="8" pinfunction="D25_8" pintype="passive"/>
+      <node ref="R43" pin="1" pintype="passive"/>
+    </net>
+    <net code="45" name="/MA1" class="Power">
+      <node ref="J6" pin="2" pintype="passive"/>
+      <node ref="U6" pin="2" pinfunction="AOUT1_2" pintype="passive"/>
+    </net>
+    <net code="46" name="/MA2" class="Power">
+      <node ref="J6" pin="1" pintype="passive"/>
+      <node ref="U6" pin="4" pinfunction="AOUT2_4" pintype="passive"/>
+    </net>
+    <net code="47" name="/MB1" class="Power">
+      <node ref="J7" pin="2" pintype="passive"/>
+      <node ref="U6" pin="7" pinfunction="BOUT1_7" pintype="passive"/>
+    </net>
+    <net code="48" name="/MB2" class="Power">
+      <node ref="J7" pin="1" pintype="passive"/>
+      <node ref="U6" pin="5" pinfunction="BOUT2_5" pintype="passive"/>
+    </net>
+    <net code="49" name="/MOTOR_EN" class="Default">
+      <node ref="R54" pin="1" pintype="passive"/>
+      <node ref="TP8" pin="1" pintype="passive"/>
+      <node ref="U5" pin="4" pinfunction="Y_4" pintype="output"/>
+      <node ref="U6" pin="1" pinfunction="nSLEEP_1" pintype="input"/>
+      <node ref="U8" pin="14" pinfunction="EN_14" pintype="input"/>
+    </net>
+    <net code="50" name="/MOT_EN" class="Default">
+      <node ref="R26" pin="1" pintype="passive"/>
+      <node ref="R55" pin="2" pintype="passive"/>
+      <node ref="U5" pin="1" pinfunction="A_1" pintype="input"/>
+    </net>
+    <net code="51" name="/MOT_G" class="Default">
+      <node ref="J1" pin="3" pinfunction="D13_3" pintype="passive"/>
+      <node ref="R55" pin="1" pintype="passive"/>
+    </net>
+    <net code="52" name="/NFAULT" class="Default">
+      <node ref="R31" pin="1" pintype="passive"/>
+      <node ref="R37" pin="1" pintype="passive"/>
+      <node ref="U6" pin="8" pinfunction="nFAULT_8" pintype="open_collector"/>
+    </net>
+    <net code="53" name="/NFAULT_G" class="Default">
+      <node ref="J1" pin="5" pinfunction="D14_5" pintype="passive"/>
+      <node ref="R37" pin="2" pintype="passive"/>
+    </net>
+    <net code="54" name="/PMID" class="Power">
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="L2" pin="1" pintype="passive"/>
+      <node ref="U7" pin="21" pinfunction="PMID_21" pintype="passive"/>
+      <node ref="U7" pin="22" pinfunction="PMID_22" pintype="passive"/>
+    </net>
+    <net code="55" name="/PS_SYNC" class="Default">
+      <node ref="R24" pin="1" pintype="passive"/>
+      <node ref="R25" pin="1" pintype="passive"/>
+      <node ref="U8" pin="1" pinfunction="PS/SYNC_1" pintype="input"/>
+    </net>
+    <net code="56" name="/PWR_A" class="Default">
+      <node ref="D2" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="R56" pin="2" pintype="passive"/>
+    </net>
+    <net code="57" name="/QD_D" class="Default">
+      <node ref="QD" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+    </net>
+    <net code="58" name="/QD_G" class="Default">
+      <node ref="QD" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="R57" pin="2" pintype="passive"/>
+      <node ref="R58" pin="1" pintype="passive"/>
+    </net>
+    <net code="59" name="/REGN" class="Default">
+      <node ref="C8" pin="1" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="U7" pin="11" pinfunction="REGN_11" pintype="power_out"/>
+    </net>
+    <net code="60" name="/RP_G" class="Default">
+      <node ref="QA" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="QB" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+    </net>
+    <net code="61" name="/RP_S" class="Power">
+      <node ref="QA" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="QB" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+    </net>
+    <net code="62" name="/SCL" class="Default">
+      <node ref="J8" pin="3" pinfunction="SCL_3" pintype="passive"/>
+      <node ref="R49" pin="2" pintype="passive"/>
+    </net>
+    <net code="63" name="/SCL_G" class="Default">
+      <node ref="J2" pin="14" pinfunction="D22_14" pintype="passive"/>
+      <node ref="R49" pin="1" pintype="passive"/>
+    </net>
+    <net code="64" name="/SDA" class="Default">
+      <node ref="J8" pin="4" pinfunction="SDA_4" pintype="passive"/>
+      <node ref="R48" pin="2" pintype="passive"/>
+    </net>
+    <net code="65" name="/SDA_G" class="Default">
+      <node ref="J2" pin="11" pinfunction="D21_11" pintype="passive"/>
+      <node ref="R48" pin="1" pintype="passive"/>
+    </net>
+    <net code="66" name="/SRC_EN" class="Default">
+      <node ref="C31" pin="1" pintype="passive"/>
+      <node ref="R35" pin="2" pintype="passive"/>
+      <node ref="U3" pin="3" pinfunction="EN_3" pintype="input"/>
+    </net>
+    <net code="67" name="/STAT_A" class="Default">
+      <node ref="D5" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="R10" pin="2" pintype="passive"/>
+    </net>
+    <net code="68" name="/STAT_K" class="Default">
+      <node ref="D5" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="U7" pin="2" pinfunction="STAT_2" pintype="open_collector"/>
+    </net>
+    <net code="69" name="/SW_3V3" class="Power">
+      <node ref="L3" pin="1" pintype="passive"/>
+      <node ref="U4" pin="3" pinfunction="SW_3" pintype="passive"/>
+    </net>
+    <net code="70" name="/SW_5V" class="Power">
+      <node ref="C13" pin="2" pintype="passive"/>
+      <node ref="L1" pin="1" pintype="passive"/>
+      <node ref="U2" pin="2" pinfunction="SW_2" pintype="passive"/>
+    </net>
+    <net code="71" name="/SW_CHG" class="Power">
+      <node ref="C7" pin="2" pintype="passive"/>
+      <node ref="L2" pin="2" pintype="passive"/>
+      <node ref="U7" pin="17" pinfunction="SW_17" pintype="passive"/>
+      <node ref="U7" pin="18" pinfunction="SW_18" pintype="passive"/>
+    </net>
+    <net code="72" name="/SYS_CHG" class="Power">
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="U7" pin="15" pinfunction="SYS_15" pintype="power_out"/>
+      <node ref="U7" pin="16" pinfunction="SYS_16" pintype="passive"/>
+    </net>
+    <net code="73" name="/TRIG_G" class="Default">
+      <node ref="J2" pin="15" pinfunction="D23_15" pintype="passive"/>
+      <node ref="R45" pin="1" pintype="passive"/>
+    </net>
+    <net code="74" name="/TS_NET" class="Default">
+      <node ref="J13" pin="1" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+      <node ref="U7" pin="7" pinfunction="TS_7" pintype="input"/>
+    </net>
+    <net code="75" name="/US_ECHO" class="Default">
+      <node ref="J9" pin="3" pinfunction="ECHO_3" pintype="passive"/>
+      <node ref="R50" pin="1" pintype="passive"/>
+    </net>
+    <net code="76" name="/US_TRIG" class="Default">
+      <node ref="J9" pin="2" pinfunction="TRIG_2" pintype="passive"/>
+      <node ref="R45" pin="2" pintype="passive"/>
+    </net>
+    <net code="77" name="/UV2_DIV" class="Default">
+      <node ref="Q2" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="R13" pin="2" pintype="passive"/>
+      <node ref="R14" pin="1" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="INA_3" pintype="input"/>
+    </net>
+    <net code="78" name="/UV2_SW" class="Default">
+      <node ref="Q2" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="R15" pin="2" pintype="passive"/>
+    </net>
+    <net code="79" name="/V3V3_C" class="Power">
+      <node ref="C15" pin="1" pintype="passive"/>
+      <node ref="C23" pin="1" pintype="passive"/>
+      <node ref="J10" pin="1" pinfunction="VCC_1" pintype="passive"/>
+      <node ref="J11" pin="1" pinfunction="VCC_1" pintype="passive"/>
+      <node ref="J8" pin="2" pinfunction="VCC_2" pintype="passive"/>
+      <node ref="L3" pin="2" pintype="passive"/>
+      <node ref="R20" pin="1" pintype="passive"/>
+      <node ref="R31" pin="2" pintype="passive"/>
+      <node ref="TP5" pin="1" pintype="passive"/>
+      <node ref="U5" pin="2" pinfunction="B_2" pintype="input"/>
+      <node ref="U5" pin="5" pinfunction="VCC_5" pintype="power_in"/>
+    </net>
+    <net code="80" name="/V5" class="Power">
+      <node ref="C11" pin="1" pintype="passive"/>
+      <node ref="C12" pin="1" pintype="passive"/>
+      <node ref="C14" pin="1" pintype="passive"/>
+      <node ref="C29" pin="1" pintype="passive"/>
+      <node ref="J12" pin="7" pinfunction="VIN_7" pintype="passive"/>
+      <node ref="J9" pin="1" pinfunction="VCC_1" pintype="passive"/>
+      <node ref="L1" pin="2" pintype="passive"/>
+      <node ref="R18" pin="1" pintype="passive"/>
+      <node ref="R35" pin="1" pintype="passive"/>
+      <node ref="R56" pin="1" pintype="passive"/>
+      <node ref="TP4" pin="1" pintype="passive"/>
+      <node ref="U3" pin="1" pinfunction="IN_1" pintype="power_in"/>
+      <node ref="U4" pin="1" pinfunction="EN_1" pintype="input"/>
+      <node ref="U4" pin="4" pinfunction="VIN_4" pintype="power_in"/>
+    </net>
+    <net code="81" name="/VAUX" class="Default">
+      <node ref="C21" pin="1" pintype="passive"/>
+      <node ref="U8" pin="3" pinfunction="VAUX_3" pintype="passive"/>
+    </net>
+    <net code="82" name="/VBAT_ADC" class="Default">
+      <node ref="C32" pin="1" pintype="passive"/>
+      <node ref="J1" pin="9" pinfunction="D33_9" pintype="passive"/>
+      <node ref="R52" pin="2" pintype="passive"/>
+      <node ref="R53" pin="1" pintype="passive"/>
+    </net>
+    <net code="83" name="/VBAT_PROT" class="Power">
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="J15" pin="1" pinfunction="IN_1" pintype="passive"/>
+      <node ref="QB" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="TP1" pin="1" pintype="passive"/>
+      <node ref="U7" pin="13" pinfunction="BAT_13" pintype="passive"/>
+      <node ref="U7" pin="14" pinfunction="BAT_14" pintype="passive"/>
+    </net>
+    <net code="84" name="/VBAT_SW" class="Power">
+      <node ref="C10" pin="1" pintype="passive"/>
+      <node ref="C16" pin="1" pintype="passive"/>
+      <node ref="C17" pin="1" pintype="passive"/>
+      <node ref="C9" pin="1" pintype="passive"/>
+      <node ref="J15" pin="2" pinfunction="OUT_2" pintype="passive"/>
+      <node ref="R13" pin="1" pintype="passive"/>
+      <node ref="R15" pin="1" pintype="passive"/>
+      <node ref="R16" pin="1" pintype="passive"/>
+      <node ref="R24" pin="2" pintype="passive"/>
+      <node ref="R52" pin="1" pintype="passive"/>
+      <node ref="TP2" pin="1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="VDD_5" pintype="power_in"/>
+      <node ref="U2" pin="3" pinfunction="VIN_3" pintype="power_in"/>
+      <node ref="U8" pin="12" pinfunction="VIN_12" pintype="power_in"/>
+      <node ref="U8" pin="13" pinfunction="VIN_13" pintype="power_in"/>
+    </net>
+    <net code="85" name="/VBUS_CHG" class="Power">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="J4" pin="A4" pinfunction="VBUS_A4" pintype="passive"/>
+      <node ref="J4" pin="A9" pintype="passive"/>
+      <node ref="J4" pin="B4" pintype="passive"/>
+      <node ref="J4" pin="B9" pintype="passive"/>
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="R11" pin="1" pintype="passive"/>
+      <node ref="U7" pin="23" pinfunction="VBUS_23" pintype="power_in"/>
+    </net>
+    <net code="86" name="/VBUS_OUT" class="Power">
+      <node ref="C30" pin="1" pintype="passive"/>
+      <node ref="J5" pin="1" pinfunction="VBUS_1" pintype="passive"/>
+      <node ref="R36" pin="1" pintype="passive"/>
+      <node ref="TP7" pin="1" pintype="passive"/>
+      <node ref="U3" pin="6" pinfunction="OUT_6" pintype="power_out"/>
+    </net>
+    <net code="87" name="/VCP" class="Default">
+      <node ref="C24" pin="1" pintype="passive"/>
+      <node ref="U6" pin="11" pinfunction="VCP_11" pintype="passive"/>
+    </net>
+    <net code="88" name="/VINT" class="Default">
+      <node ref="C25" pin="1" pintype="passive"/>
+      <node ref="U6" pin="14" pinfunction="VINT_14" pintype="power_out"/>
+    </net>
+    <net code="89" name="/VM_6V" class="Power">
+      <node ref="C18" pin="1" pintype="passive"/>
+      <node ref="C19" pin="1" pintype="passive"/>
+      <node ref="C20" pin="1" pintype="passive"/>
+      <node ref="C22" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="C24" pin="2" pintype="passive"/>
+      <node ref="C26" pin="1" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="R22" pin="1" pintype="passive"/>
+      <node ref="R59" pin="1" pintype="passive"/>
+      <node ref="R61" pin="1" pintype="passive"/>
+      <node ref="R62" pin="1" pintype="passive"/>
+      <node ref="TP6" pin="1" pintype="passive"/>
+      <node ref="U6" pin="12" pinfunction="VM_12" pintype="power_in"/>
+      <node ref="U8" pin="7" pinfunction="VOUT_7" pintype="power_out"/>
+      <node ref="U8" pin="8" pinfunction="VOUT_8" pintype="passive"/>
+      <node ref="U9" pin="5" pinfunction="VDD_5" pintype="power_in"/>
+    </net>
+    <net code="90" name="/VPACK_RAW" class="Power">
+      <node ref="F1" pin="1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="+_1" pintype="passive"/>
+    </net>
+    <net code="91" name="/VPK" class="Power">
+      <node ref="F1" pin="2" pintype="passive"/>
+      <node ref="QA" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="R57" pin="1" pintype="passive"/>
+    </net>
+    <net code="92" name="unconnected-(J1-D12-Pad4)" class="Default">
+      <node ref="J1" pin="4" pinfunction="D12_4" pintype="passive+no_connect"/>
+    </net>
+    <net code="93" name="unconnected-(J1-EN-Pad15)" class="Default">
+      <node ref="J1" pin="15" pinfunction="EN_15" pintype="passive+no_connect"/>
+    </net>
+    <net code="94" name="unconnected-(J1-VIN-Pad1)" class="Default">
+      <node ref="J1" pin="1" pinfunction="VIN_1" pintype="passive+no_connect"/>
+    </net>
+    <net code="95" name="unconnected-(J2-3V3-Pad1)" class="Default">
+      <node ref="J2" pin="1" pinfunction="3V3_1" pintype="passive+no_connect"/>
+    </net>
+    <net code="96" name="unconnected-(J2-D2-Pad4)" class="Default">
+      <node ref="J2" pin="4" pinfunction="D2_4" pintype="passive+no_connect"/>
+    </net>
+    <net code="97" name="unconnected-(J2-D4-Pad5)" class="Default">
+      <node ref="J2" pin="5" pinfunction="D4_5" pintype="passive+no_connect"/>
+    </net>
+    <net code="98" name="unconnected-(J2-D5-Pad8)" class="Default">
+      <node ref="J2" pin="8" pinfunction="D5_8" pintype="passive+no_connect"/>
+    </net>
+    <net code="99" name="unconnected-(J2-D15-Pad3)" class="Default">
+      <node ref="J2" pin="3" pinfunction="D15_3" pintype="passive+no_connect"/>
+    </net>
+    <net code="100" name="unconnected-(J2-RX0-Pad12)" class="Default">
+      <node ref="J2" pin="12" pinfunction="RX0_12" pintype="passive+no_connect"/>
+    </net>
+    <net code="101" name="unconnected-(J2-TX0-Pad13)" class="Default">
+      <node ref="J2" pin="13" pinfunction="TX0_13" pintype="passive+no_connect"/>
+    </net>
+    <net code="102" name="unconnected-(J4-PadA8)" class="Default">
+      <node ref="J4" pin="A8" pintype="passive+no_connect"/>
+    </net>
+    <net code="103" name="unconnected-(J4-PadB8)" class="Default">
+      <node ref="J4" pin="B8" pintype="passive+no_connect"/>
+    </net>
+    <net code="104" name="unconnected-(J5-D+-Pad3)" class="Default">
+      <node ref="J5" pin="3" pinfunction="D+_3" pintype="passive+no_connect"/>
+    </net>
+    <net code="105" name="unconnected-(J5-D--Pad2)" class="Default">
+      <node ref="J5" pin="2" pinfunction="D-_2" pintype="passive+no_connect"/>
+    </net>
+    <net code="106" name="unconnected-(J12-GAIN-Pad4)" class="Default">
+      <node ref="J12" pin="4" pinfunction="GAIN_4" pintype="passive+no_connect"/>
+    </net>
+    <net code="107" name="unconnected-(J12-SD-Pad5)" class="Default">
+      <node ref="J12" pin="5" pinfunction="SD_5" pintype="passive+no_connect"/>
+    </net>
+    <net code="108" name="unconnected-(U1-OUTB-Pad6)" class="Default">
+      <node ref="U1" pin="6" pinfunction="OUTB_6" pintype="open_collector+no_connect"/>
+    </net>
+    <net code="109" name="unconnected-(U3-FAULT-Pad4)" class="Default">
+      <node ref="U3" pin="4" pinfunction="FAULT_4" pintype="open_collector+no_connect"/>
+    </net>
+    <net code="110" name="unconnected-(U7-PG-Pad9)" class="Default">
+      <node ref="U7" pin="9" pinfunction="PG_9" pintype="open_collector+no_connect"/>
+    </net>
+    <net code="111" name="unconnected-(U7-VSET-Pad6)" class="Default">
+      <node ref="U7" pin="6" pinfunction="VSET_6" pintype="input+no_connect"/>
+    </net>
+    <net code="112" name="unconnected-(U8-FB2-Pad6)" class="Default">
+      <node ref="U8" pin="6" pinfunction="FB2_6" pintype="input+no_connect"/>
+    </net>
+    <net code="113" name="unconnected-(U8-PG-Pad2)" class="Default">
+      <node ref="U8" pin="2" pinfunction="PG_2" pintype="open_collector+no_connect"/>
+    </net>
+    <net code="114" name="unconnected-(U9-OUTB-Pad6)" class="Default">
+      <node ref="U9" pin="6" pinfunction="OUTB_6" pintype="open_collector+no_connect"/>
+    </net>
+  </nets>
+</export>

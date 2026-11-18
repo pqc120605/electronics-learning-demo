@@ -1,0 +1,57 @@
+A freerouting rc 0 172s
+A track mm {'F.Cu': 1237, 'B.Cu': 9} vias 25 unconnected 63
+ripped IC-net tracks 465
+A(saved) track mm {'F.Cu': 429, 'B.Cu': 9} vias 4 unconnected 189
+B freerouting rc 0 251s
+B track mm {'F.Cu': 1997, 'B.Cu': 247} vias 101 unconnected 3
+C cost 2.0 freerouting rc 0 51s
+C track mm {'F.Cu': 1997, 'B.Cu': 247} vias 101 unconnected 3
+C cost 1.0 freerouting rc 0 61s
+C track mm {'F.Cu': 1997, 'B.Cu': 248} vias 101 unconnected 3
+C cost 1.0 freerouting rc 0 60s
+C track mm {'F.Cu': 1997, 'B.Cu': 248} vias 101 unconnected 3
+Found 271 violations
+Found 3 unconnected items
+Found 0 schematic parity issues
+widened 5
+stitch failures 0
+grid vias 482
+removed 10
+components 1 main size 839
+ref to F.Fab: C28
+ref to F.Fab: R30
+ref to F.Fab: R46
+ref to F.Fab: R50
+ref to F.Fab: R44
+ref to F.Fab: R42
+ref to F.Fab: C27
+ref to F.Fab: R15
+ref to F.Fab: C5
+ref to F.Fab: R28
+ref to F.Fab: Q6
+ref to F.Fab: U8
+ref to F.Fab: U1
+ref to F.Fab: R62
+refs placed 130 refs to F.Fab 14 texts placed 6 texts stuck 0
+Found 3 violations
+Found 3 unconnected items
+Found 0 schematic parity issues
+      3 [unconnected_items]
+      3 [track_dangling]
+[track_dangling]: Track has unconnected end
+    @(9.3627 mm, 11.9856 mm): Track [/V5] on F.Cu, length 0.1594 mm
+[track_dangling]: Track has unconnected end
+    @(10.9500 mm, 60.4875 mm): Track [/ICHG_C] on F.Cu, length 0.3000 mm
+[track_dangling]: Track has unconnected end
+    @(11.2500 mm, 58.9875 mm): Track [/ICHG_C] on F.Cu, length 1.2510 mm
+[unconnected_items]: Missing connection between items
+    @(11.7500 mm, 58.9875 mm): Pad 11 [/REGN] of U7 on F.Cu
+    @(13.0750 mm, 63.7500 mm): Track [/REGN] on F.Cu, length 0.4000 mm
+[unconnected_items]: Missing connection between items
+    @(10.9500 mm, 60.4875 mm): Track [/ICHG_C] on F.Cu, length 0.3000 mm
+    @(11.2500 mm, 58.9875 mm): Track [/ICHG_C] on F.Cu, length 1.2510 mm
+[unconnected_items]: Missing connection between items
+    @(9.3500 mm, 59.0250 mm): Track [/TS_NET] on F.Cu, length 2.6077 mm
+    @(8.5173 mm, 61.2913 mm): Track [/TS_NET] on F.Cu, length 1.1050 mm
+F.Cu fragments 39
+B.Cu fragments 1

@@ -1,0 +1,23 @@
+{
+  "at": "2026-11-18T03:30:06.838Z",
+  "files": {
+    "src/lib/waveformMeasure.ts": "7c767ea2518deb683a7598e8487421cc422836b73a2ccd9159fadf4f27d41adf",
+    "tests/waveform-measure.test.mjs": "dfd24ca62549e3e278f0c0e741aa85c295508e71847bfdd06125450a38d68d07"
+  },
+  "scope": {
+    "withinLease": [
+      "src/lib/waveformMeasure.ts",
+      "tests/waveform-measure.test.mjs"
+    ],
+    "parallelLeaseChanges": [
+      "src/components/freestyle/FreestyleBench.tsx",
+      "src/components/freestyle/FreestyleWaveform.tsx",
+      "src/components/freestyle/FreestyleWaveform.css",
+      "src/lib/freestyle/freestyleTraceMeasure.ts",
+      "tests/freestyle-trace-measure.test.mjs",
+      "e2e/freestyle-waveform-measure.spec.mjs"
+    ],
+    "unexpected": [],
+    "missing": []
+  }
+}

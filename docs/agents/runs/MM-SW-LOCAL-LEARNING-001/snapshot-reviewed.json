@@ -1,0 +1,49 @@
+{
+  "at": "2026-11-17T17:09:27.067Z",
+  "files": {
+    "src/data/beginnerCourse.ts": "727a62211a36586206d8439906a66e0b9398e1e02b448fb7ddf7e1d06a8411de",
+    "src/lib/beginnerCourse.ts": "3bf0c762a1f5a806db463ddd1b0552124a456b56c6aedb091d1cef3cae707952",
+    "src/lib/beginnerCourseStorage.ts": "cbe539b4e2c79c961c49c336a71cdf62805b7aaf100622ee8654cd529e4a61be",
+    "tests/beginner-course.test.mjs": "466d5e6f4f954b9bc9254021e0b61dab50d617505ee866fe81807e12ec6b9817",
+    "tests/beginner-course-storage.test.mjs": "a7a8ec658cdce7b71988d6d699447ba512cb17d5d7e2fe7cce942a75a7d27495",
+    "src/pages/BeginnerLearningPage.tsx": "9f9c3ec70b7a22265104541cf6e36382927aacc326461d5e392b832e988107cb",
+    "src/pages/BeginnerLearningPage.css": "7cc19aadbdb97f91d07af71e1323b1dd41fbac6d63837c2c27fdd5922175db3c",
+    "src/components/learning/BeginnerResumeCard.tsx": "2b301fdc20927b7ef2376e965b09e16c05773918f6a5547532c348e602de93ff",
+    "src/components/learning/BeginnerResumeCard.css": "1ff026e50ff9c33885f1b198f5eab6081c8ef8aca66e98cc29a492013b6b4491",
+    "src/lib/useBeginnerCourse.ts": "cccb6c7cc3e0fd23fcd2e4e3c3cbbb00c77d8d4466d32266fd587fb531ed4c5d",
+    "src/App.tsx": "039e6560374d49f1afd3f6d4f20d87d46d7defa3b6c95a5e506524fbac28727d",
+    "src/data/productRoutes.ts": "2bc57f652d9895b94dc95d49ba64e8e1bb0d345d2189c35ee9788a94d44e1d3f",
+    "src/pages/ExplorePage.tsx": "eab820fec6cc11c52737b78fa2dc222072ab3d1ca1964ae30923529439a0ba28",
+    "src/pages/AppHomePage.tsx": "f6ffa00d16d08fa2d0f6972fc2f8e15900ca549eedda69168250e236476bbc45",
+    "src/pages/TopicsPage.tsx": "56b5438bb57b3927c270f7503ef3479f5937e74ebcdaa4c034caace1087fce62",
+    "src/lib/guideCatalog.ts": "11f468e20d183286b2c3f5c432efb60f176789052319b6d0729817608022960b",
+    "e2e/beginner-course.spec.mjs": "9df0046dda3aec1ea7909fe6a89167e2a0efc12fec08c1b5a0c21335314d1aea",
+    "tests/beginner-course-ui.test.mjs": "cddc507ae09ffb0d046f7c03fd2a695c7e65f48cebcba90e1140506a5e5200c3"
+  },
+  "scope": {
+    "changed": [
+      "src/App.tsx",
+      "src/data/productRoutes.ts",
+      "src/lib/guideCatalog.ts",
+      "src/pages/AppHomePage.tsx",
+      "src/pages/ExplorePage.tsx",
+      "src/pages/TopicsPage.tsx"
+    ],
+    "added": [
+      "src/components/learning/BeginnerResumeCard.css",
+      "src/components/learning/BeginnerResumeCard.tsx",
+      "src/data/beginnerCourse.ts",
+      "src/lib/beginnerCourse.ts",
+      "src/lib/beginnerCourseStorage.ts",
+      "src/lib/useBeginnerCourse.ts",
+      "src/pages/BeginnerLearningPage.css",
+      "src/pages/BeginnerLearningPage.tsx",
+      "tests/beginner-course-storage.test.mjs",
+      "tests/beginner-course-ui.test.mjs",
+      "tests/beginner-course.test.mjs",
+      "e2e/beginner-course.spec.mjs"
+    ],
+    "unexpected": [],
+    "missing": []
+  }
+}

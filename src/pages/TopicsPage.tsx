@@ -1,3 +1,4 @@
+import { BeginnerResumeCard } from '../components/learning/BeginnerResumeCard'
 import { Link } from 'react-router-dom'
 import { LearningPath } from '../components/LearningPath'
 import { getLearningResume, learningPathOrder } from '../data/learningPath'
@@ -36,6 +37,7 @@ export function TopicsPage() {
   const progress = useLearningProgress()
   const resume = getLearningResume(progress.lastLessonId, progress.selfReportedCompletedLessonIds)
   return <div className="catalog-page">
+    <BeginnerResumeCard />
     <section className="catalog-page-heading">
       <p className="eyebrow">LỘ TRÌNH · CHỦ ĐỀ</p>
       <h1>Chủ đề học</h1>

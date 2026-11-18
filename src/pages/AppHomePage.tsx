@@ -1,3 +1,4 @@
+import { BeginnerResumeCard } from '../components/learning/BeginnerResumeCard'
 import { Link } from 'react-router-dom'
 import { curriculumLessons } from '../data/curriculumSchema'
 import { PRODUCT_ROUTES as R, toAppRoute } from '../data/productRoutes'
@@ -93,6 +94,7 @@ export function AppHomePage() {
         </div>
       </section>
 
+      <BeginnerResumeCard />
       <FirstBoardStudio />
 
       <section className="app-home-section app-home-path" aria-labelledby="app-home-path-title">

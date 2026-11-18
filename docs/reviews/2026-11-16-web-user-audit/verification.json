@@ -1,0 +1,137 @@
+{
+  "taskId": "MM-SW-USER-AUDIT-20261116",
+  "scope": "Audit/report only; no website fixes or release approval",
+  "at": "2026-11-17 Asia/Bangkok",
+  "auditVerdict": "REPORT_COMPLETE_WITH_LIMITS",
+  "websiteVerdict": "CHANGES_REQUESTED",
+  "coverage": {
+    "desktopRoutes": 17,
+    "mobileRoutes": 20,
+    "boardProfiles": 28,
+    "boardViewers": 16,
+    "boardScenes": 17,
+    "componentCards": 59,
+    "componentModels": 45,
+    "lessons": 11,
+    "lessonViewCases": 44,
+    "freestyleBoards": 8,
+    "freestyleSamples": 4,
+    "tours": 7,
+    "tourSteps": 34,
+    "screenshots": 407
+  },
+  "findings": {
+    "P1": 2,
+    "P2": 10,
+    "P3": 4,
+    "total": 16
+  },
+  "checks": [
+    {
+      "command": "npm.cmd run typecheck",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": "evidence/typecheck.log"
+    },
+    {
+      "command": "npm.cmd test",
+      "exitCode": 1,
+      "status": "FAIL_ENVIRONMENT_OBSERVED",
+      "tests": 680,
+      "pass": 676,
+      "fail": 4,
+      "skipped": 0,
+      "log": "evidence/unit.log",
+      "reason": "4 compiler/AVR failures; sandbox Arduino15 lacks index/core arduino:avr; attempted index read fails DNS. This is not a passing suite. Web-server Uno compilation succeeded separately."
+    },
+    {
+      "command": "node --test --test-name-pattern '^arduino-cli compiles' tests/arduino-compile-service.test.mjs",
+      "exitCode": 1,
+      "tests": 1,
+      "pass": 0,
+      "fail": 1,
+      "status": "FAIL_ENVIRONMENT_OBSERVED",
+      "log": "evidence/compiler-recheck.log"
+    },
+    {
+      "command": "axe.run: wcag2a,wcag2aa,wcag21aa,wcag22aa",
+      "status": "PASS_SAMPLED",
+      "routes": 6,
+      "violations": 0,
+      "evidence": "evidence/axe-sample.json",
+      "limits": "Does not certify full WCAG compliance"
+    },
+    {
+      "command": "Local SHA-256 identity check",
+      "status": "PASS",
+      "uniqueAssets": 70,
+      "glb": 62,
+      "png": 8,
+      "evidence": "evidence/model-source-audit.json",
+      "limits": "Not a physical or geometry/electrical certification"
+    },
+    {
+      "command": "Snapshot and PNG/link check: python build-artifacts.py",
+      "exitCode": 0,
+      "status": "PASS_SOURCE_AND_PNG",
+      "sourceFiles": 462,
+      "changed": 0,
+      "added": 0,
+      "pngs": 407,
+      "evidence": "artifact-check.json",
+      "limits": "Final report links rechecked after all deliverables exist"
+    },
+    {
+      "command": "npm.cmd run build:local / npm.cmd run test:e2e",
+      "status": "NOT_RUN",
+      "reason": "Audit used existing production bundle and direct browser journeys; avoid rebuilding snapshot. No standard E2E/public release pass claimed."
+    }
+  ],
+  "environment": {
+    "url": "http://127.0.0.1:5320",
+    "bundle": "index-B5Lz7MFp.js",
+    "browser": "Chrome/Chromium 157.0.8103.52",
+    "desktop": "1440x1000",
+    "mobile": "375x812 emulated",
+    "supabase": "not configured",
+    "realDevices": "NOT_RUN",
+    "originalWorkspaceOverwrite": "declined; isolated empty context used instead",
+    "externalPublication": "none"
+  },
+  "notRun": [
+    "Every board x lesson x code combination",
+    "Physical geometry, electrical measurement, Web Serial/USB/flash",
+    "Online post/upload/auth/RLS/moderation",
+    "Offline/service-worker lifecycle",
+    "Screen reader, physical touch, cross-browser",
+    "Storage quota/crash/eviction and every revision restore",
+    "All file size/type/security edges",
+    "All cursor/probe/export variants",
+    "Nano/Mega web compile completion"
+  ],
+  "artifactIdentity": "See snapshot-before/after, artifact-check.json and artifact-index.json. Manifest excludes itself.",
+  "reportReview": {
+    "mode": "lead self-check with prior independent source/model advisory",
+    "verdict": "PASS_WITH_LIMITS",
+    "reference": "report-qa.md",
+    "independentPostReportReview": "NOT_RUN: both advisors hit account usage limit; not presented as completed independent review"
+  },
+  "sourceSnapshot": {
+    "fileCount": 462,
+    "changed": 0,
+    "added": 0,
+    "before": "snapshot-before.json",
+    "after": "snapshot-after.json"
+  },
+  "reportSha256": "b77cfe4a1d7320a44b63548085629b37b4f32487943e42937b221b83faaba521",
+  "queue": {
+    "taskStatus": "done",
+    "validatorExitCode": 0,
+    "tasks": 77,
+    "capabilities": 143,
+    "errors": [],
+    "warnings": [],
+    "log": "evidence/queue-final.log",
+    "scope": "Done for audit report only; website findings remain OPEN"
+  }
+}

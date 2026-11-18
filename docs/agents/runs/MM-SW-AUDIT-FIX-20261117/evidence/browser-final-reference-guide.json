@@ -1,0 +1,21 @@
+[
+  {
+    "id": "F08-reference-board-final-stable",
+    "url": "http://127.0.0.1:5320/app/learn/esp32-led?board=esp32-devkit&referenceBoard=arduino-uno-r3",
+    "screenshot": "F08-reference-board-final-stable.png",
+    "selected": "arduino-uno-r3",
+    "topTabs": 5
+  },
+  {
+    "id": "F14-title-final",
+    "url": "http://127.0.0.1:5320/app/robot-simulation",
+    "screenshot": "F14-title-final.png",
+    "title": "Khám phá robot · mô phỏng khái niệm — Mạch Mở"
+  },
+  {
+    "id": "F12-answer-final",
+    "url": "http://127.0.0.1:5320/app/robot-simulation",
+    "screenshot": "F12-answer-final.png",
+    "answer": "Mở — bạn đồng hành học điện tử\n\nHướng dẫn và kiến thức cục bộ · chưa kết nối AI\n\n×\n3D tương tác\n↶\n↷\nHướng dẫn\nHỏi đáp\nĐang làm\nCâu hỏi của bạn\nTìm câu trả lời\n\nCác mục phù hợp từ catalog và FAQ cục bộ; chưa xác nhận phần cứng thật:\n\nMô phỏng điện SPICE\n\nChạy netlist analog giới hạn bằng ngspice WASM; nhận subset analog từ workspace và XML netlist KiCad, không chạy firmware MCU hay chuyển trọn board.\n\nNetlist và model phải thuộc tập analog được hỗ trợ. Kiểm tra node, giá trị, analysis và đơn vị trên waveform trước khi kết luận.\n\nSPICE trả kết quả solver cho model đó; không chạy firmware MCU, không xác nhận kit thật và không biến toàn bộ PCB thành mạch mô phỏng.\n\nMở khu vực trong ứng dụng\nMình đã hiểu\nChuyển động mascot\nẨn nút Mở"
+  }
+]

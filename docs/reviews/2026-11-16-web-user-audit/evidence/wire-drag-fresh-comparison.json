@@ -1,0 +1,71 @@
+{
+  "cases": [
+    {
+      "case": "fresh-drag-20",
+      "before": [
+        "w1: board · GND ↔ Lỗ bb1:B-:1",
+        "w2: board · GPIO LED ↔ Lỗ bb1:4e",
+        "w3: Lỗ bb1:8e ↔ Lỗ bb1:13e",
+        "w4: Lỗ bb1:12e ↔ Lỗ bb1:B-:2"
+      ],
+      "after": [
+        "w1: board · GND ↔ Lỗ bb1:B-:1",
+        "w2: board · GPIO LED ↔ Lỗ bb1:4e",
+        "w3: Lỗ bb1:8e ↔ Lỗ bb1:13e",
+        "w4: Lỗ bb1:12e ↔ Lỗ bb1:B-:2"
+      ],
+      "hit": "bb1:4a",
+      "start": {
+        "x": 978.6173706054688,
+        "y": 523.2710571289062,
+        "width": 4.26251220703125,
+        "height": 4.262451171875
+      },
+      "end": {
+        "x": 991.3873291015625,
+        "y": 523.2710571289062,
+        "width": 4.26251220703125,
+        "height": 4.262451171875
+      },
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nẨn bảng thao tác\nMở rộng bàn\n▶ Chạy\nBoard / MCU\nESP32 DevKit V1\n3,3 V · trình thông dịch\nESP32-S3-DevKitC-1\n3,3 V · trình thông dịch\nArduino Uno R3\n5 V · biên dịch thật (arduino-cli)\nArduino Nano classic\n5 V · biên dịch thật (arduino-cli)\nArduino Mega 2560 R3\n5 V · biên dịch thật (arduino-cli)\nRaspberry Pi Pico\n3,3 V · MicroPython thật\nSTM32 Blue Pill (F103C8)\n3,3 V · trình thông dịch\nSTM32 Nucleo-F401RE\n3,3 V · trình thông dịch\nChân board dùng trong mạch\n\nDây nối vào chân “GPIO LED”, “GPIO IN”… của board. Chọn số chân thật tương ứng trong code.\n\nGPIO LED\nGPIO 0\nGPIO 1\nGPIO 2\nGPIO 3\nGPIO 4\nGPIO 5\nGPIO 12\nGPIO 13\nGPIO 14\nGPIO 15\nGPIO 16\nGPIO 17\nGPIO 18\nGPIO 19\nGPIO 21\nGPIO 22\nGPIO 23\nGPIO 25\nGPIO 26\nGPIO 27\nGPIO 32\nGPIO 33\nGPIO 34\nGPIO 35\nGPIO 36\nGPIO 39\nGPIO IN\nGPIO 0\nGPIO 1\nGPIO 2\nGPIO 3\nGPIO 4\nGPIO 5\nGPIO 12\nGPIO 13\nGPIO 14\nGPIO 15\nGPIO 16\nGPIO 17\nGPIO 18\nGPIO 19\nGPIO 21\nGPIO 22\nGPIO 23\nGPIO 25\nGPIO 26\nGPIO 27\nGPIO 32\nGPIO 33\nGPIO 34\nGPIO 35\nGPIO 36\nGPIO 39\n\nChưa có emulator ESP32 mở chạy được trong trình duyệt: code chạy bằng trình thông dịch Arduino C++ rút gọn, không có WiFi/BLE/I²C/SPI.\n\nDanh sách chân để nối bằng bàn phím\n−\n100%\n+\nVừa khung 2D\nESP32 DevKit V1\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n4 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.",
+      "screenshot": "fresh-drag-20.png",
+      "alerts": []
+    },
+    {
+      "case": "fresh-drag-1",
+      "before": [
+        "w1: board · GND ↔ Lỗ bb1:B-:1",
+        "w2: board · GPIO LED ↔ Lỗ bb1:4e",
+        "w3: Lỗ bb1:8e ↔ Lỗ bb1:13e",
+        "w4: Lỗ bb1:12e ↔ Lỗ bb1:B-:2"
+      ],
+      "after": [
+        "w1: board · GND ↔ Lỗ bb1:B-:1",
+        "w2: board · GPIO LED ↔ Lỗ bb1:4e",
+        "w3: Lỗ bb1:8e ↔ Lỗ bb1:13e",
+        "w4: Lỗ bb1:12e ↔ Lỗ bb1:B-:2",
+        "w5: Lỗ bb1:3a ↔ Lỗ bb1:4a"
+      ],
+      "hit": "bb1:4a",
+      "start": {
+        "x": 978.6173706054688,
+        "y": 523.2710571289062,
+        "width": 4.26251220703125,
+        "height": 4.262451171875
+      },
+      "end": {
+        "x": 991.3873291015625,
+        "y": 523.2710571289062,
+        "width": 4.26251220703125,
+        "height": 4.262451171875
+      },
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nẨn bảng thao tác\nMở rộng bàn\n▶ Chạy\nBoard / MCU\nESP32 DevKit V1\n3,3 V · trình thông dịch\nESP32-S3-DevKitC-1\n3,3 V · trình thông dịch\nArduino Uno R3\n5 V · biên dịch thật (arduino-cli)\nArduino Nano classic\n5 V · biên dịch thật (arduino-cli)\nArduino Mega 2560 R3\n5 V · biên dịch thật (arduino-cli)\nRaspberry Pi Pico\n3,3 V · MicroPython thật\nSTM32 Blue Pill (F103C8)\n3,3 V · trình thông dịch\nSTM32 Nucleo-F401RE\n3,3 V · trình thông dịch\nChân board dùng trong mạch\n\nDây nối vào chân “GPIO LED”, “GPIO IN”… của board. Chọn số chân thật tương ứng trong code.\n\nGPIO LED\nGPIO 0\nGPIO 1\nGPIO 2\nGPIO 3\nGPIO 4\nGPIO 5\nGPIO 12\nGPIO 13\nGPIO 14\nGPIO 15\nGPIO 16\nGPIO 17\nGPIO 18\nGPIO 19\nGPIO 21\nGPIO 22\nGPIO 23\nGPIO 25\nGPIO 26\nGPIO 27\nGPIO 32\nGPIO 33\nGPIO 34\nGPIO 35\nGPIO 36\nGPIO 39\nGPIO IN\nGPIO 0\nGPIO 1\nGPIO 2\nGPIO 3\nGPIO 4\nGPIO 5\nGPIO 12\nGPIO 13\nGPIO 14\nGPIO 15\nGPIO 16\nGPIO 17\nGPIO 18\nGPIO 19\nGPIO 21\nGPIO 22\nGPIO 23\nGPIO 25\nGPIO 26\nGPIO 27\nGPIO 32\nGPIO 33\nGPIO 34\nGPIO 35\nGPIO 36\nGPIO 39\n\nChưa có emulator ESP32 mở chạy được trong trình duyệt: code chạy bằng trình thông dịch Arduino C++ rút gọn, không có WiFi/BLE/I²C/SPI.\n\nDanh sách chân để nối bằng bàn phím\n−\n100%\n+\nVừa khung 2D\nESP32 DevKit V1\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\n\nw5: không thể định tuyến dây vuông góc: Đoạn thoát của dây sẽ chồng lên dây đã định tuyến.\n\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n5 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.",
+      "screenshot": "fresh-drag-1.png",
+      "alerts": []
+    }
+  ]
+}

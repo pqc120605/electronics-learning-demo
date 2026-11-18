@@ -79,3 +79,14 @@ test('renders an accessible, honest circuit-check panel with actionable open fin
   assert.match(markup, /<details open="">.*Linh kiện và hình học tham chiếu/s)
   assert.match(markup, /không phải phép đo điện/i)
 })
+
+test('offers typed inspection actions only with a page callback and preserves next steps', () => {
+  const action = { diagnosticIndex: 0, target: { kind: 'part', partId: 'led-1' }, nextStep: 'Kiểm tra đường dòng qua LED.' }
+  const report = { lessonId: 'blink', gates: [{ id: 'G8', status: 'warning', diagnostics: ['LED cần kiểm tra.'], diagnosticActions: [action] }] }
+  const presentation = presentCircuitGateReport(report)
+  assert.deepEqual(presentation.gates[0].diagnosticActions, [action])
+  const markup = renderToStaticMarkup(React.createElement(CircuitGatePanel, { report, onInspect: () => {} }))
+  assert.match(markup, /Xem linh kiện/)
+  assert.match(markup, /Kiểm tra đường dòng qua LED/)
+  assert.doesNotMatch(renderToStaticMarkup(React.createElement(CircuitGatePanel, { report })), /<button/)
+})

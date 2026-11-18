@@ -1,0 +1,31 @@
+[
+  {
+    "id": "F08-reference-board-final",
+    "url": "http://127.0.0.1:5320/app/learn/esp32-led?board=esp32-devkit&referenceBoard=arduino-uno-r3",
+    "screenshot": "F08-reference-board-final.png",
+    "tabs": 11,
+    "selected": "esp32-devkit-v1-30pin"
+  },
+  {
+    "id": "F02-F11-six-wires-final",
+    "url": "http://127.0.0.1:5320/build?lesson=button-led&board=esp32-devkit",
+    "screenshot": "F02-F11-six-wires-final.png",
+    "wireCount": 6,
+    "diagnostics": [],
+    "staleProviderCopy": false
+  },
+  {
+    "id": "F02-g6-final",
+    "url": "http://127.0.0.1:5320/build?lesson=button-led&board=esp32-devkit",
+    "screenshot": "F02-g6-final.png",
+    "gate": "G6\nDây có đường đi hợp lệ\nCần lưu ý"
+  },
+  {
+    "id": "F15-validation-final",
+    "url": "http://127.0.0.1:5320/app/classroom-kits",
+    "screenshot": "F15-validation-final.png",
+    "value": "0",
+    "invalid": "true",
+    "error": "Nhập số nguyên từ 1 đến 100 trạm. Danh sách vẫn giữ 8 trạm cho đến khi nhập hợp lệ."
+  }
+]

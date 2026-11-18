@@ -1,0 +1,7 @@
+.beginner-resume{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px;margin:24px 0;border:1px solid var(--mm-line);border-left:5px solid var(--mm-signal);border-radius:var(--mm-radius-md);background:var(--mm-surface);color:var(--mm-ink)}
+.beginner-resume h2{margin:0 0 8px;font:600 clamp(1.3rem,2.5vw,1.8rem)/1.2 var(--mm-font-display)}
+.beginner-resume p{margin:6px 0;max-width:65ch;color:var(--mm-text);line-height:1.5}
+.beginner-resume-actions{display:flex;flex-direction:column;align-items:flex-start;gap:12px;flex-shrink:0;max-width:40%}
+.beginner-resume-actions a{white-space:normal;overflow-wrap:anywhere}
+.beginner-resume a:focus-visible{outline:3px solid var(--mm-signal);outline-offset:4px}
+@media(max-width:700px){.beginner-resume{flex-direction:column;align-items:stretch;padding:18px}.beginner-resume-actions{max-width:none}}

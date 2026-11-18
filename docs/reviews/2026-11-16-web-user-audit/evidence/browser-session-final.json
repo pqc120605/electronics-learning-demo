@@ -1,0 +1,49 @@
+{
+  "isolated": {
+    "errors": [],
+    "failed": [],
+    "bad": []
+  },
+  "original": {
+    "errors": [],
+    "failed": [
+      {
+        "url": "http://127.0.0.1:5320/models/arduino-uno-r3.glb?v=53330cd2b0d2",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/models/esp32-devkit-v1-30pin.glb?v=b3d0a6b0be09",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/assets/circuitNets-CvwZy5uq.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/assets/sketchInterpreter-Cr2vFJlH.js",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "bad": []
+  },
+  "isolatedContextWasEmpty": true,
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "url": "http://127.0.0.1:5320/build?lesson=button-led&board=esp32-devkit",
+  "browserVersion": "157.0.8103.52",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36"
+}

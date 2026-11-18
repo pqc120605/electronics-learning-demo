@@ -1,0 +1,81 @@
+{
+  "cases": [
+    {
+      "case": "avr-before-confirm",
+      "runDisabled": true,
+      "url": "http://127.0.0.1:5320/tools/firmware-hex",
+      "title": "Kiểm tra firmware HEX — Mạch Mở",
+      "text": "CÔNG CỤ BỔ TRỢ · FIRMWARE\n\nKiểm tra tệp Intel HEX\n\nChọn firmware đã biên dịch để kiểm tra cấu trúc, checksum, vùng địa chỉ và dung lượng trước khi dùng với simulator tương thích.\n\nQuay lại bàn lắp mạch ↗\nHEX\nChọn firmware\n\nTệp được đọc ngay trong trình duyệt; nội dung không tải lên máy chủ.\n\nChọn tệp .hex\natmega328p-d13-blink.hex\nNạp firmware LED nhấp nháy mẫu\nNạp HEX biên dịch từ Arduino IDE\nTải file .hex\nTải HEX Arduino Uno\nTải sketch .ino cho Arduino IDE\nCấu trúc hợp lệ\nXóa kết quả\nDữ liệu\n36 byte\nBản ghi\n4\nĐịa chỉ bắt đầu\nKhông khai báo\nCác vùng địa chỉ\n0x00000000 – 0x00000023\n36 byte\nThử nghiệm firmware · AVR8js\nArduino Uno R3 · ATmega328P · tối đa 1 giây mô phỏng ở 16 MHz\nChọn board đích\nArduino Uno R3 · ATmega328P\nArduino Nano classic · ATmega328P\nTài liệu board và pinout chính hãng ↗\nTôi xác nhận HEX được biên dịch cho ATmega328P trên Arduino Uno R3. Intel HEX không tự khai báo hoặc xác minh MCU đích.\nChạy thử\n\nIntel HEX được kiểm tra cú pháp; CPU AVR8js chạy trong Web Worker và chỉ quan sát GPIO D13 cùng một số ngoại vi cơ bản. Firmware phải được biên dịch cho ATmega328P. Đây chưa phải mô phỏng mạch điện, không xác minh đúng MCU từ nội dung HEX và không nạp lên board thật.\n\nTHỬ NGHIỆM FIRMWARE · RP2040JS\n\nRaspberry Pi Pico · RP2040\n\nCPU Cortex-M0+ của RP2040 được giả lập bằng rp2040js trong Web Worker, tối đa 1 giây mô phỏng ở 125 MHz. Quan sát GPIO 0–29 và UART0.\n\nChọn tệp .uf2\nNạp firmware Pico mẫu · nháy GP25\nChạy trên RP2040\n\nFirmware dùng Pico SDK/Arduino-Pico gọi hàm trong bootrom RP2040. Bản này chưa nạp bootrom nên các UF2 đó có thể dừng sớm; firmware mẫu tự lắp ráp không cần bootrom.\n\nĐây là giả lập CPU và ngoại vi số, không phải phép đo trên board thật và không mô phỏng điện áp/dòng.\n\nPhân biệt hai tệp mẫu\n\nTrang có hai HEX mẫu cho ATmega328P: một bản assembly bare-metal và một bản biên dịch từ sketch Arduino Uno bằng Arduino IDE 2.3.10, Arduino AVR Boards 1.8.8 (arduino:avr:uno). Chọn Uno R3 hoặc Nano classic để chạy cùng core ATmega328P 16 MHz và quan sát D13/PB5. Đây không phải bằng chứng mô phỏng đầy đủ firmware hoặc mạch điện; các board khác chưa chạy firmware trong công cụ này.",
+      "screenshot": "firmware-avr-confirmation.png",
+      "alerts": []
+    },
+    {
+      "case": "avr-bare",
+      "url": "http://127.0.0.1:5320/tools/firmware-hex",
+      "title": "Kiểm tra firmware HEX — Mạch Mở",
+      "text": "CÔNG CỤ BỔ TRỢ · FIRMWARE\n\nKiểm tra tệp Intel HEX\n\nChọn firmware đã biên dịch để kiểm tra cấu trúc, checksum, vùng địa chỉ và dung lượng trước khi dùng với simulator tương thích.\n\nQuay lại bàn lắp mạch ↗\nHEX\nChọn firmware\n\nTệp được đọc ngay trong trình duyệt; nội dung không tải lên máy chủ.\n\nChọn tệp .hex\natmega328p-d13-blink.hex\nNạp firmware LED nhấp nháy mẫu\nNạp HEX biên dịch từ Arduino IDE\nTải file .hex\nTải HEX Arduino Uno\nTải sketch .ino cho Arduino IDE\nTải trace D13 · CSV\nCấu trúc hợp lệ\nXóa kết quả\nDữ liệu\n36 byte\nBản ghi\n4\nĐịa chỉ bắt đầu\nKhông khai báo\nCác vùng địa chỉ\n0x00000000 – 0x00000023\n36 byte\nThử nghiệm firmware · AVR8js\nArduino Uno R3 · ATmega328P · tối đa 1 giây mô phỏng ở 16 MHz\nChọn board đích\nArduino Uno R3 · ATmega328P\nArduino Nano classic · ATmega328P\nTài liệu board và pinout chính hãng ↗\nTôi xác nhận HEX được biên dịch cho ATmega328P trên Arduino Uno R3. Intel HEX không tự khai báo hoặc xác minh MCU đích.\nChạy thử\nD13: HIGH · LED bật\n1000.0 ms mô phỏng · 16.000.001 chu kỳ\nLogic Analyzer · D13 / PB5 · Arduino Uno R3\n6 lần đổi mức · 1000.0 ms thời gian mô phỏng\n0.000 ms\n500.0 ms\n1000.0 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · LOW → HIGH · giá trị là logic, không phải điện áp\n2.03 Hz tần số ước tính (trace logic)\n50.0% duty cycle trung bình\n2 chu kỳ hoàn chỉnh\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng AVR8js, bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 128 lần chuyển mức.\nSerial Monitor · UART0\nChưa có dữ liệu UART trong khoảng chạy này.\n0 byte\n\nIntel HEX được kiểm tra cú pháp; CPU AVR8js chạy trong Web Worker và chỉ quan sát GPIO D13 cùng một số ngoại vi cơ bản. Firmware phải được biên dịch cho ATmega328P. Đây chưa phải mô phỏng mạch điện, không xác minh đúng MCU từ nội dung HEX và không nạp lên board thật.\n\nTHỬ NGHIỆM FIRMWARE · RP2040JS\n\nRaspberry Pi Pico · RP2040\n\nCPU Cortex-M0+ của RP2040 được giả lập bằng rp2040js trong Web Worker, tối đa 1 giây mô phỏng ở 125 MHz. Quan sát GPIO 0–29 và UART0.\n\nChọn tệp .uf2\nNạp firmware Pico mẫu · nháy GP25\nChạy trên RP2040\n\nFirmware dùng Pico SDK/Arduino-Pico gọi hàm trong bootrom RP2040. Bản này chưa nạp bootrom nên các UF2 đó có thể dừng sớm; firmware mẫu tự lắp ráp không cần bootrom.\n\nĐây là giả lập CPU và ngoại vi số, không phải phép đo trên board thật và không mô phỏng điện áp/dòng.\n\nPhân biệt hai tệp mẫu\n\nTrang có hai HEX mẫu cho ATmega328P: một bản assembly bare-metal và một bản biên dịch từ sketch Arduino Uno bằng Arduino IDE 2.3.10, Arduino AVR Boards 1.8.8 (arduino:avr:uno). Chọn Uno R3 hoặc Nano classic để chạy cùng core ATmega328P 16 MHz và quan sát D13/PB5. Đây không phải bằng chứng mô phỏng đầy đủ firmware hoặc mạch điện; các board khác chưa chạy firmware trong công cụ này.",
+      "screenshot": "firmware-avr-bare.png",
+      "alerts": []
+    },
+    {
+      "case": "avr-arduino",
+      "url": "http://127.0.0.1:5320/tools/firmware-hex",
+      "title": "Kiểm tra firmware HEX — Mạch Mở",
+      "text": "CÔNG CỤ BỔ TRỢ · FIRMWARE\n\nKiểm tra tệp Intel HEX\n\nChọn firmware đã biên dịch để kiểm tra cấu trúc, checksum, vùng địa chỉ và dung lượng trước khi dùng với simulator tương thích.\n\nQuay lại bàn lắp mạch ↗\nHEX\nChọn firmware\n\nTệp được đọc ngay trong trình duyệt; nội dung không tải lên máy chủ.\n\nChọn tệp .hex\narduino-uno-d13-blink.hex · Arduino IDE\nNạp firmware LED nhấp nháy mẫu\nNạp HEX biên dịch từ Arduino IDE\nTải file .hex\nTải HEX Arduino Uno\nTải sketch .ino cho Arduino IDE\nTải trace D13 · CSV\nCấu trúc hợp lệ\nXóa kết quả\nDữ liệu\n924 byte\nBản ghi\n59\nĐịa chỉ bắt đầu\nKhông khai báo\nCác vùng địa chỉ\n0x00000000 – 0x0000039B\n924 byte\nThử nghiệm firmware · AVR8js\nArduino Uno R3 · ATmega328P · tối đa 1 giây mô phỏng ở 16 MHz\nChọn board đích\nArduino Uno R3 · ATmega328P\nArduino Nano classic · ATmega328P\nTài liệu board và pinout chính hãng ↗\nTôi xác nhận HEX được biên dịch cho ATmega328P trên Arduino Uno R3. Intel HEX không tự khai báo hoặc xác minh MCU đích.\nChạy thử\nD13: LOW · LED tắt\n1000.0 ms mô phỏng · 16.000.001 chu kỳ\nLogic Analyzer · D13 / PB5 · Arduino Uno R3\n3 lần đổi mức · 1000.0 ms thời gian mô phỏng\n0.000 ms\n500.0 ms\n1000.0 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.003 ms · LOW → HIGH · giá trị là logic, không phải điện áp\nCần ít nhất hai cạnh lên và cạnh xuống tương ứng để ước tính tần số/duty cycle.\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng AVR8js, bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 128 lần chuyển mức.\nSerial Monitor · UART0\nChưa có dữ liệu UART trong khoảng chạy này.\n0 byte\n\nIntel HEX được kiểm tra cú pháp; CPU AVR8js chạy trong Web Worker và chỉ quan sát GPIO D13 cùng một số ngoại vi cơ bản. Firmware phải được biên dịch cho ATmega328P. Đây chưa phải mô phỏng mạch điện, không xác minh đúng MCU từ nội dung HEX và không nạp lên board thật.\n\nTHỬ NGHIỆM FIRMWARE · RP2040JS\n\nRaspberry Pi Pico · RP2040\n\nCPU Cortex-M0+ của RP2040 được giả lập bằng rp2040js trong Web Worker, tối đa 1 giây mô phỏng ở 125 MHz. Quan sát GPIO 0–29 và UART0.\n\nChọn tệp .uf2\nNạp firmware Pico mẫu · nháy GP25\nChạy trên RP2040\n\nFirmware dùng Pico SDK/Arduino-Pico gọi hàm trong bootrom RP2040. Bản này chưa nạp bootrom nên các UF2 đó có thể dừng sớm; firmware mẫu tự lắp ráp không cần bootrom.\n\nĐây là giả lập CPU và ngoại vi số, không phải phép đo trên board thật và không mô phỏng điện áp/dòng.\n\nPhân biệt hai tệp mẫu\n\nTrang có hai HEX mẫu cho ATmega328P: một bản assembly bare-metal và một bản biên dịch từ sketch Arduino Uno bằng Arduino IDE 2.3.10, Arduino AVR Boards 1.8.8 (arduino:avr:uno). Chọn Uno R3 hoặc Nano classic để chạy cùng core ATmega328P 16 MHz và quan sát D13/PB5. Đây không phải bằng chứng mô phỏng đầy đủ firmware hoặc mạch điện; các board khác chưa chạy firmware trong công cụ này.",
+      "screenshot": "firmware-avr-arduino.png",
+      "alerts": []
+    },
+    {
+      "case": "rp2040",
+      "url": "http://127.0.0.1:5320/tools/firmware-hex",
+      "title": "Kiểm tra firmware HEX — Mạch Mở",
+      "text": "CÔNG CỤ BỔ TRỢ · FIRMWARE\n\nKiểm tra tệp Intel HEX\n\nChọn firmware đã biên dịch để kiểm tra cấu trúc, checksum, vùng địa chỉ và dung lượng trước khi dùng với simulator tương thích.\n\nQuay lại bàn lắp mạch ↗\nHEX\nChọn firmware\n\nTệp được đọc ngay trong trình duyệt; nội dung không tải lên máy chủ.\n\nChọn tệp .hex\narduino-uno-d13-blink.hex · Arduino IDE\nNạp firmware LED nhấp nháy mẫu\nNạp HEX biên dịch từ Arduino IDE\nTải file .hex\nTải HEX Arduino Uno\nTải sketch .ino cho Arduino IDE\nTải trace D13 · CSV\nCấu trúc hợp lệ\nXóa kết quả\nDữ liệu\n924 byte\nBản ghi\n59\nĐịa chỉ bắt đầu\nKhông khai báo\nCác vùng địa chỉ\n0x00000000 – 0x0000039B\n924 byte\nThử nghiệm firmware · AVR8js\nArduino Uno R3 · ATmega328P · tối đa 1 giây mô phỏng ở 16 MHz\nChọn board đích\nArduino Uno R3 · ATmega328P\nArduino Nano classic · ATmega328P\nTài liệu board và pinout chính hãng ↗\nTôi xác nhận HEX được biên dịch cho ATmega328P trên Arduino Uno R3. Intel HEX không tự khai báo hoặc xác minh MCU đích.\nChạy thử\nD13: LOW · LED tắt\n1000.0 ms mô phỏng · 16.000.001 chu kỳ\nLogic Analyzer · D13 / PB5 · Arduino Uno R3\n3 lần đổi mức · 1000.0 ms thời gian mô phỏng\n0.000 ms\n500.0 ms\n1000.0 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.003 ms · LOW → HIGH · giá trị là logic, không phải điện áp\nCần ít nhất hai cạnh lên và cạnh xuống tương ứng để ước tính tần số/duty cycle.\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng AVR8js, bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 128 lần chuyển mức.\nSerial Monitor · UART0\nChưa có dữ liệu UART trong khoảng chạy này.\n0 byte\n\nIntel HEX được kiểm tra cú pháp; CPU AVR8js chạy trong Web Worker và chỉ quan sát GPIO D13 cùng một số ngoại vi cơ bản. Firmware phải được biên dịch cho ATmega328P. Đây chưa phải mô phỏng mạch điện, không xác minh đúng MCU từ nội dung HEX và không nạp lên board thật.\n\nTHỬ NGHIỆM FIRMWARE · RP2040JS\n\nRaspberry Pi Pico · RP2040\n\nCPU Cortex-M0+ của RP2040 được giả lập bằng rp2040js trong Web Worker, tối đa 1 giây mô phỏng ở 125 MHz. Quan sát GPIO 0–29 và UART0.\n\nChọn tệp .uf2\nNạp firmware Pico mẫu · nháy GP25\nChạy trên RP2040\n\nFirmware: pico-blink-gp25 (Mạch Mở lắp ráp)\n\nFirmware dùng Pico SDK/Arduino-Pico gọi hàm trong bootrom RP2040. Bản này chưa nạp bootrom nên các UF2 đó có thể dừng sớm; firmware mẫu tự lắp ráp không cần bootrom.\n\nGP25 (LED trên board) · HIGH · LED bật1000.00 ms mô phỏng · 125.000.090 chu kỳ\nLogic analyzer · 1 kênh GPIO\nLogic Analyzer · GP25 · Raspberry Pi Pico\n6 lần đổi mức · 1000.0 ms thời gian mô phỏng\n0.000 ms\n500.0 ms\n1000.0 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · LOW → HIGH · giá trị là logic, không phải điện áp\n2.08 Hz tần số ước tính (trace logic)\n50.0% duty cycle trung bình\n2 chu kỳ hoàn chỉnh\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng rp2040js (125 MHz), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 2.048 lần chuyển mức.\nUART0\nChưa có dữ liệu UART trong khoảng chạy này.\n\nĐây là giả lập CPU và ngoại vi số, không phải phép đo trên board thật và không mô phỏng điện áp/dòng.\n\nPhân biệt hai tệp mẫu\n\nTrang có hai HEX mẫu cho ATmega328P: một bản assembly bare-metal và một bản biên dịch từ sketch Arduino Uno bằng Arduino IDE 2.3.10, Arduino AVR Boards 1.8.8 (arduino:avr:uno). Chọn Uno R3 hoặc Nano classic để chạy cùng core ATmega328P 16 MHz và quan sát D13/PB5. Đây không phải bằng chứng mô phỏng đầy đủ firmware hoặc mạch điện; các board khác chưa chạy firmware trong công cụ này.",
+      "screenshot": "firmware-pico-result.png",
+      "alerts": []
+    },
+    {
+      "case": "invalid-upload",
+      "url": "http://127.0.0.1:5320/tools/firmware-hex",
+      "title": "Kiểm tra firmware HEX — Mạch Mở",
+      "text": "CÔNG CỤ BỔ TRỢ · FIRMWARE\n\nKiểm tra tệp Intel HEX\n\nChọn firmware đã biên dịch để kiểm tra cấu trúc, checksum, vùng địa chỉ và dung lượng trước khi dùng với simulator tương thích.\n\nQuay lại bàn lắp mạch ↗\nHEX\nChọn firmware\n\nTệp được đọc ngay trong trình duyệt; nội dung không tải lên máy chủ.\n\nChọn tệp .hex\ninvalid.json\nNạp firmware LED nhấp nháy mẫu\nNạp HEX biên dịch từ Arduino IDE\nTải file .hex\nTải HEX Arduino Uno\nTải sketch .ino cho Arduino IDE\n\nTệp chưa hợp lệ\nBản ghi Intel HEX không hợp lệ tại dòng 1.\n\nTHỬ NGHIỆM FIRMWARE · RP2040JS\n\nRaspberry Pi Pico · RP2040\n\nCPU Cortex-M0+ của RP2040 được giả lập bằng rp2040js trong Web Worker, tối đa 1 giây mô phỏng ở 125 MHz. Quan sát GPIO 0–29 và UART0.\n\nChọn tệp .uf2\nNạp firmware Pico mẫu · nháy GP25\nChạy trên RP2040\n\nFirmware: pico-blink-gp25 (Mạch Mở lắp ráp)\n\nFirmware dùng Pico SDK/Arduino-Pico gọi hàm trong bootrom RP2040. Bản này chưa nạp bootrom nên các UF2 đó có thể dừng sớm; firmware mẫu tự lắp ráp không cần bootrom.\n\nGP25 (LED trên board) · HIGH · LED bật1000.00 ms mô phỏng · 125.000.090 chu kỳ\nLogic analyzer · 1 kênh GPIO\nLogic Analyzer · GP25 · Raspberry Pi Pico\n6 lần đổi mức · 1000.0 ms thời gian mô phỏng\n0.000 ms\n500.0 ms\n1000.0 ms\nHIGH\nLOW\nCursor ACursor BΔt 0.000 ms · LOW → HIGH · giá trị là logic, không phải điện áp\n2.08 Hz tần số ước tính (trace logic)\n50.0% duty cycle trung bình\n2 chu kỳ hoàn chỉnh\nDanh sách chuyển mức có timestamp\nTrục thời gian lấy từ chu kỳ CPU mô phỏng rp2040js (125 MHz), bắt đầu ở lần đổi mức đầu tiên. Đây không phải phép đo trên board thật; trace lưu tối đa 2.048 lần chuyển mức.\nUART0\nChưa có dữ liệu UART trong khoảng chạy này.\n\nĐây là giả lập CPU và ngoại vi số, không phải phép đo trên board thật và không mô phỏng điện áp/dòng.\n\nPhân biệt hai tệp mẫu\n\nTrang có hai HEX mẫu cho ATmega328P: một bản assembly bare-metal và một bản biên dịch từ sketch Arduino Uno bằng Arduino IDE 2.3.10, Arduino AVR Boards 1.8.8 (arduino:avr:uno). Chọn Uno R3 hoặc Nano classic để chạy cùng core ATmega328P 16 MHz và quan sát D13/PB5. Đây không phải bằng chứng mô phỏng đầy đủ firmware hoặc mạch điện; các board khác chưa chạy firmware trong công cụ này.",
+      "screenshot": "firmware-invalid-file.png",
+      "alerts": [
+        "Tệp chưa hợp lệBản ghi Intel HEX không hợp lệ tại dòng 1."
+      ]
+    }
+  ],
+  "errors": {
+    "errors": [],
+    "failed": [
+      {
+        "url": "http://127.0.0.1:5320/models/arduino-uno-r3.glb?v=53330cd2b0d2",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/models/esp32-devkit-v1-30pin.glb?v=b3d0a6b0be09",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/assets/circuitNets-CvwZy5uq.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/assets/sketchInterpreter-Cr2vFJlH.js",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "bad": []
+  }
+}

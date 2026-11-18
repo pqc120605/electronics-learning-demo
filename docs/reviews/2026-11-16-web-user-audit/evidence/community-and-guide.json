@@ -1,0 +1,199 @@
+{
+  "cases": [
+    {
+      "case": "comment",
+      "url": "http://127.0.0.1:5320/community/local-mwjgwz91-cf801242",
+      "title": "AUDIT-1611 — tệp và ảnh cục bộ — Cộng đồng Mạch Mở",
+      "text": "Cộng đồng\n/\nIoT\n\nBẢN XEM TRƯỚC\nBài viết chưa đồng bộ: bài mẫu và bài/bình luận cục bộ chỉ có trên thiết bị này. Chữ lưu localStorage, tệp lưu IndexedDB; có thể bị trình duyệt xoá. Tệp đang chọn chỉ ở bộ nhớ cho tới khi đăng thành công.\nOnline chưa được kết nối. Founder cần tạo Supabase và áp dụng gói docs/software/community-online.\n\nIoT\nNháp trên thiết bị\n\nAUDIT-1611 — tệp và ảnh cục bộ\n\nK\nKhách (thiết bị này)\n16/11/2026\n\nBài kiểm thử người dùng: đậm, GPIO, ảnh mạch và mã nguồn. Chỉ lưu trên thiết bị thử.\n\nspice-divider-complete.png · 132.7 KiB\nTải spice-divider-complete.png\naudit-blink.ino · 0.0 KiB\nTải audit-blink.ino\nBáo cáo\n1 bình luận\n\nK\nKhách (thiết bị này)\n16/11/2026\nTrên thiết bị\n\nAUDIT: ảnh và tệp vẫn còn sau khi tải lại; thử GPIO trong bình luận.\n\nBáo cáo\nViết bình luận\nĐậm\nCode nội dòng\nChèn khối code\nXem trước\n\nBạn đang viết nháp dưới tên khách, chỉ lưu trên thiết bị này.\n0/4000\n\nGửi bình luận\n\nĐã lưu bình luận trên thiết bị này.",
+      "screenshot": "community-comment.png",
+      "alerts": []
+    },
+    {
+      "case": "report-local",
+      "url": "http://127.0.0.1:5320/community/local-mwjgwz91-cf801242",
+      "title": "AUDIT-1611 — tệp và ảnh cục bộ — Cộng đồng Mạch Mở",
+      "text": "Cộng đồng\n/\nIoT\n\nBẢN XEM TRƯỚC\nBài viết chưa đồng bộ: bài mẫu và bài/bình luận cục bộ chỉ có trên thiết bị này. Chữ lưu localStorage, tệp lưu IndexedDB; có thể bị trình duyệt xoá. Tệp đang chọn chỉ ở bộ nhớ cho tới khi đăng thành công.\nOnline chưa được kết nối. Founder cần tạo Supabase và áp dụng gói docs/software/community-online.\n\nIoT\nNháp trên thiết bị\n\nAUDIT-1611 — tệp và ảnh cục bộ\n\nK\nKhách (thiết bị này)\n16/11/2026\n\nBài kiểm thử người dùng: đậm, GPIO, ảnh mạch và mã nguồn. Chỉ lưu trên thiết bị thử.\n\nspice-divider-complete.png · 132.7 KiB\nTải spice-divider-complete.png\naudit-blink.ino · 0.0 KiB\nTải audit-blink.ino\n\nĐã ghi nhận báo cáo trên thiết bị này. Chưa gửi tới người kiểm duyệt.\n\n1 bình luận\n\nK\nKhách (thiết bị này)\n16/11/2026\nTrên thiết bị\n\nAUDIT: ảnh và tệp vẫn còn sau khi tải lại; thử GPIO trong bình luận.\n\nBáo cáo\nViết bình luận\nĐậm\nCode nội dòng\nChèn khối code\nXem trước\n\nBạn đang viết nháp dưới tên khách, chỉ lưu trên thiết bị này.\n0/4000\n\nGửi bình luận\n\nĐã lưu bình luận trên thiết bị này.",
+      "screenshot": "community-report.png",
+      "alerts": []
+    },
+    {
+      "case": "feed-filter",
+      "url": "http://127.0.0.1:5320/community?cat=iot&q=AUDIT-1611",
+      "title": "Cộng đồng — Mạch Mở",
+      "text": "MẠCH MỞ · CỘNG ĐỒNG\n\nCộng đồng điện tử, nhúng & IoT\n\nHỏi lỗi mạch, chia sẻ code ESP32/Arduino, khoe dự án và giúp người mới.\n\n+ Viết bài mới\n\nBẢN XEM TRƯỚC\nBài viết chưa đồng bộ: bài mẫu và bài/bình luận cục bộ chỉ có trên thiết bị này. Chữ lưu localStorage, tệp lưu IndexedDB; có thể bị trình duyệt xoá. Tệp đang chọn chỉ ở bộ nhớ cho tới khi đăng thành công.\nOnline chưa được kết nối. Founder cần tạo Supabase và áp dụng gói docs/software/community-online.\n\nNHÓM CHỦ ĐỀ\nTất cả nhóm\nĐiện tử cơ bản\nVi điều khiển & nhúng\nIoT\nDự án\nHỏi đáp lỗi\nQUY TẮC CỘNG ĐỒNG\nTôn trọng người hỏi; ai cũng từng là người mới.\nMô tả rõ board, sơ đồ nối dây, code và lỗi gặp phải.\nDán code trong khối ``` để dễ đọc; không đăng mật khẩu Wi-Fi, token hay khoá API.\nKhông hướng dẫn thao tác điện lưới 220V hay sạc pin Li-ion thiếu bảo vệ mà không cảnh báo an toàn.\nKhông spam, quảng cáo hay nội dung xúc phạm. Dùng nút “Báo cáo” khi thấy vi phạm.\nDanh sách bài thảo luận\nTìm bài\nTìm\n#esp32\n3\n#điện-trở\n2\n#i2c\n2\n#pin\n2\n#wifi\n2\n#arduino\n1\n#ble\n1\n#deep-sleep\n1\n#gpio\n1\n#interrupt\n1\n#led\n1\n#mqtt\n1\n\n1 bài trong “IoT” khớp “AUDIT-1611”\nBỏ lọc\n\nIoT\nNháp trên thiết bị\n\nAUDIT-1611 — tệp và ảnh cục bộ\n\nBài kiểm thử người dùng: đậm, GPIO, ảnh mạch và mã nguồn. Chỉ lưu trên thiết bị thử.\n\nK\nKhách (thiết bị này)\n16/11/2026\n1 bình luận",
+      "screenshot": "community-filter.png",
+      "alerts": []
+    },
+    {
+      "case": "guide-question",
+      "query": "vi sao led can dien tro",
+      "text": "Mở — bạn đồng hành học điện tử\n\nHướng dẫn và kiến thức cục bộ · chưa kết nối AI\n\n×\n3D tương tác\n↶\n↷\nHướng dẫn\nHỏi đáp\nĐang làm\nCâu hỏi của bạn\nTìm câu trả lời\n\nCác mục phù hợp từ catalog và FAQ cục bộ; chưa xác nhận phần cứng thật:\n\nĐiện trở và trị số trong từng mạch\n\nĐiện trở hai chân thông thường không phân cực. Nó có thể hạn dòng hoặc tham gia cầu chia áp; hai vai trò này cần những trị số khác nhau.\n\nVí dụ LED và cầu chia áp LDR trong Mạch Mở dùng các biến thể khác nhau. Trị số trong mạch đang mở mới là căn cứ; khi chưa xác nhận, giữ là chưa biết. Mạch thật còn phải kiểm tra dung sai và công suất.\n\nHồ sơ điện trở trong thư viện\nVì sao LED cần điện trở?\n\nLED là diode phát sáng, có cực anode và cathode. Trong bài LED, dòng đi qua điện trở nối tiếp rồi qua LED về GND. Đổi cực LED có thể làm đường dẫn không hoạt động.\n\nĐiện trở hạn dòng; giá trị phù hợp phụ thuộc nguồn, điện áp thuận của LED và dòng mục tiêu. Không dùng một giá trị của bài mẫu cho mọi LED hoặc mọi nguồn. Hãy mở bộ tính LED để xem các giả định.\n\nBộ tính LED và các giả định\nMình đã hiểu\nChuyển động mascot\nẨn nút Mở",
+      "links": [
+        {
+          "text": "Hồ sơ điện trở trong thư viện",
+          "href": "/components"
+        },
+        {
+          "text": "Bộ tính LED và các giả định",
+          "href": "/tools/electronics-calculators"
+        }
+      ],
+      "screenshot": "guide-question-01.png"
+    },
+    {
+      "case": "guide-question",
+      "query": "breadboard nối lỗ như thế nào",
+      "text": "Mở — bạn đồng hành học điện tử\n\nHướng dẫn và kiến thức cục bộ · chưa kết nối AI\n\n×\n3D tương tác\n↶\n↷\nHướng dẫn\nHỏi đáp\nĐang làm\nCâu hỏi của bạn\nTìm câu trả lời\n\nCác mục phù hợp từ catalog và FAQ cục bộ; chưa xác nhận phần cứng thật:\n\nCác lỗ breadboard nối với nhau thế nào?\n\nTrong mô hình breadboard hiện tại, năm lỗ a–e cùng một cột nối với nhau; năm lỗ f–j tạo một nhóm riêng. Rãnh giữa tách hai nửa. Hai cột cạnh nhau không tự nối.\n\nCác lỗ trên cùng một ray nguồn được mô hình hóa là nối chung theo cấu hình. Số lỗ và cách chia ray là giả định của mẫu giáo dục; breadboard thật có thể khác, cần kiểm tra thông mạch khi chưa cấp điện.\n\nChọn một chân rồi chọn lỗ đích để nối dây. Chọn dây để xem, đổi hoặc xóa kết nối; rút dây trong mô hình không chứng minh rằng mạch thật đã mất điện.\n\nThực hành breadboard theo bài\nMình đã hiểu\nChuyển động mascot\nẨn nút Mở",
+      "links": [
+        {
+          "text": "Thực hành breadboard theo bài",
+          "href": "/build"
+        }
+      ],
+      "screenshot": "guide-question-02.png"
+    },
+    {
+      "case": "guide-question",
+      "query": "SPICE có chạy firmware ESP32 không",
+      "text": "Mở — bạn đồng hành học điện tử\n\nHướng dẫn và kiến thức cục bộ · chưa kết nối AI\n\n×\n3D tương tác\n↶\n↷\nHướng dẫn\nHỏi đáp\nĐang làm\nCâu hỏi của bạn\nTìm câu trả lời\n\nTên họ board chưa đủ để chọn đúng profile. Hãy nêu đầy đủ biến thể như Arduino Uno R3, Pico W hoặc ESP32-C3-DevKitM-1; Mở không tự lấy profile của board khác.\n\nChuyển động mascot\nẨn nút Mở",
+      "links": [],
+      "screenshot": "guide-question-03.png"
+    },
+    {
+      "case": "guide-question",
+      "query": "nối HC-SR04 với ESP32",
+      "text": "Mở — bạn đồng hành học điện tử\n\nHướng dẫn và kiến thức cục bộ · chưa kết nối AI\n\n×\n3D tương tác\n↶\n↷\nHướng dẫn\nHỏi đáp\nĐang làm\nCâu hỏi của bạn\nTìm câu trả lời\n\nCác mục phù hợp từ catalog và FAQ cục bộ; chưa xác nhận phần cứng thật:\n\nCảm biến siêu âm HC-SR04\n\nƯớc lượng khoảng cách từ thời gian phản hồi sóng siêu âm.\n\nCách dùng: Đo khoảng cách trong robot hoặc cảnh báo vật cản. Chân/chức năng tham khảo: VCC, TRIG, ECHO, GND.\n\nLỗi cần tránh: ECHO thường mức 5 V; cần chia áp khi nối MCU 3,3 V.\n\nTrong workspace: TRIG khởi tạo phép đo; ECHO mang độ rộng xung theo thời gian khứ hồi. Có hành vi trong ngữ cảnh bài hỗ trợ; không đồng nghĩa mọi cấu hình mạch hoặc thư viện đều được mô phỏng.\n\nChân trong mô hình workspace: TRIG; ECHO; VCC; GND. Đây là nhãn chức năng của mô hình đã ánh xạ, không tự xác nhận pinout package hoặc mọi breakout.\n\nLưu ý của mô hình: VCC thường 5 V; ECHO cần chia áp trước GPIO 3,3 V. Bài học dùng khoảng cách ảo.\n\nTheo chip: Nguồn là datasheet của chip, không xác nhận module hay breakout chứa chip đó. Hồ sơ chưa xác nhận datasheet/MPN của đúng module/linh kiện thật; tài liệu chip hoặc hướng dẫn chung không thay xác minh package, công suất và pinout.\n\nPhạm vi nguồn HC-SR04 · tài liệu module: Bản do SparkFun lưu; module này không có một hãng duy nhất nên bản clone có thể khác, cần đo mức ECHO trước khi nối 3,3 V.\n\nPhạm vi nguồn Adafruit · cảm biến siêu âm HC-SR04: Nguồn hướng dẫn nêu ECHO 5 V cần chia áp khi nối hệ logic 3,3 V; vẫn phải xác nhận revision/module cụ thể.\n\nMở linh kiện trong thư viện\nHC-SR04 · tài liệu module · Datasheet chip ↗\nAdafruit · cảm biến siêu âm HC-SR04 · Hướng dẫn tham khảo ↗\nMình đã hiểu\nChuyển động mascot\nẨn nút Mở",
+      "links": [
+        {
+          "text": "Mở linh kiện trong thư viện",
+          "href": "/components?component=hc-sr04"
+        },
+        {
+          "text": "HC-SR04 · tài liệu module · Datasheet chip ↗",
+          "href": "https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf"
+        },
+        {
+          "text": "Adafruit · cảm biến siêu âm HC-SR04 · Hướng dẫn tham khảo ↗",
+          "href": "https://learn.adafruit.com/ultrasonic-sonar-distance-sensors"
+        }
+      ],
+      "screenshot": "guide-question-04.png"
+    },
+    {
+      "case": "guide-question",
+      "query": "Tại sao dây STM32 không hiện",
+      "text": "Mở — bạn đồng hành học điện tử\n\nHướng dẫn và kiến thức cục bộ · chưa kết nối AI\n\n×\n3D tương tác\n↶\n↷\nHướng dẫn\nHỏi đáp\nĐang làm\nCâu hỏi của bạn\nTìm câu trả lời\n\nTên họ board chưa đủ để chọn đúng profile. Hãy nêu đầy đủ biến thể như Arduino Uno R3, Pico W hoặc ESP32-C3-DevKitM-1; Mở không tự lấy profile của board khác.\n\nChuyển động mascot\nẨn nút Mở",
+      "links": [],
+      "screenshot": "guide-question-05.png"
+    },
+    {
+      "case": "guide-question",
+      "query": "làm sao đăng bài và ảnh online",
+      "text": "Mở — bạn đồng hành học điện tử\n\nHướng dẫn và kiến thức cục bộ · chưa kết nối AI\n\n×\n3D tương tác\n↶\n↷\nHướng dẫn\nHỏi đáp\nĐang làm\nCâu hỏi của bạn\nTìm câu trả lời\n\nCác mục phù hợp từ catalog và FAQ cục bộ; chưa xác nhận phần cứng thật:\n\nCộng đồng thảo luận\n\nHỏi đáp điện tử, nhúng và IoT theo nhóm chủ đề. Nguồn online và local được ghi nhãn riêng.\n\nOnline dùng chung chỉ khi founder đã tạo Supabase, áp dụng schema/Storage và cấu hình URL/key công khai; việc có source adapter không chứng minh backend đã chạy. Chưa cấu hình thì bản xem trước chỉ lưu trên thiết bị.\n\nĐọc nhãn nguồn. Bài local cũ không tự upload. Tệp tối đa5/bài,10MiB/tệp,25MiB/bài; upload lỗi giữ biểu mẫu, chưa phải đăng thành công. Xóa dữ liệu trình duyệt có thể mất bài/tệp local.\n\nMở khu vực trong ứng dụng\nMình đã hiểu\nChuyển động mascot\nẨn nút Mở",
+      "links": [
+        {
+          "text": "Mở khu vực trong ứng dụng",
+          "href": "/community"
+        }
+      ],
+      "screenshot": "guide-question-06.png"
+    },
+    {
+      "case": "guide-question",
+      "query": "Arduino Nano khác Uno thế nào",
+      "text": "Mở — bạn đồng hành học điện tử\n\nHướng dẫn và kiến thức cục bộ · chưa kết nối AI\n\n×\n3D tương tác\n↶\n↷\nHướng dẫn\nHỏi đáp\nĐang làm\nCâu hỏi của bạn\nTìm câu trả lời\n\nCác mục phù hợp từ catalog và FAQ cục bộ; chưa xác nhận phần cứng thật:\n\nArduino Nano classic\n\nBoard ATmega328P dạng nhỏ, tiện cắm breadboard.\n\nCách dùng: Mạch nhúng gọn, cảm biến và robot nhỏ. Chân/chức năng tham khảo: D0–D13, A0–A7, 5V, GND; pinout clone cần kiểm tra.\n\nLỗi cần tránh: Nano classic khác Nano Every/Nano ESP32; kiểm tra chip và USB-serial.\n\nCatalog có hồ sơ tham khảo; chưa có loại workspace ánh xạ trực tiếp qua catalogId. Xem được hình/hồ sơ không chứng minh mô phỏng điện hoặc firmware.\n\nĐúng sản phẩm: Nguồn nói về đúng board này. Vẫn cần đối chiếu revision của board bạn đang có. Vẫn cần xác minh đúng revision của sản phẩm thật.\n\nPhạm vi nguồn Arduino Nano classic · tài liệu hãng: Không áp dụng mặc định cho Nano Every, Nano ESP32 hoặc clone khác.\n\nPhạm vi nguồn Ảnh hai mặt Nano V3.3 · blog kỹ thuật: Ảnh của biến thể Nano V3.3 trong bài viết; có thể là clone khác BOM/layout Arduino chính hãng. Chỉ làm ảnh tham khảo, không sao chép vào tài sản web.\n\nMở linh kiện trong thư viện\nArduino Nano classic · tài liệu hãng · Tài liệu board ↗\nẢnh hai mặt Nano V3.3 · blog kỹ thuật · Hướng dẫn tham khảo ↗\nMình đã hiểu\nChuyển động mascot\nẨn nút Mở",
+      "links": [
+        {
+          "text": "Mở linh kiện trong thư viện",
+          "href": "/components?component=arduino-nano"
+        },
+        {
+          "text": "Arduino Nano classic · tài liệu hãng · Tài liệu board ↗",
+          "href": "https://docs.arduino.cc/hardware/nano"
+        },
+        {
+          "text": "Ảnh hai mặt Nano V3.3 · blog kỹ thuật · Hướng dẫn tham khảo ↗",
+          "href": "https://iot-kmutnb.github.io/blogs/arduino/arduino_nano/"
+        }
+      ],
+      "screenshot": "guide-question-07.png"
+    },
+    {
+      "case": "guide-question",
+      "query": "Pico khác Pico 2 thế nào",
+      "text": "Mở — bạn đồng hành học điện tử\n\nHướng dẫn và kiến thức cục bộ · chưa kết nối AI\n\n×\n3D tương tác\n↶\n↷\nHướng dẫn\nHỏi đáp\nĐang làm\nCâu hỏi của bạn\nTìm câu trả lời\n\nCác mục phù hợp từ catalog và FAQ cục bộ; chưa xác nhận phần cứng thật:\n\nRaspberry Pi Pico 2\n\nBoard vi điều khiển RP2350 với GPIO, ADC, PWM, PIO và hai lõi xử lý.\n\nMCU: RP2350. Revision: Pico 2 · thiết kế tham chiếu chính hãng · không header. Mức logic: 3.3 V. 26 GPIO; 2× SPI; 2× I²C; 2× UART; 3 ADC; 16 PWM; PIO\n\nPhù hợp: Học MicroPython/C++, GPIO, PIO và so sánh RP2350 với RP2040. Cân nhắc: Viewer là CAD cơ khí tham chiếu; pinout 40 pad J0 kế thừa layout Pico theo tài liệu hãng. Chưa có netlist hay mô phỏng firmware/điện; đối chiếu board/revision trước khi lắp.\n\nTrong target giáo dục của ứng dụng, LED ngoài dùng GP15, số code 15. Đây là mapping của bài hỗ trợ, không phải gợi ý nối dây mới hoặc xác nhận mọi GPIO. Kho target chưa xác nhận ADC full-scale cho board này; không tự lấy giá trị từ board khác.\n\nViewer CAD chính hãng cho Pico 2 không header; không dùng thay Pico 2 H có header hoặc Pico 2 W. Mesh mang tên CAD nhưng thiếu BOM/netlist đối chiếu nên không suy ra đầy đủ chức năng hay kết nối điện. Không suy ra pinout/giới hạn của clone hay module khác từ hồ sơ này.\n\nMở hồ sơ board\nPico 2 · trang sản phẩm và model CAD ↗\nDatasheet, schematic, pinout và license thiết kế ↗\nĐiều khoản/ghi công model Raspberry Pi ↗\nMình đã hiểu\nChuyển động mascot\nẨn nút Mở",
+      "links": [
+        {
+          "text": "Mở hồ sơ board",
+          "href": "/boards?board=raspberry-pi-pico-2"
+        },
+        {
+          "text": "Pico 2 · trang sản phẩm và model CAD ↗",
+          "href": "https://pip.raspberrypi.com/categories/1005-raspberry-pi-pico-2"
+        },
+        {
+          "text": "Datasheet, schematic, pinout và license thiết kế ↗",
+          "href": "https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html"
+        },
+        {
+          "text": "Điều khoản/ghi công model Raspberry Pi ↗",
+          "href": "/cad/raspberry-pi-model-license.txt"
+        }
+      ],
+      "screenshot": "guide-question-08.png"
+    },
+    {
+      "case": "guide-question",
+      "query": "MQTT",
+      "text": "Mở — bạn đồng hành học điện tử\n\nHướng dẫn và kiến thức cục bộ · chưa kết nối AI\n\n×\n3D tương tác\n↶\n↷\nHướng dẫn\nHỏi đáp\nĐang làm\nCâu hỏi của bạn\nTìm câu trả lời\n\nMở chưa có nội dung khớp với câu hỏi này. Hãy nêu cụ thể tên linh kiện, đúng board/revision, bài hoặc thông báo lỗi; không cần gửi thông tin cá nhân.\n\nChuyển động mascot\nẨn nút Mở",
+      "links": [],
+      "screenshot": "guide-question-09.png"
+    },
+    {
+      "case": "guide-question",
+      "query": "ngspice include model hãng",
+      "text": "Mở — bạn đồng hành học điện tử\n\nHướng dẫn và kiến thức cục bộ · chưa kết nối AI\n\n×\n3D tương tác\n↶\n↷\nHướng dẫn\nHỏi đáp\nĐang làm\nCâu hỏi của bạn\nTìm câu trả lời\n\nCác mục phù hợp từ catalog và FAQ cục bộ; chưa xác nhận phần cứng thật:\n\nMô phỏng điện SPICE\n\nChạy netlist analog giới hạn bằng ngspice WASM; nhận subset analog từ workspace và XML netlist KiCad, không chạy firmware MCU hay chuyển trọn board.\n\nNetlist và model phải thuộc tập analog được hỗ trợ. Kiểm tra node, giá trị, analysis và đơn vị trên waveform trước khi kết luận.\n\nSPICE trả kết quả solver cho model đó; không chạy firmware MCU, không xác nhận kit thật và không biến toàn bộ PCB thành mạch mô phỏng.\n\nMở khu vực trong ứng dụng\nMình đã hiểu\nChuyển động mascot\nẨn nút Mở",
+      "links": [
+        {
+          "text": "Mở khu vực trong ứng dụng",
+          "href": "/tools/spice"
+        }
+      ],
+      "screenshot": "guide-question-10.png"
+    }
+  ],
+  "errors": {
+    "errors": [],
+    "failed": [
+      {
+        "url": "http://127.0.0.1:5320/models/arduino-uno-r3.glb?v=53330cd2b0d2",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/models/esp32-devkit-v1-30pin.glb?v=b3d0a6b0be09",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/assets/circuitNets-CvwZy5uq.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/assets/sketchInterpreter-Cr2vFJlH.js",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "bad": []
+  }
+}

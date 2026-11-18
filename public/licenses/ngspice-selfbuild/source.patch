@@ -1,0 +1,197 @@
+--- /work/original/configure.ac	2025-09-05 21:59:35.000000000 +0000
++++ /work/ngspice/configure.ac	2026-11-17 08:56:28.074088515 +0000
+@@ -345,7 +345,7 @@
+     fi
+ 
+     if test "x$GCC" = xyes; then
+-        CFLAGS="$CFLAGS -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wnested-externs -Wold-style-definition -Wredundant-decls -Wconversion -Wno-unused-but-set-variable"
++        CFLAGS="$CFLAGS -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wnested-externs -Wold-style-definition -Wredundant-decls -Wconversion -Wno-unused-const-variable"
+     fi
+ else
+     AC_MSG_RESULT([Use external CFLAGS])
+@@ -867,8 +867,6 @@
+ AM_CONDITIONAL([NO_HELP], [test "x$has_no_help" = xtrue])
+ 
+ # Additional libs of hicum group
+-AC_CHECK_LIB(stdc++, main, XTRALIBS="$XTRALIBS -lstdc++",,)
+-AC_SUBST(XTRALIBS, $XTRALIBS)
+ 
+ LIBS="$LIBS $XTRALIBS"
+ 
+@@ -1375,7 +1373,6 @@
+                  src/spicelib/devices/isrc/Makefile
+                  src/spicelib/devices/hfet1/Makefile
+                  src/spicelib/devices/hfet2/Makefile
+-                 src/spicelib/devices/hicum2/Makefile
+                  src/spicelib/devices/hisim2/Makefile
+                  src/spicelib/devices/hisimhv1/Makefile
+                  src/spicelib/devices/hisimhv2/Makefile
+@@ -1457,7 +1454,6 @@
+                  tests/filters/Makefile
+                  tests/general/Makefile
+                  tests/hfet/Makefile
+-                 tests/hicum2/Makefile
+                  tests/hisim/Makefile
+                  tests/hisimhv1/Makefile
+                  tests/hisimhv2/Makefile
+--- /work/original/src/frontend/control.c	2025-09-05 21:59:35.000000000 +0000
++++ /work/ngspice/src/frontend/control.c	2026-11-17 08:56:28.076280781 +0000
+@@ -5,6 +5,10 @@
+ 
+ /* The front-end command loop.  */
+ 
++#include <emscripten.h>
++EM_ASYNC_JS(void, eesim_sleep_hack, (), {
++ if (Module["handleThings"]) await new Promise((resolve) => { Module["handleThings"](); });
++});
+ #include "ngspice/ngspice.h"
+ #include "ngspice/cpdefs.h"
+ 
+@@ -652,6 +656,7 @@
+     } while(0)
+ 
+     for (;;) {
++        eesim_sleep_hack();
+         freewl = wlist = getcommand(string);
+         if (wlist == NULL) { /* End of file or end of user input. */
+             if (cend[stackp] && cend[stackp]->co_parent && !string) {
+--- /work/original/src/main.c	2025-09-05 21:59:35.000000000 +0000
++++ /work/ngspice/src/main.c	2026-11-17 09:05:21.528290329 +0000
+@@ -924,7 +924,7 @@
+     circuit_file = stdin;
+ 
+ #if defined(HAVE_ISATTY) && !defined(HAS_WINGUI)
+-    istty = (bool) isatty(fileno(stdin));
++    istty = TRUE; /* Mach Mo WASM command callback, 2026-11-17 */
+ #endif
+ 
+     init_time();
+--- /work/original/src/Makefile.am	2025-09-05 21:59:35.000000000 +0000
++++ /work/ngspice/src/Makefile.am	2026-11-17 08:56:28.079582775 +0000
+@@ -55,7 +55,6 @@
+ 	spicelib/devices/bsim3v0/libbsim3v0.la		\
+ 	spicelib/devices/bsim3v1/libbsim3v1.la		\
+ 	spicelib/devices/bsim3v32/libbsim3v32.la	\
+-	spicelib/devices/bsim4/libbsim4.la		\
+ 	spicelib/devices/bsim4v5/libbsim4v5.la		\
+ 	spicelib/devices/bsim4v6/libbsim4v6.la		\
+ 	spicelib/devices/bsim4v7/libbsim4v7.la		\
+@@ -73,10 +72,6 @@
+ 	spicelib/devices/isrc/libisrc.la		\
+ 	spicelib/devices/hfet1/libhfet.la		\
+ 	spicelib/devices/hfet2/libhfet2.la		\
+-	spicelib/devices/hicum2/libhicum2.la		\
+-	spicelib/devices/hisim2/libhisim2.la		\
+-	spicelib/devices/hisimhv1/libhisimhv1.la	\
+-	spicelib/devices/hisimhv2/libhisimhv2.la	\
+ 	spicelib/devices/jfet/libjfet.la		\
+ 	spicelib/devices/jfet2/libjfet2.la		\
+ 	spicelib/devices/ltra/libltra.la		\
+--- /work/original/src/spicelib/devices/Makefile.am	2025-09-05 21:59:35.000000000 +0000
++++ /work/ngspice/src/spicelib/devices/Makefile.am	2026-11-17 08:56:28.079877677 +0000
+@@ -7,7 +7,6 @@
+ 	bsim2	\
+ 	bsim3	\
+ 	bsimsoi	\
+-	bsim4		\
+ 	bsim4v5		\
+ 	bsim4v6		\
+ 	bsim4v7		\
+@@ -27,10 +26,6 @@
+ 	isrc	\
+ 	hfet1	\
+ 	hfet2	\
+-	hicum2	\
+-	hisim2	\
+-	hisimhv1	\
+-	hisimhv2	\
+ 	jfet	\
+ 	jfet2	\
+ 	ltra	\
+@@ -68,7 +63,6 @@
+ 	bsim2	\
+ 	bsim3	\
+ 	bsimsoi	\
+-	bsim4		\
+ 	bsim4v5		\
+ 	bsim4v6		\
+ 	bsim4v7		\
+@@ -88,10 +82,6 @@
+ 	isrc	\
+ 	hfet1	\
+ 	hfet2	\
+-	hicum2	\
+-	hisim2	\
+-	hisimhv1	\
+-	hisimhv2	\
+ 	jfet	\
+ 	jfet2	\
+ 	ltra	\
+--- /work/original/src/spicelib/devices/dev.c	2025-09-05 21:59:35.000000000 +0000
++++ /work/ngspice/src/spicelib/devices/dev.c	2026-11-17 08:56:28.080108990 +0000
+@@ -83,7 +83,6 @@
+ #include "bsim3v0/bsim3v0itf.h"
+ #include "bsim3v1/bsim3v1itf.h"
+ #include "bsim3v32/bsim3v32itf.h"
+-#include "bsim4/bsim4itf.h"
+ #include "bsim4v5/bsim4v5itf.h"
+ #include "bsim4v6/bsim4v6itf.h"
+ #include "bsim4v7/bsim4v7itf.h"
+@@ -99,9 +98,6 @@
+ #include "hfet1/hfetitf.h"
+ #include "hfet2/hfet2itf.h"
+ #include "hicum2/hicum2itf.h"
+-#include "hisim2/hsm2itf.h"
+-#include "hisimhv1/hsmhvitf.h"
+-#include "hisimhv2/hsmhv2itf.h"
+ #include "ind/inditf.h"
+ #include "isrc/isrcitf.h"
+ #include "jfet/jfetitf.h"
+@@ -150,7 +146,6 @@
+     get_bsim3v1_info,
+     get_bsim3v32_info,
+     get_b4soi_info,
+-    get_bsim4_info,
+     get_bsim4v5_info,
+     get_bsim4v6_info,
+     get_bsim4v7_info,
+@@ -165,10 +160,6 @@
+     get_dio_info,
+     get_hfeta_info,
+     get_hfet2_info,
+-    get_hicum_info,
+-    get_hsm2_info,
+-    get_hsmhv_info,
+-    get_hsmhv2_info,
+     get_ind_info,
+     get_mut_info,
+     get_isrc_info,
+@@ -283,8 +274,8 @@
+ /*not yet usable*/
+ 
+ 
+-#define DEVICES_USED {"asrc", "bjt", "vbic", "bsim1", "bsim2", "bsim3", "bsim3v32", "bsim3v2", "bsim3v1", "bsim4", "bsim4v5", "bsim4v6", "bsim4v7", \
+-                      "bsim4soi", "bsim3soipd", "bsim3soifd", "bsim3soidd", "hisim2", "hisimhv1", "hisimhv2", \
++#define DEVICES_USED {"asrc", "bjt", "vbic", "bsim1", "bsim2", "bsim3", "bsim3v32", "bsim3v2", "bsim3v1", "bsim4v5", "bsim4v6", "bsim4v7", \
++                      "bsim4soi", "bsim3soipd", "bsim3soifd", "bsim3soidd", \
+                       "cap", "cccs", "ccvs", "csw", "dio", "hfet", "hfet2", "ind", "isrc", "jfet", "ltra", "mes", "mesa" ,"mos1", "mos2", "mos3", \
+                       "mos6", "mos9", "res", "soi3", "sw", "tra", "urc", "vccs", "vcvs", "vsrc", "hicum2"}
+ 
+--- /work/original/tests/Makefile.am	2025-09-05 21:59:35.000000000 +0000
++++ /work/ngspice/tests/Makefile.am	2026-11-17 08:56:28.047086946 +0000
+@@ -19,7 +19,6 @@
+ 	bsim4		\
+ 	bsimsoi		\
+ 	hisim		\
+-	hicum2		\
+ 	hisimhv1	\
+ 	hisimhv2
+ endif
+@@ -36,7 +35,6 @@
+ 	filters		\
+ 	general		\
+ 	hfet		\
+-	hicum2		\
+ 	hisim		\
+ 	hisimhv1	\
+ 	hisimhv2	\

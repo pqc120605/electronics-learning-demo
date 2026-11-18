@@ -1,0 +1,39 @@
+{
+  "at": "2026-11-18T03:06:46.196Z",
+  "files": {
+    "src/lib/circuitGates.ts": "4110e34a5371ebee4a0910d2d173dc515181b5d2317df6b6c9ec5d7572f65b3c",
+    "src/lib/circuitGatePresentation.ts": "0f169f4f3f5e16c23be130a3086f347423c0f372df572047df47be1355450c43",
+    "src/lib/circuitDiagnosticNavigation.ts": "09b852e76895b7cc155eaaa358b164b18c440f0febd20c6f50968c7924636378",
+    "src/components/lesson/CircuitGatePanel.tsx": "2fceb64cc68521a4f10de4d38e1b28d24e3b3a51b73f6afe107dd836948bf2c4",
+    "src/components/lesson/CircuitGatePanel.css": "f78ac8ba382e83e9c7f72e265c05c092e211e6fff77ac0286612eecd3f7f7e32",
+    "src/pages/CircuitBuilderPage.tsx": "b2610924977e8e98aa6bd58657efc73e17abf02411d1b07a867cb4eb8e9c4958",
+    "tests/circuit-gates.test.mjs": "37aa35758af59ab0f45122dc6ed7e10171cb5c33b445f43c14c304372f414aff",
+    "tests/circuit-gate-presentation.test.mjs": "1955541709f505a955d38ad762c93e939e60362e419c783c26531b4dc39a58bc",
+    "tests/circuit-diagnostic-navigation.test.mjs": "ca46034e1190f1e9c6e9a305de925c985eaefa8050276757c3858e71ac66e6e0",
+    "e2e/workspace-interaction-regressions.spec.mjs": "1604b8743d25734ab0a7bd014be86dd53f608c95163338aa4e5e7a07b9ef6bb8"
+  },
+  "scope": {
+    "withinLease": [
+      "src/components/lesson/CircuitGatePanel.css",
+      "src/components/lesson/CircuitGatePanel.tsx",
+      "src/lib/circuitGatePresentation.ts",
+      "src/lib/circuitGates.ts",
+      "src/pages/CircuitBuilderPage.tsx",
+      "tests/circuit-gate-presentation.test.mjs",
+      "tests/circuit-gates.test.mjs",
+      "e2e/workspace-interaction-regressions.spec.mjs",
+      "src/lib/circuitDiagnosticNavigation.ts",
+      "tests/circuit-diagnostic-navigation.test.mjs"
+    ],
+    "parallelLeaseChanges": [
+      "src/components/lesson/LessonBoardChooser.tsx",
+      "src/components/lesson/BoardCapabilityFinder.css",
+      "src/components/lesson/BoardCapabilityFinder.tsx",
+      "src/lib/lessonBoardCapabilities.ts",
+      "tests/lesson-board-capabilities.test.mjs",
+      "e2e/lesson-board-capabilities.spec.mjs"
+    ],
+    "unexpected": [],
+    "missing": []
+  }
+}

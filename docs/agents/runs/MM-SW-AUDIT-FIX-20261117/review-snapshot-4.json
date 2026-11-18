@@ -1,0 +1,31 @@
+{
+  "at": "2026-11-16T22:26:14.424Z",
+  "changed": {
+    "src/components/board/BoardPinoutExplorer.tsx": "703c196f6313cc5301ac18c974e6edacab1651b76b57ee79ac16c0be0e1e524b",
+    "src/components/builder/BreadboardDiagram.tsx": "237ce5a759dcfa49953f0a8dfaa5bd97c7a27e6e4ad9ce6283a55caa14f490c4",
+    "src/components/builder/BreadboardEditor.css": "7881a954a125ddaa3ffd0c00558098fa541e18086ae2f2099028c140d01fb5aa",
+    "src/components/builder/BreadboardEditor.tsx": "36c16dd5657ba64be2275c3032bbd6021a18e2d048de16cd18f59e1e67842c5e",
+    "src/components/freestyle/FreestyleBench.tsx": "fe6c4ada1dff71d45619a315c07b429b655402eb0967aa46982b9d6c702272ea",
+    "src/data/arduinoBoardCadComponents.ts": "1553e0dfd7b80868fd5c21f1154d46678c2ed4d6db59be2076c41853f1dd1247",
+    "src/data/arduinoBoardModels.ts": "cfaa35896b0df565f1a7aed48380cdf42ccc3971f44a095da9e480601d1f7711",
+    "src/data/boards.ts": "c4648689561e177cda85977f5b8158dc9c9a47315d9f38f7f296bc392495bb80",
+    "src/data/productRoutes.ts": "9e25dd6b93b17ff7931039e80eaa36622069e4aa6e5c6f87b685e6b61cae56c7",
+    "src/lib/circuitGates.ts": "c767bd533a7f9feaae8a4c90403c4944b3f4a47321719dd2aec8baefca0e8d06",
+    "src/lib/freestyle/freestyleCircuit.ts": "48e58127875d76b90747b93c9b8b2ce5a0d60ff8f59bc02996815d5e4938f2b1",
+    "src/lib/guideSearch.ts": "1fd6f4f94e711c08cd0f06f53b0180af4cf86b5692575a64a9cfa261bbaea342",
+    "src/lib/wireRouter.ts": "06d41cdefacf5d52aec79f16f1d75dc460dc55df258bc9f31b439794138ad2d9",
+    "src/pages/BoardCatalogPage.tsx": "78dd3d6f797b71a41cd5421fffb1ea563b13b88ecf7935a9641f34a6e91e4eea",
+    "src/pages/CircuitBuilderPage.tsx": "ebde1f9b8b7a8eb7665f3efe85ab0d4c16d993e09cf514bddbaae7070184646c",
+    "src/pages/ClassroomKitPage.tsx": "02fb28fc7c6475e6a9dc3f9f2784b22240178ab2eabb75d1c9eb15743da35778",
+    "src/pages/ComponentsPage.tsx": "fc90ded79d091d505f40890523a5fde516d78febcfcb2aba706e452fa4f98066",
+    "src/pages/LessonPage.tsx": "b138fb65fed734727a86ef5cb61fff1c21953a92fdd15b2e5e9e8e9981ca4bfb",
+    "src/styles/one-screen.css": "892f862ccd409add27e465cf05b0f530d51521b6135f701e554e2fa427fc20ad",
+    "tests/breadboard-diagram.test.mjs": "bf098bec3c1d57ee7842b478966705b0c70457f1a329e8837fa059f1847211c0",
+    "e2e/journeys.spec.mjs": "0da06642bd8c840293450cec3f813926bb0887c70feee3a1b8d9f4bba806941d",
+    "src/lib/catalogPracticeLinks.ts": "83b41ed1a721f1701e839fa114b1cb8d5562473c22156715428990e737776a27",
+    "tests/audit-catalog-fixes.test.mjs": "67f38a7744f09bbd1d0d376f18306c1d1244dcc337607b85c381f8aa2f38b315",
+    "tests/audit-interactions.test.mjs": "caf8baa415065127780090de269ef01161aa23569b5fe6e4da0a90a32979a1d5",
+    "e2e/audit-fixes.spec.mjs": "038049bc49f157f3cef4ac3eaf7865a9642a554cbb0a277ecb3770e122fb6fcf"
+  },
+  "removed": []
+}

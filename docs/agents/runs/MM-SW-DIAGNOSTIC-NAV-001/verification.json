@@ -1,0 +1,40 @@
+{
+  "verdict": "pass",
+  "date": "2026-11-18",
+  "scope": "MM-SW-DIAGNOSTIC-NAV-001",
+  "snapshot": "snapshot-reviewed.json",
+  "review": "review.md",
+  "commands": [
+    {
+      "command": "npm.cmd run typecheck",
+      "exit": 0,
+      "log": "docs/agents/runs/MM-SW-BOARD-CAPABILITIES-001/checks/typecheck.log"
+    },
+    {
+      "command": "npm.cmd test",
+      "exit": 0,
+      "passed": 736,
+      "failed": 0,
+      "skipped": 0,
+      "log": "docs/agents/runs/MM-SW-BOARD-CAPABILITIES-001/checks/unit-full.log"
+    },
+    {
+      "command": "npm.cmd run build:local (child of standard E2E wrapper)",
+      "exit": 0,
+      "log": "docs/agents/runs/MM-SW-BOARD-CAPABILITIES-001/checks/e2e-final.log"
+    },
+    {
+      "command": "npm.cmd run test:e2e -- e2e/workspace-interaction-regressions.spec.mjs e2e/lesson-board-capabilities.spec.mjs e2e/lesson-board-selection.spec.mjs",
+      "exit": 0,
+      "passed": 27,
+      "failed": 0,
+      "skipped": 0,
+      "log": "docs/agents/runs/MM-SW-BOARD-CAPABILITIES-001/checks/e2e-final.log"
+    }
+  ],
+  "limits": [
+    "Affected browser suites only, not a new complete web E2E run",
+    "Reference/topology/teaching metadata only; no physical or complete solver claim",
+    "Local build only; no deployment or GitHub push"
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "cases": [
+    {
+      "id": "esp32-devkit",
+      "view": "2d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nDanh sách chân để nối bằng bàn phím\n−\n100%\n+\nVừa khung 2D\nESP32 DevKit V1\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n4 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.",
+      "screenshot": "freestyle-esp32-devkit-2d.png",
+      "alerts": []
+    },
+    {
+      "id": "esp32-devkit",
+      "view": "schematic",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\n\nESP32 DevKit V1 · GPIO LED = GPIO 23 · GPIO IN = GPIO 34\n\nSơ đồ nguyên lý\nCác đường biểu diễn net khai báo · không phải kết quả ERC hay mô phỏng điện\n● nhánh nối · cầu vượt: không nối · nguồn/GND theo vai trò dây\nN1\nGND\nN2\nN3\nESP32\nChân đang nối\nAlias theo bài học\nGPIO 23\nGND\nresistor1\nĐầu 1\nĐầu 2\nled1\nLED\nAnode (+)\nCathode (−)\nMẠCH MỞ · SƠ ĐỒ NGUYÊN LÝ\nFREESTYLE · CIRCUITDOC V2\nTỜ 1/1\nERC: CHƯA CHẠY\n3 net · danh sách đầu nối và điểm breadboard",
+      "screenshot": "freestyle-esp32-devkit-schematic.png",
+      "alerts": []
+    },
+    {
+      "id": "esp32-devkit",
+      "view": "3d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nESP32 DevKit V1\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 0 đầu dây chưa có tọa độ",
+      "screenshot": "freestyle-esp32-devkit-3d.png",
+      "alerts": []
+    },
+    {
+      "id": "esp32-devkit",
+      "view": "running",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nESP32 DevKit V1\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 0 đầu dây chưa có tọa độ\nDạng sóng đã thu · 97 mẫu",
+      "screenshot": "freestyle-esp32-devkit-running.png",
+      "alerts": []
+    },
+    {
+      "id": "esp32-devkit",
+      "view": "wave",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nDạng sóng logic\nTrình thông dịch rút gọn · đang lấy mẫu\n\nMẫu trạng thái từ runtime, tối đa 512 mẫu / 8 kênh. Xung nhanh có thể bị bỏ lỡ; khoảng trống là chưa có dữ liệu. HIGH/LOW không phải điện áp đo hay kết quả SPICE.\n\nƯu tiên kênh\nChân đang nối trong mạch\nGPIO 23\nĐang vẽ 1/1 kênh có dữ liệu\n1.5 ms\n1832.7 ms mô phỏng\nGPIO 23\nLOW",
+      "screenshot": "freestyle-esp32-devkit-wave.png",
+      "alerts": []
+    },
+    {
+      "id": "esp32-s3-devkitc-1",
+      "view": "2d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nDanh sách chân để nối bằng bàn phím\n−\n100%\n+\nVừa khung 2D\nESP32-S3-DevKitC-1\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n4 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.",
+      "screenshot": "freestyle-esp32-s3-devkitc-1-2d.png",
+      "alerts": []
+    },
+    {
+      "id": "esp32-s3-devkitc-1",
+      "view": "schematic",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\n\nESP32-S3-DevKitC-1 · GPIO LED = GPIO 4 · GPIO IN = GPIO 5\n\nSơ đồ nguyên lý\nCác đường biểu diễn net khai báo · không phải kết quả ERC hay mô phỏng điện\n● nhánh nối · cầu vượt: không nối · nguồn/GND theo vai trò dây\nN1\nGND\nN2\nN3\nESP32-S3\nChân đang nối\nAlias theo bài học\nGPIO 4\nGND\nresistor1\nĐầu 1\nĐầu 2\nled1\nLED\nAnode (+)\nCathode (−)\nMẠCH MỞ · SƠ ĐỒ NGUYÊN LÝ\nFREESTYLE · CIRCUITDOC V2\nTỜ 1/1\nERC: CHƯA CHẠY\n3 net · danh sách đầu nối và điểm breadboard",
+      "screenshot": "freestyle-esp32-s3-devkitc-1-schematic.png",
+      "alerts": []
+    },
+    {
+      "id": "esp32-s3-devkitc-1",
+      "view": "3d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nESP32-S3-DevKitC-1\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 0 đầu dây chưa có tọa độ",
+      "screenshot": "freestyle-esp32-s3-devkitc-1-3d.png",
+      "alerts": []
+    },
+    {
+      "id": "esp32-s3-devkitc-1",
+      "view": "running",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nESP32-S3-DevKitC-1\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 0 đầu dây chưa có tọa độ\nDạng sóng đã thu · 102 mẫu",
+      "screenshot": "freestyle-esp32-s3-devkitc-1-running.png",
+      "alerts": []
+    },
+    {
+      "id": "esp32-s3-devkitc-1",
+      "view": "wave",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nDạng sóng logic\nTrình thông dịch rút gọn · đang lấy mẫu\n\nMẫu trạng thái từ runtime, tối đa 512 mẫu / 8 kênh. Xung nhanh có thể bị bỏ lỡ; khoảng trống là chưa có dữ liệu. HIGH/LOW không phải điện áp đo hay kết quả SPICE.\n\nƯu tiên kênh\nChân đang nối trong mạch\nGPIO 4\nĐang vẽ 1/1 kênh có dữ liệu\n3.7 ms\n1918.4 ms mô phỏng\nGPIO 4\nLOW",
+      "screenshot": "freestyle-esp32-s3-devkitc-1-wave.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-uno-r3",
+      "view": "2d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nDanh sách chân để nối bằng bàn phím\n−\n100%\n+\nVừa khung 2D\nArduino Uno R3\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n4 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.",
+      "screenshot": "freestyle-arduino-uno-r3-2d.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-uno-r3",
+      "view": "schematic",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\n\nArduino Uno R3 · GPIO LED = D13 · GPIO IN = D2\n\nSơ đồ nguyên lý\nCác đường biểu diễn net khai báo · không phải kết quả ERC hay mô phỏng điện\n● nhánh nối · cầu vượt: không nối · nguồn/GND theo vai trò dây\nN1\nGND\nN2\nN3\nUno\nChân đang nối\nAlias theo bài học\nD13\nGND\nresistor1\nĐầu 1\nĐầu 2\nled1\nLED\nAnode (+)\nCathode (−)\nMẠCH MỞ · SƠ ĐỒ NGUYÊN LÝ\nFREESTYLE · CIRCUITDOC V2\nTỜ 1/1\nERC: CHƯA CHẠY\n3 net · danh sách đầu nối và điểm breadboard",
+      "screenshot": "freestyle-arduino-uno-r3-schematic.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-uno-r3",
+      "view": "3d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nArduino Uno R3\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 0 đầu dây chưa có tọa độ",
+      "screenshot": "freestyle-arduino-uno-r3-3d.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-uno-r3",
+      "view": "running",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nArduino Uno R3\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 0 đầu dây chưa có tọa độ",
+      "screenshot": "freestyle-arduino-uno-r3-running.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-uno-r3",
+      "view": "wave",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nDạng sóng logic\narduino-cli + avr8js · chưa chạy\n\nMẫu trạng thái từ runtime, tối đa 512 mẫu / 8 kênh. Xung nhanh có thể bị bỏ lỡ; khoảng trống là chưa có dữ liệu. HIGH/LOW không phải điện áp đo hay kết quả SPICE.\n\nChọn board, viết code và bấm Chạy để thu tín hiệu GPIO.",
+      "screenshot": "freestyle-arduino-uno-r3-wave.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-nano",
+      "view": "2d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nDanh sách chân để nối bằng bàn phím\n−\n100%\n+\nVừa khung 2D\nArduino Nano classic\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n4 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.",
+      "screenshot": "freestyle-arduino-nano-2d.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-nano",
+      "view": "schematic",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\n\nArduino Nano classic · GPIO LED = D13 · GPIO IN = D2\n\nSơ đồ nguyên lý\nCác đường biểu diễn net khai báo · không phải kết quả ERC hay mô phỏng điện\n● nhánh nối · cầu vượt: không nối · nguồn/GND theo vai trò dây\nN1\nGND\nN2\nN3\nNano\nChân đang nối\nAlias theo bài học\nD13\nGND\nresistor1\nĐầu 1\nĐầu 2\nled1\nLED\nAnode (+)\nCathode (−)\nMẠCH MỞ · SƠ ĐỒ NGUYÊN LÝ\nFREESTYLE · CIRCUITDOC V2\nTỜ 1/1\nERC: CHƯA CHẠY\n3 net · danh sách đầu nối và điểm breadboard",
+      "screenshot": "freestyle-arduino-nano-schematic.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-nano",
+      "view": "3d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nArduino Nano classic\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 0 đầu dây chưa có tọa độ",
+      "screenshot": "freestyle-arduino-nano-3d.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-nano",
+      "view": "running",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nArduino Nano classic\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 0 đầu dây chưa có tọa độ",
+      "screenshot": "freestyle-arduino-nano-running.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-nano",
+      "view": "wave",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nDạng sóng logic\narduino-cli + avr8js · chưa chạy\n\nMẫu trạng thái từ runtime, tối đa 512 mẫu / 8 kênh. Xung nhanh có thể bị bỏ lỡ; khoảng trống là chưa có dữ liệu. HIGH/LOW không phải điện áp đo hay kết quả SPICE.\n\nChọn board, viết code và bấm Chạy để thu tín hiệu GPIO.",
+      "screenshot": "freestyle-arduino-nano-wave.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-mega-2560",
+      "view": "2d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nDanh sách chân để nối bằng bàn phím\n−\n100%\n+\nVừa khung 2D\nArduino Mega 2560 R3\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\n\nboard: chưa có tọa độ chân đủ nguồn cho seg0, seg1, seg2, seg3, seg4, seg5, seg6; các chân này chỉ có trong danh sách logic, không đặt ước lượng lên ảnh.\n\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n4 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.",
+      "screenshot": "freestyle-arduino-mega-2560-2d.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-mega-2560",
+      "view": "schematic",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\n\nArduino Mega 2560 R3 · GPIO LED = D13 · GPIO IN = D2\n\nSơ đồ nguyên lý\nCác đường biểu diễn net khai báo · không phải kết quả ERC hay mô phỏng điện\n● nhánh nối · cầu vượt: không nối · nguồn/GND theo vai trò dây\nN1\nGND\nN2\nN3\nMega\nChân đang nối\nAlias theo bài học\nD13\nGND\nresistor1\nĐầu 1\nĐầu 2\nled1\nLED\nAnode (+)\nCathode (−)\nMẠCH MỞ · SƠ ĐỒ NGUYÊN LÝ\nFREESTYLE · CIRCUITDOC V2\nTỜ 1/1\nERC: CHƯA CHẠY\n3 net · danh sách đầu nối và điểm breadboard",
+      "screenshot": "freestyle-arduino-mega-2560-schematic.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-mega-2560",
+      "view": "3d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nArduino Mega 2560 R3\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 0 đầu dây chưa có tọa độ",
+      "screenshot": "freestyle-arduino-mega-2560-3d.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-mega-2560",
+      "view": "running",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nArduino Mega 2560 R3\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 0 đầu dây chưa có tọa độ",
+      "screenshot": "freestyle-arduino-mega-2560-running.png",
+      "alerts": []
+    },
+    {
+      "id": "arduino-mega-2560",
+      "view": "wave",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nDạng sóng logic\narduino-cli + avr8js · chưa chạy\n\nMẫu trạng thái từ runtime, tối đa 512 mẫu / 8 kênh. Xung nhanh có thể bị bỏ lỡ; khoảng trống là chưa có dữ liệu. HIGH/LOW không phải điện áp đo hay kết quả SPICE.\n\nChọn board, viết code và bấm Chạy để thu tín hiệu GPIO.",
+      "screenshot": "freestyle-arduino-mega-2560-wave.png",
+      "alerts": []
+    },
+    {
+      "id": "raspberry-pi-pico",
+      "view": "2d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nDanh sách chân để nối bằng bàn phím\n−\n100%\n+\nVừa khung 2D\nRaspberry Pi Pico\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\n1\n6\n11\n16\n21\n26\nresistor1\nLED\n+\n−\n+\n−\nRÃNH GIỮA · HAI NỬA KHÔNG NỐI\nNguồn hình board\n\nw4: không thể định tuyến dây vuông góc: Đoạn thoát của dây sẽ chồng lên dây đã định tuyến.\n\nMở lưới lỗ chi tiết để kiểm tra vị trí endpoint\n\nĐã dựng mạch mẫu “Nháy LED”. Bấm ▶ Chạy để xem.\n\n4 dây · danh sách endpoint\n\nMỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.",
+      "screenshot": "freestyle-raspberry-pi-pico-2d.png",
+      "alerts": []
+    },
+    {
+      "id": "raspberry-pi-pico",
+      "view": "schematic",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\n\nRaspberry Pi Pico · GPIO LED = GP15 · GPIO IN = GP14\n\nSơ đồ nguyên lý\nCác đường biểu diễn net khai báo · không phải kết quả ERC hay mô phỏng điện\n● nhánh nối · cầu vượt: không nối · nguồn/GND theo vai trò dây\nN1\nGND\nN2\nN3\nPico\nChân đang nối\nAlias theo bài học\nGP15\nGND\nresistor1\nĐầu 1\nĐầu 2\nled1\nLED\nAnode (+)\nCathode (−)\nMẠCH MỞ · SƠ ĐỒ NGUYÊN LÝ\nFREESTYLE · CIRCUITDOC V2\nTỜ 1/1\nERC: CHƯA CHẠY\n3 net · danh sách đầu nối và điểm breadboard",
+      "screenshot": "freestyle-raspberry-pi-pico-schematic.png",
+      "alerts": []
+    },
+    {
+      "id": "raspberry-pi-pico",
+      "view": "3d",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n▶ Chạy\nRaspberry Pi Pico\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 0 đầu dây chưa có tọa độ",
+      "screenshot": "freestyle-raspberry-pi-pico-3d.png",
+      "alerts": []
+    },
+    {
+      "id": "raspberry-pi-pico",
+      "view": "running",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nRaspberry Pi Pico\nHình học tham chiếu · không phải mô phỏng điện\n↶\n↷\n−\n+\nNhìn từ trên\nVừa mạch\nNguồn hình học và 0 đầu dây chưa có tọa độ\nDạng sóng đã thu · 10 mẫu",
+      "screenshot": "freestyle-raspberry-pi-pico-running.png",
+      "alerts": []
+    },
+    {
+      "id": "raspberry-pi-pico",
+      "view": "wave",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "text": "BÀN LẮP MẠCH TỰ DO\n\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\n1\nCHỌN BOARD\n2\nTHÊM LINH KIỆN\n3\nVIẾT CODE & CHẠY\n4\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nMở bảng thao tác\nMở rộng bàn\n■ Dừng\nDạng sóng logic\nMicroPython thật · rp2040js · đang lấy mẫu\n\nMẫu trạng thái từ runtime, tối đa 512 mẫu / 8 kênh. Xung nhanh có thể bị bỏ lỡ; khoảng trống là chưa có dữ liệu. HIGH/LOW không phải điện áp đo hay kết quả SPICE.\n\nƯu tiên kênh\nChân đang nối trong mạch\nGP0\nGP1\nGP2\nGP3\nGP4\nGP5\nGP6\nGP7\nGP8\nGP9\nGP10\nGP11\nGP12\nGP13\nGP14\nGP15\nGP16\nGP17\nGP18\nGP19\nGP20\nGP21\nGP22\nGP23\nGP24\nGP25\nGP26\nGP27\nGP28\nGP29\nĐang vẽ 8/30 kênh có dữ liệu\n20.0 ms\n220.0 ms mô phỏng\nGP15\nHIGH\nGP14\nLOW\nGP0\nLOW\nGP1\nLOW\nGP2\nLOW\nGP3\nLOW\nGP4\nLOW\nGP5\nLOW",
+      "screenshot": "freestyle-raspberry-pi-pico-wave.png",
+      "alerts": []
+    },
+    {
+      "id": "stm32-blue-pill-f103",
+      "error": "TimeoutError: locator.check: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=radio][value=\"stm32-blue-pill-f103\"]')\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"radio\" name=\"freestyle-board\" value=\"stm32-blue-pill-f103\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    ",
+      "url": "http://127.0.0.1:5320/build/freestyle"
+    },
+    {
+      "id": "stm32-nucleo-f401re",
+      "error": "TimeoutError: locator.check: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[type=radio][value=\"stm32-nucleo-f401re\"]')\u001b[22m\n\u001b[2m    - locator resolved to <input type=\"radio\" name=\"freestyle-board\" value=\"stm32-nucleo-f401re\"/>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - ",
+      "url": "http://127.0.0.1:5320/build/freestyle"
+    }
+  ],
+  "errors": {
+    "errors": [],
+    "failed": [
+      {
+        "url": "http://127.0.0.1:5320/models/arduino-uno-r3.glb?v=53330cd2b0d2",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/models/esp32-devkit-v1-30pin.glb?v=b3d0a6b0be09",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "bad": []
+  }
+}

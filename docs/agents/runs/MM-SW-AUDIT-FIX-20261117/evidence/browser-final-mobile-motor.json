@@ -1,0 +1,35 @@
+[
+  {
+    "id": "F10-mobile-working-final",
+    "url": "http://127.0.0.1:5320/build/freestyle",
+    "screenshot": "F10-mobile-working-final.png",
+    "width": 24.639501571655273,
+    "height": 24.6395263671875,
+    "key": "resistor1:a",
+    "hit": "resistor1:a",
+    "pageWidth": 360
+  },
+  {
+    "id": "F10-mobile-overview-final",
+    "url": "http://127.0.0.1:5320/build/freestyle",
+    "screenshot": "F10-mobile-overview-final.png",
+    "svgWidth": 275.6000175476074
+  },
+  {
+    "id": "F16-motor-protection-final",
+    "url": "http://127.0.0.1:5320/build/freestyle?resume=1",
+    "screenshot": "F16-motor-protection-final.png",
+    "parts": [
+      "board",
+      "resistor",
+      "transistor",
+      "dc-motor",
+      "battery",
+      "diode"
+    ],
+    "wires": 9,
+    "note": [
+      "Mạch này có nguồn tải lý tưởng riêng, GND chung và diode mắc ngược song song motor. Hoạt cảnh chỉ minh họa đóng/ngắt; chưa tính dòng tải, sụt áp, xung ngược, nhiệt hoặc chọn định mức linh kiện thật."
+    ]
+  }
+]

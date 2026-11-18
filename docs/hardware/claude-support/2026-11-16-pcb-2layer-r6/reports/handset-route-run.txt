@@ -1,0 +1,39 @@
+A freerouting rc 0 126s
+A track mm {'F.Cu': 740} vias 0 unconnected 31
+ripped IC-net tracks 221
+A(saved) track mm {'F.Cu': 449} vias 0 unconnected 93
+B freerouting rc 0 155s
+B track mm {'F.Cu': 1263, 'B.Cu': 62} vias 35 unconnected 1
+C cost 2.0 freerouting rc 0 53s
+C track mm {'F.Cu': 1266, 'B.Cu': 62} vias 36 unconnected 1
+C cost 1.0 freerouting rc 0 59s
+C track mm {'F.Cu': 1266, 'B.Cu': 62} vias 36 unconnected 1
+C cost 1.0 freerouting rc 0 93s
+C track mm {'F.Cu': 1266, 'B.Cu': 62} vias 36 unconnected 1
+Found 167 violations
+Found 1 unconnected items
+Found 0 schematic parity issues
+widened 2
+stitch failures 0
+grid vias 354
+removed 8
+components 1 main size 545
+ref to F.Fab: R33
+ref to F.Fab: R36
+refs placed 85 refs to F.Fab 2 texts placed 4 texts stuck 0
+Found 2 violations
+Found 1 unconnected items
+Found 0 schematic parity issues
+      2 [track_not_centered_on_via]
+      1 [unconnected_items]
+[track_not_centered_on_via]: Track endpoint not centered on via
+    @(70.8200 mm, 70.8059 mm): Track [/GND] on F.Cu, length 3.3479 mm
+    @(70.9500 mm, 70.9500 mm): Via [/GND] on F.Cu - B.Cu
+[track_not_centered_on_via]: Track endpoint not centered on via
+    @(70.8200 mm, 72.6750 mm): Track [/GND] on F.Cu, length 1.8691 mm
+    @(70.9500 mm, 70.9500 mm): Via [/GND] on F.Cu - B.Cu
+[unconnected_items]: Missing connection between items
+    @(50.0500 mm, 38.5750 mm): Pad 2 [/RX0_H] of R30 on F.Cu
+    @(62.0800 mm, 57.5000 mm): PTH pad 3 [/RX0_H] of J5
+F.Cu fragments 21
+B.Cu fragments 1

@@ -1,0 +1,113 @@
+[
+  {
+    "name": "Hướng dẫn trang này",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "url": "http://127.0.0.1:5320/",
+    "steps": [
+      "TRANG CHỦ VÀ BÀN LẮP MẠCH\nBƯỚC 1/7\n\nNăm khu vực chính\n\nHọc · Lắp mạch · Thư viện · Công cụ · Cộng đồng. Mỗi mục mở ra các trang con liên quan.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "TRANG CHỦ VÀ BÀN LẮP MẠCH\nBƯỚC 2/7\n\nNgười mới: bắt đầu ở đây\n\nBài LED đầu tiên dẫn bạn qua ba bước: hiểu linh kiện, lắp mạch, chạy code. Không cần tài khoản.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "TRANG CHỦ VÀ BÀN LẮP MẠCH\nBƯỚC 3/7\n\nBa bước trên bàn lắp mạch\n\n1 · Chọn board. 2 · Thêm linh kiện. 3 · Viết code rồi bấm Chạy. Có thể quay lại bước nào cũng được.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "TRANG CHỦ VÀ BÀN LẮP MẠCH\nBƯỚC 4/7\n\nChưa biết lắp gì? Dùng mạch mẫu\n\nChọn một mạch mẫu và bấm “Dựng mạch mẫu”: linh kiện, dây và code được dựng sẵn để bạn chạy thử ngay.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "TRANG CHỦ VÀ BÀN LẮP MẠCH\nBƯỚC 5/7\n\nBreadboard\n\nKéo linh kiện thả vào lỗ cắm. Nối dây: bấm một chân hoặc lỗ, rồi bấm điểm đích.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "TRANG CHỦ VÀ BÀN LẮP MẠCH\nBƯỚC 6/7\n\nBấm Chạy\n\nCode chạy trên board mô phỏng: LED sáng, dây tín hiệu đổi màu và Serial Monitor hiện dữ liệu.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "TRANG CHỦ VÀ BÀN LẮP MẠCH\nBƯỚC 7/7\n\nXem lại bất cứ lúc nào\n\nNút Trợ giúp mở lại hướng dẫn của trang đang xem hoặc của các khu vực khác.\n\nBỏ qua\nQuay lại\nXong\n\nPhím: ← → đổi bước · Esc bỏ qua"
+    ],
+    "finished": true
+  },
+  {
+    "name": "Không gian học",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "url": "http://127.0.0.1:5320/app",
+    "steps": [
+      "KHÔNG GIAN HỌC\nBƯỚC 1/4\n\nNăm khu vực của bạn\n\nHọc, Lắp mạch, Thư viện, Công cụ và Cộng đồng. Trên điện thoại, dùng thanh ở đáy màn hình.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "KHÔNG GIAN HỌC\nBƯỚC 2/4\n\nBắt đầu hoặc tiếp tục học\n\nNút này gợi ý bài tiếp theo theo tiến độ lưu trên trình duyệt này. Bạn vẫn có thể chọn bài khác trong lộ trình.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "KHÔNG GIAN HỌC\nBƯỚC 3/4\n\nLộ trình và tiến độ\n\nXem các bài đã mở và bài bạn tự đánh dấu hoàn thành. Tiến độ trên web không thay kết quả kiểm chứng phần cứng.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "KHÔNG GIAN HỌC\nBƯỚC 4/4\n\nXem lại bất cứ lúc nào\n\nNút Trợ giúp mở lại hướng dẫn của trang đang xem hoặc của các khu vực khác.\n\nBỏ qua\nQuay lại\nXong\n\nPhím: ← → đổi bước · Esc bỏ qua"
+    ],
+    "finished": true
+  },
+  {
+    "name": "Bàn lắp mạch tự do",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "url": "http://127.0.0.1:5320/build/freestyle",
+    "steps": [
+      "BÀN LẮP MẠCH TỰ DO\nBƯỚC 1/6\n\nBa bước trên bàn lắp mạch\n\n1 · Chọn board. 2 · Thêm linh kiện. 3 · Viết code rồi bấm Chạy. Có thể quay lại bước nào cũng được.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "BÀN LẮP MẠCH TỰ DO\nBƯỚC 2/6\n\nChưa biết lắp gì? Dùng mạch mẫu\n\nChọn một mạch mẫu và bấm “Dựng mạch mẫu”: linh kiện, dây và code được dựng sẵn để bạn chạy thử ngay.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "BÀN LẮP MẠCH TỰ DO\nBƯỚC 3/6\n\nBreadboard\n\nKéo linh kiện thả vào lỗ cắm. Nối dây: bấm một chân hoặc lỗ, rồi bấm điểm đích.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "BÀN LẮP MẠCH TỰ DO\nBƯỚC 4/6\n\nBấm Chạy\n\nCode chạy trên board mô phỏng: LED sáng, dây tín hiệu đổi màu và Serial Monitor hiện dữ liệu.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "BÀN LẮP MẠCH TỰ DO\nBƯỚC 5/6\n\nQuan sát kết quả\n\nCột này cho thấy đầu vào, trạng thái từng linh kiện, Serial và luồng tín hiệu. Đây là mô phỏng logic, không phải đo trên mạch thật.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "BÀN LẮP MẠCH TỰ DO\nBƯỚC 6/6\n\nXem lại bất cứ lúc nào\n\nNút Trợ giúp mở lại hướng dẫn của trang đang xem hoặc của các khu vực khác.\n\nBỏ qua\nQuay lại\nXong\n\nPhím: ← → đổi bước · Esc bỏ qua"
+    ],
+    "finished": true
+  },
+  {
+    "name": "Phòng lắp mạch theo bài",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "url": "http://127.0.0.1:5320/build",
+    "steps": [
+      "PHÒNG LẮP MẠCH THEO BÀI\nBƯỚC 1/5\n\nPhòng lắp mạch theo bài\n\nChọn một bài mẫu để nạp sẵn mạch, code và luồng tín hiệu. Muốn tự lắp từ đầu, dùng Bàn lắp mạch tự do trong menu Lắp mạch.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "PHÒNG LẮP MẠCH THEO BÀI\nBƯỚC 2/5\n\nĐi theo từng bước\n\nThanh bước cho biết bạn đang ở đâu: chọn bài, lắp mạch, viết code, chạy và quan sát.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "PHÒNG LẮP MẠCH THEO BÀI\nBƯỚC 3/5\n\nKhu làm việc\n\nBreadboard, sơ đồ và 3D nằm ở đây. Bấm linh kiện để xem chân và lưu ý an toàn.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "PHÒNG LẮP MẠCH THEO BÀI\nBƯỚC 4/5\n\nHướng dẫn và kiểm tra\n\nCột bên phải giải thích bước hiện tại và báo lỗi nối dây trước khi chạy.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "PHÒNG LẮP MẠCH THEO BÀI\nBƯỚC 5/5\n\nXem lại bất cứ lúc nào\n\nNút Trợ giúp mở lại hướng dẫn của trang đang xem hoặc của các khu vực khác.\n\nBỏ qua\nQuay lại\nXong\n\nPhím: ← → đổi bước · Esc bỏ qua"
+    ],
+    "finished": true
+  },
+  {
+    "name": "Bài học đầu tiên",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "url": "http://127.0.0.1:5320/learn/esp32-led",
+    "steps": [
+      "BÀI HỌC ĐẦU TIÊN\nBƯỚC 1/5\n\nMục tiêu bài học\n\nTên bài, cấp độ và điều bạn sẽ làm được sau khi học xong.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "BÀI HỌC ĐẦU TIÊN\nBƯỚC 2/5\n\nCác phần của bài\n\nChuyển giữa phần đọc hiểu, lắp mạch và code bằng các thẻ này. Dùng phím mũi tên khi đang ở thẻ.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "BÀI HỌC ĐẦU TIÊN\nBƯỚC 3/5\n\nMạch đang học\n\nMạch, sơ đồ và mô phỏng hiển thị ở đây và cập nhật theo phần bạn chọn.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "BÀI HỌC ĐẦU TIÊN\nBƯỚC 4/5\n\nBước tiếp theo\n\nThanh dưới cùng cho biết bạn đang ở bước nào và nút đi tiếp, gồm nút mở mạch để chạy.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "BÀI HỌC ĐẦU TIÊN\nBƯỚC 5/5\n\nXem lại bất cứ lúc nào\n\nNút Trợ giúp mở lại hướng dẫn của trang đang xem hoặc của các khu vực khác.\n\nBỏ qua\nQuay lại\nXong\n\nPhím: ← → đổi bước · Esc bỏ qua"
+    ],
+    "finished": true
+  },
+  {
+    "name": "Thư viện board và linh kiện",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "url": "http://127.0.0.1:5320/boards",
+    "steps": [
+      "THƯ VIỆN BOARD VÀ LINH KIỆN\nBƯỚC 1/4\n\nTra cứu trước khi lắp\n\nMỗi hồ sơ nêu phiên bản, nguồn tài liệu và giới hạn mô phỏng. Board tham chiếu 3D có thể chưa hỗ trợ chạy code.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "THƯ VIỆN BOARD VÀ LINH KIỆN\nBƯỚC 2/4\n\nTìm phần bạn cần\n\nLọc theo tên hoặc nhóm. Chọn một mục để xem cấu tạo, chân kết nối và tài liệu.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "THƯ VIỆN BOARD VÀ LINH KIỆN\nBƯỚC 3/4\n\nLắp thử trên bàn tự do\n\nLiên kết này mang board hoặc linh kiện được hỗ trợ sang bàn lắp mạch. Nếu chưa có trong bàn, bạn vẫn xem được hồ sơ ở đây.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "THƯ VIỆN BOARD VÀ LINH KIỆN\nBƯỚC 4/4\n\nXem lại bất cứ lúc nào\n\nNút Trợ giúp mở lại hướng dẫn của trang đang xem hoặc của các khu vực khác.\n\nBỏ qua\nQuay lại\nXong\n\nPhím: ← → đổi bước · Esc bỏ qua"
+    ],
+    "finished": true
+  },
+  {
+    "name": "Chạy code mô phỏng",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "url": "http://127.0.0.1:5320/tools/sketch",
+    "steps": [
+      "CHẠY CODE MÔ PHỎNG\nBƯỚC 1/3\n\nChọn đúng board và mô hình\n\nĐọc phạm vi hỗ trợ trước khi chạy. Kết quả trình mô phỏng không xác nhận điện áp hay hoạt động trên kit thật.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "CHẠY CODE MÔ PHỎNG\nBƯỚC 2/3\n\nSửa chương trình\n\nThử code mẫu trước, rồi thay từng đoạn nhỏ. Giữ thông báo lỗi để biết dòng cần sửa.\n\nBỏ qua\nQuay lại\nTiếp\n\nPhím: ← → đổi bước · Esc bỏ qua",
+      "CHẠY CODE MÔ PHỎNG\nBƯỚC 3/3\n\nXem lại bất cứ lúc nào\n\nNút Trợ giúp mở lại hướng dẫn của trang đang xem hoặc của các khu vực khác.\n\nBỏ qua\nQuay lại\nXong\n\nPhím: ← → đổi bước · Esc bỏ qua"
+    ],
+    "finished": true
+  }
+]

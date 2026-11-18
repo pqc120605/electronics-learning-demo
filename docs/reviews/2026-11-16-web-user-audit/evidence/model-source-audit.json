@@ -1,0 +1,662 @@
+{
+  "checks": [
+    {
+      "group": "board-lock",
+      "url": "/models/adafruit-feather-esp32-s3-5323.glb",
+      "expected": "b655f774699e598c7f9102ecb8832b73eb503a0ea5ed0b6e118ac1f9102dda36",
+      "actual": "b655f774699e598c7f9102ecb8832b73eb503a0ea5ed0b6e118ac1f9102dda36",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/adafruit-feather-esp32-s3-tft-5483.glb",
+      "expected": "f4136a50fb5621bbc5546fbc1c32adaf65f6de24acb23dea68db6b461200184b",
+      "actual": "f4136a50fb5621bbc5546fbc1c32adaf65f6de24acb23dea68db6b461200184b",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/adafruit-qtpy-esp32-c3-5405.glb",
+      "expected": "75030f7cdca39c06a58baed253b8b23e146a20f6797f224e45d2ab0107ced974",
+      "actual": "75030f7cdca39c06a58baed253b8b23e146a20f6797f224e45d2ab0107ced974",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/arduino-mega-2560-r3.glb",
+      "expected": "adf1fcf07b4a6d9ae8cd0cede3570019b85ae57c0370d2305c3e5ccc4cd2d408",
+      "actual": "adf1fcf07b4a6d9ae8cd0cede3570019b85ae57c0370d2305c3e5ccc4cd2d408",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/arduino-nano-classic.glb",
+      "expected": "43c1f8047b7f83c3b955f91097fc42dc24d8f147a68f9e844bbb6da710beff55",
+      "actual": "43c1f8047b7f83c3b955f91097fc42dc24d8f147a68f9e844bbb6da710beff55",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/arduino-uno-r3.glb",
+      "expected": "53330cd2b0d2fac39206f2774e71e8961316634ea3f027331583379a43965ff6",
+      "actual": "53330cd2b0d2fac39206f2774e71e8961316634ea3f027331583379a43965ff6",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/esp32-devkit-v1-30pin.glb",
+      "expected": "b3d0a6b0be0900f4ec6dc2e23ec2bd3a180ab78c359ade9a52b9604723c82f21",
+      "actual": "b3d0a6b0be0900f4ec6dc2e23ec2bd3a180ab78c359ade9a52b9604723c82f21",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/esp32-led-assembly.glb",
+      "expected": "129265213475c1ad1e49373012ec90d493cd75bc83036470d16457a3a7f9c3d2",
+      "actual": "129265213475c1ad1e49373012ec90d493cd75bc83036470d16457a3a7f9c3d2",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/esp32-s3-devkitc-1-v1.1.glb",
+      "expected": "1ffe23480ffabcb5ba740b05fd60fa835a56fecd00d76075ce79a88a4f685515",
+      "actual": "1ffe23480ffabcb5ba740b05fd60fa835a56fecd00d76075ce79a88a4f685515",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/raspberry-pi-pico-2-h.glb",
+      "expected": "b3ce57f26b5267be6d64ff899846b8c6db2bccb4c5186434317870e48e94395a",
+      "actual": "b3ce57f26b5267be6d64ff899846b8c6db2bccb4c5186434317870e48e94395a",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/raspberry-pi-pico-2.glb",
+      "expected": "38ba3e6ddefb82bc71a5cf7d610f799876bfc866022ee02e8a0ee44788992846",
+      "actual": "38ba3e6ddefb82bc71a5cf7d610f799876bfc866022ee02e8a0ee44788992846",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/raspberry-pi-pico-w.glb",
+      "expected": "28757a63380a94c2a9492f8c12fb9a2663d2d0db3b8d441403c2aafc477f7acb",
+      "actual": "28757a63380a94c2a9492f8c12fb9a2663d2d0db3b8d441403c2aafc477f7acb",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/raspberry-pi-pico.glb",
+      "expected": "aa1b6f4bb7b95187569451feb6f5d1f0ff4eb2b5ab42791d68a25c9e320f2671",
+      "actual": "aa1b6f4bb7b95187569451feb6f5d1f0ff4eb2b5ab42791d68a25c9e320f2671",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/seeed-xiao-esp32-c3.glb",
+      "expected": "1c9ddcc5d43ab72af3bf44808cde942365c5e863a3c63c566e6df0c3ac42e9ab",
+      "actual": "1c9ddcc5d43ab72af3bf44808cde942365c5e863a3c63c566e6df0c3ac42e9ab",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/seeed-xiao-esp32-s3.glb",
+      "expected": "866adb2f4068574976bd1b5f7763a07e1d800bbc2e489a3efdfe473dbf5424d2",
+      "actual": "866adb2f4068574976bd1b5f7763a07e1d800bbc2e489a3efdfe473dbf5424d2",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/stm32-blue-pill-f103.glb",
+      "expected": "a520c6f436e242e3c4b9032e3efcf90e180c1d41c09a8adf86f849c1c0932ec2",
+      "actual": "a520c6f436e242e3c4b9032e3efcf90e180c1d41c09a8adf86f849c1c0932ec2",
+      "ok": true
+    },
+    {
+      "group": "board-lock",
+      "url": "/models/stm32-nucleo-f401re.glb",
+      "expected": "9124a49017a50e7627f3d7c6e3100b3778c3f603ec4e8d883881d1ec3019ddbd",
+      "actual": "9124a49017a50e7627f3d7c6e3100b3778c3f603ec4e8d883881d1ec3019ddbd",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "battery",
+      "url": "/models/components/battery.glb",
+      "kind": "kicad-assembly",
+      "expected": "08903373541a2a28ee3f7a2dc491372d3859daf055273df41a95c7ed0899f2d6",
+      "actual": "08903373541a2a28ee3f7a2dc491372d3859daf055273df41a95c7ed0899f2d6",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "bmp280",
+      "url": "/models/components/bmp280.glb",
+      "kind": "kicad-assembly",
+      "expected": "1227cde6df5cb6d34617bf2cd3e1000a55e4ab014cb1f23b3fe53af61470986f",
+      "actual": "1227cde6df5cb6d34617bf2cd3e1000a55e4ab014cb1f23b3fe53af61470986f",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "boost-converter",
+      "url": "/models/components/boost-converter.glb",
+      "kind": "kicad-assembly",
+      "expected": "7e5c2d5952031f8b44f273e0b3bc5418a14e8afc62386cdb1e5603845f1b68d4",
+      "actual": "7e5c2d5952031f8b44f273e0b3bc5418a14e8afc62386cdb1e5603845f1b68d4",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "breadboard",
+      "url": "/models/components/breadboard.glb",
+      "kind": "parametric-mesh",
+      "expected": "f9f5d6e523ae9560739c7cc7d156e77f954ced6eeaaadd4495f090531e02530a",
+      "actual": "f9f5d6e523ae9560739c7cc7d156e77f954ced6eeaaadd4495f090531e02530a",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "buck-converter",
+      "url": "/models/components/buck-converter.glb",
+      "kind": "kicad-assembly",
+      "expected": "566ac8bb579896988002c75d312f3d86ab53e8380ad1cc1c67595e283322fdf5",
+      "actual": "566ac8bb579896988002c75d312f3d86ab53e8380ad1cc1c67595e283322fdf5",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "button",
+      "url": "/models/components/button.glb",
+      "kind": "source-cad-mesh",
+      "expected": "51ef8e120f36cd9f74b789c5f924616825bb2fade1337a54747e5a424f626ba2",
+      "actual": "51ef8e120f36cd9f74b789c5f924616825bb2fade1337a54747e5a424f626ba2",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "buzzer",
+      "url": "/models/components/buzzer.glb",
+      "kind": "source-cad-mesh",
+      "expected": "24071cc6ca40b8780fc8aade6b3615c139a6fdecb183efc34b5849e45b17326d",
+      "actual": "24071cc6ca40b8780fc8aade6b3615c139a6fdecb183efc34b5849e45b17326d",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "capacitor",
+      "url": "/models/components/capacitor.glb",
+      "kind": "source-cad-mesh",
+      "expected": "bca5c0d4eeecaa33308dfb5b22bfc42142a3a663f68d82665d1725f72e31f864",
+      "actual": "bca5c0d4eeecaa33308dfb5b22bfc42142a3a663f68d82665d1725f72e31f864",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "capacitor-ceramic",
+      "url": "/models/components/capacitor-ceramic.glb",
+      "kind": "source-cad-mesh",
+      "expected": "a857a83d781a05a7eaadc568d5d0d18c1ed43c053765dcc14452c1438e340d9a",
+      "actual": "a857a83d781a05a7eaadc568d5d0d18c1ed43c053765dcc14452c1438e340d9a",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "dc-motor",
+      "url": "/models/components/dc-motor.glb",
+      "kind": "parametric-mesh",
+      "expected": "5c9910add3889d5989ace393a7baf3715e998a9cf19770778df69e8669961527",
+      "actual": "5c9910add3889d5989ace393a7baf3715e998a9cf19770778df69e8669961527",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "dht22",
+      "url": "/models/components/dht22.glb",
+      "kind": "kicad-assembly",
+      "expected": "e9c2415d053cf6a66a39cf8c65d6864223d5a9df68d6024680f4cce558e5f161",
+      "actual": "e9c2415d053cf6a66a39cf8c65d6864223d5a9df68d6024680f4cce558e5f161",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "diode",
+      "url": "/models/components/diode.glb",
+      "kind": "source-cad-mesh",
+      "expected": "70e17788275b85ed5813f53c8dfa4ff24affe82cd92542a3097ad2e7fd03055f",
+      "actual": "70e17788275b85ed5813f53c8dfa4ff24affe82cd92542a3097ad2e7fd03055f",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "h-bridge",
+      "url": "/models/components/h-bridge.glb",
+      "kind": "kicad-assembly",
+      "expected": "e4fd3df858d1e21366715a986bb7013a5d045b9084f94df15c23e92e3b58b051",
+      "actual": "e4fd3df858d1e21366715a986bb7013a5d045b9084f94df15c23e92e3b58b051",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "ir-receiver",
+      "url": "/models/components/ir-receiver.glb",
+      "kind": "kicad-assembly",
+      "expected": "4d08843c233b875ba7409ad0d99701bcb97245037a85237abfe2c2904e8d9c0a",
+      "actual": "4d08843c233b875ba7409ad0d99701bcb97245037a85237abfe2c2904e8d9c0a",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "ir-sensor",
+      "url": "/models/components/ir-sensor.glb",
+      "kind": "kicad-assembly",
+      "expected": "6b3632474bb77a628f2d031abc5145379bf4dbf3017ba9bbfdcd98f464d9da13",
+      "actual": "6b3632474bb77a628f2d031abc5145379bf4dbf3017ba9bbfdcd98f464d9da13",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "jumper",
+      "url": "/models/components/jumper.glb",
+      "kind": "parametric-mesh",
+      "expected": "82d1065416f3d4e6c763f8c5924c3e86fb1c65d2a5ad15fde0ee0a15ba8d1ee6",
+      "actual": "82d1065416f3d4e6c763f8c5924c3e86fb1c65d2a5ad15fde0ee0a15ba8d1ee6",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "lcd1602",
+      "url": "/models/components/lcd1602.glb",
+      "kind": "kicad-assembly",
+      "expected": "8a46d9c20158e2620926792add0b776744b7e2b7f3c7c21c80131a32b5668de6",
+      "actual": "8a46d9c20158e2620926792add0b776744b7e2b7f3c7c21c80131a32b5668de6",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "ldr",
+      "url": "/models/components/ldr.glb",
+      "kind": "source-cad-mesh",
+      "expected": "d3ea65400fe4311eb25de88979902b13e02d4b3c6923c2c491ee4f8e0525fc92",
+      "actual": "d3ea65400fe4311eb25de88979902b13e02d4b3c6923c2c491ee4f8e0525fc92",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "led",
+      "url": "/models/components/led.glb",
+      "kind": "source-cad-mesh",
+      "expected": "76a9d35388a352390752aad25b8eafa944e617a9395e9a579259dfeb0d3053b9",
+      "actual": "76a9d35388a352390752aad25b8eafa944e617a9395e9a579259dfeb0d3053b9",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "limit-switch",
+      "url": "/models/components/limit-switch.glb",
+      "kind": "parametric-mesh",
+      "expected": "f4579ec8ddcec992543ab331a439994ab1814e04a49bc13e7f8088bd69ac006b",
+      "actual": "f4579ec8ddcec992543ab331a439994ab1814e04a49bc13e7f8088bd69ac006b",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "logic-level",
+      "url": "/models/components/logic-level.glb",
+      "kind": "kicad-assembly",
+      "expected": "bb5c97e3ecd7400a503284755a36974a040f8de53de0acd44be27e12e567e9f7",
+      "actual": "bb5c97e3ecd7400a503284755a36974a040f8de53de0acd44be27e12e567e9f7",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "mosfet",
+      "url": "/models/components/mosfet.glb",
+      "kind": "source-cad-mesh",
+      "expected": "71e6e0bcfe7ef983a8a0eeffc910eadb8776551e2092d42bbd37d529170b6828",
+      "actual": "71e6e0bcfe7ef983a8a0eeffc910eadb8776551e2092d42bbd37d529170b6828",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "mosfet-module",
+      "url": "/models/components/mosfet-module.glb",
+      "kind": "kicad-assembly",
+      "expected": "d09d4d67ca5ff3ae8d0be29d0fa696c5118008dd608446d2250ea61b1654ab96",
+      "actual": "d09d4d67ca5ff3ae8d0be29d0fa696c5118008dd608446d2250ea61b1654ab96",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "mpu6050",
+      "url": "/models/components/mpu6050.glb",
+      "kind": "kicad-assembly",
+      "expected": "4d2c75f03abf811694aa29913bc84ba0d8e7d4b2e3ebb4e730d66c3489872c25",
+      "actual": "4d2c75f03abf811694aa29913bc84ba0d8e7d4b2e3ebb4e730d66c3489872c25",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "neopixel",
+      "url": "/models/components/neopixel.glb",
+      "kind": "source-cad-mesh",
+      "expected": "b37d835bd65c6f1fd4f8d145eadfdf0582f45e9ebb6312699c082baa99943124",
+      "actual": "b37d835bd65c6f1fd4f8d145eadfdf0582f45e9ebb6312699c082baa99943124",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "oled",
+      "url": "/models/components/oled.glb",
+      "kind": "kicad-assembly",
+      "expected": "866e16e0873ddda11a650dc792d8cb7603b12792239992bed61cc41815564ba1",
+      "actual": "866e16e0873ddda11a650dc792d8cb7603b12792239992bed61cc41815564ba1",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "photoresistor-module",
+      "url": "/models/components/photoresistor-module.glb",
+      "kind": "kicad-assembly",
+      "expected": "bf0a87ea2c64a29dc7bb4e35ee3559266fb69ab943854fe30af44750a6792d93",
+      "actual": "bf0a87ea2c64a29dc7bb4e35ee3559266fb69ab943854fe30af44750a6792d93",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "pir",
+      "url": "/models/components/pir.glb",
+      "kind": "kicad-assembly",
+      "expected": "91dd68e417df86216d0da930903ef6bce026ff5395d26a0898a898d2b9624743",
+      "actual": "91dd68e417df86216d0da930903ef6bce026ff5395d26a0898a898d2b9624743",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "potentiometer",
+      "url": "/models/components/potentiometer.glb",
+      "kind": "parametric-mesh",
+      "expected": "b37e3052855b67adacea0ca8198ffb0ff3ac31b98f52647339f80f6dfd6de366",
+      "actual": "b37e3052855b67adacea0ca8198ffb0ff3ac31b98f52647339f80f6dfd6de366",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "power-bank",
+      "url": "/models/components/power-bank.glb",
+      "kind": "parametric-mesh",
+      "expected": "cdbae78962017730dc612cd41701dc0178f2d2d872a3096d5ae805be0a72a51c",
+      "actual": "cdbae78962017730dc612cd41701dc0178f2d2d872a3096d5ae805be0a72a51c",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "relay",
+      "url": "/models/components/relay.glb",
+      "kind": "kicad-assembly",
+      "expected": "a4ef2a3676ac0e794098b803a8b5ab889577049a4a480e28d3ee1eb13c725e9e",
+      "actual": "a4ef2a3676ac0e794098b803a8b5ab889577049a4a480e28d3ee1eb13c725e9e",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "resistor",
+      "url": "/models/components/resistor.glb",
+      "kind": "source-cad-mesh",
+      "expected": "6f9f889377cef2570d05d985499e8d0abf0e8370db8ebda9e957ed63b90b9fb7",
+      "actual": "6f9f889377cef2570d05d985499e8d0abf0e8370db8ebda9e957ed63b90b9fb7",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "rfid",
+      "url": "/models/components/rfid.glb",
+      "kind": "kicad-assembly",
+      "expected": "87ffcbde08c8312d876c2c666b9faa8cdb777f5808f46b289e0221d6f777fc54",
+      "actual": "87ffcbde08c8312d876c2c666b9faa8cdb777f5808f46b289e0221d6f777fc54",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "rgb-led",
+      "url": "/models/components/rgb-led.glb",
+      "kind": "source-cad-mesh",
+      "expected": "bc7ba81887b658ec83bdcc300759e3eba47f9cc1222c0db1f312f6fa8258abf7",
+      "actual": "bc7ba81887b658ec83bdcc300759e3eba47f9cc1222c0db1f312f6fa8258abf7",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "rotary-encoder",
+      "url": "/models/components/rotary-encoder.glb",
+      "kind": "kicad-assembly",
+      "expected": "cf2a2caa04fb2f7b68ca03a0f97c160fef29ad6b6ba286c3ef1bf77ce05aa10a",
+      "actual": "cf2a2caa04fb2f7b68ca03a0f97c160fef29ad6b6ba286c3ef1bf77ce05aa10a",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "servo",
+      "url": "/models/components/servo.glb",
+      "kind": "parametric-mesh",
+      "expected": "0b1c75bf7cbbc889693d2a3b7c139d4a91f8bec1933e3fadf031bd321e4bd5ba",
+      "actual": "0b1c75bf7cbbc889693d2a3b7c139d4a91f8bec1933e3fadf031bd321e4bd5ba",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "seven-segment",
+      "url": "/models/components/seven-segment.glb",
+      "kind": "source-cad-mesh",
+      "expected": "365621bd6803432210bb29c5fd9007d3fa7ecbc5437eec05df5f5d1cdc9817b7",
+      "actual": "365621bd6803432210bb29c5fd9007d3fa7ecbc5437eec05df5f5d1cdc9817b7",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "slide-switch",
+      "url": "/models/components/slide-switch.glb",
+      "kind": "source-cad-mesh",
+      "expected": "fabb365ddf149567071647abb6b3a49946ea2a6352b338530dc4cbe5275f21ec",
+      "actual": "fabb365ddf149567071647abb6b3a49946ea2a6352b338530dc4cbe5275f21ec",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "soil",
+      "url": "/models/components/soil.glb",
+      "kind": "kicad-assembly",
+      "expected": "1d44f1ea1de88eb49663626bacf48494165c06c70ecfd02230cb839dd073f326",
+      "actual": "1d44f1ea1de88eb49663626bacf48494165c06c70ecfd02230cb839dd073f326",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "soil-relay-pump",
+      "url": "/models/components/soil-relay-pump.glb",
+      "kind": "parametric-mesh",
+      "expected": "5d535cd47487cc0a261813331dff55b7355ac990d6bf997f910ca01256e48ed8",
+      "actual": "5d535cd47487cc0a261813331dff55b7355ac990d6bf997f910ca01256e48ed8",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "tb6612",
+      "url": "/models/components/tb6612.glb",
+      "kind": "kicad-assembly",
+      "expected": "c9cfe72abaf58237eff4565ac6ac6970215c5ca74d5314a9a6f5aa30a7792af5",
+      "actual": "c9cfe72abaf58237eff4565ac6ac6970215c5ca74d5314a9a6f5aa30a7792af5",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "thermistor",
+      "url": "/models/components/thermistor.glb",
+      "kind": "parametric-mesh",
+      "expected": "cea4316bc66426e09bb0947df44a5545bfaa490757ac4308087765410e00c991",
+      "actual": "cea4316bc66426e09bb0947df44a5545bfaa490757ac4308087765410e00c991",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "transistor",
+      "url": "/models/components/transistor.glb",
+      "kind": "source-cad-mesh",
+      "expected": "d062237c7ae39c9509b335102cad587d8d7434547963552a00aba0de28317309",
+      "actual": "d062237c7ae39c9509b335102cad587d8d7434547963552a00aba0de28317309",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "ultrasonic",
+      "url": "/models/components/ultrasonic.glb",
+      "kind": "kicad-assembly",
+      "expected": "415f13668d184bd6ad8dfaf7d9fc8dc1a0675dfc1f4848c1e275535dd3f99a1e",
+      "actual": "415f13668d184bd6ad8dfaf7d9fc8dc1a0675dfc1f4848c1e275535dd3f99a1e",
+      "ok": true
+    },
+    {
+      "group": "component-manifest",
+      "id": "usb-cable",
+      "url": "/models/components/usb-cable.glb",
+      "kind": "parametric-mesh",
+      "expected": "77ade6af2be02b599b7e6efd3c370e97ad7bba68f7eaf52fdc11ee81386490db",
+      "actual": "77ade6af2be02b599b7e6efd3c370e97ad7bba68f7eaf52fdc11ee81386490db",
+      "ok": true
+    },
+    {
+      "group": "topview-image",
+      "id": "esp32-devkit",
+      "url": "/board-reference/topview/esp32-devkit.png",
+      "expected": "541a10883ea2ba063b50344a52bfa95f2de3587b64d32e257f5dcbabe9dc1f28",
+      "actual": "541a10883ea2ba063b50344a52bfa95f2de3587b64d32e257f5dcbabe9dc1f28",
+      "ok": true
+    },
+    {
+      "group": "topview-source",
+      "id": "esp32-devkit",
+      "url": "/models/esp32-devkit-v1-30pin.glb",
+      "expected": "b3d0a6b0be0900f4ec6dc2e23ec2bd3a180ab78c359ade9a52b9604723c82f21",
+      "actual": "b3d0a6b0be0900f4ec6dc2e23ec2bd3a180ab78c359ade9a52b9604723c82f21",
+      "ok": true
+    },
+    {
+      "group": "topview-image",
+      "id": "esp32-s3-devkitc-1",
+      "url": "/board-reference/topview/esp32-s3-devkitc-1.png",
+      "expected": "2c6fd5f2ad9b45eb55d3947b9029192d01030e36939cf5bfce07dbede2f0149a",
+      "actual": "2c6fd5f2ad9b45eb55d3947b9029192d01030e36939cf5bfce07dbede2f0149a",
+      "ok": true
+    },
+    {
+      "group": "topview-source",
+      "id": "esp32-s3-devkitc-1",
+      "url": "/models/esp32-s3-devkitc-1-v1.1.glb",
+      "expected": "1ffe23480ffabcb5ba740b05fd60fa835a56fecd00d76075ce79a88a4f685515",
+      "actual": "1ffe23480ffabcb5ba740b05fd60fa835a56fecd00d76075ce79a88a4f685515",
+      "ok": true
+    },
+    {
+      "group": "topview-image",
+      "id": "arduino-uno-r3",
+      "url": "/board-reference/topview/arduino-uno-r3.png",
+      "expected": "f0b04cd65c39f4b0ced65719ea0eaad1a6016f1e6847f83f28110b1820f1bfb1",
+      "actual": "f0b04cd65c39f4b0ced65719ea0eaad1a6016f1e6847f83f28110b1820f1bfb1",
+      "ok": true
+    },
+    {
+      "group": "topview-source",
+      "id": "arduino-uno-r3",
+      "url": "/models/arduino-uno-r3.glb",
+      "expected": "53330cd2b0d2fac39206f2774e71e8961316634ea3f027331583379a43965ff6",
+      "actual": "53330cd2b0d2fac39206f2774e71e8961316634ea3f027331583379a43965ff6",
+      "ok": true
+    },
+    {
+      "group": "topview-image",
+      "id": "arduino-nano-classic",
+      "url": "/board-reference/topview/arduino-nano-classic.png",
+      "expected": "85aba2f11a708ba515e15b714943986e958edf83857dc1fd8c86c8076f66ac5d",
+      "actual": "85aba2f11a708ba515e15b714943986e958edf83857dc1fd8c86c8076f66ac5d",
+      "ok": true
+    },
+    {
+      "group": "topview-source",
+      "id": "arduino-nano-classic",
+      "url": "/models/arduino-nano-classic.glb",
+      "expected": "43c1f8047b7f83c3b955f91097fc42dc24d8f147a68f9e844bbb6da710beff55",
+      "actual": "43c1f8047b7f83c3b955f91097fc42dc24d8f147a68f9e844bbb6da710beff55",
+      "ok": true
+    },
+    {
+      "group": "topview-image",
+      "id": "arduino-mega-2560-r3",
+      "url": "/board-reference/topview/arduino-mega-2560-r3.png",
+      "expected": "bff155b79179dced5e9074119cdd970a8300ff625d49b8c8aa8b1a10bb7009e2",
+      "actual": "bff155b79179dced5e9074119cdd970a8300ff625d49b8c8aa8b1a10bb7009e2",
+      "ok": true
+    },
+    {
+      "group": "topview-source",
+      "id": "arduino-mega-2560-r3",
+      "url": "/models/arduino-mega-2560-r3.glb",
+      "expected": "adf1fcf07b4a6d9ae8cd0cede3570019b85ae57c0370d2305c3e5ccc4cd2d408",
+      "actual": "adf1fcf07b4a6d9ae8cd0cede3570019b85ae57c0370d2305c3e5ccc4cd2d408",
+      "ok": true
+    },
+    {
+      "group": "topview-image",
+      "id": "raspberry-pi-pico",
+      "url": "/board-reference/topview/raspberry-pi-pico.png",
+      "expected": "d21810bcb53e8a83cb29b76028900c9e56b1199d516d00ecf2b85b4300d34144",
+      "actual": "d21810bcb53e8a83cb29b76028900c9e56b1199d516d00ecf2b85b4300d34144",
+      "ok": true
+    },
+    {
+      "group": "topview-source",
+      "id": "raspberry-pi-pico",
+      "url": "/models/raspberry-pi-pico.glb",
+      "expected": "aa1b6f4bb7b95187569451feb6f5d1f0ff4eb2b5ab42791d68a25c9e320f2671",
+      "actual": "aa1b6f4bb7b95187569451feb6f5d1f0ff4eb2b5ab42791d68a25c9e320f2671",
+      "ok": true
+    },
+    {
+      "group": "topview-image",
+      "id": "stm32-blue-pill-f103",
+      "url": "/board-reference/topview/stm32-blue-pill-f103.png",
+      "expected": "70ffed0f8ca2f83168fbb5d1dc7988798b86f73795daec210941bffde98fcaf3",
+      "actual": "70ffed0f8ca2f83168fbb5d1dc7988798b86f73795daec210941bffde98fcaf3",
+      "ok": true
+    },
+    {
+      "group": "topview-source",
+      "id": "stm32-blue-pill-f103",
+      "url": "/models/stm32-blue-pill-f103.glb",
+      "expected": "a520c6f436e242e3c4b9032e3efcf90e180c1d41c09a8adf86f849c1c0932ec2",
+      "actual": "a520c6f436e242e3c4b9032e3efcf90e180c1d41c09a8adf86f849c1c0932ec2",
+      "ok": true
+    },
+    {
+      "group": "topview-image",
+      "id": "stm32-nucleo",
+      "url": "/board-reference/topview/stm32-nucleo.png",
+      "expected": "dcda51a44f0bf350907dbc1bd55810549beeea7308a4249ccd5fc17804c41829",
+      "actual": "dcda51a44f0bf350907dbc1bd55810549beeea7308a4249ccd5fc17804c41829",
+      "ok": true
+    },
+    {
+      "group": "topview-source",
+      "id": "stm32-nucleo",
+      "url": "/models/stm32-nucleo-f401re.glb",
+      "expected": "9124a49017a50e7627f3d7c6e3100b3778c3f603ec4e8d883881d1ec3019ddbd",
+      "actual": "9124a49017a50e7627f3d7c6e3100b3778c3f603ec4e8d883881d1ec3019ddbd",
+      "ok": true
+    }
+  ],
+  "allMatch": true,
+  "uniqueFiles": 70,
+  "boardLockEntries": 17,
+  "componentEntries": 45,
+  "limits": "Checksums prove identity of assets and source GLB only; not physical/electrical/geometric correctness.",
+  "topviews": 8
+}

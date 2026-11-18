@@ -2,7 +2,9 @@ import { Component, lazy, Suspense, useEffect, useState, type ReactNode } from '
 import { Link, Route, Routes, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { SiteShell } from './components/SiteShell'
 import { AdminGate } from './components/AdminGate'
+import { isLocalAnalyticsAdmin, localAnalyticsEnabled, trackPageView } from './lib/analytics'
 import { PRODUCT_ROUTES as R } from './data/productRoutes'
+import { builderLessons } from './data/builderLessons'
 import { getBrowserStorage, quarantineWorkspaceData } from './lib/workspaceStorage'
 import './styles/app.css'
 import './styles/one-screen.css'
@@ -13,6 +15,7 @@ const AdminLoginPage = lazy(() => import('./pages/AdminLoginPage').then(module =
 const AppHomePage = lazy(() => import('./pages/AppHomePage').then(module => ({ default: module.AppHomePage })))
 const ClassroomKitPage = lazy(() => import('./pages/ClassroomKitPage').then(module => ({ default: module.ClassroomKitPage })))
 const ExplorePage = lazy(() => import('./pages/ExplorePage').then(module => ({ default: module.ExplorePage })))
+const BeginnerLearningPage = lazy(() => import('./pages/BeginnerLearningPage').then(module => ({ default: module.BeginnerLearningPage })))
 const LessonPreflightPage = lazy(() => import('./pages/LessonPreflightPage').then(module => ({ default: module.LessonPreflightPage })))
 const LessonPage = lazy(() => import('./pages/LessonPage').then(module => ({ default: module.LessonPage })))
 const RobotSimulationLessonPage = lazy(() => import('./pages/RobotSimulationLessonPage').then(module => ({ default: module.RobotSimulationLessonPage })))
@@ -117,6 +120,13 @@ export default function App() {
   const inAppSurface = location.pathname !== R.publicHome && (appSurface || location.pathname.startsWith('/app'))
 
   useEffect(() => {
+    if (!localAnalyticsEnabled) return
+    trackPageView('page_view', 'router')
+    const lessonId = /^(?:\/app)?\/learn\/([^/]+)\/?$/.exec(location.pathname)?.[1]
+    if (builderLessons.some(lesson => lesson.id === lessonId)) trackPageView('lesson_open')
+  }, [location.pathname])
+
+  useEffect(() => {
     if (location.pathname === R.publicHome) {
       try { window.sessionStorage.removeItem('mach-mo-surface') } catch { /* The path itself selects the public website shell. */ }
       setAppSurface(false)
@@ -145,6 +155,7 @@ export default function App() {
       <Route path={R.appLearn} element={shell(<TopicsPage />)} />
       <Route path={R.appLesson} element={shell(<LessonPage />)} />
       <Route path="/app/robot-simulation" element={shell(<RobotSimulationLessonPage />)} />
+      <Route path={R.appBasics} element={shell(<BeginnerLearningPage />)} />
       <Route path="/app/learn/:lessonId" element={shell(<LessonPreflightPage />)} />
       <Route path={R.appBoards} element={shell(<BoardCatalogPage />)} />
       <Route path={R.appComponents} element={shell(<ComponentsPage />)} />
@@ -180,8 +191,9 @@ export default function App() {
       <Route path={R.publicTopics} element={shell(<TopicsPage />)} />
       <Route path={R.publicProjects} element={shell(<ProjectsPage />)} />
       <Route path={R.publicLesson} element={shell(<LessonPage />)} />
+      <Route path={R.publicBasics} element={shell(<BeginnerLearningPage />)} />
       <Route path="/learn/:lessonId" element={shell(<LessonPreflightPage />)} />
-      <Route path="/admin" element={<AdminGate>{(access) => <AdminDashboardPage access={access} />}</AdminGate>} />
+      <Route path="/admin" element={isLocalAnalyticsAdmin() ? <AdminDashboardPage local /> : <AdminGate>{(access) => <AdminDashboardPage access={access} />}</AdminGate>} />
       <Route path="/admin/login" element={<AdminLoginPage />} />
       <Route path="*" element={shell(<RoutePlaceholder title="Không tìm thấy trang" />)} />
     </Routes>

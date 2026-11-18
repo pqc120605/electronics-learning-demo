@@ -1,0 +1,94 @@
+{
+  "assemble-wrapper.mjs": {
+    "bytes": 3806,
+    "sha256": "74400256e26ba230a767aab3705c57e3fae982758c52b86079edaa581ae53c48"
+  },
+  "build-packages.tsv": {
+    "bytes": 7505,
+    "sha256": "51caeade15d4df1e67d53a020d2ac360994e02c9c0a6e9410233eb7724d7668b"
+  },
+  "build.sh": {
+    "bytes": 5765,
+    "sha256": "d687de1c85d01056181488d638cf393a14ba0a775b9063ee2930d3b573c32836"
+  },
+  "config.h": {
+    "bytes": 15927,
+    "sha256": "5703e30f01f77565e6acfd3dd4f8627bd74e97f5a4b4ab436adc146878c9defa"
+  },
+  "Containerfile": {
+    "bytes": 354,
+    "sha256": "da34f5e5ebaa83cb65a485586ed8eefc8f4523c69c1423436475b5bfe322bc79"
+  },
+  "eecircuit-engine-MIT.txt": {
+    "bytes": 1066,
+    "sha256": "05b5629164ed0e846fd9f3ee34b64aced9d1ffef01e6fc30c39c8c68b9fea4ed"
+  },
+  "input-record.json": {
+    "bytes": 1358,
+    "sha256": "e0473b20487b50492fce90fb05f186ab2429d8ebf2c8f4011e78041e889b544a"
+  },
+  "ngspice-COPYING.txt": {
+    "bytes": 45714,
+    "sha256": "53e838832e7c00598bb86602a99f9644ba2060e19be209b52e60adb2c8eb6f77"
+  },
+  "ngspice-source.tar.gz": {
+    "bytes": 10289183,
+    "sha256": "9098367a31c9fdc1da5bd6c92b5c36c97cfdb0b196728a5c8234c3228920528d"
+  },
+  "numparam-readme.txt": {
+    "bytes": 28555,
+    "sha256": "30a710c26c4d5c336a5551385a18336234a817d31ce0e7bf1766e2deccb31dde"
+  },
+  "pre.js": {
+    "bytes": 1060,
+    "sha256": "1eb029f822f628677866f527741231e44caf7ddba24fe52c1a88d5c71bf7fc9f"
+  },
+  "prepare-inputs.mjs": {
+    "bytes": 1611,
+    "sha256": "f8b6e00a294fcc365316e3cf55a40bd43cba8c5f7beb8d837e283e6488fb07bf"
+  },
+  "README.txt": {
+    "bytes": 2951,
+    "sha256": "8005c905eb1d40b6a9ae53dd5fa5241ced2d6275685a1005874b67285a0218c4"
+  },
+  "relink-build.tar.gz": {
+    "bytes": 7967901,
+    "sha256": "c41d68da6e63c1afe1c33cf997041874ee4eea3e11ceb2ff2b8f6171490b0490"
+  },
+  "source.patch": {
+    "bytes": 6373,
+    "sha256": "93a48251898f4901e8fbb405608414cf33857ae3bfe9b34f7d076a58633d1768"
+  },
+  "sources.json": {
+    "bytes": 513,
+    "sha256": "ef9f32358f83b1e23d1632d5e531fbd9b7c2e5b39ef7348140dafa16d00a70db"
+  },
+  "sparse-notice.txt": {
+    "bytes": 1391,
+    "sha256": "92cbf894971a41e05c9fb87fdf5c9eb8d09316579c13958b5be8023bbed8958a"
+  },
+  "spice.map": {
+    "bytes": 573611,
+    "sha256": "6fc9ace58be664f513dc1b69221b49b6b0132fee138272f88a12d4ae053127af"
+  },
+  "toolchain-notices.tar.gz": {
+    "bytes": 38332,
+    "sha256": "47e0576db65b44664fb926aa48ea84bcf47b88d63694fa6b253404d515247866"
+  },
+  "toolchain-runtime-source.tar.gz": {
+    "bytes": 4745507,
+    "sha256": "0413416b038106f3b695e7f9b396752270ffe9ae35110366789e353b8ac775f7"
+  },
+  "toolchain.txt": {
+    "bytes": 331,
+    "sha256": "213df36e3597ae21529432b056190e6497f1f4d0f0aeee0cfc48b55c85a241d5"
+  },
+  "verify-artifacts.mjs": {
+    "bytes": 1152,
+    "sha256": "9941257ecc7983240d5fedcdacfc247aaf0890e8404d2215e10e9f7defa8d01b"
+  },
+  "wrapper-source.tar.gz": {
+    "bytes": 543427,
+    "sha256": "75c6d1193427661d14690e9720ace445434576e431d1e112f53869d28584ee62"
+  }
+}

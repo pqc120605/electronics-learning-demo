@@ -1,0 +1,11 @@
+# Arch mini PC deployment evidence
+
+On 2026-11-17, deployed the reviewed Mạch Mở static release to the Arch x86_64 mini PC as `volnexus`. Verified the 69,691,229-byte archive SHA-256 `4d174aa8b56056fd27cf468ad0090b08214fe6d954c9a82cf27c5b86dc632b51` and the unpacked WASM SHA-256 `3096ce2c499c3062472b9d7953f5141d75a019296e22b0142f4979e5894008ec` remotely before starting the site. The source and redistribution materials are served with the release.
+
+User-owned service `mach-mo-web.service` is active and enabled. `loginctl show-user volnexus -p Linger` returned `Linger=yes`. Reboot behavior has not been exercised. The service uses `~/.config/mach-mo/Caddyfile`, binds HTTP to `127.0.0.1:8080`, and serves `~/.local/share/mach-mo/current`, an atomic symlink to `releases/2026-11-17-4d174aa8`. Caddy 2.11.9 and cloudflared 2026.11.0 were downloaded to the Mạch Mở user directory and their official release checksums verified because system packages were absent. Update these local binaries separately if retaining this setup.
+
+Temporary public URL at verification: `https://samuel-bundle-organizer-hormone.trycloudflare.com`. Cloudflared runs in the transient user unit `mach-mo-quick-tunnel.service`. A tunnel restart or reboot can change the URL. The transient unit is not enabled at startup.
+
+HTTPS checks from Windows returned 200 for `/`, `/app/tools/spice`, `/vendor/eecircuit-engine/spice.wasm` (`application/wasm`), and `/licenses/ngspice-selfbuild/release-files.json` (`application/json`). Two Chromium Playwright tests passed through that same public URL, covering a 2.5 V / 2.5 mA solve and transient probe cursor movement. Caddy validation and local deep-link/media-type checks passed.
+
+To stop Internet exposure, run `systemctl --user stop mach-mo-quick-tunnel.service`. To bring up a fresh temporary URL after a reboot or stop, run `systemd-run --user --unit=mach-mo-quick-tunnel --property=Restart=on-failure --property=RestartSec=5s "$HOME/.local/share/mach-mo/bin/cloudflared" tunnel --no-autoupdate --protocol http2 --url http://127.0.0.1:8080`, then read `journalctl --user -u mach-mo-quick-tunnel.service -n 25 --no-pager`. A permanent address and tunnel startup require the named-tunnel setup. Guest projects are still scoped to each browser origin.

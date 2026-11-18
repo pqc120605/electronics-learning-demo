@@ -1,0 +1,69 @@
+{
+  "before": {
+    "hits": {
+      "offscreen": 16,
+      "builder-guided-session": 7,
+      "catalog-page circuit-builder-page mm-fit": 63,
+      "content-section builder-content builder-guided-content": 4,
+      "builder-stepper": 5,
+      "builder-step-count": 3,
+      "diagram-hole-hit-target  is-selected": 1
+    },
+    "wire": {
+      "x": 510.567626953125,
+      "y": 139.3768768310547,
+      "width": 330.7481994628906,
+      "height": 170.78565979003906,
+      "top": 139.3768768310547,
+      "right": 841.3158264160156,
+      "bottom": 310.16253662109375,
+      "left": 510.567626953125
+    },
+    "pane": {
+      "x": 272,
+      "y": 304.5,
+      "width": 711.6000366210938,
+      "height": 613.8875122070312,
+      "top": 304.5,
+      "right": 983.6000366210938,
+      "bottom": 918.3875122070312,
+      "left": 272
+    },
+    "paneScroll": 601.5999755859375
+  },
+  "after": {
+    "hits": {
+      "diagram-board-pin-hit-target": 1,
+      "wire-v2-5": 80,
+      "diagram-hole-hit-target is-rail ": 4,
+      "diagram-hole-hit-target  ": 13,
+      "diagram-hole-hit-target  is-selected": 1
+    },
+    "first": {
+      "x": 510.5676589922717,
+      "y": 316.73450726561236
+    },
+    "wire": {
+      "x": 510.567626953125,
+      "y": 308.1768493652344,
+      "width": 330.7481994628906,
+      "height": 170.78564453125,
+      "top": 308.1768493652344,
+      "right": 841.3158264160156,
+      "bottom": 478.9624938964844,
+      "left": 510.567626953125
+    },
+    "pane": {
+      "x": 272,
+      "y": 304.5,
+      "width": 711.6000366210938,
+      "height": 613.8875122070312,
+      "top": 304.5,
+      "right": 983.6000366210938,
+      "bottom": 918.3875122070312,
+      "left": 272
+    },
+    "paneScroll": 432.79998779296875
+  },
+  "remaining": 4
+}

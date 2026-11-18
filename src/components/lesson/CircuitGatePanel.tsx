@@ -1,8 +1,8 @@
-import type { CircuitGateReport } from '../../lib/circuitGates'
+import type { CircuitGateReport, CircuitGateId, CircuitDiagnosticAction } from '../../lib/circuitGates'
 import { presentCircuitGateReport } from '../../lib/circuitGatePresentation'
 import './CircuitGatePanel.css'
 
-export function CircuitGatePanel({ report }: { report: CircuitGateReport }) {
+export function CircuitGatePanel({ report, onInspect }: { report: CircuitGateReport; onInspect?: (gateId: CircuitGateId, action: CircuitDiagnosticAction) => void }) {
   const presentation = presentCircuitGateReport(report)
   const { summary } = presentation
 
@@ -21,7 +21,10 @@ export function CircuitGatePanel({ report }: { report: CircuitGateReport }) {
             <span className="circuit-gate-status">{gate.statusLabel}</span>
           </summary>
           {gate.diagnostics.length
-            ? <ul className="circuit-gate-diagnostics">{gate.diagnostics.map((diagnostic, index) => <li key={`${gate.id}-${index}`}>{diagnostic}</li>)}</ul>
+            ? <ul className="circuit-gate-diagnostics">{gate.diagnostics.map((diagnostic, index) => <li key={`${gate.id}-${index}`}><span>{diagnostic}</span>{gate.diagnosticActions?.filter(action => action.diagnosticIndex === index).map((action, actionIndex) => <div className="circuit-diagnostic-action" key={actionIndex}>
+              <p>{action.nextStep}</p>
+              {onInspect && <button type="button" data-diagnostic-target={action.target.kind} onClick={() => onInspect(gate.id, action)}>{action.target.kind === 'endpoint' ? 'Xem chân' : action.target.kind === 'wire' ? 'Xem dây' : 'Xem linh kiện'}</button>}
+            </div>)}</li>)}</ul>
             : <p className="circuit-gate-empty">{gate.emptyNote}</p>}
         </details>
       </li>)}

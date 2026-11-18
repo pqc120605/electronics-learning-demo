@@ -1,0 +1,84 @@
+{
+  "cases": [
+    {
+      "case": "six-files-rejected",
+      "url": "http://127.0.0.1:5320/community/new",
+      "title": "Viết bài mới — Cộng đồng Mạch Mở",
+      "text": "Cộng đồng\n/\nBài mới\nViết bài mới\n\nBẢN XEM TRƯỚC\nBài viết chưa đồng bộ: bài mẫu và bài/bình luận cục bộ chỉ có trên thiết bị này. Chữ lưu localStorage, tệp lưu IndexedDB; có thể bị trình duyệt xoá. Tệp đang chọn chỉ ở bộ nhớ cho tới khi đăng thành công.\nOnline chưa được kết nối. Founder cần tạo Supabase và áp dụng gói docs/software/community-online.\n\nBạn đang viết nháp dưới tên khách, chỉ lưu trên thiết bị này.\n\nNháp chữ tự lưu trên thiết bị. Tệp đang chọn chỉ ở bộ nhớ; cần chọn lại khi tải lại trang.\n\nTiêu đề\nNhóm chủ đề\nChọn nhóm…\nĐiện tử cơ bản\nVi điều khiển & nhúng\nIoT\nDự án\nHỏi đáp lỗi\nThẻ (cách nhau bằng dấu phẩy, tối đa 5)\nNội dung\nĐậm\nCode nội dòng\nChèn khối code\nXem trước\n\nHỗ trợ **đậm**, *nghiêng*, `code`, khối ``` code ```, danh sách - và liên kết https.\n90/10000\n\nẢnh / tệp đính kèm\n\nTối đa 5 tệp, 10 MiB/tệp, 25 MiB/bài. PNG/JPEG/WebP/GIF, PDF, văn bản, JSON và mã nguồn. Tệp chỉ ở bộ nhớ trước khi đăng; không thực thi mã hoặc hiển thị PDF/HTML.\n\nTối đa 5 tệp mỗi bài.\n\nĐăng bài (lưu trên thiết bị)\nHuỷ\nQUY TẮC CỘNG ĐỒNG\nTôn trọng người hỏi; ai cũng từng là người mới.\nMô tả rõ board, sơ đồ nối dây, code và lỗi gặp phải.\nDán code trong khối ``` để dễ đọc; không đăng mật khẩu Wi-Fi, token hay khoá API.\nKhông hướng dẫn thao tác điện lưới 220V hay sạc pin Li-ion thiếu bảo vệ mà không cảnh báo an toàn.\nKhông spam, quảng cáo hay nội dung xúc phạm. Dùng nút “Báo cáo” khi thấy vi phạm.",
+      "screenshot": "community-six-files.png",
+      "alerts": [
+        "Tối đa 5 tệp mỗi bài."
+      ]
+    },
+    {
+      "case": "attachment-preview",
+      "url": "http://127.0.0.1:5320/community/new",
+      "title": "Viết bài mới — Cộng đồng Mạch Mở",
+      "text": "Cộng đồng\n/\nBài mới\nViết bài mới\n\nBẢN XEM TRƯỚC\nBài viết chưa đồng bộ: bài mẫu và bài/bình luận cục bộ chỉ có trên thiết bị này. Chữ lưu localStorage, tệp lưu IndexedDB; có thể bị trình duyệt xoá. Tệp đang chọn chỉ ở bộ nhớ cho tới khi đăng thành công.\nOnline chưa được kết nối. Founder cần tạo Supabase và áp dụng gói docs/software/community-online.\n\nBạn đang viết nháp dưới tên khách, chỉ lưu trên thiết bị này.\n\nNháp chữ tự lưu trên thiết bị. Tệp đang chọn chỉ ở bộ nhớ; cần chọn lại khi tải lại trang.\n\nTiêu đề\nNhóm chủ đề\nChọn nhóm…\nĐiện tử cơ bản\nVi điều khiển & nhúng\nIoT\nDự án\nHỏi đáp lỗi\nThẻ (cách nhau bằng dấu phẩy, tối đa 5)\nNội dung\nĐậm\nCode nội dòng\nChèn khối code\nQuay lại soạn\n\nBài kiểm thử người dùng: đậm, GPIO, ảnh mạch và mã nguồn. Chỉ lưu trên thiết bị thử.\n\nHỗ trợ **đậm**, *nghiêng*, `code`, khối ``` code ```, danh sách - và liên kết https.\n90/10000\n\nẢnh / tệp đính kèm\n\nTối đa 5 tệp, 10 MiB/tệp, 25 MiB/bài. PNG/JPEG/WebP/GIF, PDF, văn bản, JSON và mã nguồn. Tệp chỉ ở bộ nhớ trước khi đăng; không thực thi mã hoặc hiển thị PDF/HTML.\n\nspice-divider-complete.png · 132.7 KiB\nTải spice-divider-complete.png\nGỡ tệp\naudit-blink.ino · 0.0 KiB\nTải audit-blink.ino\nGỡ tệp\nĐăng bài (lưu trên thiết bị)\nHuỷ\nQUY TẮC CỘNG ĐỒNG\nTôn trọng người hỏi; ai cũng từng là người mới.\nMô tả rõ board, sơ đồ nối dây, code và lỗi gặp phải.\nDán code trong khối ``` để dễ đọc; không đăng mật khẩu Wi-Fi, token hay khoá API.\nKhông hướng dẫn thao tác điện lưới 220V hay sạc pin Li-ion thiếu bảo vệ mà không cảnh báo an toàn.\nKhông spam, quảng cáo hay nội dung xúc phạm. Dùng nút “Báo cáo” khi thấy vi phạm.",
+      "screenshot": "community-attachments-preview.png",
+      "alerts": []
+    },
+    {
+      "case": "local-post-restored",
+      "url": "http://127.0.0.1:5320/community/local-mwjgwz91-cf801242",
+      "title": "AUDIT-1611 — tệp và ảnh cục bộ — Cộng đồng Mạch Mở",
+      "text": "Cộng đồng\n/\nIoT\n\nBẢN XEM TRƯỚC\nBài viết chưa đồng bộ: bài mẫu và bài/bình luận cục bộ chỉ có trên thiết bị này. Chữ lưu localStorage, tệp lưu IndexedDB; có thể bị trình duyệt xoá. Tệp đang chọn chỉ ở bộ nhớ cho tới khi đăng thành công.\nOnline chưa được kết nối. Founder cần tạo Supabase và áp dụng gói docs/software/community-online.\n\nIoT\nNháp trên thiết bị\n\nAUDIT-1611 — tệp và ảnh cục bộ\n\nK\nKhách (thiết bị này)\n16/11/2026\n\nBài kiểm thử người dùng: đậm, GPIO, ảnh mạch và mã nguồn. Chỉ lưu trên thiết bị thử.\n\nspice-divider-complete.png · 132.7 KiB\nTải spice-divider-complete.png\naudit-blink.ino · 0.0 KiB\nTải audit-blink.ino\nBáo cáo\n0 bình luận\nViết bình luận\nĐậm\nCode nội dòng\nChèn khối code\nXem trước\n\nBạn đang viết nháp dưới tên khách, chỉ lưu trên thiết bị này.\n0/4000\n\nGửi bình luận",
+      "screenshot": "community-local-post.png",
+      "alerts": []
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "TEXTAREA",
+      "label": null,
+      "placeholder": null,
+      "id": "_r_4_"
+    }
+  ],
+  "buttons": [
+    "?Trợ giúp",
+    "Tải spice-divider-complete.png",
+    "Tải audit-blink.ino",
+    "Báo cáo",
+    "Đậm",
+    "Code nội dòng",
+    "Chèn khối code",
+    "Xem trước",
+    "Gửi bình luận",
+    "Hỏi MởCùng bạn làm mạch"
+  ],
+  "errors": {
+    "errors": [],
+    "failed": [
+      {
+        "url": "http://127.0.0.1:5320/models/arduino-uno-r3.glb?v=53330cd2b0d2",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/models/esp32-devkit-v1-30pin.glb?v=b3d0a6b0be09",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/api/local-tools/compile",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/assets/circuitNets-CvwZy5uq.js",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "http://127.0.0.1:5320/assets/sketchInterpreter-Cr2vFJlH.js",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "bad": []
+  }
+}

@@ -134,3 +134,20 @@ test('G9 evaluates analog docs rather than silently treating them as not applica
   assert.ok(['pass','fail'].includes(result.status))
   assert.notEqual(result.status, 'not_applicable')
 })
+
+test('preserves exact typed targets alongside G6 G7 and G8 diagnostic strings', () => {
+  const doc = api.getLessonCircuitDoc('blink')
+  doc.wires.push({ ...structuredClone(doc.wires[0]), id: 'duplicate-for-inspection' })
+  doc.wires = doc.wires.filter(wire => wire.id !== 'w-resistor-to-led')
+  const report = api.evaluateCircuitGates(doc)
+  const g6 = report.gates.find(gate => gate.id === 'G6')
+  assert.ok(g6.diagnosticActions?.some(action => action.target.kind === 'wire' && action.target.wireId === 'duplicate-for-inspection'))
+  const g7 = report.gates.find(gate => gate.id === 'G7')
+  assert.ok(g7.diagnosticActions?.some(action => action.target.kind === 'endpoint' && action.target.endpoint.partId === 'led-1' && action.target.endpoint.pinId === 'anode'))
+  const g8 = report.gates.find(gate => gate.id === 'G8')
+  assert.ok(g8.diagnosticActions?.some(action => action.target.kind === 'part' && action.target.partId === 'led-1'))
+  for (const gate of report.gates) for (const action of gate.diagnosticActions ?? []) {
+    assert.equal(typeof gate.diagnostics[action.diagnosticIndex], 'string')
+    assert.ok(action.nextStep.length > 0)
+  }
+})

@@ -1,0 +1,5629 @@
+{
+  "at": "2026-11-16T21:09:12.050444+00:00",
+  "files": [
+    {
+      "file": ".planning/.active_plan",
+      "bytes": 36,
+      "sha256": "46b32c95123d5843e51daaa61fb60d2eeeace854ad40f6327ffada5c1bd9e3de"
+    },
+    {
+      "file": ".planning/2026-11-16-mm-sw-user-audit-20261116/findings.md",
+      "bytes": 2811,
+      "sha256": "0fd5065324ade44cd15ff897f8bdde03377194f14259306d99bf7c68aaba50bb"
+    },
+    {
+      "file": ".planning/2026-11-16-mm-sw-user-audit-20261116/progress.md",
+      "bytes": 760,
+      "sha256": "39254a9fe8f7464e1a99fe4f034c8f170fb25f90ebb19e63371b61865b1c35b6"
+    },
+    {
+      "file": ".planning/2026-11-16-mm-sw-user-audit-20261116/task_plan.md",
+      "bytes": 2332,
+      "sha256": "993f4e3b7f1034222aebdb181e84887ef2beb031ca60683dbac31a7aaa3a5ff9"
+    },
+    {
+      "file": "artifact-check.json",
+      "bytes": 466,
+      "sha256": "09b943c43d0873888701cba3b6a89974fc002eb66baa680c3c2b1f6c6f59154d"
+    },
+    {
+      "file": "build-artifacts.py",
+      "bytes": 14767,
+      "sha256": "ab9c607ca559129a35e83c7bdab08ae0f70fd7051482c8c3f9bbdb2916083da0"
+    },
+    {
+      "file": "coverage.md",
+      "bytes": 29705,
+      "sha256": "d12d9efcdfdbec216ed743b4468e6a0e198131087962acf54465384360eb31fe"
+    },
+    {
+      "file": "evidence/avr-arduino-trace.csv",
+      "bytes": 266,
+      "sha256": "16bc335178766b0e4ca7ad84487f24d5e8dc306dd8504ee803c64f00f6696a47"
+    },
+    {
+      "file": "evidence/avr-bare-trace.csv",
+      "bytes": 472,
+      "sha256": "286badbb04c6cebba27a9eab2c392c5cae615b3a9a539e08b955d7d3fd2237ac"
+    },
+    {
+      "file": "evidence/axe-sample.json",
+      "bytes": 1456,
+      "sha256": "9c41a193b38767d6b88fa9810aca925d2ba38d12e4863cc10b195817bef7c419"
+    },
+    {
+      "file": "evidence/board-interactions.json",
+      "bytes": 206729,
+      "sha256": "81baedd8563be9322ed573352fbbf59f77b349b931a284ab4ce0aeb9ba62152d"
+    },
+    {
+      "file": "evidence/boards-browser.json",
+      "bytes": 154901,
+      "sha256": "a684a50f72a17f8dcb11aa82230251fdc8d9f2ec28330642782648dec75fafc3"
+    },
+    {
+      "file": "evidence/browser-session-final.json",
+      "bytes": 1367,
+      "sha256": "2d67d307889273a6fe9f8454ef85bad2e5298bb37f893844af9d2cd840d07f03"
+    },
+    {
+      "file": "evidence/button-route-g6-recheck.json",
+      "bytes": 302,
+      "sha256": "c992a6bfd5e61f83423853af8701325969e44895eb1fa9aa194793cadb67e7e4"
+    },
+    {
+      "file": "evidence/calculators-and-robot.json",
+      "bytes": 15050,
+      "sha256": "261270d65a53f85676d8bd9d53041b5ee912afb1e4b75cd9b225e862c09d132d"
+    },
+    {
+      "file": "evidence/community-and-guide.json",
+      "bytes": 21827,
+      "sha256": "408e667c9a68f7b94301223fc369e9160606564f4b7f9e9e4ccfe71c97bb23c4"
+    },
+    {
+      "file": "evidence/community-attachments.json",
+      "bytes": 7211,
+      "sha256": "df5d97025f709862b3dc156bee2dae1c46c4cf6794841d2331c8b9f25069bee4"
+    },
+    {
+      "file": "evidence/community-downloaded.ino",
+      "bytes": 32,
+      "sha256": "597da37828434f1a885c677a86d4a50da539636ce14b0be46769fc7c4c79a5ce"
+    },
+    {
+      "file": "evidence/compiler-recheck.log",
+      "bytes": 2467,
+      "sha256": "0ba7721106fb3d79593669925567df0111f86f3710a5b292fe922892736dcb5c"
+    },
+    {
+      "file": "evidence/components-browser.json",
+      "bytes": 209255,
+      "sha256": "1f9fbfa1869895c8a8d5b59239fc4a9c971c28e9015cfa840dafab94b3482443"
+    },
+    {
+      "file": "evidence/confirmed-integration-cases.json",
+      "bytes": 20558,
+      "sha256": "b40de931b2a0f14bfcd4a992eb65c76443c38fd7f6adfb1fe8bfeacc2c94e77c"
+    },
+    {
+      "file": "evidence/copper-layout.json",
+      "bytes": 16197,
+      "sha256": "c1adfc305de9e5ae2461aa884dee47e2ee70bafbb12e706a8a1f9cde2d5ad735"
+    },
+    {
+      "file": "evidence/copper-viewers.json",
+      "bytes": 119856,
+      "sha256": "9fda5fd8475dd52a67f793e8720b6eeabccdd9f4134e3adf613d10161227a841"
+    },
+    {
+      "file": "evidence/critical-route-and-theme.json",
+      "bytes": 12288,
+      "sha256": "c34b7f10f2d12f15f57cb185691c6b43acda5c11ed75cb62ecb8525f1d14f727"
+    },
+    {
+      "file": "evidence/feedback-and-community.json",
+      "bytes": 4415,
+      "sha256": "a5170e9ee376185f8bb5e64aff09e526f08291bd2537d51f639c7d21f2e2562b"
+    },
+    {
+      "file": "evidence/feedback-test.md",
+      "bytes": 495,
+      "sha256": "daa32ac784527bf9e07e369ba8a2771312d5b0bddd1f9f24429db2682dfd8925"
+    },
+    {
+      "file": "evidence/firmware-cases.json",
+      "bytes": 18715,
+      "sha256": "82ade42d2a4bb1a3abf72e449b283e24d0abcadde451a893f44c761d4129612d"
+    },
+    {
+      "file": "evidence/freestyle-boards.json",
+      "bytes": 36493,
+      "sha256": "d20960ffde53956e98c141384633f0a52d08917b7926196f59d78c7a8092cf86"
+    },
+    {
+      "file": "evidence/freestyle-edited.json",
+      "bytes": 2547,
+      "sha256": "8213d64ea03048001aef5269a330c0e0922cb9b6465c5e5d8daa77ca9f3a1a57"
+    },
+    {
+      "file": "evidence/freestyle-remaining-and-compile.json",
+      "bytes": 13400,
+      "sha256": "a7c33bac87db05b4019ce648b1cb071352cdc238f74ed5bf89ffc4f862aa0fda"
+    },
+    {
+      "file": "evidence/freestyle-samples.json",
+      "bytes": 8093,
+      "sha256": "d7fa92c06d0712548a3c3fd38c0a818fa93f70774867e3c0f2ccb63e4be22dd9"
+    },
+    {
+      "file": "evidence/keyboard-pin-pin.json",
+      "bytes": 7786,
+      "sha256": "25918819f801cbd3335917851a60b66cb1fa807dadc52549fdac9e2529bc5990"
+    },
+    {
+      "file": "evidence/kit-cases.json",
+      "bytes": 25454,
+      "sha256": "ebda799e20a65b519779e8dc9a641f2e315f75e9853fa1ef75e8721ad558ef3e"
+    },
+    {
+      "file": "evidence/kit-share.json",
+      "bytes": 3668,
+      "sha256": "7fbdb761e76f5a76386318d5ba354fd2d3ddceb5a7cf1869cb051251a615c190"
+    },
+    {
+      "file": "evidence/kit.csv",
+      "bytes": 935,
+      "sha256": "eefa97f77a0c64dcf300b8b238cefd1fe8387a992a68db4f7f86b0401207eba2"
+    },
+    {
+      "file": "evidence/kit.json",
+      "bytes": 205,
+      "sha256": "5b19231e14c97766a563109815e9e429077b209d20278616016be0f91c8bda20"
+    },
+    {
+      "file": "evidence/lesson-board-stable-recheck.json",
+      "bytes": 3024,
+      "sha256": "008d31a07c26adfb6e621d30bf3e820537d2cd72f6e68bc4c46b0d023af28a9f"
+    },
+    {
+      "file": "evidence/lessons-all.json",
+      "bytes": 398594,
+      "sha256": "d6427a96c85d23fdba17641914b481ff9295ebd229c78f91c3d648c80083b790"
+    },
+    {
+      "file": "evidence/mobile-interaction.json",
+      "bytes": 4899,
+      "sha256": "27e236fc938e380b51c202ff4ea33df9db106a79f4552b42f8d16f450e235f9f"
+    },
+    {
+      "file": "evidence/mobile-routes.json",
+      "bytes": 10077,
+      "sha256": "7c17d071e32c0b08b280e996c2e555161f0501d22b9d5a5deaffb713d8ff0535"
+    },
+    {
+      "file": "evidence/model-source-audit.json",
+      "bytes": 26223,
+      "sha256": "57e33f537b13a3c6dd61ec4ce67c374c0de244133b3debb7773f49860fa151b7"
+    },
+    {
+      "file": "evidence/project-export.json",
+      "bytes": 3017,
+      "sha256": "a2a1db101bbffb71eeedb230621e058d4c1386401f4fbc25d595f12e22b8666d"
+    },
+    {
+      "file": "evidence/project-isolated-import.json",
+      "bytes": 16500,
+      "sha256": "917108d54d8c7590166dda68bd4de0824903cc53bdd5ee5a8fa94c54dd092d77"
+    },
+    {
+      "file": "evidence/project-open-and-extra-scene.json",
+      "bytes": 20814,
+      "sha256": "399684057561cf06223532ff9df4b67671ab216c841c425b8472c155d25c8fd9"
+    },
+    {
+      "file": "evidence/project-save.json",
+      "bytes": 8108,
+      "sha256": "4b59d2c9d9d31dfac87f075316b52f757d87b66202a9e3c8125b97519c7ff1d3"
+    },
+    {
+      "file": "evidence/queue-final.log",
+      "bytes": 81,
+      "sha256": "2ae7454bc07697f826f8c1260e8e3ec9ee52d4e98d54d56a9cd63fe7b7e17765"
+    },
+    {
+      "file": "evidence/route-smoke-desktop.json",
+      "bytes": 114067,
+      "sha256": "62848b4af8e10bad4a236e1d768e9a14645633400544e3a242c77c05b85ab08c"
+    },
+    {
+      "file": "evidence/sketch-cases.json",
+      "bytes": 29268,
+      "sha256": "c1671902e5a113e2e87edc2facc71b772f2f9e375f17d01302b8fb1e72c20c72"
+    },
+    {
+      "file": "evidence/spice-cad-final.json",
+      "bytes": 7408,
+      "sha256": "8a518f11b051add41084a9be936417539b2cb9d2bcb475a8790c5fd8391b55ad"
+    },
+    {
+      "file": "evidence/spice-cad-import.json",
+      "bytes": 6454,
+      "sha256": "d6acd13fb46ba5390e6346eb3f3923ea1947910e3c035f1449b367bbdc388ff5"
+    },
+    {
+      "file": "evidence/spice-cases.json",
+      "bytes": 24477,
+      "sha256": "9b94a254da4d74e6ce9871bf9d2d1f4bcd17db738b5c0491f6822e05947bc562"
+    },
+    {
+      "file": "evidence/spice-dc.csv",
+      "bytes": 193,
+      "sha256": "4ad8b252152d3eb32d87b58123a649e3a5f12b431cdd883ebaaa16ea7cb52a9a"
+    },
+    {
+      "file": "evidence/tours.json",
+      "bytes": 11100,
+      "sha256": "e956bea2c41f0b37b4f5280c9116d9ec382f15422dbed7200c4c2e2bba79090f"
+    },
+    {
+      "file": "evidence/typecheck.log",
+      "bytes": 141,
+      "sha256": "aed1c139a3382e941c2db5a93942e7071a48537206764175bd26142cb3c23655"
+    },
+    {
+      "file": "evidence/unit.log",
+      "bytes": 71644,
+      "sha256": "bd746f8623bbfe4b139fed28fda340cebcb29dc4bdba674878fca18349afea69"
+    },
+    {
+      "file": "evidence/wire-drag-comparison.json",
+      "bytes": 6158,
+      "sha256": "fad90328ba02265ef8cc9600c749aaa4da183e879d6ac7156b7270acd01f0200"
+    },
+    {
+      "file": "evidence/wire-drag-fresh-comparison.json",
+      "bytes": 6838,
+      "sha256": "478f97935c574e1f15c8683bfb84ba6bdba181770aab7ab7acd2ce7f9ee38a1b"
+    },
+    {
+      "file": "evidence/wire-drag-recheck.json",
+      "bytes": 5128,
+      "sha256": "d7b00fef2a3e8e08bc59b7f7c14fffbbe84ebde1dba22ece61c77f61be8eee71"
+    },
+    {
+      "file": "evidence/wiring-and-draft.json",
+      "bytes": 11531,
+      "sha256": "300aab4582c2eb209bf7322c866627fe04be0664e4f6c6c8f02e4aab0412b412"
+    },
+    {
+      "file": "findings.json",
+      "bytes": 18751,
+      "sha256": "c841481e58bfe4ab4bb719024461a2bf66cee296aae12b116957109ab6c6f2ed"
+    },
+    {
+      "file": "gallery.html",
+      "bytes": 138763,
+      "sha256": "6f7cc964e160d36668f54c48a3b78b7c40d805dd77f29cfa09e54820ab00711d"
+    },
+    {
+      "file": "report-qa.md",
+      "bytes": 2765,
+      "sha256": "adcb64284fbb6dd78c0d98ae9a703d43d751ff11cd90e22a61ab3dc1782dc5cd"
+    },
+    {
+      "file": "report.md",
+      "bytes": 36389,
+      "sha256": "b77cfe4a1d7320a44b63548085629b37b4f32487943e42937b221b83faaba521"
+    },
+    {
+      "file": "screenshots/001-home-desktop.png",
+      "bytes": 208168,
+      "sha256": "0e8529056e08bd299ab925e5d01fc8f930415b0cfe4eef080f93351b7af9ad06"
+    },
+    {
+      "file": "screenshots/010-app-desktop.png",
+      "bytes": 274275,
+      "sha256": "93655440b0e2c6286514ce3d1fabf796b9382b8bf447d0cda3865f4c41290ac0"
+    },
+    {
+      "file": "screenshots/011-topics-desktop.png",
+      "bytes": 155542,
+      "sha256": "eff10470f2ed61f459dfa96057aa267ec65d44c4432e5479fef0af5c60a5f3d1"
+    },
+    {
+      "file": "screenshots/012-boards-desktop.png",
+      "bytes": 246032,
+      "sha256": "b9238474f7df65eb26bf1073c1fd903577aaf54ab391ae592efab2871c01ddbb"
+    },
+    {
+      "file": "screenshots/013-components-desktop.png",
+      "bytes": 172742,
+      "sha256": "68e466909c1b3c22d0b8889de30b0f961e0d885c9f09a56c47f87fd48b7bc0d0"
+    },
+    {
+      "file": "screenshots/014-projects-desktop.png",
+      "bytes": 128990,
+      "sha256": "6e622f1578d6d76015b76b33c0e6815d1f923097a9f5cf0322782af68a46f6f4"
+    },
+    {
+      "file": "screenshots/015-app-classroom-kits-desktop.png",
+      "bytes": 161837,
+      "sha256": "e7f99523293286f2639dc74889bb711e324a6a2183a36df0eff7bc2f868e61e7"
+    },
+    {
+      "file": "screenshots/016-tools-electronics-calculators-desktop.png",
+      "bytes": 128759,
+      "sha256": "75540475bacba7152de187f549d609c02d9ede1dee4261bb9eebe0375664c93a"
+    },
+    {
+      "file": "screenshots/017-tools-spice-desktop.png",
+      "bytes": 145474,
+      "sha256": "e7c474b0d0e38be7cec911ce5e2e35724b5a773bdd8f902fb67872050115da45"
+    },
+    {
+      "file": "screenshots/018-tools-sketch-desktop.png",
+      "bytes": 157864,
+      "sha256": "00f7fb08ad56b475487cf7841f36df2bfb1f19bb895fd87c3b4fea223d9ba529"
+    },
+    {
+      "file": "screenshots/019-tools-firmware-hex-desktop.png",
+      "bytes": 142410,
+      "sha256": "27fb3cd3cede0dbe63482ddbd49a72d18e4b7e124658a5b1b3b15f93a49251bd"
+    },
+    {
+      "file": "screenshots/020-community-desktop.png",
+      "bytes": 209619,
+      "sha256": "d81ded1c5a750372971d7af498a2b6dafc8a1cf9dbff5870a1b8e9a04d389b1f"
+    },
+    {
+      "file": "screenshots/021-feedback-desktop.png",
+      "bytes": 142696,
+      "sha256": "c6fd04a983b3280db23d4c1eef43edfb90ba6a12cdefa640cb374eda8e75cb25"
+    },
+    {
+      "file": "screenshots/022-privacy-desktop.png",
+      "bytes": 143072,
+      "sha256": "83066d6ea21141249f16b61b104b31eac41b26ceee450c025d6cff24c5593472"
+    },
+    {
+      "file": "screenshots/023-login-desktop.png",
+      "bytes": 137512,
+      "sha256": "5bbca89172c5f450fc2a93dd961f2a14b9ca7e28d0df18d584dc385d7c72aed1"
+    },
+    {
+      "file": "screenshots/024-admin-login-desktop.png",
+      "bytes": 26126,
+      "sha256": "fd425cd29847898ada1ae585dfa5c0943baf7c85fefb28991252cf6002b83f67"
+    },
+    {
+      "file": "screenshots/025-app-robot-simulation-desktop.png",
+      "bytes": 232495,
+      "sha256": "6002b4befc6095bc706015b87062867460bdd697e7b138214fa51e3f63607ff7"
+    },
+    {
+      "file": "screenshots/board-01-seeed-xiao-esp32c3.png",
+      "bytes": 131427,
+      "sha256": "463f572539fdf1ec2fef9e49dac1550c999ade3e3f2452e6d38ccdf27e9f9205"
+    },
+    {
+      "file": "screenshots/board-02-seeed-xiao-esp32-s3.png",
+      "bytes": 88429,
+      "sha256": "2fdccd61de22a8ab3e749c0ab4887d5480ca0f38e5f596bb1e2719e226644dea"
+    },
+    {
+      "file": "screenshots/board-03-adafruit-qtpy-esp32-c3-5405.png",
+      "bytes": 100133,
+      "sha256": "ec321a250860d69ece46d8431761b941d7813ecd22b957dfd124bad2d8d613fd"
+    },
+    {
+      "file": "screenshots/board-04-adafruit-feather-esp32-s3-tft-5483.png",
+      "bytes": 101076,
+      "sha256": "de6e0dcf14ba249c80c53663cfabd612546dabb54010406eb83c07a02082c751"
+    },
+    {
+      "file": "screenshots/board-05-adafruit-feather-esp32-s3-5323.png",
+      "bytes": 105427,
+      "sha256": "af2ac7d4a8731a7856a7a68b214b53b3005dd6dad418393d719b22cb7d1c8be7"
+    },
+    {
+      "file": "screenshots/board-06-esp32-devkit.png",
+      "bytes": 108601,
+      "sha256": "b38555a1cdc1ef77d989336b216333cc0a9f3f105ff17ea8b4c1b397e8d69e7e"
+    },
+    {
+      "file": "screenshots/board-07-arduino-uno-r3.png",
+      "bytes": 118992,
+      "sha256": "87d96e3ac69cd13a4c668aef3d2359f9dc5ae6d13c0716c78c927106f9cff67b"
+    },
+    {
+      "file": "screenshots/board-08-arduino-nano-classic.png",
+      "bytes": 124735,
+      "sha256": "fed5f7c587004d96fbdc46ab94f3786f7720a465e166b094005ac6d04d43a9fc"
+    },
+    {
+      "file": "screenshots/board-09-arduino-mega-2560-r3.png",
+      "bytes": 119515,
+      "sha256": "1115ed9fb35e5a3cb84e6d93a1b34aef50258f2db97a9d28ea2cea62c3fa2cdf"
+    },
+    {
+      "file": "screenshots/board-10-stm32-nucleo.png",
+      "bytes": 107302,
+      "sha256": "c84ff813b40f0b5e742122cf1d014a53ed7b90f2c7409fc09e12a3b750968c11"
+    },
+    {
+      "file": "screenshots/board-11-esp32-c3-devkitm-1.png",
+      "bytes": 71866,
+      "sha256": "5add69e8575f9a5825559c167ac2d9ccab9af5b7ca4adefba73a949939953257"
+    },
+    {
+      "file": "screenshots/board-12-esp32-devkitm-1.png",
+      "bytes": 71442,
+      "sha256": "756f12169fb2868827da3579342504c3492f4e4e245137d99ffdf75ea3f2b58d"
+    },
+    {
+      "file": "screenshots/board-13-esp32-s3-devkitc-1.png",
+      "bytes": 116599,
+      "sha256": "9df7b43f48b1f13cf72f74b79b4bb11d4e74918adcaa417296efc90fb36e67b9"
+    },
+    {
+      "file": "screenshots/board-14-stm32-blue-pill-f103.png",
+      "bytes": 105313,
+      "sha256": "e666c820b9087e27104f527ae644457297e30f50d52f5a4edb26bc1822f0b8ba"
+    },
+    {
+      "file": "screenshots/board-15-raspberry-pi-pico.png",
+      "bytes": 95044,
+      "sha256": "ae6e456658c46de8848685dff7ea1a3921896519de1fef58ced2119ab37ab748"
+    },
+    {
+      "file": "screenshots/board-16-raspberry-pi-pico-w.png",
+      "bytes": 112875,
+      "sha256": "13a2bd9f9fc85fe97fc18c89570db43d196f9140b95df49b23ddc679a643d839"
+    },
+    {
+      "file": "screenshots/board-17-raspberry-pi-pico-2.png",
+      "bytes": 116266,
+      "sha256": "02ee9e542c3789f59484d0b2dfcbebae87668d5082fa07fdba6dab596c9eb4c4"
+    },
+    {
+      "file": "screenshots/board-18-raspberry-pi-pico-2-h.png",
+      "bytes": 112124,
+      "sha256": "753312c8247f7799de98f1ff16346d73088c9cab9acc9ec2de570c8bc11c4a47"
+    },
+    {
+      "file": "screenshots/board-19-esp32-c6-devkitc-1.png",
+      "bytes": 52836,
+      "sha256": "376ff264c20771043208c43b2ba3a0d56d9540f8cb956b81e3f04e471d4ffd1d"
+    },
+    {
+      "file": "screenshots/board-20-stm32-nucleo-f411re.png",
+      "bytes": 51818,
+      "sha256": "395bdc939f9f44fda9bedfee9622914fcda74287487673ac3e606cae474b6115"
+    },
+    {
+      "file": "screenshots/board-21-arduino-uno-r4-minima.png",
+      "bytes": 122443,
+      "sha256": "b44be67b4d48759e50a058bd82685831f4ec48fdfe7770bb5709f981a3c07ece"
+    },
+    {
+      "file": "screenshots/board-22-arduino-uno-r4-wifi.png",
+      "bytes": 184367,
+      "sha256": "0c0c4ddf8a4f7c1f0c597ac1112cdfd1b018774fb94daa7b673d6e43d994d955"
+    },
+    {
+      "file": "screenshots/board-23-arduino-nano-esp32.png",
+      "bytes": 48628,
+      "sha256": "9afef574637dffa591752ae54b5da502294234b5d014d439b6add7f692b25899"
+    },
+    {
+      "file": "screenshots/board-24-arduino-nano-every.png",
+      "bytes": 47322,
+      "sha256": "c8f3b1932ff0fe86f26ef006886d8c18a336768aaa4075d115ef717611ff220b"
+    },
+    {
+      "file": "screenshots/board-25-esp32-s2-devkitc-1.png",
+      "bytes": 49696,
+      "sha256": "ad77b609c8a7b6d3609ebf4fa91ae6494e963d4748fac5182fb7e5dd0b2fbb6f"
+    },
+    {
+      "file": "screenshots/board-26-esp32-h2-devkitm-1.png",
+      "bytes": 48770,
+      "sha256": "a308a572f1cb1d2615c3050d2f73809d42c2474d63db6af53e1d8a7789f77b36"
+    },
+    {
+      "file": "screenshots/board-27-stm32-nucleo-l476rg.png",
+      "bytes": 49550,
+      "sha256": "40ff94a0a328584c0430a625eebfc7e5cc738c7c8a1a6ff2fa0897d82ecf8f00"
+    },
+    {
+      "file": "screenshots/board-28-stm32-nucleo-f446re.png",
+      "bytes": 50193,
+      "sha256": "cf293b8364daa87942c660b08c7ed4f5a954da5d9dff4c3f475e1ecace4477a7"
+    },
+    {
+      "file": "screenshots/board-esp32-extra-led-scene.png",
+      "bytes": 182882,
+      "sha256": "6770d7331fda2e5edb1234931e91ccdc2efc6c62da07d7a3e69fa6652b106441"
+    },
+    {
+      "file": "screenshots/board-pin-arduino-mega-2560-r3-D18.png",
+      "bytes": 119536,
+      "sha256": "c17e9a87669be53835baeabe6bd982132f9869084e80209004d4b8d16511f364"
+    },
+    {
+      "file": "screenshots/board-pin-arduino-mega-2560-r3-D3.png",
+      "bytes": 115786,
+      "sha256": "f2a411137bc161ce749c73935b2ab207a6c2efb450a975382b5aae26b24d3387"
+    },
+    {
+      "file": "screenshots/board-pin-arduino-uno-r3-D13.png",
+      "bytes": 83830,
+      "sha256": "8ce0717f0a82a35a2d206d286a709d0ad66fc39f0153a381f781f9e6f97fa449"
+    },
+    {
+      "file": "screenshots/calculator-adc-negative-limit.png",
+      "bytes": 132071,
+      "sha256": "c0acfb72805c90f9280e54deff1650750e5ea5a2a99672e85b4431be2e6f9801"
+    },
+    {
+      "file": "screenshots/calculator-i2c-blank.png",
+      "bytes": 129353,
+      "sha256": "2cf28ac3e2b947bbb55255d0d239924dd626f822bb55760ae671240bd102903b"
+    },
+    {
+      "file": "screenshots/calculator-led-zero-current.png",
+      "bytes": 161742,
+      "sha256": "eac8a5cfbafbe88023ef9b771f68cf1ec2ad4efa329a56a246f2251415938fdd"
+    },
+    {
+      "file": "screenshots/calculator-rc-negative.png",
+      "bytes": 128010,
+      "sha256": "31dcfbf09e8d67fe50aed681d566ec96dd95ca8c1809882b7ae5cc4bc173db15"
+    },
+    {
+      "file": "screenshots/calculator-spice-handoff.png",
+      "bytes": 186376,
+      "sha256": "76062658b70164a60fe48b199d182843d4ab4c5fcd71988f793640566501815c"
+    },
+    {
+      "file": "screenshots/calculators-valid.png",
+      "bytes": 154805,
+      "sha256": "b3694060aefbfb22324c9131ad09a0aedb9e7b491f2268c3055a1320b5fe24a4"
+    },
+    {
+      "file": "screenshots/community-attachments-preview.png",
+      "bytes": 190827,
+      "sha256": "7a38356989738836692d6af6c2d3874cef71242767df2790f22ad78794d66152"
+    },
+    {
+      "file": "screenshots/community-comment.png",
+      "bytes": 142761,
+      "sha256": "b674d9d9b7add0003c1e21784038fd0d1b703df77fa5110f09d7de8fe1750cf9"
+    },
+    {
+      "file": "screenshots/community-compose.png",
+      "bytes": 222389,
+      "sha256": "c13025ec9c14b982f864a4f9cd9720fc6bef506656858dc03ce1e37e28bb8269"
+    },
+    {
+      "file": "screenshots/community-filter.png",
+      "bytes": 184058,
+      "sha256": "52596618a4d2b8de036e26f66c95b408baa379ad669d91285fa5405fb88bde7a"
+    },
+    {
+      "file": "screenshots/community-local-post.png",
+      "bytes": 189480,
+      "sha256": "a5cc3bb3a59e967a464a8dc9c747e9c9cdb90f4d22c29aa8c879a079e4216431"
+    },
+    {
+      "file": "screenshots/community-report.png",
+      "bytes": 145242,
+      "sha256": "6a653ae41b990ac57a2df2c5b4769d114d67158ca3fdbd7bba7676dccd7f878b"
+    },
+    {
+      "file": "screenshots/community-six-files.png",
+      "bytes": 180267,
+      "sha256": "78a21248a77ad1f8f96aabf80ba35702069336a693247b67e564fb1026bac0fc"
+    },
+    {
+      "file": "screenshots/component-01-seeed-xiao-esp32c3-2d.png",
+      "bytes": 11749,
+      "sha256": "105d190972b0397d82c3e8eb56b1b17521facdf136211b56941d1c6aaeaf0cdb"
+    },
+    {
+      "file": "screenshots/component-02-seeed-xiao-esp32-s3-2d.png",
+      "bytes": 11749,
+      "sha256": "105d190972b0397d82c3e8eb56b1b17521facdf136211b56941d1c6aaeaf0cdb"
+    },
+    {
+      "file": "screenshots/component-03-esp32-devkit-2d.png",
+      "bytes": 63847,
+      "sha256": "99e4d2f3d6972ac5662dcdcd58199de14bf7a6e5fcaaf2c707dbf9bb718c5cf4"
+    },
+    {
+      "file": "screenshots/component-04-adafruit-qtpy-esp32-c3-5405-2d.png",
+      "bytes": 11749,
+      "sha256": "105d190972b0397d82c3e8eb56b1b17521facdf136211b56941d1c6aaeaf0cdb"
+    },
+    {
+      "file": "screenshots/component-05-adafruit-feather-esp32-s3-tft-5483-2d.png",
+      "bytes": 11749,
+      "sha256": "105d190972b0397d82c3e8eb56b1b17521facdf136211b56941d1c6aaeaf0cdb"
+    },
+    {
+      "file": "screenshots/component-06-adafruit-feather-esp32-s3-5323-2d.png",
+      "bytes": 11749,
+      "sha256": "105d190972b0397d82c3e8eb56b1b17521facdf136211b56941d1c6aaeaf0cdb"
+    },
+    {
+      "file": "screenshots/component-07-arduino-uno-2d.png",
+      "bytes": 54278,
+      "sha256": "7ddfcbfe69e8355617c6f75718e99ef33ec73dd6db3d25d106a067283938a1dd"
+    },
+    {
+      "file": "screenshots/component-08-arduino-nano-2d.png",
+      "bytes": 11751,
+      "sha256": "23d14e86ef6b6049fbcc8d1ac79082d98b9260f6830ab5fbbb00f5d44320ce77"
+    },
+    {
+      "file": "screenshots/component-09-arduino-mega-2d.png",
+      "bytes": 11751,
+      "sha256": "23d14e86ef6b6049fbcc8d1ac79082d98b9260f6830ab5fbbb00f5d44320ce77"
+    },
+    {
+      "file": "screenshots/component-10-stm32-f401-2d.png",
+      "bytes": 61860,
+      "sha256": "0927a0b32d09e69c3937eb4631df7c165de066b7093d85062dabb82860e2a773"
+    },
+    {
+      "file": "screenshots/component-11-stm32-blue-pill-2d.png",
+      "bytes": 62128,
+      "sha256": "8b39ccfd2ced88b467947d9e496810ecb308db78ef12013620725c1c316e66cf"
+    },
+    {
+      "file": "screenshots/component-12-rp2040-pico-2d.png",
+      "bytes": 11751,
+      "sha256": "23d14e86ef6b6049fbcc8d1ac79082d98b9260f6830ab5fbbb00f5d44320ce77"
+    },
+    {
+      "file": "screenshots/component-13-rp2350-pico-2-h-2d.png",
+      "bytes": 11751,
+      "sha256": "23d14e86ef6b6049fbcc8d1ac79082d98b9260f6830ab5fbbb00f5d44320ce77"
+    },
+    {
+      "file": "screenshots/component-14-esp32-s3-2d.png",
+      "bytes": 9008,
+      "sha256": "5656df3d26fdded9998034bf9bf536dc8fb18a7048f0f2591b9e807f0ddcecaf"
+    },
+    {
+      "file": "screenshots/component-15-resistor-2d.png",
+      "bytes": 9100,
+      "sha256": "ed26d04d8b2728b311cdc40421b6c8096e4d62e80169ea0ed5fee6a5d41ac337"
+    },
+    {
+      "file": "screenshots/component-15-resistor-3d.png",
+      "bytes": 23367,
+      "sha256": "87c383400fc1b35313422f162ce242b413ced9369aeb4722355ceab624422ec8"
+    },
+    {
+      "file": "screenshots/component-16-potentiometer-2d.png",
+      "bytes": 16248,
+      "sha256": "382443fdf7d7bea306240c20431139d44720c734f67dafecb626cbc6c2542ecb"
+    },
+    {
+      "file": "screenshots/component-16-potentiometer-3d.png",
+      "bytes": 28243,
+      "sha256": "95f074b4b7f6f405904919105879d6a84630afd8e3b7cfa00d5557000c48fd42"
+    },
+    {
+      "file": "screenshots/component-17-led-2d.png",
+      "bytes": 14693,
+      "sha256": "4247a32c6c84bf6a8419dc77113632387ed2482e246416b20b8ad05b3214a045"
+    },
+    {
+      "file": "screenshots/component-17-led-3d.png",
+      "bytes": 21695,
+      "sha256": "4cb3902ac678227de2ca86a1dfa8a7449631cb0d47c9e189ab70fd213a2e1810"
+    },
+    {
+      "file": "screenshots/component-18-button-2d.png",
+      "bytes": 9545,
+      "sha256": "08638b1287254d8eecff4ac0c7e222d368ec8c46d8ac57e937535957c945a6ea"
+    },
+    {
+      "file": "screenshots/component-18-button-3d.png",
+      "bytes": 26720,
+      "sha256": "bb27432d2d692832c6c9922d3cd5064dbe06a8d5620190723dca97ab4c3f6775"
+    },
+    {
+      "file": "screenshots/component-19-ldr-2d.png",
+      "bytes": 16042,
+      "sha256": "a682a16746cdaa1424c49ab71bde6e0bbea7463687c86381b834b329f780db18"
+    },
+    {
+      "file": "screenshots/component-19-ldr-3d.png",
+      "bytes": 25466,
+      "sha256": "3829db2e4a7df99a5c495ee605fd5119e1129bd81ad80a4cf2ffe62b1630d9e8"
+    },
+    {
+      "file": "screenshots/component-20-ntc-2d.png",
+      "bytes": 11692,
+      "sha256": "4350a189bf1e823781d266183002252313875c46b4e84923a3c502b67831b10a"
+    },
+    {
+      "file": "screenshots/component-20-ntc-3d.png",
+      "bytes": 19461,
+      "sha256": "ddc0782bc57d186de72a69f41095bdf3c5a9e71d61ba3050badba0b9afdce2f5"
+    },
+    {
+      "file": "screenshots/component-21-dht22-2d.png",
+      "bytes": 11847,
+      "sha256": "3ec19e4c648d7b7ce374efc4df217adb51071dffd7d3e8333aa5a1d5bd01e9fe"
+    },
+    {
+      "file": "screenshots/component-21-dht22-3d.png",
+      "bytes": 31421,
+      "sha256": "d4b737b2eab4242126caca5038425a326adcb0e0127cd3688f285d1cc3637760"
+    },
+    {
+      "file": "screenshots/component-22-hc-sr04-2d.png",
+      "bytes": 61258,
+      "sha256": "05d5b8ea28f203e9b402430510a3c3524e8884ec48410690d1e66410f7606d40"
+    },
+    {
+      "file": "screenshots/component-22-hc-sr04-3d.png",
+      "bytes": 34443,
+      "sha256": "29c4eb2627707e21e329e17d98492f359be6deda535bce9b6f842cbe9e46fbcb"
+    },
+    {
+      "file": "screenshots/component-23-pir-2d.png",
+      "bytes": 60726,
+      "sha256": "a945b2a138d6c9e7c079eeba142e27dffa31ff9f8f54ec4ddd78164ab23b0dce"
+    },
+    {
+      "file": "screenshots/component-23-pir-3d.png",
+      "bytes": 28663,
+      "sha256": "0c27b1858202d326b434e042a964608e30b59e08aef63329857cdb4c32917bfa"
+    },
+    {
+      "file": "screenshots/component-24-slide-switch-2d.png",
+      "bytes": 11634,
+      "sha256": "66c3932a7fe3e670bc87e8a5c7a937570a132fd7919bb12465a8e1b71c0c1a9e"
+    },
+    {
+      "file": "screenshots/component-24-slide-switch-3d.png",
+      "bytes": 23939,
+      "sha256": "b8ec398c2777313926da1894e03c436a04f8d055568913d73df5c8ba1742d341"
+    },
+    {
+      "file": "screenshots/component-25-limit-switch-2d.png",
+      "bytes": 11771,
+      "sha256": "26cde71d85fe3627695df9f85cef70da06d6e7cc2d1ff7de8ac8ec4c3764b1c1"
+    },
+    {
+      "file": "screenshots/component-25-limit-switch-3d.png",
+      "bytes": 23361,
+      "sha256": "e324d8a4db305c3f6caa716395255b81fec1b513ae24a01d42da2ef3843a7dd3"
+    },
+    {
+      "file": "screenshots/component-26-buzzer-2d.png",
+      "bytes": 13261,
+      "sha256": "891482e93bfe91a936ad4d40db56e831c0a2164bd0b4e63ce1d9cd5f8ff3c8d5"
+    },
+    {
+      "file": "screenshots/component-26-buzzer-3d.png",
+      "bytes": 25191,
+      "sha256": "841fc1ac55848504f317cc051bd330a153935744945fcffb896b0c0ebbb05389"
+    },
+    {
+      "file": "screenshots/component-27-servo-2d.png",
+      "bytes": 12447,
+      "sha256": "55ca84883080b3fa64fddbbd7384418b7fec4b189f2491559284a037c7cc3119"
+    },
+    {
+      "file": "screenshots/component-27-servo-3d.png",
+      "bytes": 25648,
+      "sha256": "4d3797b9c24325511d747cdc92b1932d23e82cf8ad25a3c22d31d07fd406a603"
+    },
+    {
+      "file": "screenshots/component-28-dc-motor-2d.png",
+      "bytes": 11759,
+      "sha256": "8e713b4e63877b4e9f186f5a4d902e1d14ae640f8c38c493dd9423322702256d"
+    },
+    {
+      "file": "screenshots/component-28-dc-motor-3d.png",
+      "bytes": 29663,
+      "sha256": "1a129202c6555b8e323462b818d7fe6f58b7691c3acdb38c44dc54169e9d58a2"
+    },
+    {
+      "file": "screenshots/component-29-motor-driver-2d.png",
+      "bytes": 11972,
+      "sha256": "3994b6c0ed5a9dcecbce1d36ff8090c9255b03b07fab2261b37c52c676313ea5"
+    },
+    {
+      "file": "screenshots/component-29-motor-driver-3d.png",
+      "bytes": 33113,
+      "sha256": "0aeb8bacf72c84e759af604782620c47af2dae6da17d69df813dc521dd6830d7"
+    },
+    {
+      "file": "screenshots/component-30-mosfet-2d.png",
+      "bytes": 10626,
+      "sha256": "4404be7adf20c2eec81ec65e43f15193eae0993179b17bff300282781b62682d"
+    },
+    {
+      "file": "screenshots/component-30-mosfet-3d.png",
+      "bytes": 21045,
+      "sha256": "139d03db7443c8bb806bd35624dfa35465e0ba20b25fec8b93230165584f1dfb"
+    },
+    {
+      "file": "screenshots/component-31-relay-2d.png",
+      "bytes": 47297,
+      "sha256": "ca9ec3e0151cb0a046f038e489788b09f8f54e55cbbdbdaac43e6784a45d0de7"
+    },
+    {
+      "file": "screenshots/component-31-relay-3d.png",
+      "bytes": 29450,
+      "sha256": "0670745514afcc21099219a54bf6b2c92bd027d86c225b37121d8c4147ad1dcd"
+    },
+    {
+      "file": "screenshots/component-32-oled-2d.png",
+      "bytes": 41387,
+      "sha256": "e7d3d456a16dcf605a4496080dc775b1ba73b93ed3aa8f66e6391a237326f2ab"
+    },
+    {
+      "file": "screenshots/component-32-oled-3d.png",
+      "bytes": 30235,
+      "sha256": "d331121236813ded604539a6095ed35c164ebddee677bc0bf78d0caccb6a11fd"
+    },
+    {
+      "file": "screenshots/component-33-lcd1602-2d.png",
+      "bytes": 10565,
+      "sha256": "e2b42b642a30dcf812626343cc3db91a161c18b0cf63010a2fdac03759fa4094"
+    },
+    {
+      "file": "screenshots/component-33-lcd1602-3d.png",
+      "bytes": 27665,
+      "sha256": "e68b3b391e50a7096a57a7940fb72e377712b93d90bc1e1e109e40dc11dc8578"
+    },
+    {
+      "file": "screenshots/component-34-neopixel-2d.png",
+      "bytes": 15924,
+      "sha256": "71723f321842e7e6c54a5a157830970bf5c052fad9275c647f02db0b42e98a71"
+    },
+    {
+      "file": "screenshots/component-34-neopixel-3d.png",
+      "bytes": 21653,
+      "sha256": "6fc6e56ffe4fc32e57ff179cefc8c5a4093ebca2f91c5ef9574a7fb813dd341b"
+    },
+    {
+      "file": "screenshots/component-35-rgb-led-2d.png",
+      "bytes": 14950,
+      "sha256": "fffad98befc8d358e9e30087373cb6c2c848dce6c9bc2bb171a681940d917fd2"
+    },
+    {
+      "file": "screenshots/component-35-rgb-led-3d.png",
+      "bytes": 22374,
+      "sha256": "b0c1fdafcb8804db67e7d92a314adba57caf784bbd840d52815ec7d9e16499e2"
+    },
+    {
+      "file": "screenshots/component-36-ir-obstacle-2d.png",
+      "bytes": 46934,
+      "sha256": "e2e1e0e65e856b5daea28f27e79e38ccb2ea5d062109c80b04aeb385bbb135d1"
+    },
+    {
+      "file": "screenshots/component-36-ir-obstacle-3d.png",
+      "bytes": 28486,
+      "sha256": "a1e21b704473a65bea6c15d7135ec99051268c7b8b6415217531728d0bd62306"
+    },
+    {
+      "file": "screenshots/component-37-photoresistor-module-2d.png",
+      "bytes": 11781,
+      "sha256": "62477dd429fe75c6e24b07c3589cbd251a20635589db7c878e260369527594c5"
+    },
+    {
+      "file": "screenshots/component-37-photoresistor-module-3d.png",
+      "bytes": 27594,
+      "sha256": "f371829ec1e8cd504e7c931269f0dc61081772899f84a9eb4a4a38c877b6ba67"
+    },
+    {
+      "file": "screenshots/component-38-soil-2d.png",
+      "bytes": 11620,
+      "sha256": "72861e6993eb0e672407b50e9f5f33f96656b659638481f67791985fb3b9f2c3"
+    },
+    {
+      "file": "screenshots/component-38-soil-3d.png",
+      "bytes": 27103,
+      "sha256": "0d6a720e7f2e1fc7a7347fcd65e6cc4ebb4abcb2b8165b34ff43d318ee5ac79c"
+    },
+    {
+      "file": "screenshots/component-39-mpu6050-2d.png",
+      "bytes": 45294,
+      "sha256": "b5bd4873dc6030dfa43af48d4be1e1075c43792ca3de84499a63b9edbbcf9425"
+    },
+    {
+      "file": "screenshots/component-39-mpu6050-3d.png",
+      "bytes": 31557,
+      "sha256": "bbef361f5307d8d310627ff35ed068bd62d3f20d23c4f6ceaaae8a57e2eeab9f"
+    },
+    {
+      "file": "screenshots/component-40-bmp280-2d.png",
+      "bytes": 11506,
+      "sha256": "3cfe1712e13f6d52d97e25b00770faebf0dc52ad6c7f1bb2d9ad1a3525c5773b"
+    },
+    {
+      "file": "screenshots/component-40-bmp280-3d.png",
+      "bytes": 28055,
+      "sha256": "0d87decc6e1607bf09bf1052f76f81ef1833641fa439eb12c2210792676aafb0"
+    },
+    {
+      "file": "screenshots/component-41-ir-receiver-2d.png",
+      "bytes": 13132,
+      "sha256": "4a516887d3f482bda053acebddd94a0bf0f461be2d17886e3671bb08d9e01537"
+    },
+    {
+      "file": "screenshots/component-41-ir-receiver-3d.png",
+      "bytes": 24971,
+      "sha256": "9cacc8b6c6cb3dff921fcdb1b7d5623b7460cc0f83477da65e830a851c82a8b8"
+    },
+    {
+      "file": "screenshots/component-42-diode-2d.png",
+      "bytes": 9385,
+      "sha256": "c13db71d30777c797c51d25c8333f0efd686b8a43da523e07d420499c848deb3"
+    },
+    {
+      "file": "screenshots/component-42-diode-3d.png",
+      "bytes": 22923,
+      "sha256": "808da2a91e674c082cb270f007822ddb838d651163039109fcfbf9615fbdd12c"
+    },
+    {
+      "file": "screenshots/component-43-capacitor-2d.png",
+      "bytes": 9520,
+      "sha256": "57dafd21fe6d581b84a5482ca3acb374816783928a3df6b0ea21c39c6040a820"
+    },
+    {
+      "file": "screenshots/component-43-capacitor-3d.png",
+      "bytes": 20522,
+      "sha256": "dc4f7bf002603b4659fca22281383474e135cb888012ebf3c5fb5041b7e7965d"
+    },
+    {
+      "file": "screenshots/component-44-electrolytic-2d.png",
+      "bytes": 9371,
+      "sha256": "93e5cd0e8d61839a08d59c3a51d8a30483587e92e4338eaa3524f9fe9c6e1c9c"
+    },
+    {
+      "file": "screenshots/component-44-electrolytic-3d.png",
+      "bytes": 27323,
+      "sha256": "9a413fd87522912bdc0c1708cffaf53cca1b7ddca8ca5b192557a6e6e4ed7e25"
+    },
+    {
+      "file": "screenshots/component-45-transistor-bjt-2d.png",
+      "bytes": 11016,
+      "sha256": "eb9c1c181d0e87bbed926a77953bfdf7372336a7534d129e2e784c050175a6ed"
+    },
+    {
+      "file": "screenshots/component-45-transistor-bjt-3d.png",
+      "bytes": 20943,
+      "sha256": "aa315f6b03d36dee1d67caea01e440e1e4540f57e1efc29194e461ef52502dde"
+    },
+    {
+      "file": "screenshots/component-46-breadboard-2d.png",
+      "bytes": 8076,
+      "sha256": "be3a9ceeb68d40da3569283aaeaf731fff8f9722a5e4d6ff262859345e1961f2"
+    },
+    {
+      "file": "screenshots/component-46-breadboard-3d.png",
+      "bytes": 38117,
+      "sha256": "2b19dac5ea89eae66dd211c3a2b8cc69cf1ac5db7bb87001b16cf39791f9221b"
+    },
+    {
+      "file": "screenshots/component-47-jumper-2d.png",
+      "bytes": 11841,
+      "sha256": "ff5056b1f000487dc8e79dbf18f3085e459856ef6029f5b22efe493ef71ca50d"
+    },
+    {
+      "file": "screenshots/component-47-jumper-3d.png",
+      "bytes": 20806,
+      "sha256": "1013ed6d908b8026001480ca83aa79570894a8b300e6cd6d0080b625236b4898"
+    },
+    {
+      "file": "screenshots/component-48-usb-cable-2d.png",
+      "bytes": 11512,
+      "sha256": "381d296cba93c61509b4a663a435d8b9e249dbf4edcb570df0c9f2d46ef19b70"
+    },
+    {
+      "file": "screenshots/component-48-usb-cable-3d.png",
+      "bytes": 19498,
+      "sha256": "e8de99ee16a3e8b07c4ca228b1a6cb500720209ff51f2f7d9471d401ae2b8e0b"
+    },
+    {
+      "file": "screenshots/component-49-logic-level-2d.png",
+      "bytes": 11867,
+      "sha256": "ad141d31f8da6022a909f1a920e67a31823040f12cf15319ebfb5bc54a8b977d"
+    },
+    {
+      "file": "screenshots/component-49-logic-level-3d.png",
+      "bytes": 36877,
+      "sha256": "5385adcafa6244ffe961742e96a8afc20bff2ca1359dcd70cf0b06dd679d711e"
+    },
+    {
+      "file": "screenshots/component-50-dc-supply-2d.png",
+      "bytes": 14626,
+      "sha256": "9168372fcf8e49469293c98dda65b15da8124ee7feb4528ae9d04e5f59df0a05"
+    },
+    {
+      "file": "screenshots/component-50-dc-supply-3d.png",
+      "bytes": 38638,
+      "sha256": "1eda08941f84c8297cad2a157f1d6a64094cf4971d5f26e720c6d2a7aa5a096a"
+    },
+    {
+      "file": "screenshots/component-51-power-bank-2d.png",
+      "bytes": 14210,
+      "sha256": "c26c565696de34b153b5a769a00db691e8acb01c2784600cdc6228ff674ff0fe"
+    },
+    {
+      "file": "screenshots/component-51-power-bank-3d.png",
+      "bytes": 25026,
+      "sha256": "a4dbfae2d1482124151ef73bf93ea9f60a0382f1732ed8db6abe9ed2af208cd5"
+    },
+    {
+      "file": "screenshots/component-52-buck-2d.png",
+      "bytes": 11676,
+      "sha256": "f14e59b2e9369e744b688bec1331b1f261f99044ceb444e3a745ba05124fb087"
+    },
+    {
+      "file": "screenshots/component-52-buck-3d.png",
+      "bytes": 32172,
+      "sha256": "79a2f92a3d125f005707761429cd01a5657c5dc328d1e36f87633417a5d0e578"
+    },
+    {
+      "file": "screenshots/component-53-boost-2d.png",
+      "bytes": 11787,
+      "sha256": "082a3375fdddd8e8ecd53cffdb798a38074201f1370208de04c50086d9cff2d9"
+    },
+    {
+      "file": "screenshots/component-53-boost-3d.png",
+      "bytes": 25741,
+      "sha256": "e266e7ff40cbc93766fa28a8dfbe88bd10a66d951a84c2bebdbbf3b535dd7f65"
+    },
+    {
+      "file": "screenshots/component-54-h-bridge-l298n-2d.png",
+      "bytes": 59176,
+      "sha256": "b05391aa221f92345b6fdd79c064e34b8e4058e5fafa64c8b506c01ffac236ca"
+    },
+    {
+      "file": "screenshots/component-54-h-bridge-l298n-3d.png",
+      "bytes": 35002,
+      "sha256": "a2cc0087816c5488e20b05d72665b02e02302cd5202e6243d563f2bd57365d97"
+    },
+    {
+      "file": "screenshots/component-55-soil-relay-pump-2d.png",
+      "bytes": 12466,
+      "sha256": "5f8b8790fce5e967e5ee6db9305f60a8a6baaa588110f087293ba7526f9657d8"
+    },
+    {
+      "file": "screenshots/component-55-soil-relay-pump-3d.png",
+      "bytes": 22172,
+      "sha256": "b7c2966872af491b6e57cdc6236865d05cd561cb6b5711c9072ce075e37f75dd"
+    },
+    {
+      "file": "screenshots/component-56-rotary-encoder-2d.png",
+      "bytes": 11921,
+      "sha256": "b66cca21f716ee967fb250e6a4d00001b56c6fd5a556bc51101695414b9c8003"
+    },
+    {
+      "file": "screenshots/component-56-rotary-encoder-3d.png",
+      "bytes": 25680,
+      "sha256": "47aee064207b85ff102a409af749835d16e7b0a6554e66f071e91c175c7b5fd3"
+    },
+    {
+      "file": "screenshots/component-57-rfid-2d.png",
+      "bytes": 11875,
+      "sha256": "4bcb606ff244fed06206c68ab1fdd5553ba9a28ecce9622ab62fe5bfbe15772a"
+    },
+    {
+      "file": "screenshots/component-57-rfid-3d.png",
+      "bytes": 34330,
+      "sha256": "648721daa97f78743c6dba0b1d72cc08c41463aafcb15217ce775f8398b75a24"
+    },
+    {
+      "file": "screenshots/component-58-mosfet-module-2d.png",
+      "bytes": 11138,
+      "sha256": "fb528fd89ca5ac4ca6d3df1d8741846550b4923056f610970d26c19051c55ade"
+    },
+    {
+      "file": "screenshots/component-58-mosfet-module-3d.png",
+      "bytes": 29414,
+      "sha256": "dc34437c64e8493c7ea0d7c7f5a5d27366336b33cf3ce8c5d3aa2c243edc24ef"
+    },
+    {
+      "file": "screenshots/component-59-seven-segment-2d.png",
+      "bytes": 9577,
+      "sha256": "cc9294bcc9b935830b837dc611045f6d0c4f37c0137fe968e9ac6fd580cd6fe5"
+    },
+    {
+      "file": "screenshots/component-59-seven-segment-3d.png",
+      "bytes": 27631,
+      "sha256": "ffe937fef67cbf183b96bb34f0e674e74caf780e674f2130f0e92b544f88a0a9"
+    },
+    {
+      "file": "screenshots/copper-arduino-mega-2560-r3-back.png",
+      "bytes": 275566,
+      "sha256": "a710064d532187c92112573e6fd9c98739a9d57007215df9c716fd309048971f"
+    },
+    {
+      "file": "screenshots/copper-arduino-mega-2560-r3-front.png",
+      "bytes": 282322,
+      "sha256": "beeedc7ed195908e3835a8c744eaea3e2f2d19373c75c1c2919cc1f31809d67a"
+    },
+    {
+      "file": "screenshots/copper-arduino-nano-classic-back.png",
+      "bytes": 284579,
+      "sha256": "4b0507c0da48cd8b565e608d3a179aae390e9f389565f2f1c5bbb371bd797307"
+    },
+    {
+      "file": "screenshots/copper-arduino-nano-classic-front.png",
+      "bytes": 290966,
+      "sha256": "db0ec5839793f1bbc6c4371663e9fb0d7a429be9c9c0b0490cf75fe98def7685"
+    },
+    {
+      "file": "screenshots/copper-arduino-uno-r3-back.png",
+      "bytes": 240352,
+      "sha256": "02e97347172b38a849f84fff2e27ef73f3bd23daabc6eac67ec0d437f80cac2f"
+    },
+    {
+      "file": "screenshots/copper-arduino-uno-r3-front.png",
+      "bytes": 246379,
+      "sha256": "29fb57ca783e13eebf0e4a1184d7d557c8b9768ac4d8b010e7d68b918c38e8ca"
+    },
+    {
+      "file": "screenshots/copper-esp32-devkit-back.png",
+      "bytes": 131056,
+      "sha256": "2fc4595ad4a7184a9daf2a3d4280f3981402b1e43e449e6d1a131c42e77d121e"
+    },
+    {
+      "file": "screenshots/copper-esp32-devkit-front.png",
+      "bytes": 137086,
+      "sha256": "3b147b0ddf2b438627baac5446eaae281c1b5b44890cfa8e4e79a11cc8b6429a"
+    },
+    {
+      "file": "screenshots/copper-mega-current.png",
+      "bytes": 262367,
+      "sha256": "8ed8eb3417eb0f379aa0333f06235d1528cbc92f2db95e1408067d4808d7dcee"
+    },
+    {
+      "file": "screenshots/copper-mega-net-gnd.png",
+      "bytes": 53648,
+      "sha256": "c8e6a4575a7884572c0a4388ca9a1f8e5e6c6c74576587f1d79f51dcda4a59d8"
+    },
+    {
+      "file": "screenshots/copper-mega-svg.png",
+      "bytes": 41740,
+      "sha256": "fe73dc174bd8a271d4df4c4d00a67b6ee82f701e5bc1f8c3c329bb1808682f70"
+    },
+    {
+      "file": "screenshots/copper-mega-viewport.png",
+      "bytes": 262367,
+      "sha256": "8ed8eb3417eb0f379aa0333f06235d1528cbc92f2db95e1408067d4808d7dcee"
+    },
+    {
+      "file": "screenshots/draft-dialog.png",
+      "bytes": 34316,
+      "sha256": "1af559dbeb1abf06abe53d6282772f8f31397793155f5105eadcb00be04a6344"
+    },
+    {
+      "file": "screenshots/feedback-review.png",
+      "bytes": 147655,
+      "sha256": "3f969969341a49c01fabd06e26e59e910305234ca57abacbbb57ad55204e8864"
+    },
+    {
+      "file": "screenshots/feedback-validation.png",
+      "bytes": 147225,
+      "sha256": "5c7f8de338cea5dfc4fe63a3c23cc458a5097f0fca19e869b63f484b5534b6b7"
+    },
+    {
+      "file": "screenshots/firmware-avr-arduino.png",
+      "bytes": 134477,
+      "sha256": "142dcc1cccc2f3fc60ac347d02d2e5411e2c800f64c4be3fca12c9b96ed6d161"
+    },
+    {
+      "file": "screenshots/firmware-avr-bare.png",
+      "bytes": 133973,
+      "sha256": "e95d3d7eef10138fa1438b8c6cdbe35ece059a2738153a1b5c8bf2aa3386b648"
+    },
+    {
+      "file": "screenshots/firmware-avr-confirmation.png",
+      "bytes": 138445,
+      "sha256": "76414b03a5aeeae0c7378f25fb5be34ba22531c7c3f9cdb460f5ebd1d159b98b"
+    },
+    {
+      "file": "screenshots/firmware-invalid-file.png",
+      "bytes": 141465,
+      "sha256": "16a00bf23bb3b199db77886fa23b6a62d63510c65f8e132557151d6534d90532"
+    },
+    {
+      "file": "screenshots/firmware-pico-result.png",
+      "bytes": 134095,
+      "sha256": "7abcccc6744ed1a51ba78e4dfe1f9d3f8f704ba92d2d8c1a9dd2fe03a4c906de"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-mega-2560-2d.png",
+      "bytes": 247528,
+      "sha256": "52e1b3ee336b2f195454aee472b1af8c7fe50a3097bf6fa9c0060e92eafb342d"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-mega-2560-3d.png",
+      "bytes": 171035,
+      "sha256": "f21b92869b4ead5a87d80eb420244395ecd92b23163619f39b7bcbbf5ee0a456"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-mega-2560-running.png",
+      "bytes": 215124,
+      "sha256": "5a6c782d0c4a223a8dabc9d75ec6fa8f9037f819ffd672d5c5cfd2bc7e925b34"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-mega-2560-schematic.png",
+      "bytes": 154930,
+      "sha256": "33c76378f141b3a94ef63f85e21d8ab605fd7b954d63b99354e59fbe1e41b2bf"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-mega-2560-wave.png",
+      "bytes": 111201,
+      "sha256": "92c17a3f039a3ef392481651490464b0de3d5927d7f39e6323a7dfdcc455a59b"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-nano-2d.png",
+      "bytes": 214371,
+      "sha256": "09916e7dc862d0941b71736e85f1a3dbf9a1129d4198701e351f902d0023a8aa"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-nano-3d.png",
+      "bytes": 211216,
+      "sha256": "6c625443d040f95d078b208b40644c650f5a12b92982190766a22d7f79187a84"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-nano-running.png",
+      "bytes": 211268,
+      "sha256": "1cefec17ee9b6afdd90a21317f888b695ec2982f794a90117f518aa268647c6f"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-nano-schematic.png",
+      "bytes": 154348,
+      "sha256": "7a490bcbb7e8444a6f858d99a33deeb0d0195f45fbbcb2d3cb9f0d602c4a7c3f"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-nano-wave.png",
+      "bytes": 110810,
+      "sha256": "131c5e10b12e95aa5f8a50614288d25d6282a7ef788ab04df8e5e5a4e00facbb"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-uno-r3-2d.png",
+      "bytes": 248183,
+      "sha256": "137547ae9ff19292ca95e1aa68828c3ba54ad6c8fdb8f47243d604cc9c462921"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-uno-r3-3d.png",
+      "bytes": 218386,
+      "sha256": "f18795b57de302f8a96fa6b2958dd47446d71464c005b87ab1980d1502be05e9"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-uno-r3-running.png",
+      "bytes": 218625,
+      "sha256": "81280971cb40e27e74a317f5763fe6e0fe66ee62da0e67ee6e4b976e9f486270"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-uno-r3-schematic.png",
+      "bytes": 154047,
+      "sha256": "65a0d8017b8ffac250e1005491e89d7ac9a02adf9f280cb60e1409e9553e86cd"
+    },
+    {
+      "file": "screenshots/freestyle-arduino-uno-r3-wave.png",
+      "bytes": 110937,
+      "sha256": "66e67efb7754a36ad034f4e4f6f837fe2abf7a406130e32bd2ed63dcf09e4baf"
+    },
+    {
+      "file": "screenshots/freestyle-esp32-blink-2d.png",
+      "bytes": 201816,
+      "sha256": "4f01bf87c9723a66de051b4831cef411d0215d805cee59b492738f1d2222475c"
+    },
+    {
+      "file": "screenshots/freestyle-esp32-devkit-2d.png",
+      "bytes": 201300,
+      "sha256": "31abea86925f2d414fa257d966d9b6a1e38fbdc380fa04248494498a137a197c"
+    },
+    {
+      "file": "screenshots/freestyle-esp32-devkit-3d.png",
+      "bytes": 212088,
+      "sha256": "81e63d21620991b67d6dd0f357575c9d84c34bca863a542ba93c60deeae580c3"
+    },
+    {
+      "file": "screenshots/freestyle-esp32-devkit-running.png",
+      "bytes": 211390,
+      "sha256": "d6a5caacab26d1e7c435bb2b5d7bb417c92b7ffbd3c185e484bd953a5724684d"
+    },
+    {
+      "file": "screenshots/freestyle-esp32-devkit-schematic.png",
+      "bytes": 154988,
+      "sha256": "34c4b11e52998cbf3452f239fb5f258d135f698915231fb6793f35b1bbac527d"
+    },
+    {
+      "file": "screenshots/freestyle-esp32-devkit-wave.png",
+      "bytes": 112464,
+      "sha256": "96226963cba07e0f8fc2b84588db212eaa270168356ece53fb6ba9bbf968eca7"
+    },
+    {
+      "file": "screenshots/freestyle-esp32-s3-devkitc-1-2d.png",
+      "bytes": 204980,
+      "sha256": "92697516acf4fb454ca0b3a3eb55b86098f8d85bb8c0d47744b96b18591c9dbd"
+    },
+    {
+      "file": "screenshots/freestyle-esp32-s3-devkitc-1-3d.png",
+      "bytes": 233820,
+      "sha256": "0c7ebf5ef0cf36b18bbdfbbcbb509b645a984262d4fa778a7e2a96a31db27c15"
+    },
+    {
+      "file": "screenshots/freestyle-esp32-s3-devkitc-1-running.png",
+      "bytes": 233306,
+      "sha256": "8c6d7492bd13edec9b326df168b76354b436b849df26529c8c31e19db8472e4a"
+    },
+    {
+      "file": "screenshots/freestyle-esp32-s3-devkitc-1-schematic.png",
+      "bytes": 155234,
+      "sha256": "41915b5f985aef1bbdd2665f79bb92ac7ec97c3ff5257129570656af2d1f988a"
+    },
+    {
+      "file": "screenshots/freestyle-esp32-s3-devkitc-1-wave.png",
+      "bytes": 112271,
+      "sha256": "2a9dbb1a2ec466f9b2fd5777f58b01fb7fc8f19835ed7ea472cf1c747caf6ede"
+    },
+    {
+      "file": "screenshots/freestyle-radio-scroll-state.png",
+      "bytes": 283267,
+      "sha256": "a7bac5ff511cc3206c101a68d6e5dec2e5f60f77de4d004570c0b35ed9994fc2"
+    },
+    {
+      "file": "screenshots/freestyle-raspberry-pi-pico-2d.png",
+      "bytes": 195850,
+      "sha256": "6d0c0b6bd7e54cb04e7a6ad812ec63e6f73af43143e30676cb7f7bc4733939dc"
+    },
+    {
+      "file": "screenshots/freestyle-raspberry-pi-pico-3d.png",
+      "bytes": 215153,
+      "sha256": "263cd792b8cba4a8a9a46e77fdd21e4c9448b6ad475c0d5862c960a1221a647a"
+    },
+    {
+      "file": "screenshots/freestyle-raspberry-pi-pico-running.png",
+      "bytes": 215096,
+      "sha256": "89900a3d79345e7c738e53c65be34f9c6660ed9c73d0fcf29ecfa78451e98d98"
+    },
+    {
+      "file": "screenshots/freestyle-raspberry-pi-pico-schematic.png",
+      "bytes": 154341,
+      "sha256": "b8d47f1292a225c8ed7f4202e34050e51b683ae9b4f48b4e7cc3c2ea4d26d5cd"
+    },
+    {
+      "file": "screenshots/freestyle-raspberry-pi-pico-wave.png",
+      "bytes": 116739,
+      "sha256": "9b42680662c162a89b5b78d2dd9457a401215611576411088350e4ec8e8b37e4"
+    },
+    {
+      "file": "screenshots/freestyle-sample-button-led.png",
+      "bytes": 205257,
+      "sha256": "80a9bbccc73546644c1382f6006e8471c71bc901b553fda39b434a40e73ffaa4"
+    },
+    {
+      "file": "screenshots/freestyle-sample-motor.png",
+      "bytes": 216947,
+      "sha256": "a196e176a022f8f9016f8e8dde8fb3792eda6ecb361bae92a331a614eed866ff"
+    },
+    {
+      "file": "screenshots/freestyle-sample-pot-dimmer.png",
+      "bytes": 213256,
+      "sha256": "2db95ecd516aceb64aa9a4e68392040829a33540fb97afa9646ea481be51308a"
+    },
+    {
+      "file": "screenshots/freestyle-stm32-blue-pill-f103-2d.png",
+      "bytes": 203622,
+      "sha256": "333a0875ef072a40e2e30517db8232a9ad6cdfe4decc10d67c81b873f74bae35"
+    },
+    {
+      "file": "screenshots/freestyle-stm32-blue-pill-f103-3d.png",
+      "bytes": 196431,
+      "sha256": "5b5946732e38539de0a9f12e33e58cd3cdf293f6abdb73b0ccc8304f2e912ad5"
+    },
+    {
+      "file": "screenshots/freestyle-stm32-blue-pill-f103-schematic.png",
+      "bytes": 154810,
+      "sha256": "bbd0a9191e961f246ba877fb851b428ee1249d3c7afd43caeb5ac8c264adb1e6"
+    },
+    {
+      "file": "screenshots/freestyle-stm32-blue-pill-f103-wave.png",
+      "bytes": 111850,
+      "sha256": "efe158cbf6488b8a89741b2f30cdd0af7069de825178fb440fba5c59d0caf755"
+    },
+    {
+      "file": "screenshots/freestyle-stm32-nucleo-f401re-2d.png",
+      "bytes": 194781,
+      "sha256": "4532c416655b78181d7be2631d13fb8056f2244df6c4244ee4f22b2dbf591d7d"
+    },
+    {
+      "file": "screenshots/freestyle-stm32-nucleo-f401re-3d.png",
+      "bytes": 209966,
+      "sha256": "2874aeae9824ab69a6a3743fe9efe72f6a936cd37815ab101f11db7fabeeffa4"
+    },
+    {
+      "file": "screenshots/freestyle-stm32-nucleo-f401re-schematic.png",
+      "bytes": 155161,
+      "sha256": "35d631dda96b544952a2399aa240106747b3d6c3e622175d85a737f06d7ebb64"
+    },
+    {
+      "file": "screenshots/freestyle-stm32-nucleo-f401re-wave.png",
+      "bytes": 112030,
+      "sha256": "dfa989eb4ef5221dc3a04adcc84b757f775fa9d74e42533906e2bf08a1daa94d"
+    },
+    {
+      "file": "screenshots/freestyle-uno-compile-result.png",
+      "bytes": 249627,
+      "sha256": "bb7a9700132852261fe5e47ec848b85ecf2cf90d8ab125cf7310fcf7f85ec82b"
+    },
+    {
+      "file": "screenshots/fresh-drag-1.png",
+      "bytes": 211278,
+      "sha256": "9a323517a378140b5eba38f4d7c36b4af09f9369d9903712afc1efaa47622e4d"
+    },
+    {
+      "file": "screenshots/fresh-drag-20.png",
+      "bytes": 212658,
+      "sha256": "4783f145a0987090274f20242bdefa48b3c9470504d11b982d69a652e15cc3c0"
+    },
+    {
+      "file": "screenshots/guide-question-01.png",
+      "bytes": 61404,
+      "sha256": "359985799571141d31b26f1ca8ba389b8917a04853a641fa23172c6115e267b5"
+    },
+    {
+      "file": "screenshots/guide-question-02.png",
+      "bytes": 66377,
+      "sha256": "dc7119149f717682f7e4c96735d80e78c99d3cc04ea3e4dce890088e10d5cb45"
+    },
+    {
+      "file": "screenshots/guide-question-03.png",
+      "bytes": 50594,
+      "sha256": "c7648d25cff4166ab399019b5ab942b6fb97682bc55222a05f806209f7702006"
+    },
+    {
+      "file": "screenshots/guide-question-04.png",
+      "bytes": 65654,
+      "sha256": "555383e31d7dfe5c65e30a5b571018f360f6146b211da727d038ba681fb33a70"
+    },
+    {
+      "file": "screenshots/guide-question-05.png",
+      "bytes": 50363,
+      "sha256": "9157ce9996de1016ef7b5b06daff5d097916446f9ed62a5a489edb2137e87242"
+    },
+    {
+      "file": "screenshots/guide-question-06.png",
+      "bytes": 65192,
+      "sha256": "93bcbb17182db7fa089a42052c6dfbae6722951db75b1f04b8c8c2720189b4a0"
+    },
+    {
+      "file": "screenshots/guide-question-07.png",
+      "bytes": 66071,
+      "sha256": "5e5a2fb1d841f68283308998dffcb232f4cd5a09b0090c322c2aa2dd99cbd59a"
+    },
+    {
+      "file": "screenshots/guide-question-08.png",
+      "bytes": 66178,
+      "sha256": "2efffaeaf6af53b7f229b35fae0d9532b95cfee2940288ac7a9ebc0054cae553"
+    },
+    {
+      "file": "screenshots/guide-question-09.png",
+      "bytes": 48035,
+      "sha256": "8e3593291ac9bafc48d539617cff2716cb4cd099ca9f0b904744cc92421a3a77"
+    },
+    {
+      "file": "screenshots/guide-question-10.png",
+      "bytes": 64972,
+      "sha256": "99927bd3b71ccf7861f07d3c0fbab8ac9e476bf57ea144df5452788878fc1323"
+    },
+    {
+      "file": "screenshots/issue-button-g6.png",
+      "bytes": 122088,
+      "sha256": "c37f7b88b59e002fbc31593bd044643f247dd04195fea4226cd1e9e0aa310d73"
+    },
+    {
+      "file": "screenshots/issue-button-route-diagnostic.png",
+      "bytes": 163728,
+      "sha256": "dcc4c560e71260d4a363da7a6f2a22caf840ff7011f75470632e20e1bfaeb6c3"
+    },
+    {
+      "file": "screenshots/issue-capacitor-catalog.png",
+      "bytes": 46868,
+      "sha256": "e92dd18a2ed22c090c848b9356922fea3f546eeec5033a488068e7eced9cda07"
+    },
+    {
+      "file": "screenshots/issue-capacitor-freestyle.png",
+      "bytes": 195661,
+      "sha256": "45b7cef59d6a585ad5eda67e036c12bfdf17b1920b36a10e5ec198dbfcb01414"
+    },
+    {
+      "file": "screenshots/issue-lesson-board-after-stable.png",
+      "bytes": 157658,
+      "sha256": "55fef44be503b7646f6ed8cdaef4c7a102efc947b708fc98d6ec1b31e67a5fb0"
+    },
+    {
+      "file": "screenshots/issue-lesson-board-after.png",
+      "bytes": 115440,
+      "sha256": "006c9a31af54af0cccb87ca54020b7eab91fb911de6a935ea724b998cfc4de8a"
+    },
+    {
+      "file": "screenshots/issue-lesson-board-before.png",
+      "bytes": 223726,
+      "sha256": "e84ec2efe58f3b1e35340ef49a3340ea1138c048384465066d99f8f9180e8fab"
+    },
+    {
+      "file": "screenshots/keyboard-pin-pin.png",
+      "bytes": 57045,
+      "sha256": "8f510b0de4787bfeec92ca6af39ca94f03785c186e84400bbbd95acbd263577e"
+    },
+    {
+      "file": "screenshots/kit-eight-stations.png",
+      "bytes": 167876,
+      "sha256": "c8584aaaa2da4c013af71d7d1578fbdfd2e46c7c30cc168ca34a40d2004361c6"
+    },
+    {
+      "file": "screenshots/kit-invalid-import.png",
+      "bytes": 169160,
+      "sha256": "7579a4640588fbbaa1b6232367ba73d1f97a777bfa7f019787622d0219759f2f"
+    },
+    {
+      "file": "screenshots/kit-json-import.png",
+      "bytes": 168614,
+      "sha256": "242436cd2b5c0696af9e6d10833cc2ec14233fb794d8a792a6ac10c582f25d24"
+    },
+    {
+      "file": "screenshots/kit-zero-stations.png",
+      "bytes": 169024,
+      "sha256": "d2f57df787f65bdc1993cf92a3b6ff1a6cb4b8b1844a7d1d73ba2866541d865f"
+    },
+    {
+      "file": "screenshots/lesson-analog-ldr-3d.png",
+      "bytes": 214320,
+      "sha256": "04709fb7fdb8585e3bfebeafc833eb9caa7d16c8edd7b46b80f6fda0d57b762c"
+    },
+    {
+      "file": "screenshots/lesson-analog-ldr-breadboard.png",
+      "bytes": 229487,
+      "sha256": "98ada8b20de2e78e005ff4599889b5f86dd8958ec93470a8fbce2a50a4ff6d7a"
+    },
+    {
+      "file": "screenshots/lesson-analog-ldr-run.png",
+      "bytes": 240218,
+      "sha256": "cb4ddfdb86d3cce9905643d17f694082e142d89bca5bf06f593ea1fd022afebb"
+    },
+    {
+      "file": "screenshots/lesson-analog-ldr-schematic.png",
+      "bytes": 166411,
+      "sha256": "e19d1b20e4ad0942a8a314bfc32ede63ff807898f5011ba7382333d97eff2583"
+    },
+    {
+      "file": "screenshots/lesson-analog-potentiometer-3d.png",
+      "bytes": 219157,
+      "sha256": "5d0be21e809ed493e4154984c0ba425c3c6031d0c8cb191be5a515ee1832509b"
+    },
+    {
+      "file": "screenshots/lesson-analog-potentiometer-breadboard.png",
+      "bytes": 174997,
+      "sha256": "2a65976c95a202269bb19a35e07a93e876808dc64a95f07977ed4b32efb5f2b6"
+    },
+    {
+      "file": "screenshots/lesson-analog-potentiometer-run.png",
+      "bytes": 242363,
+      "sha256": "5db3ed19765371cf43c919eb2216da4541013a36264da70addb8680ad138b96b"
+    },
+    {
+      "file": "screenshots/lesson-analog-potentiometer-schematic.png",
+      "bytes": 162504,
+      "sha256": "4630f71d31e43eab061b4c9275917e4921d3568485025802110095a6aa2ef532"
+    },
+    {
+      "file": "screenshots/lesson-blink-3d.png",
+      "bytes": 190861,
+      "sha256": "0406e5a051c1c1209dfce641c4b9213a83a407901c2c13c2e30ea566523237ec"
+    },
+    {
+      "file": "screenshots/lesson-blink-breadboard.png",
+      "bytes": 231826,
+      "sha256": "04274d07bb7d1767051a1171920ce91fcc5d33f6b9789212a604dc0cb2604bf0"
+    },
+    {
+      "file": "screenshots/lesson-blink-run.png",
+      "bytes": 216362,
+      "sha256": "e7fb1310edeee06ffb8bb7e9c45a106d28f41dc4a20e49d745999981cccd52bb"
+    },
+    {
+      "file": "screenshots/lesson-blink-schematic.png",
+      "bytes": 171764,
+      "sha256": "5730f3bbbf9def18d9f97c6723b71cb157b6f37558222aa7d12fed0ac5964254"
+    },
+    {
+      "file": "screenshots/lesson-buck-boost-concept-3d.png",
+      "bytes": 187296,
+      "sha256": "5a38fdf23b7fed4dfc028d018aa8f09286239ca85f98c6cf52b4feed598031f9"
+    },
+    {
+      "file": "screenshots/lesson-buck-boost-concept-breadboard.png",
+      "bytes": 222857,
+      "sha256": "725e039c8a37672bd5f04320cf56be0425c033c3ec54bf559ce90e25236f25b4"
+    },
+    {
+      "file": "screenshots/lesson-buck-boost-concept-run.png",
+      "bytes": 241630,
+      "sha256": "fc320646eeb46188908629cc2b991243a582baf2f56902e4b6c34b0e3a7a131e"
+    },
+    {
+      "file": "screenshots/lesson-buck-boost-concept-schematic.png",
+      "bytes": 162078,
+      "sha256": "b932e1f74c3d07da9dbdb2542ff9a1a0897b8fe6cb75596290bfcf7833cbad9a"
+    },
+    {
+      "file": "screenshots/lesson-button-led-3d.png",
+      "bytes": 184554,
+      "sha256": "09f6bda25966c3882c279f0e0df267042c41fa991892b2a2ed479463d5efc7ad"
+    },
+    {
+      "file": "screenshots/lesson-button-led-breadboard.png",
+      "bytes": 233178,
+      "sha256": "1417e8ae1aa7dcd354e60df5bcc689bc72d8c94712f00ff6f92899088babdec4"
+    },
+    {
+      "file": "screenshots/lesson-button-led-run.png",
+      "bytes": 211726,
+      "sha256": "8ed09b36da6690d70e452137cdd474ec6c425070a00239c7eb0efdfc6a822b17"
+    },
+    {
+      "file": "screenshots/lesson-button-led-schematic.png",
+      "bytes": 174517,
+      "sha256": "a8696a9893eac6ee681bc9fcef3065e85794bfabd428fb4985e6df1427eb9afe"
+    },
+    {
+      "file": "screenshots/lesson-dc-motor-driver-3d.png",
+      "bytes": 189944,
+      "sha256": "1ee53346062067dbef5ef77b9edaa2e85f63646fad168a5ceaed276777be4c4a"
+    },
+    {
+      "file": "screenshots/lesson-dc-motor-driver-breadboard.png",
+      "bytes": 170090,
+      "sha256": "a74ea243122319d92eab3026814000da9ab480dccce6a386121714c088bb9123"
+    },
+    {
+      "file": "screenshots/lesson-dc-motor-driver-run.png",
+      "bytes": 216790,
+      "sha256": "239514937b65a08af78c8d9505d65dde8878ed57dc5543f4b6122fb2e502a70d"
+    },
+    {
+      "file": "screenshots/lesson-dc-motor-driver-schematic.png",
+      "bytes": 159282,
+      "sha256": "4d8e656147aa2cc8c7ba0d1ab1f398dc6c580dd688ed4470279cc166e328113c"
+    },
+    {
+      "file": "screenshots/lesson-ir-alert-3d.png",
+      "bytes": 261516,
+      "sha256": "5e1af880d1001af9f3090f7be57b670dace9cb979d947e8768997a57d55ffeac"
+    },
+    {
+      "file": "screenshots/lesson-ir-alert-breadboard.png",
+      "bytes": 185719,
+      "sha256": "ac95f55d37fa0b7f32e1b5ee14b1dfbaa37aa663b466942f8ac21ce9865494a3"
+    },
+    {
+      "file": "screenshots/lesson-ir-alert-run.png",
+      "bytes": 288909,
+      "sha256": "9a2ba9efecde0c0ce27a74aa0f55c73be3e7ea9479d76db7e0dd2b5a9dc581bd"
+    },
+    {
+      "file": "screenshots/lesson-ir-alert-schematic.png",
+      "bytes": 167696,
+      "sha256": "da20cb8e5e7a7a6b1bc640a0986d8e1b115deff36abe76dc89bb5a2cbd703154"
+    },
+    {
+      "file": "screenshots/lesson-mosfet-switch-3d.png",
+      "bytes": 210319,
+      "sha256": "5c19d1b000b669ec9e78dce9910e5f7069682884508bc9ba3f96be2d8165fc93"
+    },
+    {
+      "file": "screenshots/lesson-mosfet-switch-breadboard.png",
+      "bytes": 185537,
+      "sha256": "90dac28b6bcb005ba0ba68aed4c30ad4f9e34bb0a4bb7f8ae119d5824dd9a194"
+    },
+    {
+      "file": "screenshots/lesson-mosfet-switch-run.png",
+      "bytes": 245303,
+      "sha256": "459542b3ebe1352965f692be901b8984c41efd34f3cb1c75ddec8b451fe1f4d4"
+    },
+    {
+      "file": "screenshots/lesson-mosfet-switch-schematic.png",
+      "bytes": 162627,
+      "sha256": "4dc5697b30f01fe83c7d7dc26a74fff08f22fdcd415f1158512f7df4bd052176"
+    },
+    {
+      "file": "screenshots/lesson-seven-segment-counter-3d.png",
+      "bytes": 242782,
+      "sha256": "294c8cfd412ccf7078cb61127d1e0c09976750028948d3a4209cbf4bc05baef7"
+    },
+    {
+      "file": "screenshots/lesson-seven-segment-counter-breadboard.png",
+      "bytes": 190592,
+      "sha256": "c35841cdb090668ae586d64704a1b6c9d302b68b22465c70beb5e9003f78da8c"
+    },
+    {
+      "file": "screenshots/lesson-seven-segment-counter-run.png",
+      "bytes": 277958,
+      "sha256": "c895d1d99c02af42af6b3a1698ebfcc4ea2ef618ea4d3247014406fca708cfa9"
+    },
+    {
+      "file": "screenshots/lesson-seven-segment-counter-schematic.png",
+      "bytes": 161557,
+      "sha256": "6d7127bb78a66ace517102a16f1d35000cba25f7e53b742d5806162f6ec177d5"
+    },
+    {
+      "file": "screenshots/lesson-source-led-3d.png",
+      "bytes": 237063,
+      "sha256": "b87ae2c4ac4848696216b44e8f8c17bcf1b87d9781114233266c60a731e0b39c"
+    },
+    {
+      "file": "screenshots/lesson-source-led-breadboard.png",
+      "bytes": 223976,
+      "sha256": "892a21b1ce42f34a359c1c834be4176f433b6a141f140f51e83b33f0c41c3a17"
+    },
+    {
+      "file": "screenshots/lesson-source-led-run.png",
+      "bytes": 261191,
+      "sha256": "c362188dfb6b09b141172aa8d9945ca17891b8c5605fba7e514e7868a0624174"
+    },
+    {
+      "file": "screenshots/lesson-source-led-schematic.png",
+      "bytes": 165853,
+      "sha256": "2b8e3e421d9118da1711726bfe652423e9b7d46f5fb19739184bc194fc25aaf3"
+    },
+    {
+      "file": "screenshots/lesson-ultrasonic-distance-3d.png",
+      "bytes": 223688,
+      "sha256": "7b3ab23b2e32fe3b8cc5462a745cc6adb3c1a6f95893fb1be3dcff6c222a9bd9"
+    },
+    {
+      "file": "screenshots/lesson-ultrasonic-distance-breadboard.png",
+      "bytes": 220386,
+      "sha256": "8c56b4bca8f1471604b147ae1b2208ea1ed993dfbb1dac2e0c2b3c7bb9d453e3"
+    },
+    {
+      "file": "screenshots/lesson-ultrasonic-distance-run.png",
+      "bytes": 248904,
+      "sha256": "9ff1fa00ea7c81d0c7ba28bb77ee3cea2e966729ed9672a22c8d4d00972f27da"
+    },
+    {
+      "file": "screenshots/lesson-ultrasonic-distance-schematic.png",
+      "bytes": 164840,
+      "sha256": "62b17e564457478f0825bb8b470f3dff6cc7a74621c2cdcf2fbe3cab481b2a0d"
+    },
+    {
+      "file": "screenshots/mobile-01-.png",
+      "bytes": 343250,
+      "sha256": "f20ff13c3536e13851b284799e87d8379a53b6da57122793c7d8dfd7a8db0c37"
+    },
+    {
+      "file": "screenshots/mobile-02-app.png",
+      "bytes": 467266,
+      "sha256": "34c4f076770c9330663faa804089ed0cafaf3d5dbc67d2ecfdd7dc8ae9010cda"
+    },
+    {
+      "file": "screenshots/mobile-03-topics.png",
+      "bytes": 393918,
+      "sha256": "3351a57a7acf738d9f1e45bd501ef45dc754e48c7c3cf057a05d55c708b4f8a5"
+    },
+    {
+      "file": "screenshots/mobile-04-boards.png",
+      "bytes": 1744353,
+      "sha256": "ddf8c267539dd3c7d9c2dc804df5beb15f39f4d95e0014bac685d6da520eda4e"
+    },
+    {
+      "file": "screenshots/mobile-05-components.png",
+      "bytes": 292458,
+      "sha256": "26bf84dd728457df6bfba0f8a6eee00e4328e6727a533565663dcf216d49cb66"
+    },
+    {
+      "file": "screenshots/mobile-06-projects.png",
+      "bytes": 583733,
+      "sha256": "3ad7348f63f05e05640ea23ad56ae1fb449396596b1b1e051a440bd6c59f70d4"
+    },
+    {
+      "file": "screenshots/mobile-07-build-freestyle.png",
+      "bytes": 99689,
+      "sha256": "d3d8446528de92d405177fa0e44ea7af0e51db2cf8690916a33481a3aede53c2"
+    },
+    {
+      "file": "screenshots/mobile-08-build.png",
+      "bytes": 402902,
+      "sha256": "eaeb06d8bdccb8b1310d2d925d43b7d5402a81d78b82eee0f473c5738f98c69e"
+    },
+    {
+      "file": "screenshots/mobile-09-learn-esp32-led.png",
+      "bytes": 318505,
+      "sha256": "d3197ffa8c7f5afb3e503795da081d83f8be9beea463f188808ce4b259a0abd8"
+    },
+    {
+      "file": "screenshots/mobile-10-app-classroom-kits.png",
+      "bytes": 319377,
+      "sha256": "71f3b88010544726f0db10832dfbd85faf466b3fb2f19439648b8234e3541b47"
+    },
+    {
+      "file": "screenshots/mobile-11-tools-electronics-calculators.png",
+      "bytes": 204005,
+      "sha256": "e5e522dcfff436d6f274c66cced2ed42adfb9c435cfb467e5201efa59234b68a"
+    },
+    {
+      "file": "screenshots/mobile-12-tools-spice.png",
+      "bytes": 231770,
+      "sha256": "481cab43a5d083f00da63453d142f9fdb5376d8cf777eb4b364b29036f3fcba9"
+    },
+    {
+      "file": "screenshots/mobile-13-tools-sketch.png",
+      "bytes": 132435,
+      "sha256": "35995ca040fb6c5bf0a90656db96fe62df271e965affd815277276b764b80cd0"
+    },
+    {
+      "file": "screenshots/mobile-14-tools-firmware-hex.png",
+      "bytes": 163416,
+      "sha256": "768b5a6ecdede17e6f4e8cf1ca6a9f93e81088f413d8abbb330529b1dd0457c1"
+    },
+    {
+      "file": "screenshots/mobile-15-community.png",
+      "bytes": 362992,
+      "sha256": "d3d3900866fe55a8cd23c9bd9cf737cb64cbf5ba3897160e5a85eb85b491fb92"
+    },
+    {
+      "file": "screenshots/mobile-16-community-new.png",
+      "bytes": 170604,
+      "sha256": "63f5dff05b02d46054428896263ffe43a6d230e949ad04d96dab0e9ae0603a26"
+    },
+    {
+      "file": "screenshots/mobile-17-feedback.png",
+      "bytes": 117999,
+      "sha256": "ae3fc78b67e947a0fcbd26c76b36c788ec5710a15b7966fe02489d912265f9d4"
+    },
+    {
+      "file": "screenshots/mobile-18-privacy.png",
+      "bytes": 97509,
+      "sha256": "9bbc8eec3f8e8dbf339307e63e86c1ea23739ca5c1ebfa155ffe031cbcecf6ea"
+    },
+    {
+      "file": "screenshots/mobile-19-login.png",
+      "bytes": 89791,
+      "sha256": "319a6a7e19cfc5f151533fb82caa7275adeccbf8a2c317fd7bedb1ac378577e5"
+    },
+    {
+      "file": "screenshots/mobile-20-app-robot-simulation.png",
+      "bytes": 161888,
+      "sha256": "475cf39f81ad6d7169bc2325a7ddf8356f0ecd80a0b5563a2cd1da2ce9d9bac1"
+    },
+    {
+      "file": "screenshots/mobile-canvas-after-hide-panel.png",
+      "bytes": 60508,
+      "sha256": "d87add97c3201c06f250c61ff806e0bcf53c58be4f2d92c26225d2e82150e8aa"
+    },
+    {
+      "file": "screenshots/mobile-guide-reduced-motion.png",
+      "bytes": 70517,
+      "sha256": "d58b9a6e8d24e9afd7007884277e6297e8b3d8b642ad83848892f9e12c2a9a1c"
+    },
+    {
+      "file": "screenshots/project-invalid-import.png",
+      "bytes": 121234,
+      "sha256": "c361d45f18a377a972cf8b16fb6029da38de152d2c5c41b134510debd2ebc42a"
+    },
+    {
+      "file": "screenshots/project-isolated-delete-copy.png",
+      "bytes": 130651,
+      "sha256": "6a04466b09925402d1bf3a5e417e154b1d192d38c8c425d472d4af9b84fc639c"
+    },
+    {
+      "file": "screenshots/project-isolated-duplicate.png",
+      "bytes": 132574,
+      "sha256": "ff4509cfa3966aaaa7d73f8f3740717c9379f31ea92b96bc62ce6dbff4eae0d3"
+    },
+    {
+      "file": "screenshots/project-isolated-import.png",
+      "bytes": 130651,
+      "sha256": "6a04466b09925402d1bf3a5e417e154b1d192d38c8c425d472d4af9b84fc639c"
+    },
+    {
+      "file": "screenshots/project-isolated-open.png",
+      "bytes": 133434,
+      "sha256": "086f2c41440e8340671a264311a4eb05c20fd4ae135c81ae39c7d2abf6705df9"
+    },
+    {
+      "file": "screenshots/project-isolated-rename-tags.png",
+      "bytes": 132401,
+      "sha256": "53865150b44d972278d77cc80ee8fdbbeaa1aa00727b32bb452a47b39180df52"
+    },
+    {
+      "file": "screenshots/project-saved-card.png",
+      "bytes": 8245,
+      "sha256": "ca4522fae1b435711ab6b892b3974549dedfc041c64c7dca0265c450daf526f1"
+    },
+    {
+      "file": "screenshots/project-saved.png",
+      "bytes": 127897,
+      "sha256": "1f636972bbae230e9a9329273a00669529cff76341123d0ed3fa21cb0a71cf90"
+    },
+    {
+      "file": "screenshots/robot-0.png",
+      "bytes": 232807,
+      "sha256": "4b0356a0cd922ea18b4a79dccceab539e8639b6558aa9201aa7f25c26a1a9867"
+    },
+    {
+      "file": "screenshots/robot-1.png",
+      "bytes": 232831,
+      "sha256": "8c459a4bf63bb23bddaf9da106fea989d216b4f725d506cbc70b86e048e869c7"
+    },
+    {
+      "file": "screenshots/robot-2.png",
+      "bytes": 234259,
+      "sha256": "4fab321c67ab0f3b98f796f2c30bcea96da8b323f7ecf460ca53d14d1b5fddb6"
+    },
+    {
+      "file": "screenshots/robot-3.png",
+      "bytes": 236252,
+      "sha256": "446419174cdcdfd6286850651fc6f97550e9500ed69ddc70a5821fe1faa03921"
+    },
+    {
+      "file": "screenshots/robot-4.png",
+      "bytes": 236897,
+      "sha256": "1cbc06aef34a9e6dd7f6913c5f251f4d154e9c3e6490fd7308c303d852048328"
+    },
+    {
+      "file": "screenshots/robot-5.png",
+      "bytes": 233395,
+      "sha256": "c14c59fc409454e30e718a9346bd0cb7ecfb654e1ea3f02d8c394517767fb0ca"
+    },
+    {
+      "file": "screenshots/robot-checklist.png",
+      "bytes": 211983,
+      "sha256": "9eee352583337c4991cbdaf9e959c598c55d4aa669bfca3279a98680977c954b"
+    },
+    {
+      "file": "screenshots/s3-pad-source.png",
+      "bytes": 193756,
+      "sha256": "5193399c9118850b3b530fbb5528c7435b98086e7be45676f43f7af16aa9fba7"
+    },
+    {
+      "file": "screenshots/sketch-board-arduino-mega-2560.png",
+      "bytes": 150055,
+      "sha256": "14dcd3a94b1c04eb8ac9234b7006bbc48357b46a649539d782f7f31816046e25"
+    },
+    {
+      "file": "screenshots/sketch-board-arduino-nano.png",
+      "bytes": 149514,
+      "sha256": "935226646a9c72e85ac750383631aad42b21ee50bdeee488d27ab41396df7dc7"
+    },
+    {
+      "file": "screenshots/sketch-board-arduino-uno-r3.png",
+      "bytes": 150145,
+      "sha256": "9096be1709ac4ce1aca77473200f4c7fa136da0cba19a6870bfb20d16e438679"
+    },
+    {
+      "file": "screenshots/sketch-board-esp32-devkit.png",
+      "bytes": 150427,
+      "sha256": "cfff9544d93a9ad6b8c9ffa9d9577c5d0a6a654d5723c7ce88f5dc04b536a5c0"
+    },
+    {
+      "file": "screenshots/sketch-board-esp32-s3-devkitc-1.png",
+      "bytes": 153404,
+      "sha256": "bd881e44e1a7e0126b4f23cfe60b128b62a03f2fbefbc39bf6cd130e837726a9"
+    },
+    {
+      "file": "screenshots/sketch-board-raspberry-pi-pico.png",
+      "bytes": 151362,
+      "sha256": "a1b6232eb5847cd54279f09a9e9a3f02ac358d75e688a98822a1c6170a5d7ad9"
+    },
+    {
+      "file": "screenshots/sketch-board-stm32-blue-pill-f103.png",
+      "bytes": 154190,
+      "sha256": "da02c753ca354a87f13a3766c650b8082feddfe71298ec551434b4d7f1ca21f8"
+    },
+    {
+      "file": "screenshots/sketch-board-stm32-nucleo-f401re.png",
+      "bytes": 152829,
+      "sha256": "6d90fd358baa1b3a9ea7f673c50608c7520422de5ff443cfd61c047022625ecc"
+    },
+    {
+      "file": "screenshots/sketch-esp32-blink.png",
+      "bytes": 174051,
+      "sha256": "6d807e539de7c9e3930f0dc72e529a22a9b2b154c9675c5dce83779a4e13b08f"
+    },
+    {
+      "file": "screenshots/sketch-esp32-button.png",
+      "bytes": 171322,
+      "sha256": "e781ee3e748b3e9a0866eead8204baaa5d9e43db261ae73ef0e3dd48b51b2699"
+    },
+    {
+      "file": "screenshots/sketch-esp32-pot-pwm.png",
+      "bytes": 164840,
+      "sha256": "b584e007fb3bf87811096c6082a90db318d468b2a2a34cbb90054400d080e289"
+    },
+    {
+      "file": "screenshots/sketch-pico-blink.png",
+      "bytes": 155722,
+      "sha256": "a91acdf5cbdc55c136e597085fba07666e928ef3ba2cff0ff939c2b7be26c7f9"
+    },
+    {
+      "file": "screenshots/sketch-syntax-error.png",
+      "bytes": 126952,
+      "sha256": "20e0bd1ceb3341e7752e7234d45468494e9c458a825a0f22fa5bf3b190349a32"
+    },
+    {
+      "file": "screenshots/sketch-uno-traffic.png",
+      "bytes": 175467,
+      "sha256": "977dab1ba5e21010d4e72ecd669d8dba32df7a30ab8370aa3b688a3011957484"
+    },
+    {
+      "file": "screenshots/spice-ac-complete.png",
+      "bytes": 135990,
+      "sha256": "87a22c01d2ef9d0bd0f592ecfda777eee44ffca4213502d0083f8b65c506f0e6"
+    },
+    {
+      "file": "screenshots/spice-cad-final.png",
+      "bytes": 127850,
+      "sha256": "f0fcc9c0a55b9355bf242e09bf53448ab5cf97209982ee76a952f1f11e998465"
+    },
+    {
+      "file": "screenshots/spice-cad-import-match.png",
+      "bytes": 134707,
+      "sha256": "405b37986ed064085aa19ad18dc3ccc17d1f995c53183e01e38a147c0b1cc724"
+    },
+    {
+      "file": "screenshots/spice-cad-import-solver.png",
+      "bytes": 127850,
+      "sha256": "f0fcc9c0a55b9355bf242e09bf53448ab5cf97209982ee76a952f1f11e998465"
+    },
+    {
+      "file": "screenshots/spice-dc-complete.png",
+      "bytes": 135460,
+      "sha256": "ead187ec17ae52c21b5b4e4fdfc5c34ff95f325b19956e26c56b32f92b6e4385"
+    },
+    {
+      "file": "screenshots/spice-divider-complete.png",
+      "bytes": 135836,
+      "sha256": "da6aad0a75a7b075a11d5f582867db7e5af8eac06bfb926717c52d3b835c728a"
+    },
+    {
+      "file": "screenshots/spice-invalid-include.png",
+      "bytes": 126882,
+      "sha256": "3ad1dcaed7f2731d5d31d007648e7650f22e59a5454ad6b374267f629768ea29"
+    },
+    {
+      "file": "screenshots/spice-led-complete.png",
+      "bytes": 138092,
+      "sha256": "a9027262622372ee3a0eb42f56975105b401527316471229c1c010a0b46ff992"
+    },
+    {
+      "file": "screenshots/spice-rc-complete.png",
+      "bytes": 137998,
+      "sha256": "ca8f7a3f618844f0d42c1260d603ffce26a67c3b5fb838811789cbaf6475acbd"
+    },
+    {
+      "file": "screenshots/spice-runtime-failure.png",
+      "bytes": 125265,
+      "sha256": "bfd9f6d71d33fd306e45b0e88cafa88c5aca6979fcf70cb2daf115d7f5f33312"
+    },
+    {
+      "file": "screenshots/theme-1.png",
+      "bytes": 246145,
+      "sha256": "8b29d27be49f2787acda13094313f3df2a626a48d9f1b0847652f3ed33baed40"
+    },
+    {
+      "file": "screenshots/theme-2.png",
+      "bytes": 248732,
+      "sha256": "50b1b40b5049919f92e04af32e131f53a7f0dfe4c845983acbb30420fa4ff23e"
+    },
+    {
+      "file": "screenshots/theme-3.png",
+      "bytes": 248562,
+      "sha256": "0f32bdff9efa3825132379105703b4e11a759e7169ccf9fb64975f9a9d548782"
+    },
+    {
+      "file": "screenshots/theme-verified-0.png",
+      "bytes": 246145,
+      "sha256": "8b29d27be49f2787acda13094313f3df2a626a48d9f1b0847652f3ed33baed40"
+    },
+    {
+      "file": "screenshots/theme-verified-1.png",
+      "bytes": 248372,
+      "sha256": "ba9b098358be7d3a36aa10896217b49c8b7df5fb35877d0b23c052ec59eecf6b"
+    },
+    {
+      "file": "screenshots/theme-verified-2.png",
+      "bytes": 248356,
+      "sha256": "031952035eb4809ad5654b5038ea16a4960b61fda66e8e1717745768511f9ad8"
+    },
+    {
+      "file": "screenshots/tour-0-step-1.png",
+      "bytes": 183213,
+      "sha256": "ab93fe8ff5c47a04531cba10fa8fcd2fe2c21bf0c33e936ca76624b29f61bd2f"
+    },
+    {
+      "file": "screenshots/tour-0-step-2.png",
+      "bytes": 175571,
+      "sha256": "36022e368298207187c13f8ffe639a15ffa761364c7093547ee07dae6b158296"
+    },
+    {
+      "file": "screenshots/tour-0-step-3.png",
+      "bytes": 188125,
+      "sha256": "ae4f00780b6f57b6d552b393bf719518e913bfd70f813147ba7e86797a86a938"
+    },
+    {
+      "file": "screenshots/tour-0-step-4.png",
+      "bytes": 192412,
+      "sha256": "26438b55e8d21c48392710486da067c0be7df6542fd9c885ead6213deb059da4"
+    },
+    {
+      "file": "screenshots/tour-0-step-5.png",
+      "bytes": 245524,
+      "sha256": "68e432de91c5c84df083e3a74ccbdf50c25f01f5c324b0ee69ac7e397915c325"
+    },
+    {
+      "file": "screenshots/tour-0-step-6.png",
+      "bytes": 221201,
+      "sha256": "a74663b49884fcbe5e8a3a5eba95ca7cc5ecd21863c919952f50c82515939f5d"
+    },
+    {
+      "file": "screenshots/tour-0-step-7.png",
+      "bytes": 216863,
+      "sha256": "c13ebb339b2641042fa81599f46878595e0b194b3b4bb6de5960a50668b83359"
+    },
+    {
+      "file": "screenshots/tour-1-step-1.png",
+      "bytes": 236258,
+      "sha256": "e9a263800430fb8a8f2c9c6f94b6b1ffe09556ef6471bba0b552018c93e93bab"
+    },
+    {
+      "file": "screenshots/tour-1-step-2.png",
+      "bytes": 234693,
+      "sha256": "55511c8b0ec5972a4acc3150c31dd852b30a55cb6d4dc9b84c329b3d08c68d5e"
+    },
+    {
+      "file": "screenshots/tour-1-step-3.png",
+      "bytes": 268022,
+      "sha256": "c69fa8f38a65d0a0a29900c188dd123b1331e0e4663373e2bb069cafd4900fe9"
+    },
+    {
+      "file": "screenshots/tour-1-step-4.png",
+      "bytes": 183339,
+      "sha256": "926a5061d45a8b7424c0561f43648202222b090b0ffe041d16ff8f20ed5570b0"
+    },
+    {
+      "file": "screenshots/tour-2-step-1.png",
+      "bytes": 59591,
+      "sha256": "4ec18d83961d3ebec8f9b07dbdd23e05738824a1a753adc4dc59eb9573f15b80"
+    },
+    {
+      "file": "screenshots/tour-2-step-2.png",
+      "bytes": 64847,
+      "sha256": "cf172615210455422c79e7c2de7f1f76681a9cba0a466994bf9e5c6aeff34662"
+    },
+    {
+      "file": "screenshots/tour-2-step-3.png",
+      "bytes": 58122,
+      "sha256": "df3be84b2e6e341a706a973343f0205f1d408292c3580db481660138595e9508"
+    },
+    {
+      "file": "screenshots/tour-2-step-4.png",
+      "bytes": 57618,
+      "sha256": "50ab235268546ca821d8367d09bddd24c563a71f27dc64919299f11dcca8157c"
+    },
+    {
+      "file": "screenshots/tour-2-step-5.png",
+      "bytes": 59089,
+      "sha256": "2a592562dfc02a6e0cbb5dabb2a00844c2252a9dd38f22f8d3838795734b0df6"
+    },
+    {
+      "file": "screenshots/tour-2-step-6.png",
+      "bytes": 60063,
+      "sha256": "54be82794299dae579707e10047da5c311961e4d9c0ff4c22e35bb59c61d180d"
+    },
+    {
+      "file": "screenshots/tour-3-step-1.png",
+      "bytes": 118332,
+      "sha256": "15709594fdf90371d86f3762858f10591dd961a249e45e9532548cc952d5c807"
+    },
+    {
+      "file": "screenshots/tour-3-step-2.png",
+      "bytes": 118967,
+      "sha256": "9f73772175ae3c23ca4eb3d723fa00d9b62be76e03446f98c0dd261ff31eb73c"
+    },
+    {
+      "file": "screenshots/tour-3-step-3.png",
+      "bytes": 118900,
+      "sha256": "7c6ae5af289a9e4b0a6520c22d3cd54c75a5221ae73e82d7bb4ffc8e3c7e4b4e"
+    },
+    {
+      "file": "screenshots/tour-3-step-4.png",
+      "bytes": 119938,
+      "sha256": "122d174fbc24f9d6af1e8ef849342a410d80026bee9667366b7a40dae605d71a"
+    },
+    {
+      "file": "screenshots/tour-3-step-5.png",
+      "bytes": 124493,
+      "sha256": "7ed5ac24478a0e466c6e3e8bcb46a24e2d3794a443e5247956ca16a8339fece8"
+    },
+    {
+      "file": "screenshots/tour-4-step-1.png",
+      "bytes": 112376,
+      "sha256": "5fb5edfaba18cc5fdef156457edbf9ffcdcf01abcc7c61703cd6a7cabce75752"
+    },
+    {
+      "file": "screenshots/tour-4-step-2.png",
+      "bytes": 119941,
+      "sha256": "b0a8a07165d92fa94a13d9e68a1fb4e9506d3422e272da3767c501d211239aa6"
+    },
+    {
+      "file": "screenshots/tour-4-step-3.png",
+      "bytes": 116579,
+      "sha256": "854aca9382e9362b4ba2e8f79cfe3e6580e1cd8a3ba6f513d07c8489d5325033"
+    },
+    {
+      "file": "screenshots/tour-4-step-4.png",
+      "bytes": 117528,
+      "sha256": "d4823df82d893e3d56e1657cff21dd20943dd9bedfd7819f049fdbb852959509"
+    },
+    {
+      "file": "screenshots/tour-4-step-5.png",
+      "bytes": 122132,
+      "sha256": "a54f46e641f1542d9999de57fca502fe47b71328de443e1a9d783fe926f3179c"
+    },
+    {
+      "file": "screenshots/tour-5-step-1.png",
+      "bytes": 225827,
+      "sha256": "10d081dc7b8358e2a61c7be9a37218f85b3ce5505f4d62e5df2a9059a34f8181"
+    },
+    {
+      "file": "screenshots/tour-5-step-2.png",
+      "bytes": 215177,
+      "sha256": "15fc905500a8d46ef92fafa4138fa93cbd5f19a7010eca767bbeaebf89370c44"
+    },
+    {
+      "file": "screenshots/tour-5-step-3.png",
+      "bytes": 246301,
+      "sha256": "4cb874a94dba5b9f556e3e1bf3083f13921b891c38efa283496782d78e0df2c2"
+    },
+    {
+      "file": "screenshots/tour-5-step-4.png",
+      "bytes": 242766,
+      "sha256": "35ba0abd556bb7c45a1af4d3429b6aab3f88438654e36a3edc61fa29dae82bae"
+    },
+    {
+      "file": "screenshots/tour-6-step-1.png",
+      "bytes": 134474,
+      "sha256": "0d5d65cd82313ff00e5b4c99cb2df01a5f56d7884173503229b7ef1a4fa2a32f"
+    },
+    {
+      "file": "screenshots/tour-6-step-2.png",
+      "bytes": 139455,
+      "sha256": "1418b77cc2ce751544aacff7ae0f4faa16148f2d682fd64546cf040c7b2b846b"
+    },
+    {
+      "file": "screenshots/tour-6-step-3.png",
+      "bytes": 137570,
+      "sha256": "4b5823281aa20872cb67cb6f80984ce6b393b3e11c6d49567fe5b712d6903571"
+    },
+    {
+      "file": "screenshots/wire-click-connect.png",
+      "bytes": 210653,
+      "sha256": "f6db45d781329870e7926e5c7c2d48754505be26982dfbbca1e99df84fe61c01"
+    },
+    {
+      "file": "screenshots/wire-deleted.png",
+      "bytes": 210774,
+      "sha256": "3367df443f0773048bdc5bbf74bc7edf92a208ce991f92e330218d2bc9459c40"
+    },
+    {
+      "file": "screenshots/wire-drag-1-steps.png",
+      "bytes": 214358,
+      "sha256": "9e4bb09e32f683ad93e5a61f438009df93a1f3924c675c6ea37af9317fbdfac9"
+    },
+    {
+      "file": "screenshots/wire-drag-20-steps.png",
+      "bytes": 210882,
+      "sha256": "92c57301b84df70179be9cc0ba571acafd23426440f74a47d2a2f83cb51cfbbf"
+    },
+    {
+      "file": "screenshots/wire-drag-connect.png",
+      "bytes": 210687,
+      "sha256": "550fee38c3ccbb1a522398b1f9764114077f1227c2c17a0d3b0f22797097e59c"
+    },
+    {
+      "file": "screenshots/wire-drag-recheck.png",
+      "bytes": 210687,
+      "sha256": "550fee38c3ccbb1a522398b1f9764114077f1227c2c17a0d3b0f22797097e59c"
+    },
+    {
+      "file": "screenshots/wire-selected.png",
+      "bytes": 207861,
+      "sha256": "681508806619f3078b1e438808df45db6d00e5dd2b9d8e106bf8dfdb9f825d1a"
+    },
+    {
+      "file": "snapshot-after.json",
+      "bytes": 52089,
+      "sha256": "c58e56469ddb461fc91f2cfae832a444cdf5bd90d1eb95eb99642a7d75f27d93"
+    },
+    {
+      "file": "snapshot-before.json",
+      "bytes": 51558,
+      "sha256": "c422e91780921c90733073f2910a0bc31d474ed6f8ca5a0b5278b4120d0a1a96"
+    },
+    {
+      "file": "verification.json",
+      "bytes": 4581,
+      "sha256": "ba7eadf005bb946613e0f80fef7b8a929022155e525ccf2b21b5637795df1ac2"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "screenshots/001-home-desktop.png",
+      "bytes": 208168,
+      "sha256": "0e8529056e08bd299ab925e5d01fc8f930415b0cfe4eef080f93351b7af9ad06",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/010-app-desktop.png",
+      "bytes": 274275,
+      "sha256": "93655440b0e2c6286514ce3d1fabf796b9382b8bf447d0cda3865f4c41290ac0",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/011-topics-desktop.png",
+      "bytes": 155542,
+      "sha256": "eff10470f2ed61f459dfa96057aa267ec65d44c4432e5479fef0af5c60a5f3d1",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/012-boards-desktop.png",
+      "bytes": 246032,
+      "sha256": "b9238474f7df65eb26bf1073c1fd903577aaf54ab391ae592efab2871c01ddbb",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/013-components-desktop.png",
+      "bytes": 172742,
+      "sha256": "68e466909c1b3c22d0b8889de30b0f961e0d885c9f09a56c47f87fd48b7bc0d0",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/014-projects-desktop.png",
+      "bytes": 128990,
+      "sha256": "6e622f1578d6d76015b76b33c0e6815d1f923097a9f5cf0322782af68a46f6f4",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/015-app-classroom-kits-desktop.png",
+      "bytes": 161837,
+      "sha256": "e7f99523293286f2639dc74889bb711e324a6a2183a36df0eff7bc2f868e61e7",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/016-tools-electronics-calculators-desktop.png",
+      "bytes": 128759,
+      "sha256": "75540475bacba7152de187f549d609c02d9ede1dee4261bb9eebe0375664c93a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/017-tools-spice-desktop.png",
+      "bytes": 145474,
+      "sha256": "e7c474b0d0e38be7cec911ce5e2e35724b5a773bdd8f902fb67872050115da45",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/018-tools-sketch-desktop.png",
+      "bytes": 157864,
+      "sha256": "00f7fb08ad56b475487cf7841f36df2bfb1f19bb895fd87c3b4fea223d9ba529",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/019-tools-firmware-hex-desktop.png",
+      "bytes": 142410,
+      "sha256": "27fb3cd3cede0dbe63482ddbd49a72d18e4b7e124658a5b1b3b15f93a49251bd",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/020-community-desktop.png",
+      "bytes": 209619,
+      "sha256": "d81ded1c5a750372971d7af498a2b6dafc8a1cf9dbff5870a1b8e9a04d389b1f",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/021-feedback-desktop.png",
+      "bytes": 142696,
+      "sha256": "c6fd04a983b3280db23d4c1eef43edfb90ba6a12cdefa640cb374eda8e75cb25",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/022-privacy-desktop.png",
+      "bytes": 143072,
+      "sha256": "83066d6ea21141249f16b61b104b31eac41b26ceee450c025d6cff24c5593472",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/023-login-desktop.png",
+      "bytes": 137512,
+      "sha256": "5bbca89172c5f450fc2a93dd961f2a14b9ca7e28d0df18d584dc385d7c72aed1",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/024-admin-login-desktop.png",
+      "bytes": 26126,
+      "sha256": "fd425cd29847898ada1ae585dfa5c0943baf7c85fefb28991252cf6002b83f67",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/025-app-robot-simulation-desktop.png",
+      "bytes": 232495,
+      "sha256": "6002b4befc6095bc706015b87062867460bdd697e7b138214fa51e3f63607ff7",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-01-seeed-xiao-esp32c3.png",
+      "bytes": 131427,
+      "sha256": "463f572539fdf1ec2fef9e49dac1550c999ade3e3f2452e6d38ccdf27e9f9205",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-02-seeed-xiao-esp32-s3.png",
+      "bytes": 88429,
+      "sha256": "2fdccd61de22a8ab3e749c0ab4887d5480ca0f38e5f596bb1e2719e226644dea",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-03-adafruit-qtpy-esp32-c3-5405.png",
+      "bytes": 100133,
+      "sha256": "ec321a250860d69ece46d8431761b941d7813ecd22b957dfd124bad2d8d613fd",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-04-adafruit-feather-esp32-s3-tft-5483.png",
+      "bytes": 101076,
+      "sha256": "de6e0dcf14ba249c80c53663cfabd612546dabb54010406eb83c07a02082c751",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-05-adafruit-feather-esp32-s3-5323.png",
+      "bytes": 105427,
+      "sha256": "af2ac7d4a8731a7856a7a68b214b53b3005dd6dad418393d719b22cb7d1c8be7",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-06-esp32-devkit.png",
+      "bytes": 108601,
+      "sha256": "b38555a1cdc1ef77d989336b216333cc0a9f3f105ff17ea8b4c1b397e8d69e7e",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-07-arduino-uno-r3.png",
+      "bytes": 118992,
+      "sha256": "87d96e3ac69cd13a4c668aef3d2359f9dc5ae6d13c0716c78c927106f9cff67b",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-08-arduino-nano-classic.png",
+      "bytes": 124735,
+      "sha256": "fed5f7c587004d96fbdc46ab94f3786f7720a465e166b094005ac6d04d43a9fc",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-09-arduino-mega-2560-r3.png",
+      "bytes": 119515,
+      "sha256": "1115ed9fb35e5a3cb84e6d93a1b34aef50258f2db97a9d28ea2cea62c3fa2cdf",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-10-stm32-nucleo.png",
+      "bytes": 107302,
+      "sha256": "c84ff813b40f0b5e742122cf1d014a53ed7b90f2c7409fc09e12a3b750968c11",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-11-esp32-c3-devkitm-1.png",
+      "bytes": 71866,
+      "sha256": "5add69e8575f9a5825559c167ac2d9ccab9af5b7ca4adefba73a949939953257",
+      "width": 659,
+      "height": 908,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-12-esp32-devkitm-1.png",
+      "bytes": 71442,
+      "sha256": "756f12169fb2868827da3579342504c3492f4e4e245137d99ffdf75ea3f2b58d",
+      "width": 659,
+      "height": 908,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-13-esp32-s3-devkitc-1.png",
+      "bytes": 116599,
+      "sha256": "9df7b43f48b1f13cf72f74b79b4bb11d4e74918adcaa417296efc90fb36e67b9",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-14-stm32-blue-pill-f103.png",
+      "bytes": 105313,
+      "sha256": "e666c820b9087e27104f527ae644457297e30f50d52f5a4edb26bc1822f0b8ba",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-15-raspberry-pi-pico.png",
+      "bytes": 95044,
+      "sha256": "ae6e456658c46de8848685dff7ea1a3921896519de1fef58ced2119ab37ab748",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-16-raspberry-pi-pico-w.png",
+      "bytes": 112875,
+      "sha256": "13a2bd9f9fc85fe97fc18c89570db43d196f9140b95df49b23ddc679a643d839",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-17-raspberry-pi-pico-2.png",
+      "bytes": 116266,
+      "sha256": "02ee9e542c3789f59484d0b2dfcbebae87668d5082fa07fdba6dab596c9eb4c4",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-18-raspberry-pi-pico-2-h.png",
+      "bytes": 112124,
+      "sha256": "753312c8247f7799de98f1ff16346d73088c9cab9acc9ec2de570c8bc11c4a47",
+      "width": 382,
+      "height": 501,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-19-esp32-c6-devkitc-1.png",
+      "bytes": 52836,
+      "sha256": "376ff264c20771043208c43b2ba3a0d56d9540f8cb956b81e3f04e471d4ffd1d",
+      "width": 659,
+      "height": 660,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-20-stm32-nucleo-f411re.png",
+      "bytes": 51818,
+      "sha256": "395bdc939f9f44fda9bedfee9622914fcda74287487673ac3e606cae474b6115",
+      "width": 659,
+      "height": 681,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-21-arduino-uno-r4-minima.png",
+      "bytes": 122443,
+      "sha256": "b44be67b4d48759e50a058bd82685831f4ec48fdfe7770bb5709f981a3c07ece",
+      "width": 659,
+      "height": 908,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-22-arduino-uno-r4-wifi.png",
+      "bytes": 184367,
+      "sha256": "0c0c4ddf8a4f7c1f0c597ac1112cdfd1b018774fb94daa7b673d6e43d994d955",
+      "width": 659,
+      "height": 908,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-23-arduino-nano-esp32.png",
+      "bytes": 48628,
+      "sha256": "9afef574637dffa591752ae54b5da502294234b5d014d439b6add7f692b25899",
+      "width": 659,
+      "height": 660,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-24-arduino-nano-every.png",
+      "bytes": 47322,
+      "sha256": "c8f3b1932ff0fe86f26ef006886d8c18a336768aaa4075d115ef717611ff220b",
+      "width": 659,
+      "height": 660,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-25-esp32-s2-devkitc-1.png",
+      "bytes": 49696,
+      "sha256": "ad77b609c8a7b6d3609ebf4fa91ae6494e963d4748fac5182fb7e5dd0b2fbb6f",
+      "width": 659,
+      "height": 660,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-26-esp32-h2-devkitm-1.png",
+      "bytes": 48770,
+      "sha256": "a308a572f1cb1d2615c3050d2f73809d42c2474d63db6af53e1d8a7789f77b36",
+      "width": 659,
+      "height": 640,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-27-stm32-nucleo-l476rg.png",
+      "bytes": 49550,
+      "sha256": "40ff94a0a328584c0430a625eebfc7e5cc738c7c8a1a6ff2fa0897d82ecf8f00",
+      "width": 659,
+      "height": 640,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-28-stm32-nucleo-f446re.png",
+      "bytes": 50193,
+      "sha256": "cf293b8364daa87942c660b08c7ed4f5a954da5d9dff4c3f475e1ecace4477a7",
+      "width": 659,
+      "height": 660,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-esp32-extra-led-scene.png",
+      "bytes": 182882,
+      "sha256": "6770d7331fda2e5edb1234931e91ccdc2efc6c62da07d7a3e69fa6652b106441",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-pin-arduino-mega-2560-r3-D18.png",
+      "bytes": 119536,
+      "sha256": "c17e9a87669be53835baeabe6bd982132f9869084e80209004d4b8d16511f364",
+      "width": 216,
+      "height": 2212,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-pin-arduino-mega-2560-r3-D3.png",
+      "bytes": 115786,
+      "sha256": "f2a411137bc161ce749c73935b2ab207a6c2efb450a975382b5aae26b24d3387",
+      "width": 216,
+      "height": 2211,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/board-pin-arduino-uno-r3-D13.png",
+      "bytes": 83830,
+      "sha256": "8ce0717f0a82a35a2d206d286a709d0ad66fc39f0153a381f781f9e6f97fa449",
+      "width": 216,
+      "height": 1366,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/calculator-adc-negative-limit.png",
+      "bytes": 132071,
+      "sha256": "c0acfb72805c90f9280e54deff1650750e5ea5a2a99672e85b4431be2e6f9801",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/calculator-i2c-blank.png",
+      "bytes": 129353,
+      "sha256": "2cf28ac3e2b947bbb55255d0d239924dd626f822bb55760ae671240bd102903b",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/calculator-led-zero-current.png",
+      "bytes": 161742,
+      "sha256": "eac8a5cfbafbe88023ef9b771f68cf1ec2ad4efa329a56a246f2251415938fdd",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/calculator-rc-negative.png",
+      "bytes": 128010,
+      "sha256": "31dcfbf09e8d67fe50aed681d566ec96dd95ca8c1809882b7ae5cc4bc173db15",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/calculator-spice-handoff.png",
+      "bytes": 186376,
+      "sha256": "76062658b70164a60fe48b199d182843d4ab4c5fcd71988f793640566501815c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/calculators-valid.png",
+      "bytes": 154805,
+      "sha256": "b3694060aefbfb22324c9131ad09a0aedb9e7b491f2268c3055a1320b5fe24a4",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/community-attachments-preview.png",
+      "bytes": 190827,
+      "sha256": "7a38356989738836692d6af6c2d3874cef71242767df2790f22ad78794d66152",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/community-comment.png",
+      "bytes": 142761,
+      "sha256": "b674d9d9b7add0003c1e21784038fd0d1b703df77fa5110f09d7de8fe1750cf9",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/community-compose.png",
+      "bytes": 222389,
+      "sha256": "c13025ec9c14b982f864a4f9cd9720fc6bef506656858dc03ce1e37e28bb8269",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/community-filter.png",
+      "bytes": 184058,
+      "sha256": "52596618a4d2b8de036e26f66c95b408baa379ad669d91285fa5405fb88bde7a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/community-local-post.png",
+      "bytes": 189480,
+      "sha256": "a5cc3bb3a59e967a464a8dc9c747e9c9cdb90f4d22c29aa8c879a079e4216431",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/community-report.png",
+      "bytes": 145242,
+      "sha256": "6a653ae41b990ac57a2df2c5b4769d114d67158ca3fdbd7bba7676dccd7f878b",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/community-six-files.png",
+      "bytes": 180267,
+      "sha256": "78a21248a77ad1f8f96aabf80ba35702069336a693247b67e564fb1026bac0fc",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-01-seeed-xiao-esp32c3-2d.png",
+      "bytes": 11749,
+      "sha256": "105d190972b0397d82c3e8eb56b1b17521facdf136211b56941d1c6aaeaf0cdb",
+      "width": 544,
+      "height": 279,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-02-seeed-xiao-esp32-s3-2d.png",
+      "bytes": 11749,
+      "sha256": "105d190972b0397d82c3e8eb56b1b17521facdf136211b56941d1c6aaeaf0cdb",
+      "width": 544,
+      "height": 279,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-03-esp32-devkit-2d.png",
+      "bytes": 63847,
+      "sha256": "99e4d2f3d6972ac5662dcdcd58199de14bf7a6e5fcaaf2c707dbf9bb718c5cf4",
+      "width": 544,
+      "height": 896,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-04-adafruit-qtpy-esp32-c3-5405-2d.png",
+      "bytes": 11749,
+      "sha256": "105d190972b0397d82c3e8eb56b1b17521facdf136211b56941d1c6aaeaf0cdb",
+      "width": 544,
+      "height": 279,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-05-adafruit-feather-esp32-s3-tft-5483-2d.png",
+      "bytes": 11749,
+      "sha256": "105d190972b0397d82c3e8eb56b1b17521facdf136211b56941d1c6aaeaf0cdb",
+      "width": 544,
+      "height": 279,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-06-adafruit-feather-esp32-s3-5323-2d.png",
+      "bytes": 11749,
+      "sha256": "105d190972b0397d82c3e8eb56b1b17521facdf136211b56941d1c6aaeaf0cdb",
+      "width": 544,
+      "height": 279,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-07-arduino-uno-2d.png",
+      "bytes": 54278,
+      "sha256": "7ddfcbfe69e8355617c6f75718e99ef33ec73dd6db3d25d106a067283938a1dd",
+      "width": 544,
+      "height": 1085,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-08-arduino-nano-2d.png",
+      "bytes": 11751,
+      "sha256": "23d14e86ef6b6049fbcc8d1ac79082d98b9260f6830ab5fbbb00f5d44320ce77",
+      "width": 544,
+      "height": 279,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-09-arduino-mega-2d.png",
+      "bytes": 11751,
+      "sha256": "23d14e86ef6b6049fbcc8d1ac79082d98b9260f6830ab5fbbb00f5d44320ce77",
+      "width": 544,
+      "height": 279,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-10-stm32-f401-2d.png",
+      "bytes": 61860,
+      "sha256": "0927a0b32d09e69c3937eb4631df7c165de066b7093d85062dabb82860e2a773",
+      "width": 544,
+      "height": 1250,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-11-stm32-blue-pill-2d.png",
+      "bytes": 62128,
+      "sha256": "8b39ccfd2ced88b467947d9e496810ecb308db78ef12013620725c1c316e66cf",
+      "width": 544,
+      "height": 1068,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-12-rp2040-pico-2d.png",
+      "bytes": 11751,
+      "sha256": "23d14e86ef6b6049fbcc8d1ac79082d98b9260f6830ab5fbbb00f5d44320ce77",
+      "width": 544,
+      "height": 279,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-13-rp2350-pico-2-h-2d.png",
+      "bytes": 11751,
+      "sha256": "23d14e86ef6b6049fbcc8d1ac79082d98b9260f6830ab5fbbb00f5d44320ce77",
+      "width": 544,
+      "height": 279,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-14-esp32-s3-2d.png",
+      "bytes": 9008,
+      "sha256": "5656df3d26fdded9998034bf9bf536dc8fb18a7048f0f2591b9e807f0ddcecaf",
+      "width": 544,
+      "height": 259,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-15-resistor-2d.png",
+      "bytes": 9100,
+      "sha256": "ed26d04d8b2728b311cdc40421b6c8096e4d62e80169ea0ed5fee6a5d41ac337",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-15-resistor-3d.png",
+      "bytes": 23367,
+      "sha256": "87c383400fc1b35313422f162ce242b413ced9369aeb4722355ceab624422ec8",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-16-potentiometer-2d.png",
+      "bytes": 16248,
+      "sha256": "382443fdf7d7bea306240c20431139d44720c734f67dafecb626cbc6c2542ecb",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-16-potentiometer-3d.png",
+      "bytes": 28243,
+      "sha256": "95f074b4b7f6f405904919105879d6a84630afd8e3b7cfa00d5557000c48fd42",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-17-led-2d.png",
+      "bytes": 14693,
+      "sha256": "4247a32c6c84bf6a8419dc77113632387ed2482e246416b20b8ad05b3214a045",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-17-led-3d.png",
+      "bytes": 21695,
+      "sha256": "4cb3902ac678227de2ca86a1dfa8a7449631cb0d47c9e189ab70fd213a2e1810",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-18-button-2d.png",
+      "bytes": 9545,
+      "sha256": "08638b1287254d8eecff4ac0c7e222d368ec8c46d8ac57e937535957c945a6ea",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-18-button-3d.png",
+      "bytes": 26720,
+      "sha256": "bb27432d2d692832c6c9922d3cd5064dbe06a8d5620190723dca97ab4c3f6775",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-19-ldr-2d.png",
+      "bytes": 16042,
+      "sha256": "a682a16746cdaa1424c49ab71bde6e0bbea7463687c86381b834b329f780db18",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-19-ldr-3d.png",
+      "bytes": 25466,
+      "sha256": "3829db2e4a7df99a5c495ee605fd5119e1129bd81ad80a4cf2ffe62b1630d9e8",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-20-ntc-2d.png",
+      "bytes": 11692,
+      "sha256": "4350a189bf1e823781d266183002252313875c46b4e84923a3c502b67831b10a",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-20-ntc-3d.png",
+      "bytes": 19461,
+      "sha256": "ddc0782bc57d186de72a69f41095bdf3c5a9e71d61ba3050badba0b9afdce2f5",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-21-dht22-2d.png",
+      "bytes": 11847,
+      "sha256": "3ec19e4c648d7b7ce374efc4df217adb51071dffd7d3e8333aa5a1d5bd01e9fe",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-21-dht22-3d.png",
+      "bytes": 31421,
+      "sha256": "d4b737b2eab4242126caca5038425a326adcb0e0127cd3688f285d1cc3637760",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-22-hc-sr04-2d.png",
+      "bytes": 61258,
+      "sha256": "05d5b8ea28f203e9b402430510a3c3524e8884ec48410690d1e66410f7606d40",
+      "width": 544,
+      "height": 886,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-22-hc-sr04-3d.png",
+      "bytes": 34443,
+      "sha256": "29c4eb2627707e21e329e17d98492f359be6deda535bce9b6f842cbe9e46fbcb",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-23-pir-2d.png",
+      "bytes": 60726,
+      "sha256": "a945b2a138d6c9e7c079eeba142e27dffa31ff9f8f54ec4ddd78164ab23b0dce",
+      "width": 544,
+      "height": 1006,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-23-pir-3d.png",
+      "bytes": 28663,
+      "sha256": "0c27b1858202d326b434e042a964608e30b59e08aef63329857cdb4c32917bfa",
+      "width": 544,
+      "height": 411,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-24-slide-switch-2d.png",
+      "bytes": 11634,
+      "sha256": "66c3932a7fe3e670bc87e8a5c7a937570a132fd7919bb12465a8e1b71c0c1a9e",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-24-slide-switch-3d.png",
+      "bytes": 23939,
+      "sha256": "b8ec398c2777313926da1894e03c436a04f8d055568913d73df5c8ba1742d341",
+      "width": 544,
+      "height": 411,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-25-limit-switch-2d.png",
+      "bytes": 11771,
+      "sha256": "26cde71d85fe3627695df9f85cef70da06d6e7cc2d1ff7de8ac8ec4c3764b1c1",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-25-limit-switch-3d.png",
+      "bytes": 23361,
+      "sha256": "e324d8a4db305c3f6caa716395255b81fec1b513ae24a01d42da2ef3843a7dd3",
+      "width": 544,
+      "height": 411,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-26-buzzer-2d.png",
+      "bytes": 13261,
+      "sha256": "891482e93bfe91a936ad4d40db56e831c0a2164bd0b4e63ce1d9cd5f8ff3c8d5",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-26-buzzer-3d.png",
+      "bytes": 25191,
+      "sha256": "841fc1ac55848504f317cc051bd330a153935744945fcffb896b0c0ebbb05389",
+      "width": 544,
+      "height": 411,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-27-servo-2d.png",
+      "bytes": 12447,
+      "sha256": "55ca84883080b3fa64fddbbd7384418b7fec4b189f2491559284a037c7cc3119",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-27-servo-3d.png",
+      "bytes": 25648,
+      "sha256": "4d3797b9c24325511d747cdc92b1932d23e82cf8ad25a3c22d31d07fd406a603",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-28-dc-motor-2d.png",
+      "bytes": 11759,
+      "sha256": "8e713b4e63877b4e9f186f5a4d902e1d14ae640f8c38c493dd9423322702256d",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-28-dc-motor-3d.png",
+      "bytes": 29663,
+      "sha256": "1a129202c6555b8e323462b818d7fe6f58b7691c3acdb38c44dc54169e9d58a2",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-29-motor-driver-2d.png",
+      "bytes": 11972,
+      "sha256": "3994b6c0ed5a9dcecbce1d36ff8090c9255b03b07fab2261b37c52c676313ea5",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-29-motor-driver-3d.png",
+      "bytes": 33113,
+      "sha256": "0aeb8bacf72c84e759af604782620c47af2dae6da17d69df813dc521dd6830d7",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-30-mosfet-2d.png",
+      "bytes": 10626,
+      "sha256": "4404be7adf20c2eec81ec65e43f15193eae0993179b17bff300282781b62682d",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-30-mosfet-3d.png",
+      "bytes": 21045,
+      "sha256": "139d03db7443c8bb806bd35624dfa35465e0ba20b25fec8b93230165584f1dfb",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-31-relay-2d.png",
+      "bytes": 47297,
+      "sha256": "ca9ec3e0151cb0a046f038e489788b09f8f54e55cbbdbdaac43e6784a45d0de7",
+      "width": 544,
+      "height": 798,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-31-relay-3d.png",
+      "bytes": 29450,
+      "sha256": "0670745514afcc21099219a54bf6b2c92bd027d86c225b37121d8c4147ad1dcd",
+      "width": 544,
+      "height": 411,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-32-oled-2d.png",
+      "bytes": 41387,
+      "sha256": "e7d3d456a16dcf605a4496080dc775b1ba73b93ed3aa8f66e6391a237326f2ab",
+      "width": 544,
+      "height": 1117,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-32-oled-3d.png",
+      "bytes": 30235,
+      "sha256": "d331121236813ded604539a6095ed35c164ebddee677bc0bf78d0caccb6a11fd",
+      "width": 544,
+      "height": 411,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-33-lcd1602-2d.png",
+      "bytes": 10565,
+      "sha256": "e2b42b642a30dcf812626343cc3db91a161c18b0cf63010a2fdac03759fa4094",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-33-lcd1602-3d.png",
+      "bytes": 27665,
+      "sha256": "e68b3b391e50a7096a57a7940fb72e377712b93d90bc1e1e109e40dc11dc8578",
+      "width": 544,
+      "height": 411,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-34-neopixel-2d.png",
+      "bytes": 15924,
+      "sha256": "71723f321842e7e6c54a5a157830970bf5c052fad9275c647f02db0b42e98a71",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-34-neopixel-3d.png",
+      "bytes": 21653,
+      "sha256": "6fc6e56ffe4fc32e57ff179cefc8c5a4093ebca2f91c5ef9574a7fb813dd341b",
+      "width": 544,
+      "height": 391,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-35-rgb-led-2d.png",
+      "bytes": 14950,
+      "sha256": "fffad98befc8d358e9e30087373cb6c2c848dce6c9bc2bb171a681940d917fd2",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-35-rgb-led-3d.png",
+      "bytes": 22374,
+      "sha256": "b0c1fdafcb8804db67e7d92a314adba57caf784bbd840d52815ec7d9e16499e2",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-36-ir-obstacle-2d.png",
+      "bytes": 46934,
+      "sha256": "e2e1e0e65e856b5daea28f27e79e38ccb2ea5d062109c80b04aeb385bbb135d1",
+      "width": 544,
+      "height": 768,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-36-ir-obstacle-3d.png",
+      "bytes": 28486,
+      "sha256": "a1e21b704473a65bea6c15d7135ec99051268c7b8b6415217531728d0bd62306",
+      "width": 544,
+      "height": 411,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-37-photoresistor-module-2d.png",
+      "bytes": 11781,
+      "sha256": "62477dd429fe75c6e24b07c3589cbd251a20635589db7c878e260369527594c5",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-37-photoresistor-module-3d.png",
+      "bytes": 27594,
+      "sha256": "f371829ec1e8cd504e7c931269f0dc61081772899f84a9eb4a4a38c877b6ba67",
+      "width": 544,
+      "height": 411,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-38-soil-2d.png",
+      "bytes": 11620,
+      "sha256": "72861e6993eb0e672407b50e9f5f33f96656b659638481f67791985fb3b9f2c3",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-38-soil-3d.png",
+      "bytes": 27103,
+      "sha256": "0d6a720e7f2e1fc7a7347fcd65e6cc4ebb4abcb2b8165b34ff43d318ee5ac79c",
+      "width": 544,
+      "height": 411,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-39-mpu6050-2d.png",
+      "bytes": 45294,
+      "sha256": "b5bd4873dc6030dfa43af48d4be1e1075c43792ca3de84499a63b9edbbcf9425",
+      "width": 544,
+      "height": 1236,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-39-mpu6050-3d.png",
+      "bytes": 31557,
+      "sha256": "bbef361f5307d8d310627ff35ed068bd62d3f20d23c4f6ceaaae8a57e2eeab9f",
+      "width": 544,
+      "height": 411,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-40-bmp280-2d.png",
+      "bytes": 11506,
+      "sha256": "3cfe1712e13f6d52d97e25b00770faebf0dc52ad6c7f1bb2d9ad1a3525c5773b",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-40-bmp280-3d.png",
+      "bytes": 28055,
+      "sha256": "0d87decc6e1607bf09bf1052f76f81ef1833641fa439eb12c2210792676aafb0",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-41-ir-receiver-2d.png",
+      "bytes": 13132,
+      "sha256": "4a516887d3f482bda053acebddd94a0bf0f461be2d17886e3671bb08d9e01537",
+      "width": 544,
+      "height": 331,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-41-ir-receiver-3d.png",
+      "bytes": 24971,
+      "sha256": "9cacc8b6c6cb3dff921fcdb1b7d5623b7460cc0f83477da65e830a851c82a8b8",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-42-diode-2d.png",
+      "bytes": 9385,
+      "sha256": "c13db71d30777c797c51d25c8333f0efd686b8a43da523e07d420499c848deb3",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-42-diode-3d.png",
+      "bytes": 22923,
+      "sha256": "808da2a91e674c082cb270f007822ddb838d651163039109fcfbf9615fbdd12c",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-43-capacitor-2d.png",
+      "bytes": 9520,
+      "sha256": "57dafd21fe6d581b84a5482ca3acb374816783928a3df6b0ea21c39c6040a820",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-43-capacitor-3d.png",
+      "bytes": 20522,
+      "sha256": "dc4f7bf002603b4659fca22281383474e135cb888012ebf3c5fb5041b7e7965d",
+      "width": 544,
+      "height": 392,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-44-electrolytic-2d.png",
+      "bytes": 9371,
+      "sha256": "93e5cd0e8d61839a08d59c3a51d8a30483587e92e4338eaa3524f9fe9c6e1c9c",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-44-electrolytic-3d.png",
+      "bytes": 27323,
+      "sha256": "9a413fd87522912bdc0c1708cffaf53cca1b7ddca8ca5b192557a6e6e4ed7e25",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-45-transistor-bjt-2d.png",
+      "bytes": 11016,
+      "sha256": "eb9c1c181d0e87bbed926a77953bfdf7372336a7534d129e2e784c050175a6ed",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-45-transistor-bjt-3d.png",
+      "bytes": 20943,
+      "sha256": "aa315f6b03d36dee1d67caea01e440e1e4540f57e1efc29194e461ef52502dde",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-46-breadboard-2d.png",
+      "bytes": 8076,
+      "sha256": "be3a9ceeb68d40da3569283aaeaf731fff8f9722a5e4d6ff262859345e1961f2",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-46-breadboard-3d.png",
+      "bytes": 38117,
+      "sha256": "2b19dac5ea89eae66dd211c3a2b8cc69cf1ac5db7bb87001b16cf39791f9221b",
+      "width": 544,
+      "height": 392,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-47-jumper-2d.png",
+      "bytes": 11841,
+      "sha256": "ff5056b1f000487dc8e79dbf18f3085e459856ef6029f5b22efe493ef71ca50d",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-47-jumper-3d.png",
+      "bytes": 20806,
+      "sha256": "1013ed6d908b8026001480ca83aa79570894a8b300e6cd6d0080b625236b4898",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-48-usb-cable-2d.png",
+      "bytes": 11512,
+      "sha256": "381d296cba93c61509b4a663a435d8b9e249dbf4edcb570df0c9f2d46ef19b70",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-48-usb-cable-3d.png",
+      "bytes": 19498,
+      "sha256": "e8de99ee16a3e8b07c4ca228b1a6cb500720209ff51f2f7d9471d401ae2b8e0b",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-49-logic-level-2d.png",
+      "bytes": 11867,
+      "sha256": "ad141d31f8da6022a909f1a920e67a31823040f12cf15319ebfb5bc54a8b977d",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-49-logic-level-3d.png",
+      "bytes": 36877,
+      "sha256": "5385adcafa6244ffe961742e96a8afc20bff2ca1359dcd70cf0b06dd679d711e",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-50-dc-supply-2d.png",
+      "bytes": 14626,
+      "sha256": "9168372fcf8e49469293c98dda65b15da8124ee7feb4528ae9d04e5f59df0a05",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-50-dc-supply-3d.png",
+      "bytes": 38638,
+      "sha256": "1eda08941f84c8297cad2a157f1d6a64094cf4971d5f26e720c6d2a7aa5a096a",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-51-power-bank-2d.png",
+      "bytes": 14210,
+      "sha256": "c26c565696de34b153b5a769a00db691e8acb01c2784600cdc6228ff674ff0fe",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-51-power-bank-3d.png",
+      "bytes": 25026,
+      "sha256": "a4dbfae2d1482124151ef73bf93ea9f60a0382f1732ed8db6abe9ed2af208cd5",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-52-buck-2d.png",
+      "bytes": 11676,
+      "sha256": "f14e59b2e9369e744b688bec1331b1f261f99044ceb444e3a745ba05124fb087",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-52-buck-3d.png",
+      "bytes": 32172,
+      "sha256": "79a2f92a3d125f005707761429cd01a5657c5dc328d1e36f87633417a5d0e578",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-53-boost-2d.png",
+      "bytes": 11787,
+      "sha256": "082a3375fdddd8e8ecd53cffdb798a38074201f1370208de04c50086d9cff2d9",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-53-boost-3d.png",
+      "bytes": 25741,
+      "sha256": "e266e7ff40cbc93766fa28a8dfbe88bd10a66d951a84c2bebdbbf3b535dd7f65",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-54-h-bridge-l298n-2d.png",
+      "bytes": 59176,
+      "sha256": "b05391aa221f92345b6fdd79c064e34b8e4058e5fafa64c8b506c01ffac236ca",
+      "width": 544,
+      "height": 1112,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-54-h-bridge-l298n-3d.png",
+      "bytes": 35002,
+      "sha256": "a2cc0087816c5488e20b05d72665b02e02302cd5202e6243d563f2bd57365d97",
+      "width": 544,
+      "height": 411,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-55-soil-relay-pump-2d.png",
+      "bytes": 12466,
+      "sha256": "5f8b8790fce5e967e5ee6db9305f60a8a6baaa588110f087293ba7526f9657d8",
+      "width": 544,
+      "height": 331,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-55-soil-relay-pump-3d.png",
+      "bytes": 22172,
+      "sha256": "b7c2966872af491b6e57cdc6236865d05cd561cb6b5711c9072ce075e37f75dd",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-56-rotary-encoder-2d.png",
+      "bytes": 11921,
+      "sha256": "b66cca21f716ee967fb250e6a4d00001b56c6fd5a556bc51101695414b9c8003",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-56-rotary-encoder-3d.png",
+      "bytes": 25680,
+      "sha256": "47aee064207b85ff102a409af749835d16e7b0a6554e66f071e91c175c7b5fd3",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-57-rfid-2d.png",
+      "bytes": 11875,
+      "sha256": "4bcb606ff244fed06206c68ab1fdd5553ba9a28ecce9622ab62fe5bfbe15772a",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-57-rfid-3d.png",
+      "bytes": 34330,
+      "sha256": "648721daa97f78743c6dba0b1d72cc08c41463aafcb15217ce775f8398b75a24",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-58-mosfet-module-2d.png",
+      "bytes": 11138,
+      "sha256": "fb528fd89ca5ac4ca6d3df1d8741846550b4923056f610970d26c19051c55ade",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-58-mosfet-module-3d.png",
+      "bytes": 29414,
+      "sha256": "dc34437c64e8493c7ea0d7c7f5a5d27366336b33cf3ce8c5d3aa2c243edc24ef",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-59-seven-segment-2d.png",
+      "bytes": 9577,
+      "sha256": "cc9294bcc9b935830b837dc611045f6d0c4f37c0137fe968e9ac6fd580cd6fe5",
+      "width": 544,
+      "height": 311,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/component-59-seven-segment-3d.png",
+      "bytes": 27631,
+      "sha256": "ffe937fef67cbf183b96bb34f0e674e74caf780e674f2130f0e92b544f88a0a9",
+      "width": 544,
+      "height": 412,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/copper-arduino-mega-2560-r3-back.png",
+      "bytes": 275566,
+      "sha256": "a710064d532187c92112573e6fd9c98739a9d57007215df9c716fd309048971f",
+      "width": 642,
+      "height": 1079,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/copper-arduino-mega-2560-r3-front.png",
+      "bytes": 282322,
+      "sha256": "beeedc7ed195908e3835a8c744eaea3e2f2d19373c75c1c2919cc1f31809d67a",
+      "width": 642,
+      "height": 1079,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/copper-arduino-nano-classic-back.png",
+      "bytes": 284579,
+      "sha256": "4b0507c0da48cd8b565e608d3a179aae390e9f389565f2f1c5bbb371bd797307",
+      "width": 642,
+      "height": 1079,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/copper-arduino-nano-classic-front.png",
+      "bytes": 290966,
+      "sha256": "db0ec5839793f1bbc6c4371663e9fb0d7a429be9c9c0b0490cf75fe98def7685",
+      "width": 642,
+      "height": 1079,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/copper-arduino-uno-r3-back.png",
+      "bytes": 240352,
+      "sha256": "02e97347172b38a849f84fff2e27ef73f3bd23daabc6eac67ec0d437f80cac2f",
+      "width": 642,
+      "height": 1098,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/copper-arduino-uno-r3-front.png",
+      "bytes": 246379,
+      "sha256": "29fb57ca783e13eebf0e4a1184d7d557c8b9768ac4d8b010e7d68b918c38e8ca",
+      "width": 642,
+      "height": 1097,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/copper-esp32-devkit-back.png",
+      "bytes": 131056,
+      "sha256": "2fc4595ad4a7184a9daf2a3d4280f3981402b1e43e449e6d1a131c42e77d121e",
+      "width": 642,
+      "height": 1116,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/copper-esp32-devkit-front.png",
+      "bytes": 137086,
+      "sha256": "3b147b0ddf2b438627baac5446eaae281c1b5b44890cfa8e4e79a11cc8b6429a",
+      "width": 642,
+      "height": 1115,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/copper-mega-current.png",
+      "bytes": 262367,
+      "sha256": "8ed8eb3417eb0f379aa0333f06235d1528cbc92f2db95e1408067d4808d7dcee",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/copper-mega-net-gnd.png",
+      "bytes": 53648,
+      "sha256": "c8e6a4575a7884572c0a4388ca9a1f8e5e6c6c74576587f1d79f51dcda4a59d8",
+      "width": 350,
+      "height": 184,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/copper-mega-svg.png",
+      "bytes": 41740,
+      "sha256": "fe73dc174bd8a271d4df4c4d00a67b6ee82f701e5bc1f8c3c329bb1808682f70",
+      "width": 374,
+      "height": 197,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/copper-mega-viewport.png",
+      "bytes": 262367,
+      "sha256": "8ed8eb3417eb0f379aa0333f06235d1528cbc92f2db95e1408067d4808d7dcee",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/draft-dialog.png",
+      "bytes": 34316,
+      "sha256": "1af559dbeb1abf06abe53d6282772f8f31397793155f5105eadcb00be04a6344",
+      "width": 900,
+      "height": 860,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/feedback-review.png",
+      "bytes": 147655,
+      "sha256": "3f969969341a49c01fabd06e26e59e910305234ca57abacbbb57ad55204e8864",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/feedback-validation.png",
+      "bytes": 147225,
+      "sha256": "5c7f8de338cea5dfc4fe63a3c23cc458a5097f0fca19e869b63f484b5534b6b7",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/firmware-avr-arduino.png",
+      "bytes": 134477,
+      "sha256": "142dcc1cccc2f3fc60ac347d02d2e5411e2c800f64c4be3fca12c9b96ed6d161",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/firmware-avr-bare.png",
+      "bytes": 133973,
+      "sha256": "e95d3d7eef10138fa1438b8c6cdbe35ece059a2738153a1b5c8bf2aa3386b648",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/firmware-avr-confirmation.png",
+      "bytes": 138445,
+      "sha256": "76414b03a5aeeae0c7378f25fb5be34ba22531c7c3f9cdb460f5ebd1d159b98b",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/firmware-invalid-file.png",
+      "bytes": 141465,
+      "sha256": "16a00bf23bb3b199db77886fa23b6a62d63510c65f8e132557151d6534d90532",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/firmware-pico-result.png",
+      "bytes": 134095,
+      "sha256": "7abcccc6744ed1a51ba78e4dfe1f9d3f8f704ba92d2d8c1a9dd2fe03a4c906de",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-mega-2560-2d.png",
+      "bytes": 247528,
+      "sha256": "52e1b3ee336b2f195454aee472b1af8c7fe50a3097bf6fa9c0060e92eafb342d",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-mega-2560-3d.png",
+      "bytes": 171035,
+      "sha256": "f21b92869b4ead5a87d80eb420244395ecd92b23163619f39b7bcbbf5ee0a456",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-mega-2560-running.png",
+      "bytes": 215124,
+      "sha256": "5a6c782d0c4a223a8dabc9d75ec6fa8f9037f819ffd672d5c5cfd2bc7e925b34",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-mega-2560-schematic.png",
+      "bytes": 154930,
+      "sha256": "33c76378f141b3a94ef63f85e21d8ab605fd7b954d63b99354e59fbe1e41b2bf",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-mega-2560-wave.png",
+      "bytes": 111201,
+      "sha256": "92c17a3f039a3ef392481651490464b0de3d5927d7f39e6323a7dfdcc455a59b",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-nano-2d.png",
+      "bytes": 214371,
+      "sha256": "09916e7dc862d0941b71736e85f1a3dbf9a1129d4198701e351f902d0023a8aa",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-nano-3d.png",
+      "bytes": 211216,
+      "sha256": "6c625443d040f95d078b208b40644c650f5a12b92982190766a22d7f79187a84",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-nano-running.png",
+      "bytes": 211268,
+      "sha256": "1cefec17ee9b6afdd90a21317f888b695ec2982f794a90117f518aa268647c6f",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-nano-schematic.png",
+      "bytes": 154348,
+      "sha256": "7a490bcbb7e8444a6f858d99a33deeb0d0195f45fbbcb2d3cb9f0d602c4a7c3f",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-nano-wave.png",
+      "bytes": 110810,
+      "sha256": "131c5e10b12e95aa5f8a50614288d25d6282a7ef788ab04df8e5e5a4e00facbb",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-uno-r3-2d.png",
+      "bytes": 248183,
+      "sha256": "137547ae9ff19292ca95e1aa68828c3ba54ad6c8fdb8f47243d604cc9c462921",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-uno-r3-3d.png",
+      "bytes": 218386,
+      "sha256": "f18795b57de302f8a96fa6b2958dd47446d71464c005b87ab1980d1502be05e9",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-uno-r3-running.png",
+      "bytes": 218625,
+      "sha256": "81280971cb40e27e74a317f5763fe6e0fe66ee62da0e67ee6e4b976e9f486270",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-uno-r3-schematic.png",
+      "bytes": 154047,
+      "sha256": "65a0d8017b8ffac250e1005491e89d7ac9a02adf9f280cb60e1409e9553e86cd",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-arduino-uno-r3-wave.png",
+      "bytes": 110937,
+      "sha256": "66e67efb7754a36ad034f4e4f6f837fe2abf7a406130e32bd2ed63dcf09e4baf",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-esp32-blink-2d.png",
+      "bytes": 201816,
+      "sha256": "4f01bf87c9723a66de051b4831cef411d0215d805cee59b492738f1d2222475c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-esp32-devkit-2d.png",
+      "bytes": 201300,
+      "sha256": "31abea86925f2d414fa257d966d9b6a1e38fbdc380fa04248494498a137a197c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-esp32-devkit-3d.png",
+      "bytes": 212088,
+      "sha256": "81e63d21620991b67d6dd0f357575c9d84c34bca863a542ba93c60deeae580c3",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-esp32-devkit-running.png",
+      "bytes": 211390,
+      "sha256": "d6a5caacab26d1e7c435bb2b5d7bb417c92b7ffbd3c185e484bd953a5724684d",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-esp32-devkit-schematic.png",
+      "bytes": 154988,
+      "sha256": "34c4b11e52998cbf3452f239fb5f258d135f698915231fb6793f35b1bbac527d",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-esp32-devkit-wave.png",
+      "bytes": 112464,
+      "sha256": "96226963cba07e0f8fc2b84588db212eaa270168356ece53fb6ba9bbf968eca7",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-esp32-s3-devkitc-1-2d.png",
+      "bytes": 204980,
+      "sha256": "92697516acf4fb454ca0b3a3eb55b86098f8d85bb8c0d47744b96b18591c9dbd",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-esp32-s3-devkitc-1-3d.png",
+      "bytes": 233820,
+      "sha256": "0c7ebf5ef0cf36b18bbdfbbcbb509b645a984262d4fa778a7e2a96a31db27c15",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-esp32-s3-devkitc-1-running.png",
+      "bytes": 233306,
+      "sha256": "8c6d7492bd13edec9b326df168b76354b436b849df26529c8c31e19db8472e4a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-esp32-s3-devkitc-1-schematic.png",
+      "bytes": 155234,
+      "sha256": "41915b5f985aef1bbdd2665f79bb92ac7ec97c3ff5257129570656af2d1f988a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-esp32-s3-devkitc-1-wave.png",
+      "bytes": 112271,
+      "sha256": "2a9dbb1a2ec466f9b2fd5777f58b01fb7fc8f19835ed7ea472cf1c747caf6ede",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-radio-scroll-state.png",
+      "bytes": 283267,
+      "sha256": "a7bac5ff511cc3206c101a68d6e5dec2e5f60f77de4d004570c0b35ed9994fc2",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-raspberry-pi-pico-2d.png",
+      "bytes": 195850,
+      "sha256": "6d0c0b6bd7e54cb04e7a6ad812ec63e6f73af43143e30676cb7f7bc4733939dc",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-raspberry-pi-pico-3d.png",
+      "bytes": 215153,
+      "sha256": "263cd792b8cba4a8a9a46e77fdd21e4c9448b6ad475c0d5862c960a1221a647a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-raspberry-pi-pico-running.png",
+      "bytes": 215096,
+      "sha256": "89900a3d79345e7c738e53c65be34f9c6660ed9c73d0fcf29ecfa78451e98d98",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-raspberry-pi-pico-schematic.png",
+      "bytes": 154341,
+      "sha256": "b8d47f1292a225c8ed7f4202e34050e51b683ae9b4f48b4e7cc3c2ea4d26d5cd",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-raspberry-pi-pico-wave.png",
+      "bytes": 116739,
+      "sha256": "9b42680662c162a89b5b78d2dd9457a401215611576411088350e4ec8e8b37e4",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-sample-button-led.png",
+      "bytes": 205257,
+      "sha256": "80a9bbccc73546644c1382f6006e8471c71bc901b553fda39b434a40e73ffaa4",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-sample-motor.png",
+      "bytes": 216947,
+      "sha256": "a196e176a022f8f9016f8e8dde8fb3792eda6ecb361bae92a331a614eed866ff",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-sample-pot-dimmer.png",
+      "bytes": 213256,
+      "sha256": "2db95ecd516aceb64aa9a4e68392040829a33540fb97afa9646ea481be51308a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-stm32-blue-pill-f103-2d.png",
+      "bytes": 203622,
+      "sha256": "333a0875ef072a40e2e30517db8232a9ad6cdfe4decc10d67c81b873f74bae35",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-stm32-blue-pill-f103-3d.png",
+      "bytes": 196431,
+      "sha256": "5b5946732e38539de0a9f12e33e58cd3cdf293f6abdb73b0ccc8304f2e912ad5",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-stm32-blue-pill-f103-schematic.png",
+      "bytes": 154810,
+      "sha256": "bbd0a9191e961f246ba877fb851b428ee1249d3c7afd43caeb5ac8c264adb1e6",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-stm32-blue-pill-f103-wave.png",
+      "bytes": 111850,
+      "sha256": "efe158cbf6488b8a89741b2f30cdd0af7069de825178fb440fba5c59d0caf755",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-stm32-nucleo-f401re-2d.png",
+      "bytes": 194781,
+      "sha256": "4532c416655b78181d7be2631d13fb8056f2244df6c4244ee4f22b2dbf591d7d",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-stm32-nucleo-f401re-3d.png",
+      "bytes": 209966,
+      "sha256": "2874aeae9824ab69a6a3743fe9efe72f6a936cd37815ab101f11db7fabeeffa4",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-stm32-nucleo-f401re-schematic.png",
+      "bytes": 155161,
+      "sha256": "35d631dda96b544952a2399aa240106747b3d6c3e622175d85a737f06d7ebb64",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-stm32-nucleo-f401re-wave.png",
+      "bytes": 112030,
+      "sha256": "dfa989eb4ef5221dc3a04adcc84b757f775fa9d74e42533906e2bf08a1daa94d",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/freestyle-uno-compile-result.png",
+      "bytes": 249627,
+      "sha256": "bb7a9700132852261fe5e47ec848b85ecf2cf90d8ab125cf7310fcf7f85ec82b",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/fresh-drag-1.png",
+      "bytes": 211278,
+      "sha256": "9a323517a378140b5eba38f4d7c36b4af09f9369d9903712afc1efaa47622e4d",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/fresh-drag-20.png",
+      "bytes": 212658,
+      "sha256": "4783f145a0987090274f20242bdefa48b3c9470504d11b982d69a652e15cc3c0",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/guide-question-01.png",
+      "bytes": 61404,
+      "sha256": "359985799571141d31b26f1ca8ba389b8917a04853a641fa23172c6115e267b5",
+      "width": 410,
+      "height": 896,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/guide-question-02.png",
+      "bytes": 66377,
+      "sha256": "dc7119149f717682f7e4c96735d80e78c99d3cc04ea3e4dce890088e10d5cb45",
+      "width": 410,
+      "height": 896,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/guide-question-03.png",
+      "bytes": 50594,
+      "sha256": "c7648d25cff4166ab399019b5ab942b6fb97682bc55222a05f806209f7702006",
+      "width": 410,
+      "height": 705,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/guide-question-04.png",
+      "bytes": 65654,
+      "sha256": "555383e31d7dfe5c65e30a5b571018f360f6146b211da727d038ba681fb33a70",
+      "width": 410,
+      "height": 896,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/guide-question-05.png",
+      "bytes": 50363,
+      "sha256": "9157ce9996de1016ef7b5b06daff5d097916446f9ed62a5a489edb2137e87242",
+      "width": 410,
+      "height": 705,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/guide-question-06.png",
+      "bytes": 65192,
+      "sha256": "93bcbb17182db7fa089a42052c6dfbae6722951db75b1f04b8c8c2720189b4a0",
+      "width": 410,
+      "height": 896,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/guide-question-07.png",
+      "bytes": 66071,
+      "sha256": "5e5a2fb1d841f68283308998dffcb232f4cd5a09b0090c322c2aa2dd99cbd59a",
+      "width": 410,
+      "height": 896,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/guide-question-08.png",
+      "bytes": 66178,
+      "sha256": "2efffaeaf6af53b7f229b35fae0d9532b95cfee2940288ac7a9ebc0054cae553",
+      "width": 410,
+      "height": 896,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/guide-question-09.png",
+      "bytes": 48035,
+      "sha256": "8e3593291ac9bafc48d539617cff2716cb4cd099ca9f0b904744cc92421a3a77",
+      "width": 410,
+      "height": 685,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/guide-question-10.png",
+      "bytes": 64972,
+      "sha256": "99927bd3b71ccf7861f07d3c0fbab8ac9e476bf57ea144df5452788878fc1323",
+      "width": 410,
+      "height": 896,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/issue-button-g6.png",
+      "bytes": 122088,
+      "sha256": "c37f7b88b59e002fbc31593bd044643f247dd04195fea4226cd1e9e0aa310d73",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/issue-button-route-diagnostic.png",
+      "bytes": 163728,
+      "sha256": "dcc4c560e71260d4a363da7a6f2a22caf840ff7011f75470632e20e1bfaeb6c3",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/issue-capacitor-catalog.png",
+      "bytes": 46868,
+      "sha256": "e92dd18a2ed22c090c848b9356922fea3f546eeec5033a488068e7eced9cda07",
+      "width": 594,
+      "height": 1588,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/issue-capacitor-freestyle.png",
+      "bytes": 195661,
+      "sha256": "45b7cef59d6a585ad5eda67e036c12bfdf17b1920b36a10e5ec198dbfcb01414",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/issue-lesson-board-after-stable.png",
+      "bytes": 157658,
+      "sha256": "55fef44be503b7646f6ed8cdaef4c7a102efc947b708fc98d6ec1b31e67a5fb0",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/issue-lesson-board-after.png",
+      "bytes": 115440,
+      "sha256": "006c9a31af54af0cccb87ca54020b7eab91fb911de6a935ea724b998cfc4de8a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/issue-lesson-board-before.png",
+      "bytes": 223726,
+      "sha256": "e84ec2efe58f3b1e35340ef49a3340ea1138c048384465066d99f8f9180e8fab",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/keyboard-pin-pin.png",
+      "bytes": 57045,
+      "sha256": "8f510b0de4787bfeec92ca6af39ca94f03785c186e84400bbbd95acbd263577e",
+      "width": 375,
+      "height": 812,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/kit-eight-stations.png",
+      "bytes": 167876,
+      "sha256": "c8584aaaa2da4c013af71d7d1578fbdfd2e46c7c30cc168ca34a40d2004361c6",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/kit-invalid-import.png",
+      "bytes": 169160,
+      "sha256": "7579a4640588fbbaa1b6232367ba73d1f97a777bfa7f019787622d0219759f2f",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/kit-json-import.png",
+      "bytes": 168614,
+      "sha256": "242436cd2b5c0696af9e6d10833cc2ec14233fb794d8a792a6ac10c582f25d24",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/kit-zero-stations.png",
+      "bytes": 169024,
+      "sha256": "d2f57df787f65bdc1993cf92a3b6ff1a6cb4b8b1844a7d1d73ba2866541d865f",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-analog-ldr-3d.png",
+      "bytes": 214320,
+      "sha256": "04709fb7fdb8585e3bfebeafc833eb9caa7d16c8edd7b46b80f6fda0d57b762c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-analog-ldr-breadboard.png",
+      "bytes": 229487,
+      "sha256": "98ada8b20de2e78e005ff4599889b5f86dd8958ec93470a8fbce2a50a4ff6d7a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-analog-ldr-run.png",
+      "bytes": 240218,
+      "sha256": "cb4ddfdb86d3cce9905643d17f694082e142d89bca5bf06f593ea1fd022afebb",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-analog-ldr-schematic.png",
+      "bytes": 166411,
+      "sha256": "e19d1b20e4ad0942a8a314bfc32ede63ff807898f5011ba7382333d97eff2583",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-analog-potentiometer-3d.png",
+      "bytes": 219157,
+      "sha256": "5d0be21e809ed493e4154984c0ba425c3c6031d0c8cb191be5a515ee1832509b",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-analog-potentiometer-breadboard.png",
+      "bytes": 174997,
+      "sha256": "2a65976c95a202269bb19a35e07a93e876808dc64a95f07977ed4b32efb5f2b6",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-analog-potentiometer-run.png",
+      "bytes": 242363,
+      "sha256": "5db3ed19765371cf43c919eb2216da4541013a36264da70addb8680ad138b96b",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-analog-potentiometer-schematic.png",
+      "bytes": 162504,
+      "sha256": "4630f71d31e43eab061b4c9275917e4921d3568485025802110095a6aa2ef532",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-blink-3d.png",
+      "bytes": 190861,
+      "sha256": "0406e5a051c1c1209dfce641c4b9213a83a407901c2c13c2e30ea566523237ec",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-blink-breadboard.png",
+      "bytes": 231826,
+      "sha256": "04274d07bb7d1767051a1171920ce91fcc5d33f6b9789212a604dc0cb2604bf0",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-blink-run.png",
+      "bytes": 216362,
+      "sha256": "e7fb1310edeee06ffb8bb7e9c45a106d28f41dc4a20e49d745999981cccd52bb",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-blink-schematic.png",
+      "bytes": 171764,
+      "sha256": "5730f3bbbf9def18d9f97c6723b71cb157b6f37558222aa7d12fed0ac5964254",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-buck-boost-concept-3d.png",
+      "bytes": 187296,
+      "sha256": "5a38fdf23b7fed4dfc028d018aa8f09286239ca85f98c6cf52b4feed598031f9",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-buck-boost-concept-breadboard.png",
+      "bytes": 222857,
+      "sha256": "725e039c8a37672bd5f04320cf56be0425c033c3ec54bf559ce90e25236f25b4",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-buck-boost-concept-run.png",
+      "bytes": 241630,
+      "sha256": "fc320646eeb46188908629cc2b991243a582baf2f56902e4b6c34b0e3a7a131e",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-buck-boost-concept-schematic.png",
+      "bytes": 162078,
+      "sha256": "b932e1f74c3d07da9dbdb2542ff9a1a0897b8fe6cb75596290bfcf7833cbad9a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-button-led-3d.png",
+      "bytes": 184554,
+      "sha256": "09f6bda25966c3882c279f0e0df267042c41fa991892b2a2ed479463d5efc7ad",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-button-led-breadboard.png",
+      "bytes": 233178,
+      "sha256": "1417e8ae1aa7dcd354e60df5bcc689bc72d8c94712f00ff6f92899088babdec4",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-button-led-run.png",
+      "bytes": 211726,
+      "sha256": "8ed09b36da6690d70e452137cdd474ec6c425070a00239c7eb0efdfc6a822b17",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-button-led-schematic.png",
+      "bytes": 174517,
+      "sha256": "a8696a9893eac6ee681bc9fcef3065e85794bfabd428fb4985e6df1427eb9afe",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-dc-motor-driver-3d.png",
+      "bytes": 189944,
+      "sha256": "1ee53346062067dbef5ef77b9edaa2e85f63646fad168a5ceaed276777be4c4a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-dc-motor-driver-breadboard.png",
+      "bytes": 170090,
+      "sha256": "a74ea243122319d92eab3026814000da9ab480dccce6a386121714c088bb9123",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-dc-motor-driver-run.png",
+      "bytes": 216790,
+      "sha256": "239514937b65a08af78c8d9505d65dde8878ed57dc5543f4b6122fb2e502a70d",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-dc-motor-driver-schematic.png",
+      "bytes": 159282,
+      "sha256": "4d8e656147aa2cc8c7ba0d1ab1f398dc6c580dd688ed4470279cc166e328113c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-ir-alert-3d.png",
+      "bytes": 261516,
+      "sha256": "5e1af880d1001af9f3090f7be57b670dace9cb979d947e8768997a57d55ffeac",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-ir-alert-breadboard.png",
+      "bytes": 185719,
+      "sha256": "ac95f55d37fa0b7f32e1b5ee14b1dfbaa37aa663b466942f8ac21ce9865494a3",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-ir-alert-run.png",
+      "bytes": 288909,
+      "sha256": "9a2ba9efecde0c0ce27a74aa0f55c73be3e7ea9479d76db7e0dd2b5a9dc581bd",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-ir-alert-schematic.png",
+      "bytes": 167696,
+      "sha256": "da20cb8e5e7a7a6b1bc640a0986d8e1b115deff36abe76dc89bb5a2cbd703154",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-mosfet-switch-3d.png",
+      "bytes": 210319,
+      "sha256": "5c19d1b000b669ec9e78dce9910e5f7069682884508bc9ba3f96be2d8165fc93",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-mosfet-switch-breadboard.png",
+      "bytes": 185537,
+      "sha256": "90dac28b6bcb005ba0ba68aed4c30ad4f9e34bb0a4bb7f8ae119d5824dd9a194",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-mosfet-switch-run.png",
+      "bytes": 245303,
+      "sha256": "459542b3ebe1352965f692be901b8984c41efd34f3cb1c75ddec8b451fe1f4d4",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-mosfet-switch-schematic.png",
+      "bytes": 162627,
+      "sha256": "4dc5697b30f01fe83c7d7dc26a74fff08f22fdcd415f1158512f7df4bd052176",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-seven-segment-counter-3d.png",
+      "bytes": 242782,
+      "sha256": "294c8cfd412ccf7078cb61127d1e0c09976750028948d3a4209cbf4bc05baef7",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-seven-segment-counter-breadboard.png",
+      "bytes": 190592,
+      "sha256": "c35841cdb090668ae586d64704a1b6c9d302b68b22465c70beb5e9003f78da8c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-seven-segment-counter-run.png",
+      "bytes": 277958,
+      "sha256": "c895d1d99c02af42af6b3a1698ebfcc4ea2ef618ea4d3247014406fca708cfa9",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-seven-segment-counter-schematic.png",
+      "bytes": 161557,
+      "sha256": "6d7127bb78a66ace517102a16f1d35000cba25f7e53b742d5806162f6ec177d5",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-source-led-3d.png",
+      "bytes": 237063,
+      "sha256": "b87ae2c4ac4848696216b44e8f8c17bcf1b87d9781114233266c60a731e0b39c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-source-led-breadboard.png",
+      "bytes": 223976,
+      "sha256": "892a21b1ce42f34a359c1c834be4176f433b6a141f140f51e83b33f0c41c3a17",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-source-led-run.png",
+      "bytes": 261191,
+      "sha256": "c362188dfb6b09b141172aa8d9945ca17891b8c5605fba7e514e7868a0624174",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-source-led-schematic.png",
+      "bytes": 165853,
+      "sha256": "2b8e3e421d9118da1711726bfe652423e9b7d46f5fb19739184bc194fc25aaf3",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-ultrasonic-distance-3d.png",
+      "bytes": 223688,
+      "sha256": "7b3ab23b2e32fe3b8cc5462a745cc6adb3c1a6f95893fb1be3dcff6c222a9bd9",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-ultrasonic-distance-breadboard.png",
+      "bytes": 220386,
+      "sha256": "8c56b4bca8f1471604b147ae1b2208ea1ed993dfbb1dac2e0c2b3c7bb9d453e3",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-ultrasonic-distance-run.png",
+      "bytes": 248904,
+      "sha256": "9ff1fa00ea7c81d0c7ba28bb77ee3cea2e966729ed9672a22c8d4d00972f27da",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/lesson-ultrasonic-distance-schematic.png",
+      "bytes": 164840,
+      "sha256": "62b17e564457478f0825bb8b470f3dff6cc7a74621c2cdcf2fbe3cab481b2a0d",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-01-.png",
+      "bytes": 343250,
+      "sha256": "f20ff13c3536e13851b284799e87d8379a53b6da57122793c7d8dfd7a8db0c37",
+      "width": 360,
+      "height": 4087,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-02-app.png",
+      "bytes": 467266,
+      "sha256": "34c4f076770c9330663faa804089ed0cafaf3d5dbc67d2ecfdd7dc8ae9010cda",
+      "width": 360,
+      "height": 6602,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-03-topics.png",
+      "bytes": 393918,
+      "sha256": "3351a57a7acf738d9f1e45bd501ef45dc754e48c7c3cf057a05d55c708b4f8a5",
+      "width": 360,
+      "height": 4633,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-04-boards.png",
+      "bytes": 1744353,
+      "sha256": "ddf8c267539dd3c7d9c2dc804df5beb15f39f4d95e0014bac685d6da520eda4e",
+      "width": 360,
+      "height": 24739,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-05-components.png",
+      "bytes": 292458,
+      "sha256": "26bf84dd728457df6bfba0f8a6eee00e4328e6727a533565663dcf216d49cb66",
+      "width": 360,
+      "height": 5180,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-06-projects.png",
+      "bytes": 583733,
+      "sha256": "3ad7348f63f05e05640ea23ad56ae1fb449396596b1b1e051a440bd6c59f70d4",
+      "width": 360,
+      "height": 7757,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-07-build-freestyle.png",
+      "bytes": 99689,
+      "sha256": "d3d8446528de92d405177fa0e44ea7af0e51db2cf8690916a33481a3aede53c2",
+      "width": 360,
+      "height": 1195,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-08-build.png",
+      "bytes": 402902,
+      "sha256": "eaeb06d8bdccb8b1310d2d925d43b7d5402a81d78b82eee0f473c5738f98c69e",
+      "width": 360,
+      "height": 7800,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-09-learn-esp32-led.png",
+      "bytes": 318505,
+      "sha256": "d3197ffa8c7f5afb3e503795da081d83f8be9beea463f188808ce4b259a0abd8",
+      "width": 360,
+      "height": 5066,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-10-app-classroom-kits.png",
+      "bytes": 319377,
+      "sha256": "71f3b88010544726f0db10832dfbd85faf466b3fb2f19439648b8234e3541b47",
+      "width": 360,
+      "height": 4059,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-11-tools-electronics-calculators.png",
+      "bytes": 204005,
+      "sha256": "e5e522dcfff436d6f274c66cced2ed42adfb9c435cfb467e5201efa59234b68a",
+      "width": 360,
+      "height": 3262,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-12-tools-spice.png",
+      "bytes": 231770,
+      "sha256": "481cab43a5d083f00da63453d142f9fdb5376d8cf777eb4b364b29036f3fcba9",
+      "width": 360,
+      "height": 2833,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-13-tools-sketch.png",
+      "bytes": 132435,
+      "sha256": "35995ca040fb6c5bf0a90656db96fe62df271e965affd815277276b764b80cd0",
+      "width": 360,
+      "height": 1538,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-14-tools-firmware-hex.png",
+      "bytes": 163416,
+      "sha256": "768b5a6ecdede17e6f4e8cf1ca6a9f93e81088f413d8abbb330529b1dd0457c1",
+      "width": 360,
+      "height": 1902,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-15-community.png",
+      "bytes": 362992,
+      "sha256": "d3d3900866fe55a8cd23c9bd9cf737cb64cbf5ba3897160e5a85eb85b491fb92",
+      "width": 360,
+      "height": 3526,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-16-community-new.png",
+      "bytes": 170604,
+      "sha256": "63f5dff05b02d46054428896263ffe43a6d230e949ad04d96dab0e9ae0603a26",
+      "width": 360,
+      "height": 2038,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-17-feedback.png",
+      "bytes": 117999,
+      "sha256": "ae3fc78b67e947a0fcbd26c76b36c788ec5710a15b7966fe02489d912265f9d4",
+      "width": 360,
+      "height": 1830,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-18-privacy.png",
+      "bytes": 97509,
+      "sha256": "9bbc8eec3f8e8dbf339307e63e86c1ea23739ca5c1ebfa155ffe031cbcecf6ea",
+      "width": 360,
+      "height": 1245,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-19-login.png",
+      "bytes": 89791,
+      "sha256": "319a6a7e19cfc5f151533fb82caa7275adeccbf8a2c317fd7bedb1ac378577e5",
+      "width": 360,
+      "height": 1086,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-20-app-robot-simulation.png",
+      "bytes": 161888,
+      "sha256": "475cf39f81ad6d7169bc2325a7ddf8356f0ecd80a0b5563a2cd1da2ce9d9bac1",
+      "width": 360,
+      "height": 2020,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-canvas-after-hide-panel.png",
+      "bytes": 60508,
+      "sha256": "d87add97c3201c06f250c61ff806e0bcf53c58be4f2d92c26225d2e82150e8aa",
+      "width": 375,
+      "height": 812,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/mobile-guide-reduced-motion.png",
+      "bytes": 70517,
+      "sha256": "d58b9a6e8d24e9afd7007884277e6297e8b3d8b642ad83848892f9e12c2a9a1c",
+      "width": 375,
+      "height": 812,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/project-invalid-import.png",
+      "bytes": 121234,
+      "sha256": "c361d45f18a377a972cf8b16fb6029da38de152d2c5c41b134510debd2ebc42a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/project-isolated-delete-copy.png",
+      "bytes": 130651,
+      "sha256": "6a04466b09925402d1bf3a5e417e154b1d192d38c8c425d472d4af9b84fc639c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/project-isolated-duplicate.png",
+      "bytes": 132574,
+      "sha256": "ff4509cfa3966aaaa7d73f8f3740717c9379f31ea92b96bc62ce6dbff4eae0d3",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/project-isolated-import.png",
+      "bytes": 130651,
+      "sha256": "6a04466b09925402d1bf3a5e417e154b1d192d38c8c425d472d4af9b84fc639c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/project-isolated-open.png",
+      "bytes": 133434,
+      "sha256": "086f2c41440e8340671a264311a4eb05c20fd4ae135c81ae39c7d2abf6705df9",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/project-isolated-rename-tags.png",
+      "bytes": 132401,
+      "sha256": "53865150b44d972278d77cc80ee8fdbbeaa1aa00727b32bb452a47b39180df52",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/project-saved-card.png",
+      "bytes": 8245,
+      "sha256": "ca4522fae1b435711ab6b892b3974549dedfc041c64c7dca0265c450daf526f1",
+      "width": 1052,
+      "height": 67,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/project-saved.png",
+      "bytes": 127897,
+      "sha256": "1f636972bbae230e9a9329273a00669529cff76341123d0ed3fa21cb0a71cf90",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/robot-0.png",
+      "bytes": 232807,
+      "sha256": "4b0356a0cd922ea18b4a79dccceab539e8639b6558aa9201aa7f25c26a1a9867",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/robot-1.png",
+      "bytes": 232831,
+      "sha256": "8c459a4bf63bb23bddaf9da106fea989d216b4f725d506cbc70b86e048e869c7",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/robot-2.png",
+      "bytes": 234259,
+      "sha256": "4fab321c67ab0f3b98f796f2c30bcea96da8b323f7ecf460ca53d14d1b5fddb6",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/robot-3.png",
+      "bytes": 236252,
+      "sha256": "446419174cdcdfd6286850651fc6f97550e9500ed69ddc70a5821fe1faa03921",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/robot-4.png",
+      "bytes": 236897,
+      "sha256": "1cbc06aef34a9e6dd7f6913c5f251f4d154e9c3e6490fd7308c303d852048328",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/robot-5.png",
+      "bytes": 233395,
+      "sha256": "c14c59fc409454e30e718a9346bd0cb7ecfb654e1ea3f02d8c394517767fb0ca",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/robot-checklist.png",
+      "bytes": 211983,
+      "sha256": "9eee352583337c4991cbdaf9e959c598c55d4aa669bfca3279a98680977c954b",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/s3-pad-source.png",
+      "bytes": 193756,
+      "sha256": "5193399c9118850b3b530fbb5528c7435b98086e7be45676f43f7af16aa9fba7",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-board-arduino-mega-2560.png",
+      "bytes": 150055,
+      "sha256": "14dcd3a94b1c04eb8ac9234b7006bbc48357b46a649539d782f7f31816046e25",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-board-arduino-nano.png",
+      "bytes": 149514,
+      "sha256": "935226646a9c72e85ac750383631aad42b21ee50bdeee488d27ab41396df7dc7",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-board-arduino-uno-r3.png",
+      "bytes": 150145,
+      "sha256": "9096be1709ac4ce1aca77473200f4c7fa136da0cba19a6870bfb20d16e438679",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-board-esp32-devkit.png",
+      "bytes": 150427,
+      "sha256": "cfff9544d93a9ad6b8c9ffa9d9577c5d0a6a654d5723c7ce88f5dc04b536a5c0",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-board-esp32-s3-devkitc-1.png",
+      "bytes": 153404,
+      "sha256": "bd881e44e1a7e0126b4f23cfe60b128b62a03f2fbefbc39bf6cd130e837726a9",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-board-raspberry-pi-pico.png",
+      "bytes": 151362,
+      "sha256": "a1b6232eb5847cd54279f09a9e9a3f02ac358d75e688a98822a1c6170a5d7ad9",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-board-stm32-blue-pill-f103.png",
+      "bytes": 154190,
+      "sha256": "da02c753ca354a87f13a3766c650b8082feddfe71298ec551434b4d7f1ca21f8",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-board-stm32-nucleo-f401re.png",
+      "bytes": 152829,
+      "sha256": "6d90fd358baa1b3a9ea7f673c50608c7520422de5ff443cfd61c047022625ecc",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-esp32-blink.png",
+      "bytes": 174051,
+      "sha256": "6d807e539de7c9e3930f0dc72e529a22a9b2b154c9675c5dce83779a4e13b08f",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-esp32-button.png",
+      "bytes": 171322,
+      "sha256": "e781ee3e748b3e9a0866eead8204baaa5d9e43db261ae73ef0e3dd48b51b2699",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-esp32-pot-pwm.png",
+      "bytes": 164840,
+      "sha256": "b584e007fb3bf87811096c6082a90db318d468b2a2a34cbb90054400d080e289",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-pico-blink.png",
+      "bytes": 155722,
+      "sha256": "a91acdf5cbdc55c136e597085fba07666e928ef3ba2cff0ff939c2b7be26c7f9",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-syntax-error.png",
+      "bytes": 126952,
+      "sha256": "20e0bd1ceb3341e7752e7234d45468494e9c458a825a0f22fa5bf3b190349a32",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/sketch-uno-traffic.png",
+      "bytes": 175467,
+      "sha256": "977dab1ba5e21010d4e72ecd669d8dba32df7a30ab8370aa3b688a3011957484",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/spice-ac-complete.png",
+      "bytes": 135990,
+      "sha256": "87a22c01d2ef9d0bd0f592ecfda777eee44ffca4213502d0083f8b65c506f0e6",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/spice-cad-final.png",
+      "bytes": 127850,
+      "sha256": "f0fcc9c0a55b9355bf242e09bf53448ab5cf97209982ee76a952f1f11e998465",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/spice-cad-import-match.png",
+      "bytes": 134707,
+      "sha256": "405b37986ed064085aa19ad18dc3ccc17d1f995c53183e01e38a147c0b1cc724",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/spice-cad-import-solver.png",
+      "bytes": 127850,
+      "sha256": "f0fcc9c0a55b9355bf242e09bf53448ab5cf97209982ee76a952f1f11e998465",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/spice-dc-complete.png",
+      "bytes": 135460,
+      "sha256": "ead187ec17ae52c21b5b4e4fdfc5c34ff95f325b19956e26c56b32f92b6e4385",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/spice-divider-complete.png",
+      "bytes": 135836,
+      "sha256": "da6aad0a75a7b075a11d5f582867db7e5af8eac06bfb926717c52d3b835c728a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/spice-invalid-include.png",
+      "bytes": 126882,
+      "sha256": "3ad1dcaed7f2731d5d31d007648e7650f22e59a5454ad6b374267f629768ea29",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/spice-led-complete.png",
+      "bytes": 138092,
+      "sha256": "a9027262622372ee3a0eb42f56975105b401527316471229c1c010a0b46ff992",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/spice-rc-complete.png",
+      "bytes": 137998,
+      "sha256": "ca8f7a3f618844f0d42c1260d603ffce26a67c3b5fb838811789cbaf6475acbd",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/spice-runtime-failure.png",
+      "bytes": 125265,
+      "sha256": "bfd9f6d71d33fd306e45b0e88cafa88c5aca6979fcf70cb2daf115d7f5f33312",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/theme-1.png",
+      "bytes": 246145,
+      "sha256": "8b29d27be49f2787acda13094313f3df2a626a48d9f1b0847652f3ed33baed40",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/theme-2.png",
+      "bytes": 248732,
+      "sha256": "50b1b40b5049919f92e04af32e131f53a7f0dfe4c845983acbb30420fa4ff23e",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/theme-3.png",
+      "bytes": 248562,
+      "sha256": "0f32bdff9efa3825132379105703b4e11a759e7169ccf9fb64975f9a9d548782",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/theme-verified-0.png",
+      "bytes": 246145,
+      "sha256": "8b29d27be49f2787acda13094313f3df2a626a48d9f1b0847652f3ed33baed40",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/theme-verified-1.png",
+      "bytes": 248372,
+      "sha256": "ba9b098358be7d3a36aa10896217b49c8b7df5fb35877d0b23c052ec59eecf6b",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/theme-verified-2.png",
+      "bytes": 248356,
+      "sha256": "031952035eb4809ad5654b5038ea16a4960b61fda66e8e1717745768511f9ad8",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-0-step-1.png",
+      "bytes": 183213,
+      "sha256": "ab93fe8ff5c47a04531cba10fa8fcd2fe2c21bf0c33e936ca76624b29f61bd2f",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-0-step-2.png",
+      "bytes": 175571,
+      "sha256": "36022e368298207187c13f8ffe639a15ffa761364c7093547ee07dae6b158296",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-0-step-3.png",
+      "bytes": 188125,
+      "sha256": "ae4f00780b6f57b6d552b393bf719518e913bfd70f813147ba7e86797a86a938",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-0-step-4.png",
+      "bytes": 192412,
+      "sha256": "26438b55e8d21c48392710486da067c0be7df6542fd9c885ead6213deb059da4",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-0-step-5.png",
+      "bytes": 245524,
+      "sha256": "68e432de91c5c84df083e3a74ccbdf50c25f01f5c324b0ee69ac7e397915c325",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-0-step-6.png",
+      "bytes": 221201,
+      "sha256": "a74663b49884fcbe5e8a3a5eba95ca7cc5ecd21863c919952f50c82515939f5d",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-0-step-7.png",
+      "bytes": 216863,
+      "sha256": "c13ebb339b2641042fa81599f46878595e0b194b3b4bb6de5960a50668b83359",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-1-step-1.png",
+      "bytes": 236258,
+      "sha256": "e9a263800430fb8a8f2c9c6f94b6b1ffe09556ef6471bba0b552018c93e93bab",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-1-step-2.png",
+      "bytes": 234693,
+      "sha256": "55511c8b0ec5972a4acc3150c31dd852b30a55cb6d4dc9b84c329b3d08c68d5e",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-1-step-3.png",
+      "bytes": 268022,
+      "sha256": "c69fa8f38a65d0a0a29900c188dd123b1331e0e4663373e2bb069cafd4900fe9",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-1-step-4.png",
+      "bytes": 183339,
+      "sha256": "926a5061d45a8b7424c0561f43648202222b090b0ffe041d16ff8f20ed5570b0",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-2-step-1.png",
+      "bytes": 59591,
+      "sha256": "4ec18d83961d3ebec8f9b07dbdd23e05738824a1a753adc4dc59eb9573f15b80",
+      "width": 375,
+      "height": 812,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-2-step-2.png",
+      "bytes": 64847,
+      "sha256": "cf172615210455422c79e7c2de7f1f76681a9cba0a466994bf9e5c6aeff34662",
+      "width": 375,
+      "height": 812,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-2-step-3.png",
+      "bytes": 58122,
+      "sha256": "df3be84b2e6e341a706a973343f0205f1d408292c3580db481660138595e9508",
+      "width": 375,
+      "height": 812,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-2-step-4.png",
+      "bytes": 57618,
+      "sha256": "50ab235268546ca821d8367d09bddd24c563a71f27dc64919299f11dcca8157c",
+      "width": 375,
+      "height": 812,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-2-step-5.png",
+      "bytes": 59089,
+      "sha256": "2a592562dfc02a6e0cbb5dabb2a00844c2252a9dd38f22f8d3838795734b0df6",
+      "width": 375,
+      "height": 812,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-2-step-6.png",
+      "bytes": 60063,
+      "sha256": "54be82794299dae579707e10047da5c311961e4d9c0ff4c22e35bb59c61d180d",
+      "width": 375,
+      "height": 812,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-3-step-1.png",
+      "bytes": 118332,
+      "sha256": "15709594fdf90371d86f3762858f10591dd961a249e45e9532548cc952d5c807",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-3-step-2.png",
+      "bytes": 118967,
+      "sha256": "9f73772175ae3c23ca4eb3d723fa00d9b62be76e03446f98c0dd261ff31eb73c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-3-step-3.png",
+      "bytes": 118900,
+      "sha256": "7c6ae5af289a9e4b0a6520c22d3cd54c75a5221ae73e82d7bb4ffc8e3c7e4b4e",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-3-step-4.png",
+      "bytes": 119938,
+      "sha256": "122d174fbc24f9d6af1e8ef849342a410d80026bee9667366b7a40dae605d71a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-3-step-5.png",
+      "bytes": 124493,
+      "sha256": "7ed5ac24478a0e466c6e3e8bcb46a24e2d3794a443e5247956ca16a8339fece8",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-4-step-1.png",
+      "bytes": 112376,
+      "sha256": "5fb5edfaba18cc5fdef156457edbf9ffcdcf01abcc7c61703cd6a7cabce75752",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-4-step-2.png",
+      "bytes": 119941,
+      "sha256": "b0a8a07165d92fa94a13d9e68a1fb4e9506d3422e272da3767c501d211239aa6",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-4-step-3.png",
+      "bytes": 116579,
+      "sha256": "854aca9382e9362b4ba2e8f79cfe3e6580e1cd8a3ba6f513d07c8489d5325033",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-4-step-4.png",
+      "bytes": 117528,
+      "sha256": "d4823df82d893e3d56e1657cff21dd20943dd9bedfd7819f049fdbb852959509",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-4-step-5.png",
+      "bytes": 122132,
+      "sha256": "a54f46e641f1542d9999de57fca502fe47b71328de443e1a9d783fe926f3179c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-5-step-1.png",
+      "bytes": 225827,
+      "sha256": "10d081dc7b8358e2a61c7be9a37218f85b3ce5505f4d62e5df2a9059a34f8181",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-5-step-2.png",
+      "bytes": 215177,
+      "sha256": "15fc905500a8d46ef92fafa4138fa93cbd5f19a7010eca767bbeaebf89370c44",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-5-step-3.png",
+      "bytes": 246301,
+      "sha256": "4cb874a94dba5b9f556e3e1bf3083f13921b891c38efa283496782d78e0df2c2",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-5-step-4.png",
+      "bytes": 242766,
+      "sha256": "35ba0abd556bb7c45a1af4d3429b6aab3f88438654e36a3edc61fa29dae82bae",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-6-step-1.png",
+      "bytes": 134474,
+      "sha256": "0d5d65cd82313ff00e5b4c99cb2df01a5f56d7884173503229b7ef1a4fa2a32f",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-6-step-2.png",
+      "bytes": 139455,
+      "sha256": "1418b77cc2ce751544aacff7ae0f4faa16148f2d682fd64546cf040c7b2b846b",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/tour-6-step-3.png",
+      "bytes": 137570,
+      "sha256": "4b5823281aa20872cb67cb6f80984ce6b393b3e11c6d49567fe5b712d6903571",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/wire-click-connect.png",
+      "bytes": 210653,
+      "sha256": "f6db45d781329870e7926e5c7c2d48754505be26982dfbbca1e99df84fe61c01",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/wire-deleted.png",
+      "bytes": 210774,
+      "sha256": "3367df443f0773048bdc5bbf74bc7edf92a208ce991f92e330218d2bc9459c40",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/wire-drag-1-steps.png",
+      "bytes": 214358,
+      "sha256": "9e4bb09e32f683ad93e5a61f438009df93a1f3924c675c6ea37af9317fbdfac9",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/wire-drag-20-steps.png",
+      "bytes": 210882,
+      "sha256": "92c57301b84df70179be9cc0ba571acafd23426440f74a47d2a2f83cb51cfbbf",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/wire-drag-connect.png",
+      "bytes": 210687,
+      "sha256": "550fee38c3ccbb1a522398b1f9764114077f1227c2c17a0d3b0f22797097e59c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/wire-drag-recheck.png",
+      "bytes": 210687,
+      "sha256": "550fee38c3ccbb1a522398b1f9764114077f1227c2c17a0d3b0f22797097e59c",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    },
+    {
+      "file": "screenshots/wire-selected.png",
+      "bytes": 207861,
+      "sha256": "681508806619f3078b1e438808df45db6d00e5dd2b9d8e106bf8dfdb9f825d1a",
+      "width": 1440,
+      "height": 1000,
+      "crcValid": true
+    }
+  ],
+  "limits": "Hashes are snapshot evidence; this manifest excludes itself."
+}

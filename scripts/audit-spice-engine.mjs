@@ -40,8 +40,8 @@ assert.ok(Math.abs(actualVolts - manifest.audit.expectedOutputVolts) <= manifest
 
 console.log(`SPICE provenance verified: ${packageInfo.name} ${packageInfo.version}; ngspice ${headerMatch[1]}; ${packageWasm.length} WASM bytes; SHA-256 ${wasmSha256}.`)
 console.log(`DC smoke test passed: ${manifest.audit.expectedOutputNode} = ${actualVolts} V.`)
-console.warn(`Upstream ngspice source commit is not recorded (${manifest.runtime.sourceCommitStatus})`)
-console.warn(`Public redistribution status: ${manifest.redistribution?.status ?? 'not recorded'}; component inventory: ${manifest.redistribution?.componentInventory ?? 'not recorded'}. The runtime artifact is served at ${manifest.redistribution?.publicPath ?? 'unknown path'}.`)
+console.log(`Source commit: ${manifest.runtime.sourceCommit ?? 'not recorded'}; ${manifest.runtime.sourceCommitStatus}`)
+console.log(`Public redistribution status: ${manifest.redistribution?.status ?? 'not recorded'}; inventoried components: ${Array.isArray(manifest.redistribution?.componentInventory) ? manifest.redistribution.componentInventory.length : 0}. Artifact: ${manifest.redistribution?.publicPath ?? 'unknown path'}.`)
 
 const publicWasmSize = (await stat(publicWasmPath)).size
 assert.equal(publicWasmSize, manifest.runtime.wasmBytes)

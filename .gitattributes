@@ -1,0 +1,6 @@
+# These reviewed artifacts and build materials are verified by SHA-256.
+# Preserve their exact bytes on Windows and Unix checkouts.
+/public/vendor/eecircuit-engine/** -text
+/vendor/mach-mo-spice/** -text
+/public/licenses/ngspice-selfbuild/** -text
+/scripts/ngspice-build/** -text

@@ -1,0 +1,384 @@
+{
+  "pages": [
+    {
+      "route": "/",
+      "url": "http://127.0.0.1:5320/",
+      "title": "Mạch Mở — Học Điện tử qua thực hành",
+      "file": "mobile-01-.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 360,
+        "height": 812,
+        "docHeight": 4086,
+        "mainHeight": 3839.012451171875,
+        "scrollAreas": [
+          {
+            "tag": "DIV",
+            "cls": "freestyle-panel",
+            "clientHeight": 380,
+            "scrollHeight": 515
+          }
+        ]
+      },
+      "alerts": []
+    },
+    {
+      "route": "/app",
+      "url": "http://127.0.0.1:5320/app",
+      "title": "Không gian học — Mạch Mở",
+      "file": "mobile-02-app.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 375,
+        "height": 812,
+        "docHeight": 6482,
+        "mainHeight": 6185.64990234375,
+        "scrollAreas": [
+          {
+            "tag": "DIV",
+            "cls": "board-feature-list",
+            "clientHeight": 280,
+            "scrollHeight": 574
+          }
+        ]
+      },
+      "alerts": []
+    },
+    {
+      "route": "/topics",
+      "url": "http://127.0.0.1:5320/topics",
+      "title": "Chủ đề học — Mạch Mở",
+      "file": "mobile-03-topics.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 360,
+        "height": 812,
+        "docHeight": 4633,
+        "mainHeight": 4337,
+        "scrollAreas": []
+      },
+      "alerts": []
+    },
+    {
+      "route": "/boards",
+      "url": "http://127.0.0.1:5320/boards",
+      "title": "Thư viện board — Mạch Mở",
+      "file": "mobile-04-boards.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 375,
+        "height": 812,
+        "docHeight": 24025,
+        "mainHeight": 23728.712890625,
+        "scrollAreas": [
+          {
+            "tag": "DIV",
+            "cls": "board-feature-list",
+            "clientHeight": 280,
+            "scrollHeight": 574
+          }
+        ]
+      },
+      "alerts": []
+    },
+    {
+      "route": "/components",
+      "url": "http://127.0.0.1:5320/components",
+      "title": "Thư viện linh kiện — Mạch Mở",
+      "file": "mobile-05-components.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 375,
+        "height": 812,
+        "docHeight": 5100,
+        "mainHeight": 4803.67529296875,
+        "scrollAreas": [
+          {
+            "tag": "DIV",
+            "cls": "component-catalog-list",
+            "clientHeight": 720,
+            "scrollHeight": 4320
+          }
+        ]
+      },
+      "alerts": []
+    },
+    {
+      "route": "/projects",
+      "url": "http://127.0.0.1:5320/projects",
+      "title": "Dự án thực hành — Mạch Mở",
+      "file": "mobile-06-projects.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 360,
+        "height": 812,
+        "docHeight": 7757,
+        "mainHeight": 7460.60009765625,
+        "scrollAreas": []
+      },
+      "alerts": []
+    },
+    {
+      "route": "/build/freestyle",
+      "url": "http://127.0.0.1:5320/build/freestyle",
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "file": "mobile-07-build-freestyle.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 360,
+        "height": 812,
+        "docHeight": 1195,
+        "mainHeight": 899.2000122070312,
+        "scrollAreas": [
+          {
+            "tag": "DIV",
+            "cls": "freestyle-panel",
+            "clientHeight": 380,
+            "scrollHeight": 515
+          }
+        ]
+      },
+      "alerts": []
+    },
+    {
+      "route": "/build?lesson=button-led&board=esp32-devkit",
+      "url": "http://127.0.0.1:5320/build?lesson=button-led&board=esp32-devkit",
+      "title": "Lắp mạch & mô phỏng — Mạch Mở",
+      "file": "mobile-08-build.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 375,
+        "height": 812,
+        "docHeight": 7497,
+        "mainHeight": 7200.875,
+        "scrollAreas": [
+          {
+            "tag": "DIV",
+            "cls": "breadboard-pin-picker",
+            "clientHeight": 96,
+            "scrollHeight": 664
+          },
+          {
+            "tag": "SECTION",
+            "cls": "builder-part-inspector builder-circuit-gates",
+            "clientHeight": 469,
+            "scrollHeight": 888
+          },
+          {
+            "tag": "OL",
+            "cls": "signal-flow-code",
+            "clientHeight": 205,
+            "scrollHeight": 320
+          }
+        ]
+      },
+      "alerts": []
+    },
+    {
+      "route": "/learn/esp32-led?board=esp32-devkit",
+      "url": "http://127.0.0.1:5320/learn/esp32-led?board=esp32-devkit",
+      "title": "Làm đèn LED với ESP32 — Mạch Mở",
+      "file": "mobile-09-learn-esp32-led.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 375,
+        "height": 812,
+        "docHeight": 4981,
+        "mainHeight": 4685.03759765625,
+        "scrollAreas": [
+          {
+            "tag": "DIV",
+            "cls": "breadboard-pin-picker",
+            "clientHeight": 96,
+            "scrollHeight": 511
+          }
+        ]
+      },
+      "alerts": []
+    },
+    {
+      "route": "/app/classroom-kits",
+      "url": "http://127.0.0.1:5320/app/classroom-kits",
+      "title": "Lớp học & bộ kit — Mạch Mở",
+      "file": "mobile-10-app-classroom-kits.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 360,
+        "height": 812,
+        "docHeight": 4058,
+        "mainHeight": 3762.699951171875,
+        "scrollAreas": [
+          {
+            "tag": "FIELDSET",
+            "cls": "classroom-kit-lessons",
+            "clientHeight": 410,
+            "scrollHeight": 708
+          }
+        ]
+      },
+      "alerts": []
+    },
+    {
+      "route": "/tools/electronics-calculators",
+      "url": "http://127.0.0.1:5320/tools/electronics-calculators",
+      "title": "Công cụ tính điện tử — Mạch Mở",
+      "file": "mobile-11-tools-electronics-calculators.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 360,
+        "height": 812,
+        "docHeight": 3262,
+        "mainHeight": 2965.199951171875,
+        "scrollAreas": []
+      },
+      "alerts": []
+    },
+    {
+      "route": "/tools/spice",
+      "url": "http://127.0.0.1:5320/tools/spice",
+      "title": "Mô phỏng SPICE — Mạch Mở",
+      "file": "mobile-12-tools-spice.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 360,
+        "height": 812,
+        "docHeight": 2833,
+        "mainHeight": 2536.949951171875,
+        "scrollAreas": [
+          {
+            "tag": "TEXTAREA",
+            "cls": "",
+            "clientHeight": 69,
+            "scrollHeight": 155
+          }
+        ]
+      },
+      "alerts": []
+    },
+    {
+      "route": "/tools/sketch",
+      "url": "http://127.0.0.1:5320/tools/sketch",
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "file": "mobile-13-tools-sketch.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 360,
+        "height": 812,
+        "docHeight": 1538,
+        "mainHeight": 1241.300048828125,
+        "scrollAreas": []
+      },
+      "alerts": []
+    },
+    {
+      "route": "/tools/firmware-hex",
+      "url": "http://127.0.0.1:5320/tools/firmware-hex",
+      "title": "Kiểm tra firmware HEX — Mạch Mở",
+      "file": "mobile-14-tools-firmware-hex.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 375,
+        "height": 812,
+        "docHeight": 1884,
+        "mainHeight": 1588.25,
+        "scrollAreas": []
+      },
+      "alerts": []
+    },
+    {
+      "route": "/community",
+      "url": "http://127.0.0.1:5320/community",
+      "title": "Cộng đồng — Mạch Mở",
+      "file": "mobile-15-community.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 360,
+        "height": 812,
+        "docHeight": 3526,
+        "mainHeight": 3229.462646484375,
+        "scrollAreas": []
+      },
+      "alerts": []
+    },
+    {
+      "route": "/community/new",
+      "url": "http://127.0.0.1:5320/community/new",
+      "title": "Viết bài mới — Cộng đồng Mạch Mở",
+      "file": "mobile-16-community-new.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 375,
+        "height": 812,
+        "docHeight": 2002,
+        "mainHeight": 1705.9124755859375,
+        "scrollAreas": []
+      },
+      "alerts": []
+    },
+    {
+      "route": "/feedback",
+      "url": "http://127.0.0.1:5320/feedback",
+      "title": "Góp ý & báo lỗi — Mạch Mở",
+      "file": "mobile-17-feedback.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 375,
+        "height": 812,
+        "docHeight": 1830,
+        "mainHeight": 1533.5999755859375,
+        "scrollAreas": []
+      },
+      "alerts": []
+    },
+    {
+      "route": "/privacy",
+      "url": "http://127.0.0.1:5320/privacy",
+      "title": "Quyền riêng tư — Mạch Mở",
+      "file": "mobile-18-privacy.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 375,
+        "height": 812,
+        "docHeight": 1221,
+        "mainHeight": 859.75,
+        "scrollAreas": []
+      },
+      "alerts": []
+    },
+    {
+      "route": "/login",
+      "url": "http://127.0.0.1:5320/login",
+      "title": "Đăng nhập — Mạch Mở",
+      "file": "mobile-19-login.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 375,
+        "height": 812,
+        "docHeight": 1067,
+        "mainHeight": 770.9000244140625,
+        "scrollAreas": []
+      },
+      "alerts": []
+    },
+    {
+      "route": "/app/robot-simulation",
+      "url": "http://127.0.0.1:5320/app/robot-simulation",
+      "title": "Không tìm thấy trang — Mạch Mở",
+      "file": "mobile-20-app-robot-simulation.png",
+      "metrics": {
+        "width": 375,
+        "docWidth": 375,
+        "height": 812,
+        "docHeight": 2020,
+        "mainHeight": 1723.8499755859375,
+        "scrollAreas": []
+      },
+      "alerts": []
+    }
+  ],
+  "errors": {
+    "errors": [],
+    "failed": [],
+    "bad": []
+  }
+}

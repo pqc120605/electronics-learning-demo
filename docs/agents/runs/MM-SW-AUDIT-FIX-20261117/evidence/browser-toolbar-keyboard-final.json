@@ -1,0 +1,16 @@
+[
+  {
+    "id": "regression-toolbar-overlay-after",
+    "url": "http://127.0.0.1:5320/app/learn/button-led?board=esp32-devkit",
+    "screenshot": "regression-toolbar-overlay-after.png",
+    "key": "board-1:vcc",
+    "hit": "board-1:vcc",
+    "toolbarPosition": "static"
+  },
+  {
+    "id": "occupied-hole-keyboard-after",
+    "url": "http://127.0.0.1:5320/app/learn/button-led?board=esp32-devkit",
+    "screenshot": "occupied-hole-keyboard-after.png",
+    "focused": "bb1:10c"
+  }
+]

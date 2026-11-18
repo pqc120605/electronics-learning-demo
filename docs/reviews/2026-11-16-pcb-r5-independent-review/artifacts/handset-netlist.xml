@@ -1,0 +1,3025 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>D:\StartupOS\electronics-learning-demo\docs\hardware\claude-support\2026-11-15-pcb-2layer-r5\kicad\handset\mobot-handset.kicad_sch</source>
+    <date>2026-11-16T16:27:33</date>
+    <tool>Eeschema 10.0.7</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>MoBot tay cầm EVT0 r5</title>
+        <company/>
+        <rev>r5</rev>
+        <date>2026-11-13</date>
+        <source>mobot-handset.kicad_sch</source>
+        <comment number="1" value="Sinh tự động từ tools/design_*.py — schematic dạng nhãn net"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>10u 10V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1859331c-e93a-4127-996d-f0ca2baedb40</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C2">
+      <value>22u 10V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>44319bdd-121c-435f-9dae-b0c52f4c9abf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C3">
+      <value>22u 10V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ec89d0f4-013f-4879-90e6-f947d5027239</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C4">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>03f12018-0ed9-4fbd-8f7b-b5b33eecfd87</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C5">
+      <value>1u</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2224b733-77d8-44e0-818d-02b1f09c31cf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C6">
+      <value>1u</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ae5fb5df-f560-4ced-8091-4164c4deb828</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C7">
+      <value>10u 10V</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0805_2012Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b6b1900a-b7ba-4d4b-8add-44d46bb9fe6d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C9">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dab000cd-6067-4c5e-acaf-fc78993c7732</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C10">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a58a6cc1-fd6f-4f4b-80ff-24661de33f44</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C11">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>816aa0d1-0436-4454-a0c5-c5388bc1f4ac</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C12">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>558e1949-f088-4ac2-a6fb-845e4be0f5d9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C13">
+      <value>100n</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ac624807-d3f4-42b5-a564-47116a9ba42e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C14">
+      <value>1u</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b836b4b0-03b5-43d2-afef-56b822973f3b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C15">
+      <value>4.7u</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>95416068-43bd-4419-8c38-8f32c9a1afa6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="C16">
+      <value>4.7u</value>
+      <footprint>Capacitor_SMD:C_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f890dd0b-d688-44ce-a581-e5a34b955fb8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D1">
+      <value>LED do (pin yeu)</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_7" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5f81238e-38e1-4bf4-9131-89d753d2aa4e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D2">
+      <value>LED xanh (nguon)</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_7" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b2fb1162-aaf1-48c6-9bc8-57c0f3fc9950</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D3">
+      <value>LED CHG</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_7" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3f159dd0-4025-4955-8b36-ac073e69afa0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D4">
+      <value>LED PGOOD</value>
+      <footprint>LED_SMD:LED_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_7" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f4a2357b-10e3-49b6-996a-99ca12f67d0d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="F1">
+      <value>PTC 2A</value>
+      <footprint>Fuse:Fuse_1812_4532Metric</footprint>
+      <fields>
+        <field name="MPN">MF-MSMF200/8X</field>
+        <field name="Footprint">Fuse:Fuse_1812_4532Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value="MF-MSMF200/8X"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7dc46d14-c997-4e25-9ed6-d56d075ca87e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H1">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S0_16" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>40e9c687-e606-42b7-baac-150d78e4d469</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H2">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S0_16" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>725e3529-f72c-487b-853d-f387b9b16ee9</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H3">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S0_16" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ae213da8-6a4b-49f4-bde7-888530250230</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="H4">
+      <value>M3</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S0_16" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>18858bcb-77e4-4f55-9bd7-6cb614d14819</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J1">
+      <value>DevKit hang trai</value>
+      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S15_9" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f7d1bc33-5eb9-4976-8083-a640f8c28d50</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J2">
+      <value>DevKit hang phai (25.40 mm)</value>
+      <footprint>Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S15_10" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>129c5dc3-b854-4cbb-b777-a8af4d1c7965</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J3">
+      <value>3xAA</value>
+      <footprint>Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="MPN">B2B-XH-A</field>
+        <field name="Footprint">Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_0" description=""/>
+      <property name="MPN" value="B2B-XH-A"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>bc2c4bf2-d961-4beb-82ea-a6ce5deef1d4</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J4">
+      <value>USB-C chi sac</value>
+      <footprint>Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal</footprint>
+      <fields>
+        <field name="MPN">USB4105-GF-A</field>
+        <field name="Footprint">Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S17_13" description=""/>
+      <property name="MPN" value="USB4105-GF-A"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>1e7718b3-3d80-4b6c-b8b4-e0c3c8c0568c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="A1"/>
+            <pin num="A4"/>
+            <pin num="A5"/>
+            <pin num="A6"/>
+            <pin num="A7"/>
+            <pin num="A8"/>
+            <pin num="A9"/>
+            <pin num="A12"/>
+            <pin num="B1"/>
+            <pin num="B4"/>
+            <pin num="B5"/>
+            <pin num="B6"/>
+            <pin num="B7"/>
+            <pin num="B8"/>
+            <pin num="B9"/>
+            <pin num="B12"/>
+            <pin num="SH"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J5">
+      <value>UART GND TX0 RX0 EN</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S4_11" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a0de86b1-1a5e-43aa-b826-b106f2ca2d33</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J6">
+      <value>Joystick trai (tran, 2 truc + nut)</value>
+      <footprint>mobot:Joystick_PTH</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">mobot:Joystick_PTH</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S11_12" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b3578b00-6976-4920-b724-8fdf17466f59</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="GND"/>
+            <pin num="Horizontal"/>
+            <pin num="MOUNT1"/>
+            <pin num="MOUNT2"/>
+            <pin num="MOUNT3"/>
+            <pin num="MOUNT4"/>
+            <pin num="Select"/>
+            <pin num="Select-NC1"/>
+            <pin num="Select-NC2"/>
+            <pin num="VCC"/>
+            <pin num="Vertical"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J7">
+      <value>Joystick phai (tran, 2 truc + nut)</value>
+      <footprint>mobot:Joystick_PTH</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">mobot:Joystick_PTH</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S11_12" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>48c31fed-d81c-4afd-ba09-6e5a21614535</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="GND"/>
+            <pin num="Horizontal"/>
+            <pin num="MOUNT1"/>
+            <pin num="MOUNT2"/>
+            <pin num="MOUNT3"/>
+            <pin num="MOUNT4"/>
+            <pin num="Select"/>
+            <pin num="Select-NC1"/>
+            <pin num="Select-NC2"/>
+            <pin num="VCC"/>
+            <pin num="Vertical"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J8">
+      <value>LiPo 1S</value>
+      <footprint>Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical</footprint>
+      <fields>
+        <field name="MPN">B2B-PH-K-S</field>
+        <field name="Footprint">Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_0" description=""/>
+      <property name="MPN" value="B2B-PH-K-S"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>0aca5436-c7c2-4456-9f86-411dc4e8fb12</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="J9">
+      <value>SW1 (cong tac roi &gt;=2A)</value>
+      <footprint>Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical</footprint>
+      <fields>
+        <field name="MPN">B2B-XH-A</field>
+        <field name="Footprint">Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_4" description=""/>
+      <property name="MPN" value="B2B-XH-A"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a2c8e80b-8ba0-4724-ab0b-867f894106f8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="JP2">
+      <value>AA|LiPo</value>
+      <footprint>Jumper:SolderJumper-3_P1.3mm_Bridged12_RoundedPad1.0x1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Jumper:SolderJumper-3_P1.3mm_Bridged12_RoundedPad1.0x1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S3_3" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>512f2b5d-3c14-4ffb-bc57-63dcf7e1dab3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="L1">
+      <value>1uH 3.5A</value>
+      <footprint>Inductor_SMD:L_Changjiang_FNR4030S</footprint>
+      <fields>
+        <field name="MPN">XEL4030-102ME</field>
+        <field name="Footprint">Inductor_SMD:L_Changjiang_FNR4030S</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value="XEL4030-102ME"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>64e39a36-7c67-49e6-bfe5-66a62dbc5446</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q1">
+      <value>DMG2305UX</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <fields>
+        <field name="MPN">DMG2305UX-7</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S3_2" description=""/>
+      <property name="MPN" value="DMG2305UX-7"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ff99bc40-1750-407b-aace-0dd3c525275f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q2">
+      <value>DMN2075U</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <fields>
+        <field name="MPN">DMN2075U-7</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S3_2" description=""/>
+      <property name="MPN" value="DMN2075U-7"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>27ea673e-3320-4002-9a4b-4073a422011d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="Q3">
+      <value>DMG2305UX</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <fields>
+        <field name="MPN">DMG2305UX-7</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S3_2" description=""/>
+      <property name="MPN" value="DMG2305UX-7"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>17d6cf50-977d-4d73-9048-5e3dc2d3e7cc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>100k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a2f106a5-58bd-406b-8823-7bb6bbcd8c34</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>576k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>02b6f258-2aa5-4080-b02c-1852a207ee8b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R3">
+      <value>100k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b5396455-bbc9-47ba-b4fe-8be123e9ce65</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R4">
+      <value>71.5k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6b9e410f-979d-4ca3-a0cf-cabccc425474</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>10.2k 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>27f38083-5d08-471d-9cce-335c3d4c9e4a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>1M 0.1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fe42e59a-ecc1-4a92-96fa-c1335f748270</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R7">
+      <value>470k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e959e82c-59a4-421b-a8ce-37ca060e3418</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R8">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>59cdbc09-7df5-49d0-8e64-8940c5a66138</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R9">
+      <value>39.2k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>33551e63-05e9-4e92-9916-0c0411aae48c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R10">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8777d9d6-3ada-4272-98dd-0f39cef537e2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R14">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>2f0f4db5-e52a-410b-81b4-fe991619b1ab</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R15">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>54f2e1f7-96d6-4629-a111-7f45b1cb72cc</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R16">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8ba86e5b-2cf3-4e32-8011-60ffbb9dbbe7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R17">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b7e6e62d-b0e9-4d96-8d76-0b3b88abcb62</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R18">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d8fbd887-04dc-4ef9-b56c-51fa03a4e04e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R19">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>30db88a1-4cef-4edb-922c-b031f8b2f53c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R20">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cb712ab6-6647-4d63-8268-b28b0e889647</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R21">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3dbcdf2c-652c-496e-a380-a4539bba6359</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R22">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5384a0c7-820c-4aa5-ac4c-6c60bd9e4ce5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R23">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c06576bd-82e9-43c8-a94d-d7ebf3b0f317</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R24">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>06f7abe5-486f-4453-a1c0-8bc5bfe1ee84</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R25">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e5a89a3b-d3a8-4383-979b-cd7564d95b59</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R26">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ff5314f2-8a88-496d-80c9-300f04656595</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R27">
+      <value>100k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>a5074607-a7c8-4248-af6a-e0ab820547d0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R28">
+      <value>100k 1%</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3ea75e18-810f-4600-92fa-f4d8622addc3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R29">
+      <value>100</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>df2ff05e-707e-4ab5-ac47-a7a69970cf12</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R30">
+      <value>100</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>eee21663-f9ff-479d-9237-a8253c3dd8ca</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R31">
+      <value>5.1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>89e4c3bf-8ca1-473c-9355-214bc2ef829a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R32">
+      <value>5.1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9a003824-8c96-4f4a-b175-0de75dc10b7c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R33">
+      <value>3.3k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6b546e92-cda3-4910-ac99-b5d061b81f3e</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R34">
+      <value>1.5k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7d50d41c-c485-4bc8-90eb-5b6dab63a9eb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R35">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>60b172fc-bfa1-4311-8d09-32be0eecef41</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R36">
+      <value>10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e985770a-ddeb-4a65-9ed8-eaa66e995248</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R37">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>210881c6-90af-4f5f-acd2-0373be6fc9cd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R38">
+      <value>1k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>38e43494-73ac-4f23-9f0f-0e80d46843b3</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW2">
+      <value>B1</value>
+      <footprint>Button_Switch_THT:SW_PUSH_6mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Button_Switch_THT:SW_PUSH_6mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>232e82e6-5024-41ac-80c7-58f29661f945</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW3">
+      <value>B2</value>
+      <footprint>Button_Switch_THT:SW_PUSH_6mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Button_Switch_THT:SW_PUSH_6mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9bed93d5-1841-463c-b3fa-aa31b36e0dbb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW4">
+      <value>B3</value>
+      <footprint>Button_Switch_THT:SW_PUSH_6mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Button_Switch_THT:SW_PUSH_6mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ad04fd6d-cbb9-4958-83dc-bd591bc784e2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW5">
+      <value>B4</value>
+      <footprint>Button_Switch_THT:SW_PUSH_6mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Button_Switch_THT:SW_PUSH_6mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ef8f117a-749a-4685-be0f-9cafbe56680d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW6">
+      <value>B5</value>
+      <footprint>Button_Switch_THT:SW_PUSH_6mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Button_Switch_THT:SW_PUSH_6mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4636a77f-c63f-46a0-89a9-5573554eea0b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="SW7">
+      <value>B6</value>
+      <footprint>Button_Switch_THT:SW_PUSH_6mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">Button_Switch_THT:SW_PUSH_6mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S2_1" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>17a29409-a96d-45a0-bfef-a16bbf1e9b40</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP1">
+      <value>VBAT_F</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_15" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c858b405-7f95-440b-884f-16da02fc2c24</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP2">
+      <value>VBAT_SW</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_15" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6e855377-16f6-4479-a818-970a5e794e5f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP3">
+      <value>EN_BB</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_15" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>740c0e0b-42e6-445b-afe1-9df3c40c5fa9</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP4">
+      <value>V3V3_BB</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_15" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>20751539-6eb5-46ac-99a3-eaa6de3770ff</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP5">
+      <value>V3V3_DEV</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_15" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f3074d39-26ab-4806-a8bd-7913efce51d2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="TP6">
+      <value>GND</value>
+      <footprint>TestPoint:TestPoint_Pad_D1.5mm</footprint>
+      <fields>
+        <field name="MPN"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D1.5mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S1_15" description=""/>
+      <property name="MPN" value=""/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="exclude_from_bom"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>272c178b-5078-4938-ba3c-547aceff573c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U1">
+      <value>TPS631000</value>
+      <footprint>Package_TO_SOT_SMD:SOT-583-8</footprint>
+      <fields>
+        <field name="MPN">TPS631000DRLR</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-583-8</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S8_5" description=""/>
+      <property name="MPN" value="TPS631000DRLR"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>dfcdc6a6-e413-45e5-b23e-db465de27e2d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U2">
+      <value>TLV6710</value>
+      <footprint>Package_TO_SOT_SMD:TSOT-23-6</footprint>
+      <fields>
+        <field name="MPN">TLV6710DDCR</field>
+        <field name="Footprint">Package_TO_SOT_SMD:TSOT-23-6</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S6_6" description=""/>
+      <property name="MPN" value="TLV6710DDCR"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>908aec78-ec42-467c-a356-7d8b8ba434ba</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U3">
+      <value>TPS2553</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-6</footprint>
+      <fields>
+        <field name="MPN">TPS2553DBVR</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-6</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S6_8" description=""/>
+      <property name="MPN" value="TPS2553DBVR"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c585ff6c-a925-41fb-b155-c6bd7ca162cf</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U4">
+      <value>BQ24072</value>
+      <footprint>Package_DFN_QFN:VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm</footprint>
+      <fields>
+        <field name="MPN">BQ24072RGTR</field>
+        <field name="Footprint">Package_DFN_QFN:VQFN-16-1EP_3x3mm_P0.5mm_EP1.68x1.68mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="mobot" part="S17_14" description=""/>
+      <property name="MPN" value="BQ24072RGTR"/>
+      <property name="Sheetname" value="mobot-handset"/>
+      <property name="Sheetfile" value="mobot-handset.kicad_sch"/>
+      <property name="dnp"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7afcd42e-cd82-4fdd-b6ea-99dc79561f17</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="mobot" part="S0_16">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="mobot" part="S11_12">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="GND" name="GND" type="passive"/>
+        <pin num="Horizontal" name="VRx" type="passive"/>
+        <pin num="MOUNT1" name="" type="passive"/>
+        <pin num="MOUNT2" name="" type="passive"/>
+        <pin num="MOUNT3" name="" type="passive"/>
+        <pin num="MOUNT4" name="" type="passive"/>
+        <pin num="Select" name="SW" type="passive"/>
+        <pin num="Select-NC1" name="" type="passive"/>
+        <pin num="Select-NC2" name="" type="passive"/>
+        <pin num="VCC" name="VCC" type="passive"/>
+        <pin num="Vertical" name="VRy" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S15_10">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="3V3" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="D15" type="passive"/>
+        <pin num="4" name="D2" type="passive"/>
+        <pin num="5" name="D4" type="passive"/>
+        <pin num="6" name="RX2" type="passive"/>
+        <pin num="7" name="TX2" type="passive"/>
+        <pin num="8" name="D5" type="passive"/>
+        <pin num="9" name="D18" type="passive"/>
+        <pin num="10" name="D19" type="passive"/>
+        <pin num="11" name="D21" type="passive"/>
+        <pin num="12" name="RX0" type="passive"/>
+        <pin num="13" name="TX0" type="passive"/>
+        <pin num="14" name="D22" type="passive"/>
+        <pin num="15" name="D23" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S15_9">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="VIN" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="D13" type="passive"/>
+        <pin num="4" name="D12" type="passive"/>
+        <pin num="5" name="D14" type="passive"/>
+        <pin num="6" name="D27" type="passive"/>
+        <pin num="7" name="D26" type="passive"/>
+        <pin num="8" name="D25" type="passive"/>
+        <pin num="9" name="D33" type="passive"/>
+        <pin num="10" name="D32" type="passive"/>
+        <pin num="11" name="D35" type="passive"/>
+        <pin num="12" name="D34" type="passive"/>
+        <pin num="13" name="VN" type="passive"/>
+        <pin num="14" name="VP" type="passive"/>
+        <pin num="15" name="EN" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S17_13">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="A1" name="GND" type="passive"/>
+        <pin num="A4" name="VBUS" type="passive"/>
+        <pin num="A5" name="CC1" type="passive"/>
+        <pin num="A6" name="" type="passive"/>
+        <pin num="A7" name="" type="passive"/>
+        <pin num="A8" name="" type="passive"/>
+        <pin num="A9" name="" type="passive"/>
+        <pin num="A12" name="" type="passive"/>
+        <pin num="B1" name="" type="passive"/>
+        <pin num="B4" name="" type="passive"/>
+        <pin num="B5" name="CC2" type="passive"/>
+        <pin num="B6" name="" type="passive"/>
+        <pin num="B7" name="" type="passive"/>
+        <pin num="B8" name="" type="passive"/>
+        <pin num="B9" name="" type="passive"/>
+        <pin num="B12" name="" type="passive"/>
+        <pin num="SH" name="SHIELD" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S17_14">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="TS" type="input"/>
+        <pin num="2" name="BAT" type="passive"/>
+        <pin num="3" name="BAT" type="passive"/>
+        <pin num="4" name="CE" type="input"/>
+        <pin num="5" name="EN2" type="input"/>
+        <pin num="6" name="EN1" type="input"/>
+        <pin num="7" name="PGOOD" type="open_collector"/>
+        <pin num="8" name="VSS" type="passive"/>
+        <pin num="9" name="CHG" type="open_collector"/>
+        <pin num="10" name="OUT" type="power_out"/>
+        <pin num="11" name="OUT" type="passive"/>
+        <pin num="12" name="ILIM" type="input"/>
+        <pin num="13" name="IN" type="power_in"/>
+        <pin num="14" name="TMR" type="input"/>
+        <pin num="15" name="TD" type="input"/>
+        <pin num="16" name="ISET" type="input"/>
+        <pin num="17" name="EP" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S1_15">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S2_0">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S2_1">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S2_4">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="IN" type="passive"/>
+        <pin num="2" name="OUT" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S2_7">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S3_2">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S3_3">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="AA" type="passive"/>
+        <pin num="2" name="COM" type="passive"/>
+        <pin num="3" name="LIPO" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S4_11">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="passive"/>
+        <pin num="2" name="TX0" type="passive"/>
+        <pin num="3" name="RX0" type="passive"/>
+        <pin num="4" name="EN" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S6_6">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="OUTA" type="open_collector"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="INA" type="input"/>
+        <pin num="4" name="INB" type="input"/>
+        <pin num="5" name="VDD" type="power_in"/>
+        <pin num="6" name="OUTB" type="open_collector"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S6_8">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="IN" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="EN" type="input"/>
+        <pin num="4" name="FAULT" type="open_collector"/>
+        <pin num="5" name="ILIM" type="input"/>
+        <pin num="6" name="OUT" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="mobot" part="S8_5">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value"/>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="VOUT" type="power_out"/>
+        <pin num="2" name="LX2" type="passive"/>
+        <pin num="3" name="LX1" type="passive"/>
+        <pin num="4" name="VIN" type="power_in"/>
+        <pin num="5" name="EN" type="input"/>
+        <pin num="6" name="MODE" type="input"/>
+        <pin num="7" name="GND" type="power_in"/>
+        <pin num="8" name="FB" type="input"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="mobot">
+      <uri>${KIPRJMOD}/mobot.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/B1" class="Default">
+      <node ref="R19" pin="1" pintype="passive"/>
+      <node ref="SW2" pin="1" pintype="passive"/>
+    </net>
+    <net code="2" name="/B1_G" class="Default">
+      <node ref="J1" pin="8" pinfunction="D25_8" pintype="passive"/>
+      <node ref="R19" pin="2" pintype="passive"/>
+    </net>
+    <net code="3" name="/B2" class="Default">
+      <node ref="R20" pin="1" pintype="passive"/>
+      <node ref="SW3" pin="1" pintype="passive"/>
+    </net>
+    <net code="4" name="/B2_G" class="Default">
+      <node ref="J1" pin="7" pinfunction="D26_7" pintype="passive"/>
+      <node ref="R20" pin="2" pintype="passive"/>
+    </net>
+    <net code="5" name="/B3" class="Default">
+      <node ref="R21" pin="1" pintype="passive"/>
+      <node ref="SW4" pin="1" pintype="passive"/>
+    </net>
+    <net code="6" name="/B3_G" class="Default">
+      <node ref="J1" pin="6" pinfunction="D27_6" pintype="passive"/>
+      <node ref="R21" pin="2" pintype="passive"/>
+    </net>
+    <net code="7" name="/B4" class="Default">
+      <node ref="R22" pin="1" pintype="passive"/>
+      <node ref="SW5" pin="1" pintype="passive"/>
+    </net>
+    <net code="8" name="/B4_G" class="Default">
+      <node ref="J2" pin="9" pinfunction="D18_9" pintype="passive"/>
+      <node ref="R22" pin="2" pintype="passive"/>
+    </net>
+    <net code="9" name="/B5" class="Default">
+      <node ref="R23" pin="1" pintype="passive"/>
+      <node ref="SW6" pin="1" pintype="passive"/>
+    </net>
+    <net code="10" name="/B5_G" class="Default">
+      <node ref="J2" pin="10" pinfunction="D19_10" pintype="passive"/>
+      <node ref="R23" pin="2" pintype="passive"/>
+    </net>
+    <net code="11" name="/B6" class="Default">
+      <node ref="R24" pin="1" pintype="passive"/>
+      <node ref="SW7" pin="1" pintype="passive"/>
+    </net>
+    <net code="12" name="/B6_G" class="Default">
+      <node ref="J2" pin="15" pinfunction="D23_15" pintype="passive"/>
+      <node ref="R24" pin="2" pintype="passive"/>
+    </net>
+    <net code="13" name="/CC1" class="Default">
+      <node ref="J4" pin="A5" pinfunction="CC1_A5" pintype="passive"/>
+      <node ref="R31" pin="1" pintype="passive"/>
+    </net>
+    <net code="14" name="/CC2" class="Default">
+      <node ref="J4" pin="B5" pinfunction="CC2_B5" pintype="passive"/>
+      <node ref="R32" pin="1" pintype="passive"/>
+    </net>
+    <net code="15" name="/CHGLED_A" class="Default">
+      <node ref="D3" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="R37" pin="2" pintype="passive"/>
+    </net>
+    <net code="16" name="/CHG_L" class="Default">
+      <node ref="D3" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="U4" pin="9" pinfunction="CHG_9" pintype="open_collector"/>
+    </net>
+    <net code="17" name="/EN1_L" class="Default">
+      <node ref="R36" pin="2" pintype="passive"/>
+      <node ref="U4" pin="6" pinfunction="EN1_6" pintype="input"/>
+    </net>
+    <net code="18" name="/EN_BB" class="Default">
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="Q2" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="Q3" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="R7" pin="2" pintype="passive"/>
+      <node ref="TP3" pin="1" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="EN_5" pintype="input"/>
+      <node ref="U2" pin="1" pinfunction="OUTA_1" pintype="open_collector"/>
+    </net>
+    <net code="19" name="/EN_SW" class="Default">
+      <node ref="R10" pin="2" pintype="passive"/>
+      <node ref="U3" pin="3" pinfunction="EN_3" pintype="input"/>
+    </net>
+    <net code="20" name="/ESP_EN" class="Default">
+      <node ref="J1" pin="15" pinfunction="EN_15" pintype="passive"/>
+      <node ref="J5" pin="4" pinfunction="EN_4" pintype="passive"/>
+    </net>
+    <net code="21" name="/FB_BB" class="Default">
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="FB_8" pintype="input"/>
+    </net>
+    <net code="22" name="/GND" class="Default">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="C10" pin="2" pintype="passive"/>
+      <node ref="C11" pin="2" pintype="passive"/>
+      <node ref="C12" pin="2" pintype="passive"/>
+      <node ref="C13" pin="2" pintype="passive"/>
+      <node ref="C14" pin="2" pintype="passive"/>
+      <node ref="C15" pin="2" pintype="passive"/>
+      <node ref="C16" pin="2" pintype="passive"/>
+      <node ref="C2" pin="2" pintype="passive"/>
+      <node ref="C3" pin="2" pintype="passive"/>
+      <node ref="C4" pin="2" pintype="passive"/>
+      <node ref="C5" pin="2" pintype="passive"/>
+      <node ref="C6" pin="2" pintype="passive"/>
+      <node ref="C7" pin="2" pintype="passive"/>
+      <node ref="C9" pin="2" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="D2" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="J1" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="J2" pin="2" pinfunction="GND_2" pintype="passive"/>
+      <node ref="J3" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="J4" pin="A1" pinfunction="GND_A1" pintype="passive"/>
+      <node ref="J4" pin="A12" pintype="passive"/>
+      <node ref="J4" pin="B1" pintype="passive"/>
+      <node ref="J4" pin="B12" pintype="passive"/>
+      <node ref="J4" pin="SH" pinfunction="SHIELD_SH" pintype="passive"/>
+      <node ref="J5" pin="1" pinfunction="GND_1" pintype="passive"/>
+      <node ref="J6" pin="GND" pinfunction="GND_GND" pintype="passive"/>
+      <node ref="J7" pin="GND" pinfunction="GND_GND" pintype="passive"/>
+      <node ref="J8" pin="2" pinfunction="-_2" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="R28" pin="2" pintype="passive"/>
+      <node ref="R3" pin="2" pintype="passive"/>
+      <node ref="R31" pin="2" pintype="passive"/>
+      <node ref="R32" pin="2" pintype="passive"/>
+      <node ref="R33" pin="2" pintype="passive"/>
+      <node ref="R34" pin="2" pintype="passive"/>
+      <node ref="R35" pin="2" pintype="passive"/>
+      <node ref="R5" pin="2" pintype="passive"/>
+      <node ref="R9" pin="2" pintype="passive"/>
+      <node ref="SW2" pin="2" pintype="passive"/>
+      <node ref="SW3" pin="2" pintype="passive"/>
+      <node ref="SW4" pin="2" pintype="passive"/>
+      <node ref="SW5" pin="2" pintype="passive"/>
+      <node ref="SW6" pin="2" pintype="passive"/>
+      <node ref="SW7" pin="2" pintype="passive"/>
+      <node ref="TP6" pin="1" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="MODE_6" pintype="input"/>
+      <node ref="U1" pin="7" pinfunction="GND_7" pintype="power_in"/>
+      <node ref="U2" pin="2" pinfunction="GND_2" pintype="power_in"/>
+      <node ref="U2" pin="4" pinfunction="INB_4" pintype="input"/>
+      <node ref="U3" pin="2" pinfunction="GND_2" pintype="power_in"/>
+      <node ref="U4" pin="15" pinfunction="TD_15" pintype="input"/>
+      <node ref="U4" pin="17" pinfunction="EP_17" pintype="power_in"/>
+      <node ref="U4" pin="4" pinfunction="CE_4" pintype="input"/>
+      <node ref="U4" pin="5" pinfunction="EN2_5" pintype="input"/>
+      <node ref="U4" pin="8" pinfunction="VSS_8" pintype="passive"/>
+    </net>
+    <net code="23" name="/ILIM" class="Default">
+      <node ref="R9" pin="1" pintype="passive"/>
+      <node ref="U3" pin="5" pinfunction="ILIM_5" pintype="input"/>
+    </net>
+    <net code="24" name="/ILIM_L" class="Default">
+      <node ref="R34" pin="1" pintype="passive"/>
+      <node ref="U4" pin="12" pinfunction="ILIM_12" pintype="input"/>
+    </net>
+    <net code="25" name="/ISET_L" class="Default">
+      <node ref="R33" pin="1" pintype="passive"/>
+      <node ref="U4" pin="16" pinfunction="ISET_16" pintype="input"/>
+    </net>
+    <net code="26" name="/JLX" class="Default">
+      <node ref="J6" pin="Horizontal" pinfunction="VRx_Horizontal" pintype="passive"/>
+      <node ref="R15" pin="1" pintype="passive"/>
+    </net>
+    <net code="27" name="/JLX_G" class="Default">
+      <node ref="C9" pin="1" pintype="passive"/>
+      <node ref="J1" pin="14" pinfunction="VP_14" pintype="passive"/>
+      <node ref="R15" pin="2" pintype="passive"/>
+    </net>
+    <net code="28" name="/JLY" class="Default">
+      <node ref="J6" pin="Vertical" pinfunction="VRy_Vertical" pintype="passive"/>
+      <node ref="R16" pin="1" pintype="passive"/>
+    </net>
+    <net code="29" name="/JLY_G" class="Default">
+      <node ref="C10" pin="1" pintype="passive"/>
+      <node ref="J1" pin="13" pinfunction="VN_13" pintype="passive"/>
+      <node ref="R16" pin="2" pintype="passive"/>
+    </net>
+    <net code="30" name="/JRX" class="Default">
+      <node ref="J7" pin="Horizontal" pinfunction="VRx_Horizontal" pintype="passive"/>
+      <node ref="R17" pin="1" pintype="passive"/>
+    </net>
+    <net code="31" name="/JRX_G" class="Default">
+      <node ref="C11" pin="1" pintype="passive"/>
+      <node ref="J1" pin="12" pinfunction="D34_12" pintype="passive"/>
+      <node ref="R17" pin="2" pintype="passive"/>
+    </net>
+    <net code="32" name="/JRY" class="Default">
+      <node ref="J7" pin="Vertical" pinfunction="VRy_Vertical" pintype="passive"/>
+      <node ref="R18" pin="1" pintype="passive"/>
+    </net>
+    <net code="33" name="/JRY_G" class="Default">
+      <node ref="C12" pin="1" pintype="passive"/>
+      <node ref="J1" pin="11" pinfunction="D35_11" pintype="passive"/>
+      <node ref="R18" pin="2" pintype="passive"/>
+    </net>
+    <net code="34" name="/L3" class="Default">
+      <node ref="J6" pin="Select" pinfunction="SW_Select" pintype="passive"/>
+      <node ref="R25" pin="1" pintype="passive"/>
+    </net>
+    <net code="35" name="/L3_G" class="Default">
+      <node ref="J1" pin="3" pinfunction="D13_3" pintype="passive"/>
+      <node ref="R25" pin="2" pintype="passive"/>
+    </net>
+    <net code="36" name="/LIPO_OUT" class="Power">
+      <node ref="C16" pin="1" pintype="passive"/>
+      <node ref="JP2" pin="3" pinfunction="LIPO_3" pintype="passive"/>
+      <node ref="U4" pin="10" pinfunction="OUT_10" pintype="power_out"/>
+      <node ref="U4" pin="11" pinfunction="OUT_11" pintype="passive"/>
+    </net>
+    <net code="37" name="/LOWBAT_A" class="Default">
+      <node ref="D1" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="R8" pin="2" pintype="passive"/>
+    </net>
+    <net code="38" name="/LOWBAT_D" class="Default">
+      <node ref="Q3" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="R8" pin="1" pintype="passive"/>
+    </net>
+    <net code="39" name="/LX1" class="Power">
+      <node ref="L1" pin="1" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="LX1_3" pintype="passive"/>
+    </net>
+    <net code="40" name="/LX2" class="Power">
+      <node ref="L1" pin="2" pintype="passive"/>
+      <node ref="U1" pin="2" pinfunction="LX2_2" pintype="passive"/>
+    </net>
+    <net code="41" name="/PGLED_A" class="Default">
+      <node ref="D4" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="R38" pin="2" pintype="passive"/>
+    </net>
+    <net code="42" name="/PG_L" class="Default">
+      <node ref="D4" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="U4" pin="7" pinfunction="PGOOD_7" pintype="open_collector"/>
+    </net>
+    <net code="43" name="/PWR_A" class="Default">
+      <node ref="D2" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="R14" pin="2" pintype="passive"/>
+    </net>
+    <net code="44" name="/Q1_G" class="Default">
+      <node ref="Q1" pin="1" pinfunction="G_1" pintype="passive"/>
+      <node ref="R1" pin="1" pintype="passive"/>
+    </net>
+    <net code="45" name="/R3" class="Default">
+      <node ref="J7" pin="Select" pinfunction="SW_Select" pintype="passive"/>
+      <node ref="R26" pin="1" pintype="passive"/>
+    </net>
+    <net code="46" name="/R3_G" class="Default">
+      <node ref="J1" pin="9" pinfunction="D33_9" pintype="passive"/>
+      <node ref="R26" pin="2" pintype="passive"/>
+    </net>
+    <net code="47" name="/RX0_G" class="Default">
+      <node ref="J2" pin="12" pinfunction="RX0_12" pintype="passive"/>
+      <node ref="R30" pin="1" pintype="passive"/>
+    </net>
+    <net code="48" name="/RX0_H" class="Default">
+      <node ref="J5" pin="3" pinfunction="RX0_3" pintype="passive"/>
+      <node ref="R30" pin="2" pintype="passive"/>
+    </net>
+    <net code="49" name="/TS_L" class="Default">
+      <node ref="R35" pin="1" pintype="passive"/>
+      <node ref="U4" pin="1" pinfunction="TS_1" pintype="input"/>
+    </net>
+    <net code="50" name="/TX0_G" class="Default">
+      <node ref="J2" pin="13" pinfunction="TX0_13" pintype="passive"/>
+      <node ref="R29" pin="1" pintype="passive"/>
+    </net>
+    <net code="51" name="/TX0_H" class="Default">
+      <node ref="J5" pin="2" pinfunction="TX0_2" pintype="passive"/>
+      <node ref="R29" pin="2" pintype="passive"/>
+    </net>
+    <net code="52" name="/UV_DIV" class="Default">
+      <node ref="Q2" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="R5" pin="1" pintype="passive"/>
+      <node ref="U2" pin="3" pinfunction="INA_3" pintype="input"/>
+    </net>
+    <net code="53" name="/UV_HYS" class="Default">
+      <node ref="Q2" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="R6" pin="2" pintype="passive"/>
+    </net>
+    <net code="54" name="/V3V3_BB" class="Power">
+      <node ref="C2" pin="1" pintype="passive"/>
+      <node ref="C3" pin="1" pintype="passive"/>
+      <node ref="C6" pin="1" pintype="passive"/>
+      <node ref="R10" pin="1" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+      <node ref="TP4" pin="1" pintype="passive"/>
+      <node ref="U1" pin="1" pinfunction="VOUT_1" pintype="power_out"/>
+      <node ref="U3" pin="1" pinfunction="IN_1" pintype="power_in"/>
+    </net>
+    <net code="55" name="/V3V3_DEV" class="Power">
+      <node ref="C7" pin="1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="3V3_1" pintype="passive"/>
+      <node ref="J6" pin="VCC" pinfunction="VCC_VCC" pintype="passive"/>
+      <node ref="J7" pin="VCC" pinfunction="VCC_VCC" pintype="passive"/>
+      <node ref="R14" pin="1" pintype="passive"/>
+      <node ref="TP5" pin="1" pintype="passive"/>
+      <node ref="U3" pin="6" pinfunction="OUT_6" pintype="power_out"/>
+    </net>
+    <net code="56" name="/VAA" class="Power">
+      <node ref="JP2" pin="1" pinfunction="AA_1" pintype="passive"/>
+      <node ref="Q1" pin="2" pinfunction="S_2" pintype="passive"/>
+    </net>
+    <net code="57" name="/VBAT_ADC" class="Default">
+      <node ref="C13" pin="1" pintype="passive"/>
+      <node ref="J1" pin="10" pinfunction="D32_10" pintype="passive"/>
+      <node ref="R27" pin="2" pintype="passive"/>
+      <node ref="R28" pin="1" pintype="passive"/>
+    </net>
+    <net code="58" name="/VBAT_F" class="Power">
+      <node ref="F1" pin="2" pintype="passive"/>
+      <node ref="Q1" pin="3" pinfunction="D_3" pintype="passive"/>
+      <node ref="TP1" pin="1" pintype="passive"/>
+    </net>
+    <net code="59" name="/VBAT_RAW" class="Power">
+      <node ref="F1" pin="1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="+_1" pintype="passive"/>
+    </net>
+    <net code="60" name="/VBAT_SW" class="Power">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="J9" pin="2" pinfunction="OUT_2" pintype="passive"/>
+      <node ref="Q3" pin="2" pinfunction="S_2" pintype="passive"/>
+      <node ref="R27" pin="1" pintype="passive"/>
+      <node ref="R4" pin="1" pintype="passive"/>
+      <node ref="R6" pin="1" pintype="passive"/>
+      <node ref="R7" pin="1" pintype="passive"/>
+      <node ref="TP2" pin="1" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="VIN_4" pintype="power_in"/>
+      <node ref="U2" pin="5" pinfunction="VDD_5" pintype="power_in"/>
+    </net>
+    <net code="61" name="/VBUS_CHG" class="Power">
+      <node ref="C14" pin="1" pintype="passive"/>
+      <node ref="J4" pin="A4" pinfunction="VBUS_A4" pintype="passive"/>
+      <node ref="J4" pin="A9" pintype="passive"/>
+      <node ref="J4" pin="B4" pintype="passive"/>
+      <node ref="J4" pin="B9" pintype="passive"/>
+      <node ref="R36" pin="1" pintype="passive"/>
+      <node ref="R37" pin="1" pintype="passive"/>
+      <node ref="R38" pin="1" pintype="passive"/>
+      <node ref="U4" pin="13" pinfunction="IN_13" pintype="power_in"/>
+    </net>
+    <net code="62" name="/VLIPO" class="Power">
+      <node ref="C15" pin="1" pintype="passive"/>
+      <node ref="J8" pin="1" pinfunction="+_1" pintype="passive"/>
+      <node ref="U4" pin="2" pinfunction="BAT_2" pintype="passive"/>
+      <node ref="U4" pin="3" pinfunction="BAT_3" pintype="passive"/>
+    </net>
+    <net code="63" name="/VSYS_IN" class="Power">
+      <node ref="J9" pin="1" pinfunction="IN_1" pintype="passive"/>
+      <node ref="JP2" pin="2" pinfunction="COM_2" pintype="passive"/>
+    </net>
+    <net code="64" name="unconnected-(J1-D12-Pad4)" class="Default">
+      <node ref="J1" pin="4" pinfunction="D12_4" pintype="passive+no_connect"/>
+    </net>
+    <net code="65" name="unconnected-(J1-D14-Pad5)" class="Default">
+      <node ref="J1" pin="5" pinfunction="D14_5" pintype="passive+no_connect"/>
+    </net>
+    <net code="66" name="unconnected-(J1-VIN-Pad1)" class="Default">
+      <node ref="J1" pin="1" pinfunction="VIN_1" pintype="passive+no_connect"/>
+    </net>
+    <net code="67" name="unconnected-(J2-D2-Pad4)" class="Default">
+      <node ref="J2" pin="4" pinfunction="D2_4" pintype="passive+no_connect"/>
+    </net>
+    <net code="68" name="unconnected-(J2-D4-Pad5)" class="Default">
+      <node ref="J2" pin="5" pinfunction="D4_5" pintype="passive+no_connect"/>
+    </net>
+    <net code="69" name="unconnected-(J2-D5-Pad8)" class="Default">
+      <node ref="J2" pin="8" pinfunction="D5_8" pintype="passive+no_connect"/>
+    </net>
+    <net code="70" name="unconnected-(J2-D15-Pad3)" class="Default">
+      <node ref="J2" pin="3" pinfunction="D15_3" pintype="passive+no_connect"/>
+    </net>
+    <net code="71" name="unconnected-(J2-D21-Pad11)" class="Default">
+      <node ref="J2" pin="11" pinfunction="D21_11" pintype="passive+no_connect"/>
+    </net>
+    <net code="72" name="unconnected-(J2-D22-Pad14)" class="Default">
+      <node ref="J2" pin="14" pinfunction="D22_14" pintype="passive+no_connect"/>
+    </net>
+    <net code="73" name="unconnected-(J2-RX2-Pad6)" class="Default">
+      <node ref="J2" pin="6" pinfunction="RX2_6" pintype="passive+no_connect"/>
+    </net>
+    <net code="74" name="unconnected-(J2-TX2-Pad7)" class="Default">
+      <node ref="J2" pin="7" pinfunction="TX2_7" pintype="passive+no_connect"/>
+    </net>
+    <net code="75" name="unconnected-(J4-PadA6)" class="Default">
+      <node ref="J4" pin="A6" pintype="passive+no_connect"/>
+    </net>
+    <net code="76" name="unconnected-(J4-PadA7)" class="Default">
+      <node ref="J4" pin="A7" pintype="passive+no_connect"/>
+    </net>
+    <net code="77" name="unconnected-(J4-PadA8)" class="Default">
+      <node ref="J4" pin="A8" pintype="passive+no_connect"/>
+    </net>
+    <net code="78" name="unconnected-(J4-PadB6)" class="Default">
+      <node ref="J4" pin="B6" pintype="passive+no_connect"/>
+    </net>
+    <net code="79" name="unconnected-(J4-PadB7)" class="Default">
+      <node ref="J4" pin="B7" pintype="passive+no_connect"/>
+    </net>
+    <net code="80" name="unconnected-(J4-PadB8)" class="Default">
+      <node ref="J4" pin="B8" pintype="passive+no_connect"/>
+    </net>
+    <net code="81" name="unconnected-(J6-PadMOUNT1)" class="Default">
+      <node ref="J6" pin="MOUNT1" pintype="passive+no_connect"/>
+    </net>
+    <net code="82" name="unconnected-(J6-PadMOUNT2)" class="Default">
+      <node ref="J6" pin="MOUNT2" pintype="passive+no_connect"/>
+    </net>
+    <net code="83" name="unconnected-(J6-PadMOUNT3)" class="Default">
+      <node ref="J6" pin="MOUNT3" pintype="passive+no_connect"/>
+    </net>
+    <net code="84" name="unconnected-(J6-PadMOUNT4)" class="Default">
+      <node ref="J6" pin="MOUNT4" pintype="passive+no_connect"/>
+    </net>
+    <net code="85" name="unconnected-(J6-PadSelect-NC1)" class="Default">
+      <node ref="J6" pin="Select-NC1" pintype="passive+no_connect"/>
+    </net>
+    <net code="86" name="unconnected-(J6-PadSelect-NC2)" class="Default">
+      <node ref="J6" pin="Select-NC2" pintype="passive+no_connect"/>
+    </net>
+    <net code="87" name="unconnected-(J7-PadMOUNT1)" class="Default">
+      <node ref="J7" pin="MOUNT1" pintype="passive+no_connect"/>
+    </net>
+    <net code="88" name="unconnected-(J7-PadMOUNT2)" class="Default">
+      <node ref="J7" pin="MOUNT2" pintype="passive+no_connect"/>
+    </net>
+    <net code="89" name="unconnected-(J7-PadMOUNT3)" class="Default">
+      <node ref="J7" pin="MOUNT3" pintype="passive+no_connect"/>
+    </net>
+    <net code="90" name="unconnected-(J7-PadMOUNT4)" class="Default">
+      <node ref="J7" pin="MOUNT4" pintype="passive+no_connect"/>
+    </net>
+    <net code="91" name="unconnected-(J7-PadSelect-NC1)" class="Default">
+      <node ref="J7" pin="Select-NC1" pintype="passive+no_connect"/>
+    </net>
+    <net code="92" name="unconnected-(J7-PadSelect-NC2)" class="Default">
+      <node ref="J7" pin="Select-NC2" pintype="passive+no_connect"/>
+    </net>
+    <net code="93" name="unconnected-(U2-OUTB-Pad6)" class="Default">
+      <node ref="U2" pin="6" pinfunction="OUTB_6" pintype="open_collector+no_connect"/>
+    </net>
+    <net code="94" name="unconnected-(U3-FAULT-Pad4)" class="Default">
+      <node ref="U3" pin="4" pinfunction="FAULT_4" pintype="open_collector+no_connect"/>
+    </net>
+    <net code="95" name="unconnected-(U4-TMR-Pad14)" class="Default">
+      <node ref="U4" pin="14" pinfunction="TMR_14" pintype="input+no_connect"/>
+    </net>
+  </nets>
+</export>

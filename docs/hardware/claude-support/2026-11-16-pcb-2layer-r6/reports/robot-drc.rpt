@@ -1,0 +1,23 @@
+** Drc report for mobot-robot.kicad_pcb **
+** Created on 2026-11-16T22:34:15 **
+** Report includes: Errors, Warnings, Exclusions **
+
+** Found 2 DRC violations **
+[track_not_centered_on_via]: Track endpoint not centered on via
+    Local override; warning
+    @(11.0000 mm, 57.0000 mm): Track [/GND] on F.Cu, length 1.0607 mm
+    @(11.9000 mm, 56.1000 mm): Via [/GND] on F.Cu - B.Cu
+[track_not_centered_on_via]: Track endpoint not centered on via
+    Local override; warning
+    @(11.7500 mm, 56.2500 mm): Track [/GND] on F.Cu, length 1.2375 mm
+    @(11.9000 mm, 56.1000 mm): Via [/GND] on F.Cu - B.Cu
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+
+** End of Report **

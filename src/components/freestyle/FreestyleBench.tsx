@@ -61,6 +61,8 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
   useEffect(()=>{if(expanded)rootRef.current?.focus()},[expanded])
   const [preparing,setPreparing]=useState(false)
   const generation=useRef(0)
+  // Capture identity changes only when trace clears; Stop/error retain cursor timestamps.
+  const traceCapture=useRef(0)
   const traceRef=useRef<TraceSample[]>([])
   const [trace,setTrace]=useState<TraceSample[]>([])
   const { boardId, doc, pinMap, language, code } = workspace
@@ -124,6 +126,7 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
   }, [evaluation.inputs, running])
 
   function update(patch: Partial<FreestyleWorkspace>) {
+    traceCapture.current++
     stop();setPins(undefined);setSerial('');setSimMs(0);setError(undefined);setStatus('');traceRef.current=[];setTrace([]);latestFrame.current=null;setPendingEndpoint(null)
     if(!saveAttempted.current){
       saveAttempted.current=true
@@ -161,6 +164,7 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
     stop()
     if(!boardId || !code.trim())return
     const runId=generation.current
+    traceCapture.current++
     setPreparing(true);traceRef.current=[];setTrace([])
     setError(undefined)
     setSerial('')
@@ -412,7 +416,7 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
 
       <div className="freestyle-stage" onDragOver={event => { if (event.dataTransfer.types.includes('application/x-machmo-part')) event.preventDefault() }} onDrop={dropPart}>
         {workspace.sampleId === 'motor' && <p className="freestyle-note" role="note">{motorProtection.independentSupply && motorProtection.commonGround && motorProtection.flyback ? 'Mạch này có nguồn tải lý tưởng riêng, GND chung và diode mắc ngược song song motor.' : 'Bản nháp motor này chưa có đủ nguồn tải riêng, GND chung hoặc diode đúng chiều. Mạch đang được giữ nguyên. Hãy tải bản nháp trước khi chọn “Dựng mạch mẫu” để dùng mẫu mới.'} Hoạt cảnh chỉ minh họa đóng/ngắt; chưa tính dòng tải, sụt áp, xung ngược, nhiệt hoặc chọn định mức linh kiện thật.</p>}
-        {!doc.parts.length&&!doc.breadboards.length&&view!=='wave' ? <div className="freestyle-blank"><span aria-hidden="true">＋</span><h3>Bàn của bạn, bắt đầu từ trống</h3><p>Chọn board, thêm breadboard và linh kiện; tự nối dây và viết code. Không có mạch nào được dựng sẵn.</p><button className="freestyle-run-button" onClick={()=>{setStep('board');setPanelOpen(true)}}>Chọn board</button><button className="freestyle-button" onClick={()=>{const bb=createEmptyFreestyleDoc();updateDoc({...doc,breadboards:bb.breadboards});setStep('parts');setPanelOpen(true)}}>Thêm breadboard</button></div> : view==='3d' ? <Suspense fallback={<p>Đang mở cảnh 3D…</p>}><FreestyleAssemblyView key={boardId} doc={doc} boardId={boardId} pinMap={pinMap} selectedPartId={selectedPartId} wireSignals={wireSignals} litPartIds={evaluation.litPartIds} onSelectPart={setSelectedPartId}/></Suspense> : view==='wave' ? <FreestyleWaveform preferredPins={wiredSignals.map(role=>pinMap[role])} samples={trace} boardId={boardId} source={boardId?engine.label:'Chưa chọn runtime'} running={running}/> : view==='schematic' ? <><p className="freestyle-note">{boardId?board.name:'Chưa chọn board'} · {wiredSignals.map(role=>`${SIGNAL_PIN_LABELS[role]} = ${pinDisplayName(boardId,pinMap[role])}`).join(' · ')}</p><CircuitSchematicV2 doc={doc} boardLabel={boardId?board.short:undefined} boardPinLabels={boardId?freestylePresentation(boardId,pinMap).pinLabels:undefined} selectedKey={selectedPartId} selectedWireId={selectedWireId} onSelectPart={setSelectedPartId} onSelectWire={setSelectedWireId}/></> : <BreadboardEditor
+        {!doc.parts.length&&!doc.breadboards.length&&view!=='wave' ? <div className="freestyle-blank"><span aria-hidden="true">＋</span><h3>Bàn của bạn, bắt đầu từ trống</h3><p>Chọn board, thêm breadboard và linh kiện; tự nối dây và viết code. Không có mạch nào được dựng sẵn.</p><button className="freestyle-run-button" onClick={()=>{setStep('board');setPanelOpen(true)}}>Chọn board</button><button className="freestyle-button" onClick={()=>{const bb=createEmptyFreestyleDoc();updateDoc({...doc,breadboards:bb.breadboards});setStep('parts');setPanelOpen(true)}}>Thêm breadboard</button></div> : view==='3d' ? <Suspense fallback={<p>Đang mở cảnh 3D…</p>}><FreestyleAssemblyView key={boardId} doc={doc} boardId={boardId} pinMap={pinMap} selectedPartId={selectedPartId} wireSignals={wireSignals} litPartIds={evaluation.litPartIds} onSelectPart={setSelectedPartId}/></Suspense> : view==='wave' ? <FreestyleWaveform captureKey={traceCapture.current} preferredPins={wiredSignals.map(role=>pinMap[role])} samples={trace} boardId={boardId} source={boardId?engine.label:'Chưa chọn runtime'} running={running}/> : view==='schematic' ? <><p className="freestyle-note">{boardId?board.name:'Chưa chọn board'} · {wiredSignals.map(role=>`${SIGNAL_PIN_LABELS[role]} = ${pinDisplayName(boardId,pinMap[role])}`).join(' · ')}</p><CircuitSchematicV2 doc={doc} boardLabel={boardId?board.short:undefined} boardPinLabels={boardId?freestylePresentation(boardId,pinMap).pinLabels:undefined} selectedKey={selectedPartId} selectedWireId={selectedWireId} onSelectPart={setSelectedPartId} onSelectWire={setSelectedWireId}/></> : <BreadboardEditor
           compact
           presentation={boardId?freestylePresentation(boardId,pinMap):undefined}
           doc={doc}
@@ -431,7 +435,7 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
           litPartIds={evaluation.litPartIds}
           wireSignals={wireSignals}
         />}
-        {view!=='wave' && trace.length>0 && <details className="freestyle-trace-dock"><summary>Dạng sóng đã thu · {trace.length} mẫu</summary><FreestyleWaveform preferredPins={wiredSignals.map(role=>pinMap[role])} samples={trace} boardId={boardId} source={engine.label} running={running}/></details>}
+        {view!=='wave' && trace.length>0 && <details className="freestyle-trace-dock"><summary>Dạng sóng đã thu · {trace.length} mẫu</summary><FreestyleWaveform captureKey={traceCapture.current} preferredPins={wiredSignals.map(role=>pinMap[role])} samples={trace} boardId={boardId} source={engine.label} running={running}/></details>}
       </div>
 
       <div id="freestyle-observe-panel" role="tabpanel" aria-labelledby="freestyle-step-observe" className="freestyle-observe" hidden={step!=='observe'} aria-label="Chạy và quan sát">

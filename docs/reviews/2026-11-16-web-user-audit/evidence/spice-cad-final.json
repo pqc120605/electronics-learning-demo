@@ -1,0 +1,121 @@
+{
+  "cases": [
+    {
+      "probe": "NOT_RUN: accessible button not matched; solver screenshot recorded",
+      "result": {
+        "url": "http://127.0.0.1:5320/tools/spice",
+        "title": "Mô phỏng SPICE — Mạch Mở",
+        "text": "CÔNG CỤ · MÔ PHỎNG ĐIỆN SPICE\n\nThử mạch analog trên solver thật.\n\nNgspice chạy bằng WebAssembly trong Web Worker. Netlist và kết quả được xử lý trong trình duyệt; không tải lên máy chủ.\n\nQuay lại phòng thử ↗\nNgspice WASM · chạy cục bộ\n\nNETLIST · NGSPICE\n\nThiết lập mạch\ntối đa 16 kB\nBắt đầu từ ví dụ\nBộ chia áp · DC\nĐáp ứng RC · quá độ\nLED và điện trở · điểm làm việc\nNetlist tùy chỉnh\n\nĐang chỉnh netlist tùy chỉnh.\n\nTỪ SCHEMATIC CAD\n\nNhập netlist XML từ KiCad Eeschema\n\nTrình nhập chỉ ánh xạ R, C, L và nguồn V DC có trị số cố định; IC, MCU, diode, mạch tích hợp và phần tử khác cần bị loại trừ rõ ràng hoặc được tự dựng model trong netlist.\n\nChọn netlist KiCad XML\nDùng netlist tương đương trong editor\nKhông nhập project trực tiếp và không lấy đường đồng làm model điện. Xuất XML từ Eeschema trước; phần tử bị loại được xem như ranh giới hở. Luồng PCB bên dưới sẽ dùng IPC-D-356 cùng schematic XML để kiểm tra liên kết pad/net.\n\nTỪ PCB + SCHEMATIC CAD\n\nNối net PCB vào mạch tương đương SPICE\n\nChọn IPC-D-356 từ PCB Editor và XML từ Eeschema của cùng phiên bản thiết kế. Net/pad lấy từ PCB, trị số lấy từ schematic. Hệ thống chặn nếu chân hoặc topology của R/C/L/V không khớp.\n\nChọn IPC-D-356 của PCB\n\nPCB: audit-divider.d356\n\nChọn netlist XML của schematic\n\nSchematic: audit-divider.xml\n\nTopology khớp trên các chân đã đối chiếu\n\nĐã so 6/6 chân có net trong schematic · 6 chân khớp · 0 chân lệch nhóm net · 0 chân schematic thiếu trên PCB · 0 pad PCB chưa có node tương ứng · 0 pad được đánh dấu NC trong schematic.\n\nDesignator chỉ có trong PCB export (có thể là test point/footprint ngoài schematic): TP1.\n\nXem ví dụ khác biệt và phạm vi đối chiếu\nĐã kiểm tra hai nguồn CAD · mạch tương đương sẵn sàng · 0 phần tử bị loại\nPad/net topology lấy từ IPC-D-356 do KiCad PCB Editor xuất; giá trị linh kiện lấy từ Eeschema XML; chỉ tiếp tục nếu nhóm nối của các chân R/C/L/V khớp nhau giữa hai tệp.\nViệc khớp chỉ kiểm tra các pin R/C/L/V có mặt trong hai tệp; công cụ không chứng minh hai file thuộc cùng revision/source hoặc PCB đã sản xuất đúng thiết kế.\nIPC-D-356 chỉ cung cấp quan hệ net/pad cho kiểm tra chế tạo; không chứa hình học điện để tính điện trở đường đồng, via, parasitic, nhiệt hay dòng tải.\nChỉ giữ R, C, L và nguồn V DC có hai chân cùng trị số tĩnh; linh kiện khác không được mô phỏng.\nNguồn V dùng pin số nhỏ hơn làm cực dương; kiểm tra lại dấu nguồn và node trong schematic trước khi chạy.\nPCB copper, parasitic, vias, MCU, firmware, logic số, model vendor và linh kiện bị loại trừ không có trong mạch tương đương.\n\nĐã đọc tệp cục bộ. Hệ thống sẽ kiểm tra pad/net của PCB với pin/net schematic trước khi cho phép nhập.\n\nDùng netlist PCB tương đương trong editor\nXuất PCB bằng KiCad PCB Editor → File → Fabrication Outputs → IPC-D-356; xuất schematic bằng Eeschema → File → Export → Netlist → KiCad XML. Không mô phỏng đường đồng/parasitic, linh kiện bị loại, IC, MCU hoặc firmware. Tệp được xử lý cục bộ trong trình duyệt.\nNetlist SPICE\n\nHỗ trợ R, C, L, V, I, diode, BJT, MOSFET; phân tích .op, .tran, .ac, .dc; diode/BJT/MOSFET cần .model khai báo trong netlist. Lần đầu tải engine WASM khoảng 6,1 MB; trạng thái khởi tạo hiển thị ở đây và có thể dừng bất cứ lúc nào.\n\nChạy SPICE\nMô phỏng hoàn tất.\n\n3 linh kiện · giới hạn phân tích 1 điểm · tự ngắt sau 30 giây.\n\nKẾT QUẢ · NGSPICE WASM\n\nMô phỏng hoàn tất\nTải CSV\n\nPhân tích OP · 1 điểm solver · hiển thị 1 điểm để giữ giao diện nhẹ.\n\nSƠ ĐỒ ĐO · NÚT VÀ NHÁNH\nBấm một nút để xem điện áp, bấm một nhánh để xem dòng trên đồ thị. Mũi tên và vạch chạy theo chiều dòng; độ dày theo độ lớn so với nhánh lớn nhất.\n0 · GND = 0 V\n← R1 · 2,5 mA\n↓ R2 · 2,5 mA\n↑ V1 · 2,5 mA\nN001\n2,5 V\nN002\n5 V\n\nProbe\nv(n002)\n=\n5 V\n· số từ ngspice; dòng qua R/C/L/D đo bằng nguồn 0 V nối tiếp do Mạch Mở chèn. Mô phỏng, không phải phép đo thực.\n\nKết quả điểm làm việc/đường quét được trình bày dưới dạng bảng dữ liệu.\n\nMột số điểm lấy từ dữ liệu hiển thị\nv(n002) · voltage\tv(n001) · voltage\ti(v1) · current\ti(r1) · current\ti(r2) · current\n5\t2,5\t-0,0025\t0,0025\t0,0025\nPhạm vi và giới hạn\n\nĐây là mô phỏng SPICE của mạch analog theo các model bạn khai báo, không thực thi firmware MCU và không tự chuyển board/breadboard thành netlist. Không hỗ trợ lệnh .include, .control, truy cập file hoặc mọi model/vendor. Kết quả phụ thuộc model, điều kiện đầu và hội tụ; đối chiếu datasheet và đo kiểm trước khi dùng phần cứng.",
+        "screenshot": "spice-cad-final.png",
+        "alerts": []
+      }
+    }
+  ],
+  "buttons": [
+    "?Trợ giúp",
+    "Dựng mạch mẫu",
+    "Bàn trống",
+    "Bản nháp",
+    "Công cụ",
+    "Lắp mạch 2D",
+    "Schematic",
+    "Lắp mạch 3D",
+    "Dạng sóng",
+    "Ẩn bảng thao tác",
+    "Mở rộng bàn",
+    "▶ Chạy",
+    "−",
+    "+",
+    "Vừa khung 2D",
+    "ESP32 DevKit V1 · nhìn thẳng từ trên · ESP32 Dev Kit Clone · 30-pin reference designESP32 DevKit V1",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Xem hướng dẫn",
+    "Để sau"
+  ],
+  "sels": [
+    {
+      "label": null,
+      "values": [
+        "blink",
+        "button-led",
+        "pot-dimmer",
+        "motor"
+      ]
+    },
+    {
+      "label": null,
+      "values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "21",
+        "22",
+        "23",
+        "25",
+        "26",
+        "27",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "39"
+      ]
+    },
+    {
+      "label": null,
+      "values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "21",
+        "22",
+        "23",
+        "25",
+        "26",
+        "27",
+        "32",
+        "33",
+        "34",
+        "35",
+        "36",
+        "39"
+      ]
+    }
+  ]
+}

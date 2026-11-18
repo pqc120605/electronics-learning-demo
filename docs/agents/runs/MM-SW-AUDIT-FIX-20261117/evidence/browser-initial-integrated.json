@@ -1,0 +1,60 @@
+{
+  "initialCases": [
+    {
+      "id": "F09-arduino-nano-classic",
+      "url": "http://127.0.0.1:5320/boards?board=arduino-nano-classic",
+      "screenshot": "F09-arduino-nano-classic.png",
+      "href": "/build/freestyle?board=arduino-nano"
+    },
+    {
+      "id": "F09-arduino-mega-2560-r3",
+      "url": "http://127.0.0.1:5320/boards?board=arduino-mega-2560-r3",
+      "screenshot": "F09-arduino-mega-2560-r3.png",
+      "href": "/build/freestyle?board=arduino-mega-2560"
+    },
+    {
+      "id": "F09-stm32-nucleo",
+      "url": "http://127.0.0.1:5320/boards?board=stm32-nucleo",
+      "screenshot": "F09-stm32-nucleo.png",
+      "href": "/build/freestyle?board=stm32-nucleo-f401re"
+    },
+    {
+      "id": "F05-D3",
+      "url": "http://127.0.0.1:5320/boards?board=arduino-mega-2560-r3&pin=pin-4",
+      "screenshot": "F05-D3.png",
+      "detail": "ĐANG XEM\nD3/PWM\n\nChân D3/PWM đưa tín hiệu giữa MCU và mạch bên ngoài.\n\nTÊN TÍN HIỆU THEO PINOUT HÃNG\nD3/PWM\nVAI TRÒ\nDigital I/O · PWM\nTRẠNG THÁI ĐỐI CHIẾU CAD\nDùng đúng số chân theo pinout board và cấu hình firmware.\n\nLưu ý: Mức logic tham chiếu 5 V; không mặc định tương thích với module 3,3 V.\n\nDigital I/O\nPWM"
+    },
+    {
+      "id": "F05-D18",
+      "url": "http://127.0.0.1:5320/boards?board=arduino-mega-2560-r3&pin=pin-19",
+      "screenshot": "F05-D18.png",
+      "detail": "ĐANG XEM\nD18/TX1\n\nChân D18/TX1 đưa tín hiệu giữa MCU và mạch bên ngoài.\n\nTÊN TÍN HIỆU THEO PINOUT HÃNG\nD18/TX1\nVAI TRÒ\nDigital I/O · UART · TX1\nTRẠNG THÁI ĐỐI CHIẾU CAD\nDùng đúng số chân theo pinout board và cấu hình firmware.\n\nLưu ý: Mức logic tham chiếu 5 V; không mặc định tương thích với module 3,3 V.\n\nDigital I/O\nUART\nTX1"
+    },
+    {
+      "id": "F04-mega-picking",
+      "url": "http://127.0.0.1:5320/boards?board=arduino-mega-2560-r3&pin=pin-19",
+      "screenshot": "F04-mega-picking.png",
+      "instructions": "PINOUT THAM CHIẾU · 75 CHÂN\n\nTra cứu pinout theo tên\n\nChọn tên chân trong danh sách để tra chức năng và lưu ý. Vị trí pad chưa được xác nhận để chọn trực tiếp trên mô hình."
+    },
+    {
+      "id": "F10-mobile-boards",
+      "url": "http://127.0.0.1:5320/boards",
+      "screenshot": "F10-mobile-boards.png",
+      "metrics": {
+        "docHeight": 7315,
+        "docWidth": 360,
+        "listHeight": 340,
+        "listScrollHeight": 18747
+      }
+    },
+    {
+      "id": "F06-S3-source",
+      "url": "http://127.0.0.1:5320/boards?board=esp32-s3-devkitc-1&feature=cad-c1",
+      "screenshot": "F06-S3-source.png",
+      "detail": "Pad và net từ PCB CAD · 2 pad\nGán pad–net theo PCB CAD · ESP32-S3-DevKitC-1\nPad\tNet CAD\tPinout hãng khi tên net trùng\n1\tVCC_3V3\t—\n2\tGND\t—\n\nNguồn pad/net: Espressif ESP32-S3-DevKitC-1 · PCB V1.1 · PADS reference import. Tọa độ J1/J3 từ pad centers của PCB nguồn sau nhập PADS→KiCad; tên pin theo guide V1.1. Số đo, góc và lưới chưa được xác minh trên board vật lý. Cột pinout chỉ ghép khi tên net CAD khớp chính xác một tên chân có nguồn của board này. Ô trống không xác nhận chức năng. Bảng chỉ tra cứu tĩnh, không chọn pad và chưa tô đường đồng/net theo chân đã chọn."
+    }
+  ],
+  "scripts": [
+    "http://127.0.0.1:5320/assets/index-j4C-Ny6l.js"
+  ]
+}

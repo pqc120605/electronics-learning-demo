@@ -17,7 +17,12 @@ import type { BoardDiagramPresentation } from './boardTopView'
 
 export type CircuitGateId = 'G1' | 'G2' | 'G3' | 'G4' | 'G5' | 'G6' | 'G7' | 'G8' | 'G9' | 'G10'
 export type CircuitGateStatus = 'pass' | 'fail' | 'warning' | 'not_applicable'
-export type CircuitGateResult = { id: CircuitGateId; status: CircuitGateStatus; diagnostics: string[] }
+export type CircuitDiagnosticTarget =
+  | { kind: 'endpoint'; endpoint: { kind: 'pin'; partId: string; pinId: string } }
+  | { kind: 'wire'; wireId: string }
+  | { kind: 'part'; partId: string }
+export type CircuitDiagnosticAction = { diagnosticIndex: number; target: CircuitDiagnosticTarget; nextStep: string }
+export type CircuitGateResult = { id: CircuitGateId; status: CircuitGateStatus; diagnostics: string[]; diagnosticActions?: CircuitDiagnosticAction[] }
 export type CircuitGateReport = { lessonId: string; gates: CircuitGateResult[] }
 
 const GATE_IDS: readonly CircuitGateId[] = ['G1','G2','G3','G4','G5','G6','G7','G8','G9','G10']
@@ -83,6 +88,17 @@ function pointInside(point: readonly [number, number], obstacle: RouterObstacle)
 function evaluateG6(doc: CircuitDocV2, presentation?: BoardDiagramPresentation): CircuitGateResult {
   const issues: string[] = []
   const warnings: string[] = []
+  const issueActions: CircuitDiagnosticAction[] = []
+  const warningActions: CircuitDiagnosticAction[] = []
+  const wireIssue = (message: string, wireId: string) => {
+    issueActions.push({ diagnosticIndex: issues.length, target: { kind: 'wire', wireId }, nextStep: 'Kiểm tra hai đầu dây và đường đi của dây trong mạch hiện tại.' })
+    issues.push(message)
+  }
+  const wireWarning = (message: string, wireId: string) => {
+    warningActions.push({ diagnosticIndex: warnings.length, target: { kind: 'wire', wireId }, nextStep: 'Kiểm tra đường đi và các góc rẽ của dây.' })
+    warnings.push(message)
+  }
+  const result = (status: CircuitGateStatus, includeWarnings = true) => ({ ...makeGate('G6', status, includeWarnings ? [...issues, ...warnings] : issues), diagnosticActions: [...issueActions, ...(includeWarnings ? warningActions.map(action => ({ ...action, diagnosticIndex: action.diagnosticIndex + issues.length })) : [])] })
   const target = getSimulationTarget(presentation?.id ?? 'esp32-devkit')
   let plan: ReturnType<typeof getAssemblyPlanV2>
   try {
@@ -96,10 +112,10 @@ function evaluateG6(doc: CircuitDocV2, presentation?: BoardDiagramPresentation):
     const withoutWire = createNetIndexV2({ ...doc, wires: doc.wires.filter(candidate => candidate.id !== wire.id) })
     const fromNet = endpointNetKey(withoutWire, wire.from)
     const toNet = endpointNetKey(withoutWire, wire.to)
-    if (fromNet && fromNet === toNet) issues.push(`Dây “${wire.id}” dư: hai đầu vẫn cùng net khi bỏ riêng dây này.`)
-    if (!plan.wireEnds[wire.id]) issues.push(`Dây “${wire.id}” không có đủ tọa độ hai đầu từ hình học đã khai báo.`)
+    if (fromNet && fromNet === toNet) wireIssue(`Dây “${wire.id}” dư: hai đầu vẫn cùng net khi bỏ riêng dây này.`, wire.id)
+    if (!plan.wireEnds[wire.id]) wireIssue(`Dây “${wire.id}” không có đủ tọa độ hai đầu từ hình học đã khai báo.`, wire.id)
   }
-  if (issues.length) return makeGate('G6', 'fail', issues)
+  if (issues.length) return result('fail', false)
 
   // The displayed CAD projection is a different geometry from the 3D plan.
   // When a caller displays it, validate those exact routes and all wire IDs;
@@ -108,16 +124,16 @@ function evaluateG6(doc: CircuitDocV2, presentation?: BoardDiagramPresentation):
     const diagram = buildBreadboardDiagram(doc, presentation)
     issues.push(...diagram.diagnostics)
     for (const wire of doc.wires) {
-      if (!diagram.wires.some(route => route.id === wire.id)) issues.push(`Dây “${wire.id}” thiếu đường vẽ trong khung breadboard đang hiển thị.`)
+      if (!diagram.wires.some(route => route.id === wire.id)) wireIssue(`Dây “${wire.id}” thiếu đường vẽ trong khung breadboard đang hiển thị.`, wire.id)
     }
     for (const route of diagram.wires) {
       const bends = route.points.slice(2).filter((point, index) => {
         const a = route.points[index], b = route.points[index + 1]
         return Math.abs((b.x - a.x) * (point.y - b.y) - (b.y - a.y) * (point.x - b.x)) > EPSILON_MM
       }).length
-      if (bends > 3) warnings.push(`Dây “${route.id}” trên breadboard có ${bends} góc rẽ; hơn 3 là cảnh báo theo R8.`)
+      if (bends > 3) wireWarning(`Dây “${route.id}” trên breadboard có ${bends} góc rẽ; hơn 3 là cảnh báo theo R8.`, route.id)
     }
-    if (issues.length) return makeGate('G6', 'fail', issues)
+    if (issues.length) return result('fail', false)
     // Continue the 3D routing checks too; a correct 2D projection does not
     // replace the previous assembly-space checks when the view is switched.
   }
@@ -170,13 +186,18 @@ function evaluateG6(doc: CircuitDocV2, presentation?: BoardDiagramPresentation):
   const translatedWires = routerWires.map(wire => ({ ...wire, from: toRouterPoint(wire.from), to: toRouterPoint(wire.to) }))
   const translatedObstacles = obstacles.map(obstacle => ({ ...obstacle, x: obstacle.x - phaseX, y: obstacle.y - phaseY }))
   const routed = routeWires(translatedWires, translatedObstacles)
-  for (const error of routed.errors) issues.push(`Dây “${error.wireId}”: ${error.reason}`)
-  for (const route of routed.routes) if (route.bends > 3) warnings.push(`Dây “${route.id}” có ${route.bends} góc rẽ; hơn 3 là cảnh báo theo R8.`)
-  return makeGate('G6', issues.length ? 'fail' : warnings.length ? 'warning' : 'pass', [...issues, ...warnings])
+  for (const error of routed.errors) wireIssue(`Dây “${error.wireId}”: ${error.reason}`, error.wireId)
+  for (const route of routed.routes) if (route.bends > 3) wireWarning(`Dây “${route.id}” có ${route.bends} góc rẽ; hơn 3 là cảnh báo theo R8.`, route.id)
+  return result(issues.length ? 'fail' : warnings.length ? 'warning' : 'pass')
 }
 
 function evaluateG7(doc: CircuitDocV2, nets: ReturnType<typeof createNetIndexV2>): CircuitGateResult {
   const issues: string[] = []
+  const diagnosticActions: CircuitDiagnosticAction[] = []
+  const pinIssue = (message: string, partId: string, pinId: string) => {
+    diagnosticActions.push({ diagnosticIndex: issues.length, target: { kind: 'endpoint', endpoint: { kind: 'pin', partId, pinId } }, nextStep: 'Kiểm tra kết nối của chân; chỉ khai báo hở khi có lý do phù hợp.' })
+    issues.push(message)
+  }
   const declaredOpen = new Map((doc.openPins ?? []).map(pin => [`${pin.partId}:${pin.pinId}`, pin.reason.trim()]))
   for (const part of doc.parts) {
     const definition = componentRegistry.find(item => item.id === part.type)
@@ -185,12 +206,12 @@ function evaluateG7(doc: CircuitDocV2, nets: ReturnType<typeof createNetIndexV2>
       const net = nets.netOf(key)
       const hasElectricalPeer = Boolean(net && (net.wireIds.size > 0 || net.endpoints.size > 1))
       const openReason = declaredOpen.get(key)
-      if (!hasElectricalPeer && !openReason) issues.push(`Chân “${key}” chưa có kết nối điện và thiếu lý do trong openPins.`)
-      if (hasElectricalPeer && openReason) issues.push(`Chân “${key}” vừa được nối điện vừa khai báo hở trong openPins.`)
-      if (!net && !openReason) issues.push(`Chân “${key}” không có net và không có khai báo openPins.`)
+      if (!hasElectricalPeer && !openReason) pinIssue(`Chân “${key}” chưa có kết nối điện và thiếu lý do trong openPins.`, part.id, pin.id)
+      if (hasElectricalPeer && openReason) pinIssue(`Chân “${key}” vừa được nối điện vừa khai báo hở trong openPins.`, part.id, pin.id)
+      if (!net && !openReason) pinIssue(`Chân “${key}” không có net và không có khai báo openPins.`, part.id, pin.id)
     }
   }
-  return makeGate('G7', issues.length ? 'fail' : 'pass', issues)
+  return { ...makeGate('G7', issues.length ? 'fail' : 'pass', issues), diagnosticActions }
 }
 
 function resistorBetweenNets(doc: CircuitDocV2, nets: ReturnType<typeof createNetIndexV2>, start: string, goal: string): boolean {
@@ -218,6 +239,7 @@ function resistorBetweenNets(doc: CircuitDocV2, nets: ReturnType<typeof createNe
 function evaluateG8(doc: CircuitDocV2, nets: ReturnType<typeof createNetIndexV2>): CircuitGateResult {
   const errors: string[] = []
   const warnings: string[] = []
+  const diagnosticActions: CircuitDiagnosticAction[] = []
   const connected = (key: string) => {
     const net = nets.netOf(key)
     return Boolean(net && (net.wireIds.size > 0 || net.endpoints.size > 1))
@@ -239,9 +261,12 @@ function evaluateG8(doc: CircuitDocV2, nets: ReturnType<typeof createNetIndexV2>
       const sourceNet = nets.netOf(source)?.key
       return sourceNet && resistorBetweenNets(doc, nets, sourceNet, anode)
     }))
-    if (!hasLimiter) warnings.push(`LED “${led.id}” chưa chứng minh được điện trở nối tiếp từ nguồn/ngõ ra; cần kiểm tra đường dòng.`)
+    if (!hasLimiter) {
+      diagnosticActions.push({ diagnosticIndex: errors.length + warnings.length, target: { kind: 'part', partId: led.id }, nextStep: 'Lần theo đường dòng từ nguồn/ngõ ra qua điện trở tới LED.' })
+      warnings.push(`LED “${led.id}” chưa chứng minh được điện trở nối tiếp từ nguồn/ngõ ra; cần kiểm tra đường dòng.`)
+    }
   }
-  return makeGate('G8', errors.length ? 'fail' : warnings.length ? 'warning' : 'pass', [...errors, ...warnings])
+  return { ...makeGate('G8', errors.length ? 'fail' : warnings.length ? 'warning' : 'pass', [...errors, ...warnings]), diagnosticActions }
 }
 
 function evaluateG9(doc: CircuitDocV2): CircuitGateResult {

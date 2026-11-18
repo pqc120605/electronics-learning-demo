@@ -1,0 +1,103 @@
+{
+  "schema": "mach-mo/classroom-kit-share",
+  "schemaVersion": 1,
+  "title": "AUDIT-ISOLATED-KIT",
+  "configuration": {
+    "schemaVersion": 1,
+    "title": "AUDIT-ISOLATED-KIT",
+    "boardId": "esp32-devkit",
+    "lessonIds": [
+      "blink"
+    ],
+    "stationCount": 8,
+    "quantityOverrides": {},
+    "configurationLicense": "private"
+  },
+  "board": {
+    "id": "esp32-devkit",
+    "name": "ESP32 DevKit V1",
+    "revision": "ESP32 Dev Kit Clone · thiết kế 30 chân",
+    "logicLevel": "3.3 V",
+    "sourceUrl": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/esp32-devkitc/index.html",
+    "evidenceUrl": "https://github.com/BrijModi/ESP32-Dev-Kit-Clone"
+  },
+  "lessons": [
+    {
+      "id": "blink",
+      "title": "LED nhấp nháy",
+      "route": "/learn/esp32-led?board=esp32-devkit",
+      "level": "nhập môn",
+      "durationMinutes": 25,
+      "capabilityLabel": "Mô phỏng hành vi cơ bản",
+      "supportedBehavior": "Parser subset pinMode, digitalWrite và delay; LED lấy trạng thái từ code đã phân tích.",
+      "boardProfile": "ESP32 DevKit V1 · GPIO alias theo profile đang chọn",
+      "componentIds": [
+        "board",
+        "resistor",
+        "led"
+      ],
+      "safetyNotes": [
+        "Rút USB trước khi đổi dây.",
+        "GPIO ESP32 là logic 3,3 V; không nối LED thiếu điện trở."
+      ]
+    }
+  ],
+  "stationCount": 8,
+  "inventory": [
+    {
+      "componentId": "board:esp32-devkit",
+      "label": "ESP32 DevKit V1",
+      "quantity": 8,
+      "kind": "board"
+    },
+    {
+      "componentId": "breadboard",
+      "label": "Breadboard",
+      "quantity": 8,
+      "kind": "component"
+    },
+    {
+      "componentId": "resistor",
+      "label": "Điện trở · chưa rõ trị số",
+      "quantity": 8,
+      "kind": "component",
+      "note": "Giá trị chưa có trong dữ liệu bài học; cần xác minh trước khi mua hoặc lắp."
+    },
+    {
+      "componentId": "led",
+      "label": "LED",
+      "quantity": 8,
+      "kind": "component"
+    },
+    {
+      "componentId": "accessory:jumper",
+      "label": "Dây jumper cắm thử",
+      "quantity": 40,
+      "kind": "accessory",
+      "note": "3 dây theo bài nhiều dây nhất + 2 dây dự phòng/trạm. Chọn đầu đực/cái theo header thực tế; dây nguồn đỏ, GND đen chỉ là quy ước."
+    },
+    {
+      "componentId": "accessory:usb",
+      "label": "Cáp USB dữ liệu · Micro-B",
+      "quantity": 8,
+      "kind": "accessory",
+      "note": "1 cáp/trạm; chọn đầu phía máy tính và kiểm tra đúng board/revision. Cáp phải truyền dữ liệu, không chỉ sạc; xác nhận nhu cầu nguồn riêng cho tải."
+    }
+  ],
+  "safetyNotes": [
+    "Rút USB trước khi đổi dây.",
+    "GPIO ESP32 là logic 3,3 V; không nối LED thiếu điện trở."
+  ],
+  "attribution": {
+    "name": "Mạch Mở",
+    "project": "Kế hoạch kit giáo dục do giáo viên tạo",
+    "url": "/"
+  },
+  "license": "private",
+  "limitations": [
+    "Gói chỉ chia sẻ kế hoạch kit và liên kết bài học; không chứa dữ liệu học sinh, tiến độ cá nhân hoặc tài khoản.",
+    "Nhãn mô phỏng mô tả phạm vi giáo dục của từng bài; không khẳng định firmware MCU hoặc hành vi phần cứng đã được mô phỏng.",
+    "Board/revision và lưu ý an toàn cần được đối chiếu với datasheet của phần cứng thực tế.",
+    "Đây là tệp để người dùng tự gửi/nhận; Mạch Mở chưa có bảng tin cộng đồng hay tải nội dung lên máy chủ."
+  ]
+}

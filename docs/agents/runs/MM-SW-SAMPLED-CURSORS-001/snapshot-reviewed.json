@@ -1,0 +1,27 @@
+{
+  "at": "2026-11-18T03:30:06.842Z",
+  "files": {
+    "src/components/freestyle/FreestyleWaveform.tsx": "1049ee11f9ac44609906ba198cc839297c8b60aad64b1b5d0d4c33fa91bbb02f",
+    "src/components/freestyle/FreestyleWaveform.css": "ea8b9cc41f06072ad2b3c4be60030938404c5b3007fadf966fceccb846e60642",
+    "src/components/freestyle/FreestyleBench.tsx": "b00cf6f6dbbc401d05e5d290b0c30fa6455f6f8c8b5ce52304e411042e567955",
+    "src/lib/freestyle/freestyleTraceMeasure.ts": "00f3926ed26e4231a4edac6612b0033c65396e523e9a9bb10d769f32b1ce42c7",
+    "tests/freestyle-trace-measure.test.mjs": "a09ba59a3c9ac6b256229fa3b9462f61816529eebdbec1206c89cb6d9619825c",
+    "e2e/freestyle-waveform-measure.spec.mjs": "c97c799b6027dc20d47fedd615ab3361517e5bb2bd802383632c14c375c5522a"
+  },
+  "scope": {
+    "withinLease": [
+      "src/components/freestyle/FreestyleBench.tsx",
+      "src/components/freestyle/FreestyleWaveform.tsx",
+      "src/components/freestyle/FreestyleWaveform.css",
+      "src/lib/freestyle/freestyleTraceMeasure.ts",
+      "tests/freestyle-trace-measure.test.mjs",
+      "e2e/freestyle-waveform-measure.spec.mjs"
+    ],
+    "parallelLeaseChanges": [
+      "src/lib/waveformMeasure.ts",
+      "tests/waveform-measure.test.mjs"
+    ],
+    "unexpected": [],
+    "missing": []
+  }
+}

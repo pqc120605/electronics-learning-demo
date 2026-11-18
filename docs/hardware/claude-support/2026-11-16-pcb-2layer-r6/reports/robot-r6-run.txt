@@ -1,0 +1,32 @@
+PRE BTST       U7:12    -> C7:1     w0.25 khong tim duoc duong (mo rong 156 o; s
+PRE REGN       U7:11    -> C8:1     w0.25 khong tim duoc duong (mo rong 156 o; s
+PRE STAT_K     U7:2     -> D5:1     w0.20 khong tim duoc duong (mo rong 128 o; s
+PRE VCP        U6:11    -> C24:1    w0.30 khong tim duoc duong (mo rong 409 o; s
+PRE VINT       U6:14    -> C25:1    w0.30 khong tim duoc duong (mo rong 401 o; s
+43
+ep vias U7 9 / 9
+ep vias U6 12 / 12
+round 0 dangling 3 unconnected 3
+  REGN       U7:11 -> 13.0750,63.7500@F : khong tim duoc duong (mo rong 96 o; start blocke
+  ICHG_C     10.9500,60.4875@F -> 11.2500,58.9875@F : ok 1.61 mm, 0 via
+  TS_NET     9.3500,59.0250@F -> 8.7740,61.5480@F : ok 2.65 mm, 0 via
+round 0 dangling 1 unconnected 1
+  REGN       U7:11 -> 11.8250,65.0000@F : khong tim duoc duong (mo rong 96 o; start blocke
+round 0 dangling 1 unconnected 1
+  REGN       U7:11 -> 13.0750,63.7500@F : khong tim duoc duong (mo rong 96 o; start blocke
+round 0 dangling 1 unconnected 1
+  REGN       U7:11 -> 11.8250,65.0000@F : khong tim duoc duong (mo rong 96 o; start blocke
+round 0 dangling 1 unconnected 1
+  REGN       U7:11 -> 11.8250,65.0000@F : khong tim duoc duong (mo rong 96 o; start blocke
+round 0 dangling 1 unconnected 1
+  REGN       U7:11 -> 11.8250,65.0000@F : khong tim duoc duong (mo rong 96 o; start blocke
+round 0 dangling 1 unconnected 1
+  REGN       U7:11 -> 13.0750,63.7500@F : khong tim duoc duong (mo rong 96 o; start blocke
+round 0 dangling 1 unconnected 1
+  REGN       U7:11 -> 11.8250,65.0000@F : khong tim duoc duong (mo rong 96 o; start blocke
+Found 3 violations
+Found 1 unconnected items
+Found 0 schematic parity issues
+      1 [track_dangling]: Track has unconnected end
+      2 [track_not_centered_on_via]: Track endpoint not centered on via
+      1 [unconnected_items]: Missing connection between items

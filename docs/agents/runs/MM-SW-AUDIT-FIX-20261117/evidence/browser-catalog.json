@@ -1,0 +1,49 @@
+[
+  {
+    "id": "F09-arduino-nano-classic",
+    "url": "http://127.0.0.1:5320/boards?board=arduino-nano-classic",
+    "screenshot": "F09-arduino-nano-classic.png",
+    "href": "/build/freestyle?board=arduino-nano"
+  },
+  {
+    "id": "F09-arduino-mega-2560-r3",
+    "url": "http://127.0.0.1:5320/boards?board=arduino-mega-2560-r3",
+    "screenshot": "F09-arduino-mega-2560-r3.png",
+    "href": "/build/freestyle?board=arduino-mega-2560"
+  },
+  {
+    "id": "F09-stm32-nucleo",
+    "url": "http://127.0.0.1:5320/boards?board=stm32-nucleo",
+    "screenshot": "F09-stm32-nucleo.png",
+    "href": "/build/freestyle?board=stm32-nucleo-f401re"
+  },
+  {
+    "id": "F05-D3",
+    "url": "http://127.0.0.1:5320/boards?board=arduino-mega-2560-r3&pin=pin-4",
+    "screenshot": "F05-D3.png",
+    "detail": "ĐANG XEM\nD3/PWM\n\nChân D3/PWM đưa tín hiệu giữa MCU và mạch bên ngoài.\n\nTÊN TÍN HIỆU THEO PINOUT HÃNG\nD3/PWM\nVAI TRÒ\nDigital I/O · PWM\nTRẠNG THÁI ĐỐI CHIẾU CAD\nDùng đúng số chân theo pinout board và cấu hình firmware.\n\nLưu ý: Mức logic tham chiếu 5 V; không mặc định tương thích với module 3,3 V.\n\nDigital I/O\nPWM"
+  },
+  {
+    "id": "F05-D18",
+    "url": "http://127.0.0.1:5320/boards?board=arduino-mega-2560-r3&pin=pin-19",
+    "screenshot": "F05-D18.png",
+    "detail": "ĐANG XEM\nD18/TX1\n\nChân D18/TX1 đưa tín hiệu giữa MCU và mạch bên ngoài.\n\nTÊN TÍN HIỆU THEO PINOUT HÃNG\nD18/TX1\nVAI TRÒ\nDigital I/O · UART · TX1\nTRẠNG THÁI ĐỐI CHIẾU CAD\nDùng đúng số chân theo pinout board và cấu hình firmware.\n\nLưu ý: Mức logic tham chiếu 5 V; không mặc định tương thích với module 3,3 V.\n\nDigital I/O\nUART\nTX1"
+  },
+  {
+    "id": "F04-mega-picking",
+    "url": "http://127.0.0.1:5320/boards?board=arduino-mega-2560-r3&pin=pin-19",
+    "screenshot": "F04-mega-picking.png",
+    "instructions": "PINOUT THAM CHIẾU · 75 CHÂN\n\nTra cứu pinout theo tên\n\nChọn tên chân trong danh sách để tra chức năng và lưu ý. Vị trí pad chưa được xác nhận để chọn trực tiếp trên mô hình."
+  },
+  {
+    "id": "F10-mobile-boards",
+    "url": "http://127.0.0.1:5320/boards",
+    "screenshot": "F10-mobile-boards.png",
+    "metrics": {
+      "docHeight": 7315,
+      "docWidth": 360,
+      "listHeight": 340,
+      "listScrollHeight": 18747
+    }
+  }
+]
