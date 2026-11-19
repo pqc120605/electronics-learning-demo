@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { getCatalogEvidenceUrl, boards } from '../data/boards'
 import { getBoardCapability } from '../data/boardCapabilityRegistry'
@@ -27,7 +27,10 @@ import { getDefaultBoardFeatureId } from '../lib/boardSelection'
 import { getCadViewerDownloadLabel } from '../lib/boardModelDownload'
 import { getDocumentedPinForNet } from '../lib/boardPadPinout'
 import { canExploreBoardPinout } from '../lib/boardPinoutPresentation'
+import { getBoardTopView } from '../lib/boardTopView'
 
+const BoardTopInspector = lazy(() => import('../components/board/BoardTopInspector'))
+const topInspectorBoards = new Set(['arduino-uno-r3', 'arduino-nano-classic', 'arduino-mega-2560-r3', 'esp32-devkit', 'raspberry-pi-pico'])
 const cadModels = [...arduinoBoardModels, ...raspberryPiBoardModels, ...communityBoardModels, ...adafruitBoardModels, ...seeedBoardModels, ...espressifBoardModels, ...stm32BoardModels]
 const cadBoardIds = new Set(['esp32-devkit', ...cadModels.map((model) => model.id)])
 const knownBoardIds = new Set(boards.map((board) => board.id))
@@ -54,7 +57,10 @@ export function BoardCatalogPage() {
   const activeBoard = boards.find((board) => board.id === link.boardId)!
   const activeFreestyleBoardId = getFreestyleBoardId(activeBoard.id)
   const manifest = link.boardId === 'esp32-devkit' ? esp32DevkitModel : cadModels.find((model) => model.id === link.boardId)
-  const activeCadView = getBoardCatalogView(activeBoard.id, searchParams.get('view') === '2d' ? '2d' : '3d')
+  const topView = topInspectorBoards.has(activeBoard.id) ? getBoardTopView(activeBoard.id) : undefined
+  const requestedView = searchParams.get('view')
+  const activeCadView = requestedView === 'top' && topView ? 'top'
+    : getBoardCatalogView(activeBoard.id, requestedView === '2d' ? '2d' : '3d')
   const featureById = (id: string | null) => manifest?.features.find((feature) => feature.id === id)
   const activeFeature = featureById(searchParams.get('feature')) ?? featureById(getDefaultBoardFeatureId(activeBoard.id)) ?? manifest?.features[0]
   const selectedPinId = manifest?.pins.find((pin) => pin.id === searchParams.get('pin'))?.id ?? ''
@@ -67,7 +73,7 @@ export function BoardCatalogPage() {
     setSearchParams(next, { replace: true })
   }
   const selectBoard = (boardId: string) => {
-    updateQuery({ board: boardId, feature: null, view: null, pin: null })
+    updateQuery({ board: boardId, feature: null, part: null, view: null, pin: null })
     panelHeadingRef.current?.focus({ preventScroll: true })
     document.querySelector('.board-cad-viewer')?.scrollIntoView({ behavior: 'instant', block: 'nearest' })
   }
@@ -84,10 +90,17 @@ export function BoardCatalogPage() {
         {manifest && activeFeature && shownFeature && <>
           <div className="catalog-filters board-cad-view-tabs" role="group" aria-label="Chọn góc nhìn CAD">
             <button type="button" aria-pressed={activeCadView === '3d'} className={activeCadView === '3d' ? 'catalog-filter-active' : ''} onClick={() => updateQuery({ view: null })}>PCB 3D</button>
+            {topView && <button type="button" aria-pressed={activeCadView === 'top'} className={activeCadView === 'top' ? 'catalog-filter-active' : ''} onClick={() => updateQuery({ view: 'top' })}>Mặt board 2D</button>}
             {getBoardCatalogView(activeBoard.id, '2d') === '2d' && <button type="button" aria-pressed={activeCadView === '2d'} className={activeCadView === '2d' ? 'catalog-filter-active' : ''} onClick={() => updateQuery({ view: '2d' })}>Lớp đồng PCB 2D</button>}
           </div>
           {activeCadView === '2d'
             ? <Pcb2DViewer key={`2d-${activeBoard.id}`} boardId={activeBoard.id} />
+          : activeCadView === 'top' && topView
+            ? <Suspense fallback={<p role="status">Đang tải mặt board 2D…</p>}>
+                <BoardTopInspector key={activeBoard.id} top={topView} pins={manifest.pins} selectedPinId={selectedPinId}
+                  featureRef={searchParams.get('part') ?? activeFeature.designator} onSelectPin={pin => updateQuery({ pin: pin || null })}
+                  onSelectComponent={ref => updateQuery({ part: ref || null, feature: manifest.features.find(feature => feature.designator === ref)?.id ?? null, pin: null })} />
+              </Suspense>
           : <div className="board-cad-interactive"><BoardViewer key={activeBoard.id} manifest={manifest} selectedSceneId="pcb" onSelectScene={() => undefined} selectedFeatureId={activeFeature.id} highlightedFeatureIds={[]} onSelectFeature={(featureId) => updateQuery({ feature: featureId })} onHoverFeature={setHoveredCadFeatureId} selectedPinId={selectedPinId} onSelectPin={(pinId) => updateQuery({ pin: pinId })} /><section className="board-cad-details" aria-live={hoveredCadFeatureId ? 'off' : 'polite'}>{canExploreBoardPinout(manifest) && <BoardPinoutExplorer pins={manifest.pins} selectedPinId={selectedPinId} onSelectPin={(pinId) => updateQuery({ pin: pinId })} evidence={manifest.pinoutEvidence} coordinatePicking={manifest.pinPicking === true} />}<p className="eyebrow">{hoveredCadFeatureId ? 'ĐANG DI CHUỘT LÊN' : 'LINH KIỆN ĐANG CHỌN'}</p><h3>{shownFeature.name}</h3>{getFeatureEvidence(shownFeature).labels.length > 0 && <p className="board-evidence-tags">{getFeatureEvidence(shownFeature).labels.map((label) => <span key={label}>{label}</span>)}</p>}<p>{shownFeature.plainDescription}</p><dl><dt>{shownFeature.roleEvidence === 'source-backed' ? 'Vai trò được nguồn xác nhận' : shownFeature.roleEvidence === 'unverified' ? 'Vai trò chức năng · chưa xác minh' : 'Giải thích mô hình'}</dt><dd>{shownFeature.technicalRole}</dd><dt>Vị trí</dt><dd>{shownFeature.placementReason}</dd><dt>Kết nối</dt><dd>{shownFeature.connection}</dd></dl>{shownFeature.cadFootprint?.pads && shownFeature.cadFootprint.pads.length > 0 && <details className="board-pad-net-details"><summary>Pad và net từ PCB CAD · {shownFeature.cadFootprint.pads.length} pad</summary><div className="board-pad-net-scroll"><table><caption>Gán pad–net theo PCB CAD · {activeBoard.name}</caption><thead><tr><th scope="col">Pad</th><th scope="col">Net CAD</th><th scope="col">Pinout hãng khi tên net trùng</th></tr></thead><tbody>{shownFeature.cadFootprint.pads.map((pad, index) => { const pinout = getDocumentedPinForNet(pad.net, getBoardCapability(activeBoard.id).pinMap); return <tr key={`${pad.number}-${index}`}><th scope="row">{pad.number}</th><td>{pad.net ?? 'Chưa gán net'}</td><td>{pinout?.label ?? '—'}</td></tr> })}</tbody></table></div><p className="board-pad-net-note">Nguồn pad/net: {manifest.audit?.revision ?? activeBoard.revision ?? activeBoard.name}. {manifest.pinoutEvidence?.summary} {activeBoard.id === 'seeed-xiao-esp32c3' ? 'Cột pinout được ghép khi tên net CAD khớp chính xác D0–D10 trong tài liệu Seeed.' : 'Cột pinout chỉ ghép khi tên net CAD khớp chính xác một tên chân có nguồn của board này.'} Ô trống không xác nhận chức năng. Bảng chỉ tra cứu tĩnh, không chọn pad và chưa tô đường đồng/net theo chân đã chọn.</p></details>}<p className="board-cad-caveat">{shownFeature.safetyNote}</p><BoardModelEvidencePanel evidence={evidence} /></section></div>}
           <div className="board-cad-viewer-note"><span>CAD tham chiếu · không chạy firmware hay mô phỏng điện</span><span>{formatBoardModelStats(getBoardModelStats(manifest))}; footprint không có mesh chỉ tra được trong danh sách</span></div>
         </>}
