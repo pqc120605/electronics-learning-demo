@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState, type DragEvent } from 'react'
+import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { BreadboardEditor } from '../builder/BreadboardEditor'
 import { getFreestyleBoardId, getFreestylePartId } from '../../lib/catalogPracticeLinks'
@@ -7,7 +7,7 @@ import { SignalFlowPanel } from '../builder/SignalFlowPanel'
 import { componentRegistry } from '../../data/componentRegistry'
 import { parseHole } from '../../lib/breadboardGrid'
 import { createNetIndexV2 } from '../../lib/circuitNetsV2'
-import { setWireRole, editWireEndpoint, removeWire } from '../../lib/circuitDocEdits'
+import { addWire, setWireRole, editWireEndpoint, removeWire, setPartValue } from '../../lib/circuitDocEdits'
 import type { CircuitDocV2, CircuitEndpointV2 } from '../../lib/circuitDocV2'
 import type { FlowLegendEntry, SerialEntry } from '../../lib/signalFlow'
 import type { LivePinState } from '../../lib/avrLiveMachine'
@@ -27,7 +27,10 @@ import { GuideContextBridge } from '../guide/GuideContext'
 import { freestylePresentation } from '../../lib/freestyle/freestylePresentation'
 import { appendTrace, type TraceSample } from '../../lib/freestyle/freestyleTrace'
 import { FreestyleWaveform } from './FreestyleWaveform'
+import { SerialPlotter } from './SerialPlotter'
+import { appendSerialPlot, createSerialPlot } from '../../lib/freestyle/serialPlot'
 import { CircuitSchematicV2 } from '../builder/CircuitSchematicV2'
+import { pushWireHistory, readWireLayout, type WireBend, type WireHistoryEntry } from '../../lib/freestyle/freestyleWireLayout'
 const FreestyleAssemblyView = lazy(() => import('./FreestyleAssemblyView').then(m=>({default:m.FreestyleAssemblyView})))
 
 /**
@@ -53,10 +56,11 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
   const [draft] = useState(loadDraft)
   const [workspace, setWorkspace] = useState<FreestyleWorkspace>(()=>variant==='full' && typeof window!=='undefined' && new URLSearchParams(window.location.search).get('resume')==='1' && draft?.workspace ? draft.workspace : blankFreestyleWorkspace())
   const saveAllowed=useRef(false), saveAttempted=useRef(false)
+  const lastSavedRaw = useRef(draft?.raw ?? null)
   const [started,setStarted]=useState(()=>variant==='full' && typeof window!=='undefined' && new URLSearchParams(window.location.search).get('resume')==='1' && Boolean(draft?.workspace))
   const rootRef=useRef<HTMLElement>(null),expandButton=useRef<HTMLButtonElement>(null)
   const [view,setView]=useState<View>('breadboard')
-  const [panelOpen,setPanelOpen]=useState(true)
+  const [panelOpen,setPanelOpen]=useState(!started)
   const [expanded,setExpanded]=useState(false)
   useEffect(()=>{if(expanded)rootRef.current?.focus()},[expanded])
   const [preparing,setPreparing]=useState(false)
@@ -65,9 +69,10 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
   const traceCapture=useRef(0)
   const traceRef=useRef<TraceSample[]>([])
   const [trace,setTrace]=useState<TraceSample[]>([])
+  const [tracePopout, setTracePopout] = useState(false)
   const { boardId, doc, pinMap, language, code } = workspace
   const board = getFreestyleBoard(boardId)
-  const [step, setStep] = useState<Step>('board')
+  const [step, setStep] = useState<Step>(started ? 'parts' : 'board')
   const [tools, setTools] = useState<LocalTools | null>(null)
   const [toolsChecked, setToolsChecked] = useState(false)
   const [running, setRunning] = useState(false)
@@ -75,11 +80,16 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
   const [error, setError] = useState<{ message: string; line?: number }>()
   const [pins, setPins] = useState<Record<number, LivePinState>>()
   const [serial, setSerial] = useState('')
+  const serialPlotRef = useRef(createSerialPlot())
+  const [serialPlot, setSerialPlot] = useState(serialPlotRef.current)
+  const [serialPlotOpen, setSerialPlotOpen] = useState(false)
   const [simMs, setSimMs] = useState(0)
   const [controls, setControls] = useState<ControlState>({})
   const [notice, setNotice] = useState('')
   const [selectedPartId, setSelectedPartId] = useState<string | null>(null)
   const [selectedWireId, setSelectedWireId] = useState<string | null>(null)
+  const [wireHistory, setWireHistory] = useState<WireHistoryEntry[]>([])
+  const draftImportRequest = useRef(0)
   const [pendingEndpoint, setPendingEndpoint] = useState<CircuitEndpointV2 | null>(null)
   const [moving, setMoving] = useState(false)
   const [sampleId, setSampleId] = useState<FreestyleSampleId>(workspace.sampleId ?? 'blink')
@@ -96,7 +106,19 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
   // Lưu ngay mỗi lần đổi để nút "Mở toàn màn hình" luôn mang theo mạch mới nhất.
   useEffect(() => {
     if(!saveAllowed.current)return
-    try { getBrowserStorage('localStorage').setItem(FREESTYLE_STORAGE_KEY, JSON.stringify({ ...workspace, updatedAt: new Date().toISOString() })) } catch { setSessionOnly(true);setNotice('Chưa lưu được vào trình duyệt. Mạch vẫn còn trong phiên; bản lưu trước được giữ nếu thao tác ghi thất bại.') }
+    try {
+      const storage = getBrowserStorage('localStorage')
+      if (storage.getItem(FREESTYLE_STORAGE_KEY) !== lastSavedRaw.current) {
+        saveAllowed.current = false
+        setSessionOnly(true)
+        setNotice('Bản nháp đã đổi ở tab khác. Tải mạch đang mở trong Bản nháp để giữ công việc của tab này.')
+        return
+      }
+      const raw = JSON.stringify(workspace)
+      storage.setItem(FREESTYLE_STORAGE_KEY, raw)
+      lastSavedRaw.current = raw
+      setSessionOnly(false)
+    } catch { setSessionOnly(true);setNotice('Chưa lưu được vào trình duyệt. Mạch vẫn còn trong phiên; bản lưu trước được giữ nếu thao tác ghi thất bại.') }
   }, [workspace])
   // Gộp khung trạng thái từ engine (tới ~60 lần/s) thành ~12 lần/s cho giao diện.
   useEffect(() => {
@@ -125,25 +147,78 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
     }
   }, [evaluation.inputs, running])
 
-  function update(patch: Partial<FreestyleWorkspace>) {
-    traceCapture.current++
-    stop();setPins(undefined);setSerial('');setSimMs(0);setError(undefined);setStatus('');traceRef.current=[];setTrace([]);latestFrame.current=null;setPendingEndpoint(null)
+  function update(patch: Partial<FreestyleWorkspace>, options: { wireAction?: boolean; renderOnly?: boolean } = {}) {
+    draftImportRequest.current++
+    if (!options.wireAction && (patch.doc || patch.boardId !== undefined)) setWireHistory([])
+    if (!options.renderOnly) {
+      traceCapture.current++
+      setTracePopout(false)
+      stop();setPins(undefined);setSerial('');setSimMs(0);setError(undefined);setStatus('');traceRef.current=[];setTrace([]);latestFrame.current=null;setPendingEndpoint(null)
+      serialPlotRef.current = createSerialPlot();setSerialPlot(serialPlotRef.current)
+    }
     if(!saveAttempted.current){
       saveAttempted.current=true
       try {
         const storage=getBrowserStorage('localStorage'), old=storage.getItem(FREESTYLE_STORAGE_KEY)
+        if (old !== lastSavedRaw.current) throw Error('previous draft changed')
         if(old&&!archiveFreestyle(storage,old).ok)throw Error('backup failed')
         saveAllowed.current=true
       }catch{setSessionOnly(true);setNotice('Chưa sao lưu được nháp cũ. Bàn mới chỉ dùng trong phiên; nháp cũ chưa bị ghi đè.')}
     }
-    setStarted(true);setWorkspace(current=>({...current,...patch,updatedAt:new Date().toISOString()}))
+    setStarted(true);setWorkspace(current=>({...current,...patch,
+      ...(patch.doc ? { wireLayout: readWireLayout(Object.hasOwn(patch, 'wireLayout') || patch.version ? patch.wireLayout : current.wireLayout, patch.doc.wires) } : {}),
+      updatedAt:new Date().toISOString()}))
   }
   const updateDoc = (next: CircuitDocV2) => update({ doc: next })
+
+  function updateWireDoc(next: CircuitDocV2) {
+    if (next === doc || JSON.stringify(next.wires) === JSON.stringify(doc.wires)) return
+    setWireHistory(current => pushWireHistory(current, doc, workspace.wireLayout))
+    update({ doc: next }, { wireAction: true })
+  }
+
+  function changeWireBend(id: string, bend: WireBend | null) {
+    if (!doc.wires.some(wire => wire.id === id)) return
+    if (JSON.stringify(workspace.wireLayout?.[id] ?? null) === JSON.stringify(bend)) return
+    const wireLayout = { ...workspace.wireLayout }
+    if (bend) wireLayout[id] = bend
+    else delete wireLayout[id]
+    setWireHistory(current => pushWireHistory(current, doc, workspace.wireLayout))
+    update({ wireLayout: readWireLayout(wireLayout, doc.wires) }, { wireAction: true, renderOnly: true })
+  }
+
+  function undoWire() {
+    const previous = wireHistory.at(-1)
+    if (!previous) return
+    const renderOnly = previous.doc === doc
+    setWireHistory(current => current.slice(0, -1))
+    update({ ...(renderOnly ? {} : { doc: previous.doc }), wireLayout: previous.wireLayout }, { wireAction: true, renderOnly })
+    setSelectedWireId(null);setPendingEndpoint(null)
+    setNotice('Đã hoàn tác thao tác dây gần nhất. Code giữ nguyên. Lịch sử tối đa 30 thao tác trong phiên này.')
+  }
+
+  async function importDraft(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.currentTarget.files?.[0]
+    event.currentTarget.value = ''
+    if (!file) return
+    const request = ++draftImportRequest.current
+    if (file.size > 2 * 1024 * 1024) { setNotice('File nháp quá lớn (tối đa 2 MB). Mạch hiện tại được giữ.'); return }
+    try {
+      const restored = parseFreestyleWorkspace(await file.text())
+      if (draftImportRequest.current !== request) return
+      if (!restored) { setNotice('Không đọc được file nháp. Mạch hiện tại được giữ.'); return }
+      if (!archiveBeforeReplace()) return
+      update({ ...restored, wireLayout: restored.wireLayout })
+      setSelectedWireId(null);setSelectedPartId(null);setView('breadboard');setStep('parts');setPanelOpen(false)
+      setNotice('Đã nhập bản nháp cùng đường đi dây. Công việc trước đó đã được sao lưu trên máy này.')
+    } catch { if (draftImportRequest.current === request) setNotice('Không đọc được file nháp. Mạch hiện tại được giữ.') }
+  }
 
   function publishBufferedFrame() {
     const frame=latestFrame.current
     if(!frame)return
     setPins(frame.pins);setSimMs(frame.simMs);setTrace(traceRef.current)
+    setSerialPlot(serialPlotRef.current)
     if(frame.serial){const chunk=frame.serial;frame.serial='';setSerial(current=>(current+chunk).slice(-MAX_SERIAL))}
   }
   function archiveBeforeReplace(): boolean {
@@ -164,10 +239,12 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
     stop()
     if(!boardId || !code.trim())return
     const runId=generation.current
+    setTracePopout(view !== 'wave')
     traceCapture.current++
     setPreparing(true);traceRef.current=[];setTrace([])
     setError(undefined)
     setSerial('')
+    serialPlotRef.current = createSerialPlot();setSerialPlot(serialPlotRef.current)
     setSimMs(0)
     setPins(undefined)
     sentInputs.current = ''
@@ -181,6 +258,7 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
       onFrame: frame => {
         if(runId!==generation.current)return
         traceRef.current=appendTrace(traceRef.current,frame)
+        serialPlotRef.current = appendSerialPlot(serialPlotRef.current, frame.serial)
         const latest = latestFrame.current ?? { pins: {}, serial: '', simMs: 0 }
         latestFrame.current = { pins: frame.pins, serial: (latest.serial + frame.serial).slice(-MAX_SERIAL), simMs: frame.simulatedMilliseconds }
       },
@@ -239,7 +317,7 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
     setControls({})
     setSelectedPartId(null)
     setSelectedWireId(null)
-    update({ doc: sampleDoc, pinMap: samplePins, sampleId: id, code: sampleCode(id, boardId, language, samplePins) })
+    update({ doc: sampleDoc, wireLayout: undefined, pinMap: samplePins, sampleId: id, code: sampleCode(id, boardId, language, samplePins) })
     setNotice(`Đã dựng mạch mẫu “${freestyleSamples.find(item => item.id === id)?.title}”. Bấm ▶ Chạy để xem.`)
   }
 
@@ -314,6 +392,9 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
   const visibleParts = placeableParts.filter(part => !partFilter || `${part.label} ${part.category}`.toLowerCase().includes(partFilter.toLowerCase()))
   const HeadingTag = variant === 'full' ? 'h1' : 'h2'
 
+  const serialPlotVisible = panelOpen && step === 'observe' && serialPlotOpen
+  const showTracePopout = tracePopout && view !== 'wave' && trace.length > 0 && !serialPlotVisible
+
   return <section className={`freestyle-bench freestyle-${variant}${expanded?' is-expanded':''}${panelOpen?'':' panel-closed'}${draft&&!started?' has-draft':''}`} ref={rootRef} tabIndex={-1} role={expanded?'dialog':undefined} aria-modal={expanded?true:undefined} onKeyDown={event=>{if(!expanded||(event.target instanceof Element&&event.target.closest('dialog[open]')))return;if(event.key==='Escape'){event.preventDefault();setExpanded(false);expandButton.current?.focus()}if(event.key==='Tab'){const items=[...event.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled),a,input,select,textarea,[tabindex="0"]')].filter(el=>el.getClientRects().length>0);const first=items[0],last=items.at(-1);if(event.shiftKey&&(document.activeElement===first||document.activeElement===event.currentTarget)){event.preventDefault();last?.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus()}}}} data-view={view} data-step={step} aria-labelledby="freestyle-title">
     <GuideContextBridge snapshot={{owner:"freestyle",priority:70,lesson:workspace.sampleId?freestyleSamples.find(item=>item.id===workspace.sampleId)?.title??"Mạch tự do":"Mạch tự do",board:boardId?{id:boardId,name:board.name}:undefined,part:selectedPart&&selectedDefinition?{id:selectedPart.id,type:selectedPart.type,name:selectedPart.type==="resistor"?"Điện trở":selectedDefinition.label,summary:selectedDefinition.explanation,pins:selectedDefinition.pins.map(pin=>pin.label),note:selectedDefinition.safetyNotes}:undefined,status:running?"Runtime đang chạy":status||"Chưa chạy",issues:[...(error?[error.message]:[]),...evaluation.warnings].slice(0,3)}} />
     <header className="freestyle-head">
@@ -346,9 +427,9 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
       }}><span className="freestyle-step-index">{index + 1}</span>{item.label}</button>)}
     </div>
 
-    {draft && !started && <div className="freestyle-draft" role="status"><span>{draft.workspace?'Có một bản nháp đã lưu trên máy này. Bàn hiện tại bắt đầu trống.':'Bản lưu cũ chưa đọc được; dữ liệu gốc được giữ nguyên.'}</span>{draft.workspace&&<button className="freestyle-button" onClick={()=>{stop();setWorkspace(draft.workspace!);setStarted(true);setNotice('Đã mở bản nháp, giữ nguyên mạch và code.');setStep('parts')}}>Mở bản nháp đã lưu</button>}</div>}
+    {draft && !started && <div className="freestyle-draft" role="status"><span>{draft.workspace?'Có một bản nháp đã lưu trên máy này. Bàn hiện tại bắt đầu trống.':'Bản lưu cũ chưa đọc được; dữ liệu gốc được giữ nguyên.'}</span>{draft.workspace&&<button className="freestyle-button" onClick={()=>{stop();setWorkspace(draft.workspace!);setStarted(true);setNotice('Đã mở bản nháp, giữ nguyên mạch và code.');setStep('parts');setView('breadboard');setPanelOpen(false)}}>Mở bản nháp đã lưu</button>}</div>}
     <div className="freestyle-workbar">
-      <div className="freestyle-view-tabs" role="group" aria-label="Chế độ xem mạch">{([['breadboard','Lắp mạch 2D'],['schematic','Schematic'],['3d','Lắp mạch 3D'],['wave','Dạng sóng']] as const).map(([id,label])=><button key={id} aria-pressed={view===id} onClick={()=>{setView(id);setPanelOpen(false)}}>{label}</button>)}</div>
+      <div className="freestyle-view-tabs" role="group" aria-label="Chế độ xem mạch">{([['breadboard','Lắp mạch 2D'],['schematic','Schematic'],['3d','Lắp mạch 3D'],['wave','Dạng sóng']] as const).map(([id,label])=><button key={id} aria-pressed={view===id} onClick={()=>{setTracePopout(false);setView(id);setPanelOpen(false)}}>{label}</button>)}</div>
       <div className="freestyle-work-actions"><button className="freestyle-button" aria-expanded={panelOpen} onClick={()=>setPanelOpen(!panelOpen)}>{panelOpen?'Ẩn bảng thao tác':'Mở bảng thao tác'}</button><button ref={expandButton} className="freestyle-button" aria-pressed={expanded} onClick={()=>setExpanded(!expanded)}>{expanded?'Thu gọn bàn':'Mở rộng bàn'}</button><button type="button" disabled={!boardId||!code.trim()} className={`freestyle-run-button ${running?'is-running':''}`} onClick={running||preparing?stop:run}>{running||preparing?'■ Dừng':'▶ Chạy'}</button></div>
         {controlSpecs.length > 0 && <div className="freestyle-card freestyle-input-dock"><h3>Đầu vào</h3>{controlSpecs.map(spec => {
           if (spec.kind === 'slider') {
@@ -359,6 +440,10 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
           const press = (pressed: boolean) => setControls(current => ({ ...current, [spec.partId]: pressed }))
           return <button key={spec.partId} type="button" className="freestyle-press" aria-pressed={Boolean(controls[spec.partId])} onPointerDown={() => press(true)} onPointerUp={() => press(false)} onPointerLeave={() => press(false)} onPointerCancel={() => press(false)} onBlur={() => press(false)} onKeyDown={event => { if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); press(true) } }} onKeyUp={() => press(false)}>{spec.label}</button>
         })}</div>}
+      <div className="freestyle-wire-actions" aria-label="Bản nháp và thao tác dây" role="group">
+        <label className="freestyle-button freestyle-import-draft">Nhập bản nháp<input type="file" accept=".json,application/json" aria-label="Nhập bản nháp từ file" onChange={importDraft} /></label>
+        <button type="button" className="freestyle-button" disabled={!wireHistory.length} onClick={undoWire}>Hoàn tác dây</button>
+      </div>
     </div>
     <div className="freestyle-layout">
       <div id="freestyle-step-panel" role="tabpanel" aria-labelledby={`freestyle-step-${step}`} className="freestyle-panel" hidden={step==='observe'}>
@@ -420,22 +505,44 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
           compact
           presentation={boardId?freestylePresentation(boardId,pinMap):undefined}
           doc={doc}
+          wireLayout={workspace.wireLayout}
+          onWireBendChange={changeWireBend}
           selectedWireId={selectedWireId}
           selectedPartId={selectedPartId}
           pendingEndpoint={pendingEndpoint}
           onSelectEndpoint={selectEndpoint}
           onSelectPart={id => setSelectedPartId(id)}
           onSelectWire={setSelectedWireId}
-          onCommitWire={(from, to, role) => { updateDoc(addFreestyleWire(doc, from, to, role)); setPendingEndpoint(null) }}
-          onEditWireEndpoint={(id, end, endpoint) => updateDoc(editWireEndpoint(doc, id, end, endpoint).doc)}
-          onSetWireRole={(id, role) => updateDoc(setWireRole(doc, id, role).doc)}
-          onRemoveWire={id => { updateDoc(removeWire(doc, id).doc); setSelectedWireId(null) }}
+          onCommitWire={(from, to, role) => {
+            const wire = addFreestyleWire(doc, from, to, role).wires.at(-1)!
+            const result = addWire(doc, wire)
+            if (result.doc === doc) { setNotice(result.issues[0]?.message ?? 'Không thể nối hai điểm này.'); return false }
+            updateWireDoc(result.doc)
+            setSelectedWireId(wire.id)
+            setNotice(`Đã nối ${wire.id}.`)
+            return true
+          }}
+          onEditWireEndpoint={(id, end, endpoint) => {
+            const result = editWireEndpoint(doc, id, end, endpoint)
+            if (result.doc === doc) { setNotice(result.issues[0]?.message ?? 'Không thể chuyển đầu dây.'); return false }
+            updateWireDoc(result.doc)
+            setNotice(`Đã chuyển đầu dây ${id}.`)
+            return true
+          }}
+          onChangePartValue={(id, value) => {
+            const result = setPartValue(doc, id, value)
+            if (result.doc === doc) { setNotice(result.issues[0]?.message ?? 'Không thể đổi trị số.'); return false }
+            updateDoc(result.doc)
+            return true
+          }}
+          onSetWireRole={(id, role) => updateWireDoc(setWireRole(doc, id, role).doc)}
+          onRemoveWire={id => { updateWireDoc(removeWire(doc, id).doc); setSelectedWireId(null) }}
           notice={notice}
           activeWireIds={running ? evaluation.activeWireIds : new Set()}
           litPartIds={evaluation.litPartIds}
           wireSignals={wireSignals}
         />}
-        {view!=='wave' && trace.length>0 && <details className="freestyle-trace-dock"><summary>Dạng sóng đã thu · {trace.length} mẫu</summary><FreestyleWaveform captureKey={traceCapture.current} preferredPins={wiredSignals.map(role=>pinMap[role])} samples={trace} boardId={boardId} source={engine.label} running={running}/></details>}
+        {view!=='wave' && trace.length>0 && !showTracePopout && <details className="freestyle-trace-dock"><summary>Dạng sóng đã thu · {trace.length} mẫu</summary><FreestyleWaveform captureKey={traceCapture.current} preferredPins={wiredSignals.map(role=>pinMap[role])} samples={trace} boardId={boardId} source={engine.label} running={running}/></details>}
       </div>
 
       <div id="freestyle-observe-panel" role="tabpanel" aria-labelledby="freestyle-step-observe" className="freestyle-observe" hidden={step!=='observe'} aria-label="Chạy và quan sát">
@@ -470,12 +577,22 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
         <div className="freestyle-card freestyle-serial-card">
           <h3>Serial Monitor</h3>
           <pre className="freestyle-serial" aria-label="Đầu ra Serial" tabIndex={0}>{serial || 'Chưa có dữ liệu Serial.'}</pre>
+          <SerialPlotter state={serialPlot} source={boardId ? engine.label : 'Chưa chọn runtime'} expanded={serialPlotOpen} onToggle={() => {
+            if (!serialPlotOpen) setTracePopout(false)
+            setSerialPlotOpen(!serialPlotOpen)
+          }} />
         </div>
         <SignalFlowPanel code={code} serial={serialEntries} legend={legend} running={running} illustrative={false} />
         <p className="freestyle-disclaimer">Kết quả là mô phỏng logic trên máy tính, không phải đo trên mạch thật.</p>
       </div>
     </div>
-    <FreestyleDraftsDialog current={workspace} open={draftsOpen} onClose={()=>setDraftsOpen(false)} onRestore={restored=>{if(!archiveBeforeReplace())return;update(restored);setDraftsOpen(false);setStep('parts');setPanelOpen(true);setNotice('Đã khôi phục bản nháp; công việc trước đó được sao lưu.')}} />
+    {showTracePopout && <aside className="freestyle-wave-popout" role="region" aria-label="Cửa sổ dạng sóng" onKeyDown={event => {
+      if (event.key === 'Escape') { event.stopPropagation(); setTracePopout(false) }
+    }}>
+      <div className="freestyle-wave-popout-bar"><strong>Tín hiệu vừa thu</strong><button className="freestyle-button" type="button" onClick={() => setTracePopout(false)}>Đóng dạng sóng</button></div>
+      <FreestyleWaveform captureKey={traceCapture.current} preferredPins={wiredSignals.map(role => pinMap[role])} samples={trace} boardId={boardId} source={engine.label} running={running} />
+    </aside>}
+    <FreestyleDraftsDialog current={workspace} open={draftsOpen} onClose={()=>setDraftsOpen(false)} onRestore={restored=>{if(!archiveBeforeReplace())return;update(restored);setDraftsOpen(false);setView('breadboard');setStep('parts');setPanelOpen(false);setNotice('Đã khôi phục bản nháp; công việc trước đó được sao lưu.')}} />
     <FreestyleToolsDrawer open={toolsOpen} onClose={() => setToolsOpen(false)} />
   </section>
 }

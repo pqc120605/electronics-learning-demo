@@ -1,0 +1,82 @@
+[
+  {
+    "model": "qwen3.5:2b",
+    "case": "led",
+    "ms": 16163,
+    "checks": true,
+    "output": {
+      "status": "answered",
+      "answer": "LED cần điện trở để hạn chế dòng điện vì LED là diode phát sáng, và dòng đi qua điện trở nối tiếp rồi qua LED về GND.",
+      "sourceIds": [
+        "S1"
+      ],
+      "model": "qwen3.5:2b"
+    }
+  },
+  {
+    "model": "qwen3.5:2b",
+    "case": "breadboard",
+    "ms": 4345,
+    "checks": false,
+    "output": {
+      "status": "answered",
+      "answer": "Mỗi cột breadboard có năm lỗ a–e và f–j, trong đó các lỗ a–e nối với nhau và f–j nối với nhau thành hai nhóm độc lập. Hai cột cạnh nhau không tự nối.",
+      "sourceIds": [
+        "S1"
+      ],
+      "model": "qwen3.5:2b"
+    }
+  },
+  {
+    "model": "qwen3.5:2b",
+    "case": "pullup",
+    "ms": 6552,
+    "checks": true,
+    "output": {
+      "status": "answered",
+      "answer": "INPUT_PULLUP là một chế độ pin vào (pull-up) trong mạch điện, nơi đầu vào được nối về mức cao (HIGH) khi không có tín hiệu nào tác động. Khi nút nhấn được kéo xuống GND, đầu vào chuyển sang mức thấp (LOW), từ đó kích hoạt điều kiện digitalRead == LOW để nhận biết trạng thái nhấn.",
+      "sourceIds": [
+        "S1"
+      ],
+      "model": "qwen3.5:2b"
+    }
+  },
+  {
+    "model": "qwen3.5:2b",
+    "case": "uno",
+    "ms": 3052,
+    "checks": true,
+    "output": {
+      "status": "answered",
+      "answer": "Arduino Uno R3 ADC đọc tối đa 1023 trong mô hình bài học.",
+      "sourceIds": [
+        "S1"
+      ],
+      "model": "qwen3.5:2b"
+    }
+  },
+  {
+    "model": "qwen3.5:2b",
+    "case": "followup",
+    "ms": 4811,
+    "checks": true,
+    "output": {
+      "status": "answered",
+      "answer": "Ví dụ: Nối điện trở nối tiếp với LED trước khi đưa vào nguồn để hạn chế dòng điện. Giá trị điện trở phụ thuộc vào nguồn và điện áp thuận của LED.",
+      "sourceIds": [
+        "S1"
+      ],
+      "model": "qwen3.5:2b"
+    }
+  },
+  {
+    "model": "qwen3.5:2b",
+    "case": "unknown-pin",
+    "ms": 0,
+    "checks": true,
+    "output": {
+      "kind": "unknown",
+      "message": "Kho này chưa xác minh yêu cầu chân cụ thể đó trong cấu hình của bạn. Hãy mở pinout nguồn hãng đúng revision; mapping LED của bài học không chứng minh khả năng mọi chân và không phải phê duyệt nối phần cứng."
+    }
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "at": "2026-11-18T17:22:16.338Z",
+  "files": {
+    "src/lib/localCapstone.ts": "67453e0d8c84a57e1b6572f05b9fc49296a2462a7874139872b7f67372f4da39",
+    "src/pages/LocalCapstonePage.tsx": "a0d0516664daf6b8fccf215198cb59a14e6b66d027828ac34e2ec5e0b70c8846",
+    "src/pages/LocalCapstonePage.css": "8b316426e98c1a30bac215407c83635a3bef423f6df2ac0a404ba653cf11056d",
+    "src/pages/BeginnerLearningPage.tsx": "c7227dbf17da27635e75a3098ee7616403cd41d08f05fda4bada85787bd963cb",
+    "src/App.tsx": "1bae6cad680ff63392e452f85c512bec2216e24bb2d1c57ab2c7e543beab4954",
+    "src/data/productRoutes.ts": "59354f6bf19f0a1ce38013a496185410027809b1e1d3d92a8a98aa97425359ed",
+    "tests/local-capstone.test.mjs": "7cbe421728557e694f247627b745b079364afef4bc959cebb70a00788ae96bba",
+    "e2e/local-capstone.spec.mjs": "1240209dd298805354ec041559542f26cea12ff611e86a993659f183c17ee568",
+    "src/lib/schematicLayoutV2.ts": "7386ff255fe09a264df4b16bffe79f31cec508bb941aa75282882a133ee5f67c",
+    "src/components/builder/CircuitSchematicV2.tsx": "4390399ce52a4e963cf695034a9482fd373a344b9f989753e1e8978709e528fb"
+  },
+  "scope": {
+    "withinLease": [
+      "src/App.tsx",
+      "src/components/builder/CircuitSchematicV2.tsx",
+      "src/data/productRoutes.ts",
+      "src/lib/localCapstone.ts",
+      "src/lib/schematicLayoutV2.ts",
+      "src/pages/BeginnerLearningPage.tsx",
+      "src/pages/LocalCapstonePage.css",
+      "src/pages/LocalCapstonePage.tsx",
+      "tests/local-capstone.test.mjs",
+      "e2e/local-capstone.spec.mjs"
+    ],
+    "parallelLeaseChanges": [
+      "src/components/freestyle/FreestyleBench.tsx",
+      "src/components/freestyle/SerialPlotter.css",
+      "src/components/freestyle/SerialPlotter.tsx",
+      "src/lib/freestyle/serialPlot.ts",
+      "tests/freestyle-serial-plot.test.mjs",
+      "e2e/freestyle-serial-plot.spec.mjs"
+    ],
+    "unexpected": [],
+    "missing": []
+  }
+}

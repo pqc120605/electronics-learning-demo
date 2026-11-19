@@ -171,3 +171,20 @@
 .diagram-level-pill.is-power rect { fill: var(--mm-power, #c8372d); }
 .diagram-level-pill.is-ground rect,.diagram-level-pill.is-low rect { fill: var(--mm-gnd, #2b3242); }
 .diagram-level-pill.is-other rect { fill: #8a5a0c; }
+.breadboard-workspace { position: relative; min-width: 0; }
+.breadboard-editor :is(.breadboard-hole,.diagram-board-pin-hit-target,.diagram-part-pin-hit-target,.diagram-hole-hit-target) { cursor: pointer; }
+.diagram-pin-tooltip { pointer-events: none; }
+.diagram-pin-tooltip rect { fill: #192b41; }
+.diagram-board-pin-layer + .diagram-pin-tooltip text,.diagram-pin-tooltip text { fill: white; font: 650 15px var(--mm-font-body, sans-serif); }
+.diagram-wire-handle { cursor: grab; touch-action: none; fill: #fff; stroke: #087f9b; stroke-width: 3; }
+.diagram-wire-handle:active { cursor: grabbing; }
+.diagram-wire-handle:focus-visible { stroke: #9a5000; stroke-width: 5; }
+.circuit-part-popup { position: absolute; inset: 48px 8px auto auto; z-index: 4; width: min(360px, calc(100% - 16px)); max-height: min(400px,70vh); overflow: auto; padding: 14px; border: 1px solid #adbbbd; border-radius: 9px; background: #fbf8ef; color: #192b41; box-shadow: 0 8px 24px #15253730; }
+.circuit-part-popup header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.circuit-part-popup h3,.circuit-part-popup p { margin: 0 0 8px; }
+.circuit-part-popup h3 small { font-weight: 400; }
+.circuit-part-popup button,.circuit-part-popup input,.circuit-part-popup select { min-height: 36px; font: inherit; }
+.circuit-part-value { display: grid; gap: 6px; }
+.circuit-part-value > div { display: grid; grid-template-columns: minmax(0,1fr) auto auto; gap: 5px; }
+.circuit-part-value input { min-width: 0; }
+@media (max-width: 520px) { .circuit-part-popup { position: relative; inset: auto; width: 100%; margin-top: 8px; } }

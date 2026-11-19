@@ -2,7 +2,7 @@ import { componentRegistry } from '../data/componentRegistry'
 import { createNetIndexV2 } from './circuitNetsV2'
 import type { CircuitDocV2 } from './circuitDocV2'
 
-export type SchematicSymbolKind = 'board' | 'resistor' | 'led' | 'diode' | 'button' | 'unsupported'
+export type SchematicSymbolKind = 'board' | 'resistor' | 'potentiometer' | 'led' | 'diode' | 'button' | 'unsupported'
 export type SchematicTerminalV2 = { key: string; label: string; x: number; y: number }
 export type SchematicPartV2 = { partId: string; type: string; label: string; value: string; x: number; y: number; width: number; height: number; rotation: number; symbolKind: SchematicSymbolKind; terminals: SchematicTerminalV2[] }
 export type SchematicSegmentV2 = { from: [number, number]; to: [number, number] }
@@ -10,7 +10,7 @@ export type SchematicNetV2 = { key: string; endpoints: string[]; holes: string[]
 export type SchematicDiagnosticV2 = { code: 'UNSUPPORTED_SYMBOL' | 'UNRESOLVED_ENDPOINT' | 'CONFLICTING_ROLES'; message: string; partId?: string }
 export type SchematicLayoutV2 = { width: number; height: number; parts: SchematicPartV2[]; nets: SchematicNetV2[]; diagnostics: SchematicDiagnosticV2[] }
 
-const SYMBOLS: Record<string, SchematicSymbolKind> = { board: 'board', resistor: 'resistor', led: 'led', diode: 'diode', button: 'button' }
+const SYMBOLS: Record<string, SchematicSymbolKind> = { board: 'board', resistor: 'resistor', potentiometer: 'potentiometer', led: 'led', diode: 'diode', button: 'button' }
 const fmtValue = (part: CircuitDocV2['parts'][number]) => part.value?.label ?? (part.value?.ohm !== undefined ? `${part.value.ohm} Ω` : part.value?.farad !== undefined ? `${part.value.farad} F` : '')
 const sorted = (items: Set<string>) => [...items].sort((a, b) => a.localeCompare(b, 'en'))
 
@@ -29,16 +29,19 @@ export function layoutSchematicV2(doc: CircuitDocV2): SchematicLayoutV2 {
     const ordinalKey = symbolKind === 'unsupported' ? '__unsupported' : part.type
     const ordinal = counts.get(ordinalKey) ?? 0
     counts.set(ordinalKey, ordinal + 1)
-    const x = part.type === 'board' ? 130 : ['led', 'diode'].includes(part.type) ? 680 : 440
-    const y = (symbolKind === 'unsupported' ? 530 : part.type === 'button' ? 320 : part.type === 'board' ? 230 : 140) + ordinal * 210
+    const x = part.type === 'board' ? 130 : symbolKind === 'potentiometer' ? 900 : ['led', 'diode'].includes(part.type) ? 680 : 440
+    const y = (symbolKind === 'unsupported' ? 530 : symbolKind === 'potentiometer' ? 320 : part.type === 'button' ? 320 : part.type === 'board' ? 230 : 140) + ordinal * 210
     // Show only connected board aliases, never inferred physical pin numbers.
     const pins = (definition?.pins ?? []).filter(pin => part.type !== 'board' || connectedNets.some(net => net.endpoints.has(`${part.id}:${pin.id}`)))
     const height = part.type === 'board' ? Math.max(260, pins.length * 90 + 20) : Math.max(100, Math.ceil(pins.length / 2) * 36)
     const width = part.type === 'board' ? 150 : 112
     const terminals = pins.map((pin, i) => {
-      const right = part.type === 'board' || i % 2 === 1
-      const tx = x + (right ? 1 : -1) * width / 2
-      const ty = part.type === 'board' ? y - (pins.length - 1) * 45 + i * 90 : y + Math.floor(i / 2) * 36
+      const sideTerminal = symbolKind !== 'potentiometer' || pin.id === 'wiper'
+      const right = part.type === 'board' || (symbolKind === 'potentiometer' ? pin.id !== 'gnd' : i % 2 === 1)
+      const tx = sideTerminal ? x + (right ? 1 : -1) * width / 2 : x
+      const ty = part.type === 'board' ? y - (pins.length - 1) * 45 + i * 90
+        : symbolKind === 'potentiometer' ? y + (pin.id === 'wiper' ? 0 : pin.id === 'vcc' ? -50 : 50)
+        : y + Math.floor(i / 2) * 36
       const key = `${part.id}:${pin.id}`
       pinPositions.set(key, [tx, ty])
       escapeDirections.set(key, right ? 1 : -1)

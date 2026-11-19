@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-18T03:30:06.838Z",
+  "at": "2026-11-18T15:25:17.218Z",
   "files": {
     "src/lib/waveformMeasure.ts": "7c767ea2518deb683a7598e8487421cc422836b73a2ccd9159fadf4f27d41adf",
     "tests/waveform-measure.test.mjs": "dfd24ca62549e3e278f0c0e741aa85c295508e71847bfdd06125450a38d68d07"
@@ -10,12 +10,43 @@
       "tests/waveform-measure.test.mjs"
     ],
     "parallelLeaseChanges": [
+      "src/components/builder/BreadboardDiagram.tsx",
+      "src/components/builder/BreadboardEditor.css",
+      "src/components/builder/BreadboardEditor.tsx",
+      "src/components/builder/BuilderLessonPicker.tsx",
+      "src/components/builder/CircuitPartInspector.tsx",
+      "src/components/freestyle/FreestyleAssemblyView.tsx",
+      "src/components/freestyle/FreestyleBench.css",
       "src/components/freestyle/FreestyleBench.tsx",
-      "src/components/freestyle/FreestyleWaveform.tsx",
       "src/components/freestyle/FreestyleWaveform.css",
+      "src/components/freestyle/FreestyleWaveform.tsx",
+      "src/components/guide/GuidePanel.tsx",
+      "src/components/learning/BeginnerTeacherPack.css",
+      "src/components/learning/BeginnerTeacherPack.tsx",
+      "src/components/lesson/LessonBoardChooser.css",
+      "src/components/lesson/LessonBoardChooser.tsx",
+      "src/data/board-pin-anchors.json",
+      "src/lib/assemblyLayout.ts",
+      "src/lib/beginnerTeacherPack.ts",
+      "src/lib/freestyle/freestyleAssembly.ts",
       "src/lib/freestyle/freestyleTraceMeasure.ts",
+      "src/lib/guideKnowledge.ts",
+      "src/lib/guideSearch.ts",
+      "src/pages/BeginnerLearningPage.tsx",
+      "src/pages/CircuitBuilderPage.tsx",
+      "src/pages/LessonPage.tsx",
+      "src/pages/LessonPreflightPage.css",
+      "src/pages/LessonPreflightPage.tsx",
+      "src/pages/TopicsPage.tsx",
+      "tests/assembly-v2.test.mjs",
+      "tests/beginner-teacher-pack.test.mjs",
+      "tests/freestyle-assembly.test.mjs",
       "tests/freestyle-trace-measure.test.mjs",
-      "e2e/freestyle-waveform-measure.spec.mjs"
+      "tests/guide-tester-feedback.test.mjs",
+      "e2e/beginner-teacher-pack.spec.mjs",
+      "e2e/circuit-tester-feedback.spec.mjs",
+      "e2e/freestyle-waveform-measure.spec.mjs",
+      "e2e/lesson-tester-feedback.spec.mjs"
     ],
     "unexpected": [],
     "missing": []

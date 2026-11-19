@@ -3,8 +3,9 @@ import { createNetIndexV2 } from '../circuitNetsV2'
 import { canMount, footprintHoles, occupancy, resolvePartGeometry } from '../mountResolve'
 import { formatHole, holeNet, type GridHole } from '../breadboardGrid'
 import { sketchBoards } from '../sketchInterpreter'
-import type { CircuitDocV2, CircuitEndpointV2, CircuitPartV2 } from '../circuitDocV2'
+import { validateCircuitDoc, type CircuitDocV2, type CircuitEndpointV2, type CircuitPartV2 } from '../circuitDocV2'
 import type { LivePinState } from '../avrLiveMachine'
+import { readWireLayout, type FreestyleWireLayout } from './freestyleWireLayout'
 
 /**
  * Bàn lắp mạch tự do (2026-11-14): board tự chọn, linh kiện tự đặt, dây tự nối, code tự viết.
@@ -88,7 +89,10 @@ export function createEmptyFreestyleDoc(): CircuitDocV2 {
   }
 }
 
-const withExpect = (doc: CircuitDocV2): CircuitDocV2 => ({ ...doc, expect: { ...doc.expect, partCount: doc.parts.length, wireCount: doc.wires.length } })
+function withExpect(doc: CircuitDocV2): CircuitDocV2 {
+  const netCount = createNetIndexV2(doc).netsList().filter(net => net.endpoints.size > 1 || net.wireIds.size > 0).length
+  return { ...doc, expect: { ...doc.expect, partCount: doc.parts.length, wireCount: doc.wires.length, netCount } }
+}
 
 export function nextId(doc: CircuitDocV2, base: string): string {
   const used = new Set([...doc.parts.map(part => part.id), ...doc.wires.map(wire => wire.id)])
@@ -530,6 +534,7 @@ export type FreestyleWorkspace = {
   code: string
   sampleId?: FreestyleSampleId
   updatedAt: string
+  wireLayout?: FreestyleWireLayout
 }
 
 export function defaultFreestyleWorkspace(boardId = 'arduino-uno-r3', sampleId: FreestyleSampleId = 'blink'): FreestyleWorkspace {
@@ -565,10 +570,13 @@ export function parseFreestyleWorkspace(raw: string | null): FreestyleWorkspace 
     if (value.boardId && (!freestyleBoards.some(board => board.id === value.boardId) || !doc.parts.some(part => part?.type === 'board'))) return null
     if (!value.boardId && doc.parts.some(part => part?.type === 'board')) return null
     if (!doc.parts.every(part => typeof part?.id === 'string' && componentRegistry.some(item => item.id === part.type))) return null
+    if (validateCircuitDoc({ ...doc, lessonId: 'freestyle' }).some(issue => issue.severity === 'error')) return null
     const board = getFreestyleBoard(value.boardId)
     const pinMap = { ...board.defaultPins }
     for (const signal of SIGNAL_PINS) if (Number.isInteger(value.pinMap?.[signal])) pinMap[signal] = Number(value.pinMap![signal])
     const language = board.languages.includes(value.language as FreestyleLanguage) ? value.language as FreestyleLanguage : board.languages[0]
-    return { version: 1, boardId: value.boardId, doc: { ...doc, lessonId: 'freestyle' }, pinMap, language, code: value.code, ...(value.sampleId ? { sampleId: value.sampleId } : {}), updatedAt: typeof value.updatedAt === 'string' ? value.updatedAt : new Date(0).toISOString() }
+    const wireLayout = readWireLayout(value.wireLayout, doc.wires)
+    const sampleId = freestyleSamples.find(sample => sample.id === value.sampleId)?.id
+    return { version: 1, boardId: value.boardId, doc: { ...doc, lessonId: 'freestyle' }, pinMap, language, code: value.code, ...(wireLayout ? { wireLayout } : {}), ...(sampleId ? { sampleId } : {}), updatedAt: typeof value.updatedAt === 'string' ? value.updatedAt : new Date(0).toISOString() }
   } catch { return null }
 }

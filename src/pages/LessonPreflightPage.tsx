@@ -14,7 +14,7 @@ import { getLessonPreflight, getPreflightBoardNotice } from '../lib/lessonPrefli
 import { useLearningProgress } from '../lib/useLearningProgress'
 import { useProductRoute } from '../lib/useProductRoute'
 import './LessonPreflightPage.css'
-import {LessonBoardChooser} from '../components/lesson/LessonBoardChooser'
+import {LessonBoardChooser, LessonNavigation} from '../components/lesson/LessonBoardChooser'
 import {resolveLessonBoardChoice} from '../lib/lessonBoardSelection'
 
 export function LessonPreflightPage() {
@@ -45,7 +45,7 @@ export function LessonPreflightPage() {
   const requestedBoard = boardId
   const buttonBoardNotice = boardNotice ?? (requestedBoard === '' ? { kind: 'unknown' as const, message: 'Liên kết chưa chỉ định board. Hãy chọn board cho bài học.' } : undefined)
 
-  if (validLesson === 'button-led') return <ButtonLedLessonLab
+  if (validLesson === 'button-led') return <><div className="lesson-preflight-navigation"><LessonNavigation lessonId={validLesson} boardId={boardId}/></div><ButtonLedLessonLab
     preflight={preflight}
     boardId={buttonBoardNotice ? requestedBoard ?? boardId : boardId}
     boardNotice={buttonBoardNotice}
@@ -58,9 +58,10 @@ export function LessonPreflightPage() {
     next={next && { title: next.title, to: entry(next.id) }}
     progress={progress}
     routeFor={productRoute}
-  />
+  /></>
 
   return <div className="lesson-preflight">
+    <LessonNavigation lessonId={validLesson} boardId={boardId}/>
     <nav className="lesson-preflight-trail" aria-label="Vị trí trong lộ trình"><Link to={productRoute('/topics')}>Lộ trình</Link><span aria-hidden="true">/</span><span>Chặng {stageIndex + 1} · {learningStages[stageIndex]?.title}</span></nav>
     <header className="lesson-preflight-hero">
       <div>
@@ -70,7 +71,8 @@ export function LessonPreflightPage() {
       </div>
       <aside aria-label="Bắt đầu bài">
         {boardNotice && <p className="lesson-preflight-locked" role="status">{boardNotice.message}{boardNotice.boardRoute && <> <Link to={productRoute(boardNotice.boardRoute)}>Xem hồ sơ board</Link></>}</p>}
-        <label>Board của bạn<select value={target.boardId} onChange={(event) => setSearchParams({ board: event.target.value }, { replace: true })}>{boardOptions.map((id) => <option key={id} value={id}>{getSimulationTarget(id).name}</option>)}</select></label>
+        <label htmlFor="lesson-preflight-board-choice">Board của bạn</label>
+        <select id="lesson-preflight-board-choice" value={target.boardId} onChange={(event) => setSearchParams({ board: event.target.value }, { replace: true })}>{boardOptions.map((id) => <option key={id} value={id}>{getSimulationTarget(id).name}</option>)}</select>
         {support.supported ? <Link className="button-primary" to={productRoute(startRoute)}>Bắt đầu thực hành <span aria-hidden="true">↗</span></Link> : <p className="lesson-preflight-locked" role="status">{support.reason}</p>}
         <small>Mở trong phòng thử theo phiên riêng của tab này; workspace chính không bị thay đổi.</small>
       </aside>
@@ -87,7 +89,7 @@ export function LessonPreflightPage() {
         <p className="lesson-preflight-note">Danh sách lấy từ mạch mẫu của bài; dây nối và breadboard tùy cách bạn lắp.</p>
       </section>
 
-      <section aria-labelledby="preflight-board"><h2 id="preflight-board">Board và nguồn dữ liệu</h2>
+      <details className="lesson-preflight-details"><summary>Board và nguồn dữ liệu</summary><section aria-labelledby="preflight-board"><h2 id="preflight-board">Board và nguồn dữ liệu</h2>
         <dl className="lesson-preflight-facts">
           <div><dt>Board</dt><dd>{target.name}</dd></div>
           <div><dt>Bản tham chiếu</dt><dd>{revision}</dd></div>
@@ -98,14 +100,14 @@ export function LessonPreflightPage() {
         {sourceUrl && <a className="lesson-preflight-source" href={sourceUrl} target="_blank" rel="noreferrer">Xem nguồn board <span aria-hidden="true">↗</span></a>}
         <p className="lesson-preflight-note">{lesson.boardProfile}</p>
         {hasBoardViewer ? <Link className="lesson-preflight-source" to={productRoute(boardRoute)}>Xem board 3D và nguồn CAD <span aria-hidden="true">→</span></Link> : <p className="lesson-preflight-note">Board này chưa có mô hình 3D tương tác.</p>}
-      </section>
+      </section></details>
 
-      <section className="lesson-preflight-wide" aria-labelledby="preflight-pins"><h2 id="preflight-pins">Nối chân trong mạch mẫu</h2>
+      <details className="lesson-preflight-wide lesson-preflight-details"><summary>Nối chân trong mạch mẫu</summary><section aria-labelledby="preflight-pins"><h2 id="preflight-pins">Nối chân trong mạch mẫu</h2>
         {pins.length ? <div className="lesson-preflight-table"><table>
           <thead><tr><th scope="col">Chân board</th><th scope="col">Nối tới</th><th scope="col">Nguồn dữ liệu</th></tr></thead>
           <tbody>{pins.map((pin) => <tr key={`${pin.boardPinId}-${pin.partLabel}-${pin.partPinLabel}`}><th scope="row">{pin.boardLabel}</th><td>{pin.partLabel} · {pin.partPinLabel}</td><td>{pin.sourceBacked ? 'Có nguồn tài liệu cho board này' : pin.boardPinId === 'gnd' || pin.boardPinId === 'vcc' ? 'Chân nguồn, xem vị trí trên board' : 'Alias học tập, cần đối chiếu'}</td></tr>)}</tbody>
         </table></div> : <p className="lesson-preflight-note">{support.supported ? 'Bài này là mạch khối chức năng, không nối vào chân MCU.' : 'Chưa có bảng chân đã xác minh cho board này, nên bảng được để trống.'}</p>}
-      </section>
+      </section></details>
 
       <section aria-labelledby="preflight-sim"><h2 id="preflight-sim">Mô phỏng làm được gì</h2>
         <p><CapabilityBadge id={lesson.simulationMode === 'code-subset' ? 'behavior-simulation' : 'concept-illustration'} /></p>

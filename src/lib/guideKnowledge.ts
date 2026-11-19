@@ -20,6 +20,26 @@ const article = (id: string, title: string, aliases: string[], paragraphs: strin
 
 /** Curated, local explanations. This is retrieval, not a generative AI or an electrical checker. */
 export const GUIDE_ARTICLES: readonly GuideArticle[] = [
+  article('debug-led','Kiểm tra LED không sáng',[],[
+    'Chọn LED trên mạch 2D để xem anode và cathode. Lần từ chân OUTPUT qua điện trở nối tiếp tới anode, rồi từ cathode về GND. Trên breadboard, kiểm tra hai điểm cắm có chung dải và có bị tách bởi rãnh giữa.',
+    'Chạy lại code rồi mở dạng sóng. Nếu chân OUTPUT không đổi mức như mong đợi, đối chiếu số chân và nhánh code. Nếu mức đã đúng, kiểm tra lại net, đầu dây và chiều LED. Kết quả của trình thông dịch hoặc emulator chỉ xác nhận hành vi mô phỏng.',
+  ],'/build/freestyle','Mở bàn mạch để kiểm tra',['src/lib/freestyle/freestyleCircuit.ts','src/components/builder/BreadboardEditor.tsx']),
+  article('edit-value','Đổi trị số điện trở hoặc tụ điện',[],[
+    'Chọn thân linh kiện trên mạch lắp 2D. Nhập trị số lớn hơn 0, chọn đơn vị rồi bấm Áp dụng. Trong bài mẫu chỉ đọc, tạo bản nháp trước khi đổi.',
+    'Bàn mạch cập nhật trị số trên hình lắp và sơ đồ. Để xem dòng điện hoặc quá trình nạp/xả, dùng mạch analog tương đương trong công cụ SPICE.',
+  ],'/build/freestyle','Mở bàn lắp mạch',['src/components/builder/CircuitPartInspector.tsx']),
+  article('wheel-zoom','Thu phóng khi lắp mạch',[],[
+    'Đưa con trỏ vào vùng mạch 2D rồi cuộn lên để phóng to hoặc cuộn xuống để thu nhỏ. Dùng hai nút −/+ bằng bàn phím hoặc chọn Vừa khung 2D để lấy lại toàn cảnh.',
+    'Rê chuột lên dấu chân board hoặc Tab tới chân để đọc nhãn. Tọa độ và nhãn trên mạch theo đúng hồ sơ board đang chọn.',
+  ],'/build/freestyle','Mở mạch 2D',['src/components/builder/BreadboardDiagram.tsx']),
+  article('live-waveform','Xem tín hiệu ngay khi chạy mạch',[],[
+    'Trong bàn tự do, bấm Chạy. Khi runtime trả mẫu GPIO, cửa sổ dạng sóng mở cạnh mạch. Có thể đóng cửa sổ rồi mở lại ở tab Dạng sóng hoặc mục Dạng sóng đã thu.',
+    'Chọn một kênh và đặt A/B để đọc mức HIGH/LOW tại mẫu và khoảng cách giữa hai mốc thời gian. Vì chỉ lấy mẫu, một số xung nhanh có thể nằm giữa hai mốc.',
+  ],'/build/freestyle','Mở bàn mạch có dạng sóng',['src/components/freestyle/FreestyleBench.tsx','src/components/freestyle/FreestyleWaveform.tsx']),
+  article('pwm-meaning','Đọc tín hiệu PWM trên dạng sóng',[],[
+    'PWM bật và tắt theo chu kỳ. Duty là tỉ lệ thời gian ở mức HIGH trong một chu kỳ. Tải và mạch lọc quyết định tác động của chuỗi xung lên hệ thống.',
+    'Ở bàn tự do, phần trăm PWM là dữ liệu runtime cung cấp. Các điểm GPIO lấy mẫu hiện tại dùng để đọc mức tại A/B và khoảng thời gian giữa hai mẫu.',
+  ],'/build/freestyle','Xem mức logic theo thời gian',['src/lib/freestyle/freestyleTraceMeasure.ts','src/components/freestyle/FreestyleWaveform.tsx']),
   article('led','Vì sao LED cần điện trở?',['led','đèn không sáng','hạn dòng','diode phát sáng'],[
     'LED là diode phát sáng, có cực anode và cathode. Trong bài LED, dòng đi qua điện trở nối tiếp rồi qua LED về GND. Đổi cực LED có thể làm đường dẫn không hoạt động.',
     'Điện trở hạn dòng; giá trị phù hợp phụ thuộc nguồn, điện áp thuận của LED và dòng mục tiêu. Không dùng một giá trị của bài mẫu cho mọi LED hoặc mọi nguồn. Hãy mở bộ tính LED để xem các giả định.'
@@ -29,8 +49,8 @@ export const GUIDE_ARTICLES: readonly GuideArticle[] = [
     'Ví dụ LED và cầu chia áp LDR trong Mạch Mở dùng các biến thể khác nhau. Trị số trong mạch đang mở mới là căn cứ; khi chưa xác nhận, giữ là chưa biết. Mạch thật còn phải kiểm tra dung sai và công suất.'
   ],'/components','Hồ sơ điện trở trong thư viện',['src/data/componentRegistry.ts: resistorVariants']),
   article('breadboard','Các lỗ breadboard nối với nhau thế nào?',['breadboard','bảng cắm','lỗ cắm','dải nối'],[
-    'Trong mô hình breadboard hiện tại, năm lỗ a–e cùng một cột nối với nhau; năm lỗ f–j tạo một nhóm riêng. Rãnh giữa tách hai nửa. Hai cột cạnh nhau không tự nối.',
-    'Các lỗ trên cùng một ray nguồn được mô hình hóa là nối chung theo cấu hình. Số lỗ và cách chia ray là giả định của mẫu giáo dục; breadboard thật có thể khác, cần kiểm tra thông mạch khi chưa cấp điện.',
+    'Trong vùng cắm linh kiện của mô hình, mỗi cột có hai nhóm độc lập. Năm lỗ a–e nối với nhau. Năm lỗ f–j nối với nhau thành nhóm thứ hai của chính cột đó. Rãnh giữa tách hai nhóm. Hai cột cạnh nhau không tự nối.',
+    'Các ray nguồn ở mép breadboard, bên ngoài vùng a–j. Mỗi ray thuộc net riêng theo cấu hình và không nối sẵn với các nhóm lỗ a–j. Số lỗ và cách chia ray là giả định của mô hình. Hãy kiểm tra thông mạch trên bo thật khi chưa cấp điện.',
     'Chọn một chân rồi chọn lỗ đích để nối dây. Chọn dây để xem, đổi hoặc xóa kết nối; rút dây trong mô hình không chứng minh rằng mạch thật đã mất điện.'
   ],'/build','Thực hành breadboard theo bài',['src/lib/breadboardGrid.ts','src/components/builder/BreadboardDiagram.tsx']),
   article('ground','Vì sao cần GND chung?',['gnd','ground','mass','đất chung','gnd chung'],[
@@ -58,7 +78,7 @@ export const GUIDE_ARTICLES: readonly GuideArticle[] = [
     'Công cụ firmware chạy các target/artifact được công bố riêng. SPICE giải mạch analog với netlist và model tương thích. Một hình 3D đẹp hay đường đồng được tô sáng không phải kết quả solver hoặc phép đo trên kit.'
   ],'/tools/spice','Công cụ SPICE và phạm vi model',['src/simulation/contracts.ts','src/lib/simulationProviders.ts']),
   article('wires','Cách chọn và sửa dây nối',['dây nối','nối dây','xóa dây','chọn dây','wire'],[
-    'Trong bề mặt lắp mạch có thể chỉnh sửa, chọn chân hoặc lỗ bắt đầu rồi chọn điểm kết thúc. Chọn dây để xem kết nối và các thao tác được phép trong ngữ cảnh đó.',
+    'Trong mạch chỉnh sửa được, chọn hai điểm để nối. Chọn dây và dùng Đổi điểm bắt đầu hoặc Đổi điểm kết thúc để sửa kết nối. Kéo chốt trên dây (hoặc dùng phím mũi tên) để đổi đường hiển thị trong khung, giữ nguyên kết nối.',
     'Mạch xem trước theo bài có thể chỉ đọc. Nếu chưa có nút sửa, hãy mở bản nháp hoặc bàn tự do thay vì coi đó là lỗi mất dây. Các view cùng mạch dùng chung định danh chân và net.'
   ],'/build/freestyle','Mở bàn lắp mạch tự do',['src/components/builder/BreadboardDiagram.tsx','src/components/freestyle/FreestyleBench.tsx']),
   article('serial','Đọc Serial Monitor thế nào?',['serial','serial monitor','serial print','uart'],[
@@ -83,7 +103,7 @@ export const GUIDE_ARTICLES: readonly GuideArticle[] = [
   ],'/components','Tra cứu motor và driver',['src/data/componentRegistry.ts: dc-motor, h-bridge']),
   article('save','Bản nháp và dữ liệu được lưu ở đâu?',['lưu','bản nháp','offline','mất dữ liệu','dự án'],[
     'Mạch Mở ưu tiên làm việc cục bộ. Tùy bề mặt, bản nháp có thể nằm trong bộ nhớ của trình duyệt hoặc phiên tab; hãy đọc trạng thái lưu cạnh công cụ.',
-    'Xóa dữ liệu trang hoặc đổi trình duyệt có thể làm mất dữ liệu cục bộ. Xuất project để giữ một bản sao. Mở chỉ giữ câu hỏi trong phiên giao diện hiện tại và không gửi chúng lên dịch vụ AI.'
+    'Xóa dữ liệu trang hoặc đổi trình duyệt có thể làm mất dữ liệu cục bộ. Xuất project để giữ một bản sao. Câu hỏi tra cứu nằm trong phiên giao diện. Hỏi AI chỉ gửi khi bạn bấm Gửi tới AI trên máy, qua Ollama cục bộ.'
   ],'/projects','Quản lý và xuất dự án',['src/lib/workspaceStorage.ts','src/pages/PrivacyPage.tsx']),
   article('views','Breadboard, schematic, 3D và PCB',['schematic','sơ đồ nguyên lý','3d','pcb','đường đồng'],[
     'Breadboard thể hiện điểm cắm; schematic trình bày ký hiệu và kết nối; 3D giúp quan sát hình dạng. Hãy dùng view phù hợp với câu hỏi bạn đang tìm hiểu.',

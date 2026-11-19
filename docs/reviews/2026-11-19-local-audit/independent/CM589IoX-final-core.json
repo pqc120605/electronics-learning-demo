@@ -1,0 +1,145 @@
+{
+  "snapshot": {
+    "executedAt": "2026-11-18T19:25:19.404Z",
+    "browser": "156.0.8078.4",
+    "host": "win32",
+    "baseURL": "http://127.0.0.1:5320",
+    "label": "CM589IoX-final",
+    "entrySha256": "fe96cb59f3c33e41ac659b12535ba30dc6371005eea8326fb83a12330d30a188",
+    "manifest": [
+      {
+        "asset": "/assets/index-CM589IoX.js",
+        "sha256": "512cbd53fa6dfb0a52eacf3c69a9eb52f47616a9a6bf6d362b790dbaf359c740"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "first-experiment",
+      "width": 375,
+      "status": "FAIL",
+      "artifacts": [
+        "CM589IoX-final-failure-first-experiment-375.png"
+      ],
+      "failure": "TimeoutError: page.goto: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:5320/\", waiting until \"load\"\u001b[22m\n",
+      "route": "/",
+      "pageErrors": []
+    },
+    {
+      "name": "mini-project",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-project-library-375.png"
+      ],
+      "observed": "Ran a virtual Uno observation, named and saved a snapshot, opened Projects, made an independent copy, canceled a replacement then accepted it and reloaded the original report using the legacy active key.",
+      "viewport": {
+        "available": 375,
+        "used": 375
+      },
+      "route": "/app/learn/mini-project",
+      "pageErrors": []
+    },
+    {
+      "name": "wire-recovery",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-wire-resumed-375.png"
+      ],
+      "observed": "Changed bend with keyboard, undid it, persisted it across views and navigation, exported and reopened it, refused malformed JSON, reopened a legacy-shaped draft, then restored a removed wire with Undo.",
+      "viewport": {
+        "available": 375,
+        "used": 375
+      },
+      "route": "/app/lab/freestyle?resume=1",
+      "pageErrors": []
+    },
+    {
+      "name": "spice-divider",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-spice-divider-375.png"
+      ],
+      "outcome": "Ngspice · V(OUT) = 2,5 V\n\nDự đoán 2,4 V · Chênh lệch 0,1 V.\n\nR1 và R2 bằng nhau nên mỗi điện trở nhận một nửa điện áp nguồn trong mạch này. Chọn nút OUT trên sơ đồ kết quả để xem điểm đo.",
+      "observed": "Rejected a 6 V guess, logged 2.4 V, ran local ngspice and observed 2.5 V / 0.1 V difference and the out probe. The exercise cleared on changing preset or editing netlist.",
+      "viewport": {
+        "available": 375,
+        "used": 375
+      },
+      "route": "/app/tools/spice",
+      "pageErrors": []
+    },
+    {
+      "name": "first-experiment",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-home-1440.png",
+        "CM589IoX-final-first-result-1440.png"
+      ],
+      "wrongPredictionFeedback": "LED tắt\n\nLED tắt theo mô hình. Kiểm tra đường hồi và chiều LED.\n\nQuan sát khác dự đoán. Thử giải thích rồi dự đoán lại.\n\nNguồn: kiểm tra kết nối.\n\nNguồn (+) → đầu a điện trở: đã nối.\nĐầu b điện trở → anode LED: đã nối.\nCathode LED → nguồn (−): đường hồi hở hoặc LED đảo chiều.\nĐối chiếu topology của mạch mẫu; chưa tính điện áp hay dòng điện.",
+      "observed": "Fresh guest reached closed-loop activity, model showed LED off and on, explanation earned 1/5, next activity reopened from home.",
+      "viewport": {
+        "available": 1440,
+        "used": 1440
+      },
+      "route": "/app/learn/basics",
+      "pageErrors": []
+    },
+    {
+      "name": "mini-project",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-project-library-1440.png"
+      ],
+      "observed": "Ran a virtual Uno observation, named and saved a snapshot, opened Projects, made an independent copy, canceled a replacement then accepted it and reloaded the original report using the legacy active key.",
+      "viewport": {
+        "available": 1440,
+        "used": 1440
+      },
+      "route": "/app/learn/mini-project",
+      "pageErrors": []
+    },
+    {
+      "name": "wire-recovery",
+      "width": 1440,
+      "status": "FAIL",
+      "artifacts": [
+        "CM589IoX-final-failure-wire-recovery-1440.png"
+      ],
+      "failure": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('heading', { name: 'Tự lắp mạch, tự viết code, bấm Chạy', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" getByRole('heading', { name: 'Tự lắp mạch, tự viết code, bấm Chạy', exact: true }) with timeout 5000ms\n  - waiting for getByRole('heading', { name: 'Tự lắp mạch, tự viết code, bấm Chạy', exact: true })\n",
+      "route": "/app/lab/freestyle",
+      "pageErrors": []
+    },
+    {
+      "name": "spice-divider",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-spice-divider-1440.png"
+      ],
+      "outcome": "Ngspice · V(OUT) = 2,5 V\n\nDự đoán 2,4 V · Chênh lệch 0,1 V.\n\nR1 và R2 bằng nhau nên mỗi điện trở nhận một nửa điện áp nguồn trong mạch này. Chọn nút OUT trên sơ đồ kết quả để xem điểm đo.",
+      "observed": "Rejected a 6 V guess, logged 2.4 V, ran local ngspice and observed 2.5 V / 0.1 V difference and the out probe. The exercise cleared on changing preset or editing netlist.",
+      "viewport": {
+        "available": 1440,
+        "used": 1440
+      },
+      "route": "/app/tools/spice",
+      "pageErrors": []
+    },
+    {
+      "name": "portfolio-resilience",
+      "width": 1440,
+      "status": "FAIL",
+      "artifacts": [
+        "CM589IoX-final-failure-portfolio-resilience-1440.png"
+      ],
+      "failure": "TimeoutError: page.goto: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:5320/app/learn/mini-project\", waiting until \"load\"\u001b[22m\n",
+      "route": "/app/learn/mini-project",
+      "pageErrors": []
+    }
+  ]
+}

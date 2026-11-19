@@ -1,0 +1,1677 @@
+{
+  "startedAt": "2026-11-18T19:26:13.847Z",
+  "base": "http://127.0.0.1:5320",
+  "browser": "156.0.8078.4",
+  "routes": [
+    {
+      "name": "home",
+      "route": "/",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Mạch Mở — Học Điện tử qua thực hành",
+      "heading": "Từ linh kiện nhỏ\nđến thế giới thông minh.",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 3027,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/home.png",
+      "axe": []
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Mạch Mở — Học Điện tử qua thực hành",
+      "heading": "Từ linh kiện nhỏ\nđến thế giới thông minh.",
+      "layout": {
+        "pageWidth": 375,
+        "height": 4269,
+        "nestedScroll": 1
+      },
+      "image": "screenshots/routes/375/home.png",
+      "axe": []
+    },
+    {
+      "name": "workspace",
+      "route": "/app",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Không gian học — Mạch Mở",
+      "heading": "Học điện tử bằng cách lắp, đọc và thử.",
+      "layout": {
+        "pageWidth": 375,
+        "height": 6887,
+        "nestedScroll": 1
+      },
+      "image": "screenshots/routes/375/workspace.png",
+      "axe": []
+    },
+    {
+      "name": "workspace",
+      "route": "/app",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Không gian học — Mạch Mở",
+      "heading": "Học điện tử bằng cách lắp, đọc và thử.",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 4633,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/workspace.png",
+      "axe": []
+    },
+    {
+      "name": "topics",
+      "route": "/app/learn",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Chủ đề học — Mạch Mở",
+      "heading": "Chủ đề học",
+      "layout": {
+        "pageWidth": 375,
+        "height": 3326,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/topics.png"
+    },
+    {
+      "name": "topics",
+      "route": "/app/learn",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Chủ đề học — Mạch Mở",
+      "heading": "Chủ đề học",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 2297,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/topics.png"
+    },
+    {
+      "name": "foundation",
+      "route": "/learn/basics",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Nền tảng điện tử — Mạch Mở",
+      "heading": "Nền tảng điện tử",
+      "layout": {
+        "pageWidth": 375,
+        "height": 2773,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/foundation.png",
+      "axe": []
+    },
+    {
+      "name": "foundation",
+      "route": "/learn/basics",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Nền tảng điện tử — Mạch Mở",
+      "heading": "Nền tảng điện tử",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 2000,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/foundation.png",
+      "axe": []
+    },
+    {
+      "name": "lesson-choice",
+      "route": "/learn/button-led",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Chuẩn bị bài học — Mạch Mở",
+      "heading": "Nút nhấn điều khiển LED",
+      "layout": {
+        "pageWidth": 375,
+        "height": 1099,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/lesson-choice.png"
+    },
+    {
+      "name": "lesson-choice",
+      "route": "/learn/button-led",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Chuẩn bị bài học — Mạch Mở",
+      "heading": "Nút nhấn điều khiển LED",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 913,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/lesson-choice.png"
+    },
+    {
+      "name": "led-lesson",
+      "route": "/learn/esp32-led?board=esp32-devkit",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Làm đèn LED với ESP32 — Mạch Mở",
+      "heading": "Làm đèn LED nhấp nháy với ESP32",
+      "layout": {
+        "pageWidth": 375,
+        "height": 5211,
+        "nestedScroll": 1
+      },
+      "image": "screenshots/routes/375/led-lesson.png"
+    },
+    {
+      "name": "led-lesson",
+      "route": "/learn/esp32-led?board=esp32-devkit",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Làm đèn LED với ESP32 — Mạch Mở",
+      "heading": "Làm đèn LED nhấp nháy với ESP32",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 900,
+        "nestedScroll": 4
+      },
+      "image": "screenshots/routes/1440/led-lesson.png"
+    },
+    {
+      "name": "lesson-lab",
+      "route": "/build?lesson=button-led&board=esp32-devkit",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Lắp mạch & mô phỏng — Mạch Mở",
+      "heading": "Nút nhấn điều khiển LED",
+      "layout": {
+        "pageWidth": 375,
+        "height": 6782,
+        "nestedScroll": 4
+      },
+      "image": "screenshots/routes/375/lesson-lab.png"
+    },
+    {
+      "name": "lesson-lab",
+      "route": "/build?lesson=button-led&board=esp32-devkit",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Lắp mạch & mô phỏng — Mạch Mở",
+      "heading": "Nút nhấn điều khiển LED",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 900,
+        "nestedScroll": 4
+      },
+      "image": "screenshots/routes/1440/lesson-lab.png"
+    },
+    {
+      "name": "capstone",
+      "route": "/app/learn/mini-project",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Đèn cảnh báo theo ngưỡng — Mạch Mở",
+      "heading": "Đèn cảnh báo theo ngưỡng",
+      "layout": {
+        "pageWidth": 375,
+        "height": 1762,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/capstone.png",
+      "axe": []
+    },
+    {
+      "name": "capstone",
+      "route": "/app/learn/mini-project",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Đèn cảnh báo theo ngưỡng — Mạch Mở",
+      "heading": "Đèn cảnh báo theo ngưỡng",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 1287,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/capstone.png",
+      "axe": []
+    },
+    {
+      "name": "boards",
+      "route": "/app/boards",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Thư viện board — Mạch Mở",
+      "heading": "Chọn board để bắt đầu",
+      "layout": {
+        "pageWidth": 375,
+        "height": 7305,
+        "nestedScroll": 2
+      },
+      "image": "screenshots/routes/375/boards.png"
+    },
+    {
+      "name": "boards",
+      "route": "/app/boards",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Thư viện board — Mạch Mở",
+      "heading": "Chọn board để bắt đầu",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 10658,
+        "nestedScroll": 2
+      },
+      "image": "screenshots/routes/1440/boards.png"
+    },
+    {
+      "name": "copper",
+      "route": "/app/boards?board=esp32-devkit&view=2d",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Thư viện board — Mạch Mở",
+      "heading": "Chọn board để bắt đầu",
+      "layout": {
+        "pageWidth": 375,
+        "height": 6065,
+        "nestedScroll": 1
+      },
+      "image": "screenshots/routes/375/copper.png"
+    },
+    {
+      "name": "components",
+      "route": "/app/components",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Thư viện linh kiện — Mạch Mở",
+      "heading": "Linh kiện để thử và hiểu",
+      "layout": {
+        "pageWidth": 375,
+        "height": 5102,
+        "nestedScroll": 1
+      },
+      "image": "screenshots/routes/375/components.png"
+    },
+    {
+      "name": "copper",
+      "route": "/app/boards?board=esp32-devkit&view=2d",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Thư viện board — Mạch Mở",
+      "heading": "Chọn board để bắt đầu",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 10658,
+        "nestedScroll": 1
+      },
+      "image": "screenshots/routes/1440/copper.png"
+    },
+    {
+      "name": "components",
+      "route": "/app/components",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Thư viện linh kiện — Mạch Mở",
+      "heading": "Linh kiện để thử và hiểu",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 2777,
+        "nestedScroll": 1
+      },
+      "image": "screenshots/routes/1440/components.png"
+    },
+    {
+      "name": "freestyle",
+      "route": "/build/freestyle",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "heading": "Tự lắp mạch, tự viết code, bấm Chạy",
+      "layout": {
+        "pageWidth": 375,
+        "height": 946,
+        "nestedScroll": 1
+      },
+      "image": "screenshots/routes/375/freestyle.png",
+      "axe": []
+    },
+    {
+      "name": "freestyle",
+      "route": "/build/freestyle",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Bàn lắp mạch tự do — Mạch Mở",
+      "heading": "Tự lắp mạch, tự viết code, bấm Chạy",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 900,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/freestyle.png",
+      "axe": []
+    },
+    {
+      "name": "projects",
+      "route": "/app/projects",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Dự án thực hành — Mạch Mở",
+      "heading": "Dự án thực hành",
+      "layout": {
+        "pageWidth": 375,
+        "height": 7863,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/projects.png",
+      "axe": []
+    },
+    {
+      "name": "kit",
+      "route": "/app/classroom-kits",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Lớp học & bộ kit — Mạch Mở",
+      "heading": "Lên kế hoạch lớp thực hành",
+      "layout": {
+        "pageWidth": 375,
+        "height": 3964,
+        "nestedScroll": 1
+      },
+      "image": "screenshots/routes/375/kit.png"
+    },
+    {
+      "name": "projects",
+      "route": "/app/projects",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Dự án thực hành — Mạch Mở",
+      "heading": "Dự án thực hành",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 4748,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/projects.png",
+      "axe": []
+    },
+    {
+      "name": "kit",
+      "route": "/app/classroom-kits",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Lớp học & bộ kit — Mạch Mở",
+      "heading": "Lên kế hoạch lớp thực hành",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 2213,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/kit.png"
+    },
+    {
+      "name": "calculator",
+      "route": "/app/tools/calculators",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Công cụ tính điện tử — Mạch Mở",
+      "heading": "Tính nhanh, hiểu rõ giả định.",
+      "layout": {
+        "pageWidth": 375,
+        "height": 3244,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/calculator.png"
+    },
+    {
+      "name": "calculator",
+      "route": "/app/tools/calculators",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Công cụ tính điện tử — Mạch Mở",
+      "heading": "Tính nhanh, hiểu rõ giả định.",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 1379,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/calculator.png"
+    },
+    {
+      "name": "spice",
+      "route": "/app/tools/spice",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Mô phỏng SPICE — Mạch Mở",
+      "heading": "Thử mạch analog trên solver thật.",
+      "layout": {
+        "pageWidth": 375,
+        "height": 2833,
+        "nestedScroll": 1
+      },
+      "image": "screenshots/routes/375/spice.png",
+      "axe": []
+    },
+    {
+      "name": "spice",
+      "route": "/app/tools/spice",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Mô phỏng SPICE — Mạch Mở",
+      "heading": "Thử mạch analog trên solver thật.",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 2202,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/spice.png",
+      "axe": []
+    },
+    {
+      "name": "sketch",
+      "route": "/app/tools/sketch",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "heading": "Chạy code Arduino / ESP32",
+      "layout": {
+        "pageWidth": 375,
+        "height": 1538,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/sketch.png"
+    },
+    {
+      "name": "sketch",
+      "route": "/app/tools/sketch",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+      "heading": "Chạy code Arduino / ESP32",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 900,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/sketch.png"
+    },
+    {
+      "name": "hex",
+      "route": "/app/tools/firmware",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Kiểm tra firmware HEX — Mạch Mở",
+      "heading": "Kiểm tra tệp Intel HEX",
+      "layout": {
+        "pageWidth": 375,
+        "height": 1884,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/hex.png"
+    },
+    {
+      "name": "hex",
+      "route": "/app/tools/firmware",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Kiểm tra firmware HEX — Mạch Mở",
+      "heading": "Kiểm tra tệp Intel HEX",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 1200,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/hex.png"
+    },
+    {
+      "name": "robot",
+      "route": "/app/robot-simulation",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Khám phá robot · mô phỏng khái niệm — Mạch Mở",
+      "heading": "Khám phá chuyển động của robot",
+      "layout": {
+        "pageWidth": 375,
+        "height": 2024,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/robot.png"
+    },
+    {
+      "name": "robot",
+      "route": "/app/robot-simulation",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Khám phá robot · mô phỏng khái niệm — Mạch Mở",
+      "heading": "Khám phá chuyển động của robot",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 1403,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/robot.png"
+    },
+    {
+      "name": "community",
+      "route": "/app/community",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Cộng đồng — Mạch Mở",
+      "heading": "Cộng đồng điện tử, nhúng & IoT",
+      "layout": {
+        "pageWidth": 375,
+        "height": 3460,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/community.png"
+    },
+    {
+      "name": "community",
+      "route": "/app/community",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Cộng đồng — Mạch Mở",
+      "heading": "Cộng đồng điện tử, nhúng & IoT",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 1890,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/community.png"
+    },
+    {
+      "name": "community-editor",
+      "route": "/app/community/new",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Viết bài mới — Cộng đồng Mạch Mở",
+      "heading": "Viết bài mới",
+      "layout": {
+        "pageWidth": 375,
+        "height": 2004,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/community-editor.png",
+      "axe": []
+    },
+    {
+      "name": "community-editor",
+      "route": "/app/community/new",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Viết bài mới — Cộng đồng Mạch Mở",
+      "heading": "Viết bài mới",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 1145,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/community-editor.png",
+      "axe": []
+    },
+    {
+      "name": "feedback",
+      "route": "/app/feedback",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Góp ý & báo lỗi — Mạch Mở",
+      "heading": "Góp ý & báo lỗi",
+      "layout": {
+        "pageWidth": 375,
+        "height": 1836,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/feedback.png",
+      "axe": []
+    },
+    {
+      "name": "feedback",
+      "route": "/app/feedback",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Góp ý & báo lỗi — Mạch Mở",
+      "heading": "Góp ý & báo lỗi",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 1185,
+        "nestedScroll": 1
+      },
+      "image": "screenshots/routes/1440/feedback.png",
+      "axe": []
+    },
+    {
+      "name": "privacy",
+      "route": "/privacy",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Quyền riêng tư — Mạch Mở",
+      "heading": "Quyền riêng tư",
+      "layout": {
+        "pageWidth": 375,
+        "height": 1078,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/privacy.png"
+    },
+    {
+      "name": "privacy",
+      "route": "/privacy",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Quyền riêng tư — Mạch Mở",
+      "heading": "Quyền riêng tư",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 900,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/privacy.png"
+    },
+    {
+      "name": "login",
+      "route": "/app/login",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Đăng nhập — Mạch Mở",
+      "heading": "Đăng nhập",
+      "layout": {
+        "pageWidth": 375,
+        "height": 1067,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/login.png"
+    },
+    {
+      "name": "login",
+      "route": "/app/login",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Đăng nhập — Mạch Mở",
+      "heading": "Đăng nhập",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 900,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/login.png"
+    },
+    {
+      "name": "admin-login",
+      "route": "/admin/login",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Đăng nhập quản trị — Mạch Mở",
+      "heading": "Chưa kết nối Supabase",
+      "layout": {
+        "pageWidth": 375,
+        "height": 812,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/admin-login.png"
+    },
+    {
+      "name": "admin-login",
+      "route": "/admin/login",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Đăng nhập quản trị — Mạch Mở",
+      "heading": "Chưa kết nối Supabase",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 900,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/admin-login.png"
+    },
+    {
+      "name": "not-found",
+      "route": "/audit-missing-page",
+      "width": 375,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Không tìm thấy trang — Mạch Mở",
+      "heading": "Không tìm thấy trang",
+      "layout": {
+        "pageWidth": 375,
+        "height": 812,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/375/not-found.png"
+    },
+    {
+      "name": "not-found",
+      "route": "/audit-missing-page",
+      "width": 1440,
+      "errors": [],
+      "failed": [],
+      "http": 200,
+      "title": "Không tìm thấy trang — Mạch Mở",
+      "heading": "Không tìm thấy trang",
+      "layout": {
+        "pageWidth": 1440,
+        "height": 900,
+        "nestedScroll": 0
+      },
+      "image": "screenshots/routes/1440/not-found.png"
+    }
+  ],
+  "catalogs": [
+    {
+      "group": "board",
+      "index": 1,
+      "viewerRequested": true,
+      "boardId": "seeed-xiao-esp32c3",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá Seeed Studio XIAO ESP32-C3 · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tải model GLB ↓ · Hướng dẫn, thông số và pin map ↗ · Schematic XIAO ESP32-C3 v1.3 · CC BY-SA 4.0 ↗ · Seeed XIAO Hardware Resources · Design Kit ↗ · KiCad project XIAO ESP32-C3 v1.3 · ZIP ↗ · KiCad footprints dòng XIAO · ZIP ↗ · Schematic symbols dòng XIAO · ZIP ↗ · Pin multiplexing theo ESP32-C3 ↗ · DXF kích thước board · ZIP ↗",
+      "canvas": true,
+      "image": "screenshots/boards/01-seeed-xiao-esp32c3.png"
+    },
+    {
+      "group": "board",
+      "index": 2,
+      "viewerRequested": true,
+      "boardId": "seeed-xiao-esp32-s3",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá Seeed Studio XIAO ESP32-S3 · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tải STEP nguồn · CC BY-SA 4.0 ↓ · Tải model GLB ↓ · Hướng dẫn, pin map bản thường và phân biệt Sense/Plus ↗ · Schematic XIAO ESP32-S3 v1.3 · CC BY-SA 4.0 ↗ · PCB KiCad Seeed OPL · nguồn anchor header ↗ · DXF kích thước board · v1.1 ↗ · Model 3D Seeed Studio · CC BY-SA 4.0 ↗ · Ghi công và giấy phép model ↗ · Ảnh board tham khảo",
+      "canvas": true,
+      "image": "screenshots/boards/02-seeed-xiao-esp32-s3.png"
+    },
+    {
+      "group": "board",
+      "index": 3,
+      "viewerRequested": true,
+      "boardId": "adafruit-qtpy-esp32-c3-5405",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá Adafruit QT Py ESP32-C3 · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tải STEP gốc ↓ · Hướng dẫn và pinout ↗ · CAD board, schematic và pinout PDF ↗ · Giấy phép/ghi công model và model gốc ↗ · Tài liệu, ảnh và nguồn board (4) · VI ĐIỀU KHIỂN · ESP32-C3FH4 · REVISION ĐỐI CHIẾU · Adafruit QT Py ESP32-C3 Rev B · #5405",
+      "canvas": true,
+      "image": "screenshots/boards/03-adafruit-qtpy-esp32-c3-5405.png"
+    },
+    {
+      "group": "board",
+      "index": 4,
+      "viewerRequested": true,
+      "boardId": "adafruit-feather-esp32-s3-tft-5483",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá Adafruit Feather ESP32-S3 TFT · #5483 · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tải STEP gốc ↓ · Hướng dẫn và pinout TFT ↗ · Arduino ESP32 core variant · GPIO của #5483 ↗ · Eagle CAD, schematic và README nguồn ↗ · Nguồn model STEP #5483 ↗ · Model và điều khoản/ghi công ↗ · Tài liệu, ảnh và nguồn board (6) · VI ĐIỀU KHIỂN · ESP32-S3-MINI-1",
+      "canvas": true,
+      "image": "screenshots/boards/04-adafruit-feather-esp32-s3-tft-5483.png"
+    },
+    {
+      "group": "board",
+      "index": 5,
+      "viewerRequested": true,
+      "boardId": "adafruit-feather-esp32-s3-5323",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá Adafruit Feather ESP32-S3 · #5323 · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tải STEP gốc ↓ · Hướng dẫn, pinout và biến thể bộ nhớ ↗ · Arduino ESP32 core variant · GPIO của #5323 ↗ · Eagle CAD, schematic và README nguồn ↗ · Nguồn model STEP #5323 ↗ · Model và điều khoản/ghi công ↗ · Tài liệu, ảnh và nguồn board (6) · VI ĐIỀU KHIỂN · ESP32-S3-MINI-1",
+      "canvas": true,
+      "image": "screenshots/boards/05-adafruit-feather-esp32-s3-5323.png"
+    },
+    {
+      "group": "board",
+      "index": 6,
+      "viewerRequested": true,
+      "boardId": "esp32-devkit",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá ESP32 DevKit V1 · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Schematic + PCB nguồn clone 30 chân ↗ · Ảnh board tham khảo · Ảnh cộng đồng · ESP32 development board trên breadboard · Nguồn chỉ gọi đây là ESP32 development board; ảnh có bố cục hẹp 30 chân nhưng không xác nhận DOIT, đúng clone/revision trong CAD, USB-serial, BOM hay kích thước. Dùng để nhận diện chung, không làm bằng chứng pinout/model. · Ảnh: Edwiyanto · CC BY-SA 4.0 · Tải thumbnail Commons 960 × 1280 px; giữ nguyên nội dung, không cắt ghép. · Nguồn ↗ · Giấy phép ↗ · Tài liệu, ảnh và nguồn board (2) · VI ĐIỀU KHIỂN · ESP32-WROOM-32 · REVISION ĐỐI CHIẾU",
+      "canvas": true,
+      "image": "screenshots/boards/06-esp32-devkit.png"
+    },
+    {
+      "group": "board",
+      "index": 7,
+      "viewerRequested": true,
+      "boardId": "arduino-uno-r3",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá Arduino Uno R3 · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tài liệu hãng ↗ · Ảnh board tham khảo · Mặt trước · ảnh board Uno R3 · Ảnh cộng đồng tham khảo; có thể khác nhà sản xuất, màu sắc và linh kiện của board trong CAD. · Ảnh: Mr Revolution · CC BY 3.0 · Thu nhỏ còn tối đa 1200 px và nén JPEG chất lượng 84 để tải nhanh. · Nguồn ↗ · Giấy phép ↗ · Mặt sau · ảnh cộng đồng Uno R3 · Ảnh tham khảo từ cộng đồng; không xác nhận cùng nhà sản xuất, revision hay board trong CAD. · Ảnh: R.hampl · CC BY-SA 4.0 · Tải bản JPEG Commons; giữ nguyên ảnh, không cắt ghép. · Nguồn ↗ · Giấy phép ↗ · Tài liệu, ảnh và nguồn board (1)",
+      "canvas": true,
+      "image": "screenshots/boards/07-arduino-uno-r3.png"
+    },
+    {
+      "group": "board",
+      "index": 8,
+      "viewerRequested": true,
+      "boardId": "arduino-nano-classic",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá Arduino Nano classic · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tài liệu hãng ↗ · Ảnh board tham khảo · Ảnh board Arduino Nano classic · Ảnh Nano V3 cộng đồng, chụp cùng cáp USB; không dùng để xác nhận linh kiện của mọi Nano classic/clone. · Ảnh: Nevit Dilmen · CC BY-SA 3.0 · Thu nhỏ còn tối đa 1200 px và nén JPEG chất lượng 84 để tải nhanh. · Nguồn ↗ · Giấy phép ↗ · Mặt dưới · ảnh Arduino Nano có USB-serial FTDI · Ảnh Nano có FTDI; không xác nhận cùng nhà sản xuất, revision hay board trong CAD và không đại diện mọi clone. · Ảnh: MakeMagazinDE · CC BY-SA 4.0 · Tải bản JPEG Commons; giữ nguyên ảnh, không cắt ghép. · Nguồn ↗ · Giấy phép ↗ · Tài liệu, ảnh và nguồn board (1)",
+      "canvas": true,
+      "image": "screenshots/boards/08-arduino-nano-classic.png"
+    },
+    {
+      "group": "board",
+      "index": 9,
+      "viewerRequested": true,
+      "boardId": "arduino-mega-2560-r3",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá Arduino Mega 2560 R3 · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tài liệu hãng ↗ · Ảnh board tham khảo · Ảnh tham khảo mặt trước · Mega 2560 Rev3 · Ảnh board tham chiếu Rev3 do Arduino đăng trên Commons; đối chiếu CAD/BOM của model riêng trước khi suy luận vị trí từng linh kiện. · Ảnh: Arduino · CC BY-SA 4.0 · Giữ nguyên PNG 954 × 539 px; không chỉnh sửa. · Nguồn ↗ · Giấy phép ↗ · Mặt sau · board tương thích Mega 2560 R3 · Nguồn ảnh ghi đây là board tương thích của nhà sản xuất khác; không xác nhận cùng mẫu với ảnh trước hoặc board trong CAD. · Ảnh: Dsimic · CC BY-SA 4.0 · Tải bản JPEG Commons; giữ nguyên ảnh, không cắt ghép. · Nguồn ↗ · Giấy phép ↗ · Tài liệu, ảnh và nguồn board (1)",
+      "canvas": true,
+      "image": "screenshots/boards/09-arduino-mega-2560-r3.png"
+    },
+    {
+      "group": "board",
+      "index": 10,
+      "viewerRequested": true,
+      "boardId": "stm32-nucleo",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá STM32 NUCLEO-F401RE · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tài liệu hãng ↗ · Ảnh board tham khảo · Ảnh thực tế · STM32 NUCLEO-F401RE tại Embedded World 2016 · Ảnh hội chợ được ghi là NUCLEO-F401RET6, MB1136 rev C; hồ sơ CAD của dự án ghi C04. Không xác nhận cùng revision, không dùng ảnh để đo model hoặc suy ra BOM. · Ảnh: Ordercrazy (Thomas Springer) · CC0 1.0 · Tải thumbnail Commons 960 × 1076; không chỉnh sửa nội dung. · Nguồn ↗ · Giấy phép ↗ · Tài liệu, ảnh và nguồn board (2) · VI ĐIỀU KHIỂN · STM32F401RET6 · REVISION ĐỐI CHIẾU",
+      "canvas": true,
+      "image": "screenshots/boards/10-stm32-nucleo.png"
+    },
+    {
+      "group": "board",
+      "index": 11,
+      "viewerRequested": false,
+      "boardId": "esp32-c3-devkitm-1",
+      "summary": "HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER · Hồ sơ ESP32-C3-DevKitM-1 · Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện. · Tài liệu hãng ↗ · Schematic V1.0 ↗ · PCB layout Rev 1.0 ↗ · Kích thước PDF ↗ · Kích thước DXF ↗ · Espressif KiCad library · footprint board và model 3D module/SoC · CC BY-SA 4.0 ↗ · Tài liệu, ảnh và nguồn board (6) · VI ĐIỀU KHIỂN · ESP32-C3-MINI-1",
+      "image": "screenshots/boards/11-esp32-c3-devkitm-1.png"
+    },
+    {
+      "group": "board",
+      "index": 12,
+      "viewerRequested": false,
+      "boardId": "esp32-devkitm-1",
+      "summary": "HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER · Hồ sơ ESP32-DevKitM-1 · Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện. · Tài liệu hãng ↗ · Schematic ↗ · PCB layout ↗ · DXF layout ↗ · Espressif KiCad library · footprint board và model 3D module/SoC · CC BY-SA 4.0 ↗ · Tài liệu, ảnh và nguồn board (5) · VI ĐIỀU KHIỂN · ESP32-MINI-1 · ESP32 · REVISION ĐỐI CHIẾU",
+      "image": "screenshots/boards/12-esp32-devkitm-1.png"
+    },
+    {
+      "group": "board",
+      "index": 13,
+      "viewerRequested": true,
+      "boardId": "esp32-s3-devkitc-1",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá ESP32-S3-DevKitC-1 · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Hướng dẫn V1.1 · linh kiện & pinout ↗ · Reference design chính hãng ↗ · Espressif KiCad library · module/SoC 3D models · CC BY-SA 4.0 ↗ · Model 3D, attribution và giới hạn ↗ · Tài liệu, ảnh và nguồn board (4) · VI ĐIỀU KHIỂN · ESP32-S3-WROOM-1 · biến thể bộ nhớ theo module lắp · REVISION ĐỐI CHIẾU · ESP32-S3-DevKitC-1 · PCB V1.1",
+      "canvas": true,
+      "image": "screenshots/boards/13-esp32-s3-devkitc-1.png"
+    },
+    {
+      "group": "board",
+      "index": 14,
+      "viewerRequested": true,
+      "boardId": "stm32-blue-pill-f103",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá STM32F103C8T6 Blue Pill · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tài liệu hãng ↗ · Ảnh board tham khảo · Ảnh tham khảo cộng đồng · STM32F103C8T6 Blue Pill · Blue Pill là tên chung của nhiều board clone; ảnh này chỉ nhận diện một bố cục F103C8T6, không đại diện mọi vendor/revision và không dùng để xác nhận model cơ khí/pinout. · Ảnh: Avandalen · CC BY-SA 4.0 · Tải JPEG Commons nguyên bản 874 × 362; không chỉnh sửa. · Nguồn ↗ · Giấy phép ↗ · Tài liệu, ảnh và nguồn board (2) · VI ĐIỀU KHIỂN · STM32F103C8T6 · REVISION ĐỐI CHIẾU",
+      "canvas": true,
+      "image": "screenshots/boards/14-stm32-blue-pill-f103.png"
+    },
+    {
+      "group": "board",
+      "index": 15,
+      "viewerRequested": true,
+      "boardId": "raspberry-pi-pico",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá Raspberry Pi Pico · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tải CAD STEP (260 KB) ↓ · Tải STEP gốc ↓ · Tài liệu hãng ↗ · Datasheet, schematic & design files ↗ · Ảnh board tham khảo · Ảnh hai mặt · Raspberry Pi Pico · Ảnh tham khảo Pico RP2040; không xác nhận Pico W, Pico 2 hoặc mọi revision/nhà phân phối. · Ảnh: Michael H. (Laserlicht) · CC BY-SA 4.0 · Tạo thumbnail rộng tối đa 1200 px từ ảnh Commons; giữ nguyên nội dung ảnh. · Nguồn ↗ · Giấy phép ↗ · Tài liệu, ảnh và nguồn board (3)",
+      "canvas": true,
+      "image": "screenshots/boards/15-raspberry-pi-pico.png"
+    },
+    {
+      "group": "board",
+      "index": 16,
+      "viewerRequested": true,
+      "boardId": "raspberry-pi-pico-w",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá Raspberry Pi Pico W · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tải CAD STEP (820 KB) ↓ · Tải STEP gốc ↓ · Tài liệu hãng ↗ · Datasheet, schematic & design files ↗ · Ảnh board tham khảo · Ảnh sản phẩm · Raspberry Pi Pico W · Ảnh sản phẩm Pico W từ SparkFun; dùng nhận diện, không xác nhận biến thể Pico 2 W, revision hoặc độ khớp model CAD. · Ảnh: SparkFun Electronics · CC BY 2.0 · Tải JPEG Commons nguyên bản 600 × 600; không cắt ghép. · Nguồn ↗ · Giấy phép ↗ · Tài liệu, ảnh và nguồn board (3)",
+      "canvas": true,
+      "image": "screenshots/boards/16-raspberry-pi-pico-w.png"
+    },
+    {
+      "group": "board",
+      "index": 17,
+      "viewerRequested": true,
+      "boardId": "raspberry-pi-pico-2",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá Raspberry Pi Pico 2 · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tải CAD STEP (2.2 MB) ↓ · Tải STEP gốc ↓ · Pico 2 · trang sản phẩm và model CAD ↗ · Datasheet, schematic, pinout và license thiết kế ↗ · Điều khoản/ghi công model Raspberry Pi ↗ · Ảnh board tham khảo · Ảnh board Raspberry Pi Pico 2 · Ảnh cộng đồng giúp nhận diện Pico 2; không xác nhận revision, tình trạng lắp ráp hay độ khớp với model CAD. · Ảnh: Suyash Dwivedi · CC BY-SA 4.0 · Tải thumbnail JPEG Commons; giữ nguyên nội dung, không cắt ghép. · Nguồn ↗ · Giấy phép ↗",
+      "canvas": true,
+      "image": "screenshots/boards/17-raspberry-pi-pico-2.png"
+    },
+    {
+      "group": "board",
+      "index": 18,
+      "viewerRequested": true,
+      "boardId": "raspberry-pi-pico-2-h",
+      "summary": "CAD THAM CHIẾU · 3D TƯƠNG TÁC · Khám phá Raspberry Pi Pico 2 H · Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện. · Tải CAD STEP (2.2 MB) ↓ · Tải STEP gốc ↓ · Product Information Portal · Pico 2 H STEP ↗ · Tài liệu Pico series, pinout và license thiết kế ↗ · Ghi công và giấy phép model ↗ · Tài liệu, ảnh và nguồn board (3) · VI ĐIỀU KHIỂN · RP2350 · REVISION ĐỐI CHIẾU",
+      "canvas": true,
+      "image": "screenshots/boards/18-raspberry-pi-pico-2-h.png"
+    },
+    {
+      "group": "board",
+      "index": 19,
+      "viewerRequested": false,
+      "boardId": "esp32-c6-devkitc-1",
+      "summary": "HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER · Hồ sơ ESP32-C6-DevKitC-1 · Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện. · Hướng dẫn board chính hãng ↗ · Tài liệu, ảnh và nguồn board (1) · VI ĐIỀU KHIỂN · ESP32-C6-WROOM-1 · REVISION ĐỐI CHIẾU · DevKitC-1 v1.2 · N8 · MỨC LOGIC · 3.3 V · NGOẠI VI VÀ GIAO TIẾP",
+      "image": "screenshots/boards/19-esp32-c6-devkitc-1.png"
+    },
+    {
+      "group": "board",
+      "index": 20,
+      "viewerRequested": false,
+      "boardId": "stm32-nucleo-f411re",
+      "summary": "HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER · Hồ sơ STM32 NUCLEO-F411RE · Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện. · Tài liệu hãng ↗ · Tài liệu, ảnh và nguồn board (1) · VI ĐIỀU KHIỂN · STM32F411RET6 · REVISION ĐỐI CHIẾU · NUCLEO-64 · MB1136 · MỨC LOGIC · 3.3 V I/O · NGOẠI VI VÀ GIAO TIẾP",
+      "image": "screenshots/boards/20-stm32-nucleo-f411re.png"
+    },
+    {
+      "group": "board",
+      "index": 21,
+      "viewerRequested": false,
+      "boardId": "arduino-uno-r4-minima",
+      "summary": "HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER · Hồ sơ Arduino UNO R4 Minima · Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện. · Tài liệu hãng ↗ · Ảnh board tham khảo · Ảnh sản phẩm · Arduino UNO R4 Minima · Không xác nhận revision hay board vật lý; đây là render sản phẩm của Arduino, không phải ảnh chụp. · Ảnh: Arduino · CC BY-SA 3.0 · Tải WebP Commons nguyên bản 1000 × 750; không chỉnh sửa. · Nguồn ↗ · Giấy phép ↗ · Tài liệu, ảnh và nguồn board (1) · VI ĐIỀU KHIỂN · Renesas RA4M1 · REVISION ĐỐI CHIẾU",
+      "image": "screenshots/boards/21-arduino-uno-r4-minima.png"
+    },
+    {
+      "group": "board",
+      "index": 22,
+      "viewerRequested": false,
+      "boardId": "arduino-uno-r4-wifi",
+      "summary": "HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER · Hồ sơ Arduino UNO R4 WiFi · Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện. · Tài liệu hãng ↗ · Ảnh board tham khảo · Ảnh cộng đồng · Arduino UNO R4 WiFi · Ảnh cộng đồng của UNO R4 WiFi; không xác nhận revision hoặc cấu hình lắp trong model CAD. · Ảnh: Lomrjyo · CC BY-SA 4.0 · Tải thumbnail Commons JPEG rộng 1280 px; không cắt nội dung. · Nguồn ↗ · Giấy phép ↗ · Tài liệu, ảnh và nguồn board (1) · VI ĐIỀU KHIỂN · Renesas RA4M1 + ESP32-S3 · REVISION ĐỐI CHIẾU",
+      "image": "screenshots/boards/22-arduino-uno-r4-wifi.png"
+    },
+    {
+      "group": "board",
+      "index": 23,
+      "viewerRequested": false,
+      "boardId": "arduino-nano-esp32",
+      "summary": "HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER · Hồ sơ Arduino Nano ESP32 · Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện. · Tài liệu hãng ↗ · Tài liệu, ảnh và nguồn board (1) · VI ĐIỀU KHIỂN · ESP32-S3 · REVISION ĐỐI CHIẾU · Nano ESP32 · official reference · MỨC LOGIC · 3.3 V I/O · NGOẠI VI VÀ GIAO TIẾP",
+      "image": "screenshots/boards/23-arduino-nano-esp32.png"
+    },
+    {
+      "group": "board",
+      "index": 24,
+      "viewerRequested": false,
+      "boardId": "arduino-nano-every",
+      "summary": "HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER · Hồ sơ Arduino Nano Every · Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện. · Tài liệu hãng ↗ · Tài liệu, ảnh và nguồn board (1) · VI ĐIỀU KHIỂN · ATmega4809 · REVISION ĐỐI CHIẾU · Nano Every · official reference · MỨC LOGIC · 5 V · NGOẠI VI VÀ GIAO TIẾP",
+      "image": "screenshots/boards/24-arduino-nano-every.png"
+    },
+    {
+      "group": "board",
+      "index": 25,
+      "viewerRequested": false,
+      "boardId": "esp32-s2-devkitc-1",
+      "summary": "HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER · Hồ sơ ESP32-S2-DevKitC-1 · Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện. · Hướng dẫn board chính hãng ↗ · Tài liệu, ảnh và nguồn board (1) · VI ĐIỀU KHIỂN · ESP32-S2 · REVISION ĐỐI CHIẾU · DevKitC-1 · module/flash variants · MỨC LOGIC · 3.3 V · NGOẠI VI VÀ GIAO TIẾP",
+      "image": "screenshots/boards/25-esp32-s2-devkitc-1.png"
+    },
+    {
+      "group": "board",
+      "index": 26,
+      "viewerRequested": false,
+      "boardId": "esp32-h2-devkitm-1",
+      "summary": "HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER · Hồ sơ ESP32-H2-DevKitM-1 · Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện. · Hướng dẫn board chính hãng ↗ · Tài liệu, ảnh và nguồn board (1) · VI ĐIỀU KHIỂN · ESP32-H2 · REVISION ĐỐI CHIẾU · DevKitM-1 · module variant · MỨC LOGIC · 3.3 V · NGOẠI VI VÀ GIAO TIẾP",
+      "image": "screenshots/boards/26-esp32-h2-devkitm-1.png"
+    },
+    {
+      "group": "board",
+      "index": 27,
+      "viewerRequested": false,
+      "boardId": "stm32-nucleo-l476rg",
+      "summary": "HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER · Hồ sơ STM32 NUCLEO-L476RG · Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện. · Tài liệu hãng ↗ · Tài liệu, ảnh và nguồn board (2) · VI ĐIỀU KHIỂN · STM32L476RG · REVISION ĐỐI CHIẾU · NUCLEO-64 · MB1136 · MỨC LOGIC · 3.3 V I/O · NGOẠI VI VÀ GIAO TIẾP",
+      "image": "screenshots/boards/27-stm32-nucleo-l476rg.png"
+    },
+    {
+      "group": "board",
+      "index": 28,
+      "viewerRequested": false,
+      "boardId": "stm32-nucleo-f446re",
+      "summary": "HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER · Hồ sơ STM32 NUCLEO-F446RE · Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện. · Tài liệu hãng ↗ · Tài liệu, ảnh và nguồn board (2) · VI ĐIỀU KHIỂN · STM32F446RE · REVISION ĐỐI CHIẾU · NUCLEO-64 · MB1136 · MỨC LOGIC · 3.3 V I/O · NGOẠI VI VÀ GIAO TIẾP",
+      "image": "screenshots/boards/28-stm32-nucleo-f446re.png"
+    },
+    {
+      "group": "component",
+      "index": 1,
+      "name": "Seeed Studio XIAO ESP32-C3",
+      "heading": "Seeed Studio XIAO ESP32-C3",
+      "componentId": "seeed-xiao-esp32c3",
+      "viewerRequested": false,
+      "image": "screenshots/components/01.png"
+    },
+    {
+      "group": "component",
+      "index": 2,
+      "name": "Seeed Studio XIAO ESP32-S3",
+      "heading": "Seeed Studio XIAO ESP32-S3",
+      "componentId": "seeed-xiao-esp32-s3",
+      "viewerRequested": false,
+      "image": "screenshots/components/02.png"
+    },
+    {
+      "group": "component",
+      "index": 3,
+      "name": "ESP32 DevKit V1",
+      "heading": "ESP32 DevKit V1",
+      "componentId": "esp32-devkit",
+      "viewerRequested": false,
+      "image": "screenshots/components/03.png"
+    },
+    {
+      "group": "component",
+      "index": 4,
+      "name": "Adafruit QT Py ESP32-C3 · #5405",
+      "heading": "Adafruit QT Py ESP32-C3 · #5405",
+      "componentId": "adafruit-qtpy-esp32-c3-5405",
+      "viewerRequested": false,
+      "image": "screenshots/components/04.png"
+    },
+    {
+      "group": "component",
+      "index": 5,
+      "name": "Adafruit Feather ESP32-S3 TFT · #5483",
+      "heading": "Adafruit Feather ESP32-S3 TFT · #5483",
+      "componentId": "adafruit-feather-esp32-s3-tft-5483",
+      "viewerRequested": false,
+      "image": "screenshots/components/05.png"
+    },
+    {
+      "group": "component",
+      "index": 6,
+      "name": "Adafruit Feather ESP32-S3 · #5323",
+      "heading": "Adafruit Feather ESP32-S3 · #5323",
+      "componentId": "adafruit-feather-esp32-s3-5323",
+      "viewerRequested": false,
+      "image": "screenshots/components/06.png"
+    },
+    {
+      "group": "component",
+      "index": 7,
+      "name": "Arduino Uno R3",
+      "heading": "Arduino Uno R3",
+      "componentId": "arduino-uno",
+      "viewerRequested": false,
+      "image": "screenshots/components/07.png"
+    },
+    {
+      "group": "component",
+      "index": 8,
+      "name": "Arduino Nano classic",
+      "heading": "Arduino Nano classic",
+      "componentId": "arduino-nano",
+      "viewerRequested": false,
+      "image": "screenshots/components/08.png"
+    },
+    {
+      "group": "component",
+      "index": 9,
+      "name": "Arduino Mega 2560 R3",
+      "heading": "Arduino Mega 2560 R3",
+      "componentId": "arduino-mega",
+      "viewerRequested": false,
+      "image": "screenshots/components/09.png"
+    },
+    {
+      "group": "component",
+      "index": 10,
+      "name": "STM32 NUCLEO-F401RE",
+      "heading": "STM32 NUCLEO-F401RE",
+      "componentId": "stm32-f401",
+      "viewerRequested": false,
+      "image": "screenshots/components/10.png"
+    },
+    {
+      "group": "component",
+      "index": 11,
+      "name": "STM32F103C8T6 Blue Pill",
+      "heading": "STM32F103C8T6 Blue Pill",
+      "componentId": "stm32-blue-pill",
+      "viewerRequested": false,
+      "image": "screenshots/components/11.png"
+    },
+    {
+      "group": "component",
+      "index": 12,
+      "name": "Raspberry Pi Pico (RP2040)",
+      "heading": "Raspberry Pi Pico (RP2040)",
+      "componentId": "rp2040-pico",
+      "viewerRequested": false,
+      "image": "screenshots/components/12.png"
+    },
+    {
+      "group": "component",
+      "index": 13,
+      "name": "Raspberry Pi Pico 2 H (RP2350)",
+      "heading": "Raspberry Pi Pico 2 H (RP2350)",
+      "componentId": "rp2350-pico-2-h",
+      "viewerRequested": false,
+      "image": "screenshots/components/13.png"
+    },
+    {
+      "group": "component",
+      "index": 14,
+      "name": "ESP32-S3 DevKitC-1",
+      "heading": "ESP32-S3 DevKitC-1",
+      "componentId": "esp32-s3",
+      "viewerRequested": false,
+      "image": "screenshots/components/14.png"
+    },
+    {
+      "group": "component",
+      "index": 15,
+      "name": "Điện trở xuyên lỗ",
+      "heading": "Điện trở xuyên lỗ",
+      "componentId": "resistor",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/15.png"
+    },
+    {
+      "group": "component",
+      "index": 16,
+      "name": "Biến trở 10 kΩ",
+      "heading": "Biến trở 10 kΩ",
+      "componentId": "potentiometer",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/16.png"
+    },
+    {
+      "group": "component",
+      "index": 17,
+      "name": "LED 5 mm",
+      "heading": "LED 5 mm",
+      "componentId": "led",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/17.png"
+    },
+    {
+      "group": "component",
+      "index": 18,
+      "name": "Nút nhấn 4 chân",
+      "heading": "Nút nhấn 4 chân",
+      "componentId": "button",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/18.png"
+    },
+    {
+      "group": "component",
+      "index": 19,
+      "name": "Quang trở LDR",
+      "heading": "Quang trở LDR",
+      "componentId": "ldr",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/19.png"
+    },
+    {
+      "group": "component",
+      "index": 20,
+      "name": "Điện trở nhiệt NTC",
+      "heading": "Điện trở nhiệt NTC",
+      "componentId": "ntc",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/20.png"
+    },
+    {
+      "group": "component",
+      "index": 21,
+      "name": "Module DHT22 / AM2302",
+      "heading": "Module DHT22 / AM2302",
+      "componentId": "dht22",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/21.png"
+    },
+    {
+      "group": "component",
+      "index": 22,
+      "name": "Cảm biến siêu âm HC-SR04",
+      "heading": "Cảm biến siêu âm HC-SR04",
+      "componentId": "hc-sr04",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/22.png"
+    },
+    {
+      "group": "component",
+      "index": 23,
+      "name": "Cảm biến chuyển động PIR",
+      "heading": "Cảm biến chuyển động PIR",
+      "componentId": "pir",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/23.png"
+    },
+    {
+      "group": "component",
+      "index": 24,
+      "name": "Công tắc gạt",
+      "heading": "Công tắc gạt",
+      "componentId": "slide-switch",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/24.png"
+    },
+    {
+      "group": "component",
+      "index": 25,
+      "name": "Công tắc hành trình",
+      "heading": "Công tắc hành trình",
+      "componentId": "limit-switch",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/25.png"
+    },
+    {
+      "group": "component",
+      "index": 26,
+      "name": "Buzzer chủ động",
+      "heading": "Buzzer chủ động",
+      "componentId": "buzzer",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/26.png"
+    },
+    {
+      "group": "component",
+      "index": 27,
+      "name": "Servo micro SG90 (tham chiếu)",
+      "heading": "Servo micro SG90 (tham chiếu)",
+      "componentId": "servo",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/27.png"
+    },
+    {
+      "group": "component",
+      "index": 28,
+      "name": "Động cơ DC chổi than",
+      "heading": "Động cơ DC chổi than",
+      "componentId": "dc-motor",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/28.png"
+    },
+    {
+      "group": "component",
+      "index": 29,
+      "name": "Driver cầu H TB6612FNG",
+      "heading": "Driver cầu H TB6612FNG",
+      "componentId": "motor-driver",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/29.png"
+    },
+    {
+      "group": "component",
+      "index": 30,
+      "name": "MOSFET logic-level N-channel",
+      "heading": "MOSFET logic-level N-channel",
+      "componentId": "mosfet",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/30.png"
+    },
+    {
+      "group": "component",
+      "index": 31,
+      "name": "Module relay 1 kênh",
+      "heading": "Module relay 1 kênh",
+      "componentId": "relay",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/31.png"
+    },
+    {
+      "group": "component",
+      "index": 32,
+      "name": "OLED I²C 0.96 inch (SSD1306)",
+      "heading": "OLED I²C 0.96 inch (SSD1306)",
+      "componentId": "oled",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/32.png"
+    },
+    {
+      "group": "component",
+      "index": 33,
+      "name": "LCD 1602 + backpack I²C",
+      "heading": "LCD 1602 + backpack I²C",
+      "componentId": "lcd1602",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/33.png"
+    },
+    {
+      "group": "component",
+      "index": 34,
+      "name": "LED RGB addressable WS2812B",
+      "heading": "LED RGB addressable WS2812B",
+      "componentId": "neopixel",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/34.png"
+    },
+    {
+      "group": "component",
+      "index": 35,
+      "name": "LED RGB 4 chân",
+      "heading": "LED RGB 4 chân",
+      "componentId": "rgb-led",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/35.png"
+    },
+    {
+      "group": "component",
+      "index": 36,
+      "name": "Module cảm biến vật cản hồng ngoại",
+      "heading": "Module cảm biến vật cản hồng ngoại",
+      "componentId": "ir-obstacle",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/36.png"
+    },
+    {
+      "group": "component",
+      "index": 37,
+      "name": "Module cảm biến ánh sáng AO/DO",
+      "heading": "Module cảm biến ánh sáng AO/DO",
+      "componentId": "photoresistor-module",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/37.png"
+    },
+    {
+      "group": "component",
+      "index": 38,
+      "name": "Cảm biến độ ẩm đất điện dung",
+      "heading": "Cảm biến độ ẩm đất điện dung",
+      "componentId": "soil",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/38.png"
+    },
+    {
+      "group": "component",
+      "index": 39,
+      "name": "IMU MPU-6050 breakout",
+      "heading": "IMU MPU-6050 breakout",
+      "componentId": "mpu6050",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/39.png"
+    },
+    {
+      "group": "component",
+      "index": 40,
+      "name": "Cảm biến áp suất BMP280 breakout",
+      "heading": "Cảm biến áp suất BMP280 breakout",
+      "componentId": "bmp280",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/40.png"
+    },
+    {
+      "group": "component",
+      "index": 41,
+      "name": "Mắt thu hồng ngoại 38 kHz",
+      "heading": "Mắt thu hồng ngoại 38 kHz",
+      "componentId": "ir-receiver",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/41.png"
+    },
+    {
+      "group": "component",
+      "index": 42,
+      "name": "Diode chỉnh lưu / bảo vệ",
+      "heading": "Diode chỉnh lưu / bảo vệ",
+      "componentId": "diode",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/42.png"
+    },
+    {
+      "group": "component",
+      "index": 43,
+      "name": "Tụ điện gốm",
+      "heading": "Tụ điện gốm",
+      "componentId": "capacitor",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/43.png"
+    },
+    {
+      "group": "component",
+      "index": 44,
+      "name": "Tụ điện hoá",
+      "heading": "Tụ điện hoá",
+      "componentId": "electrolytic",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/44.png"
+    },
+    {
+      "group": "component",
+      "index": 45,
+      "name": "Transistor NPN 2N2222 (tham chiếu)",
+      "heading": "Transistor NPN 2N2222 (tham chiếu)",
+      "componentId": "transistor-bjt",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/45.png"
+    },
+    {
+      "group": "component",
+      "index": 46,
+      "name": "Breadboard 400 điểm",
+      "heading": "Breadboard 400 điểm",
+      "componentId": "breadboard",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/46.png"
+    },
+    {
+      "group": "component",
+      "index": 47,
+      "name": "Dây jumper Dupont",
+      "heading": "Dây jumper Dupont",
+      "componentId": "jumper",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/47.png"
+    },
+    {
+      "group": "component",
+      "index": 48,
+      "name": "Cáp USB truyền dữ liệu",
+      "heading": "Cáp USB truyền dữ liệu",
+      "componentId": "usb-cable",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/48.png"
+    },
+    {
+      "group": "component",
+      "index": 49,
+      "name": "Module chuyển mức logic 4 kênh",
+      "heading": "Module chuyển mức logic 4 kênh",
+      "componentId": "logic-level",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/49.png"
+    },
+    {
+      "group": "component",
+      "index": 50,
+      "name": "Nguồn DC thấp áp",
+      "heading": "Nguồn DC thấp áp",
+      "componentId": "dc-supply",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/50.png"
+    },
+    {
+      "group": "component",
+      "index": 51,
+      "name": "Nguồn USB 5 V",
+      "heading": "Nguồn USB 5 V",
+      "componentId": "power-bank",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/51.png"
+    },
+    {
+      "group": "component",
+      "index": 52,
+      "name": "Module hạ áp DC-DC",
+      "heading": "Module hạ áp DC-DC",
+      "componentId": "buck",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/52.png"
+    },
+    {
+      "group": "component",
+      "index": 53,
+      "name": "Module tăng áp DC-DC",
+      "heading": "Module tăng áp DC-DC",
+      "componentId": "boost",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/53.png"
+    },
+    {
+      "group": "component",
+      "index": 54,
+      "name": "Module cầu H L298N",
+      "heading": "Module cầu H L298N",
+      "componentId": "h-bridge-l298n",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/54.png"
+    },
+    {
+      "group": "component",
+      "index": 55,
+      "name": "Bơm DC mini (tải tham chiếu)",
+      "heading": "Bơm DC mini (tải tham chiếu)",
+      "componentId": "soil-relay-pump",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/55.png"
+    },
+    {
+      "group": "component",
+      "index": 56,
+      "name": "Encoder xoay KY-040",
+      "heading": "Encoder xoay KY-040",
+      "componentId": "rotary-encoder",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/56.png"
+    },
+    {
+      "group": "component",
+      "index": 57,
+      "name": "RFID RC522 breakout",
+      "heading": "RFID RC522 breakout",
+      "componentId": "rfid",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/57.png"
+    },
+    {
+      "group": "component",
+      "index": 58,
+      "name": "Module MOSFET 1 kênh",
+      "heading": "Module MOSFET 1 kênh",
+      "componentId": "mosfet-module",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/58.png"
+    },
+    {
+      "group": "component",
+      "index": 59,
+      "name": "LED 7 đoạn 1 chữ số",
+      "heading": "LED 7 đoạn 1 chữ số",
+      "componentId": "seven-segment",
+      "viewerRequested": true,
+      "canvas": true,
+      "image": "screenshots/components/59.png"
+    }
+  ],
+  "entry": "/assets/index-CM589IoX.js",
+  "finishedAt": "2026-11-18T19:31:05.727Z"
+}

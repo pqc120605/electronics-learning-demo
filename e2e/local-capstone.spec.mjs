@@ -1,0 +1,99 @@
+import { test, expect } from '@playwright/test'
+import { readFile } from 'node:fs/promises'
+
+const storageKey = 'machmo-local-capstone-v1'
+const originalCourse = '{"old":"keep raw course"}'
+const originalBench = '{"old":"keep raw bench"}'
+
+for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
+  test(`complete the local capstone, reload, and reopen its portable report at ${viewport.width}px`, async ({ page, browser }, testInfo) => {
+    await page.setViewportSize(viewport)
+    await page.addInitScript(({ originalCourse, originalBench }) => {
+      localStorage.setItem('machmo-beginner-course-v1', originalCourse)
+      localStorage.setItem('machmo-freestyle-v1', originalBench)
+    }, { originalCourse, originalBench })
+    await page.goto(viewport.width === 375 ? '/learn/basics' : '/app/learn/basics')
+    await page.getByRole('link', { name: 'Mở mini-project đèn cảnh báo' }).click()
+    await expect(page).toHaveURL(viewport.width === 375 ? /\/learn\/mini-project$/ : /\/app\/learn\/mini-project$/)
+    await expect(page.getByRole('heading', { name: 'Đèn cảnh báo theo ngưỡng' })).toBeVisible()
+    const board = page.getByLabel('Board của mini-project')
+    await expect(board).toHaveValue('')
+    await expect(page.getByRole('button', { name: 'Chạy và ghi kết quả' })).toHaveCount(0)
+    await board.selectOption('arduino-mega-2560')
+    await expect(page.locator('.circuit-symbol-potentiometer')).toBeAttached()
+    await expect(page.locator('.circuit-schematic-v2')).not.toContainText('chưa có symbol')
+    const position = page.getByRole('slider', { name: 'Vị trí biến trở' })
+    const result = page.locator('.capstone-result')
+    const run = async (prediction, led) => {
+      await page.getByLabel('Dự đoán LED').selectOption(prediction)
+      const button = page.getByRole('button', { name: 'Chạy và ghi kết quả' })
+      await button.focus()
+      await page.keyboard.press('Enter')
+      await expect(result.getByText(led, { exact: true })).toBeVisible()
+    }
+
+    await position.focus()
+    await page.keyboard.press('ArrowRight')
+    await run('off', 'LED tắt')
+    await page.getByLabel('Nhấn nút thử').check()
+    await expect(result).toHaveText('Chọn một dự đoán và chạy để xem tín hiệu.')
+    await position.focus()
+    await page.keyboard.press('ArrowLeft')
+    await run('off', 'LED tắt')
+    await expect(result).toContainText('A0 512 / 1023')
+    await position.focus()
+    await page.keyboard.press('ArrowRight')
+    await page.getByLabel('Nối dây GND của nút').uncheck()
+    await run('on', 'LED tắt')
+    await expect(result).toContainText('D2 HIGH')
+    await page.getByLabel('Nối dây GND của nút').check()
+    await run('on', 'LED sáng')
+    await expect(result).toContainText('D2 LOW')
+    await expect(page.locator('.circuit-net-line.net-active').first()).toBeAttached()
+    await expect(page.locator('.capstone-checklist').getByText('Đã ghi', { exact: true })).toHaveCount(3)
+    await expect(page.locator('.capstone-observations')).toContainText('Khác kết quả')
+    await page.getByLabel('Ghi lại lỗi đã thấy và cách bạn sửa').fill('Nối lại dây của nút về GND.')
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(viewport.width)
+    await page.getByRole('heading', { name: 'Đèn cảnh báo theo ngưỡng' }).scrollIntoViewIfNeeded()
+    const capture = await page.screenshot({ path: testInfo.outputPath(`mini-project-${viewport.width}.png`), fullPage: true })
+    await testInfo.attach('Hồ sơ mini-project', { body: capture, contentType: 'image/png' })
+
+    const download = page.waitForEvent('download')
+    await page.getByRole('button', { name: 'Tải hồ sơ JSON' }).click()
+    const file = await readFile(await (await download).path())
+    const saved = JSON.parse(file.toString('utf8'))
+    expect(saved.artifacts.doc.parts.map(part => part.type)).toEqual(expect.arrayContaining(['board', 'button', 'led', 'potentiometer', 'resistor']))
+    expect(saved.artifacts.code).toContain('SENSOR_PIN = A0')
+    expect(saved.report.observations).toHaveLength(4)
+    const copyDownload = page.waitForEvent('download')
+    await page.getByRole('button', { name: 'Tải bản sao JSON' }).click()
+    const copy = JSON.parse(await readFile(await (await copyDownload).path(), 'utf8'))
+    expect(copy.report.projectId).not.toBe(saved.report.projectId)
+    expect(copy.artifacts).toEqual(saved.artifacts)
+
+    await page.reload()
+    await expect(board).toHaveValue('arduino-mega-2560')
+    expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)).report.projectId, storageKey)).toBe(saved.report.projectId)
+    await expect(page.getByLabel('Ghi lại lỗi đã thấy và cách bạn sửa')).toHaveValue(saved.report.notes)
+    expect(await page.evaluate(() => [localStorage.getItem('machmo-beginner-course-v1'), localStorage.getItem('machmo-freestyle-v1')])).toEqual([originalCourse, originalBench])
+
+    const fresh = await browser.newContext({ viewport })
+    try {
+      const other = await fresh.newPage()
+      await other.goto('/app/learn/mini-project')
+      const input = other.getByLabel('Chọn hồ sơ JSON để mở')
+      await input.setInputFiles({ name: 'future.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify({ ...saved, version: 2 })) })
+      await expect(other.getByText('Phiên bản hồ sơ hoặc mô hình chưa được hỗ trợ.')).toBeVisible()
+      await input.setInputFiles({ name: 'mini-project.json', mimeType: 'application/json', buffer: file })
+      await expect(other.getByLabel('Board của mini-project')).toHaveValue('')
+      await other.getByRole('button', { name: 'Mở và thay hồ sơ hiện tại' }).click()
+      await expect(other.getByLabel('Board của mini-project')).toHaveValue('arduino-mega-2560')
+      await expect(other.locator('.capstone-observations > li')).toHaveCount(4)
+
+      await other.evaluate(key => localStorage.setItem(key, 'external revision'), storageKey)
+      await other.getByLabel('Ghi lại lỗi đã thấy và cách bạn sửa').fill('Bản làm việc của tab này')
+      await expect(other.getByText('Bản lưu đã đổi ở tab khác.', { exact: false })).toBeVisible()
+      expect(await other.evaluate(key => localStorage.getItem(key), storageKey)).toBe('external revision')
+    } finally { await fresh.close() }
+  })
+}

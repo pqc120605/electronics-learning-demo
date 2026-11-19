@@ -1,0 +1,74 @@
+{
+  "verdict": "pass",
+  "scope": "local implementation and audit evidence; full final suite not rerun",
+  "bundle": "index-D0WHFQ1Z.js",
+  "sha256": "25f4de4cace4967ff22b5f3ca54967b9c90012803cc2c91c1ebafbda75301ee1",
+  "commands": [
+    {
+      "command": "npm.cmd run typecheck",
+      "exitCode": 0,
+      "snapshot": "index-D0WHFQ1Z.js",
+      "log": "evidence/final-typecheck.log"
+    },
+    {
+      "command": "npm.cmd run build:local -- --outDir .tmp/local-polish-build-check",
+      "exitCode": 0,
+      "snapshot": "index-D0WHFQ1Z.js",
+      "log": "evidence/final-build.log"
+    },
+    {
+      "command": "npm.cmd test",
+      "exitCode": 0,
+      "snapshot": "Earlier source with late changes verified in focused suite",
+      "pass": 779,
+      "fail": 0,
+      "skip": 0,
+      "log": "evidence/earlier-full-unit.log"
+    },
+    {
+      "command": "npm.cmd run test:e2e",
+      "exitCode": 1,
+      "snapshot": "index-CM589IoX.js",
+      "pass": 244,
+      "fail": 6,
+      "skip": 1,
+      "log": "evidence/earlier-full-e2e.log"
+    },
+    {
+      "command": "node --test --test-concurrency=1 tests/freestyle-wire-layout.test.mjs tests/local-capstone-library.test.mjs tests/freestyle-circuit.test.mjs tests/workspace-spice.test.mjs",
+      "exitCode": 0,
+      "snapshot": "index-D0WHFQ1Z.js",
+      "pass": 31,
+      "fail": 0,
+      "skip": 0,
+      "log": "evidence/final-unit.log"
+    },
+    {
+      "command": "npm.cmd run test:e2e -- <affected specs and test names in log>",
+      "exitCode": 0,
+      "snapshot": "index-D0WHFQ1Z.js",
+      "pass": 17,
+      "fail": 0,
+      "skip": 0,
+      "log": "evidence/final-e2e.log"
+    }
+  ],
+  "originalBrowserAudit": {
+    "bundle": "/assets/index-CM589IoX.js",
+    "sha256": "512cbd53fa6dfb0a52eacf3c69a9eb52f47616a9a6bf6d362b790dbaf359c740",
+    "cases": 33,
+    "routeImages": 52,
+    "catalogImages": 87
+  },
+  "sourceSnapshots": [
+    "snapshot-before.json",
+    "snapshot-final.json"
+  ],
+  "deferred": [
+    "server",
+    "Mini PC",
+    "live community/auth/sync/analytics",
+    "physical devices",
+    "real learner cohort"
+  ]
+}

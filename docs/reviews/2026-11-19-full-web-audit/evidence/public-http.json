@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-11-19T01:25:15.314Z",
+  "host": "machmo.tail3b04e8.ts.net",
+  "defaultDnsCurlExit": 28,
+  "defaultDnsHttp": "000",
+  "publicDns": "Google DNS over HTTPS, type A; curl --resolve retained hostname and TLS verification",
+  "entry": "/assets/index-BTpSWrV6.js",
+  "sha256": "92889e53e974ead761b5f28c7b178e8ae4bf2a13632f2d7fb4328858e70d70d6",
+  "resources": [
+    {
+      "path": "/",
+      "result": "200 text/html; charset=utf-8"
+    },
+    {
+      "path": "/assets/index-BTpSWrV6.js",
+      "result": "200 text/javascript; charset=utf-8"
+    },
+    {
+      "path": "/app/tools/spice",
+      "result": "200 text/html; charset=utf-8"
+    },
+    {
+      "path": "/vendor/eecircuit-engine/spice.wasm",
+      "result": "200 application/wasm"
+    },
+    {
+      "path": "/api/guide-ai/status",
+      "result": "404 "
+    }
+  ]
+}

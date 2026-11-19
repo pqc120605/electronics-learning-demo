@@ -4,6 +4,7 @@ import { LearningPath } from '../components/LearningPath'
 import { getLearningResume, learningPathOrder } from '../data/learningPath'
 import { useLearningProgress } from '../lib/useLearningProgress'
 import { useProductRoute } from '../lib/useProductRoute'
+import { LessonNavigation } from '../components/lesson/LessonBoardChooser'
 
 const topics = [
   {
@@ -37,17 +38,19 @@ export function TopicsPage() {
   const progress = useLearningProgress()
   const resume = getLearningResume(progress.lastLessonId, progress.selfReportedCompletedLessonIds)
   return <div className="catalog-page">
-    <BeginnerResumeCard />
     <section className="catalog-page-heading">
       <p className="eyebrow">LỘ TRÌNH · CHỦ ĐỀ</p>
       <h1>Chủ đề học</h1>
-      <p>Đi từ linh kiện và tín hiệu cơ bản đến code nhúng, cảm biến và chọn board. Đây là bản đồ học tập liên kết tới các công cụ và bài đang có, chưa phải khóa học đầy đủ.</p>
+      <p>Chọn bài bạn muốn thử, rồi chọn board của bạn. Bạn có thể học theo lộ trình hoặc mở bất kỳ bài nào.</p>
       <div className="catalog-actions">{resume.state !== 'all-complete' && <Link className="button-primary" to={productRoute(resume.route)}>{resume.label} ↗</Link>}<Link to={productRoute('/projects')}>Xem dự án thực hành →</Link></div>
     </section>
+    <LessonNavigation />
+    <BeginnerResumeCard />
     <section className="content-section topic-page-section" aria-labelledby="topic-path-title">
       <h2 id="topic-path-title" className="topic-path-title">Lộ trình bài thực hành</h2>
       <LearningPath lastLessonId={progress.lastLessonId} startedLessonIds={progress.startedLessonIds} completedLessonIds={progress.selfReportedCompletedLessonIds} headingLevel="h3" />
       <p className="topic-scope-note">{`Đã bắt đầu ${progress.startedLessonIds.length}/${learningPathOrder.length} bài; tự đánh dấu hoàn thành ${progress.selfReportedCompletedLessonIds.length}/${learningPathOrder.length} bài. Tiến độ chỉ lưu trên trình duyệt này và không xác minh đã chạy phần cứng.`}</p>
+      <details><summary className="topic-path-title">Khám phá chủ đề kiến thức</summary>
       <h2 className="topic-path-title">Chủ đề kiến thức</h2>
       <div className="topic-grid">{topics.map(topic => <article className="topic-tile" key={topic.number}>
         <span className="topic-number">{topic.number}</span><p className="card-kicker">{topic.category}</p><h2>{topic.title}</h2>
@@ -55,6 +58,7 @@ export function TopicsPage() {
         <div className="topic-links">{topic.links.map(link => <Link key={link.to} to={productRoute(link.to)}>{link.label} ↗</Link>)}</div>
       </article>)}</div>
       <p className="topic-scope-note">Một số chủ đề hiện là bản đồ học tập dẫn tới thư viện và workspace; chưa phải khóa học hoàn chỉnh. Các trang có bài học chạy được sẽ được ghi rõ trạng thái.</p>
+      </details>
     </section>
   </div>
 }

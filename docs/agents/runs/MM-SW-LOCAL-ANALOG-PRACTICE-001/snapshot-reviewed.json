@@ -1,0 +1,37 @@
+{
+  "at": "2026-11-18T20:02:35.743Z",
+  "files": {
+    "src/pages/SpiceWorkbenchPage.tsx": "9fa16d180ef96540c682fa10829566f41d8a91867dcad413d405f3d4abc0b7df",
+    "src/pages/SpiceWorkbenchPage.css": "e943a7ff39b6a89728fc27d2efaf8cab8bb24927f64219c791b4ad51d8ee5a7d",
+    "e2e/local-analog-practice.spec.mjs": "6deeaa4b59f41c447538280a2b5e734df8a3c4a986d9be909ba29aaad374b08a",
+    "src/components/spice/SpiceProbeMap.tsx": "4b4e6adf7b8d075f0eaa0f254e19074ac0ebe693e7f2000b2e7595d2bc28f5ec"
+  },
+  "scope": {
+    "withinLease": [
+      "src/components/spice/SpiceProbeMap.tsx",
+      "src/pages/SpiceWorkbenchPage.css",
+      "src/pages/SpiceWorkbenchPage.tsx",
+      "e2e/local-analog-practice.spec.mjs"
+    ],
+    "parallelLeaseChanges": [
+      "src/components/freestyle/FreestyleBench.css",
+      "src/components/freestyle/FreestyleBench.tsx",
+      "src/components/learning/LocalCapstoneLibrary.tsx",
+      "src/components/lesson/ButtonLedLessonLab.css",
+      "src/lib/freestyle/freestyleCircuit.ts",
+      "src/lib/freestyle/freestyleWireLayout.ts",
+      "src/lib/localCapstoneLibrary.ts",
+      "src/pages/AppHomePage.css",
+      "src/pages/AppHomePage.tsx",
+      "src/pages/BeginnerLearningPage.tsx",
+      "src/pages/CircuitBuilderPage.tsx",
+      "tests/freestyle-wire-layout.test.mjs",
+      "tests/local-capstone-library.test.mjs",
+      "e2e/circuit-tester-feedback.spec.mjs",
+      "e2e/freestyle-wire-recovery.spec.mjs",
+      "e2e/local-capstone-library.spec.mjs"
+    ],
+    "unexpected": [],
+    "missing": []
+  }
+}

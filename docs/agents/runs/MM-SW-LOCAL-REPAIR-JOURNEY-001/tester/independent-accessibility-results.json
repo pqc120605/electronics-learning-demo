@@ -1,0 +1,24 @@
+[
+  {
+    "width": 375,
+    "keyboard": "Focused links/buttons activate with Enter; radio Space/ArrowDown selects; incorrect prediction remains uncredited",
+    "focus": {
+      "text": "Kiểm tra kết nối",
+      "outline": "rgb(15, 124, 128) solid 3px",
+      "outlineOffset": "3px"
+    },
+    "violations": [],
+    "passes": 29
+  },
+  {
+    "width": 1440,
+    "keyboard": "Focused links/buttons activate with Enter; radio Space/ArrowDown selects; incorrect prediction remains uncredited",
+    "focus": {
+      "text": "Kiểm tra kết nối",
+      "outline": "rgb(15, 124, 128) solid 3px",
+      "outlineOffset": "3px"
+    },
+    "violations": [],
+    "passes": 29
+  }
+]

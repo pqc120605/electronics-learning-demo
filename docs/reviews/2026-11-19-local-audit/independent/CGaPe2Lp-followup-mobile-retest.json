@@ -1,0 +1,50 @@
+{
+  "snapshot": {
+    "asset": "/assets/index-CGaPe2Lp.js",
+    "sha256": "9522dd54c22dd8bd15a44e4d69ed55329a264eda0c2b10f66d6d2ae647a96a6e",
+    "baseURL": "http://127.0.0.1:5203",
+    "utc": "2026-11-18T19:56:09.999Z",
+    "browser": "156.0.8078.4"
+  },
+  "cases": [
+    {
+      "name": "mobile-resume-tools",
+      "width": 375,
+      "status": "PASS",
+      "images": [
+        "CGaPe2Lp-mobile-resume-and-tools.png"
+      ],
+      "pageErrors": [],
+      "pointerUndoRestored": true,
+      "metrics": {
+        "toolbarWidth": 341,
+        "toolbarContentWidth": 341,
+        "im": {
+          "x": 25,
+          "y": 359.50592041015625,
+          "right": 145,
+          "bottom": 403.50592041015625,
+          "width": 120
+        },
+        "un": {
+          "x": 151,
+          "y": 359.50592041015625,
+          "right": 257.15625,
+          "bottom": 403.50592041015625,
+          "width": 106.15625
+        },
+        "stage": {
+          "x": 25,
+          "y": 411.50592041015625,
+          "right": 350,
+          "bottom": 1378.240234375,
+          "width": 325
+        },
+        "importVisible": true,
+        "undoVisible": true,
+        "stageVisible": true
+      },
+      "route": "/app/lab/freestyle?resume=1"
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "snapshot": {
+    "asset": "/assets/index-D0WHFQ1Z.js",
+    "sha256": "25f4de4cace4967ff22b5f3ca54967b9c90012803cc2c91c1ebafbda75301ee1",
+    "baseURL": "http://127.0.0.1:5320",
+    "utc": "2026-11-18T20:02:09.951Z",
+    "browser": "156.0.8078.4"
+  },
+  "cases": [
+    {
+      "name": "mobile-lesson-controls",
+      "width": 375,
+      "status": "PASS",
+      "images": [
+        "D0WHFQ1Z-mobile-button-lesson-controls-final.png"
+      ],
+      "pageErrors": [],
+      "gaps": [
+        {
+          "phase": "read",
+          "gap": 12.7159423828125
+        },
+        {
+          "phase": "branch",
+          "gap": 12.703125
+        },
+        {
+          "phase": "write",
+          "gap": 12.703125
+        },
+        {
+          "phase": "stale",
+          "gap": 29.703125
+        }
+      ],
+      "clipping": [
+        {
+          "phase": "read",
+          "control": "Chọn",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "read",
+          "control": "Nối dây",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "read",
+          "control": "Đổi điểm bắt đầu",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "read",
+          "control": "Đổi điểm kết thúc",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "read",
+          "control": "Đổi loại dây",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "read",
+          "control": "Xóa dây w-input-to-button",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "read",
+          "control": "Khôi phục mạch",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "branch",
+          "control": "Chọn",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "branch",
+          "control": "Nối dây",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "branch",
+          "control": "Đổi điểm bắt đầu",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "branch",
+          "control": "Đổi điểm kết thúc",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "branch",
+          "control": "Đổi loại dây",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "branch",
+          "control": "Xóa dây w-input-to-button",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "branch",
+          "control": "Khôi phục mạch",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "write",
+          "control": "Chọn",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "write",
+          "control": "Nối dây",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "write",
+          "control": "Đổi điểm bắt đầu",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "write",
+          "control": "Đổi điểm kết thúc",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "write",
+          "control": "Đổi loại dây",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "write",
+          "control": "Xóa dây w-input-to-button",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "write",
+          "control": "Khôi phục mạch",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "stale",
+          "control": "Chọn",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "stale",
+          "control": "Nối dây",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "stale",
+          "control": "Đổi điểm bắt đầu",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "stale",
+          "control": "Đổi điểm kết thúc",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "stale",
+          "control": "Đổi loại dây",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "stale",
+          "control": "Xóa dây w-input-to-button",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        },
+        {
+          "phase": "stale",
+          "control": "Khôi phục mạch",
+          "height": 44,
+          "visibleHeight": 44,
+          "hit": true
+        }
+      ],
+      "route": "/app/learn/button-led?board=esp32-devkit"
+    }
+  ]
+}

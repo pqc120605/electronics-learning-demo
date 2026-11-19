@@ -1,0 +1,15 @@
+{
+  "hashes": {
+    "src/lib/guideAi.ts": null,
+    "src/lib/guideKnowledge.ts": "08e3503d3465e1c10e23927350e0321301457138e1c2ed78b22059d989451e2c",
+    "src/components/guide/GuidePanel.tsx": "490ee4bf16efa60eef61deca06e30bea2717c108416a81a73203037fdfd8371c",
+    "src/components/guide/GuideAiChat.tsx": null,
+    "src/components/guide/Guide.css": "2ac7f95f05b9af0ac75729d9ab021bd3ff381b1994ecae2764b9e49391efc001",
+    "src/pages/PrivacyPage.tsx": "fc428dca301a7ad37082e2fd9ef658905062c296eab2b94f63d8b14770a34245",
+    "scripts/guide-ai-service.mjs": null,
+    "scripts/arduino-compile-service.mjs": "37b13b00f6f1963b84d55163543d17c9730b5b53a461798fd68c19495c6672a2",
+    "tests/guide-ai-service.test.mjs": null,
+    "tests/guide-ai.test.mjs": null,
+    "e2e/guide-ai.spec.mjs": null
+  }
+}

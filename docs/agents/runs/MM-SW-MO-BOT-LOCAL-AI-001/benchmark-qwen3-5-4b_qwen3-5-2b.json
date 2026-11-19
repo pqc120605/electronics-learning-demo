@@ -1,0 +1,137 @@
+[
+  {
+    "model": "qwen3.5:4b",
+    "case": "led",
+    "ms": 55037,
+    "checks": false,
+    "output": {
+      "error": "timeout"
+    }
+  },
+  {
+    "model": "qwen3.5:4b",
+    "case": "breadboard",
+    "ms": 55030,
+    "checks": false,
+    "output": {
+      "error": "timeout"
+    }
+  },
+  {
+    "model": "qwen3.5:4b",
+    "case": "pullup",
+    "ms": 55138,
+    "checks": false,
+    "output": {
+      "error": "timeout"
+    }
+  },
+  {
+    "model": "qwen3.5:4b",
+    "case": "uno",
+    "ms": 55198,
+    "checks": false,
+    "output": {
+      "error": "timeout"
+    }
+  },
+  {
+    "model": "qwen3.5:4b",
+    "case": "followup",
+    "ms": 55131,
+    "checks": false,
+    "output": {
+      "error": "timeout"
+    }
+  },
+  {
+    "model": "qwen3.5:4b",
+    "case": "unknown-pin",
+    "ms": 0,
+    "checks": true,
+    "output": {
+      "kind": "unknown",
+      "message": "Kho này chưa xác minh yêu cầu chân cụ thể đó trong cấu hình của bạn. Hãy mở pinout nguồn hãng đúng revision; mapping LED của bài học không chứng minh khả năng mọi chân và không phải phê duyệt nối phần cứng."
+    }
+  },
+  {
+    "model": "qwen3.5:2b",
+    "case": "led",
+    "ms": 32645,
+    "checks": true,
+    "output": {
+      "status": "answered",
+      "answer": "LED cần điện trở vì nó là diode có cực anode và cathode, nếu đổi cực sẽ làm mạch không hoạt động. Điện trở hạn dòng đi qua LED để bảo vệ linh kiện khỏi bị quá nhiệt hoặc hỏng khi nguồn cấp quá lớn. Giá trị điện trở phù hợp phụ thuộc vào nguồn điện áp, điện áp thuận của LED và dòng mục tiêu mong muốn.",
+      "sourceIds": [
+        "S1",
+        "S2"
+      ],
+      "model": "qwen3.5:2b"
+    }
+  },
+  {
+    "model": "qwen3.5:2b",
+    "case": "breadboard",
+    "ms": 8740,
+    "checks": false,
+    "output": {
+      "status": "answered",
+      "answer": "Trong breadboard hiện tại, các lỗ được chia thành hai cột riêng biệt: năm lỗ a–e nối với nhau trong một cột và năm lỗ f–j nối với nhau trong cột khác. Hai cột này không tự động nối với nhau, nhưng nếu bạn chọn một chân trên cùng một ray nguồn (ví dụ: cả 5 lỗ a–e), chúng sẽ được mô hình hóa như nối chung theo cấu hình giả định của mẫu giáo dục. Lưu ý rằng breadboard thật có thể khác và cần kiểm tra thông mạch khi chưa cấp điện.",
+      "sourceIds": [
+        "S1"
+      ],
+      "model": "qwen3.5:2b"
+    }
+  },
+  {
+    "model": "qwen3.5:2b",
+    "case": "pullup",
+    "ms": 8118,
+    "checks": true,
+    "output": {
+      "status": "answered",
+      "answer": "INPUT_PULLUP là một chế độ pin trong Arduino (và các microcontroller tương tự) giúp chuyển đổi tín hiệu điện từ trạng thái cao (HIGH) sang trạng thái thấp (LOW) khi có sự kiện vật lý xảy ra, như nhấn nút bấm. Khi không có nút được chạm vào, đầu vào sẽ nhận mức logic HIGH; khi bạn nhấn nút, nó nối trực tiếp đến chân GND nên mức đọc trở thành LOW. Điều này cho phép code sử dụng điều kiện `digitalRead(buttonPin) == LOW` để phát hiện trạng thái nhấn nút.",
+      "sourceIds": [
+        "S1"
+      ],
+      "model": "qwen3.5:2b"
+    }
+  },
+  {
+    "model": "qwen3.5:2b",
+    "case": "uno",
+    "ms": 1913,
+    "checks": false,
+    "output": {
+      "status": "insufficient",
+      "answer": "",
+      "sourceIds": [],
+      "model": "qwen3.5:2b"
+    }
+  },
+  {
+    "model": "qwen3.5:2b",
+    "case": "followup",
+    "ms": 8554,
+    "checks": true,
+    "output": {
+      "status": "answered",
+      "answer": "Ví dụ về việc sử dụng điện trở trong mạch mở là khi nối LED với cầu chia áp LDR. Điện trở có vai trò hạn dòng để bảo vệ LED khỏi bị quá nhiệt hoặc hỏng khi nguồn cấp quá lớn, đồng thời đảm bảo anode và cathode của LED được nối đúng cực (anode vào nguồn dương, cathode vào GND) để mạch hoạt động bình thường. Nếu đổi sai cực, đường dẫn sẽ không hoạt động như mong muốn.",
+      "sourceIds": [
+        "S1",
+        "S2"
+      ],
+      "model": "qwen3.5:2b"
+    }
+  },
+  {
+    "model": "qwen3.5:2b",
+    "case": "unknown-pin",
+    "ms": 0,
+    "checks": true,
+    "output": {
+      "kind": "unknown",
+      "message": "Kho này chưa xác minh yêu cầu chân cụ thể đó trong cấu hình của bạn. Hãy mở pinout nguồn hãng đúng revision; mapping LED của bài học không chứng minh khả năng mọi chân và không phải phê duyệt nối phần cứng."
+    }
+  }
+]

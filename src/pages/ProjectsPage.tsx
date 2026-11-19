@@ -9,6 +9,7 @@ import { decodeProjectImport, type ProjectImportPreview } from '../lib/projectTr
 import { useProductRoute } from '../lib/useProductRoute'
 import { getBrowserStorage, listWorkspaceRecoveryEntries } from '../lib/workspaceStorage'
 import { getLessonPartsSummary } from '../lib/lessonPreflight'
+import { LocalCapstoneLibrary } from '../components/learning/LocalCapstoneLibrary'
 
 const projects = curriculumLessons.map((lesson, index) => ({
   id: String(index + 1).padStart(2, '0'),
@@ -85,6 +86,7 @@ export function ProjectsPage() {
   const [importNameError,setImportNameError]=useState('')
   const [projectNotice,setProjectNotice]=useState('')
   const [recoveryCount,setRecoveryCount]=useState(0)
+  const [showAllIdeas, setShowAllIdeas] = useState(false)
   const importRequest=useRef(createImportRequestToken())
   const importFile=useRef<HTMLInputElement>(null)
   const previewHeading=useRef<HTMLElement>(null)
@@ -197,11 +199,12 @@ export function ProjectsPage() {
       <p className="eyebrow">LỘ TRÌNH · DỰ ÁN</p>
       <h1>Dự án thực hành</h1>
       <p>Chọn một mục tiêu, xem những gì cần chuẩn bị rồi mở đúng công cụ để bắt đầu. Mỗi thẻ ghi rõ phần nào có thể chạy trong workspace và giới hạn mô phỏng.</p>
-      <div className="catalog-actions"><Link className="button-primary" to={productRoute('/build')}>Mở bàn lắp mạch ↗</Link><Link to={productRoute('/components')}>Tra thư viện linh kiện →</Link></div>
+      <div className="catalog-actions"><Link className="button-primary" to={productRoute('/learn/mini-project')}>Mở hoặc tiếp tục mini-project</Link><Link to={productRoute('/build')}>Mở bàn lắp mạch ↗</Link><a href="#saved-projects">Đến project đã lưu ↓</a></div>
     </section>
     <section className="content-section project-page-section">
       <CapabilityLegend ids={['behavior-simulation', 'concept-illustration', 'electrical-simulation', 'firmware-execution']} title="Cách đọc nhãn mô phỏng" />
-      <section className="saved-projects" aria-label="Project đã lưu trên thiết bị">
+      <LocalCapstoneLibrary />
+      <section id="saved-projects" className="saved-projects" aria-label="Project đã lưu trên thiết bị">
         <div className="saved-projects-heading"><div><p className="eyebrow">WORKSPACE CỦA BẠN · LƯU CỤC BỘ</p><h2>Project đã lưu{savedProjects.length>0&&<span> · {savedProjects.length}</span>}</h2><p>Project nằm trong bộ nhớ trình duyệt này. Xuất tệp để chuyển sang máy khác.</p></div><Link className="button-secondary" to={productRoute('/build')}>Tạo hoặc lưu project ↗</Link></div>
         {projectError&&<p className="builder-message" role="alert">{projectError}</p>}
         {projectNotice&&<p className="saved-project-notice" role="status">{projectNotice}</p>}
@@ -221,7 +224,7 @@ export function ProjectsPage() {
         </>}
       </section>
       <div className="project-list">
-        {projects.map(project => <article className={`project-card-ready ${project.ready ? 'project-card-featured' : ''}`} key={project.id}>
+        {(showAllIdeas ? projects : projects.slice(0, 3)).map(project => <article className={`project-card-ready ${project.ready ? 'project-card-featured' : ''}`} key={project.id}>
           <div className="project-card-index">{project.id}<span>{project.level}</span></div>
           <div className="project-card-copy">
             <h2>{project.title}</h2><p>{project.summary}</p>
@@ -233,6 +236,7 @@ export function ProjectsPage() {
           <Link className={project.ready ? 'button-primary' : 'button-secondary'} to={productRoute(project.href)}>{project.action} ↗</Link>
         </article>)}
       </div>
+      {!showAllIdeas && projects.length > 3 && <button className="button-secondary" type="button" onClick={() => setShowAllIdeas(true)}>Xem thêm {projects.length - 3} bài thực hành</button>}
       <section className="project-scope-note"><strong>Phạm vi mô phỏng · 11 bài</strong><p>8 bài dùng parser Arduino subset (6 mẫu cú pháp, gồm bài biến trở và LDR); 3 bài nguồn/motor/MOSFET dùng kịch bản khái niệm cố định. Biến trở nhận đầu vào ảo chuẩn hóa 0–100. Bài LDR tính Vout từ bộ chia áp giáo dục với điện trở giả định; không tính lux, đặc tuyến cảm biến thật hay số đếm ADC vật lý và không xác nhận mạch thật.</p><div className="project-reference-topics"><b>Chủ đề analog đang mô phỏng / còn tham khảo</b>{referenceOnlyTopics.map(topic=><span key={topic.id}>{topic.title}: {topic.status}</span>)}</div></section>
     </section>
   </div>

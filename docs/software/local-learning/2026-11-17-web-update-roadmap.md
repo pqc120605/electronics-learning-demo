@@ -50,6 +50,19 @@ Guest/local-first. Trang bàn tự do khởi đầu trống. Board trong bài đ
 
 Tiếp theo ngày 18/11, [điều hướng chẩn đoán 2b](../../agents/runs/MM-SW-DIAGNOSTIC-NAV-001/report.md) và [finder khả năng board 2c](../../agents/runs/MM-SW-BOARD-CAPABILITIES-001/report.md) đã có review/ảnh: chọn lỗi để tìm đúng chân/dây/LED, và so sánh hỗ trợ bài/tọa độ chân/runtime riêng trước khi chọn board. Typecheck/build local đạt, 736 unit và 27 E2E liên quan đạt. Bổ sung anchor mới, probe/debug sâu hơn và mini-project/gói giáo viên còn theo các bước trên; không đánh dấu toàn bộ đợt 2 hoàn tất chỉ từ hai slice này.
 
+Đợt 3a hoàn tất con trỏ A/B, kiểm dữ liệu trace và cửa sổ dạng sóng ngay trên bàn mạch. Đợt 4a bổ sung gói giáo viên offline cho năm hoạt động. Đã xử lý các phản ánh tester về thao tác mạch, chọn bài/board, LED/dây 3D và Mở Bot. [Báo cáo và bằng chứng bản local](2026-11-18-tester-feedback-report.md). Mini-project và hồ sơ thực hành của người học là phần tiếp theo của đợt 4.
+
+## Đối chiếu sau lượt triển khai 19/11/2026
+
+| Hạng mục | Trạng thái và bằng chứng |
+| --- | --- |
+| Khóa nền tảng và tiếp tục bài học | Đã triển khai năm hoạt động, lưu tiến độ, khôi phục và bảo vệ dữ liệu local. [Kiểm thử khóa học](../../agents/runs/MM-SW-LOCAL-LEARNING-001/report.md) |
+| Hướng dẫn, chẩn đoán, board và các chế độ xem | Đã có Mở Bot theo ngữ cảnh, chọn bài/board, truy vết chân và dây, chỉnh trị số, sửa LED và dây 3D. Đã bổ sung anchor Mega từ nguồn. Blue Pill và Nucleo còn thiếu dữ liệu hình học đúng revision. [Đợt tester](2026-11-18-tester-feedback-report.md) |
+| Quan sát và debug | Đã có trace giáo dục, đo A/B, probe SPICE và đồ thị Serial từ đầu ra trình chạy đang chọn. Firmware và ngoại vi chuyên sâu tiếp tục theo từng target và tiêu chí nghiệm thu. [Serial Plotter](../../agents/runs/MM-SW-LOCAL-SERIAL-PLOT-001/report.md) |
+| Dự án và buổi học local | Đã có gói giáo viên và mini-project đèn cảnh báo trên Uno R3, Nano classic và Mega 2560. Hồ sơ lưu cấu hình, code, kết quả và điều đã sửa; có thể tải bản sao hoặc mở trên trình duyệt khác. [Mini-project](../../agents/runs/MM-SW-LOCAL-CAPSTONE-001/report.md) |
+| Thử với người mới | Đã soạn kịch bản và tiêu chí quan sát. Chờ lượt thử tự nguyện để có số liệu hoàn thành và quay lại. [Phiếu quan sát](2026-11-18-roadmap-local-finish.md#phiếu-quan-sát-thử-với-người-mới) |
+| Sync, chia sẻ, lớp học và analytics online | Chờ môi trường Mini PC để xác minh với tài khoản độc lập, quyền truy cập và lỗi mạng. |
+
 ## Nguồn
 
 - [Audit và ảnh Mạch Mở](../../reviews/2026-11-16-web-user-audit/report.md)

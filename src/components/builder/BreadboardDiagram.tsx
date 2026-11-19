@@ -2,7 +2,8 @@ import { FreestyleBoardArt } from '../freestyle/FreestyleBoardArt'
 import type { BoardDiagramPresentation } from '../../lib/boardTopView'
 import { adjacentBreadboardHole, buildBreadboardDiagram, breadboardDiagramWireColor, type DiagramPart, type DiagramPin } from '../../lib/breadboardDiagram'
 import type { CircuitDocV2, CircuitEndpointV2 } from '../../lib/circuitDocV2'
-import { useState } from 'react'
+import type { FreestyleWireLayout, WireBend } from '../../lib/freestyle/freestyleWireLayout'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties, KeyboardEvent, MouseEvent, PointerEvent } from 'react'
 
 export type WireSignalLabel = { text: string; tone: 'high' | 'low' | 'power' | 'ground' | 'other'; flowing: boolean }
@@ -32,6 +33,9 @@ type Props = {
   onSelectWire: (wireId: string) => void
   onSelectPart: (partId: string) => void
   onFocusHole?: (holeId: string) => void
+  adjustWirePath?: boolean
+  wireLayout?: FreestyleWireLayout
+  onWireBendChange?: (wireId: string, bend: WireBend | null) => void
 }
 
 function selectByKeyboard(event: KeyboardEvent<SVGElement>, select: () => void) {
@@ -93,10 +97,48 @@ function WireLevelPill({ path, signal }: { path: string; signal: WireSignalLabel
   return <g className={`diagram-level-pill is-${signal.tone}`} transform={`translate(${x} ${y})`} aria-hidden="true"><rect x="-4" y="-11" width={width} height="18" rx="9" /><text x={width / 2 - 4} y="2" textAnchor="middle">{signal.text}</text></g>
 }
 
-export function BreadboardDiagram({ doc, presentation, selectedWireId = null, selectedPartId = null, selectedEndpointId = null, focusedHoleId = 'bb1:1a', showHeading = false, activeWireIds = new Set<string>(), highlightedWireIds = new Set<string>(), traceLevel = null, litPartIds = new Set<string>(), wireSignals, onChooseEndpoint, onActivateEndpoint, onStartEndpointDrag, onMoveEndpointDrag, onFinishEndpointDrag, onCancelEndpointDrag, onSelectWire, onSelectPart, onFocusHole }: Props) {
-  const [zoom,setZoom]=useState(1)
+export function BreadboardDiagram({ doc, presentation, selectedWireId = null, selectedPartId = null, selectedEndpointId = null, focusedHoleId = 'bb1:1a', showHeading = false, activeWireIds = new Set<string>(), highlightedWireIds = new Set<string>(), traceLevel = null, litPartIds = new Set<string>(), wireSignals, onChooseEndpoint, onActivateEndpoint, onStartEndpointDrag, onMoveEndpointDrag, onFinishEndpointDrag, onCancelEndpointDrag, onSelectWire, onSelectPart, onFocusHole, adjustWirePath = false, wireLayout, onWireBendChange }: Props) {
+  const [zoom, setZoom] = useState(1)
   const [fit, setFit] = useState(false)
-  const diagram = buildBreadboardDiagram(doc,presentation)
+  const [explicitZoom, setExplicitZoom] = useState(false)
+  const [hoveredPin, setHoveredPin] = useState<string | null>(null)
+  const [focusedPin, setFocusedPin] = useState<string | null>(null)
+  const [bends, setBends] = useState<ReadonlyMap<CircuitDocV2['wires'][number], { x: number; y: number }>>(new Map())
+  const dragBend = useRef<{ wireId: string; point: WireBend } | null>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const svgRef = useRef<SVGSVGElement>(null)
+  const zoomAnchor = useRef<{ x: number; y: number; offsetX: number; offsetY: number } | null>(null)
+  const diagram = useMemo(() => buildBreadboardDiagram(doc, presentation), [doc, presentation])
+  useEffect(() => {
+    const container = scrollRef.current
+    if (!container) return
+    const wheel = (event: WheelEvent) => {
+      if (!event.deltaY || event.ctrlKey || event.metaKey || event.shiftKey) return
+      const bounds = svgRef.current?.getBoundingClientRect()
+      if (!bounds?.width || !bounds.height) return
+      const current = bounds.width / diagram.width
+      const next = event.deltaY < 0 ? Math.min(4, current * 1.16) : Math.min(current, Math.max(.25, current / 1.16))
+      if (Math.abs(next - current) < 0.001) return
+      event.preventDefault()
+      const viewport = container.getBoundingClientRect()
+      zoomAnchor.current = {
+        x: (event.clientX - bounds.left) / bounds.width, y: (event.clientY - bounds.top) / bounds.height,
+        offsetX: event.clientX - viewport.left, offsetY: event.clientY - viewport.top,
+      }
+      setFit(false)
+      setExplicitZoom(true)
+      setZoom(next)
+    }
+    container.addEventListener('wheel', wheel, { passive: false })
+    return () => container.removeEventListener('wheel', wheel)
+  }, [diagram.width])
+  useLayoutEffect(() => {
+    const anchor = zoomAnchor.current
+    zoomAnchor.current = null
+    if (!anchor || !scrollRef.current || !svgRef.current) return
+    const box = svgRef.current.getBoundingClientRect()
+    scrollRef.current.scrollTo(anchor.x * box.width - anchor.offsetX, anchor.y * box.height - anchor.offsetY)
+  }, [zoom, explicitZoom, fit])
   const occupiedHoleIds = new Set(diagram.parts.flatMap(part => part.pins.flatMap(pin => pin.holeId ? [pin.holeId] : [])))
   const signalOf = (wireId: string): WireSignalLabel | null => !activeWireIds.has(wireId) ? null : wireSignals?.get(wireId) ?? (traceLevel ? { text: traceLevel, tone: traceLevel === 'HIGH' ? 'high' : 'low', flowing: traceLevel === 'HIGH' } : null)
   const choosePin = (pin: DiagramPin) => onChooseEndpoint({ kind: 'pin', partId: pin.partId, pinId: pin.pinId })
@@ -108,21 +150,44 @@ export function BreadboardDiagram({ doc, presentation, selectedWireId = null, se
   const connectedPins=new Set(doc.wires.flatMap(wire=>[wire.from,wire.to].flatMap(endpoint=>endpoint.kind==='pin'?[`${endpoint.partId}:${endpoint.pinId}`]:[])))
   const pinPriority=(key:string)=>selectedEndpointId===key?2:connectedPins.has(key)?1:0
   const boardPinMarkers=[...diagram.boardPins].sort((a,b)=>pinPriority(a.key)-pinPriority(b.key))
+  const indicatedPin = diagram.boardPins.find(pin => pin.key === (hoveredPin ?? focusedPin))
+  const editableRoute = adjustWirePath ? diagram.wires.find(wire => wire.id === selectedWireId) : undefined
+  const editableWire = editableRoute ? wireTitles.get(editableRoute.id) : undefined
+  const bendOf = (wire: CircuitDocV2['wires'][number]) => onWireBendChange
+    ? (dragBend.current?.wireId === wire.id ? dragBend.current.point : wireLayout?.[wire.id])
+    : bends.get(wire)
+  const routeHandle = editableRoute && ((editableWire && bendOf(editableWire))
+    ?? editableRoute.points[Math.floor(editableRoute.points.length / 2)])
+  const resetBend = () => {
+    if (editableWire && onWireBendChange) onWireBendChange(editableWire.id, null)
+    else setBends(current => new Map([...current].filter(([wire]) => wire !== editableWire)))
+  }
+  const moveBend = (x: number, y: number, preview = false) => {
+    if (!editableWire) return
+    const point = { x: Math.min(diagram.width - 8, Math.max(8, x)), y: Math.min(diagram.height - 8, Math.max(8, y)) }
+    if (onWireBendChange && !preview) { onWireBendChange(editableWire.id, point); return }
+    if (onWireBendChange) dragBend.current = { wireId: editableWire.id, point }
+    setBends(current => {
+      const next = new Map([...current].filter(([wire]) => doc.wires.includes(wire)))
+      next.set(editableWire, point)
+      return next
+    })
+  }
 
   return <section className="breadboard-diagram" aria-label="Mạch lắp thử nhìn từ trên xuống">
     {showHeading && <header className="breadboard-diagram-header"><div><p className="breadboard-editor-eyebrow">MẠCH LẮP · CÙNG CIRCUITDOC V2</p><h3>Breadboard và dây nối</h3></div><p>Lỗ cắm, chân linh kiện và từng dây lấy từ cùng sơ đồ mạch; chọn điểm để nối hoặc xem net.</p></header>}
     <p className="breadboard-diagram-assumption" role="note">Lưới minh họa 400 tie-point. Số lỗ và cách nối dải ray là giả định của mô hình, chưa xác minh trên mẫu vật lý.</p>
-    <div className="freestyle-view-controls" aria-label="Thu phóng mạch 2D"><button onClick={()=>{setFit(false);setZoom(z=>Math.max(1,z-.5))}} disabled={zoom<=1&&!fit} aria-label="Thu nhỏ mạch 2D">−</button><span>{fit ? 'Tổng quan' : `${Math.round(zoom*100)}%`}</span><button onClick={()=>{setFit(false);setZoom(z=>Math.min(4,z+.5))}} disabled={zoom>=4&&!fit} aria-label="Phóng to mạch 2D">+</button><button onClick={()=>{setZoom(1);setFit(true)}}>Vừa khung 2D</button></div>
-    <p className="diagram-navigation-hint">Cuộn trong khung để di chuyển, phóng to để chọn điểm cắm. Có thể nối bằng danh sách chân và lưới lỗ bên dưới.</p>
-    <div className="breadboard-diagram-scroll mm-keep-light" tabIndex={0} role="region" aria-label="Khung mạch 2D có thể cuộn và thu phóng">
-      <svg className="breadboard-diagram-svg" data-fit={fit} style={{ '--diagram-natural-width': `${diagram.width}px`, ...(zoom>1?{width:`${diagram.width*zoom}px`,maxHeight:'none'}:{}) } as CSSProperties} viewBox={`0 0 ${diagram.width} ${diagram.height}`} role="group" aria-label={`${presentation?.name ?? (board ? "Board ESP32" : "Chưa chọn board")}, breadboard, linh kiện và dây jumper`} onPointerMove={onMoveEndpointDrag} onPointerUp={onFinishEndpointDrag} onPointerCancel={onCancelEndpointDrag}>
+    <div className="freestyle-view-controls" aria-label="Thu phóng mạch 2D"><button type="button" onClick={() => { setFit(false); setExplicitZoom(true); setZoom(z => Math.max(.25, z / 1.25)) }} disabled={zoom<=.25&&!fit} aria-label="Thu nhỏ mạch 2D">−</button><span>{fit ? 'Tổng quan' : `${Math.round(zoom*100)}%`}</span><button type="button" onClick={() => { setFit(false); setExplicitZoom(true); setZoom(z => Math.min(4, z * 1.25)) }} disabled={zoom>=4&&!fit} aria-label="Phóng to mạch 2D">+</button><button type="button" onClick={() => { setZoom(1); setFit(true); setExplicitZoom(false) }}>Vừa khung 2D</button></div>
+    <p className="diagram-navigation-hint">Cuộn trên mạch để thu phóng. Kéo thanh cuộn để di chuyển, hoặc chọn “Vừa khung 2D”.</p>
+    <div ref={scrollRef} className="breadboard-diagram-scroll mm-keep-light" tabIndex={0} role="region" aria-label="Khung mạch 2D có thể cuộn và thu phóng">
+      <svg ref={svgRef} className="breadboard-diagram-svg" data-fit={fit} style={{ '--diagram-natural-width': `${diagram.width}px`, ...(explicitZoom ? {width: `${diagram.width * zoom}px`, minWidth: 0, maxHeight:'none'} : {}) } as CSSProperties} viewBox={`0 0 ${diagram.width} ${diagram.height}`} role="group" aria-label={`${presentation?.name ?? (board ? "Board ESP32" : "Chưa chọn board")}, breadboard, linh kiện và dây jumper`} onPointerMove={onMoveEndpointDrag} onPointerUp={onFinishEndpointDrag} onPointerCancel={onCancelEndpointDrag}>
         <defs>
           <linearGradient id="diagram-board" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stopColor="#1d7769"/><stop offset="1" stopColor="#103e39"/></linearGradient>
           <filter id="diagram-shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="5" floodColor="#23353a" floodOpacity=".2"/></filter>
         </defs>
         <rect className="diagram-bench" x="0" y="0" width={diagram.width} height={diagram.height} rx="13" />
         {board && <g className="diagram-board" data-diagram-part={board.id}>
-          <g className="diagram-board-body-control" role="button" tabIndex={0} onClick={() => board && onSelectPart(board.id)} onKeyDown={event => selectByKeyboard(event, () => board && onSelectPart(board.id))}>
+          <g className="diagram-board-body-control" role="button" tabIndex={0} aria-label={`Thông tin ${presentation?.name ?? 'board'}`} onClick={() => onSelectPart(board.id)} onKeyDown={event => selectByKeyboard(event, () => onSelectPart(board.id))}>
             {presentation ? <FreestyleBoardArt view={presentation} {...diagram.board} /> : <>
             <rect x={diagram.board.x} y={diagram.board.y} width={diagram.board.width} height={diagram.board.height} rx="18" />
             <rect className="diagram-board-module" x={diagram.board.x + 43} y={diagram.board.y + 22} width={126} height={66} rx="9" />
@@ -144,16 +209,23 @@ export function BreadboardDiagram({ doc, presentation, selectedWireId = null, se
           <path className="diagram-rail-ground" d={`M${diagram.holes.find(hole => hole.id === 'bb1:B-:1')?.x ?? 0} ${diagram.holes.find(hole => hole.id === 'bb1:B-:1')?.y ?? 0}H${diagram.holes.find(hole => hole.id === 'bb1:B-:25')?.x ?? 0}`} />
         </g>}
         <g className="diagram-wire-routes" aria-label="Dây jumper">
-          {diagram.wires.map(wire => <g key={wire.id} className={`diagram-wire ${selectedWireId === wire.id ? 'is-selected' : ''} ${activeWireIds.has(wire.id) ? 'is-active' : ''} ${signalOf(wire.id) ? `is-level-${signalOf(wire.id)!.tone}` : ''} ${highlightedWireIds.has(wire.id) ? 'is-net-highlighted' : ''}`} data-diagram-wire={wire.id} data-wire-role={wire.role} role="button" tabIndex={0} aria-label={`${wire.id}: ${wire.fromKey} nối ${wire.toKey}${highlightedWireIds.has(wire.id) ? ' · thuộc net đang chọn trên sơ đồ' : ''}${wireTitles.get(wire.id)?.role ? ` · ${wireTitles.get(wire.id)?.role}` : ''}`} onClick={() => onSelectWire(wire.id)} onKeyDown={event => selectByKeyboard(event, () => onSelectWire(wire.id))}>
-            <path className="diagram-wire-outline" d={wire.path} /><path className="diagram-wire-color" d={wire.path} style={{ stroke: highlightedWireIds.has(wire.id) ? '#087f9b' : breadboardDiagramWireColor(wire.role) }} />
-            {signalOf(wire.id)?.flowing && <path className="diagram-wire-flow" d={wire.path} aria-hidden="true" />}
-            {signalOf(wire.id) && <WireLevelPill path={wire.path} signal={signalOf(wire.id)!} />}
-          </g>)}
+          {diagram.wires.map(wire => {
+            const sourceWire = wireTitles.get(wire.id)
+            const bend = sourceWire && bendOf(sourceWire)
+            const path = bend
+              ? `M ${wire.from.x} ${wire.from.y} L ${bend.x} ${bend.y} L ${wire.to.x} ${wire.to.y}`
+              : wire.path
+            return <g key={wire.id} className={`diagram-wire ${selectedWireId === wire.id ? 'is-selected' : ''} ${activeWireIds.has(wire.id) ? 'is-active' : ''} ${signalOf(wire.id) ? `is-level-${signalOf(wire.id)!.tone}` : ''} ${highlightedWireIds.has(wire.id) ? 'is-net-highlighted' : ''}`} data-diagram-wire={wire.id} data-wire-role={wire.role} role="button" tabIndex={0} aria-label={`${wire.id}: ${wire.fromKey} nối ${wire.toKey}${highlightedWireIds.has(wire.id) ? ' · thuộc net đang chọn trên sơ đồ' : ''}${wireTitles.get(wire.id)?.role ? ` · ${wireTitles.get(wire.id)?.role}` : ''}`} onClick={() => onSelectWire(wire.id)} onKeyDown={event => selectByKeyboard(event, () => onSelectWire(wire.id))}>
+              <path className="diagram-wire-outline" d={path} /><path className="diagram-wire-color" d={path} style={{ stroke: highlightedWireIds.has(wire.id) ? '#087f9b' : breadboardDiagramWireColor(wire.role) }} />
+              {signalOf(wire.id)?.flowing && <path className="diagram-wire-flow" d={path} aria-hidden="true" />}
+              {signalOf(wire.id) && <WireLevelPill path={path} signal={signalOf(wire.id)!} />}
+            </g>
+          })}
         </g>
         <g className="diagram-board-pin-layer" role="group" aria-label="Chân board">
           {boardPinMarkers.map(pin => <g key={pin.key} className={`diagram-board-pin ${selectedEndpointId === pin.key ? 'is-selected' : ''}`}>
             <circle className="diagram-board-pin-visible" cx={pin.x} cy={pin.y} r="6" aria-hidden="true" />
-            <circle className="diagram-board-pin-hit-target" cx={pin.x} cy={pin.y} r="11" role="button" tabIndex={0} data-diagram-endpoint={pin.key} data-circuit-endpoint={pin.key} aria-label={`${pin.key} · ${pin.label}`} onClick={event => onActivateEndpoint(event, { kind: 'pin', partId: pin.partId, pinId: pin.pinId })} onPointerDown={event => onStartEndpointDrag(event, { kind: 'pin', partId: pin.partId, pinId: pin.pinId })} onKeyDown={event => selectByKeyboard(event, () => onChooseEndpoint({ kind: 'pin', partId: pin.partId, pinId: pin.pinId }))} />
+            <circle className="diagram-board-pin-hit-target" cx={pin.x} cy={pin.y} r="11" role="button" tabIndex={0} data-diagram-endpoint={pin.key} data-circuit-endpoint={pin.key} aria-label={`${pin.key} · ${pin.label}`} onPointerEnter={() => setHoveredPin(pin.key)} onPointerLeave={() => setHoveredPin(null)} onFocus={() => setFocusedPin(pin.key)} onBlur={() => setFocusedPin(null)} onClick={event => onActivateEndpoint(event, { kind: 'pin', partId: pin.partId, pinId: pin.pinId })} onPointerDown={event => onStartEndpointDrag(event, { kind: 'pin', partId: pin.partId, pinId: pin.pinId })} onKeyDown={event => selectByKeyboard(event, () => onChooseEndpoint({ kind: 'pin', partId: pin.partId, pinId: pin.pinId }))} />
             <title>{`${pin.label} · ${pin.key}`}</title>
             {(!presentation||selectedEndpointId===pin.key)&&<text x={pin.x + (pin.side === 'left' ? 11 : -11)} y={pin.y + 4} textAnchor={pin.side === 'left' ? 'start' : 'end'}>{pin.label}</text>}
           </g>)}
@@ -182,8 +254,36 @@ export function BreadboardDiagram({ doc, presentation, selectedWireId = null, se
           <text x={diagram.breadboard.x + 28} y={diagram.holes.find(hole => hole.id === 'bb1:B-:1')?.y! + 4}>−</text>
           <text className="diagram-trench-label" x={diagram.breadboard.x + diagram.breadboard.width / 2} y={diagram.breadboard.y + 276} textAnchor="middle">RÃNH GIỮA · HAI NỬA KHÔNG NỐI</text>
         </g>}
+        {editableRoute && routeHandle && <circle className="diagram-wire-handle" cx={routeHandle.x} cy={routeHandle.y} r="10" tabIndex={0} role="button"
+          aria-label={`Chỉnh đường đi dây ${editableRoute.id}. Dùng phím mũi tên để di chuyển, Enter để đặt lại.`}
+          onPointerDown={event => { if (event.button === 0) event.currentTarget.setPointerCapture(event.pointerId) }}
+          onPointerMove={event => {
+            if (!event.currentTarget.hasPointerCapture(event.pointerId)) return
+            const matrix = svgRef.current?.getScreenCTM()
+            if (!matrix) return
+            const point = new DOMPoint(event.clientX, event.clientY).matrixTransform(matrix.inverse())
+            moveBend(point.x, point.y, true)
+          }}
+          onPointerUp={event => {
+            if (!event.currentTarget.hasPointerCapture(event.pointerId)) return
+            const pending = dragBend.current
+            dragBend.current = null
+            if (pending) onWireBendChange?.(pending.wireId, pending.point)
+            event.currentTarget.releasePointerCapture(event.pointerId)
+          }}
+          onPointerCancel={() => { dragBend.current = null; setBends(new Map()) }}
+          onKeyDown={event => {
+            const delta = { ArrowLeft: [-8, 0], ArrowRight: [8, 0], ArrowUp: [0, -8], ArrowDown: [0, 8] }[event.key]
+            if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); resetBend() }
+            if (delta) { event.preventDefault(); moveBend(routeHandle.x + delta[0], routeHandle.y + delta[1]) }
+          }} />}
+        {indicatedPin && <g className="diagram-pin-tooltip" aria-hidden="true" transform={`translate(${Math.max(65, Math.min(diagram.width - 65, indicatedPin.x))} ${Math.max(19, indicatedPin.y - 19)})`}>
+          <rect x="-62" y="-14" width="124" height="24" rx="5" />
+          <text textAnchor="middle" y="3">{indicatedPin.label}</text>
+        </g>}
       </svg>
     </div>
+    {editableRoute && <p className="diagram-navigation-hint">Kéo chốt trên dây để đổi đường đi hiển thị. Hai đầu dây giữ nguyên.{onWireBendChange ? ' Đường đi được lưu cùng bản nháp trên trình duyệt này.' : ''} <button type="button" onClick={resetBend}>Về đường tự động</button></p>}
     {presentation && <details className="diagram-source-details"><summary>Nguồn hình board</summary><p>{presentation.revision} · Hình chiếu trực giao của model tham chiếu, không phải ảnh chụp hay số đo board thật.</p><a href="/board-reference/topview/NOTICE.md" target="_blank" rel="noreferrer">Nguồn, giấy phép và giới hạn model</a></details>}
     {diagram.diagnostics.map((message, index) => <p key={index} className="breadboard-diagram-diagnostic" role="note">{message}</p>)}
   </section>

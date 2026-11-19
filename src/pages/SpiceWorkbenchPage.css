@@ -17,6 +17,14 @@
 .spice-example-label,.spice-netlist-label { display: block; margin-top: 16px; margin-bottom: 6px; color:var(--ink-soft); font-size: var(--mm-text-sm); font-weight: 700; }
 .spice-editor-card select { width: 100%; min-height: 40px; padding: 7px 10px; border: 1px solid var(--line-dark); border-radius: 4px; background:var(--mm-surface); color:var(--ink); font-size: var(--mm-text-sm); }
 .spice-example-description,.spice-netlist-help,.spice-budget { margin: 7px 0 0; color:var(--ink-faint); font-size: var(--mm-text-sm); line-height: 1.55; }
+.spice-divider-practice { margin: 14px 0; padding: 14px; border: 1px solid var(--line-dark); border-radius: 6px; background: var(--mm-signal-soft); }
+.spice-divider-practice h3,.spice-divider-practice p { margin: 0 0 8px; }
+.spice-divider-practice p,.spice-divider-practice label { font-size: var(--mm-text-sm); }
+.spice-divider-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 10px; }
+.spice-divider-actions input,.spice-divider-actions button { min-height: 44px; padding: 8px 10px; font: inherit; color: var(--ink); background: var(--mm-surface); border: 1px solid var(--line-dark); border-radius: 5px; }
+.spice-divider-actions input { width: 7ch; flex: 1 1 7ch; }
+.spice-divider-actions button { cursor: pointer; font-weight: 700; }
+.spice-divider-actions button:disabled { opacity: .6; cursor: default; }
 .spice-calculator-handoff { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-top: 10px; padding: 11px; border: 1px solid var(--mm-text-secondary); border-radius: 5px; background:var(--mm-surface); }
 .spice-calculator-handoff strong { color:var(--green); font-size: var(--mm-text-sm); }
 .spice-calculator-handoff p { margin: 6px 0; color:var(--ink-soft); font-size: var(--mm-text-sm); line-height: 1.6; }

@@ -1,4 +1,7 @@
 .lesson-preflight { width: min(1120px, calc(100% - 40px)); margin: 0 auto; padding: 28px 0 64px; color:var(--ink); }
+.lesson-preflight-navigation { width:min(1120px,calc(100% - 32px));margin:16px auto 0; }
+.lesson-preflight-details summary { min-height:44px;cursor:pointer;color:var(--green);font-weight:650; }
+.lesson-preflight-details summary:focus-visible { outline:3px solid var(--green);outline-offset:3px; }
 .lesson-preflight-trail { display: flex; flex-wrap: wrap; gap: 8px; color:var(--ink-soft); font-size: 13px; }
 .lesson-preflight-trail a { display: inline-flex; align-items: center; min-height: 24px; color:var(--green); }
 .lesson-preflight-hero { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 36px; align-items: start; padding: 26px 0 30px; border-bottom: 1px solid var(--line); }

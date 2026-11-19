@@ -6,6 +6,23 @@
 .beginner-page button:disabled{cursor:default;opacity:.55}.beginner-page :is(button,select,input,a,pre):focus-visible{outline:3px solid var(--mm-signal);outline-offset:3px}
 .beginner-activities{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:24px 0}.beginner-activities button{text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:8px}.beginner-activities button[aria-current]{border:2px solid var(--mm-signal);background:var(--mm-signal-soft)}.beginner-activities button>span{font-size:1.25rem;font-weight:700}.beginner-activities small{font-size:.8rem;color:var(--mm-muted)}
 .beginner-activity-intro{border-top:1px solid var(--mm-line);padding:8px 0 16px}.beginner-activity-intro p{margin:8px 0}.beginner-lab-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:28px}.beginner-lab-layout>*{min-width:0}
+.beginner-header a,.beginner-repair-next>a{display:inline-flex;align-items:center;min-height:44px}
+.beginner-repair-lab { margin-top: 1rem; }
+.beginner-repair-strip,.beginner-repair-evidence { display:grid;gap:.5rem;grid-template-columns:repeat(2,minmax(0,1fr)); }
+.beginner-repair-strip span,.beginner-repair-evidence div { padding:.65rem;border:1px solid var(--mm-line);border-radius:var(--mm-radius-sm);background:var(--mm-surface); }
+.beginner-repair-strip span.is-connected { border-color:var(--mm-signal);background:var(--mm-signal-soft); }
+.beginner-repair-evidence dt { font-weight:700; }
+.beginner-repair-evidence dd { margin:.25rem 0 0; }
+.beginner-repair-nav,.beginner-repair-next { display:flex;flex-wrap:wrap;gap:.5rem;margin-block:1rem; }
+.beginner-repair-nav [aria-current] { border-color:var(--mm-signal);background:var(--mm-signal-soft); }
+.beginner-storage-warning { padding:.65rem;border:1px solid var(--mm-line);background:var(--mm-surface-notice); }
+@media (max-width:760px) {
+  .beginner-page .beginner-header h1 { margin-block:.25rem; }
+  .beginner-page .beginner-header p { margin:.25rem 0; }
+  .beginner-page .beginner-activity-intro { padding-bottom:.25rem; }
+  .beginner-page .beginner-activity-intro h2 { margin-block:.45rem; }
+  .beginner-page .beginner-circuit { margin-bottom:.75rem; }
+}
 .beginner-circuit,.beginner-breadboard{margin:0 0 24px;background:var(--mm-surface);padding:16px;border:1px solid var(--mm-line);border-radius:var(--mm-radius-md)}.beginner-circuit svg{width:100%;height:auto;display:block}.beginner-page figcaption{font-size:.88rem;line-height:1.5;color:var(--mm-muted)}.beginner-circuit details{margin-top:12px;font-size:.82rem;overflow-wrap:anywhere}.beginner-circuit summary{cursor:pointer;min-height:32px}.beginner-circuit li{font-family:var(--mm-font-mono);font-size:.78rem}
 .beginner-page fieldset{min-width:0;border:1px solid var(--mm-line);border-radius:var(--mm-radius-md);padding:16px;margin:0 0 20px}.beginner-page legend{font-weight:700;padding:0 6px}.beginner-choice,.beginner-toggle{display:flex;align-items:flex-start;gap:10px;min-height:44px;padding:9px 0;line-height:1.5}.beginner-page input[type=checkbox],.beginner-page input[type=radio]{width:20px;height:20px;flex:0 0 20px;margin:2px 0;accent-color:var(--mm-signal)}
 .beginner-cases{border-top:1px solid var(--mm-line-soft);padding-top:8px;margin-top:12px}.beginner-cases button{margin:4px 6px 4px 0;font-size:.9rem}.beginner-board{display:flex;flex-direction:column;gap:8px;font-weight:700}.beginner-board select{width:100%}.beginner-range{display:flex;flex-direction:column;gap:12px;margin:12px 0 24px}.beginner-range input{width:100%;min-height:28px;accent-color:var(--mm-signal)}
@@ -26,11 +43,13 @@
 .beginner-activities button{font-size:.9rem;gap:4px;padding:10px}
 .beginner-activities button>span{font-size:1rem}
 .beginner-activity-intro h2{margin:12px 0}
-.beginner-lab-layout{max-height:clamp(360px,calc(100dvh - 470px),620px);overflow:auto;overscroll-behavior:contain;padding:4px 8px 8px 4px;scrollbar-gutter:stable}
+.beginner-lab-layout{padding:4px 0 8px}
+.beginner-code summary{padding:8px 0;cursor:pointer;font-weight:700}
+.beginner-page .beginner-next-action{background:var(--mm-signal);color:#fff;font-weight:700}
 .beginner-activity-navigation{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
 @media(max-width:760px){
  .beginner-activities{display:flex;overflow-x:auto;gap:8px;padding:4px 2px 10px;scroll-snap-type:x proximity}
  .beginner-activities button{flex:0 0 160px;scroll-snap-align:start}
- .beginner-lab-layout{max-height:none;overflow:visible;padding:0;scrollbar-gutter:auto}
+ .beginner-lab-layout{padding:0}
  .beginner-page .beginner-observe{position:sticky;bottom:12px;z-index:2;box-shadow:0 3px 10px rgb(29 43 73 / 18%)}
 }

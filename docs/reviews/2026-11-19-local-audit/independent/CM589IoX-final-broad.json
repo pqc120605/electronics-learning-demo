@@ -1,0 +1,270 @@
+{
+  "snapshot": {
+    "executedAt": "2026-11-18T19:25:18.085Z",
+    "browser": "156.0.8078.4",
+    "host": "win32",
+    "baseURL": "http://127.0.0.1:5320",
+    "label": "CM589IoX-final",
+    "entrySha256": "fe96cb59f3c33e41ac659b12535ba30dc6371005eea8326fb83a12330d30a188",
+    "manifest": [
+      {
+        "asset": "/assets/index-CM589IoX.js",
+        "sha256": "512cbd53fa6dfb0a52eacf3c69a9eb52f47616a9a6bf6d362b790dbaf359c740"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "waveform",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-wave-ab-375.png"
+      ],
+      "observed": "Uno D13 toggled in local C++ subset, keyboard A/B yielded Δt: 1016.672 ms, coincident cursors yielded 0 ms; reset restored endpoints.",
+      "viewport": {
+        "available": 375,
+        "used": 375
+      },
+      "route": "/app/lab/freestyle",
+      "pageErrors": []
+    },
+    {
+      "name": "serial",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-serial-plot-375.png"
+      ],
+      "observed": "Raw serial retained boot and value text, opt-in plot showed three numeric series and data table, CSV separated sample index from time and excluded nonnumeric boot line, and closing the plot retained the serial text.",
+      "viewport": {
+        "available": 375,
+        "used": 375
+      },
+      "route": "/app/lab/freestyle",
+      "pageErrors": []
+    },
+    {
+      "name": "guided-lesson",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-guided-stale-375.png"
+      ],
+      "observed": "On the guided ESP32 DevKit button-to-LED lesson, playback advanced to branch, changing a jumper role invalidated stale playback, and restoring then rerunning gave a ready result.",
+      "viewport": {
+        "available": 375,
+        "used": 375
+      },
+      "route": "/app/learn/button-led?board=esp32-devkit",
+      "pageErrors": []
+    },
+    {
+      "name": "board-catalog",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-board-pcb-375.png",
+        "CM589IoX-final-board-cad-375.png"
+      ],
+      "pcbSelectedNet": "GND · 2",
+      "observed": "Opened exact ESP32 DevKit reference PCB and selected a different catalog control option. Opened the separate XIAO ESP32-S3 CAD reference in the 3D canvas.",
+      "route": "/boards?board=seeed-xiao-esp32-s3",
+      "pageErrors": []
+    },
+    {
+      "name": "firmware",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-avr-runtime-375.png",
+        "CM589IoX-final-pico-runtime-375.png"
+      ],
+      "avrTraceRows": 6,
+      "observed": "Confirmed ATmega328P before running sample HEX, downloaded AVR8js trace for D13/PB5, then ran Pico sample on rp2040js and saw GP25 Logic Analyzer at 1000 ms simulated.",
+      "route": "/app/tools/firmware",
+      "pageErrors": []
+    },
+    {
+      "name": "calculator",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-calculator-spice-375.png"
+      ],
+      "formulaOutput": "Điện trở E24 đề xuất\n130 Ω\n\nDòng ước tính 10 mA · Công suất trên R 13 mW\n\nMô phỏng giá trị này trong SPICE",
+      "observed": "Default LED resistor calculator produced an E24 recommendation, passed its generated deck into SPICE and ran a local solve.",
+      "route": "/app/tools/spice?calculatorSpice=%7B%22schemaVersion%22%3A1%2C%22calculator%22%3A%22led%22%2C%22title%22%3A%22LED+v%C3%A0+%C4%91i%E1%BB%87n+tr%E1%BB%9F+h%E1%BA%A1n+d%C3%B2ng%22%2C%22assumption%22%3A%22%C4%90i%E1%BB%87n+tr%E1%BB%9F+d%C3%B9ng+gi%C3%A1+tr%E1%BB%8B+E24+1.3e%2B2+%CE%A9%3B+diode+Shockley+l%C3%BD+t%C6%B0%E1%BB%9Fng+%C4%91%C6%B0%E1%BB%A3c+hi%E1%BB%87u+ch%E1%BB%89nh+t%E1%BA%A1i+Vf+2e%2B0+V+v%C3%A0+d%C3%B2ng+%C6%B0%E1%BB%9Bc+t%C3%ADnh+1e%2B1+mA+%28n%3D2%2C+Vt%3D25%2C852+mV%29.+%C4%90%C3%A2y+kh%C3%B4ng+ph%E1%BA%A3i+model+datasheet+c%E1%BB%A7a+m%E1%BB%99t+m%C3%A3+LED+c%E1%BB%A5+th%E1%BB%83.%22%2C%22netlist%22%3A%22LED+v%C3%A0+%C4%91i%E1%BB%87n+tr%E1%BB%9F+h%E1%BA%A1n+d%C3%B2ng%5CnV1+VIN+0+DC+3.3e%2B0%5CnR1+VIN+ANODE+1.3e%2B2%5CnD1+ANODE+0+DLED%5Cn.model+DLED+D%28IS%3D1.58759426e-19+N%3D2%29%5Cn.op%5Cn.end%22%7D",
+      "pageErrors": []
+    },
+    {
+      "name": "components-guide",
+      "width": 375,
+      "status": "FAIL",
+      "artifacts": [
+        "CM589IoX-final-failure-components-guide-375.png"
+      ],
+      "failure": "TimeoutError: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: 'Mở — bạn đồng hành học điện tử' }).getByRole('button', { name: 'Tìm câu trả lời', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"submit\" class=\"guide-primary\">Tìm câu trả lời</button>\u001b[22m\n",
+      "route": "/app/components",
+      "pageErrors": []
+    },
+    {
+      "name": "classroom",
+      "width": 375,
+      "status": "FAIL",
+      "artifacts": [
+        "CM589IoX-final-failure-classroom-375.png"
+      ],
+      "failure": "TimeoutError: locator.selectOption: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Board của gói giáo viên', { exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"teacher-pack-board\" aria-describedby=\"teacher-pack-board-note\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    3 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n",
+      "route": "/app/learn/basics",
+      "pageErrors": []
+    },
+    {
+      "name": "robot",
+      "width": 375,
+      "status": "FAIL",
+      "artifacts": [
+        "CM589IoX-final-failure-robot-375.png"
+      ],
+      "failure": "TimeoutError: locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: /Bài học robot mô phỏng/ })\u001b[22m\n",
+      "route": "/app",
+      "pageErrors": []
+    },
+    {
+      "name": "feedback",
+      "width": 375,
+      "status": "FAIL",
+      "artifacts": [
+        "CM589IoX-final-failure-feedback-375.png"
+      ],
+      "failure": "TimeoutError: page.goto: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:5320/app/feedback\", waiting until \"load\"\u001b[22m\n",
+      "route": "/app/feedback",
+      "pageErrors": []
+    },
+    {
+      "name": "waveform",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-wave-ab-1440.png"
+      ],
+      "observed": "Uno D13 toggled in local C++ subset, keyboard A/B yielded Δt: 1449.772 ms, coincident cursors yielded 0 ms; reset restored endpoints.",
+      "viewport": {
+        "available": 1440,
+        "used": 1440
+      },
+      "route": "/app/lab/freestyle",
+      "pageErrors": []
+    },
+    {
+      "name": "serial",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-serial-plot-1440.png"
+      ],
+      "observed": "Raw serial retained boot and value text, opt-in plot showed three numeric series and data table, CSV separated sample index from time and excluded nonnumeric boot line, and closing the plot retained the serial text.",
+      "viewport": {
+        "available": 1440,
+        "used": 1440
+      },
+      "route": "/app/lab/freestyle",
+      "pageErrors": []
+    },
+    {
+      "name": "guided-lesson",
+      "width": 1440,
+      "status": "FAIL",
+      "artifacts": [
+        "CM589IoX-final-failure-guided-lesson-1440.png"
+      ],
+      "failure": "TimeoutError: locator.selectOption: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.button-lab').getByRole('region', { name: 'Lắp mạch trên breadboard' }).getByRole('combobox', { name: 'Chọn dây' })\u001b[22m\n",
+      "route": "/app/learn/button-led?board=esp32-devkit",
+      "pageErrors": []
+    },
+    {
+      "name": "board-catalog",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-board-pcb-1440.png",
+        "CM589IoX-final-board-cad-1440.png"
+      ],
+      "pcbSelectedNet": "GND · 2",
+      "observed": "Opened exact ESP32 DevKit reference PCB and selected a different catalog control option. Opened the separate XIAO ESP32-S3 CAD reference in the 3D canvas.",
+      "route": "/boards?board=seeed-xiao-esp32-s3",
+      "pageErrors": []
+    },
+    {
+      "name": "firmware",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-avr-runtime-1440.png",
+        "CM589IoX-final-pico-runtime-1440.png"
+      ],
+      "avrTraceRows": 6,
+      "observed": "Confirmed ATmega328P before running sample HEX, downloaded AVR8js trace for D13/PB5, then ran Pico sample on rp2040js and saw GP25 Logic Analyzer at 1000 ms simulated.",
+      "route": "/app/tools/firmware",
+      "pageErrors": []
+    },
+    {
+      "name": "calculator",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-calculator-spice-1440.png"
+      ],
+      "formulaOutput": "Điện trở E24 đề xuất\n130 Ω\n\nDòng ước tính 10 mA · Công suất trên R 13 mW\n\nMô phỏng giá trị này trong SPICE",
+      "observed": "Default LED resistor calculator produced an E24 recommendation, passed its generated deck into SPICE and ran a local solve.",
+      "route": "/app/tools/spice?calculatorSpice=%7B%22schemaVersion%22%3A1%2C%22calculator%22%3A%22led%22%2C%22title%22%3A%22LED+v%C3%A0+%C4%91i%E1%BB%87n+tr%E1%BB%9F+h%E1%BA%A1n+d%C3%B2ng%22%2C%22assumption%22%3A%22%C4%90i%E1%BB%87n+tr%E1%BB%9F+d%C3%B9ng+gi%C3%A1+tr%E1%BB%8B+E24+1.3e%2B2+%CE%A9%3B+diode+Shockley+l%C3%BD+t%C6%B0%E1%BB%9Fng+%C4%91%C6%B0%E1%BB%A3c+hi%E1%BB%87u+ch%E1%BB%89nh+t%E1%BA%A1i+Vf+2e%2B0+V+v%C3%A0+d%C3%B2ng+%C6%B0%E1%BB%9Bc+t%C3%ADnh+1e%2B1+mA+%28n%3D2%2C+Vt%3D25%2C852+mV%29.+%C4%90%C3%A2y+kh%C3%B4ng+ph%E1%BA%A3i+model+datasheet+c%E1%BB%A7a+m%E1%BB%99t+m%C3%A3+LED+c%E1%BB%A5+th%E1%BB%83.%22%2C%22netlist%22%3A%22LED+v%C3%A0+%C4%91i%E1%BB%87n+tr%E1%BB%9F+h%E1%BA%A1n+d%C3%B2ng%5CnV1+VIN+0+DC+3.3e%2B0%5CnR1+VIN+ANODE+1.3e%2B2%5CnD1+ANODE+0+DLED%5Cn.model+DLED+D%28IS%3D1.58759426e-19+N%3D2%29%5Cn.op%5Cn.end%22%7D",
+      "pageErrors": []
+    },
+    {
+      "name": "components-guide",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-guide-unknown-1440.png"
+      ],
+      "observed": "Components catalog opened; guide retrieved a local TB6612FNG answer with a Toshiba reference and returned unknown for a fictional clone.",
+      "route": "/app/components",
+      "pageErrors": []
+    },
+    {
+      "name": "classroom",
+      "width": 1440,
+      "status": "FAIL",
+      "artifacts": [
+        "CM589IoX-final-failure-classroom-1440.png"
+      ],
+      "failure": "TimeoutError: locator.selectOption: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('Board của gói giáo viên', { exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <select id=\"teacher-pack-board\" aria-describedby=\"teacher-pack-board-note\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    6 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n",
+      "route": "/app/learn/basics",
+      "pageErrors": []
+    },
+    {
+      "name": "robot",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-final-robot-obstacle-1440.png"
+      ],
+      "observed": "App home opened robot exercise; commands changed virtual motion state, obstacle scenario was observable and learners could self-record completion.",
+      "viewport": {
+        "available": 1440,
+        "used": 1440
+      },
+      "route": "/app/robot-simulation",
+      "pageErrors": []
+    },
+    {
+      "name": "feedback",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [],
+      "observed": "Missing required title showed focus and invalid state; completed feedback exported exactly the preview and remained unsent; no write request observed.",
+      "route": "/app/feedback",
+      "pageErrors": []
+    }
+  ]
+}

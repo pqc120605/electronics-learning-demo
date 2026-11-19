@@ -1,0 +1,39 @@
+{
+  "verdict": "pass",
+  "scope": "local repair journey only",
+  "bundle": "index-DR-wjR03.js",
+  "sha256": "c9826e6b42ee1588c16a325fd55cfc3b457b4358c9c06a477d750e420688b09a",
+  "commands": [
+    {
+      "command": "npm.cmd run typecheck",
+      "log": "evidence/typecheck-final.log",
+      "exitCode": 0
+    },
+    {
+      "command": "npm.cmd run build:local -- --outDir .tmp/repair-journey-build-check",
+      "log": "evidence/build-final.log",
+      "exitCode": 0
+    },
+    {
+      "command": "node --test --test-concurrency=1 tests/beginner-repair.test.mjs tests/beginner-course.test.mjs tests/beginner-course-storage.test.mjs tests/beginner-course-ui.test.mjs tests/local-capstone.test.mjs tests/local-capstone-library.test.mjs",
+      "log": "evidence/unit.log",
+      "passed": 25,
+      "exitCode": 0
+    },
+    {
+      "command": "npm.cmd run test:e2e -- e2e/beginner-repair-journey.spec.mjs e2e/beginner-course.spec.mjs e2e/beginner-guide.spec.mjs e2e/local-first-experiment.spec.mjs e2e/local-capstone.spec.mjs e2e/local-capstone-library.spec.mjs e2e/one-screen-layout.spec.mjs e2e/accessibility.spec.mjs",
+      "log": "evidence/e2e-final.log",
+      "passed": 44,
+      "exitCode": 0
+    }
+  ],
+  "tester": [
+    "tester/independent-tester-report.md"
+  ],
+  "notRun": [
+    "full unrelated suite",
+    "real learner retention",
+    "other browsers/physical devices",
+    "online integrations and Mini PC"
+  ]
+}

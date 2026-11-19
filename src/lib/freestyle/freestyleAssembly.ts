@@ -36,7 +36,12 @@ export function freestyleAssembly(doc: CircuitDocV2, boardId: string, pinMap: Pi
     const point=hole&&grid?holeToMm(hole,grid):null
     return point&&grid?[point[0]+grid.originX,point[1],point[2]+grid.originZ]:undefined
   }
-  const wireEnds:AssemblyPlan['wireEnds']={},diagnostics:NonNullable<AssemblyPlan['diagnostics']>=[]
-  for(const wire of doc.wires){const a=resolve(wire.from),b=resolve(wire.to);if(a&&b)wireEnds[wire.id]=[a,b];else diagnostics.push({code:'UNRESOLVED_ENDPOINT',wireId:wire.id,message:`${wire.id}: chưa có tọa độ chân đúng board/pinMap; không vẽ đầu dây đoán.`})}
-  return {...plan,pinPoints,wireEnds,wireEvidence:undefined,diagnostics}
+  const wireEnds:AssemblyPlan['wireEnds']={},wireEvidence:NonNullable<AssemblyPlan['wireEvidence']>={},diagnostics:NonNullable<AssemblyPlan['diagnostics']>=[]
+  const evidence=(endpoint:CircuitEndpointV2):NonNullable<AssemblyPlan['wireEvidence']>[string]['from']=>{
+    if(endpoint.kind==='hole')return {kind:'hole',evidence:parseHole(endpoint.holeId)?.kind==='rail'?'unknown':'parametric',sourceKey:endpoint.holeId}
+    const placement=plan.placements.find(p=>p.partId===endpoint.partId)
+    return {kind:'pin',evidence:placement?.kind==='board-cad'||placement?.kind==='component-cad'?'cad':'parametric',sourceKey:`${endpoint.partId}:${endpoint.pinId}`}
+  }
+  for(const wire of doc.wires){const a=resolve(wire.from),b=resolve(wire.to);if(a&&b){wireEnds[wire.id]=[a,b];wireEvidence[wire.id]={from:evidence(wire.from),to:evidence(wire.to)}}else diagnostics.push({code:'UNRESOLVED_ENDPOINT',wireId:wire.id,message:`${wire.id}: chưa có tọa độ chân đúng board/pinMap; không vẽ đầu dây đoán.`})}
+  return {...plan,pinPoints,wireEnds,wireEvidence,diagnostics}
 }

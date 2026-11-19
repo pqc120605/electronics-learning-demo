@@ -1,0 +1,83 @@
+{
+  "snapshot": {
+    "asset": "/assets/index-CGaPe2Lp.js",
+    "sha256": "9522dd54c22dd8bd15a44e4d69ed55329a264eda0c2b10f66d6d2ae647a96a6e",
+    "baseURL": "http://127.0.0.1:5203",
+    "utc": "2026-11-18T19:55:28.532Z",
+    "browser": "156.0.8078.4"
+  },
+  "cases": [
+    {
+      "name": "desktop-pointer-undo",
+      "width": 1440,
+      "status": "PASS",
+      "images": [
+        "CGaPe2Lp-desktop-pointer-undo.png"
+      ],
+      "pageErrors": [],
+      "pointerUndoRestored": true,
+      "route": "/app/lab/freestyle"
+    },
+    {
+      "name": "mobile-resume-tools",
+      "width": 375,
+      "status": "FAIL",
+      "images": [
+        "CGaPe2Lp-followup-failure-mobile-resume-tools-375.png"
+      ],
+      "pageErrors": [],
+      "pointerUndoRestored": true,
+      "failure": "Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'getBoundingClientRect')\n    at bounds (eval at evaluate (:370:30), <anonymous>:4:34)\n    at eval (eval at evaluate (:370:30), <anonymous>:5:14)\n    at UtilityScript.evaluate (<anonymous>:372:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+      "route": "/app/lab/freestyle?resume=1"
+    },
+    {
+      "name": "app-cta",
+      "width": 375,
+      "status": "PASS",
+      "images": [
+        "CGaPe2Lp-app-cta-375.png"
+      ],
+      "pageErrors": [
+        "Failed to read the 'localStorage' property from 'Window': The document is sandboxed and lacks the 'allow-same-origin' flag."
+      ],
+      "observed": "Opening guest viewport shows CTA and click reaches closed-loop experiment.",
+      "route": "/app/learn/basics"
+    },
+    {
+      "name": "mobile-lesson-controls",
+      "width": 375,
+      "status": "FAIL",
+      "images": [
+        "CGaPe2Lp-followup-failure-mobile-lesson-controls-375.png"
+      ],
+      "pageErrors": [],
+      "gaps": [],
+      "failure": "Error: expect(locator).toBeInViewport() failed\n\nLocator:  locator('.button-lab').getByRole('region', { name: 'Lắp mạch trên breadboard' }).getByRole('region', { name: 'Chỉnh dây w-input-to-button' }).getByRole('combobox', { name: 'Đổi loại dây' })\nExpected: in viewport\nReceived: viewport ratio 0.7077414989471436\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toBeInViewport\" locator('.button-lab').getByRole('region', { name: 'Lắp mạch trên breadboard' }).getByRole('region', { name: 'Chỉnh dây w-input-to-button' }).getByRole('combobox', { name: 'Đổi loại dây' }) with timeout 5000ms\n  - waiting for locator('.button-lab').getByRole('region', { name: 'Lắp mạch trên breadboard' }).getByRole('region', { name: 'Chỉnh dây w-input-to-button' }).getByRole('combobox', { name: 'Đổi loại dây' })\n    13 × locator resolved to <select aria-label=\"Đổi loại dây\">…</select>\n       - unexpected value \"viewport ratio 0.7077414989471436\"\n",
+      "route": "/app/learn/button-led?board=esp32-devkit"
+    },
+    {
+      "name": "app-cta",
+      "width": 1440,
+      "status": "PASS",
+      "images": [
+        "CGaPe2Lp-app-cta-1440.png"
+      ],
+      "pageErrors": [
+        "Failed to read the 'localStorage' property from 'Window': The document is sandboxed and lacks the 'allow-same-origin' flag."
+      ],
+      "observed": "Opening guest viewport shows CTA and click reaches closed-loop experiment.",
+      "route": "/app/learn/basics"
+    },
+    {
+      "name": "capstone-recovery",
+      "width": 375,
+      "status": "PASS",
+      "images": [
+        "CGaPe2Lp-capstone-recovery.png"
+      ],
+      "pageErrors": [],
+      "observed": "Cancel kept damaged bytes. Confirmation backed up the original exactly, reenabled save, and kept draft. Reload preserved both the new named report and downloadable backup.",
+      "route": "/app/learn/mini-project"
+    }
+  ]
+}

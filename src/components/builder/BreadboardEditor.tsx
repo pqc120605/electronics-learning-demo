@@ -6,6 +6,8 @@ import { occupancy } from '../../lib/mountResolve'
 import { createNetIndexV2 } from '../../lib/circuitNetsV2'
 import type { CircuitDocV2, CircuitEndpointV2 } from '../../lib/circuitDocV2'
 import { BreadboardDiagram, type WireSignalLabel } from './BreadboardDiagram'
+import { CircuitPartInspector } from './CircuitPartInspector'
+import type { FreestyleWireLayout, WireBend } from '../../lib/freestyle/freestyleWireLayout'
 import './BreadboardEditor.css'
 
 type WireRole = NonNullable<CircuitDocV2['wires'][number]['role']>
@@ -28,6 +30,7 @@ type Props = {
   onEditWireEndpoint: (id: string, end: WireEnd, endpoint: CircuitEndpointV2) => void | boolean
   onSetWireRole: (id: string, role: WireRole) => void
   onRemoveWire: (id: string) => void
+  onChangePartValue?: (id: string, value: CircuitDocV2['parts'][number]['value']) => boolean | void
   notice?: string
   activeWireIds?: ReadonlySet<string>
   traceLevel?: 'HIGH' | 'LOW' | null
@@ -35,6 +38,8 @@ type Props = {
   wireSignals?: ReadonlyMap<string, WireSignalLabel>
   lessonWiring?: { selectedEndpointId?: string; noticeIsError: boolean; onClearNotice: () => void }
   readOnly?: boolean
+  wireLayout?: FreestyleWireLayout
+  onWireBendChange?: (wireId: string, bend: WireBend | null) => void
 }
 
 const rows = 'abcdefghij'.split('')
@@ -71,6 +76,13 @@ export function BreadboardEditor(props: Props) {
   const dragRef = useRef<WireDrag | null>(null)
   const suppressClickRef = useRef(false)
   const editorRef = useRef<HTMLElement>(null)
+  const [inspectedPartId, setInspectedPartId] = useState<string | null>(null)
+  const inspectorTrigger = useRef<HTMLElement | SVGElement | null>(null)
+  const inspectedPart = doc.parts.find(part => part.id === inspectedPartId)
+  function closeInspector() {
+    setInspectedPartId(null)
+    inspectorTrigger.current?.focus({ preventScroll: true })
+  }
   const selectModeRef = useRef<HTMLButtonElement>(null)
   const wirePickerRef = useRef<HTMLSelectElement>(null)
   const gridHelpId = useId()
@@ -79,6 +91,7 @@ export function BreadboardEditor(props: Props) {
   if (previousWireId !== selectedWireId) {
     setPreviousWireId(selectedWireId)
     if (gesture.kind === 'edit') setGesture({ kind: 'select' })
+    if (editingEnd) setEditingEnd(null)
   }
   const occupied = useMemo(() => occupancy(doc, doc.lessonId), [doc])
   const netIndex = useMemo(() => createNetIndexV2(doc), [doc])
@@ -123,7 +136,7 @@ export function BreadboardEditor(props: Props) {
     }
     onSelectEndpoint(endpoint)
     if (selectedWire && editingEnd) {
-      onEditWireEndpoint(selectedWire.id, editingEnd, endpoint)
+      if (onEditWireEndpoint(selectedWire.id, editingEnd, endpoint) === false) return
       setEditingEnd(null)
       setClickStart(null)
       return
@@ -136,8 +149,7 @@ export function BreadboardEditor(props: Props) {
       setClickStart(null)
       return
     }
-    onCommitWire(clickStart, endpoint, 'signal')
-    setClickStart(null)
+    if (onCommitWire(clickStart, endpoint, 'signal') !== false) setClickStart(null)
   }
 
   function activateEndpoint(event: MouseEvent<HTMLElement | SVGElement>, endpoint: CircuitEndpointV2) {
@@ -184,10 +196,12 @@ export function BreadboardEditor(props: Props) {
     suppressClickRef.current = true
     const target = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>('[data-circuit-endpoint]')
     const id = target?.dataset.circuitEndpoint
-    if (!id || (lessonWiring && (!connecting || !editorRef.current?.contains(target)))) return
+    if (!id || !editorRef.current?.contains(target) || (lessonWiring && !connecting)) return
     const to = endpointFromId(id)
     if (lessonWiring) commitLessonWire(current.from, to)
-    else if (endpointId(current.from) !== id) onCommitWire(current.from, to, 'signal')
+    else if (selectedWire && editingEnd) {
+      if (onEditWireEndpoint(selectedWire.id, editingEnd, to) !== false) setEditingEnd(null)
+    } else if (endpointId(current.from) !== id && onCommitWire(current.from, to, 'signal') !== false) setClickStart(null)
   }
 
   const renderHole = (id: string, kind: 'grid' | 'rail', tabIndex?: number) => {
@@ -246,7 +260,18 @@ export function BreadboardEditor(props: Props) {
     </header>
     {renderModelNote()}</>}
     {props.compact ? <details className="breadboard-pin-details"><summary>Danh sách chân để nối bằng bàn phím</summary>{pinPicker}</details> : pinPicker}
-    <BreadboardDiagram doc={doc} presentation={props.presentation} selectedWireId={selectedWireId} selectedPartId={selectedPartId} selectedEndpointId={lessonWiring?.selectedEndpointId ?? (pendingEndpoint ? endpointId(pendingEndpoint) : clickStart ? endpointId(clickStart) : selectedEndpointKey)} focusedHoleId={focusedDiagramHoleId} showHeading={Boolean(lessonWiring)} onFocusHole={setFocusedDiagramHoleId} activeWireIds={activeWireIds} traceLevel={traceLevel} litPartIds={litPartIds} wireSignals={wireSignals} highlightedWireIds={highlightedNetWireIds} onChooseEndpoint={choose} onActivateEndpoint={activateEndpoint} onStartEndpointDrag={startDrag} onMoveEndpointDrag={moveDrag} onFinishEndpointDrag={finishDrag} onCancelEndpointDrag={clearDrag} onSelectWire={onSelectWire} onSelectPart={partId => onSelectPart?.(partId)} />
+    <div className="breadboard-workspace" onKeyDown={event => {
+      if (event.key === 'Escape' && inspectedPart) { event.stopPropagation(); closeInspector() }
+    }}>
+      <BreadboardDiagram wireLayout={props.wireLayout} onWireBendChange={readOnly ? undefined : props.onWireBendChange} doc={doc} presentation={props.presentation} selectedWireId={selectedWireId} selectedPartId={selectedPartId} selectedEndpointId={lessonWiring?.selectedEndpointId ?? (pendingEndpoint ? endpointId(pendingEndpoint) : clickStart ? endpointId(clickStart) : selectedEndpointKey)} focusedHoleId={focusedDiagramHoleId} showHeading={Boolean(lessonWiring)} onFocusHole={setFocusedDiagramHoleId} activeWireIds={activeWireIds} traceLevel={traceLevel} litPartIds={litPartIds} wireSignals={wireSignals} highlightedWireIds={highlightedNetWireIds} onChooseEndpoint={choose} onActivateEndpoint={activateEndpoint} onStartEndpointDrag={startDrag} onMoveEndpointDrag={moveDrag} onFinishEndpointDrag={finishDrag} onCancelEndpointDrag={clearDrag} onSelectWire={id => { setInspectedPartId(null); onSelectWire(id) }} adjustWirePath={!readOnly && !editingEnd && !connecting && !lessonEdit} onSelectPart={partId => {
+        const active = document.activeElement
+        inspectorTrigger.current = active instanceof HTMLElement || active instanceof SVGElement ? active : null
+        onSelectPart?.(partId)
+        setInspectedPartId(partId)
+      }} />
+      {inspectedPart && <CircuitPartInspector key={inspectedPart.id} part={inspectedPart} presentation={props.presentation} onClose={closeInspector}
+        onSave={!readOnly && props.onChangePartValue ? value => props.onChangePartValue?.(inspectedPart.id, value) : undefined} />}
+    </div>
     {highlightedNet && <p className="breadboard-net-cross-probe" role="status">Đang xem net <code>{highlightedNet.key}</code> · {highlightedNet.wireIds.size} dây · chọn từ sơ đồ nguyên lý</p>}
     <details className="breadboard-grid-details">
       <summary>Mở lưới lỗ chi tiết để kiểm tra vị trí endpoint</summary>

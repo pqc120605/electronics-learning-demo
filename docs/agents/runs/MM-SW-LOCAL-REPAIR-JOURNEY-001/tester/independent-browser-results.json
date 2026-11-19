@@ -1,0 +1,54 @@
+{
+  "started": "2026-11-18T21:01:01.680Z",
+  "entryStart": {
+    "asset": "/assets/index-DR-wjR03.js",
+    "sha256": "c9826e6b42ee1588c16a325fd55cfc3b457b4358c9c06a477d750e420688b09a"
+  },
+  "runs": [
+    {
+      "width": 375,
+      "height": 812,
+      "checks": [
+        "Fresh home opens visible first circuit",
+        "Repair before baseline cannot award evidence",
+        "Wrong original prediction cannot award baseline",
+        "Support guide shows repair-specific next step",
+        "GND mission retains position and resumes correct repair after reload/home",
+        "Across-trench mission requires before/after evidence",
+        "Reversed LED mission completes three modeled skills",
+        "Wrong capstone prediction records observation without skill credit",
+        "Prepared cases complete; reload persists; threshold invalidates current skill credit but retains six trials",
+        "Projects resume retains earlier records; progressive practice list expands",
+        "Board eight-result limit, four search results, empty search, expansion and no horizontal document overflow"
+      ],
+      "errors": [],
+      "console": [],
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "checks": [
+        "Fresh home opens visible first circuit",
+        "Repair before baseline cannot award evidence",
+        "Wrong original prediction cannot award baseline",
+        "Support guide shows repair-specific next step",
+        "GND mission retains position and resumes correct repair after reload/home",
+        "Across-trench mission requires before/after evidence",
+        "Reversed LED mission completes three modeled skills",
+        "Wrong capstone prediction records observation without skill credit",
+        "Prepared cases complete; reload persists; threshold invalidates current skill credit but retains six trials",
+        "Projects resume retains earlier records; progressive practice list expands",
+        "Board eight-result limit, four search results, empty search, expansion and no horizontal document overflow"
+      ],
+      "errors": [],
+      "console": [],
+      "status": "pass"
+    }
+  ],
+  "entryEnd": {
+    "asset": "/assets/index-DR-wjR03.js",
+    "sha256": "c9826e6b42ee1588c16a325fd55cfc3b457b4358c9c06a477d750e420688b09a"
+  },
+  "ended": "2026-11-18T21:01:28.655Z"
+}

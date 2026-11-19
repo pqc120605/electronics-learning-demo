@@ -7,6 +7,14 @@ export function guideSourceKind(href:string): 'external'|'document'|'route'|'inv
   return /\.[a-z0-9]{2,5}(?:[?#]|$)/i.test(href)?'document':'route'
 }
 const contains = (q:string, term:string) => (` ${q} `).includes(` ${normalizeGuideText(term)} `)
+const troubleshootingIntents: readonly [RegExp, string][] = [
+  [/\b(?:led|den)\b.*\b(?:khong sang|khong nhap nhay)\b|\bkhong thay\b.*\b(?:led|den) sang\b/, 'debug-led'],
+  [/\b(?:con lan|cuon chuot|phong to|thu nho|zoom)\b/, 'wheel-zoom'],
+  [/\b(?:doi|sua|thay|chinh|nhap)\b.*\b(?:tri so|gia tri)\b.*\b(?:dien tro|tu dien|tu hoa)\b/, 'edit-value'],
+  [/\b(?:doi|sua|keo|chinh)\b.*\b(?:duong di|dau day|vi tri day)\b.*\bday\b|\b(?:doi|sua|keo|chinh)\b.*\b(?:dau day|vi tri day)\b/, 'wires'],
+  [/\b(?:xem|mo|hien)\b.*\b(?:dang song|waveform)\b.*\b(?:chay|popup|cua so)\b/, 'live-waveform'],
+  [/\bpwm\b.*\b(?:la gi|khac|dien ap|duty|hoat dong)\b/, 'pwm-meaning'],
+]
 const unknown = (message='Mở chưa có nội dung khớp với câu hỏi này. Hãy nêu cụ thể tên linh kiện, đúng board/revision, bài hoặc thông báo lỗi; không cần gửi thông tin cá nhân.'): GuideSearchResult => ({kind:'unknown',message})
 const priority:Record<GuideCatalogEntry['family'],number>={board:6,component:5,workspace:4,lesson:3,calculator:7,feature:2}
 type Hit={entry:GuideCatalogEntry;term:string;start:number;end:number}
@@ -39,6 +47,13 @@ export function searchGuide(question:string,curated:readonly GuideArticle[],snap
   // go through the board guard; mentioning ESP32 must not hide SPICE's limits.
   const tool = hits.filter(hit => hit.entry.family === 'feature' && ['spice', 'firmware', 'sketch'].includes(hit.entry.entityId)).sort((a, b) => a.start - b.start)[0]
   const asksHardwareDetails = /\b(?:gpio|gp\d+|p[abc]\d+|pinout|chan|chiu|dinh muc|dien ap|volt|adc|pwm)\b/.test(q) || /\b\d+\s*v\b/.test(q)
+  const hasExactPin = /\b(?:gpio|gp|pa|pb|pc|d|a)\s*\d+\b/.test(q)
+  const isBareBoardFamily = !explicitBoards.length && /\b(?:esp32|stm32|arduino|pico|nucleo|xiao|feather)\b/.test(q)
+  if (!hasExactPin && !isBareBoardFamily) {
+    const symptom = troubleshootingIntents.find(([pattern]) => pattern.test(q))
+    const answer = symptom && curated.find(article => article.id === symptom[1])
+    if (answer) return { kind: 'matches', articles: [answer] }
+  }
   if (tool && !asksHardwareDetails) return { kind: 'matches', articles: [tool.entry] }
   if(!explicitBoards.length&&/\b(?:esp32|stm32|arduino|pico|nucleo|xiao|feather)\b/.test(q)&&!hits.some(h=>h.entry.family==='component'&&h.entry.evidence.some(s=>s.includes('components.ts'))))return unknown('Tên họ board chưa đủ để chọn đúng profile. Hãy nêu đầy đủ biến thể như Arduino Uno R3, Pico W hoặc ESP32-C3-DevKitM-1; Mở không tự lấy profile của board khác.')
   // Snapshot context is opt-in via a reference in the question, never private post/code ingestion.
@@ -54,7 +69,7 @@ export function searchGuide(question:string,curated:readonly GuideArticle[],snap
     hits=[{entry:context,term:q,start:0,end:q.length}]
   }
   if(explicitBoards.length){
-    if(/\b(?:gpio|gp|pa|pb|pc|d|a)\s*\d+\b/.test(q))return unknown('Kho này chưa xác minh yêu cầu chân cụ thể đó trong cấu hình của bạn. Hãy mở pinout nguồn hãng đúng revision; mapping LED của bài học không chứng minh khả năng mọi chân và không phải phê duyệt nối phần cứng.')
+    if(hasExactPin)return unknown('Kho này chưa xác minh yêu cầu chân cụ thể đó trong cấu hình của bạn. Hãy mở pinout nguồn hãng đúng revision; mapping LED của bài học không chứng minh khả năng mọi chân và không phải phê duyệt nối phần cứng.')
     return {kind:'matches',articles:[explicitBoards[0].entry]}
   }
   const curatedHits=curatedMatches(q,curated)

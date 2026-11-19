@@ -6,6 +6,9 @@ import './FreestyleWaveform.css'
 
 type Props = { samples: TraceSample[]; boardId: string; source: string; running: boolean; preferredPins?: number[]; captureKey?: string | number }
 
+// Presentation only: timestamp identity, measurements and SVG geometry stay exact.
+const displayMs = (value: number) => Number(value.toFixed(3)).toString()
+
 /** New capture/context resets controls synchronously, even if React batches the empty trace. */
 export function FreestyleWaveform(props: Props) {
   return <WaveformCapture key={JSON.stringify([props.boardId, props.source, props.captureKey, props.samples.length === 0])} {...props}/>
@@ -29,7 +32,7 @@ function WaveformCapture({ samples, boardId, source, running, preferredPins = []
   const result = measureSampledCursors(points, pin ?? -1, aTime, bTime)
   const pinMissing = pin !== undefined && !observed.includes(pin)
   const markerX = (time: number) => (time - start) / Math.max(1, end - start) * 1000
-  const formatCursor = (cursor: SampledCursor) => `${cursor.atMs} ms mô phỏng · ${cursor.level}${cursor.pwm === undefined ? '' : ` · PWM metadata runtime: ${Math.round(cursor.pwm * 100)}%`}`
+  const formatCursor = (cursor: SampledCursor) => `${displayMs(cursor.atMs)} ms mô phỏng · ${cursor.level}${cursor.pwm === undefined ? '' : ` · PWM metadata runtime: ${Math.round(cursor.pwm * 100)}%`}`
 
   return <section className="freestyle-waveform" aria-label="Dạng sóng tín hiệu">
     <header><h3>Dạng sóng logic</h3><span>{source} · {running ? 'đang lấy mẫu' : points.length ? 'đã dừng' : 'chưa chạy'}</span></header>
@@ -53,13 +56,13 @@ function WaveformCapture({ samples, boardId, source, running, preferredPins = []
           <input id={`${controlId}-${cursor.name}`} type="range" min={0} max={points.length - 1} step={1} value={cursor.index < 0 ? 0 : cursor.index}
             aria-valuetext={cursor.index < 0 ? 'Mẫu đã ngoài cửa sổ; chọn lại hoặc đặt lại A/B' : reading}
             onChange={event => cursor.set(points[Number(event.target.value)]?.atMs)}/>
-          <output data-cursor={cursor.name} aria-live="off">{cursor.index < 0 ? `Mẫu ${cursor.time} ms đã ngoài cửa sổ; chọn lại hoặc đặt lại A/B.` : reading}</output>
+          <output data-cursor={cursor.name} aria-live="off">{cursor.index < 0 ? `Mẫu ${displayMs(cursor.time)} ms đã ngoài cửa sổ; chọn lại hoặc đặt lại A/B.` : reading}</output>
         </div>})}
         {result.status === 'missing-cursor' && <p role="status">Mẫu con trỏ đã ngoài cửa sổ; chọn lại hoặc đặt lại A/B.</p>}
-        <p className="freestyle-measure-result" aria-live="off">{result.status === 'ok' ? `Δt: ${result.deltaMs} ms` : 'Chưa có Δt: chọn lại mẫu ngoài cửa sổ hoặc đặt lại A/B.'}</p>
-        <p>Cửa sổ hiện tại: {start}–{end} ms mô phỏng · {points.length}/512 mẫu. Δt chỉ là khoảng cách hai timestamp; không xác nhận mức liên tục, tần số hay duty. PWM chỉ là metadata runtime.</p>
+        <p className="freestyle-measure-result" aria-live="off">{result.status === 'ok' ? `Δt: ${displayMs(result.deltaMs)} ms` : 'Chưa có Δt: chọn lại mẫu ngoài cửa sổ hoặc đặt lại A/B.'}</p>
+        <p>Cửa sổ hiện tại: {displayMs(start)}–{displayMs(end)} ms mô phỏng · {points.length}/512 mẫu. Thời gian hiển thị làm tròn tối đa 3 chữ số thập phân (ms). Δt chỉ là khoảng cách hai timestamp; không xác nhận mức liên tục, tần số hay duty. PWM chỉ là metadata runtime.</p>
       </fieldset>
-      <div className="freestyle-wave-axis"><span>{start.toFixed(1)} ms</span><span>{end.toFixed(1)} ms mô phỏng</span></div>
+      <div className="freestyle-wave-axis"><span>{displayMs(start)} ms</span><span>{displayMs(end)} ms mô phỏng</span></div>
       {channels.map(value => {
         const latest = measureSampledCursors(points, value, end, end)
         return <div className="freestyle-wave-channel" key={value} data-wave-pin={value}>

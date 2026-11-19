@@ -1,0 +1,146 @@
+{
+  "snapshot": {
+    "executedAt": "2026-11-18T19:31:49.272Z",
+    "browser": "156.0.8078.4",
+    "host": "win32",
+    "baseURL": "http://127.0.0.1:5320",
+    "label": "CM589IoX-targeted",
+    "entrySha256": "fe96cb59f3c33e41ac659b12535ba30dc6371005eea8326fb83a12330d30a188",
+    "manifest": [
+      {
+        "asset": "/assets/index-CM589IoX.js",
+        "sha256": "512cbd53fa6dfb0a52eacf3c69a9eb52f47616a9a6bf6d362b790dbaf359c740"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "wire-recovery",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-targeted-mobile-resume-board-panel.png",
+        "CM589IoX-targeted-wire-resumed-375.png"
+      ],
+      "mobileAfterResume": {
+        "stageVisible": false,
+        "toolbarWidth": 325,
+        "toolbarContentWidth": 774,
+        "currentLabel": "LẮP MẠCHBàn lắp mạch tự do",
+        "currentWidth": 7,
+        "currentContentWidth": 7
+      },
+      "observed": "Changed bend with keyboard, undid it, persisted it across views and navigation, exported and reopened it, refused malformed JSON, reopened a legacy-shaped draft, then restored a removed wire with Undo.",
+      "viewport": {
+        "available": 375,
+        "used": 375
+      },
+      "route": "/app/lab/freestyle?resume=1",
+      "pageErrors": []
+    },
+    {
+      "name": "wire-recovery",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-targeted-wire-resumed-1440.png"
+      ],
+      "observed": "Changed bend with keyboard, undid it, persisted it across views and navigation, exported and reopened it, refused malformed JSON, reopened a legacy-shaped draft, then restored a removed wire with Undo.",
+      "viewport": {
+        "available": 1440,
+        "used": 1440
+      },
+      "route": "/app/lab/freestyle?resume=1",
+      "pageErrors": []
+    },
+    {
+      "name": "portfolio-resilience",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-targeted-project-stale-tab-1440.png"
+      ],
+      "staleLibraryDetected": true,
+      "staleActiveProtected": true,
+      "observed": "Two real tabs rejected stale library and active writes. An injected corrupt library downloaded byte-for-byte and stayed intact. A simulated QuotaExceededError blocked snapshot save and kept the active note on screen.",
+      "route": "/app/learn/mini-project",
+      "pageErrors": []
+    },
+    {
+      "name": "components-guide",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-targeted-guide-unknown-375.png"
+      ],
+      "observed": "Components catalog opened; guide retrieved a local TB6612FNG answer with a Toshiba reference and returned unknown for a fictional clone.",
+      "route": "/app/components",
+      "pageErrors": []
+    },
+    {
+      "name": "robot",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-targeted-robot-obstacle-375.png"
+      ],
+      "observed": "App home opened robot exercise; commands changed virtual motion state, obstacle scenario was observable and learners could self-record completion.",
+      "viewport": {
+        "available": 375,
+        "used": 375
+      },
+      "route": "/app/robot-simulation",
+      "pageErrors": []
+    },
+    {
+      "name": "feedback",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [],
+      "observed": "Missing required title showed focus and invalid state; completed feedback exported exactly the preview and remained unsent; no write request observed.",
+      "route": "/app/feedback",
+      "pageErrors": []
+    },
+    {
+      "name": "guided-lesson",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-targeted-guided-stale-1440.png"
+      ],
+      "observed": "On the guided ESP32 DevKit button-to-LED lesson, playback advanced to branch, changing a jumper role invalidated stale playback, and restoring then rerunning gave a ready result.",
+      "viewport": {
+        "available": 1440,
+        "used": 1440
+      },
+      "route": "/app/learn/button-led?board=esp32-devkit",
+      "pageErrors": []
+    },
+    {
+      "name": "warm-offline",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-targeted-warm-offline-375.png"
+      ],
+      "firstOnline": true,
+      "warmOnline": true,
+      "observed": "After the service worker activated and an online reload warmed the app route, an offline full reload displayed the selected workspace entry.",
+      "route": "/app/lab?board=esp32-devkit",
+      "pageErrors": []
+    },
+    {
+      "name": "warm-offline",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-targeted-warm-offline-1440.png"
+      ],
+      "firstOnline": true,
+      "warmOnline": true,
+      "observed": "After the service worker activated and an online reload warmed the app route, an offline full reload displayed the selected workspace entry.",
+      "route": "/app/lab?board=esp32-devkit",
+      "pageErrors": []
+    }
+  ]
+}

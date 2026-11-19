@@ -1,0 +1,122 @@
+{
+  "snapshot": {
+    "executedAt": "2026-11-18T19:28:53.597Z",
+    "browser": "156.0.8078.4",
+    "host": "win32",
+    "baseURL": "http://127.0.0.1:5320",
+    "label": "CM589IoX-recheck",
+    "entrySha256": "fe96cb59f3c33e41ac659b12535ba30dc6371005eea8326fb83a12330d30a188",
+    "manifest": [
+      {
+        "asset": "/assets/index-CM589IoX.js",
+        "sha256": "512cbd53fa6dfb0a52eacf3c69a9eb52f47616a9a6bf6d362b790dbaf359c740"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "first-experiment",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-recheck-home-375.png",
+        "CM589IoX-recheck-first-result-375.png"
+      ],
+      "wrongPredictionFeedback": "LED tắt\n\nLED tắt theo mô hình. Kiểm tra đường hồi và chiều LED.\n\nQuan sát khác dự đoán. Thử giải thích rồi dự đoán lại.\n\nNguồn: kiểm tra kết nối.\n\nNguồn (+) → đầu a điện trở: đã nối.\nĐầu b điện trở → anode LED: đã nối.\nCathode LED → nguồn (−): đường hồi hở hoặc LED đảo chiều.\nĐối chiếu topology của mạch mẫu; chưa tính điện áp hay dòng điện.",
+      "observed": "Fresh guest reached closed-loop activity, model showed LED off and on, explanation earned 1/5, next activity reopened from home.",
+      "viewport": {
+        "available": 375,
+        "used": 375
+      },
+      "route": "/learn/basics",
+      "pageErrors": []
+    },
+    {
+      "name": "classroom",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-recheck-teacher-pack-375.png"
+      ],
+      "packBytes": 24168,
+      "observed": "Kit BOM CSV contained USB cable and jumper rows. Board-specific offline HTML teacher pack exported with Uno identification and answer section.",
+      "route": "/app/learn/basics",
+      "pageErrors": []
+    },
+    {
+      "name": "esp32-sketch",
+      "width": 375,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-recheck-esp32-sketch-375.png"
+      ],
+      "unsupportedWireMessage": "Dòng 2: Wire.begin chưa được mô phỏng (ví dụ WiFi, Wire, SPI cần thư viện ngoại vi).",
+      "observed": "ESP32 DevKit browser subset reacted to GPIO4 press and release and produced serial text. A Wire.h / Wire.begin() sketch was rejected and no physical I²C run was made.",
+      "route": "/app/tools/sketch",
+      "pageErrors": []
+    },
+    {
+      "name": "warm-offline",
+      "width": 375,
+      "status": "FAIL",
+      "artifacts": [
+        "CM589IoX-recheck-failure-warm-offline-375.png"
+      ],
+      "failure": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('heading', { name: 'Chọn bài và board', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" getByRole('heading', { name: 'Chọn bài và board', exact: true }) with timeout 5000ms\n  - waiting for getByRole('heading', { name: 'Chọn bài và board', exact: true })\n",
+      "route": "/app/lab?board=esp32-devkit",
+      "pageErrors": []
+    },
+    {
+      "name": "first-experiment",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-recheck-home-1440.png",
+        "CM589IoX-recheck-first-result-1440.png"
+      ],
+      "wrongPredictionFeedback": "LED tắt\n\nLED tắt theo mô hình. Kiểm tra đường hồi và chiều LED.\n\nQuan sát khác dự đoán. Thử giải thích rồi dự đoán lại.\n\nNguồn: kiểm tra kết nối.\n\nNguồn (+) → đầu a điện trở: đã nối.\nĐầu b điện trở → anode LED: đã nối.\nCathode LED → nguồn (−): đường hồi hở hoặc LED đảo chiều.\nĐối chiếu topology của mạch mẫu; chưa tính điện áp hay dòng điện.",
+      "observed": "Fresh guest reached closed-loop activity, model showed LED off and on, explanation earned 1/5, next activity reopened from home.",
+      "viewport": {
+        "available": 1440,
+        "used": 1440
+      },
+      "route": "/app/learn/basics",
+      "pageErrors": []
+    },
+    {
+      "name": "classroom",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-recheck-teacher-pack-1440.png"
+      ],
+      "packBytes": 24168,
+      "observed": "Kit BOM CSV contained USB cable and jumper rows. Board-specific offline HTML teacher pack exported with Uno identification and answer section.",
+      "route": "/app/learn/basics",
+      "pageErrors": []
+    },
+    {
+      "name": "esp32-sketch",
+      "width": 1440,
+      "status": "PASS",
+      "artifacts": [
+        "CM589IoX-recheck-esp32-sketch-1440.png"
+      ],
+      "unsupportedWireMessage": "Dòng 2: Wire.begin chưa được mô phỏng (ví dụ WiFi, Wire, SPI cần thư viện ngoại vi).",
+      "observed": "ESP32 DevKit browser subset reacted to GPIO4 press and release and produced serial text. A Wire.h / Wire.begin() sketch was rejected and no physical I²C run was made.",
+      "route": "/app/tools/sketch",
+      "pageErrors": []
+    },
+    {
+      "name": "warm-offline",
+      "width": 1440,
+      "status": "FAIL",
+      "artifacts": [
+        "CM589IoX-recheck-failure-warm-offline-1440.png"
+      ],
+      "failure": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('heading', { name: 'Chọn bài và board', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" getByRole('heading', { name: 'Chọn bài và board', exact: true }) with timeout 5000ms\n  - waiting for getByRole('heading', { name: 'Chọn bài và board', exact: true })\n",
+      "route": "/app/lab?board=esp32-devkit",
+      "pageErrors": []
+    }
+  ]
+}

@@ -66,6 +66,31 @@ test('SSR exposes independent measurement controls, default semantics and truthf
   assert.doesNotMatch(html, /Hz|dutyCycle|frequencyHz/)
 })
 
+test('SSR rounds visible and accessible milliseconds without rounding sampled identity or delta math', () => {
+  const render = samples => renderToStaticMarkup(createElement(Waveform, { samples, boardId: 'arduino-uno-r3', source: 'Runtime fixture', running: false }))
+  const samples = [sample(66.03000000298016, false), sample(615.4, true)]
+  const raw = measure.measureSampledCursors(samples, 13, 66.03000000298016, 615.4)
+  assert.equal(raw.a.atMs, 66.03000000298016)
+  assert.equal(raw.deltaMs, 549.3699999970198)
+  assert.equal(measure.measureSampledCursors(samples, 13, 66.03, 615.4).status, 'missing-cursor')
+  const html = render(samples)
+  assert.match(html, /aria-valuetext="66\.03 ms mô phỏng · LOW"/)
+  assert.match(html, /data-cursor="A" aria-live="off">66\.03 ms mô phỏng · LOW/)
+  assert.match(html, /Δt: 549\.37 ms/)
+  assert.match(html, /Cửa sổ hiện tại: 66\.03–615\.4 ms/)
+  assert.match(html, /class="freestyle-wave-axis"><span>66\.03 ms<\/span><span>615\.4 ms mô phỏng/)
+  assert.doesNotMatch(html, /66\.03000000298016|549\.3699999970198/)
+
+  const deltaSamples = [sample(1000.03, false), sample(1549.3999999999996, true)]
+  assert.equal(measure.measureSampledCursors(deltaSamples, 13, 1000.03, 1549.3999999999996).deltaMs, 549.3699999999997)
+  const deltaHtml = render(deltaSamples)
+  assert.match(deltaHtml, /Δt: 549\.37 ms/)
+  assert.doesNotMatch(deltaHtml, /549\.3699999999997|1549\.3999999999996/)
+  const fineHtml = render([sample(0, false), sample(1.23456, true)])
+  assert.match(fineHtml, /aria-valuetext="1\.235 ms mô phỏng · HIGH"/)
+  assert.match(fineHtml, /Δt: 1\.235 ms/)
+})
+
 test('measurement channels include GPIOs outside the eight-channel drawing limit', () => {
   const samples = [{ atMs: 0, pins: Object.fromEntries(Array.from({ length: 30 }, (_, pin) => [pin, { mode: 'output', level: true }])) }]
   const html = renderToStaticMarkup(createElement(Waveform, { samples, boardId: 'esp32-devkit', source: 'Runtime fixture', running: false }))

@@ -1,0 +1,77 @@
+{
+  "started": "2026-11-18T21:44:44.503Z",
+  "entryStart": {
+    "asset": "/assets/index-3GmwjfZV.js",
+    "sha256": "19df136a7cba4f65face558872dc850f948cee684db1a4d91491e019084f49d6"
+  },
+  "runs": [
+    {
+      "width": 375,
+      "height": 812,
+      "checks": [
+        {
+          "label": "Fresh /learn/basics requires prediction",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: closed-loop",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: breadboard",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: led-polarity",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: button-logic",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: sensor-threshold",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course reload/home resume preserves all five activities",
+          "uri": "http://127.0.0.1:5320/app/learn/basics"
+        },
+        {
+          "label": "Freestyle board change Nano → Uno updates rendered board",
+          "uri": "http://127.0.0.1:5320/build/freestyle"
+        },
+        {
+          "label": "Manual board→resistor→LED→GND wiring creates three connections",
+          "uri": "http://127.0.0.1:5320/build/freestyle"
+        },
+        {
+          "label": "Run emits both Serial states, LED toggles, sampled waveform appears",
+          "uri": "http://127.0.0.1:5320/build/freestyle"
+        },
+        {
+          "label": "2D ↔ schematic preserves handwired circuit",
+          "uri": "http://127.0.0.1:5320/build/freestyle"
+        },
+        {
+          "label": "Explicit reopen after reload preserves code and all three wires",
+          "uri": "http://127.0.0.1:5320/build/freestyle"
+        },
+        {
+          "label": "Draft export → blank → import restores code and wiring",
+          "uri": "http://127.0.0.1:5320/build/freestyle"
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "providerBefore": "arduino-cli + avr8js\nChưa chạy",
+      "status": "pass",
+      "finalUri": "http://127.0.0.1:5320/build/freestyle"
+    }
+  ],
+  "entryEnd": {
+    "asset": "/assets/index-3GmwjfZV.js",
+    "sha256": "19df136a7cba4f65face558872dc850f948cee684db1a4d91491e019084f49d6"
+  },
+  "ended": "2026-11-18T21:44:59.877Z"
+}

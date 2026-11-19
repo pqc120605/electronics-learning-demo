@@ -1,0 +1,22 @@
+{
+  "hashes": {
+    "src/components/AppWorkspaceNavigation.tsx": "0053d9ff1e74d34d434c77378361fb496784c1367364562184c025dbe104d9ff",
+    "src/components/AppWorkspaceNavigation.css": "b12956cb7be2467abfdd1c617b8ddc4ec8f11bedaee2845014172319cdb444cc",
+    "src/components/learning/BeginnerResumeCard.tsx": "c39faf1182d08a128bbbea99344c0ca3e1e060e67604f66d804113f2fd1c4b32",
+    "src/pages/AppHomePage.tsx": "c790d6ee965d5136e46243f9595220db55c3457db04b7bee33043a9a41cd9c29",
+    "src/pages/ExplorePage.tsx": "9b87b6817548a538fa6faed2137ccf880c339c7626d7e035110ad1ee3c1f7d3b",
+    "src/pages/BeginnerLearningPage.tsx": "3d7c11f0e7b264986ab2a8b42e37c91e6d93c84f555d10776866193bad09b9e8",
+    "src/pages/BeginnerLearningPage.css": "acf27b38761ae51909d0969ca94c0292db421fb4507dd8bfd293bf43d6506cac",
+    "src/lib/beginnerCourse.ts": "3bf0c762a1f5a806db463ddd1b0552124a456b56c6aedb091d1cef3cae707952",
+    "src/lib/beginnerCourseStorage.ts": "cbe539b4e2c79c961c49c336a71cdf62805b7aaf100622ee8654cd529e4a61be",
+    "src/lib/beginnerRepair.ts": null,
+    "src/pages/LocalCapstonePage.tsx": "68f264dad692a68b976fd3c001c065354910126d3e4bd16de9f96f6d06ea28e5",
+    "src/pages/LocalCapstonePage.css": "6f6d121dcabbc21ccdb7f469359d0c9894b7609ff332c3f6ba4b6b90bc36c616",
+    "src/lib/localCapstone.ts": "67453e0d8c84a57e1b6572f05b9fc49296a2462a7874139872b7f67372f4da39",
+    "src/pages/ProjectsPage.tsx": "1e798dd48306dd784e51f370ff20c34934a90c42fdfa27f4f38e05330de45ff5",
+    "src/pages/BoardCatalogPage.tsx": "78dd3d6f797b71a41cd5421fffb1ea563b13b88ecf7935a9641f34a6e91e4eea",
+    "tests/beginner-repair.test.mjs": null,
+    "tests/local-capstone.test.mjs": "7cbe421728557e694f247627b745b079364afef4bc959cebb70a00788ae96bba",
+    "e2e/beginner-repair-journey.spec.mjs": null
+  }
+}

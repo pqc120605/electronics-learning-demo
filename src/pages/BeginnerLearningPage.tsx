@@ -1,6 +1,7 @@
-import { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { useRef, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import { BEGINNER_ACTIVITIES, getBeginnerActivity, type BeginnerActivityId } from '../data/beginnerCourse'
+import { PRODUCT_ROUTES } from '../data/productRoutes'
 import {
   getBeginnerAssessment, getBeginnerBoardOptions, getBeginnerCaseOptions,
   getBeginnerCode, getBeginnerFoundationDoc,
@@ -10,6 +11,11 @@ import { GuideContextBridge } from '../components/guide/GuideContext'
 import { getBeginnerGuideSnapshot } from '../lib/beginnerGuide'
 import { useProductRoute } from '../lib/useProductRoute'
 import { useBeginnerCourse } from '../lib/useBeginnerCourse'
+import { BeginnerTeacherPack } from '../components/learning/BeginnerTeacherPack'
+import {
+  BEGINNER_REPAIRS, getBeginnerRepair, newRepairAttempt, observeRepair, repairControls,
+  type BeginnerRepairId, type RepairAttempt,
+} from '../lib/beginnerRepair'
 import './BeginnerLearningPage.css'
 
 const outcomeLabels: Record<BeginnerPrediction, string> = {
@@ -115,15 +121,97 @@ function ObservationResult({ result, prediction }: {
   </div>
 }
 
+function RepairLab({ repair, attempt, save }: {
+  repair: NonNullable<ReturnType<typeof getBeginnerRepair>>
+  attempt: RepairAttempt
+  save: (attempt: RepairAttempt) => void
+}) {
+  const [prediction, setPrediction] = useState<BeginnerPrediction | null>(null)
+  const [result, setResult] = useState<BeginnerResult | null>(null)
+  const controls = repairControls(repair, attempt.fixed)
+  const choices = [repair.expectedBefore, repair.expectedAfter]
+
+  function selectPosition(fixed: boolean) {
+    save({ ...attempt, fixed })
+    setPrediction(null)
+    setResult(null)
+  }
+
+  function observe() {
+    if (!prediction) return
+    const observed = observeRepair(repair, attempt, prediction)
+    setResult(observed.result)
+    save(observed.evidence)
+  }
+
+  return <section className="beginner-repair-lab" aria-labelledby="repair-title">
+    <GuideContextBridge snapshot={{ owner: 'beginner-repair', priority: 110, lesson: repair.title,
+      status: attempt.after ? 'Đã ghi bằng chứng trước và sau khi sửa' : 'Đang tìm lỗi kết nối',
+      next: !attempt.before ? 'Dự đoán rồi kiểm tra mạch ở vị trí ban đầu.' : !attempt.after ? 'Đổi vị trí đầu nối hoặc linh kiện, rồi dự đoán và kiểm tra lại.' : 'Đối chiếu kết quả trước và sau khi sửa.',
+    }} />
+    <h2 id="repair-title" tabIndex={-1}>{repair.title}</h2>
+    <p>{repair.goal}</p>
+    <div className="beginner-lab-layout">
+      <div>
+        {repair.id === 'breadboard-strip'
+          ? <figure className="beginner-breadboard">
+            <div className="beginner-repair-strip" aria-label="Dải cắm 10a đến 10f">
+              <span className={attempt.fixed ? 'is-connected' : ''}>10a{attempt.fixed && ' · Đầu dây'}</span>
+              <span>10e · Mốc</span><span>Rãnh</span>
+              <span className={!attempt.fixed ? 'is-connected' : ''}>10f{!attempt.fixed && ' · Đầu dây'}</span>
+            </div>
+            <figcaption>Sơ đồ dải nối của mô hình 400 lỗ.</figcaption>
+          </figure>
+          : <FoundationCircuit controls={controls} />}
+        <fieldset>
+          <legend>Vị trí đầu nối hoặc linh kiện</legend>
+          <label className="beginner-choice"><input type="radio" name="repair-position" checked={!attempt.fixed} onChange={() => selectPosition(false)} />{repair.faultyOption}</label>
+          <label className="beginner-choice"><input type="radio" name="repair-position" checked={attempt.fixed} onChange={() => selectPosition(true)} />{repair.fixedOption}</label>
+        </fieldset>
+      </div>
+      <div>
+        <fieldset>
+          <legend>Dự đoán kết quả</legend>
+          {choices.map(choice => <label className="beginner-choice" key={choice}>
+            <input type="radio" name="repair-prediction" checked={prediction === choice} onChange={() => { setPrediction(choice); setResult(null) }} />
+            {outcomeLabels[choice]}
+          </label>)}
+        </fieldset>
+        <button className="beginner-observe" type="button" disabled={!prediction} onClick={observe}>Kiểm tra kết nối</button>
+        {result && <ObservationResult result={result} prediction={prediction} />}
+        <aside className="beginner-hints" aria-label="Gợi ý sửa mạch">
+          <button type="button" disabled={attempt.hints >= repair.hints.length} onClick={() => save({ ...attempt, hints: attempt.hints + 1 })}>Xem gợi ý ({attempt.hints}/{repair.hints.length})</button>
+          {attempt.hints > 0 && <ol>{repair.hints.slice(0, attempt.hints).map(hint => <li key={hint}>{hint}</li>)}</ol>}
+        </aside>
+      </div>
+    </div>
+    <section className="beginner-assessment" aria-label="Bằng chứng sửa mạch" aria-live="polite">
+      <h3>{attempt.after ? `Đã thực hành: ${repair.skill}` : 'Kết quả trước và sau khi sửa'}</h3>
+      <dl className="beginner-repair-evidence">
+        <div><dt>Trước khi sửa</dt><dd>{attempt.before ? outcomeLabels[attempt.before] : 'Cần dự đoán đúng và kiểm tra mạch ban đầu'}</dd></div>
+        <div><dt>Sau khi sửa</dt><dd>{attempt.after ? outcomeLabels[attempt.after] : 'Cần kiểm tra lại với cách cắm đã sửa'}</dd></div>
+      </dl>
+      {attempt.after && <p>{repair.explanation}</p>}
+    </section>
+  </section>
+}
+
 export function BeginnerLearningPage() {
   const course = useBeginnerCourse()
   const route = useProductRoute()
+  const [params, setParams] = useSearchParams()
   const activityHeading = useRef<HTMLHeadingElement>(null)
   const { session, result } = course
   const activity = getBeginnerActivity(session.activityId)
   const assessment = getBeginnerAssessment(session, activity.id)
+  const activityIndex = BEGINNER_ACTIVITIES.findIndex(item => item.id === activity.id)
+  const nextActivity = BEGINNER_ACTIVITIES[activityIndex + 1]
+  const completed = BEGINNER_ACTIVITIES.filter(item => getBeginnerAssessment(session, item.id).status === 'met').length
   const boardRequired = activity.id === 'button-logic' || activity.id === 'sensor-threshold'
   const boardOptions = getBeginnerBoardOptions()
+  const activeRepair = getBeginnerRepair(params.get('repair'))
+  const nextRepair = BEGINNER_REPAIRS.find(repair => !session.repairs?.attempts[repair.id]?.after)
+  const repairsDone = BEGINNER_REPAIRS.length - BEGINNER_REPAIRS.filter(repair => !session.repairs?.attempts[repair.id]?.after).length
   const code = getBeginnerCode(session)
   const choices: BeginnerPrediction[] = activity.id === 'breadboard'
     ? ['connected', 'separate']
@@ -136,7 +224,9 @@ export function BeginnerLearningPage() {
     course.update(previous => ({ ...previous, controls: { ...previous.controls, ...controls }, prediction: null }))
   }
   function navigate(activityId: BeginnerActivityId) {
-    course.update(previous => ({ ...previous, activityId, prediction: null }))
+    course.update(previous => ({ ...previous, activityId, prediction: null,
+      ...(previous.repairs && { repairs: { ...previous.repairs, active: null } }),
+    }))
     requestAnimationFrame(() => activityHeading.current?.focus())
   }
   function selectBoard(boardId: string) {
@@ -160,44 +250,53 @@ export function BeginnerLearningPage() {
     return <Toggle key={key} label={label} checked={session.controls[key]} change={checked => patchControls({ [key]: checked })} />
   }
 
+  function openRepair(id: BeginnerRepairId) {
+    course.update(previous => ({ ...previous, repairs: { attempts: previous.repairs?.attempts ?? {}, active: id } }))
+    setParams({ repair: id })
+    requestAnimationFrame(() => document.getElementById('repair-title')?.focus())
+  }
+
+  if (activeRepair) {
+    const attempt = session.repairs?.attempts[activeRepair.id] ?? newRepairAttempt()
+    return <div className="beginner-page">
+      <header className="beginner-header">
+        <button type="button" onClick={() => {
+          course.update(previous => ({ ...previous, repairs: { attempts: previous.repairs?.attempts ?? {}, active: null } }))
+          setParams({})
+          requestAnimationFrame(() => activityHeading.current?.focus())
+        }}>Về thử nghiệm nền tảng</button>
+        <h1>Thử thách sửa mạch</h1>
+        <p>{repairsDone}/{BEGINNER_REPAIRS.length} kỹ năng có bằng chứng trong mô hình. {durabilityLabels[course.durability]}.</p>
+        {course.hasStorageIssue && <div className="beginner-actions"><button onClick={course.download}>Tải tiến độ hiện tại</button>{course.raw !== null && <button onClick={course.downloadRaw}>Tải dữ liệu gốc đang lưu</button>}<button onClick={course.reload}>Nạp lại bản lưu</button></div>}
+      </header>
+      <RepairLab key={activeRepair.id} repair={activeRepair} attempt={attempt} save={next => course.update(previous => ({
+        ...previous,
+        repairs: { active: activeRepair.id, attempts: { ...previous.repairs?.attempts, [activeRepair.id]: next } },
+      }))} />
+      <div className="beginner-actions beginner-repair-next">
+        {attempt.after && nextRepair && <button type="button" onClick={() => openRepair(nextRepair.id)}>Làm tiếp: {nextRepair.title}</button>}
+        {repairsDone === BEGINNER_REPAIRS.length && <Link className="button-primary" to={route(PRODUCT_ROUTES.publicCapstone)}>Áp dụng vào mini-project</Link>}
+      </div>
+      <nav className="beginner-repair-nav" aria-label="Danh sách thử thách sửa mạch">
+        {BEGINNER_REPAIRS.map(repair => <button type="button" key={repair.id} onClick={() => openRepair(repair.id)} aria-current={repair.id === activeRepair.id ? 'step' : undefined}>
+          {repair.title} · {session.repairs?.attempts[repair.id]?.after ? 'Đã kiểm chứng' : 'Chưa hoàn thành'}
+        </button>)}
+      </nav>
+    </div>
+  }
+
   return <div className="beginner-page">
     <GuideContextBridge snapshot={getBeginnerGuideSnapshot(session, result)} />
     <header className="beginner-header">
       <Link to={route('/topics')}>Chủ đề học</Link>
       <h1>Nền tảng điện tử</h1>
-      <p>Thay một điều, dự đoán rồi kiểm tra. Chọn bất kỳ hoạt động nào để bắt đầu.</p>
+      <p><strong>{completed}/{BEGINNER_ACTIVITIES.length} hoạt động đạt tiêu chí.</strong> <a href="#beginner-activities">Chọn hoạt động</a></p>
       <details className="beginner-scope"><summary>Phạm vi mô hình</summary>
         <p>Bằng chứng từ mô hình giáo dục và kiểm tra kết nối; không phải chạy firmware, giải mạch analog hay phép đo kit thật.</p>
       </details>
     </header>
 
-    <aside className="beginner-storage" aria-label="Lưu tiến độ">
-      <strong>{durabilityLabels[course.durability]}</strong>
-      <details open={course.hasStorageIssue}>
-        <summary>Lưu và bản sao</summary>
-        <p role="status">{course.message}</p>
-        <p>Tiến độ riêng với workspace và checklist cũ. Xóa dữ liệu trình duyệt có thể làm mất bản lưu.</p>
-        <div className="beginner-actions">
-          <button type="button" onClick={course.download}>Tải tiến độ hiện tại</button>
-          {course.raw !== null && <button type="button" onClick={course.downloadRaw}>Tải dữ liệu gốc đang lưu</button>}
-          <button type="button" onClick={course.reload}>Nạp lại bản lưu</button>
-        </div>
-        {course.durability === 'conflict' && <p>Bản đang học vẫn ở bộ nhớ. Tải tiến độ hiện tại trước khi nạp lại nếu muốn giữ cả hai phiên bản.</p>}
-      </details>
-    </aside>
-
-    <nav className="beginner-activities" aria-label="Năm hoạt động">
-      {BEGINNER_ACTIVITIES.map((item, index) => {
-        const met = getBeginnerAssessment(session, item.id).status === 'met'
-        return <button
-          key={item.id} type="button" aria-current={item.id === activity.id ? 'step' : undefined}
-          onClick={() => navigate(item.id)}
-        >
-          <span>{index + 1}</span>{item.title}
-          <small>{met ? 'Đạt tiêu chí' : 'Chưa đạt tiêu chí'}</small>
-        </button>
-      })}
-    </nav>
+    {course.hasStorageIssue && <p className="beginner-storage-warning" role="status">{course.message} <a href="#beginner-storage">Xem tùy chọn lưu</a></p>}
 
     <section className="beginner-activity" aria-labelledby="beginner-activity-title" data-activity={activity.id}>
       <div className="beginner-activity-intro">
@@ -208,13 +307,13 @@ export function BeginnerLearningPage() {
       <div className="beginner-lab-layout">
         <div className="beginner-experiment">
           {boardRequired ? <>
-            <label className="beginner-board">
-              Board của thử nghiệm
+            <div className="beginner-board">
+              <label htmlFor="beginner-board">Board của thử nghiệm</label>
               <select id="beginner-board" value={session.boardId ?? ''} onChange={event => selectBoard(event.target.value)}>
                 <option value="">Chọn board được hỗ trợ</option>
                 {boardOptions.map(board => <option value={board.boardId} key={board.boardId}>{board.name}</option>)}
               </select>
-            </label>
+            </div>
             <p>Chọn đúng board để tạo code và trace subset. Lựa chọn này không cấu hình hay điều khiển thiết bị thật.</p>
           </> : activity.id === 'breadboard'
             ? <BreadboardStrip value={session.controls.holePair} change={holePair => patchControls({ holePair })} />
@@ -249,12 +348,12 @@ export function BeginnerLearningPage() {
               )}
             </div>
           </fieldset>
-          {boardRequired && <div className="beginner-code">
-            <h3>Code được tạo cho board đã chọn</h3>
+          {boardRequired && <details className="beginner-code">
+            <summary>Code được tạo cho board đã chọn</summary>
             {code
               ? <pre tabIndex={0} aria-label="Code thử nghiệm chỉ đọc"><code>{code}</code></pre>
               : <p>Chọn board được hỗ trợ để xem code.</p>}
-          </div>}
+          </details>}
         </div>
 
         <div className="beginner-reasoning">
@@ -290,21 +389,54 @@ export function BeginnerLearningPage() {
         </div>
       </div>
       <aside className="beginner-assessment" aria-label="Tiêu chí hoàn thành">
-        <h3>{assessment.status === 'met' ? 'Đã đạt tiêu chí hoạt động' : 'Tiêu chí hoạt động'}</h3>
+        <h3 aria-live="polite">{assessment.status === 'met' ? 'Đã đạt tiêu chí hoạt động' : 'Tiêu chí hoạt động'}</h3>
         <p>{assessment.observed}/{assessment.required} trường hợp có dự đoán đúng khớp quan sát. {assessment.explanationCorrect ? 'Giải thích đúng.' : 'Cần chọn giải thích đúng.'}</p>
         {assessment.missing.length > 0 && <ul>{assessment.missing.map(item => <li key={item}>{item}</li>)}</ul>}
         <p>Kết quả tính lại theo bằng chứng đã lưu và nhóm board/code hiện tại; không phải tự đánh dấu hoàn thành hay xác nhận kỹ năng phần cứng.</p>
+        {assessment.status === 'met' && (nextActivity
+          ? <button type="button" className="beginner-next-action" onClick={() => navigate(nextActivity.id)}>Làm tiếp: {nextActivity.title}</button>
+          : <Link className="button-primary" to={route(PRODUCT_ROUTES.publicCapstone)}>Thử áp dụng vào mini-project</Link>)}
+        {assessment.status === 'met' && BEGINNER_REPAIRS.filter(repair => repair.activity === activity.id).map(repair =>
+          <button type="button" key={repair.id} onClick={() => openRepair(repair.id)}>Thử thách: {repair.title}</button>)}
       </aside>
       <div className="beginner-activity-navigation" aria-label="Chuyển hoạt động">
-        <button type="button" disabled={activity.id === BEGINNER_ACTIVITIES[0].id} onClick={() => {
-          const index = BEGINNER_ACTIVITIES.findIndex(item => item.id === activity.id)
-          navigate(BEGINNER_ACTIVITIES[index - 1].id)
-        }}>Hoạt động trước</button>
-        <button type="button" disabled={activity.id === BEGINNER_ACTIVITIES[BEGINNER_ACTIVITIES.length - 1].id} onClick={() => {
-          const index = BEGINNER_ACTIVITIES.findIndex(item => item.id === activity.id)
-          navigate(BEGINNER_ACTIVITIES[index + 1].id)
-        }}>Hoạt động tiếp theo</button>
+        <button type="button" disabled={activityIndex <= 0} onClick={() => navigate(BEGINNER_ACTIVITIES[activityIndex - 1].id)}>Hoạt động trước</button>
+        <button type="button" disabled={!nextActivity} onClick={() => { if (nextActivity) navigate(nextActivity.id) }}>Hoạt động tiếp theo</button>
       </div>
     </section>
+    <section className="beginner-storage" aria-labelledby="beginner-repairs-heading">
+      <h2 id="beginner-repairs-heading">Thử thách sửa mạch</h2>
+      <p>{repairsDone}/{BEGINNER_REPAIRS.length} kỹ năng đã kiểm. Dự đoán và kiểm tra trước, sửa một điểm rồi thử lại.</p>
+      <button type="button" onClick={() => openRepair((nextRepair ?? BEGINNER_REPAIRS[0]).id)}>
+        {repairsDone ? 'Mở thử thách sửa mạch' : 'Bắt đầu thử thách sửa mạch'}
+      </button>
+    </section>
+    <nav id="beginner-activities" className="beginner-activities" aria-label="Năm hoạt động">
+      {BEGINNER_ACTIVITIES.map(item => <button key={item.id} type="button" aria-current={item.id === activity.id ? 'step' : undefined}
+        onClick={() => navigate(item.id)}>
+        {item.title}
+        <small>{getBeginnerAssessment(session, item.id).status === 'met' ? 'Đạt tiêu chí' : 'Chưa đạt tiêu chí'}</small>
+      </button>)}
+    </nav>
+    <aside id="beginner-storage" className="beginner-storage" aria-label="Lưu tiến độ">
+      <strong>{durabilityLabels[course.durability]}</strong>
+      <details open={course.hasStorageIssue}>
+        <summary>Lưu và bản sao</summary>
+        <p role="status">{course.message}</p>
+        <p>Tiến độ riêng với workspace và checklist cũ. Xóa dữ liệu trình duyệt có thể làm mất bản lưu.</p>
+        <div className="beginner-actions">
+          <button type="button" onClick={course.download}>Tải tiến độ hiện tại</button>
+          {course.raw !== null && <button type="button" onClick={course.downloadRaw}>Tải dữ liệu gốc đang lưu</button>}
+          <button type="button" onClick={course.reload}>Nạp lại bản lưu</button>
+        </div>
+        {course.durability === 'conflict' && <p>Bản đang học vẫn ở bộ nhớ. Tải tiến độ hiện tại trước khi nạp lại nếu muốn giữ cả hai phiên bản.</p>}
+      </details>
+    </aside>
+    <section className="beginner-storage" aria-labelledby="beginner-capstone">
+      <h2 id="beginner-capstone">Dự án thực hành</h2>
+      <p>Ghép LED, nút nhấn và biến trở. Dự đoán đèn bật khi nào, thử một lỗi dây nối rồi tải hồ sơ kết quả.</p>
+      <Link to={route(PRODUCT_ROUTES.publicCapstone)}>Mở mini-project đèn cảnh báo</Link>
+    </section>
+    <BeginnerTeacherPack />
   </div>
 }

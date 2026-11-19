@@ -14,3 +14,9 @@
 .freestyle-cursor-marker { fill: none; stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: none; }
 .freestyle-cursor-a { stroke: var(--mm-signal); }
 .freestyle-cursor-b { stroke: var(--mm-ink); stroke-dasharray: 4 3; }
+.freestyle-waveform .freestyle-wave-axis { gap: 8px; }
+.freestyle-waveform .freestyle-wave-axis > span { min-width: 0; max-width: calc(50% - 4px); overflow-wrap: anywhere; }
+.freestyle-waveform .freestyle-wave-axis > span:last-child { text-align: right; }
+@media (max-width: 767px) {
+  .freestyle-waveform .freestyle-wave-axis { margin-left: 58px; }
+}

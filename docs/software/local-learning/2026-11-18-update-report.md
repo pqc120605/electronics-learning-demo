@@ -1,5 +1,7 @@
 # Update Mạch Mở — 18/11/2026
 
+Bản cập nhật tiếp theo hoàn tất dạng sóng, gói giáo viên và các sửa chữa theo tester. [Xem bản local đã kiểm thử và các giới hạn model](2026-11-18-tester-feedback-report.md).
+
 [Kế hoạch nối lợi thế với khoảng cách cạnh tranh](2026-11-17-web-update-roadmap.md) là tài liệu chỉ đường; trạng thái thực thi giữ trong queue chuẩn `D:/StartupOS/docs/agents/tasks.json`.
 
 ## Đã triển khai local

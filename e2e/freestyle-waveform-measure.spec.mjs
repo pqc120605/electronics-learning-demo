@@ -48,6 +48,17 @@ for (const width of [375, 1440]) test(`sampled cursors use keyboard and preserve
   await expect(cursor(page, 'A')).toHaveValue('0')
   await expect(cursor(page, 'B')).toHaveValue(await cursor(page, 'B').getAttribute('max'))
   expect(await page.evaluate(() => localStorage.getItem('machmo-freestyle-v1'))).toBe(raw)
+  const axisLayout = await waveform(page).evaluate(element => {
+    const axis = element.querySelector('.freestyle-wave-axis').getBoundingClientRect()
+    const plot = element.querySelector('.freestyle-wave-channel svg').getBoundingClientRect()
+    const [start, end] = [...element.querySelectorAll('.freestyle-wave-axis > span')].map(label => label.getBoundingClientRect())
+    return {
+      startAligned: Math.abs(axis.left - plot.left) <= 1,
+      endAligned: Math.abs(axis.right - plot.right) <= 1,
+      labelsBounded: start.left >= axis.left - 1 && end.right <= axis.right + 1 && start.right <= end.left,
+    }
+  })
+  expect(axisLayout).toEqual({ startAligned: true, endAligned: true, labelsBounded: true })
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true)
   await waveform(page).screenshot({ path: `${artifactRoot}/waveform-${width}.png` })
 

@@ -20,6 +20,7 @@
 .app-home-status>a span { padding-left: 5px; }
 .app-home-section { padding: 47px 0 0; }
 .app-home-path { padding-top: 40px; }
+.app-home-course-resume { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 4px; }
 .app-home-path-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; counter-reset: path-step; }
 .app-home-path-card { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; padding: 18px; border: 1px solid var(--line-dark); border-radius: 7px; background:var(--mm-surface); }
 .app-home-path-number { color:var(--green); font: 700 var(--mm-text-sm) Consolas,monospace; letter-spacing: .08em; }

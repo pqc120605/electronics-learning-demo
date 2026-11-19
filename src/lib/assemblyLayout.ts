@@ -212,7 +212,7 @@ function isValidMount(mount: AssemblyMount) {
 const rotationOrder = (preferred: number) => [...new Set([preferred, preferred + 180, preferred + 90, preferred + 270].map(normalizeDeg))]
 
 /** Lays every part out from wires and pin data. 2D canvas positions are not used in 3D. */
-export function getAssemblyPlan(rawParts: Part[], wires: CircuitConnection[], options: AssemblyOptions): AssemblyPlan {
+export function getAssemblyPlan(rawParts: Part[], wires: CircuitConnection[], options: AssemblyOptions, preserveDeclaredMounts = false): AssemblyPlan {
   const { boardId, failed } = options
   const parts = rawParts.map((part) => part.assembly && !isValidMount(part.assembly) ? { ...part, assembly: undefined } : part)
   const nets = createNetIndex(wires)
@@ -262,8 +262,11 @@ export function getAssemblyPlan(rawParts: Part[], wires: CircuitConnection[], op
       const attempt = tryMount(legs, grid, explicit.column, explicit.row, explicit.rotation)
       if (attempt) {
         const placement = mountedPlacement(base, grid, attempt)
-        if (isLegal(state, part.id, attempt, footprintBox(placement))) { commit(state, part.id, placement, attempt); placements.set(part.id, placement); return true }
+        // V2 mounts already define the circuit's electrical holes. A rendering
+        // collision must not silently move a lead onto a different net.
+        if (preserveDeclaredMounts || isLegal(state, part.id, attempt, footprintBox(placement))) { commit(state, part.id, placement, attempt); placements.set(part.id, placement); return true }
       }
+      if (preserveDeclaredMounts) return false
     }
     const rotations = explicit ? rotationOrder(explicit.rotation + preferred - (explicit.partRotation ?? 0)) : rotationOrder(preferred)
     let best: { attempt: MountAttempt; placement: AssemblyPlacement; score: number } | undefined
@@ -376,7 +379,7 @@ export function getAssemblyPlanV2(doc: CircuitDocV2, options: AssemblyOptions): 
   const legacyWires: CircuitConnection[] = doc.wires.flatMap(wire => wire.from.kind === 'pin' && wire.to.kind === 'pin'
     ? [{ id: wire.id, from: { partId: wire.from.partId, pinId: wire.from.pinId }, to: { partId: wire.to.partId, pinId: wire.to.pinId } }]
     : [])
-  const plan = getAssemblyPlan(parts, legacyWires, options)
+  const plan = getAssemblyPlan(parts, legacyWires, options, true)
   const wireEnds: AssemblyPlan['wireEnds'] = {}
   const wireEvidence: NonNullable<AssemblyPlan['wireEvidence']> = {}
   const diagnostics: NonNullable<AssemblyPlan['diagnostics']> = []
@@ -394,7 +397,7 @@ export function getAssemblyPlanV2(doc: CircuitDocV2, options: AssemblyOptions): 
     const part = docPartById.get(endpoint.partId)
     const placement = plan.placements.find(item => item.partId === endpoint.partId)
     if (!point || !part || !placement || placement.kind === 'fallback-box') return undefined
-    if (part.type === 'board' && plan.notes.boardPins !== 'cad-pad') return undefined
+    if (part.type === 'board' && !boardPinLocal(options.boardId, options.target, options.lessonId, endpoint.pinId)) return undefined
     const mesh = meshByType.get(part.type)
     if (placement.mount === 'breadboard' && placement.legs?.some(leg => leg.pinId === endpoint.pinId)) {
       return { point, evidence: placement.kind === 'component-cad' ? 'cad' : 'parametric', sourceKey: `${endpoint.partId}:${endpoint.pinId}` }

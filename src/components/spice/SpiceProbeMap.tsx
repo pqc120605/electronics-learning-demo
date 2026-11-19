@@ -99,10 +99,14 @@ export function SpiceProbeMap({ topology, series, index, magnitudeOnly, selected
       {nodes.map(node => {
         const probe = voltageSeriesName(node)
         const voltage = probeValue(series, probe, index)
-        return <g key={node} className={`spice-probe-node ${selectedProbe === probe ? 'is-selected' : ''}`} role="button" tabIndex={0} aria-pressed={selectedProbe === probe} aria-label={`Nút ${node}: ${formatEngineering(voltage, 'V')}`} onClick={() => onSelectProbe(probe)} onKeyDown={event => activate(event, () => onSelectProbe(probe))} transform={`translate(${xOf(node)} ${RAIL_Y})`}>
+        const value = formatEngineering(voltage, 'V')
+        const left = Math.min(22, span ? span / 2 : 22)
+        const right = Math.min(68, span ? span / 2 : 68, 16 + value.length * 7)
+        return <g key={node} className={`spice-probe-node ${selectedProbe === probe ? 'is-selected' : ''}`} role="button" tabIndex={0} aria-pressed={selectedProbe === probe} aria-label={`Nút ${node}: ${value}`} onClick={() => onSelectProbe(probe)} onKeyDown={event => activate(event, () => onSelectProbe(probe))} transform={`translate(${xOf(node)} ${RAIL_Y})`}>
+          <rect x={-left} y="-32" width={left + right} height="68" fill="transparent" />
           <circle r="9" />
           <text className="spice-probe-node-name" y="-16" textAnchor="middle">{node}</text>
-          <text className="spice-probe-node-value" x="14" y="26">{formatEngineering(voltage, 'V')}</text>
+          <text className="spice-probe-node-value" x="14" y="26">{value}</text>
         </g>
       })}
     </svg>

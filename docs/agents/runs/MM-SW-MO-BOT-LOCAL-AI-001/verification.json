@@ -1,0 +1,86 @@
+{
+  "task": "MM-SW-MO-BOT-LOCAL-AI-001",
+  "date": "2026-11-19",
+  "verdict": "pass",
+  "scope": "Bounded local AI chat and help regressions",
+  "commands": [
+    {
+      "exit": 0,
+      "log": ".tmp/mo-bot-ai-typecheck-release.log",
+      "command": "npm.cmd run typecheck"
+    },
+    {
+      "exit": 0,
+      "log": ".tmp/mo-bot-ai-build-release.log",
+      "command": "npm.cmd run build:local"
+    },
+    {
+      "exit": 0,
+      "tests": 34,
+      "command": "node --test --test-concurrency=1 tests/{arduino-compile-service,beginner-guide,guide-ai-service,guide-ai,guide-catalog,guide-knowledge,guide-tester-feedback}.test.mjs (expanded as seven paths in PowerShell)",
+      "pass": 34,
+      "log": ".tmp/mo-bot-ai-unit-final.log"
+    },
+    {
+      "pass": 21,
+      "exit": 0,
+      "command": "npm.cmd run test:e2e -- e2e/guide-ai.spec.mjs e2e/guide-depth.spec.mjs e2e/mascot-guide.spec.mjs e2e/beginner-guide.spec.mjs",
+      "note": "Before scroll-only change",
+      "tests": 21,
+      "log": ".tmp/mo-bot-ai-e2e-release.log"
+    },
+    {
+      "pass": 3,
+      "exit": 0,
+      "command": "node node_modules/@playwright/test/cli.js test e2e/guide-ai.spec.mjs",
+      "note": "After scroll-only change, against fresh build",
+      "tests": 3,
+      "log": ".tmp/mo-bot-ai-scroll-e2e.log"
+    },
+    {
+      "exit": 0,
+      "viewports": [
+        1440,
+        375
+      ],
+      "command": "node docs/agents/runs/MM-SW-MO-BOT-LOCAL-AI-001/verify-real-browser.mjs",
+      "realReplies": 3,
+      "log": ".tmp/mo-bot-ai-browser-release.log"
+    },
+    {
+      "exit": 0,
+      "tasks": 103,
+      "command": "node ../docs/agents/validate.mjs",
+      "warnings": [],
+      "errors": []
+    }
+  ],
+  "appEntry": {
+    "file": "dist/assets/index-3GmwjfZV.js",
+    "sha256": "19df136a7cba4f65face558872dc850f948cee684db1a4d91491e019084f49d6"
+  },
+  "sourceHashes": {
+    "src/lib/guideAi.ts": "3b09da4c25d8a04c4132eac3e53ac6dbb2848e15f0bfa86d458004671ff7a9b8",
+    "src/lib/guideKnowledge.ts": "5657cffe374443f5beefad7a3b195e539d9f108a1e3ddfe1a457496a4b1ff30c",
+    "src/components/guide/GuidePanel.tsx": "fecc3b4cba0004a1ad3dba713911c2f7edf30faf52c326cae671c63becfc339f",
+    "src/components/guide/GuideAiChat.tsx": "5772dccf0c50ca09942471fee3209a81e938b9ada4b6d07dcd78d35f8b13b08b",
+    "src/components/guide/Guide.css": "caadcf66c1007053192d52c4475e480e79e96506ae4b8e423a7ecf06a823410c",
+    "src/pages/PrivacyPage.tsx": "3a17ae21a9f77db2dbce8cd3de2f0d0af25a59bab4b5fe19147eb78bede1a3ef",
+    "scripts/guide-ai-service.mjs": "f90745a531166c36be0d44fee2951bf6c20aad2a8840b13866e99024873d92fc",
+    "scripts/arduino-compile-service.mjs": "0fc4f8c40353c8b77b449426305331aa4fb456bd6dc24fa22bfe80d9a2a57755",
+    "tests/guide-ai-service.test.mjs": "12dc6253328ab7414edaee9dede9b885f5325c8de2537585a8f55d7d5cec0805",
+    "tests/guide-ai.test.mjs": "09f06eec546046c23e0cc0f247fddb8a71cfe4caab9461f8866f129408097bb8",
+    "e2e/guide-ai.spec.mjs": "caba26cb9bc96d24f48119f17b6ff6eb9a5aea5836fb20b960d269bb514152f4"
+  },
+  "artifactHashes": {
+    "evaluate-local.mjs": "1443946fc02ab922fb587bebfa5138e46adbc838fb06c6b0a1cb7e05ce908753",
+    "benchmark-qwen3-5-2b.json": "bc512c40ec293d1b7fdce980f16334b0f4323f160f471b0fcf03c1ca4867a2e7",
+    "benchmark-qwen3-5-4b_qwen3-5-2b.json": "2be82030ab361edb40bdbba5b77d79c4c7df867f9242b34a3f294801d64ed008",
+    "verify-real-browser.mjs": "ecc9cddd2be08889174b85df0ab1e839f58361ebec5ae0cc1a05496a596da628",
+    "real-browser.json": "0fd1d950684115b5b23975c2248a08ee74d7f90f42ad351c3e32e4ebf0993ef8",
+    "real-browser-1440.png": "f08edd4c98da9e05a8631ac03a6e31985ed649bc212600c6473e409b2e5d34c1",
+    "real-browser-375.png": "9b95c31a6ed3b7c1e2e0795fb23c42a5948b0bba6d9ad872395a6a7231ef41d6",
+    "review.md": "145df958a72580c8c652bec6cf24c9e78b5b11f0719bd12c4827609d8be40e43",
+    "report.md": "748fc01c0d5149ca0392a0d8f525cb559c4244a2fc0693569cc76a7a3194f0dd"
+  }
+}

@@ -37,8 +37,8 @@ export function AppWorkspaceNavigation() {
   }, [])
   return <>
     <header className="workspace-topbar">
-      <NavLink className="workspace-brand" to={R.appHome}>
-        <BrandLogo compact /><span><strong>Mạch Mở</strong><small>WORKSPACE</small></span>
+      <NavLink className="workspace-brand" to={R.appHome} aria-label="Mạch Mở Workspace">
+        <BrandLogo compact /><span className="workspace-brand-name"><strong>Mạch Mở</strong><small>WORKSPACE</small></span>
       </NavLink>
       <div className="workspace-current" aria-live="polite"><span>{section}</span><strong>{title}</strong></div>
       <div className="workspace-top-actions"><HelpMenu /><AuthMenu variant="app" /><Link className="workspace-web-link" aria-label="Về website" title="Về website" to={`${R.publicHome}?surface=web`}><span className="workspace-web-label">Về website</span> <span aria-hidden="true">↗</span></Link></div>

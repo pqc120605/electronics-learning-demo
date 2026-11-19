@@ -1,6 +1,6 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { getPageTitle } from '../data/productRoutes'
+import { getPageTitle, PRODUCT_ROUTES } from '../data/productRoutes'
 import { trackPageView } from '../lib/analytics'
 import { SiteNavigation } from './SiteNavigation'
 import { AppWorkspaceNavigation } from './AppWorkspaceNavigation'
@@ -44,7 +44,7 @@ export function SiteShell({ children, variant = 'public' }: SiteShellProps) {
         </Link>
         <SiteNavigation />
         <HelpMenu />
-        <Link className="header-cta" to="/learn/blink">
+        <Link className="header-cta" to={PRODUCT_ROUTES.publicBasics}>
           Bắt đầu học <span aria-hidden="true">↗</span>
         </Link>
         <div className="header-auth"><AuthMenu variant="public" /></div>

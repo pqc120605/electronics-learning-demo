@@ -1,0 +1,35 @@
+{
+  "at": "2026-11-18T17:22:16.343Z",
+  "files": {
+    "src/components/freestyle/FreestyleBench.tsx": "9cb6b702b14ba74fbe2fd471dae9a780de9069640eca31bd28574a97c54bf3a5",
+    "src/components/freestyle/SerialPlotter.tsx": "d339ae4dc2002b516c0d313a6a219c320c88e54b8426045059be26e0dc43880c",
+    "src/components/freestyle/SerialPlotter.css": "54596d511dac59d96278b8d622aa3a6678d0537b1775c4738a53f33ffa2ff6b2",
+    "src/lib/freestyle/serialPlot.ts": "41933b6cb10a545f2aa1e5c77c6ea0428e62849fd08b5dd4ee88f32b18a2804a",
+    "tests/freestyle-serial-plot.test.mjs": "a00145e367d78e974ca44c2ff4e71688a39cc3f64e37102f3a1c26f730a3971b",
+    "e2e/freestyle-serial-plot.spec.mjs": "4f65ebc1007ac83e15a3b1f3d7b4b0076de461599cd1237f993d31ceff064592"
+  },
+  "scope": {
+    "withinLease": [
+      "src/components/freestyle/FreestyleBench.tsx",
+      "src/components/freestyle/SerialPlotter.css",
+      "src/components/freestyle/SerialPlotter.tsx",
+      "src/lib/freestyle/serialPlot.ts",
+      "tests/freestyle-serial-plot.test.mjs",
+      "e2e/freestyle-serial-plot.spec.mjs"
+    ],
+    "parallelLeaseChanges": [
+      "src/App.tsx",
+      "src/components/builder/CircuitSchematicV2.tsx",
+      "src/data/productRoutes.ts",
+      "src/lib/localCapstone.ts",
+      "src/lib/schematicLayoutV2.ts",
+      "src/pages/BeginnerLearningPage.tsx",
+      "src/pages/LocalCapstonePage.css",
+      "src/pages/LocalCapstonePage.tsx",
+      "tests/local-capstone.test.mjs",
+      "e2e/local-capstone.spec.mjs"
+    ],
+    "unexpected": [],
+    "missing": []
+  }
+}

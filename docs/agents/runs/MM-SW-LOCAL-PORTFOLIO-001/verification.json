@@ -1,0 +1,39 @@
+{
+  "verdict": "pass",
+  "bundle": "index-D0WHFQ1Z.js",
+  "sha256": "25f4de4cace4967ff22b5f3ca54967b9c90012803cc2c91c1ebafbda75301ee1",
+  "commands": [
+    {
+      "command": "npm.cmd run typecheck",
+      "exitCode": 0,
+      "snapshot": "index-D0WHFQ1Z.js",
+      "log": "../../../reviews/2026-11-19-local-audit/evidence/final-typecheck.log"
+    },
+    {
+      "command": "npm.cmd run build:local -- --outDir .tmp/local-polish-build-check",
+      "exitCode": 0,
+      "snapshot": "index-D0WHFQ1Z.js",
+      "log": "../../../reviews/2026-11-19-local-audit/evidence/final-build.log"
+    },
+    {
+      "command": "node --test --test-concurrency=1 tests/freestyle-wire-layout.test.mjs tests/local-capstone-library.test.mjs tests/freestyle-circuit.test.mjs tests/workspace-spice.test.mjs",
+      "exitCode": 0,
+      "snapshot": "index-D0WHFQ1Z.js",
+      "pass": 31,
+      "fail": 0,
+      "skip": 0,
+      "log": "../../../reviews/2026-11-19-local-audit/evidence/final-unit.log"
+    },
+    {
+      "command": "npm.cmd run test:e2e -- <affected specs and test names in log>",
+      "exitCode": 0,
+      "snapshot": "index-D0WHFQ1Z.js",
+      "pass": 17,
+      "fail": 0,
+      "skip": 0,
+      "log": "../../../reviews/2026-11-19-local-audit/evidence/final-e2e.log"
+    }
+  ],
+  "sourceReview": "local_polish_qa",
+  "sourceSnapshot": "snapshot-reviewed.json"
+}

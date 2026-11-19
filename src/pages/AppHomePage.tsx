@@ -1,4 +1,5 @@
-import { BeginnerResumeCard } from '../components/learning/BeginnerResumeCard'
+import { BeginnerResumeCard, useBeginnerResume } from '../components/learning/BeginnerResumeCard'
+import { beginnerResumeUrl } from '../lib/beginnerRepair'
 import { Link } from 'react-router-dom'
 import { curriculumLessons } from '../data/curriculumSchema'
 import { PRODUCT_ROUTES as R, toAppRoute } from '../data/productRoutes'
@@ -67,6 +68,7 @@ const exploreLinks = [
 ]
 
 export function AppHomePage() {
+  const foundation = useBeginnerResume()
   const progress = useLearningProgress()
   const resume = getLearningResume(progress.lastLessonId, progress.selfReportedCompletedLessonIds)
   const resumeLesson = curriculumLessons.find((lesson) => lesson.id === resume.lessonId)
@@ -86,10 +88,10 @@ export function AppHomePage() {
           <h1 id="app-home-title">Học điện tử bằng cách <span>lắp, đọc và thử.</span></h1>
           <p className="app-home-intro">Đi từ bài học nhập môn đến thư viện board và bàn lắp mạch. Bạn có thể bắt đầu ngay trên web, không cần tạo tài khoản.</p>
           <div className="app-home-actions">
-            <Link className="button-primary" to={toAppRoute(resume.route)}>{resume.label} <span aria-hidden="true">↗</span></Link>
+            <Link className="button-primary" to={beginnerResumeUrl(R.appBasics, foundation.session?.repairs)}>{foundation.session?.repairs?.active ? 'Tiếp tục sửa mạch' : foundation.session ? 'Tiếp tục thử nghiệm' : 'Thử mạch đầu tiên'} <span aria-hidden="true">↗</span></Link>
             <Link className="app-home-secondary" to={R.appLab}>Mở bàn lắp mạch</Link>
           </div>
-          <p className="app-home-resume">{resumeNote}</p>
+          <p className="app-home-resume">{foundation.session ? 'Mở lại hoạt động và các lần thử đã lưu trên trình duyệt này.' : 'Bắt đầu bằng việc làm LED sáng trong một mạch kín.'}</p>
           <p className="app-home-guest"><span aria-hidden="true">✓</span> Dùng thử với tư cách khách · Không cần đăng nhập</p>
         </div>
       </section>
@@ -105,6 +107,8 @@ export function AppHomePage() {
           </div>
         </div>
         <LearningPath lastLessonId={progress.lastLessonId} startedLessonIds={progress.startedLessonIds} completedLessonIds={progress.selfReportedCompletedLessonIds} headingLevel="h3" />
+        {resume.state !== 'all-complete' && <Link className="app-home-course-resume" to={toAppRoute(resume.route)}>{resume.label}</Link>}
+        <p className="app-home-path-note">{resumeNote}</p>
         <p className="app-home-path-note">{`Bạn đã bắt đầu ${progress.startedLessonIds.length}/${curriculumLessons.length} bài; tự đánh dấu hoàn thành ${progress.selfReportedCompletedLessonIds.length}/${curriculumLessons.length} bài. `}{ledChecklistCount > 0 ? `Checklist bài LED đã tự xác nhận ${ledChecklistCount}/${esp32LedLesson.verificationChecklist.length} mục. ` : ''}Tiến độ chỉ lưu trên trình duyệt này, không chấm điểm và không xác minh đã chạy phần cứng.</p>
         <LearningActivity attempts={progress.simulationAttempts} routeFor={toAppRoute} />
       </section>

@@ -238,3 +238,16 @@
  .freestyle-work-actions > .freestyle-run-button { flex:0 0 76px;min-width:76px;padding:0 8px; }
  .freestyle-input-dock { min-width:0;max-width:100%; }
 }
+.freestyle-wave-popout { position: fixed; inset: auto 20px 20px auto; z-index: 160; width: min(500px, calc(100vw - 40px)); max-height: min(60dvh, 570px); overflow: auto; overscroll-behavior: contain; background: var(--mm-surface); color: var(--mm-ink); border: 1px solid var(--mm-line); border-radius: 10px; box-shadow: 0 8px 32px #14253b38; }
+.freestyle-wave-popout-bar { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; background: var(--mm-surface); border-bottom: 1px solid var(--mm-line); }
+.freestyle-wave-popout .freestyle-waveform { display: flex; flex-direction: column; }
+.freestyle-wave-popout .freestyle-waveform > header { order: -2; }
+.freestyle-wave-popout .freestyle-waveform > :is(.freestyle-wave-axis,.freestyle-wave-channel) { order: -1; }
+@media (max-width: 640px) {
+  .freestyle-wave-popout { inset: auto 8px 8px; width: auto; max-height: 42dvh; }
+}
+.freestyle-import-draft { position: relative; display: inline-flex; align-items: center; cursor: pointer; }
+.freestyle-import-draft input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.freestyle-import-draft:focus-within { outline: 3px solid var(--mm-signal); outline-offset: 2px; }
+.freestyle-wire-actions { display: flex; flex: 1 0 100%; flex-wrap: wrap; gap: 6px; }
+.freestyle-wire-actions .freestyle-button { min-height: 36px; }

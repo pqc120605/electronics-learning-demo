@@ -1,0 +1,117 @@
+{
+  "started": "2026-11-18T21:43:04.061Z",
+  "entryStart": {
+    "asset": "/assets/index-3GmwjfZV.js",
+    "sha256": "19df136a7cba4f65face558872dc850f948cee684db1a4d91491e019084f49d6"
+  },
+  "runs": [
+    {
+      "width": 375,
+      "height": 812,
+      "checks": [
+        {
+          "label": "Fresh /learn/basics requires prediction",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: closed-loop",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: breadboard",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: led-polarity",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: button-logic",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: sensor-threshold",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course reload/home resume preserves all five activities",
+          "uri": "http://127.0.0.1:5320/app/learn/basics"
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "status": "fail",
+      "failure": "Error: expect(locator).toBeVisible() failed\n\nLocator:  locator('[data-board-art=\"arduino-nano\"]')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toBeVisible\" locator('[data-board-art=\"arduino-nano\"]') with timeout 5000ms\n  - waiting for locator('[data-board-art=\"arduino-nano\"]')\n    13 × locator resolved to <g data-board-art=\"arduino-nano\" aria-label=\"Arduino Nano classic · Arduino Nano classic · source CAD import (V3.3)\">…</g>\n       - unexpected value \"hidden\"\n\n    at captureRawStack (D:\\StartupOS\\electronics-learning-demo\\node_modules\\playwright-core\\lib\\coreBundle.js:9282:17)\n    at callMatcherAsStep (D:\\StartupOS\\electronics-learning-demo\\node_modules\\playwright\\lib\\matchers\\expect.js:13316:57)\n    at Object.toBeVisible (D:\\StartupOS\\electronics-learning-demo\\node_modules\\playwright\\lib\\matchers\\expect.js:13308:23)\n    at D:\\StartupOS\\electronics-learning-demo\\.tmp\\full-audit-deep-journeys.mjs:25:126",
+      "body": "Đi đến nội dung chính\nBàn lắp mạch tự do\n?\nĐăng nhập\n↗\n◎\nHọc\n⌁\nLắp mạch\n▦\nThư viện\n▷\nCông cụ\n◇\nCộng đồng\nTự lắp mạch, tự viết code, bấm Chạy\nMạch mẫu\nNháy LED\nNút nhấn bật LED\nBiến trở chỉnh độ sáng\nĐộng cơ DC qua transistor\nDựng mạch mẫu\nBàn trống\nBản nháp\nCông cụ\nVề trang chủ\nCHỌN BOARD\nTHÊM LINH KIỆN\nVIẾT CODE & CHẠY\nQUAN SÁT\nLắp mạch 2D\nSchematic\nLắp mạch 3D\nDạng sóng\nẨn bảng thao tác\nMở rộng bàn\n▶ Chạy\nNhập bản nháp\nHoàn tác dây\nBoard / MCU\nESP32 DevKit V1\n3,3 V · trình thông dịch\nESP32-S3-DevKitC-1\n3,3 V · trình thông dịch\nArduino Uno R3\n5 V · biên dịch thật (arduino-cli)\nArduino Nano classic\n5 V · biên dịch thật (arduino-cli)\nArduino Mega 2560 R3\n5 V · biên dịch thật (arduino-cli)\nRaspberry Pi Pico\n3,3 V · MicroPython thật\nSTM32 Blue Pill (F103C8)\n3,3 V · trình thông dịch\nSTM32 Nucleo-F401RE\n3,3 V · trình thông dịch\nChân board dùng trong mạch\n\nDây nối vào chân “GPIO LED”, “GPIO IN”… của board. Chọn số chân thật tương ứng trong code.\n\nGPIO LED\nD0\nD1\nD2\nD3\nD4\nD5\nD6\nD7\nD8\nD9\nD10\nD11\nD12\nD13\nA0\nA1\nA2\nA3\nA4\nA5\nA6\nA7\nGPIO IN\nD0\nD1\nD2\nD3\nD4\nD5\nD6\nD7\nD8\nD9\nD10\nD11\nD12\nD13\nA0\nA1\nA2\nA3\nA4\nA5\nA6\nA7\n\nNhư Uno: arduino-cli + avr8js khi có dịch vụ cục bộ; A6/A7 chỉ đọc analog.\n\nMạch Mở\n\nHiểu mạch điện bằng cách tự tay làm.\n\nMột số lượt xem và thao tác được ghi nhận bằng mã phiên ngẫu nhiên trong tab để cải thiện bài học. Sự kiện không lưu tên hay email. Chính sách quyền riêng tư · Góp ý & báo lỗi · Người phát triển\n\n✳ LẦN ĐẦU ĐẾN ĐÂY?\n\nBàn lắp mạch tự do · 6 bước\n\nNăm bước ngắn: chọn board, thêm linh kiện, viết code và bấm Chạy.\n\nXem hướng dẫn\nĐể sau",
+      "finalUri": "http://127.0.0.1:5320/build/freestyle"
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "checks": [
+        {
+          "label": "Fresh /learn/basics requires prediction",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: closed-loop",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: breadboard",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: led-polarity",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: button-logic",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course cases + explanation: sensor-threshold",
+          "uri": "http://127.0.0.1:5320/learn/basics"
+        },
+        {
+          "label": "Course reload/home resume preserves all five activities",
+          "uri": "http://127.0.0.1:5320/app/learn/basics"
+        },
+        {
+          "label": "Freestyle board change Nano → Uno updates rendered board",
+          "uri": "http://127.0.0.1:5320/build/freestyle"
+        },
+        {
+          "label": "Manual board→resistor→LED→GND wiring creates three connections",
+          "uri": "http://127.0.0.1:5320/build/freestyle"
+        },
+        {
+          "label": "Run emits both Serial states, LED toggles, sampled waveform appears",
+          "uri": "http://127.0.0.1:5320/build/freestyle"
+        },
+        {
+          "label": "2D ↔ schematic preserves handwired circuit",
+          "uri": "http://127.0.0.1:5320/build/freestyle"
+        },
+        {
+          "label": "Explicit reopen after reload preserves code and all three wires",
+          "uri": "http://127.0.0.1:5320/build/freestyle"
+        },
+        {
+          "label": "Draft export → blank → import restores code and wiring",
+          "uri": "http://127.0.0.1:5320/build/freestyle"
+        }
+      ],
+      "errors": [],
+      "consoleErrors": [],
+      "providerBefore": "arduino-cli + avr8js\nChưa chạy",
+      "status": "pass",
+      "finalUri": "http://127.0.0.1:5320/build/freestyle"
+    }
+  ],
+  "entryEnd": {
+    "asset": "/assets/index-3GmwjfZV.js",
+    "sha256": "19df136a7cba4f65face558872dc850f948cee684db1a4d91491e019084f49d6"
+  },
+  "ended": "2026-11-18T21:43:34.702Z"
+}

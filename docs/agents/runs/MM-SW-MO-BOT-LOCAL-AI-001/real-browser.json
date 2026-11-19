@@ -1,0 +1,60 @@
+{
+  "base": "http://127.0.0.1:5320",
+  "screens": [
+    {
+      "width": 1440,
+      "chromium": "156.0.8078.4",
+      "answers": [
+        {
+          "question": "Vì sao LED cần điện trở?",
+          "ms": 17002,
+          "status": "answered",
+          "answer": "LED cần điện trở vì nó là diode phát sáng, dòng đi qua điện trở nối tiếp rồi qua LED về GND; nếu đổi cực LED có thể làm đường dẫn không hoạt động. Điện trở hạn dòng và giá trị phù hợp phụ thuộc nguồn, điện áp thuận của LED và dòng mục tiêu.",
+          "sourceIds": [
+            "S1"
+          ],
+          "model": "qwen3.5:2b"
+        },
+        {
+          "question": "Cho ví dụ",
+          "ms": 4790,
+          "status": "answered",
+          "answer": "Ví dụ: Dòng đi qua điện trở nối tiếp rồi qua LED về GND; nếu đổi cực LED có thể làm đường dẫn không hoạt động. Điện trở hạn dòng và giá trị phù hợp phụ thuộc nguồn, điện áp thuận của LED và dòng mục tiêu.",
+          "sourceIds": [
+            "S1"
+          ],
+          "model": "qwen3.5:2b"
+        }
+      ],
+      "sources": [
+        "Bộ tính LED và các giả định",
+        "Bộ tính LED và các giả định"
+      ],
+      "screenshot": "real-browser-1440.png",
+      "externalRequests": [],
+      "errors": []
+    },
+    {
+      "width": 375,
+      "chromium": "156.0.8078.4",
+      "answers": [
+        {
+          "question": "INPUT_PULLUP là gì?",
+          "ms": 8018,
+          "status": "answered",
+          "answer": "INPUT_PULLUP là một chế độ pin vào (pull-up) trong mạch điện tử, nơi đầu vào của pin được nối về mức cao (HIGH) khi không có tín hiệu nào tác động. Khi nút nhấn được kéo xuống GND, đầu vào sẽ chuyển sang mức thấp (LOW), từ đó tạo ra điều kiện digitalRead(buttonPin) == LOW để nhận biết trạng thái nhấn.",
+          "sourceIds": [
+            "S1"
+          ],
+          "model": "qwen3.5:2b"
+        }
+      ],
+      "sources": [
+        "Bài nút nhấn điều khiển LED"
+      ],
+      "screenshot": "real-browser-375.png",
+      "externalRequests": [],
+      "errors": []
+    }
+  ]
+}

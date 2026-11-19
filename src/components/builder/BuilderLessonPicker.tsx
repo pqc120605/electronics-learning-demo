@@ -2,6 +2,10 @@ import { getBuilderLesson, getLessonBoardSupport, type BuilderLessonId } from '.
 import type { SimulationTarget } from '../../data/simulationTargets'
 import type { CurriculumLesson } from '../../data/curriculumSchema'
 import { CapabilityBadge } from '../CapabilityBadge'
+import { Link } from 'react-router-dom'
+import { getLessonEntryRoute } from '../../data/learningPath'
+import { useProductRoute } from '../../lib/useProductRoute'
+import { useId } from 'react'
 
 type Props = {
   lessons: CurriculumLesson[]
@@ -11,8 +15,18 @@ type Props = {
 }
 
 export function BuilderLessonPicker({ lessons, selectedId, target, onSelect }: Props) {
+  const route = useProductRoute()
+  const selectId = useId()
   return <section className="builder-lesson-picker" aria-labelledby="builder-lesson-picker-title">
-    <div className="builder-lesson-picker-heading"><div><p className="eyebrow">BƯỚC 1 · CHỌN BÀI THỰC HÀNH</p><h2 id="builder-lesson-picker-title">Bạn muốn thử điều gì?</h2><p>Chọn một thẻ để nạp sẵn mạch, code và hướng dẫn. Có thể đổi bài bất cứ lúc nào.</p></div><span>{lessons.length} bài · không cần tài khoản</span></div>
+    <div className="builder-lesson-picker-heading"><div><p className="eyebrow">BƯỚC 1 · CHỌN BÀI THỰC HÀNH</p><h2 id="builder-lesson-picker-title">Bạn muốn thử điều gì?</h2><p>Chọn bài để nạp mạch, code và hướng dẫn trên {target.name}.</p></div><span>{lessons.length} bài · không cần tài khoản</span></div>
+    <div className="lesson-navigation">
+      <div className="lesson-navigation-picker"><label htmlFor={selectId}>Chọn bài thực hành</label><select id={selectId} value={selectedId} onChange={event => {
+        const next = lessons.find(lesson => lesson.id === event.target.value)
+        if (next) onSelect(next.id)
+      }}>{lessons.map(lesson => <option key={lesson.id} value={lesson.id}>{lesson.title}{getLessonBoardSupport(target, lesson.id).supported ? '' : ' · chưa hỗ trợ board này'}</option>)}</select></div>
+      <Link to={route(getLessonEntryRoute({ id: selectedId }))}>Chọn lại board</Link>
+      <Link to={route('/topics')}>Danh sách bài học</Link>
+    </div>
     <div className="builder-lesson-cards">
       {lessons.map((item) => {
         const lessonInfo = getBuilderLesson(item.id)

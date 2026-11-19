@@ -3,6 +3,7 @@ import {
   getBeginnerResult, isBeginnerControls,
   type BeginnerObservation, type BeginnerPrediction, type BeginnerSession,
 } from './beginnerCourse'
+import { getBeginnerRepair, type RepairProgress } from './beginnerRepair'
 
 export const BEGINNER_COURSE_KEY = 'machmo-beginner-course-v1'
 export const BEGINNER_COURSE_CHANGED_EVENT = 'machmo:beginner-course-changed'
@@ -28,6 +29,26 @@ function prediction(value: unknown): value is BeginnerPrediction {
   return predictions.includes(value as BeginnerPrediction)
 }
 
+function parseRepairs(value: unknown): RepairProgress | null {
+  if (!record(value) || !record(value.attempts) || (value.active !== null && typeof value.active !== 'string')) return null
+  const active = typeof value.active === 'string' ? getBeginnerRepair(value.active) : undefined
+  if (value.active !== null && !active) return null
+  const attempts: RepairProgress['attempts'] = {}
+  for (const [id, attempt] of Object.entries(value.attempts)) {
+    const repair = getBeginnerRepair(id)
+    if (!repair || !record(attempt)) return null
+    const { fixed, before, after, hints } = attempt
+    if (typeof fixed !== 'boolean' || (before !== null && before !== repair.expectedBefore)
+      || (after !== null && (after !== repair.expectedAfter || before === null))
+      || typeof hints !== 'number' || !Number.isInteger(hints) || hints < 0 || hints > repair.hints.length) return null
+    attempts[repair.id] = {
+      fixed, hints, before: before === null ? null : repair.expectedBefore,
+      after: after === null ? null : repair.expectedAfter,
+    }
+  }
+  return { active: active?.id ?? null, attempts }
+}
+
 export function parseBeginnerSession(value: unknown): BeginnerSession | null {
   if (!record(value) || value.schema !== 1 || value.courseVersion !== 1
     || !activityId(value.activityId) || !boardId(value.boardId)
@@ -51,6 +72,11 @@ export function parseBeginnerSession(value: unknown): BeginnerSession | null {
     schema: 1, courseVersion: 1, activityId: value.activityId, boardId: value.boardId,
     controls: { ...value.controls }, prediction: value.prediction,
     observations: [], explanations, hintsUsed,
+  }
+  if (value.repairs !== undefined) {
+    const repairs = parseRepairs(value.repairs)
+    if (!repairs) return null
+    session.repairs = repairs
   }
   for (const item of value.observations) {
     if (!record(item) || !activityId(item.activityId) || !boardId(item.boardId)

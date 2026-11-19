@@ -7,6 +7,7 @@ import type { CircuitDocV2 } from './circuitDocV2'
 import { validateCircuitDoc } from './circuitDocV2'
 import { createNetIndexV2 } from './circuitNetsV2'
 import { evaluateProgram, parseEducationalProgram } from './educationalProgram'
+import type { RepairProgress } from './beginnerRepair'
 
 export type BeginnerControls = {
   returnConnected: boolean
@@ -40,6 +41,7 @@ export type BeginnerSession = {
   observations: BeginnerObservation[]
   explanations: Partial<Record<BeginnerActivityId, string>>
   hintsUsed: Partial<Record<BeginnerActivityId, number>>
+  repairs?: RepairProgress
 }
 export type BeginnerResult = {
   status: 'ready' | 'ungradable'

@@ -1,0 +1,102 @@
+{
+  "at": "2026-11-18T21:02:50.305Z",
+  "os": {
+    "platform": "win32",
+    "release": "10.0.26300",
+    "arch": "x64"
+  },
+  "browser": "156.0.8078.4",
+  "allMatch": true,
+  "files": {
+    "src/components/AppWorkspaceNavigation.tsx": {
+      "expected": "5e366766611e2fb19c438c985f751ee6a68a8c473bb1c7d8e8c08e6e6b46f853",
+      "actual": "5e366766611e2fb19c438c985f751ee6a68a8c473bb1c7d8e8c08e6e6b46f853",
+      "match": true
+    },
+    "src/components/AppWorkspaceNavigation.css": {
+      "expected": "bb485036e07dade1e48726fbfc726c563a428f8614b87254aba24fb290bb96cd",
+      "actual": "bb485036e07dade1e48726fbfc726c563a428f8614b87254aba24fb290bb96cd",
+      "match": true
+    },
+    "src/components/learning/BeginnerResumeCard.tsx": {
+      "expected": "0e1c8a460346c8bcf68a223758ee2f93fd4d98681bbb524da9a5d0c41d1ddc11",
+      "actual": "0e1c8a460346c8bcf68a223758ee2f93fd4d98681bbb524da9a5d0c41d1ddc11",
+      "match": true
+    },
+    "src/pages/AppHomePage.tsx": {
+      "expected": "9ab4e0c29d524365f90a66a382239b71e2f40ba0988b42cde602e258db55bc81",
+      "actual": "9ab4e0c29d524365f90a66a382239b71e2f40ba0988b42cde602e258db55bc81",
+      "match": true
+    },
+    "src/pages/ExplorePage.tsx": {
+      "expected": "2d01148daf324f063c1d0719fda03c11bb361ec670c50926de0154d52fd95fb5",
+      "actual": "2d01148daf324f063c1d0719fda03c11bb361ec670c50926de0154d52fd95fb5",
+      "match": true
+    },
+    "src/pages/BeginnerLearningPage.tsx": {
+      "expected": "b4f1d41d294fa97fec90227ec9ae1a4bff39771c38b6f99dd8a75242838177cc",
+      "actual": "b4f1d41d294fa97fec90227ec9ae1a4bff39771c38b6f99dd8a75242838177cc",
+      "match": true
+    },
+    "src/pages/BeginnerLearningPage.css": {
+      "expected": "564c069c582c416dbfa2f9603a0d94d2d438a2a637d356de89c664bf08e6a792",
+      "actual": "564c069c582c416dbfa2f9603a0d94d2d438a2a637d356de89c664bf08e6a792",
+      "match": true
+    },
+    "src/lib/beginnerCourse.ts": {
+      "expected": "79a27b4768968040a0aaa4b849ad394cf8cd5dc6e09d7698119713fd83b814db",
+      "actual": "79a27b4768968040a0aaa4b849ad394cf8cd5dc6e09d7698119713fd83b814db",
+      "match": true
+    },
+    "src/lib/beginnerCourseStorage.ts": {
+      "expected": "2239feec3ca775a47a563938707a95bf797593217e7d8c5a65b304f5c6c4d25a",
+      "actual": "2239feec3ca775a47a563938707a95bf797593217e7d8c5a65b304f5c6c4d25a",
+      "match": true
+    },
+    "src/lib/beginnerRepair.ts": {
+      "expected": "ef5955e7d15775bddcd24bd685fcae7cbe4617e615e40221d461027822ca66af",
+      "actual": "ef5955e7d15775bddcd24bd685fcae7cbe4617e615e40221d461027822ca66af",
+      "match": true
+    },
+    "src/pages/LocalCapstonePage.tsx": {
+      "expected": "78098166e85a85814f759ff9381cad1dd15e6de8380b5dc0313157da978b8862",
+      "actual": "78098166e85a85814f759ff9381cad1dd15e6de8380b5dc0313157da978b8862",
+      "match": true
+    },
+    "src/pages/LocalCapstonePage.css": {
+      "expected": "68aab36bd8326917fe2dc59e6c7ca649ddce3a0547fbc66d2c640568577d398e",
+      "actual": "68aab36bd8326917fe2dc59e6c7ca649ddce3a0547fbc66d2c640568577d398e",
+      "match": true
+    },
+    "src/lib/localCapstone.ts": {
+      "expected": "0c8b04d33cb13b3c69e570ada464913d8a9128f305f5d52f12f2fbd24b4ace85",
+      "actual": "0c8b04d33cb13b3c69e570ada464913d8a9128f305f5d52f12f2fbd24b4ace85",
+      "match": true
+    },
+    "src/pages/ProjectsPage.tsx": {
+      "expected": "c600a0caf9f2f3fb528723d8d327fb56c19953ef6f04b8f4f390b50c2d3c5a87",
+      "actual": "c600a0caf9f2f3fb528723d8d327fb56c19953ef6f04b8f4f390b50c2d3c5a87",
+      "match": true
+    },
+    "src/pages/BoardCatalogPage.tsx": {
+      "expected": "618022c4ca36dd4906e3d6a9eaaa595045ca61f2842a81a0c765245332ad8a05",
+      "actual": "618022c4ca36dd4906e3d6a9eaaa595045ca61f2842a81a0c765245332ad8a05",
+      "match": true
+    },
+    "tests/beginner-repair.test.mjs": {
+      "expected": "a755f227b5dd24ec32f3957de21f2acbd8470fda0eee3c00bb46e4a902e73d4a",
+      "actual": "a755f227b5dd24ec32f3957de21f2acbd8470fda0eee3c00bb46e4a902e73d4a",
+      "match": true
+    },
+    "tests/local-capstone.test.mjs": {
+      "expected": "a9f015b6b2d755d37d8840d4dc70ed216367ba694db46ca1de2d6a37f3380019",
+      "actual": "a9f015b6b2d755d37d8840d4dc70ed216367ba694db46ca1de2d6a37f3380019",
+      "match": true
+    },
+    "e2e/beginner-repair-journey.spec.mjs": {
+      "expected": "1d6b00c868a43c473235b45dd1aa5d37b36ae90eebeefe176bb6889437f7c4b4",
+      "actual": "1d6b00c868a43c473235b45dd1aa5d37b36ae90eebeefe176bb6889437f7c4b4",
+      "match": true
+    }
+  }
+}

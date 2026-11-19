@@ -1,0 +1,97 @@
+{
+  "source": "Two groups of existing E2E on 127.0.0.1:5320, tests selected by name; Chromium, two workers, no retries",
+  "exitCodes": [
+    0,
+    0
+  ],
+  "startTimes": [
+    "2026-11-19T01:22:18.153Z",
+    "2026-11-19T01:29:27.449Z"
+  ],
+  "tests": [
+    {
+      "file": "community-attachments.spec.mjs",
+      "line": 16,
+      "name": "attachments preview/remove, persist, download and missing blob 375px",
+      "status": "passed",
+      "durationMs": 4163
+    },
+    {
+      "file": "community-attachments.spec.mjs",
+      "line": 16,
+      "name": "attachments preview/remove, persist, download and missing blob 1440px",
+      "status": "passed",
+      "durationMs": 2660
+    },
+    {
+      "file": "feedback.spec.mjs",
+      "line": 17,
+      "name": "public and app routes show only the approved developer contacts and no delivery claim",
+      "status": "passed",
+      "durationMs": 1438
+    },
+    {
+      "file": "journeys.spec.mjs",
+      "line": 605,
+      "name": "learner discovers and completes the conceptual robot lesson across narrow and desktop viewports",
+      "status": "passed",
+      "durationMs": 3820
+    },
+    {
+      "file": "journeys.spec.mjs",
+      "line": 987,
+      "name": "XIAO S3 reference viewer has no duplicate React key or asset-load error",
+      "status": "passed",
+      "durationMs": 1055
+    },
+    {
+      "file": "journeys.spec.mjs",
+      "line": 999,
+      "name": "compatible sample firmware requires target confirmation and emits captured D13 transitions",
+      "status": "passed",
+      "durationMs": 2312
+    },
+    {
+      "file": "journeys.spec.mjs",
+      "line": 1015,
+      "name": "SPICE solves its RC example and exports solver data",
+      "status": "passed",
+      "durationMs": 1226
+    },
+    {
+      "file": "journeys.spec.mjs",
+      "line": 1294,
+      "name": "classroom kit includes station accessories in the downloaded CSV",
+      "status": "passed",
+      "durationMs": 1025
+    },
+    {
+      "file": "guide-depth.spec.mjs",
+      "line": 12,
+      "name": "professional catalog answer keeps official source and local context 375px",
+      "status": "passed",
+      "durationMs": 6233
+    },
+    {
+      "file": "guide-depth.spec.mjs",
+      "line": 12,
+      "name": "professional catalog answer keeps official source and local context 1440px",
+      "status": "passed",
+      "durationMs": 4320
+    },
+    {
+      "file": "guide-depth.spec.mjs",
+      "line": 39,
+      "name": "lesson answer uses app lesson alias and explicit unsupported board details remain unknown",
+      "status": "passed",
+      "durationMs": 3015
+    },
+    {
+      "file": "local-analog-practice.spec.mjs",
+      "line": 22,
+      "name": "mobile divider prediction is checked against ngspice and cleared on a different netlist",
+      "status": "passed",
+      "durationMs": 3513
+    }
+  ]
+}

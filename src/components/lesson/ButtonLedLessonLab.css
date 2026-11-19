@@ -217,9 +217,31 @@
   .button-lab-console { grid-column: 1 / -1; }
 }
 @media (max-width: 760px) {
+  .lesson-preflight-navigation:has(+ .button-lab) { margin-top: 0; }
+  .lesson-preflight-navigation:has(+ .button-lab) .lesson-navigation {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 4px 0;
+  }
+  .lesson-preflight-navigation:has(+ .button-lab) .lesson-navigation-picker label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .lesson-preflight-navigation:has(+ .button-lab) .lesson-navigation a {
+    flex: 0 0 auto;
+    max-width: 68px;
+    font-size: .75rem;
+    line-height: 1.2;
+  }
   .button-lab { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(240px, 42dvh) auto; gap: 5px; padding: 6px; }
   .button-lab-rail { gap: 3px 10px; }
-  .button-lab-path { min-height: 24px; }
+  .button-lab-path { display: none; }
   .button-lab-rail h1 { font-size: 1.18rem; line-height: 1.12; }
   .button-lab-neighbours { gap: 6px; padding-top: 0; }
   .button-lab-neighbours a { min-width: 0; min-height: 44px; gap: 1px; padding: 4px; }
@@ -229,10 +251,11 @@
   .button-lab-list button, .button-lab-pins button { min-height: 44px; }
   .button-lab[data-mobile-view='code'] .button-lab-stage, .button-lab[data-mobile-view='details'] .button-lab-stage,
   .button-lab[data-mobile-view='circuit'] .button-lab-inspector, .button-lab[data-mobile-view='schematic'] .button-lab-inspector { display: none; }
+  .button-lab-stage-top { padding-block: 2px; }
   .button-lab-stage-scroll { padding: 5px; }
   .button-lab-breadboard .breadboard-wiring-panel { gap: 5px; padding: 6px; }
   .button-lab-breadboard .breadboard-selected-wire { gap: 4px; padding: 6px; }
-  .button-lab-stage-caption { padding: 4px 6px; }
+  .button-lab-stage-caption { display: none; }
   .button-lab-stage .assembly-stage-controls { max-width: calc(100% - 12px); flex-wrap: wrap; justify-content: center; }
   .button-lab-console { grid-template-columns: minmax(0, 1fr) auto; gap: 3px; padding: 4px 7px; }
   .button-lab-input { grid-row: 1; }

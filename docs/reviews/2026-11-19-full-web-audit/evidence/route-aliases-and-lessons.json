@@ -1,0 +1,314 @@
+[
+  {
+    "path": "/app/learn/mini-project",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Đèn cảnh báo theo ngưỡng",
+    "actual": "/app/learn/mini-project",
+    "title": "Đèn cảnh báo theo ngưỡng — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/basics",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Nền tảng điện tử",
+    "actual": "/app/learn/basics",
+    "title": "Nền tảng điện tử — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/esp32-led",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "LED nhấp nháy",
+    "actual": "/app/learn/esp32-led",
+    "title": "Làm đèn LED với ESP32 — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/lab",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "LED nhấp nháy",
+    "actual": "/app/lab",
+    "title": "Lắp mạch & mô phỏng — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/components",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Linh kiện để thử và hiểu",
+    "actual": "/components",
+    "title": "Thư viện linh kiện — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/boards",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Chọn board để bắt đầu",
+    "actual": "/boards",
+    "title": "Thư viện board — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/build",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "LED nhấp nháy",
+    "actual": "/build",
+    "title": "Lắp mạch & mô phỏng — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/lab/freestyle",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Tự lắp mạch, tự viết code, bấm Chạy",
+    "actual": "/app/lab/freestyle",
+    "title": "Bàn lắp mạch tự do — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/topics",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Chủ đề học",
+    "actual": "/topics",
+    "title": "Chủ đề học — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/projects",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Dự án thực hành",
+    "actual": "/projects",
+    "title": "Dự án thực hành — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/learn/esp32-led",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "LED nhấp nháy",
+    "actual": "/learn/esp32-led",
+    "title": "Làm đèn LED với ESP32 — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/tools/electronics-calculators",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Tính nhanh, hiểu rõ giả định.",
+    "actual": "/tools/electronics-calculators",
+    "title": "Công cụ tính điện tử — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/tools/firmware-hex",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Kiểm tra tệp Intel HEX",
+    "actual": "/tools/firmware-hex",
+    "title": "Kiểm tra firmware HEX — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/tools/spice",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Thử mạch analog trên solver thật.",
+    "actual": "/tools/spice",
+    "title": "Mô phỏng SPICE — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/tools/sketch",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Chạy code Arduino / ESP32",
+    "actual": "/tools/sketch",
+    "title": "Chạy code Arduino/ESP32 — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/feedback",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Góp ý & báo lỗi",
+    "actual": "/feedback",
+    "title": "Góp ý & báo lỗi — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/community",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Cộng đồng điện tử, nhúng & IoT",
+    "actual": "/community",
+    "title": "Cộng đồng — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/login",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Đăng nhập",
+    "actual": "/login",
+    "title": "Đăng nhập — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/analog-potentiometer",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Biến trở bật/tắt LED theo ngưỡng",
+    "actual": "/app/learn/analog-potentiometer",
+    "title": "Chuẩn bị bài học — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/analog-ldr",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Quang trở LDR bật/tắt LED",
+    "actual": "/app/learn/analog-ldr",
+    "title": "Chuẩn bị bài học — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/blink",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "LED nhấp nháy",
+    "actual": "/app/learn/blink",
+    "title": "Chuẩn bị bài học — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/button-led",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Nút nhấn điều khiển LED",
+    "actual": "/app/learn/button-led",
+    "title": "Chuẩn bị bài học — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/ir-alert",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Cảm biến hồng ngoại",
+    "actual": "/app/learn/ir-alert",
+    "title": "Chuẩn bị bài học — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/ultrasonic-distance",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Cảm biến siêu âm HC-SR04",
+    "actual": "/app/learn/ultrasonic-distance",
+    "title": "Chuẩn bị bài học — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/seven-segment-counter",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Đếm số với LED 7 đoạn",
+    "actual": "/app/learn/seven-segment-counter",
+    "title": "Chuẩn bị bài học — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/source-led",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Nguồn thấp áp, điện trở và LED",
+    "actual": "/app/learn/source-led",
+    "title": "Chuẩn bị bài học — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/buck-boost-concept",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "So sánh mạch hạ áp và tăng áp",
+    "actual": "/app/learn/buck-boost-concept",
+    "title": "Chuẩn bị bài học — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/dc-motor-driver",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "Điều khiển motor DC bằng TB6612FNG",
+    "actual": "/app/learn/dc-motor-driver",
+    "title": "Chuẩn bị bài học — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/learn/mosfet-switch",
+    "width": 375,
+    "errors": [],
+    "http": 200,
+    "heading": "MOSFET đóng cắt tải thấp áp",
+    "actual": "/app/learn/mosfet-switch",
+    "title": "Chuẩn bị bài học — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/lab?lesson=button-led&guided=1&board=arduino-uno-r3",
+    "width": 375,
+    "img": "focused-375.jpg",
+    "errors": [],
+    "http": 200,
+    "heading": "Nút nhấn điều khiển LED",
+    "actual": "/app/lab",
+    "title": "Lắp mạch & mô phỏng — Mạch Mở",
+    "overflow": 0
+  },
+  {
+    "path": "/app/lab?lesson=button-led&guided=1&board=arduino-uno-r3",
+    "width": 1440,
+    "img": "focused-1440.jpg",
+    "errors": [],
+    "http": 200,
+    "heading": "Nút nhấn điều khiển LED",
+    "actual": "/app/lab",
+    "title": "Lắp mạch & mô phỏng — Mạch Mở",
+    "overflow": 0
+  }
+]

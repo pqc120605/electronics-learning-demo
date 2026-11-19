@@ -33,7 +33,7 @@ import { useLearningProgress } from '../lib/useLearningProgress'
 import { getLessonCircuitDoc } from '../data/lessonCircuitDocs'
 import { LessonCircuitWorkspace, type LessonCircuitAction } from '../components/lesson/LessonCircuitWorkspace'
 
-import {LessonBoardChooser} from '../components/lesson/LessonBoardChooser'
+import {LessonBoardChooser, LessonNavigation} from '../components/lesson/LessonBoardChooser'
 import {resolveLessonBoardChoice} from '../lib/lessonBoardSelection'
 
 type LessonTabId = 'prepare' | 'wiring' | 'board' | 'code' | 'check'
@@ -229,6 +229,7 @@ function SelectedEsp32LessonPage() {
 
   return (
     <div className="lesson-page lesson-studio mm-fit">
+      <LessonNavigation lessonId="blink" boardId="esp32-devkit"/>
       <div className="lesson-breadcrumb"><Link to={productRoute('/')}>Bắt đầu học</Link><span>/</span><span>ESP32</span><span>/</span><span>Đèn LED</span><Link className="lesson-builder-link" to={productRoute('/build?board=esp32-devkit')}>Mở phòng thử ↗</Link></div>
       <section className="lesson-heading">
         <div>

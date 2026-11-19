@@ -1,22 +1,24 @@
-import { BeginnerResumeCard } from '../components/learning/BeginnerResumeCard'
+import { BeginnerResumeCard, useBeginnerResume } from '../components/learning/BeginnerResumeCard'
 import { Link } from 'react-router-dom'
 import { FreestyleBench } from '../components/freestyle/FreestyleBench'
+import { beginnerResumeUrl } from '../lib/beginnerRepair'
 
 /** 2026-11-15: ba luồng chính, mỗi luồng tối đa ba bước. */
 const startFlows = [
-  { kicker: 'Người mới', title: 'Học bài đầu tiên', to: '/learn/esp32-led', action: 'Mở bài LED', steps: ['Đọc: LED, điện trở, GPIO', 'Lắp mạch theo hướng dẫn', 'Bấm Chạy, xem LED nháy'] },
+  { kicker: 'Người mới', title: 'Học bài đầu tiên', to: '/learn/basics', action: 'Thử mạch kín', steps: ['Dự đoán LED sáng hay tắt', 'Nối đường về nguồn', 'Quan sát và giải thích'] },
   { kicker: 'Tự làm', title: 'Lắp mạch tự do', to: '/build/freestyle', action: 'Mở bàn lắp mạch', steps: ['Chọn board', 'Thêm linh kiện, nối dây', 'Viết code và bấm Chạy'] },
   { kicker: 'Tra cứu', title: 'Tìm linh kiện, board', to: '/components', action: 'Mở thư viện', steps: ['Tìm theo tên hoặc chức năng', 'Xem chân và lưu ý an toàn', 'Bấm “Lắp thử trên bàn tự do”'] },
 ] as const
 
 export function ExplorePage() {
+  const foundation = useBeginnerResume()
   return <>
     <section className="hero-section">
       <div className="hero-copy">
         <p className="eyebrow"><span className="eyebrow-line" /> ĐIỆN TỬ · LẬP TRÌNH NHÚNG · IOT</p>
         <h1>Từ linh kiện nhỏ<br />đến thế giới <span>thông minh.</span></h1>
         <p className="hero-description">Lắp mạch, viết code và bấm Chạy ngay trên trình duyệt. Mạch Mở giúp bạn hiểu board, cảm biến và code qua những mạch thử trực quan.</p>
-        <div className="hero-actions"><Link className="button-primary" to="/learn/basics">Bắt đầu bài đầu tiên <span aria-hidden="true">↗</span></Link><a className="text-link" href="#bat-dau">Ba cách bắt đầu <span aria-hidden="true">↓</span></a></div>
+        <div className="hero-actions"><Link className="button-primary" to={beginnerResumeUrl('/learn/basics', foundation.session?.repairs)}>{foundation.session?.repairs?.active ? 'Tiếp tục sửa mạch' : foundation.session ? 'Tiếp tục thử nghiệm' : 'Thử mạch đầu tiên'} <span aria-hidden="true">↗</span></Link><a className="text-link" href="#bat-dau">Ba cách bắt đầu <span aria-hidden="true">↓</span></a></div>
         <div className="hero-note"><span className="note-icon">✳</span><span>Miễn phí để khám phá<br /><strong>Không cần tài khoản hay kinh nghiệm</strong></span></div>
       </div>
     </section>

@@ -1,0 +1,8 @@
+.beginner-teacher-pack{margin-top:32px;border-top:1px solid var(--mm-line);padding-top:16px}
+.beginner-teacher-pack>summary{cursor:pointer;min-height:44px;padding:10px 0;font-weight:700;font-size:1.1rem}
+.beginner-teacher-pack>summary:focus-visible,.beginner-teacher-pack iframe:focus-visible{outline:3px solid var(--mm-signal);outline-offset:3px}
+.teacher-pack-content{padding:0 0 16px;min-width:0}.teacher-pack-content h2{font-size:1.5rem}
+.teacher-pack-content>label{display:block;font-weight:700;margin:16px 0 8px}
+.teacher-pack-content>select{display:block;width:min(100%,480px)}
+.teacher-pack-content>iframe{display:block;width:100%;height:640px;margin-top:20px;border:1px solid var(--mm-line);background:var(--mm-surface);border-radius:var(--mm-radius-sm)}
+@media(max-width:760px){.teacher-pack-content>iframe{height:520px}.teacher-pack-content>button{width:100%}}

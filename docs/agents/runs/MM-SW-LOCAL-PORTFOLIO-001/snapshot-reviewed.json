@@ -1,0 +1,50 @@
+{
+  "at": "2026-11-18T20:02:35.740Z",
+  "files": {
+    "src/lib/localCapstoneLibrary.ts": "06c4aab2953a9aa1c02bf3e3789cc85ce46dbf5ac07d6e355c4725ee76ed13a1",
+    "src/pages/LocalCapstonePage.tsx": "68f264dad692a68b976fd3c001c065354910126d3e4bd16de9f96f6d06ea28e5",
+    "src/pages/LocalCapstonePage.css": "6f6d121dcabbc21ccdb7f469359d0c9894b7609ff332c3f6ba4b6b90bc36c616",
+    "src/pages/ProjectsPage.tsx": "1e798dd48306dd784e51f370ff20c34934a90c42fdfa27f4f38e05330de45ff5",
+    "src/components/learning/LocalCapstoneLibrary.tsx": "58d43606ae7a521bc18e97a10c3f5950bcf2fced7b845bc59f0f08abdf9f597a",
+    "tests/local-capstone-library.test.mjs": "234880caed6af4a82b28a1b22057777b1501fe95c4fcec65e5a14a26112f4583",
+    "e2e/local-capstone-library.spec.mjs": "c5c4b0422ddc48197c767ed7d0c35d42987ed99ca5efc97241b2ff950334d5a0"
+  },
+  "scope": {
+    "withinLease": [
+      "src/components/learning/LocalCapstoneLibrary.tsx",
+      "src/lib/localCapstoneLibrary.ts",
+      "src/pages/LocalCapstonePage.css",
+      "src/pages/LocalCapstonePage.tsx",
+      "src/pages/ProjectsPage.tsx",
+      "tests/local-capstone-library.test.mjs",
+      "e2e/local-capstone-library.spec.mjs"
+    ],
+    "parallelLeaseChanges": [
+      "src/components/builder/BreadboardDiagram.tsx",
+      "src/components/builder/BreadboardEditor.tsx",
+      "src/components/freestyle/FreestyleBench.css",
+      "src/components/freestyle/FreestyleBench.tsx",
+      "src/components/learning/BeginnerResumeCard.tsx",
+      "src/components/lesson/ButtonLedLessonLab.css",
+      "src/components/SiteShell.tsx",
+      "src/components/spice/SpiceProbeMap.tsx",
+      "src/lib/freestyle/freestyleCircuit.ts",
+      "src/lib/freestyle/freestyleWireLayout.ts",
+      "src/pages/AppHomePage.css",
+      "src/pages/AppHomePage.tsx",
+      "src/pages/BeginnerLearningPage.css",
+      "src/pages/BeginnerLearningPage.tsx",
+      "src/pages/CircuitBuilderPage.tsx",
+      "src/pages/ExplorePage.tsx",
+      "src/pages/SpiceWorkbenchPage.css",
+      "src/pages/SpiceWorkbenchPage.tsx",
+      "tests/freestyle-wire-layout.test.mjs",
+      "e2e/circuit-tester-feedback.spec.mjs",
+      "e2e/freestyle-wire-recovery.spec.mjs",
+      "e2e/local-analog-practice.spec.mjs",
+      "e2e/local-first-experiment.spec.mjs"
+    ],
+    "unexpected": [],
+    "missing": []
+  }
+}

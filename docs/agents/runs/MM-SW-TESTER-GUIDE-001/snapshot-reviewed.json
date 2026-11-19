@@ -1,0 +1,36 @@
+{
+  "at": "2026-11-18T15:25:17.223Z",
+  "files": {
+    "src/lib/guideKnowledge.ts": "08e3503d3465e1c10e23927350e0321301457138e1c2ed78b22059d989451e2c",
+    "src/lib/guideSearch.ts": "74f59fad87cc9562b5fdb846cecd61ee5c0926866e698d19e29ca950596bdbeb",
+    "src/components/guide/GuidePanel.tsx": "490ee4bf16efa60eef61deca06e30bea2717c108416a81a73203037fdfd8371c",
+    "src/components/guide/Guide.css": "2ac7f95f05b9af0ac75729d9ab021bd3ff381b1994ecae2764b9e49391efc001",
+    "tests/guide-tester-feedback.test.mjs": "065511f6e72ec689da87822d64c8b46c1f661c310efd75c282f05f7f2dff005e"
+  },
+  "scope": {
+    "withinLease": [
+      "src/components/guide/GuidePanel.tsx",
+      "src/lib/guideKnowledge.ts",
+      "src/lib/guideSearch.ts",
+      "tests/guide-tester-feedback.test.mjs"
+    ],
+    "parallelLeaseChanges": [
+      "src/components/builder/BreadboardDiagram.tsx",
+      "src/components/builder/BreadboardEditor.tsx",
+      "src/components/builder/BuilderLessonPicker.tsx",
+      "src/components/builder/CircuitPartInspector.tsx",
+      "src/components/freestyle/FreestyleBench.css",
+      "src/components/lesson/LessonBoardChooser.css",
+      "src/components/lesson/LessonBoardChooser.tsx",
+      "src/data/board-pin-anchors.json",
+      "src/lib/beginnerTeacherPack.ts",
+      "src/pages/LessonPreflightPage.tsx",
+      "tests/assembly-v2.test.mjs",
+      "tests/freestyle-assembly.test.mjs",
+      "e2e/beginner-teacher-pack.spec.mjs",
+      "e2e/circuit-tester-feedback.spec.mjs"
+    ],
+    "unexpected": [],
+    "missing": []
+  }
+}

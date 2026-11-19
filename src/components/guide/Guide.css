@@ -19,7 +19,7 @@
 .guide-avatar-caption{position:absolute;z-index:3;left:12px;bottom:6px;font-size:var(--mm-text-sm);color:#202d4d;max-width:calc(100% - 90px);line-height:1.35}
 .guide-avatar-turn{position:absolute;z-index:3;right:10px;bottom:7px;display:flex;gap:5px}
 .guide-avatar .guide-avatar-turn button{min-height:30px;min-width:30px;padding:2px;background:#fff9ee;color:#202d4d;border-color:#c6b89f;font-size:18px}
-.guide-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px 16px;border-bottom:1px solid var(--mm-line);flex:none}
+.guide-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:10px 16px;border-bottom:1px solid var(--mm-line);flex:none}
 .guide-tabs button{background:transparent;border-color:transparent;font-weight:600}
 .guide-tabs button[aria-pressed=true]{color:var(--mm-ink);background:var(--mm-signal-soft);border-color:var(--mm-signal)}
 .guide-body{min-height:100px;overflow-y:auto;overscroll-behavior:contain;padding:16px 20px 20px;scrollbar-gutter:stable;flex:1}
@@ -57,4 +57,10 @@
 
 .guide-sources { display: grid; gap: 8px; border-top: 1px solid var(--mm-line); padding-top: 10px; margin-top: 12px; overflow-wrap: anywhere; }
 .guide-sources a { min-height: 32px; }
+.guide-ai-actions { display:flex;flex-wrap:wrap;gap:6px; }
+.guide-ai-context { display:flex;align-items:center;gap:8px;min-height:44px; }
+.guide-ai-turns { display:grid;gap:8px;margin-block:12px;overflow-wrap:anywhere; }
+.guide-ai-turns article { padding:10px 12px;border:1px solid var(--mm-line);border-radius:8px;background:var(--mm-bg-deep); }
+.guide-ai-answer { white-space:pre-wrap; }
+.guide-ai .guide-ai-actions button { min-height:44px; }
 

@@ -2,3 +2,15 @@
 .lesson-board-chooser h1{font:750 clamp(27px,4vw,40px)/1.15 var(--mm-font-display);color:var(--mm-ink);margin:8px 0 20px}.lesson-board-chooser p{line-height:1.65}.lesson-board-kicker{font-weight:650;color:var(--mm-muted)}
 .lesson-board-chooser label{display:block;font-weight:700;margin:24px 0 8px;color:var(--mm-ink)}.lesson-board-chooser select{box-sizing:border-box;width:100%;min-height:48px;padding:10px 12px;font:16px var(--mm-font-body);color:var(--mm-ink);background:var(--mm-bg);border:1px solid var(--mm-line);border-radius:7px}
 .lesson-board-note{padding:12px 0;font-size:14px;color:var(--mm-muted)}.lesson-board-chooser a{color:var(--mm-ink);text-underline-offset:4px}.lesson-board-chooser select:focus-visible{outline:3px solid var(--mm-signal);outline-offset:3px}@media(max-width:600px){.lesson-board-chooser{margin:16px}}
+.lesson-navigation{display:flex;flex-wrap:wrap;align-items:end;gap:12px 20px;margin:0 0 20px;padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink);min-width:0}
+.lesson-navigation-picker{display:grid;gap:6px;flex:1 1 240px;min-width:0}
+.lesson-navigation .lesson-navigation-picker label{margin:0;font-size:14px;font-weight:650}
+.lesson-navigation select{width:100%;max-width:100%;box-sizing:border-box;min-height:44px;padding:8px 10px;border:1px solid var(--line-dark);border-radius:6px;background:var(--paper-bright);color:var(--ink);font:inherit}
+.lesson-navigation a{display:inline-flex;align-items:center;min-height:44px;color:var(--green);font-size:14px;text-underline-offset:4px}
+.lesson-navigation :is(a,select):focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.lesson-board-chooser .lesson-navigation label{margin:0}
+@media(min-width:1280px) and (min-height:720px){
+ .lesson-page.mm-fit>.lesson-navigation{grid-row:3;padding:2px 0}
+ .lesson-page.mm-fit>.lesson-breadcrumb{grid-row:1}
+ .lesson-page.mm-fit>.lesson-heading{grid-row:2}
+}

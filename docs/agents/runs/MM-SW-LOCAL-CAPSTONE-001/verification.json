@@ -1,0 +1,47 @@
+{
+  "verdict": "pass",
+  "date": "2026-11-19",
+  "scope": "MM-SW-LOCAL-CAPSTONE-001",
+  "snapshot": "snapshot-reviewed.json",
+  "review": "review.md",
+  "report": "report.md",
+  "commands": [
+    {
+      "command": "npm.cmd run typecheck",
+      "exit": 0
+    },
+    {
+      "command": "npm.cmd run build:local",
+      "exit": 0,
+      "log": ".tmp/roadmap-local-build.log"
+    },
+    {
+      "command": "npm.cmd test",
+      "exit": 0,
+      "passed": 771,
+      "failed": 0,
+      "skipped": 0,
+      "log": ".tmp/roadmap-local-npm-test.log",
+      "note": "Capstone unit case rerun with new schematic assertions after full suite read the previous test."
+    },
+    {
+      "command": "node --test tests/local-capstone.test.mjs tests/schematic-layout-v2.test.mjs tests/circuit-schematic-v2.test.mjs tests/freestyle-serial-plot.test.mjs",
+      "exit": 0,
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "npm.cmd run test:e2e -- e2e/local-capstone.spec.mjs e2e/freestyle-serial-plot.spec.mjs e2e/freestyle-waveform-measure.spec.mjs e2e/offline.spec.mjs",
+      "exit": 0,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "log": ".tmp/roadmap-local-proof.log"
+    }
+  ],
+  "assets": {
+    "mini-project-1440.png": "f0d4790ea71d56f0ff0d4ffc310c2c15a7e49f3d4588c4241f08ce1b07478a05",
+    "mini-project-375.png": "674f873ca9f66a74e4ed36e79de3bf9458d858163ac278d3514974e1dd06fd08"
+  }
+}

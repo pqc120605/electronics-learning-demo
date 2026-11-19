@@ -33,6 +33,6 @@ export function FreestyleAssemblyView({doc,boardId,pinMap,selectedPartId,litPart
    <div className="freestyle-view-controls" aria-label="Điều khiển cảnh 3D">
     <button onClick={()=>scene.current?.rotate(-Math.PI/9,0)} aria-label="Xoay trái 3D">↶</button><button onClick={()=>scene.current?.rotate(Math.PI/9,0)} aria-label="Xoay phải 3D">↷</button><button onClick={()=>scene.current?.zoom(-1)} aria-label="Thu nhỏ 3D">−</button><button onClick={()=>scene.current?.zoom(1)} aria-label="Phóng to 3D">+</button><button onClick={()=>scene.current?.setPreset('top')}>Nhìn từ trên</button><button onClick={()=>scene.current?.resetView()}>Vừa mạch</button>
    </div>
-   <details><summary>Nguồn hình học và {plan.diagnostics?.length??0} đầu dây chưa có tọa độ</summary><p>{boardId&&freestylePresentation(boardId,pinMap).revision}. Chân không có anchor từ đúng nguồn sẽ không có dây 3D.</p>{plan.diagnostics?.map(d=><p key={d.wireId}>{d.message}</p>)}</details>
+   <details><summary>Nguồn hình học và {plan.diagnostics?.length??0} dây chưa có tọa độ</summary><p>{boardId&&freestylePresentation(boardId,pinMap).revision}. Chân không có anchor từ đúng nguồn sẽ không có dây 3D.</p><p>LED và chân linh kiện theo footprint của model tham chiếu. Sáng/tắt là trạng thái trace giáo dục, không phải ánh sáng hay điện áp đo thật. Vị trí lỗ rail là giả định của breadboard 400 lỗ, chưa được đối chiếu từng lỗ trên mesh.</p>{plan.diagnostics?.map(d=><p key={d.wireId}>{d.message}</p>)}</details>
  </section>
 }

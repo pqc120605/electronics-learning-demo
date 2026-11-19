@@ -1,0 +1,49 @@
+{
+  "at": "2026-11-18T20:02:35.738Z",
+  "files": {
+    "src/components/builder/BreadboardDiagram.tsx": "7efa6f8b0f88d8ce77ed1fa488db5c28f4e323cfea6c26332e23750983ef15a1",
+    "src/components/builder/BreadboardEditor.tsx": "4b197686736e96b14af0b4f2c99806c3165a9fa98a2d166361f6fa868d61d4ec",
+    "src/components/freestyle/FreestyleBench.tsx": "45ada5e16f86fb6612e5e09d0df66ea8b16865656e23465604854ec8741e26f8",
+    "src/components/freestyle/FreestyleBench.css": "e43298a9fb0a02556efcf382b9c14e7ba8c76ef7cbf7b61d5bb429a702603327",
+    "src/lib/freestyle/freestyleCircuit.ts": "104b395c3719ea210a534a0fc305e9f97c94ca380e4a2d453102b5d72b739bb6",
+    "src/lib/freestyle/freestyleWireLayout.ts": "eea86c3c68d268649a1aa39bcab3c5446b448c8f4e199efb07b028c6dac93789",
+    "tests/freestyle-wire-layout.test.mjs": "4beec2c37a5c3517e3b9464fbffb2e21d54d9deab6ba4bf31431122cb7a0b7ab",
+    "e2e/freestyle-wire-recovery.spec.mjs": "686734b01b70f4d26921553ebbbdc3cf391872dc49ae51854caa9d8e043651d3",
+    "e2e/circuit-tester-feedback.spec.mjs": "2f7dde0abd6e8e07dc1cfb81016073870e665f3bbfea3e2864e779cfaf54e662",
+    "src/pages/CircuitBuilderPage.tsx": "fae2faaf4f2a9f2cee840d53552c083ea1699d0456036207f32b6dd84e554ca5",
+    "src/components/lesson/ButtonLedLessonLab.css": "235458e03afd5c4aa353ccf37ff18898402c171f020c3a77130a36ed64080668"
+  },
+  "scope": {
+    "withinLease": [
+      "src/components/builder/BreadboardDiagram.tsx",
+      "src/components/builder/BreadboardEditor.tsx",
+      "src/components/freestyle/FreestyleBench.css",
+      "src/components/freestyle/FreestyleBench.tsx",
+      "src/components/lesson/ButtonLedLessonLab.css",
+      "src/lib/freestyle/freestyleCircuit.ts",
+      "src/lib/freestyle/freestyleWireLayout.ts",
+      "src/pages/CircuitBuilderPage.tsx",
+      "tests/freestyle-wire-layout.test.mjs",
+      "e2e/circuit-tester-feedback.spec.mjs",
+      "e2e/freestyle-wire-recovery.spec.mjs"
+    ],
+    "parallelLeaseChanges": [
+      "src/components/learning/LocalCapstoneLibrary.tsx",
+      "src/components/spice/SpiceProbeMap.tsx",
+      "src/lib/localCapstoneLibrary.ts",
+      "src/pages/AppHomePage.css",
+      "src/pages/AppHomePage.tsx",
+      "src/pages/BeginnerLearningPage.tsx",
+      "src/pages/LocalCapstonePage.css",
+      "src/pages/LocalCapstonePage.tsx",
+      "src/pages/ProjectsPage.tsx",
+      "src/pages/SpiceWorkbenchPage.css",
+      "src/pages/SpiceWorkbenchPage.tsx",
+      "tests/local-capstone-library.test.mjs",
+      "e2e/local-analog-practice.spec.mjs",
+      "e2e/local-capstone-library.spec.mjs"
+    ],
+    "unexpected": [],
+    "missing": []
+  }
+}

@@ -9,6 +9,7 @@ import { tourIdForPath } from '../onboarding/tours'
 import { useGuideSnapshot } from './GuideContext'
 import { MascotAvatar } from './MascotAvatar'
 import type { MascotMood } from './MascotScene'
+import { GuideAiChat } from './GuideAiChat'
 
 type Props = {
   pathname: string
@@ -20,7 +21,7 @@ type Props = {
   onHide: () => void
   onStartTour: () => void
 }
-/** An optional future AI adapter must be separately configured and opt-in. No network answer provider is enabled. */
+/** The Hỏi đáp tab always uses the curated provider. AI has its own explicit send action. */
 export const GUIDE_ANSWER_PROVIDER = { id: 'curated-local', external: false } as const
 
 export default function GuidePanel({ pathname, motion, reduced, onMotion, onClose, onNavigate, onHide, onStartTour }: Props) {
@@ -28,7 +29,7 @@ export default function GuidePanel({ pathname, motion, reduced, onMotion, onClos
   const heading = useId()
   const description = useId()
   const root = useRef<HTMLElement>(null)
-  const [tab, setTab] = useState<'guide' | 'ask' | 'context'>('guide')
+  const [tab, setTab] = useState<'guide' | 'ask' | 'context' | 'ai'>('guide')
   const [question, setQuestion] = useState('')
   const [result, setResult] = useState<GuideSearchResult | null>(null)
   const [mood, setMood] = useState<MascotMood>('greeting')
@@ -77,6 +78,8 @@ export default function GuidePanel({ pathname, motion, reduced, onMotion, onClos
   }
   const suggestions = snapshot?.beginner
     ? ['Tôi nên làm gì tiếp?', 'Giải thích kết quả hiện tại', 'LED cần điện trở', 'INPUT_PULLUP']
+    : snapshot?.owner === 'freestyle'
+    ? ['Tại sao LED không sáng?', 'Sửa đường đi của dây bằng cách nào?', 'Cách đổi trị số điện trở?', 'Xem dạng sóng ngay khi chạy board']
     : ['LED cần điện trở', 'Arduino Uno R3 ADC', 'TB6612FNG dùng để làm gì', 'I2C pull-up', 'Lưu bản nháp']
 
   return <aside
@@ -91,7 +94,7 @@ export default function GuidePanel({ pathname, motion, reduced, onMotion, onClos
     }}
   >
     <header className="guide-header">
-      <div><h2 id={heading}>Mở — bạn đồng hành học điện tử</h2><p id={description}>Hướng dẫn và kiến thức cục bộ · chưa kết nối AI</p></div>
+      <div><h2 id={heading}>Mở — bạn đồng hành học điện tử</h2><p id={description}>Hướng dẫn, tra cứu và AI trên máy</p></div>
       <button type="button" className="guide-close" aria-label="Thu gọn Mở" onClick={onClose}>×</button>
     </header>
     <MascotAvatar mood={mood} motion={motion} />
@@ -99,6 +102,7 @@ export default function GuidePanel({ pathname, motion, reduced, onMotion, onClos
       <button type="button" aria-pressed={tab === 'guide'} onClick={() => changeTab('guide')}>Hướng dẫn</button>
       <button type="button" aria-pressed={tab === 'ask'} onClick={() => changeTab('ask')}>Hỏi đáp</button>
       <button type="button" aria-pressed={tab === 'context'} onClick={() => changeTab('context')}>Đang làm</button>
+      <button type="button" aria-pressed={tab === 'ai'} onClick={() => changeTab('ai')}>Hỏi AI</button>
     </div>
     <div className="guide-body">
       {tab === 'guide' && <section aria-label="Hướng dẫn trang hiện tại">
@@ -117,7 +121,7 @@ export default function GuidePanel({ pathname, motion, reduced, onMotion, onClos
           <label htmlFor={`${heading}-question`}>Câu hỏi của bạn</label>
           <textarea
             id={`${heading}-question`} value={question} maxLength={400} rows={2}
-            placeholder="Ví dụ: INPUT_PULLUP hoạt động thế nào?"
+            placeholder="Ví dụ: Tại sao LED không sáng khi chạy?"
             onChange={event => { setQuestion(event.target.value); setResult(null) }}
           />
           <button type="submit" className="guide-primary" disabled={!question.trim()}>Tìm câu trả lời</button>
@@ -129,7 +133,7 @@ export default function GuidePanel({ pathname, motion, reduced, onMotion, onClos
         <div className="guide-results" aria-live="polite" aria-atomic="false">
           {currentResult?.kind === 'unknown' && <p className="guide-unknown">{currentResult.message}</p>}
           {currentResult?.kind === 'matches' && <>
-            <p className="guide-retrieval-note">Các mục phù hợp từ catalog và FAQ cục bộ; chưa xác nhận phần cứng thật:</p>
+            <p className="guide-retrieval-note">Tra cứu từ nội dung và hướng dẫn của Mạch Mở.</p>
             {currentResult.articles.map(article => <article key={article.id}>
               <h3>{article.title}</h3>
               {article.paragraphs.map(text => <p key={text}>{text}</p>)}
@@ -161,6 +165,11 @@ export default function GuidePanel({ pathname, motion, reduced, onMotion, onClos
         <p className="guide-context-limit">Mở chỉ đọc tên bài, board, mục đang chọn và trạng thái được trang chia sẻ. Mở không tự chạy code hay sửa mạch.</p>
         <button type="button" onClick={() => changeTab('ask')}>Hỏi thêm về khái niệm</button>
       </section>}
+      {tab === 'ai' && <GuideAiChat key={snapshotKey} snapshot={snapshot} sourceLink={sourceLink} onLocal={text => {
+        setQuestion(text)
+        if (text.trim()) answerQuestion(text)
+        changeTab('ask')
+      }} />}
     </div>
     <footer className="guide-footer">
       <label><input type="checkbox" checked={motion} disabled={reduced} onChange={event => onMotion(event.target.checked)} />Chuyển động mascot</label>

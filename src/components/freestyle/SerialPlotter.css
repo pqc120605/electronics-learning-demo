@@ -1,0 +1,19 @@
+.serial-plotter { min-width: 0; border-top: 1px solid var(--mm-line); padding-top: 10px; }
+.serial-plotter > div:not([hidden]) { display: grid; gap: 10px; margin-top: 10px; }
+.serial-plotter-note, .serial-plotter-empty { margin: 0; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.serial-plotter-note { color: var(--mm-muted); }
+.serial-plotter svg { display: block; width: 100%; height: auto; background: var(--mm-bg); color: var(--mm-text); }
+.serial-plotter svg text { font-size: 12px; fill: currentColor; }
+.serial-plotter-axis { fill: none; stroke: currentColor; stroke-width: 1; }
+.serial-plotter-legend { display: flex; flex-wrap: wrap; gap: 8px 14px; list-style: none; margin: 0; padding: 0; font-size: 13px; }
+.serial-plotter-legend li { display: inline-flex; align-items: center; gap: 5px; overflow-wrap: anywhere; min-width: 0; }
+.serial-plotter-legend span { width: 12px; height: 4px; flex-shrink: 0; }
+.serial-plotter-values { min-width: 0; font-size: 13px; }
+.serial-plotter-values summary { cursor: pointer; padding: 10px 0; }
+.serial-plotter-table { max-height: 240px; overflow: auto; }
+.serial-plotter-table table { border-collapse: collapse; width: 100%; font-size: 12px; }
+.serial-plotter-table th, .serial-plotter-table td { text-align: left; padding: 6px; border-bottom: 1px solid var(--mm-line); overflow-wrap: anywhere; }
+.serial-plotter-table caption { text-align: left; padding-bottom: 6px; }
+.serial-plotter button { min-height: 44px; white-space: normal; line-height: 1.3; }
+.serial-plotter button:disabled { opacity: .55; cursor: default; }
+.serial-plotter :focus-visible { outline: 2px solid var(--mm-accent); outline-offset: 3px; }

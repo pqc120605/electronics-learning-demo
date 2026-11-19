@@ -16,6 +16,7 @@
  * Dùng như middleware Vite (xem vite.config.ts) hoặc chạy riêng: `node scripts/arduino-compile-service.mjs`.
  */
 import { spawn } from 'node:child_process'
+import { createGuideAiMiddleware } from './guide-ai-service.mjs'
 import { createHash } from 'node:crypto'
 import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
@@ -173,12 +174,14 @@ function readBody(req, limit) {
 
 /** Middleware kiểu connect cho Vite dev/preview hoặc http.createServer. */
 export function createLocalToolsMiddleware(options = {}) {
+  const guideAi = createGuideAiMiddleware()
   const cliPath = options.cliPath ?? DEFAULT_ARDUINO_CLI
   const compile = options.compile ?? compileArduinoSketch
   const getBootrom = options.loadBootrom ?? (() => (bootromPromise ??= loadRp2040Bootrom().catch((error) => { bootromPromise = undefined; throw error })))
   let busy = false
   return async function localTools(req, res, next) {
     const url = req.url ?? ''
+    if (url.startsWith('/api/guide-ai/')) { await guideAi(req, res, next); return }
     if (!url.startsWith(API_PREFIX)) { next?.(); return }
     if (!isLocalRequest(req)) { sendJson(res, 403, { ok: false, message: 'Dịch vụ công cụ cục bộ chỉ nhận yêu cầu từ localhost.' }); return }
     const route = url.slice(API_PREFIX.length).split('?')[0]

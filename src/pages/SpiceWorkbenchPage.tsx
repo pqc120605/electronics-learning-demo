@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ChangeEvent } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent } from 'react'
 import { SpiceProbeMap } from '../components/spice/SpiceProbeMap'
 import { formatEngineering, parseSpiceTopology, probeValue } from '../simulation/spiceProbes'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
@@ -26,8 +26,8 @@ const examples = [
   {
     id: 'divider',
     name: 'Bộ chia áp · DC',
-    description: 'Hai điện trở bằng nhau tạo 2,5 V từ nguồn 5 V.',
-    netlist: `Voltage divider · 5 V to 2.5 V
+    description: 'Nguồn 5 V và hai điện trở bằng nhau. Thử dự đoán điện áp ở giữa.',
+    netlist: `Voltage divider · two equal resistors
 V1 IN 0 DC 5
 R1 IN OUT 1k
 R2 OUT 0 1k
@@ -62,6 +62,38 @@ D1 ANODE 0 DLED
 function compact(value: number, digits = 4): string {
   if (!Number.isFinite(value)) return '—'
   return new Intl.NumberFormat('vi-VN', { maximumFractionDigits: digits }).format(value)
+}
+
+function DividerPractice({ result, running, prediction, run }: { result?: SpiceResult; running: boolean; prediction: number | null; run: (prediction: number) => void }) {
+  const [input, setInput] = useState('')
+  const trimmed = input.trim()
+  const expected = /^\d+(?:[.,]\d+)?$/.test(trimmed) ? Number(trimmed.replace(',', '.')) : Number.NaN
+  const canRun = Number.isFinite(expected) && expected >= 0 && expected <= 5 && !running
+  const voltage = result?.analysis === 'op' && result.dataType === 'real' && result.netlist === examples[0].netlist
+    ? probeValue(result.series, 'v(out)', 0)
+    : undefined
+  return <section className="spice-divider-practice" aria-labelledby="spice-divider-title">
+    <h3 id="spice-divider-title">Đo điện áp bộ chia</h3>
+    <p>Điện áp từ nút OUT ở giữa R1–R2 về GND là bao nhiêu?</p>
+    <form onSubmit={event => {
+      event.preventDefault()
+      if (canRun) run(expected)
+    }}>
+      <label htmlFor="spice-divider-guess">Dự đoán V(OUT), đơn vị V</label>
+      <div className="spice-divider-actions">
+        <input id="spice-divider-guess" type="text" inputMode="decimal" placeholder="0–5" maxLength={16} value={input} onChange={event => setInput(event.target.value)} />
+        <button type="submit" disabled={!canRun}>Ghi dự đoán và chạy</button>
+      </div>
+    </form>
+    <div role="status" aria-live="polite">
+      {voltage !== undefined && prediction !== null && <>
+        <p><strong>Ngspice · V(OUT) = {compact(voltage)} V</strong></p>
+        <p>Dự đoán {compact(prediction)} V · Chênh lệch {compact(Math.abs(voltage - prediction))} V.</p>
+        <p>R1 và R2 bằng nhau nên mỗi điện trở nhận một nửa điện áp nguồn trong mạch này. Chọn nút OUT trên <a href="#spice-results-heading">sơ đồ kết quả</a> để xem điểm đo.</p>
+      </>}
+      {running && prediction !== null && <p>Đang kiểm dự đoán {compact(prediction)} V bằng ngspice.</p>}
+    </div>
+  </section>
 }
 
 function downloadCsv(result: SpiceResult) {
@@ -169,6 +201,7 @@ export function SpiceWorkbenchPage() {
   const [workspaceResultSaved, setWorkspaceResultSaved] = useState(false)
   const [workspaceResultMessage, setWorkspaceResultMessage] = useState('')
   const [selectedExample, setSelectedExample] = useState<string>(initialHandoff || initialWorkspaceHandoff ? 'custom' : examples[1].id)
+  const [dividerPrediction, setDividerPrediction] = useState<number | null>(null)
   const [kicadFileName, setKicadFileName] = useState('')
   const [kicadSource, setKicadSource] = useState('')
   const [kicadExclusions, setKicadExclusions] = useState<string[]>([])
@@ -176,11 +209,34 @@ export function SpiceWorkbenchPage() {
   const workerRef = useRef<Worker | null>(null)
   const timeoutRef = useRef<number | undefined>(undefined)
   const currentRunIdRef = useRef('')
+  const workspaceReturnUrl = workspaceHandoff ? new URL(workspaceHandoff.returnTo, window.location.origin) : null
+  if (workspaceReturnUrl) {
+    workspaceReturnUrl.searchParams.delete('workspaceSpiceResult')
+    if (workspaceResultSaved && workspaceSpiceId) workspaceReturnUrl.searchParams.set('workspaceSpiceResult', workspaceSpiceId)
+  }
   const inspection: SpiceNetlistInspection = useMemo(() => inspectSpiceNetlist(netlist), [netlist])
   const kicadResult: KicadSpiceImportResult | undefined = useMemo(
     () => kicadSource ? compileKicadXmlNetlist(kicadSource, kicadExclusions) : undefined,
     [kicadSource, kicadExclusions],
   )
+  const cancelWorker = useCallback(() => {
+    currentRunIdRef.current = ''
+    if (timeoutRef.current !== undefined) window.clearTimeout(timeoutRef.current)
+    timeoutRef.current = undefined
+    workerRef.current?.terminate()
+    workerRef.current = null
+  }, [])
+
+  const resetSimulation = useCallback(() => {
+    cancelWorker()
+    setRunProgress('')
+    setRunState('idle')
+    setResult(undefined)
+    setError('')
+    setWorkspaceResultSaved(false)
+    setWorkspaceResultMessage('')
+    setDividerPrediction(null)
+  }, [cancelWorker])
 
   useEffect(() => {
     const routeHandoff = readCalculatorSpiceHandoff((location.state as { calculatorSpice?: unknown } | null)?.calculatorSpice, location.search)
@@ -190,6 +246,7 @@ export function SpiceWorkbenchPage() {
       setHandoff(undefined)
       setWorkspaceHandoff(undefined)
       if (id) {
+        resetSimulation()
         setError('Bản chuyển mạch từ workspace không còn hợp lệ hoặc đã hết hạn. Đang dùng ví dụ SPICE; quay lại workspace để tạo bản mới.')
         setRunState('error')
         setSelectedExample(examples[1].id)
@@ -197,31 +254,17 @@ export function SpiceWorkbenchPage() {
       }
       return
     }
+    resetSimulation()
     setHandoff(routeHandoff)
     setWorkspaceHandoff(workspaceRouteHandoff)
     setNetlist(routeHandoff?.netlist ?? workspaceRouteHandoff?.netlist ?? examples[1].netlist)
     setSelectedExample('custom')
-    setResult(undefined)
-    setError('')
-    setWorkspaceResultSaved(false)
-    setWorkspaceResultMessage('')
-    setRunState('idle')
-  }, [location.key, location.state, location.search])
+  }, [location.key, location.state, location.search, resetSimulation])
 
-  useEffect(() => () => {
-    workerRef.current?.terminate()
-    if (timeoutRef.current !== undefined) window.clearTimeout(timeoutRef.current)
-  }, [])
-
-  function finishWorker(worker: Worker) {
-    if (timeoutRef.current !== undefined) window.clearTimeout(timeoutRef.current)
-    worker.terminate()
-    if (workerRef.current === worker) workerRef.current = null
-  }
+  useEffect(() => cancelWorker, [cancelWorker])
 
   function stopSimulation() {
-    if (workerRef.current) finishWorker(workerRef.current)
-    currentRunIdRef.current = ''
+    cancelWorker()
     setRunProgress('')
     setRunState('idle')
     setError('Đã dừng mô phỏng.')
@@ -229,10 +272,8 @@ export function SpiceWorkbenchPage() {
 
   function updateWorkspaceAnalysis(result: WorkspaceSpiceAnalysisResult) {
     if (!result.ok) return
+    resetSimulation()
     setNetlist(result.netlist)
-    setResult(undefined)
-    setError('')
-    setRunState('idle')
   }
 
   function clearCalculatorHandoff() {
@@ -255,17 +296,17 @@ export function SpiceWorkbenchPage() {
     navigate({ pathname: location.pathname, search: search ? `?${search}` : '', hash: location.hash }, { replace: true, state: null })
   }
 
-  function runSimulation() {
+  function runSimulation(prediction: number | null = null) {
+    resetSimulation()
     if (inspection.errors.length) {
       setError(inspection.errors.join(' '))
       setRunState('error')
       setResult(undefined)
       return
     }
-    workerRef.current?.terminate()
-    if (timeoutRef.current !== undefined) window.clearTimeout(timeoutRef.current)
     const runId = createSimulationRunId()
     currentRunIdRef.current = runId
+    setDividerPrediction(prediction)
     setResult(undefined)
     setError('')
     setWorkspaceResultSaved(false)
@@ -285,8 +326,7 @@ export function SpiceWorkbenchPage() {
     workerRef.current = worker
     timeoutRef.current = window.setTimeout(() => {
       if (!isCurrentSimulationRun(runId, currentRunIdRef.current)) return
-      finishWorker(worker)
-      currentRunIdRef.current = ''
+      cancelWorker()
       setRunState('error')
       setError('Đã dừng vì solver vượt quá giới hạn 30 giây. Hãy giảm số linh kiện hoặc độ dài phân tích, rồi thử lại.')
     }, WORKER_TIMEOUT_MS)
@@ -296,8 +336,7 @@ export function SpiceWorkbenchPage() {
         setRunProgress(event.data.message)
         return
       }
-      finishWorker(worker)
-      currentRunIdRef.current = ''
+      cancelWorker()
       setRunProgress('')
       if (event.data.type === 'error') {
         setRunState('error')
@@ -322,17 +361,12 @@ export function SpiceWorkbenchPage() {
           setWorkspaceResultMessage(saved
             ? 'Kết quả đã lưu trong phiên tab, gắn với đúng revision workspace và sẽ hết hạn sau 30 phút.'
             : 'Không thể chuyển kết quả sang workspace (bản handoff cũ, hết quota hoặc dữ liệu vượt 1 MiB). Kết quả vẫn còn ở trang SPICE; bạn có thể tải CSV.')
-          if (saved) {
-            const returnUrl = new URL(workspaceHandoff.returnTo, window.location.origin)
-            returnUrl.searchParams.set('workspaceSpiceResult', workspaceSpiceId)
-            setWorkspaceHandoff(current => current ? { ...current, returnTo: `${returnUrl.pathname}${returnUrl.search}${returnUrl.hash}` } : current)
-          }
         }
       }
     }
     worker.onerror = () => {
-      finishWorker(worker)
-      currentRunIdRef.current = ''
+      if (!isCurrentSimulationRun(runId, currentRunIdRef.current)) return
+      cancelWorker()
       setRunProgress('')
       setRunState('error')
       setError('Worker SPICE gặp lỗi khi nạp solver. Hãy tải lại trang rồi thử lại.')
@@ -341,21 +375,13 @@ export function SpiceWorkbenchPage() {
   }
 
   function selectExample(id: string) {
-    clearCalculatorHandoff()
-    if (id === 'custom') {
-      setSelectedExample('custom')
-      setResult(undefined)
-      setError('')
-      setRunState('idle')
-      return
-    }
     const example = examples.find(item => item.id === id)
-    if (!example) return
+    if (!example && id !== 'custom') return
+    resetSimulation()
+    clearCalculatorHandoff()
+    clearWorkspaceHandoff()
     setSelectedExample(id)
-    setNetlist(example.netlist)
-    setResult(undefined)
-    setError('')
-    setRunState('idle')
+    if (example) setNetlist(example.netlist)
   }
 
   async function readKicadFile(event: ChangeEvent<HTMLInputElement>) {
@@ -383,34 +409,25 @@ export function SpiceWorkbenchPage() {
 
   function applyKicadNetlist() {
     if (!kicadResult?.ok) return
+    resetSimulation()
     clearCalculatorHandoff()
     clearWorkspaceHandoff()
     setNetlist(kicadResult.netlist)
     setSelectedExample('custom')
-    setResult(undefined)
-    setError('')
-    setRunState('idle')
     setKicadMessage('Đã đưa mạch tương đương từng phần vào editor. Đọc kỹ giả định và node nguồn trước khi chạy.')
   }
 
   function applyPcbKicadNetlist(importedNetlist: string) {
+    resetSimulation()
     clearCalculatorHandoff()
     clearWorkspaceHandoff()
     setNetlist(importedNetlist)
     setSelectedExample('custom')
-    setResult(undefined)
-    setError('')
-    setRunState('idle')
   }
 
   function dismissWorkspaceResultTransfer() {
     setWorkspaceResultSaved(false)
     setWorkspaceResultMessage('Kết quả SPICE vẫn nằm ở trang này; đã tắt đường chuyển kết quả về workspace.')
-    if (workspaceHandoff) {
-      const returnUrl = new URL(workspaceHandoff.returnTo, window.location.origin)
-      returnUrl.searchParams.delete('workspaceSpiceResult')
-      setWorkspaceHandoff(current => current ? { ...current, returnTo: `${returnUrl.pathname}${returnUrl.search}${returnUrl.hash}` } : current)
-    }
   }
 
   return <main className="spice-workbench-page">
@@ -430,6 +447,7 @@ export function SpiceWorkbenchPage() {
           <option value="custom">Netlist tùy chỉnh</option>
         </select>
         <p className="spice-example-description">{examples.find(item => item.id === selectedExample)?.description ?? (handoff ? 'Netlist được tạo từ các trị số bạn vừa tính.' : workspaceHandoff ? 'Netlist tương đương được biên dịch từ topology dây workspace.' : 'Đang chỉnh netlist tùy chỉnh.')}</p>
+        {selectedExample === 'divider' && netlist === examples[0].netlist && <DividerPractice result={result} running={runState === 'running'} prediction={dividerPrediction} run={runSimulation} />}
         <section className="spice-kicad-import" aria-labelledby="spice-kicad-title">
           <div><p className="spice-kicad-kicker">TỪ SCHEMATIC CAD</p><h3 id="spice-kicad-title">Nhập netlist XML từ KiCad Eeschema</h3><p>Trình nhập chỉ ánh xạ R, C, L và nguồn V DC có trị số cố định; IC, MCU, diode, mạch tích hợp và phần tử khác cần bị loại trừ rõ ràng hoặc được tự dựng model trong netlist.</p></div>
           <label className="spice-kicad-file-label">Chọn netlist KiCad XML<input type="file" accept=".xml,application/xml,text/xml" onChange={event => void readKicadFile(event)} /></label>
@@ -444,14 +462,15 @@ export function SpiceWorkbenchPage() {
         <KicadPcbSpiceImport onApply={applyPcbKicadNetlist} />
         {workspaceHandoff && workspaceResultMessage && <p className="spice-workspace-return-status" role="status">{workspaceResultMessage}{workspaceResultSaved && <button type="button" onClick={dismissWorkspaceResultTransfer}>Hủy chuyển kết quả</button>}</p>}
         {handoff && selectedExample === 'custom' && <aside className="spice-calculator-handoff" aria-labelledby="spice-handoff-title"><div><strong id="spice-handoff-title">Netlist tương đương · {handoff.title}</strong><p>{handoff.assumption}</p><small>Đây là mạch tương đương theo giả định nêu trên; không chuyển dây canvas và không xác minh board thật.</small></div><Link to={productRoute(handoff.calculator === 'ldr-divider' ? handoff.returnTo ?? '/build?lesson=analog-ldr&guided=1' : '/tools/electronics-calculators')}>{handoff.calculator === 'ldr-divider' ? 'Quay lại bài LDR ↗' : 'Quay lại bộ tính ↗'}</Link></aside>}
-        {workspaceHandoff && selectedExample === 'custom' && <aside className="spice-calculator-handoff" aria-labelledby="workspace-spice-handoff-title"><div><strong id="workspace-spice-handoff-title">Mạch tương đương từ workspace · {workspaceHandoff.title}</strong><ul>{workspaceHandoff.assumptions.map((assumption, index) => <li key={`${index}-${assumption}`}>{assumption}</li>)}</ul>{workspaceHandoff.ignoredUnwiredParts.length > 0 && <p>Không đưa vào netlist vì chưa nối dây: {workspaceHandoff.ignoredUnwiredParts.length} linh kiện chưa nối dây; xem lại danh sách trong workspace.</p>}<small>Chỉ mô phỏng phần tử analog có model. Firmware, GPIO, board power circuitry và đường đồng PCB không được chuyển hoặc chạy trong SPICE.</small></div><Link to={productRoute(workspaceHandoff.returnTo)}>Quay lại workspace ↗</Link></aside>}
+        {workspaceHandoff && workspaceReturnUrl && selectedExample === 'custom' && <aside className="spice-calculator-handoff" aria-labelledby="workspace-spice-handoff-title"><div><strong id="workspace-spice-handoff-title">Mạch tương đương từ workspace · {workspaceHandoff.title}</strong><ul>{workspaceHandoff.assumptions.map((assumption, index) => <li key={`${index}-${assumption}`}>{assumption}</li>)}</ul>{workspaceHandoff.ignoredUnwiredParts.length > 0 && <p>Không đưa vào netlist vì chưa nối dây: {workspaceHandoff.ignoredUnwiredParts.length} linh kiện chưa nối dây; xem lại danh sách trong workspace.</p>}<small>Chỉ mô phỏng phần tử analog có model. Firmware, GPIO, board power circuitry và đường đồng PCB không được chuyển hoặc chạy trong SPICE.</small></div><Link to={productRoute(`${workspaceReturnUrl.pathname}${workspaceReturnUrl.search}${workspaceReturnUrl.hash}`)}>Quay lại workspace ↗</Link></aside>}
         {workspaceHandoff && selectedExample === 'custom' && <AnalysisPicker key={workspaceSpiceId ?? workspaceHandoff.createdAt} netlist={workspaceHandoff.netlist} onNetlistChange={updateWorkspaceAnalysis} />}
         <label className="spice-netlist-label" htmlFor="spice-netlist">Netlist SPICE</label>
-        <textarea id="spice-netlist" spellCheck={false} autoCapitalize="off" autoCorrect="off" value={netlist} aria-invalid={runState === 'error' && inspection.errors.length > 0 ? true : undefined} aria-describedby={runState === 'error' && inspection.errors.length ? 'spice-netlist-help spice-netlist-error' : 'spice-netlist-help'} onChange={event => { clearCalculatorHandoff(); clearWorkspaceHandoff(); setNetlist(event.target.value); setSelectedExample('custom'); setResult(undefined); setError(''); setRunState('idle') }} />
+        <textarea id="spice-netlist" spellCheck={false} autoCapitalize="off" autoCorrect="off" value={netlist} aria-invalid={runState === 'error' && inspection.errors.length > 0 ? true : undefined} aria-describedby={runState === 'error' && inspection.errors.length ? 'spice-netlist-help spice-netlist-error' : 'spice-netlist-help'} onChange={event => { resetSimulation(); clearCalculatorHandoff(); clearWorkspaceHandoff(); setNetlist(event.target.value); setSelectedExample('custom') }} />
         <p id="spice-netlist-help" className="spice-netlist-help">Hỗ trợ R, C, L, V, I, diode, BJT, MOSFET; phân tích .op, .tran, .ac, .dc; diode/BJT/MOSFET cần .model khai báo trong netlist. Lần đầu tải engine WASM khoảng 6,1 MB; trạng thái khởi tạo hiển thị ở đây và có thể dừng bất cứ lúc nào.</p>
         {runState === 'error' && error && <p className="spice-error" id="spice-netlist-error" role="alert">{error}</p>}
         {runState === 'idle' && error && <p className="spice-stop-note" role="status">{error}</p>}
-        <div className="spice-run-actions"><button className="spice-run-button" type="button" onClick={runSimulation} disabled={runState === 'running'}>Chạy SPICE</button>{runState === 'running' && <button type="button" onClick={stopSimulation}>Dừng solver</button>}<span role="status" aria-live="polite">{runState === 'running' ? runProgress : runState === 'complete' ? 'Mô phỏng hoàn tất.' : ''}</span></div>
+        {selectedExample === 'divider' && netlist === examples[0].netlist && <p className="spice-netlist-help">“Chạy SPICE” mở kết quả solver trực tiếp. Để so sánh với dự đoán, dùng bài đo điện áp ở trên.</p>}
+        <div className="spice-run-actions"><button className="spice-run-button" type="button" onClick={() => runSimulation()} disabled={runState === 'running'}>Chạy SPICE</button>{runState === 'running' && <button type="button" onClick={stopSimulation}>Dừng solver</button>}<span role="status" aria-live="polite">{runState === 'running' ? runProgress : runState === 'complete' ? 'Mô phỏng hoàn tất.' : ''}</span></div>
         <p className="spice-budget">{inspection.elementCount} linh kiện · giới hạn phân tích {inspection.maxAnalysisPoints.toLocaleString('vi-VN')} điểm · tự ngắt sau 30 giây.</p>
       </div>
       <div className="spice-output-card">
