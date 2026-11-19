@@ -5,3 +5,15 @@
 /public/licenses/ngspice-selfbuild/** -text
 /scripts/ngspice-build/** -text
 /public/cad/seeed-xiao-esp32-s3.step -text -diff
+
+# Match the byte representation pinned in scripts/step-board-body-registry.json.
+/public/cad/raspberry-pi-pico-r3.step text eol=crlf
+/public/cad/raspberry-pi-pico-w.stp text eol=crlf
+/public/cad/raspberry-pi-pico-2.step text eol=lf
+/public/cad/raspberry-pi-pico-2-h-step-source/rpi_pico2h.step text eol=lf
+/assets/boards/vendor/adafruit-qtpy-esp32-c3/5405-qtpy-esp32-c3.step text eol=lf
+"/assets/boards/vendor/adafruit-feather-esp32-s3-5323/5323 Feather ESP32-S3.step" text eol=lf
+"/assets/boards/vendor/adafruit-feather-esp32-s3-tft-5483/5483 Feather ESP32-S3 TFT.step" text eol=lf
+"/assets/boards/vendor/seeed-xiao-esp32s3/source/XIAO-ESP32S3 v2.step" text eol=crlf
+/assets/boards/arduino-reference/*-official-import.kicad_pcb text eol=crlf
+/assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb text eol=crlf
