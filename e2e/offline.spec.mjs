@@ -53,3 +53,18 @@ test('app opens offline and a new worker deploy removes its previous cache', asy
     await deploymentContext.close()
   }
 })
+
+test('already opened model and solver bytes remain available offline', async ({ page, context }) => {
+  await page.goto('/offline.html')
+  await page.evaluate(() => navigator.serviceWorker.register('/sw.js?v=e2e-viewer-assets', { scope: '/' }))
+  await expect.poll(() => page.evaluate(() => navigator.serviceWorker.controller?.scriptURL)).toContain('e2e-viewer-assets')
+  const assets = ['/models/arduino-uno-r3.glb?v=53330cd2b0d2', '/vendor/eecircuit-engine/spice.wasm']
+  const signatures = paths => Promise.all(paths.map(async path => {
+    const response = await fetch(path)
+    return [...new Uint8Array(await response.arrayBuffer(), 0, 4)]
+  }))
+  const expected = [[103, 108, 84, 70], [0, 97, 115, 109]]
+  expect(await page.evaluate(signatures, assets)).toEqual(expected)
+  await context.setOffline(true)
+  expect(await page.evaluate(signatures, assets)).toEqual(expected)
+})

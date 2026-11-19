@@ -47,15 +47,17 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  // Cache only same-origin, fingerprinted application JS/CSS. Large models,
-  // user files, Supabase/API requests, and arbitrary responses stay uncached.
-  if (url.pathname.startsWith('/assets/') && /\.(?:js|css)$/.test(url.pathname)) {
+  const bundledAsset = url.pathname.startsWith('/assets/') && /\.(?:js|css|wasm)$/.test(url.pathname)
+  const boardModel = /^\/models\/[a-z0-9-]+\.glb$/i.test(url.pathname)
+  const spiceEngine = url.pathname === '/vendor/eecircuit-engine/spice.wasm'
+  // Cache complete immutable app assets and published simulation assets after use.
+  if ((bundledAsset || boardModel || spiceEngine) && !request.headers.has('range')) {
     event.respondWith((async () => {
       const cache = await caches.open(CACHE_NAME)
       const cached = await cache.match(request)
       if (cached) return cached
       const response = await fetch(request)
-      if (response.ok && response.type === 'basic') await cache.put(request, response.clone())
+      if (response.status === 200 && response.type === 'basic') await cache.put(request, response.clone()).catch(() => {})
       return response
     })())
   }

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import type { BoardFeature, BoardModelManifest } from './boardSceneTypes'
-import { BoardScene } from './BoardScene'
+import type { BoardScene } from './BoardScene'
 import { getBoardFeaturePickerEntries } from '../../lib/boardFeatureFiltering'
 import { formatBoardModelStats, getBoardModelStats, getFeatureEvidence } from '../../lib/boardFeatureEvidence'
 import { isFocusableFeatureNode } from '../../lib/boardFeatureFocus'
@@ -26,7 +26,8 @@ export function BoardViewer({ manifest, selectedSceneId, onSelectScene, selected
   const pinMarkerRef = useRef<HTMLSpanElement>(null)
   const sceneRef = useRef<BoardScene | null>(null)
   const dragRef = useRef<{ x: number; y: number; moved: boolean } | null>(null)
-  const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading')
+  const [visibleOnce, setVisibleOnce] = useState(false)
+  const [status, setStatus] = useState<'waiting' | 'loading' | 'ready' | 'error'>('waiting')
   const [error, setError] = useState('')
   const [retry, setRetry] = useState(0)
   const [showFootprints, setShowFootprints] = useState(false)
@@ -60,8 +61,22 @@ export function BoardViewer({ manifest, selectedSceneId, onSelectScene, selected
   }, [manifest.id, selectedSceneId])
 
   useEffect(() => {
+    const stage = stageRef.current
+    if (!stage) return
+    if (!('IntersectionObserver' in window)) { setVisibleOnce(true); return }
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        setVisibleOnce(true)
+        observer.disconnect()
+      }
+    })
+    observer.observe(stage)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
     const canvas = canvasRef.current
-    if (!canvas) return
+    if (!canvas || !visibleOnce) return
     let cancelled = false
     let timedOut = false
     const abortController = new AbortController()
@@ -69,30 +84,31 @@ export function BoardViewer({ manifest, selectedSceneId, onSelectScene, selected
     let observer: ResizeObserver | undefined
     setStatus('loading')
     setError('')
-    try {
-      const scene = BoardScene.create(canvas)
-      sceneRef.current = scene
-      void scene.load(manifest, activeScene, abortController.signal).then(() => {
-        window.clearTimeout(loadTimeout)
+    void (async () => {
+      try {
+        const { BoardScene } = await import('./BoardScene')
+        if (cancelled) return
+        const scene = BoardScene.create(canvas)
+        sceneRef.current = scene
+        observer = new ResizeObserver(() => { scene.resize(); refreshPinMarker() })
+        observer.observe(canvas)
+        await scene.load(manifest, activeScene, abortController.signal)
         if (cancelled) return
         setStatus('ready')
         scene.setSelection(selectedFeatureId)
         scene.setHighlights(highlightedFeatureIds)
         window.requestAnimationFrame(refreshPinMarker)
-      }).catch((reason: unknown) => {
-        window.clearTimeout(loadTimeout)
+      } catch (reason: unknown) {
         if (cancelled) return
-        scene.dispose()
+        observer?.disconnect()
+        sceneRef.current?.dispose()
         sceneRef.current = null
         setError(timedOut ? 'Tải mô hình quá lâu. Kiểm tra mạng rồi thử lại.' : reason instanceof Error ? reason.message : 'Có lỗi khi tải mô hình PCB.')
         setStatus('error')
-      })
-      observer = new ResizeObserver(() => { scene.resize(); refreshPinMarker() })
-      observer.observe(canvas)
-    } catch (reason) {
-      setError(reason instanceof Error ? reason.message : 'Không khởi tạo được khung nhìn PCB.')
-      setStatus('error')
-    }
+      } finally {
+        window.clearTimeout(loadTimeout)
+      }
+    })()
     return () => {
       cancelled = true
       window.clearTimeout(loadTimeout)
@@ -101,7 +117,7 @@ export function BoardViewer({ manifest, selectedSceneId, onSelectScene, selected
       sceneRef.current?.dispose()
       sceneRef.current = null
     }
-  }, [manifest, activeScene, retry])
+  }, [manifest, activeScene, retry, visibleOnce])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -215,6 +231,7 @@ export function BoardViewer({ manifest, selectedSceneId, onSelectScene, selected
           onPointerCancel={() => { dragRef.current = null }}
           onKeyDown={onKeyDown}
         />
+        {status === 'waiting' && <div className="board-viewer-overlay">Mô hình 3D tải khi khung vào màn hình.</div>}
         {status === 'loading' && <div className="board-viewer-overlay" role="status">Đang tải mô hình PCB…</div>}
         {status === 'error' && <div className="board-viewer-overlay board-viewer-error" role="alert"><strong>Chưa hiển thị được mô hình</strong><span>{error}</span><button type="button" onClick={() => setRetry((value) => value + 1)}>Thử lại</button></div>}
         <span className="board-viewer-hint">Kéo để xoay 360° · lăn chuột để phóng to · chọn “Lật mặt” để xem đáy PCB</span>

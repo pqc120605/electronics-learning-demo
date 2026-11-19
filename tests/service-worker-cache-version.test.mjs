@@ -23,7 +23,7 @@ function createCacheStorage(initialNames = []) {
   }
 }
 
-function loadWorker(version, cacheStorage) {
+function loadWorker(version, cacheStorage, fetchImpl) {
   const listeners = new Map()
   const self = {
     location: { href: `https://example.test/sw.js?v=${version}`, origin: 'https://example.test' },
@@ -36,11 +36,11 @@ function loadWorker(version, cacheStorage) {
     caches: cacheStorage,
     URL,
     Response,
-    fetch: async () => ({
+    fetch: fetchImpl ?? (async () => ({
       ok: true,
       async text() { return '<script type="module" src="/assets/index-abc123.js"></script>' },
       clone() { return this },
-    }),
+    })),
     Promise,
   }
   vm.runInNewContext(serviceWorkerSource, context, { filename: 'public/sw.js' })
@@ -81,4 +81,27 @@ test('registration derives its worker version from the fingerprinted production 
   assert.match(registrationSource, /new URL\(import\.meta\.url\)/)
   assert.match(registrationSource, /searchParams\.set\(['"]v['"]\s*,/)
   assert.match(registrationSource, /serviceWorker\.register\(workerUrl/)
+})
+
+test('cache fetches published GLB and solver WASM only on demand, and skips partial or API responses', async () => {
+  const cache = createCacheStorage()
+  let network = 0
+  const listeners = loadWorker('test', cache, async () => {
+    network += 1
+    return { ok: true, status: 200, type: 'basic', clone() { return this } }
+  })
+  const send = request => {
+    let pending
+    listeners.get('fetch')({ request, respondWith(value) { pending = value } })
+    return pending
+  }
+  const model = new Request('https://example.test/models/arduino-uno-r3.glb?v=abc')
+  const solver = new Request('https://example.test/vendor/eecircuit-engine/spice.wasm')
+  for (const request of [model, solver]) {
+    assert.ok(await send(request))
+    assert.ok(await send(request))
+  }
+  assert.equal(network, 2)
+  assert.equal(send(new Request(model.url, { headers: { Range: 'bytes=0-500' } })), undefined)
+  assert.equal(send(new Request('https://example.test/api/user.glb')), undefined)
 })
