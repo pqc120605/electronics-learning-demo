@@ -4,3 +4,4 @@
 /vendor/mach-mo-spice/** -text
 /public/licenses/ngspice-selfbuild/** -text
 /scripts/ngspice-build/** -text
+/public/cad/seeed-xiao-esp32-s3.step -text -diff

@@ -42,7 +42,7 @@ Các mã A–E chỉ dùng dẫn chiếu phụ thuộc trong kế hoạch này. 
 
 ## Đợt D · Backend chia sẻ và lớp online
 
-**Kiến trúc đề xuất:** giữ Node + PostgreSQL analytics trên Mini PC. Cho pilot online, tái sử dụng adapter Supabase Auth/DB/Storage hiện có với dự án staging riêng, sau khi founder duyệt vùng lưu dữ liệu, ngân sách và quy trình quản trị. Ít vận hành hơn việc chạy thêm toàn bộ cụm trên RAM 4 GB. Nếu founder muốn toàn bộ dữ liệu ở nhà, ước lượng lại phương án API Node + PostgreSQL + kho tệp riêng; phải thay adapter xác thực/lưu trữ, đo tài nguyên và chứng minh phục hồi. Tránh vận hành hai nơi làm nguồn sự thật cho cùng một bài đăng.
+**Quyết định ngày 19/11/2026.** Founder chọn backend tự quản trên Mini PC. Dùng Node và PostgreSQL cho phiên và cộng đồng. Tách tài khoản, nội dung và quyền khỏi analytics bằng cơ sở dữ liệu và role riêng. Bước đầu thử mã mời dùng một lần và cookie cùng origin tại staging. Adapter Supabase hiện có phục vụ các cấu hình cũ. Mở đăng nhập và chia sẻ từng bước sau khi kiểm dữ liệu, quyền và phục hồi.
 
 | Việc – chủ trì – công ước tính | Phụ thuộc và thiết kế | Điều kiện nghiệm thu |
 |---|---|---|

@@ -1,0 +1,29 @@
+{
+  admin off
+}
+
+http://:{$MACHMO_TESTER_PORT} {
+  bind 127.0.0.1
+  root * {$MACHMO_TESTER_ROOT}/current
+  encode zstd gzip
+  header X-Content-Type-Options nosniff
+  header X-Robots-Tag "noindex, nofollow"
+
+  @blocked path /admin /admin/* /api /api/* /@vite/* /@fs/* /.git /.git/*
+  handle @blocked {
+    respond 404
+  }
+  handle_path /assets/* {
+    root * {$MACHMO_TESTER_ROOT}/shared-assets
+    file_server
+  }
+  @files path /board-reference/* /models/* /vendor/* /licenses/* /cad/* /firmware/* /icons/* /component-reference/* /brand/* /env/* /boards/* /release.json /sw.js /manifest.webmanifest /favicon.svg
+  handle @files {
+    file_server
+  }
+  handle {
+    header Cache-Control "no-cache"
+    try_files {path} /index.html
+    file_server
+  }
+}

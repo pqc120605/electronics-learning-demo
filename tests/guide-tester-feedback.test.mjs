@@ -36,3 +36,26 @@ test('action and symptom recognition preserves unknown board and pin boundaries'
   assert.equal(matched.articles[0].id, 'debug-led')
   assert.doesNotMatch(JSON.stringify(matched), /PRIVATE_PAYLOAD/)
 })
+
+test('GPIO input-only guidance is scoped to the recorded ESP32 board and cites the manufacturer', () => {
+  for (const question of [
+    'Vì sao GPIO 34 trên ESP32 DevKit V1 không bật được LED?',
+    'GPIO34 ESP32 DevKit V1 co dung lam output duoc khong?',
+    'GPIO 39 tren ESP32 DevKit V1 la chan gi?',
+  ]) {
+    const result = answer(question)
+    assert.equal(result.kind, 'matches', question)
+    const article = result.articles[0]
+    assert.equal(article.id, 'esp32-devkit-input-only')
+    assert.match(article.paragraphs.join(' '), /Revision:.*chỉ nhận tín hiệu/)
+    assert.equal(article.source.href, '/boards?board=esp32-devkit')
+    assert.ok(article.sources.some(ref => ref.href.includes('docs.espressif.com/')))
+  }
+  for (const question of [
+    'GPIO34 ESP32 có dùng làm output không?',
+    'GPIO 34 trên ESP32 DevKit V1 clone ABC123?',
+    'GPIO34 Arduino Uno R3 dùng để làm gì?',
+    'GPIO 40 tren ESP32 DevKit V1 la chan gi?',
+    'GPIO34 và GPIO2 trên ESP32 DevKit V1 giống nhau không?',
+  ]) assert.equal(answer(question).kind, 'unknown', question)
+})
