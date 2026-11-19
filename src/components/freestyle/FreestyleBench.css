@@ -257,3 +257,7 @@
 }
 .freestyle-wire-actions { display: flex; flex: 1 0 100%; flex-wrap: wrap; gap: 6px; }
 .freestyle-wire-actions .freestyle-button { min-height: 36px; }
+.freestyle-share-link { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; min-width: 0; }
+.freestyle-share-link label { flex: 1 1 230px; display: grid; gap: 4px; min-width: 0; }
+.freestyle-share-link input { min-width: 0; width: 100%; }
+.freestyle-share-link p { width: 100%; margin: 0; }
