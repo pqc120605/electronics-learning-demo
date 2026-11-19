@@ -134,7 +134,7 @@ test('top navigation shows five areas and the library opens items on the freesty
   await page.addInitScript(() => localStorage.setItem('mm-tour-seen', JSON.stringify({ home: 1, lab: 1, lesson: 1, freestyle: 1 })))
   await page.goto('/components?component=led')
   const nav = page.getByRole('navigation', { name: 'Điều hướng chính' })
-  await expect(nav.locator('summary')).toHaveText(['Học', 'Lắp mạch', 'Thư viện', 'Công cụ'])
+  await expect(nav.locator('summary')).toHaveText(['Học', 'Lắp mạch', 'Thư viện', 'Dự án'])
   await expect(nav.getByRole('link', { name: 'Cộng đồng', exact: true })).toBeVisible()
   await page.getByRole('link', { name: /Lắp thử trên bàn tự do/ }).click()
   await expect(page).toHaveURL(/\/build\/freestyle$/)

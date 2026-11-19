@@ -20,6 +20,23 @@
 .app-home-status>a span { padding-left: 5px; }
 .app-home-board-studio { margin: 24px 0 0; border: 1px solid var(--line); border-radius: var(--mm-radius-md); background: var(--mm-surface); }
 .app-home-board-studio > summary { padding: 12px 16px; color: var(--ink); cursor: pointer; }
+.app-home-entry { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 12px 0 18px; }
+.app-home-entry a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--mm-radius-md);
+  background: var(--mm-surface);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+.app-home-entry a:hover { border-color: var(--green); }
+.app-home-disclosure { margin-top: 12px; border-top: 1px solid var(--line); }
+.app-home-disclosure > summary { min-height: 44px; padding: 12px 0; cursor: pointer; font-weight: 650; }
+.app-home-disclosure .app-home-section { padding-top: 16px; }
 .app-home-section { padding: 47px 0 0; }
 .app-home-path { padding-top: 40px; }
 .app-home-course-resume { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 4px; }
@@ -72,6 +89,7 @@
   .app-home-workspace-card { padding: 15px; }
 }
 @media (max-width: 680px) {
+  .app-home-entry a { padding-inline: 8px; font-size: var(--mm-text-sm); }
   .app-home-page { padding: 0 18px 42px; }
   .app-home-hero { padding: 28px 0; }
   .app-home-hero h1 { font-size: clamp(39px,11vw,56px); }

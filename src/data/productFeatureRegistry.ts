@@ -80,12 +80,12 @@ export const productFeatureRegistry: Record<ProductFeatureId, ProductFeature> = 
 }
 
 export const publicFeatureOrder: readonly ProductFeatureId[] = ['learning', 'boards', 'components', 'lab', 'calculators', 'sketch', 'spice', 'firmware', 'projects', 'community']
-/** 2026-11-15: cùng năm khu vực với điều hướng công khai: Học · Lắp mạch · Thư viện · Công cụ · Cộng đồng. */
+/** Workspace sidebar and public navigation share the same five areas. */
 export const appNavigationGroups: ReadonlyArray<{ id: string; label: string; features: readonly ProductFeatureId[] }> = [
-  { id: 'learn', label: 'HỌC', features: ['dashboard', 'lesson', 'learning', 'projects', 'classroom'] },
-  { id: 'build', label: 'LẮP MẠCH', features: ['freestyle', 'lab'] },
-  { id: 'library', label: 'THƯ VIỆN', features: ['boards', 'components'] },
-  { id: 'tools', label: 'CÔNG CỤ', features: ['calculators', 'spice', 'firmware', 'sketch'] },
+  { id: 'learn', label: 'HỌC', features: ['dashboard', 'lesson', 'learning'] },
+  { id: 'build', label: 'LẮP MẠCH', features: ['freestyle', 'lab', 'spice', 'firmware', 'sketch'] },
+  { id: 'library', label: 'THƯ VIỆN', features: ['boards', 'components', 'calculators'] },
+  { id: 'projects', label: 'DỰ ÁN', features: ['projects', 'classroom'] },
   { id: 'community', label: 'CỘNG ĐỒNG', features: ['community'] },
 ]
 

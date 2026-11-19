@@ -9,30 +9,29 @@ type NavItem = { to: string; label: string; hint: string }
 type NavGroup = { id: string; label: string; items: NavItem[] }
 
 /**
- * 2026-11-15: năm khu vực chính thay cho bảy mục cũ (Giới thiệu, Không gian học, Thư viện, Phòng thử, Công cụ, Lộ trình, Cộng đồng).
- * Mọi URL cũ giữ nguyên; chỉ gom link về đúng nhóm.
+ * Công cụ nằm cạnh mạch hoặc dữ liệu mà người học dùng để thao tác.
  */
 const navigationGroups: NavGroup[] = [
   { id: 'learn', label: 'Học', items: [
-    { to: F.lesson.publicRoute, label: 'Bài đầu tiên', hint: 'LED với ESP32 · bắt đầu ở đây' },
+    { to: F.lesson.publicRoute, label: 'Bài đầu tiên', hint: 'Thực hành nối LED' },
     { to: F.learning.publicRoute, label: 'Chủ đề học', hint: 'Lộ trình theo chủ đề' },
-    { to: F.projects.publicRoute, label: 'Dự án', hint: 'Bài thực hành và mẫu' },
     { to: F.dashboard.publicRoute, label: 'Không gian học của tôi', hint: 'Tiếp tục bài đang học' },
-    { to: F.classroom.publicRoute, label: 'Lớp học & bộ kit', hint: 'Dành cho giáo viên' },
   ] },
   { id: 'build', label: 'Lắp mạch', items: [
     { to: R.publicFreestyle, label: 'Bàn lắp mạch tự do', hint: 'Board → linh kiện → code → Chạy' },
     { to: F.lab.publicRoute, label: 'Phòng lắp mạch theo bài', hint: 'Mạch dựng sẵn theo bài mẫu' },
+    { to: F.sketch.publicRoute, label: 'Chạy code Arduino/ESP32', hint: 'GPIO, Serial, logic analyzer' },
+    { to: F.spice.publicRoute, label: 'Mô phỏng SPICE', hint: 'Phân tích mạch analog' },
+    { to: F.firmware.publicRoute, label: 'Kiểm tra firmware HEX', hint: 'Intel HEX và demo AVR' },
   ] },
   { id: 'library', label: 'Thư viện', items: [
     { to: F.boards.publicRoute, label: 'Board', hint: 'ESP32, Arduino, Pico, STM32' },
     { to: F.components.publicRoute, label: 'Linh kiện', hint: 'Chân, vai trò, lưu ý an toàn' },
-  ] },
-  { id: 'tools', label: 'Công cụ', items: [
-    { to: F.sketch.publicRoute, label: 'Chạy code Arduino/ESP32', hint: 'GPIO, Serial, logic analyzer' },
-    { to: F.spice.publicRoute, label: 'Mô phỏng SPICE', hint: 'Mạch analog bằng ngspice' },
     { to: F.calculators.publicRoute, label: 'Bộ tính điện tử', hint: 'LED, chia áp, pull-up, RC' },
-    { to: F.firmware.publicRoute, label: 'Kiểm tra firmware HEX', hint: 'Đọc Intel HEX, demo AVR' },
+  ] },
+  { id: 'projects', label: 'Dự án', items: [
+    { to: F.projects.publicRoute, label: 'Dự án thực hành', hint: 'Bài thực hành và mẫu' },
+    { to: F.classroom.publicRoute, label: 'Lớp học & bộ kit', hint: 'Dành cho giáo viên' },
   ] },
 ]
 

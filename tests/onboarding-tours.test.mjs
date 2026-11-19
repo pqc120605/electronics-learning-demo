@@ -53,7 +53,7 @@ test('seen state round-trips through localStorage and survives bad data', () => 
 test('public navigation is grouped into five areas without dropping any route', async () => {
   const nav = await readFile('src/components/SiteNavigation.tsx', 'utf8')
   const labels = [...nav.matchAll(/\{ id: '[a-z]+', label: '([^']+)', items:/g)].map(match => match[1])
-  assert.deepEqual(labels, ['Học', 'Lắp mạch', 'Thư viện', 'Công cụ'])
+  assert.deepEqual(labels, ['Học', 'Lắp mạch', 'Thư viện', 'Dự án'])
   assert.match(nav, /F\.community\.publicRoute/)
   for (const route of ['F.lesson', 'F.learning', 'F.projects', 'F.dashboard', 'F.classroom', 'R.publicFreestyle', 'F.lab', 'F.boards', 'F.components', 'F.sketch', 'F.spice', 'F.calculators', 'F.firmware']) assert.ok(nav.includes(route), route)
 })

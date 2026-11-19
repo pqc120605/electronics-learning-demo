@@ -99,6 +99,11 @@ export function AppHomePage() {
           <p className="app-home-guest"><span aria-hidden="true">✓</span> Dùng thử với tư cách khách · Không cần đăng nhập</p>
         </div>
       </section>
+      <nav className="app-home-entry" aria-label="Lối vào không gian học">
+        <Link to={toAppRoute(resume.route)}>{resume.state === 'in-progress' || resume.state === 'next' ? resume.label : 'Mở bài học'}</Link>
+        <Link to={R.appBoards}>Tra cứu board</Link>
+        <Link to={R.appProjects}>Mở dự án mẫu</Link>
+      </nav>
 
       <BeginnerResumeCard />
       <details className="app-home-board-studio" onToggle={event => {
@@ -108,7 +113,9 @@ export function AppHomePage() {
         {studioOpened && <FirstBoardStudio />}
       </details>
 
-      <section className="app-home-section app-home-path" aria-labelledby="app-home-path-title">
+      <details className="app-home-disclosure" id="app-home-course">
+        <summary>Lộ trình và tiến độ đã lưu</summary>
+        <section className="app-home-section app-home-path" aria-labelledby="app-home-path-title">
         <div className="app-home-section-heading">
           <div>
             <p className="eyebrow">LỘ TRÌNH · {curriculumLessons.length} BÀI</p>
@@ -120,11 +127,14 @@ export function AppHomePage() {
         <p className="app-home-path-note">{resumeNote}</p>
         <p className="app-home-path-note">{`Bạn đã bắt đầu ${progress.startedLessonIds.length}/${curriculumLessons.length} bài; tự đánh dấu hoàn thành ${progress.selfReportedCompletedLessonIds.length}/${curriculumLessons.length} bài. `}{ledChecklistCount > 0 ? `Checklist bài LED đã tự xác nhận ${ledChecklistCount}/${esp32LedLesson.verificationChecklist.length} mục. ` : ''}Tiến độ chỉ lưu trên trình duyệt này, không chấm điểm và không xác minh đã chạy phần cứng.</p>
         <LearningActivity attempts={progress.simulationAttempts} routeFor={toAppRoute} />
-      </section>
+        </section>
+      </details>
 
       <CapabilityLegend ids={['behavior-simulation', 'concept-illustration', 'electrical-simulation', 'firmware-execution']} title="Web hiện mô phỏng đến mức nào?" />
 
-      <section className="app-home-section" aria-labelledby="app-home-start-title">
+      <details className="app-home-disclosure">
+        <summary>Công cụ và nội dung thực hành khác</summary>
+        <section className="app-home-section" aria-labelledby="app-home-start-title">
         <div className="app-home-section-heading">
           <div>
             <p className="eyebrow">LỐI VÀO NHANH</p>
@@ -144,7 +154,7 @@ export function AppHomePage() {
             </Link>
           ))}
         </div>
-      </section>
+        </section>
 
       <section className="app-home-section app-home-explore" aria-labelledby="app-home-explore-title">
         <div className="app-home-section-heading">
@@ -164,6 +174,7 @@ export function AppHomePage() {
           ))}
         </div>
       </section>
+      </details>
 
       <section className="app-home-capability-note" aria-label="Giới hạn mô phỏng hiện tại">
         <span aria-hidden="true">i</span>

@@ -39,9 +39,9 @@ export const TOURS: Readonly<Record<TourId, TourDefinition>> = {
     id: 'app-home', label: 'Không gian học', publicPath: '/app', appPath: '/app',
     invite: 'Tìm bài học phù hợp, tiếp tục tiến độ trên thiết bị và mở công cụ khi cần.',
     steps: [
-      { target: ['.workspace-sidebar', '.workspace-mobile-nav'], title: 'Năm khu vực của bạn', body: 'Học, Lắp mạch, Thư viện, Công cụ và Cộng đồng. Trên điện thoại, dùng thanh ở đáy màn hình.' },
+      { target: ['.workspace-sidebar', '.workspace-mobile-nav'], title: 'Năm khu vực của bạn', body: 'Học, Lắp mạch, Thư viện, Dự án và Cộng đồng. Trên điện thoại, dùng thanh ở đáy màn hình.' },
       { target: ['.app-home-actions .button-primary'], title: 'Bắt đầu hoặc tiếp tục học', body: 'Nút này gợi ý bài tiếp theo theo tiến độ lưu trên trình duyệt này. Bạn vẫn có thể chọn bài khác trong lộ trình.' },
-      { target: ['.app-home-path'], title: 'Lộ trình và tiến độ', body: 'Xem các bài đã mở và bài bạn tự đánh dấu hoàn thành. Tiến độ trên web không thay kết quả kiểm chứng phần cứng.' },
+      { target: ['#app-home-course > summary'], title: 'Lộ trình và tiến độ', body: 'Mở mục này để xem các bài đã mở và bài bạn tự đánh dấu hoàn thành.' },
       helpStep,
     ],
   },

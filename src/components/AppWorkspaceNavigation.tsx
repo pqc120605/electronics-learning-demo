@@ -16,10 +16,10 @@ const groupOf = Object.fromEntries(appNavigationGroups.flatMap(group => group.fe
 
 /** Thanh dưới trên điện thoại: đúng năm khu vực như điều hướng công khai. */
 const mobileItems: Array<{ to: string; icon: string; label: string; match: (path: string) => boolean }> = [
-  { to: R.appLearn, icon: '◎', label: 'Học', match: path => path === R.appHome || path.startsWith('/app/learn') || path === R.appProjects || path === R.appClassroomKit || path === '/app/robot-simulation' },
-  { to: R.appFreestyle, icon: '⌁', label: 'Lắp mạch', match: path => path.startsWith(R.appLab) },
-  { to: R.appBoards, icon: '▦', label: 'Thư viện', match: path => path === R.appBoards || path === R.appComponents },
-  { to: R.appSketch, icon: '▷', label: 'Công cụ', match: path => path.startsWith('/app/tools/') },
+  { to: R.appLearn, icon: '◎', label: 'Học', match: path => path === R.appHome || path.startsWith('/app/learn') || path === '/app/robot-simulation' },
+  { to: R.appFreestyle, icon: '⌁', label: 'Lắp mạch', match: path => path.startsWith(R.appLab) || path === R.appSpice || path === R.appFirmware || path === R.appSketch },
+  { to: R.appBoards, icon: '▦', label: 'Thư viện', match: path => path === R.appBoards || path === R.appComponents || path === R.appCalculators },
+  { to: R.appProjects, icon: '⌘', label: 'Dự án', match: path => path === R.appProjects || path === R.appClassroomKit },
   { to: R.appCommunity, icon: '◇', label: 'Cộng đồng', match: path => path.startsWith(R.appCommunity) },
 ]
 
