@@ -18,6 +18,8 @@
 .app-home-status>p:not(.app-home-status-label) { margin: 9px 0 16px; color:var(--ink-soft); font-size: var(--mm-text-sm); line-height: 1.65; }
 .app-home-status>a { color:var(--green); font-size: var(--mm-text-sm); font-weight: 700; text-decoration: none; }
 .app-home-status>a span { padding-left: 5px; }
+.app-home-board-studio { margin: 24px 0 0; border: 1px solid var(--line); border-radius: var(--mm-radius-md); background: var(--mm-surface); }
+.app-home-board-studio > summary { padding: 12px 16px; color: var(--ink); cursor: pointer; }
 .app-home-section { padding: 47px 0 0; }
 .app-home-path { padding-top: 40px; }
 .app-home-course-resume { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 4px; }

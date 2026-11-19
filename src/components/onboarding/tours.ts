@@ -65,12 +65,12 @@ export const TOURS: Readonly<Record<TourId, TourDefinition>> = {
     ],
   },
   home: {
-    id: 'home', label: 'Trang chủ và bàn lắp mạch', publicPath: '/', appPath: '/',
+    id: 'home', label: 'Trang chủ Mạch Mở', publicPath: '/', appPath: '/',
     invite: 'Xem nhanh cách dùng Mạch Mở: đi đâu để học, lắp mạch và chạy code.',
     steps: [
       { target: ['.site-header .main-nav', '.site-nav-mobile-toggle'], title: 'Năm khu vực chính', body: 'Học · Lắp mạch · Thư viện · Công cụ · Cộng đồng. Mỗi mục mở ra các trang con liên quan.' },
-      { target: ['.hero-actions .button-primary'], title: 'Người mới: bắt đầu ở đây', body: 'Bài LED đầu tiên dẫn bạn qua ba bước: hiểu linh kiện, lắp mạch, chạy code. Không cần tài khoản.' },
-      ...freestyleSteps.filter(step => !step.target.includes('.freestyle-observe')),
+      { target: ['.hero-actions .button-primary'], title: 'Người mới: bắt đầu ở đây', body: 'Bài đầu tiên cho bạn dự đoán rồi kiểm tra khi nào LED sáng trong một mạch kín.' },
+      { target: ['.hero-actions a[href="/build/freestyle"]'], title: 'Mở bàn lắp mạch tự do', body: 'Chọn board, nối dây và chạy code trong bàn lắp riêng. Bản nháp đã lưu có thể mở lại trên trình duyệt này.' },
       helpStep,
     ],
   },

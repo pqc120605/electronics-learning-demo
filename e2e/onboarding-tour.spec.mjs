@@ -18,10 +18,9 @@ for (const width of [375, 1440]) test(`app tours highlight real regions and keep
   await page.setViewportSize({ width, height: width === 375 ? 812 : 900 })
   await page.goto('/app')
   const invite = page.getByRole('complementary', { name: 'Hướng dẫn cho người mới' })
-  await expect(invite).toContainText('Không gian học')
+  await expect(invite).toHaveCount(0)
   if (width === 375) {
-    const a = await invite.boundingBox(), b = await page.locator('.workspace-mobile-nav').boundingBox()
-    expect(a.y + a.height).toBeLessThanOrEqual(b.y)
+    await expect(page.locator('.workspace-mobile-nav')).toBeVisible()
     const back = await page.getByRole('link', { name: 'Về website', exact: true }).boundingBox()
     expect(back.x).toBeGreaterThanOrEqual(0)
     expect(back.x + back.width).toBeLessThanOrEqual(width)
@@ -47,11 +46,12 @@ for (const width of [375, 1440]) test(`app tours highlight real regions and keep
 
 const seen = (page) => page.evaluate(() => JSON.parse(localStorage.getItem('mm-tour-seen') ?? '{}'))
 
-test('first visit invites a tour; keyboard drives it, focus stays inside, Esc skips and the choice is remembered', async ({ page }) => {
+test('home tour opens on request; keyboard stays inside, Esc skips and the choice is remembered', async ({ page }) => {
   await page.goto('/')
   const invite = page.getByRole('complementary', { name: 'Hướng dẫn cho người mới' })
-  await expect(invite).toBeVisible()
-  await invite.getByRole('button', { name: 'Xem hướng dẫn' }).click()
+  await expect(invite).toHaveCount(0)
+  await page.getByRole('button', { name: 'Trợ giúp', exact: true }).click()
+  await page.getByRole('button', { name: /Hướng dẫn trang này/ }).click()
   const dialog = page.getByRole('dialog')
   await expect(dialog).toBeVisible()
   await expect(dialog).toHaveAttribute('aria-modal', 'true')

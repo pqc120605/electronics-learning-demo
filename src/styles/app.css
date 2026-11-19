@@ -29,6 +29,8 @@ main { max-width: 1280px; margin: 0 auto; }
 .hero-copy h1 { max-width: 18ch; margin: 0; color:var(--ink); font-size: clamp(32px, 5vw, 52px); line-height: 1.05; letter-spacing: -.04em; font-weight: 760; }
 .hero-copy h1 span { color:var(--green); }
 .hero-description { max-width: 62ch; margin: var(--space-4) 0 var(--space-5); color:var(--ink-soft); font-size: 16px; line-height: 1.6; }
+.recent-project-resume { margin: 12px 0 0; color: var(--ink-soft); line-height: 1.5; overflow-wrap: anywhere; }
+.recent-project-resume a { font-weight: 700; }
 .hero-actions { display: flex; align-items: center; gap: 25px; }
 .button-primary { display: inline-flex; justify-content: center; align-items: center; gap: var(--space-3); min-height: 48px; padding: 0 18px; border: 0; border-radius: var(--radius); background:var(--accent-strong); color:var(--on-accent); font-size: 15px; font-weight: 700; text-decoration: none; }
 .button-primary:hover { background:var(--mm-surface); }

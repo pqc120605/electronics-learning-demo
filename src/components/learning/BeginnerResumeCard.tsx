@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { boards } from '../../data/boards'
 import { BEGINNER_ACTIVITIES, getBeginnerActivity } from '../../data/beginnerCourse'
 import { getBeginnerAssessment } from '../../lib/beginnerCourse'
 import { readBeginnerSession, BEGINNER_COURSE_CHANGED_EVENT } from '../../lib/beginnerCourseStorage'
@@ -31,10 +32,12 @@ export function BeginnerResumeCard() {
     : 0
   const app = pathname.startsWith('/app')
   const repair = getBeginnerRepair(session?.repairs?.active ?? null)
+  const board = boards.find(candidate => candidate.id === session?.boardId)
   return <section className="beginner-resume" aria-label="Khóa nền tảng điện tử">
     <div>
       <h2>Nền tảng điện tử qua 5 thử nghiệm</h2>
       <p>Dự đoán, thử và giải thích: từ đường về của mạch đến cảm biến.</p>
+      {board && <p>Board đang dùng · {board.name}</p>}
       {session
         ? <p>{met}/{BEGINNER_ACTIVITIES.length} hoạt động đạt tiêu chí mô hình.</p>
         : <p>Không cần kit hay tài khoản. Tiến độ lưu trong trình duyệt khi được phép.</p>}

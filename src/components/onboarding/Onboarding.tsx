@@ -32,7 +32,7 @@ export function TourHost() {
       const timer = window.setTimeout(() => setActive(tourId), 450)
       return () => window.clearTimeout(timer)
     }
-    setInvite(!readSeenTours(local())[tourId])
+    setInvite(tourId !== 'home' && tourId !== 'app-home' && !readSeenTours(local())[tourId])
   }, [tourId, pathname])
 
   useEffect(() => {

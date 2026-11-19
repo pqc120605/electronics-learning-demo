@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { RecentProjectResume } from '../components/learning/RecentProjectResume'
 import { BeginnerResumeCard, useBeginnerResume } from '../components/learning/BeginnerResumeCard'
 import { beginnerResumeUrl } from '../lib/beginnerRepair'
 import { Link } from 'react-router-dom'
@@ -69,6 +71,7 @@ const exploreLinks = [
 
 export function AppHomePage() {
   const foundation = useBeginnerResume()
+  const [studioOpened, setStudioOpened] = useState(false)
   const progress = useLearningProgress()
   const resume = getLearningResume(progress.lastLessonId, progress.selfReportedCompletedLessonIds)
   const resumeLesson = curriculumLessons.find((lesson) => lesson.id === resume.lessonId)
@@ -89,15 +92,21 @@ export function AppHomePage() {
           <p className="app-home-intro">Đi từ bài học nhập môn đến thư viện board và bàn lắp mạch. Bạn có thể bắt đầu ngay trên web, không cần tạo tài khoản.</p>
           <div className="app-home-actions">
             <Link className="button-primary" to={beginnerResumeUrl(R.appBasics, foundation.session?.repairs)}>{foundation.session?.repairs?.active ? 'Tiếp tục sửa mạch' : foundation.session ? 'Tiếp tục thử nghiệm' : 'Thử mạch đầu tiên'} <span aria-hidden="true">↗</span></Link>
-            <Link className="app-home-secondary" to={R.appLab}>Mở bàn lắp mạch</Link>
+            <Link className="app-home-secondary" to={R.appFreestyle}>Mở bàn lắp mạch</Link>
           </div>
+          <RecentProjectResume />
           <p className="app-home-resume">{foundation.session ? 'Mở lại hoạt động và các lần thử đã lưu trên trình duyệt này.' : 'Bắt đầu bằng việc làm LED sáng trong một mạch kín.'}</p>
           <p className="app-home-guest"><span aria-hidden="true">✓</span> Dùng thử với tư cách khách · Không cần đăng nhập</p>
         </div>
       </section>
 
       <BeginnerResumeCard />
-      <FirstBoardStudio />
+      <details className="app-home-board-studio" onToggle={event => {
+        if (event.currentTarget.open) setStudioOpened(true)
+      }}>
+        <summary>Xem board mẫu và sơ đồ chân</summary>
+        {studioOpened && <FirstBoardStudio />}
+      </details>
 
       <section className="app-home-section app-home-path" aria-labelledby="app-home-path-title">
         <div className="app-home-section-heading">

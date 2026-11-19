@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type Ref } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { curriculumLessons, referenceOnlyTopics } from '../data/curriculumSchema'
 import { CapabilityBadge, CapabilityLegend } from '../components/CapabilityBadge'
 import { addSavedProject, duplicateSavedProject, MissingSavedProjectError, readSavedProjectLibrary, readSavedProjects, removeSavedProject, renameSavedProject, restoreSavedProject, SAVED_PROJECTS_KEY, updateSavedProjectTags, type SavedProject } from '../lib/savedProjects'
@@ -105,6 +105,19 @@ export function ProjectsPage() {
     const link=document.createElement('a');link.href=url;link.download='mach-mo-du-lieu-can-phuc-hoi.json';link.click();window.setTimeout(()=>URL.revokeObjectURL(url),1000)
   }
   const visibleSavedProjects=filterSavedProjects(savedProjects,projectSearch)
+  const [searchParams] = useSearchParams()
+  const requestedProjectId = searchParams.get('saved')
+  const requestedProjectRef = useRef<HTMLElement>(null)
+  const locatedProjectId = visibleSavedProjects.find(project => project.id === requestedProjectId)?.id
+  useEffect(() => {
+    if (!locatedProjectId) return
+    const frame = requestAnimationFrame(() => {
+      const card = requestedProjectRef.current
+      card?.focus({ preventScroll: true })
+      card?.scrollIntoView({ block: 'center' })
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [locatedProjectId])
   function openSavedProject(project:SavedProject, revisionId?:string) {
     if(!window.confirm(`Mở “${project.name}” sẽ thay workspace đang lưu trong trình duyệt này. Tiếp tục?`))return
     try {
@@ -220,7 +233,7 @@ export function ProjectsPage() {
         </div>
         {savedProjects.length===0?<p className="saved-projects-empty">Chưa có project cá nhân. Mở bàn lắp mạch, nhập tên project rồi chọn “Lưu project”.</p>:<>
           <div className="saved-project-tools"><label htmlFor="saved-project-search">Tìm project</label><input id="saved-project-search" type="search" value={projectSearch} onChange={event=>setProjectSearch(event.target.value)} placeholder="Tên, bài học hoặc nhãn…"/><span>{visibleSavedProjects.length}/{savedProjects.length}</span></div>
-          {visibleSavedProjects.length===0?<p className="saved-projects-empty" role="status">Không tìm thấy project phù hợp. Thử tên bài học hoặc một nhãn khác.</p>:<div className="saved-project-list">{visibleSavedProjects.map(project=><article className="saved-project-card" key={project.id}><div><strong>{project.name}</strong><small>{new Date(project.updatedAt).toLocaleString('vi-VN')} · {getProjectLessonLabel(project.bundle.workspace.lesson)} · {project.revisions.length} bản cũ</small>{project.tags.length>0&&<div className="saved-project-tags" aria-label="Nhãn project">{project.tags.map(tag=><span key={tag}>{tag}</span>)}</div>}</div><div><button type="button" onClick={()=>openSavedProject(project)}>Mở</button><button type="button" onClick={()=>exportSavedProject(project)}>Xuất tệp</button><button type="button" onClick={()=>duplicateProject(project)}>Tạo project độc lập</button><button type="button" onClick={()=>editProjectTags(project)}>Nhãn</button><button type="button" onClick={()=>renameProject(project)}>Đổi tên</button><button type="button" className="saved-project-delete" onClick={()=>deleteSavedProject(project)}>Xóa</button></div>{project.revisions.length>0&&<details className="saved-project-history"><summary>Lịch sử snapshot · giữ tối đa 10 bản</summary>{project.revisions.map((revision,index)=><div key={revision.id}><span>{new Date(revision.updatedAt).toLocaleString('vi-VN')} · Bản {project.revisions.length-index}</span><button type="button" onClick={()=>openSavedProject(project,revision.id)}>Khôi phục bản này</button></div>)}</details>}</article>)}</div>}
+          {visibleSavedProjects.length===0?<p className="saved-projects-empty" role="status">Không tìm thấy project phù hợp. Thử tên bài học hoặc một nhãn khác.</p>:<div className="saved-project-list">{visibleSavedProjects.map(project=><article className="saved-project-card" key={project.id} ref={locatedProjectId === project.id ? requestedProjectRef : undefined} tabIndex={locatedProjectId === project.id ? -1 : undefined}><div><strong>{project.name}</strong><small>{new Date(project.updatedAt).toLocaleString('vi-VN')} · {getProjectLessonLabel(project.bundle.workspace.lesson)} · {project.revisions.length} bản cũ</small>{project.tags.length>0&&<div className="saved-project-tags" aria-label="Nhãn project">{project.tags.map(tag=><span key={tag}>{tag}</span>)}</div>}</div><div><button type="button" onClick={()=>openSavedProject(project)}>Mở</button><button type="button" onClick={()=>exportSavedProject(project)}>Xuất tệp</button><button type="button" onClick={()=>duplicateProject(project)}>Tạo project độc lập</button><button type="button" onClick={()=>editProjectTags(project)}>Nhãn</button><button type="button" onClick={()=>renameProject(project)}>Đổi tên</button><button type="button" className="saved-project-delete" onClick={()=>deleteSavedProject(project)}>Xóa</button></div>{project.revisions.length>0&&<details className="saved-project-history"><summary>Lịch sử snapshot · giữ tối đa 10 bản</summary>{project.revisions.map((revision,index)=><div key={revision.id}><span>{new Date(revision.updatedAt).toLocaleString('vi-VN')} · Bản {project.revisions.length-index}</span><button type="button" onClick={()=>openSavedProject(project,revision.id)}>Khôi phục bản này</button></div>)}</details>}</article>)}</div>}
         </>}
       </section>
       <div className="project-list">
