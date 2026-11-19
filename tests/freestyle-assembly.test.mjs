@@ -51,6 +51,7 @@ test('Mega shares source-backed GPIO and ADC anchors with its rendered assembly'
     seen.add(JSON.stringify(source))
   }
   const view = presentation.freestylePresentation(board.id, board.defaultPins)
-  assert.deepEqual(view.pinAnchors.seg0, [191.707, 1.595, 83.401])
-  assert.deepEqual(view.pinAnchors.seg6, [191.707, 1.595, 91.021])
+  // XIO0 header face is at 10.095 mm in this GLB; the pad projection is unchanged.
+  assert.deepEqual(view.pinAnchors.seg0, [191.707, 10.095, 83.401])
+  assert.deepEqual(view.pinAnchors.seg6, [191.707, 10.095, 91.021])
 })

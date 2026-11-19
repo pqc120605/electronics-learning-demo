@@ -1,6 +1,19 @@
 import type { BoardFeature, BoardModelManifest, BoardPin } from '../components/board/boardSceneTypes'
 import { arduinoBoardCadComponents } from './arduinoBoardCadComponents'
 import { getBoardAssetVersion } from './boardAssetVersions'
+import headerPins from './arduino-header-pins.json'
+
+type ArduinoHeaderPad = {
+  id: string
+  label: string
+  headerReference: string
+  padNumber: string
+  position: number
+  netName?: string
+  anchor: number[]
+}
+
+const padsByBoard: Record<string, ArduinoHeaderPad[]> = headerPins
 
 type Definition = {
   id: string; name: string; asset: string; version: string; mcu: string; mcuRef: string
@@ -53,23 +66,40 @@ function cadDetail(d: Definition, component: typeof arduinoBoardCadComponents[st
 export const arduinoBoardModels: BoardModelManifest[] = definitions.map((d) => {
   const cad = arduinoBoardCadComponents[d.id]
   const curated = new Map(d.componentRefs.map((ref) => [ref, curatedDetail(d,ref)]))
-  const features = cad.components.map((component) => {
+  const features: BoardFeature[] = cad.components.map((component) => {
     const base = curated.get(component.reference) ?? cadDetail(d, component)
     return { ...base, cadFootprint: { ...component }, placementEvidence: 'cad' as const, placementReason: 'Tọa độ, góc xoay và mặt lấy trực tiếp từ CAD. Lý do thiết kế riêng cho vị trí này chưa được xác minh.', roleEvidence: 'unverified' as const }
   })
   const hotspots = features.map((item) => ({id:`hotspot-${item.id}`,featureId:item.id,label:item.name,nodeNames:item.cadFootprint?.has3dBody ? [item.designator ?? ''] : []}))
-  const pins: BoardPin[] = d.pinNames.map((label,index) => {
+  const labelsById = new Map(d.pinNames.map((label, index) => [`pin-${index + 1}`, label]))
+  const pads = padsByBoard[d.id]
+  const pins: BoardPin[] = pads.map(pad => {
+    const label = labelsById.get(pad.id) ?? pad.label
+    const isExtraContact = !labelsById.has(pad.id)
     const isPower = ['5V','3V3','GND','VIN','RESET'].includes(label), analog = label.startsWith('A'), uart = label.includes('RX') || label.includes('TX') || label === 'D0' || label === 'D1'
     const isMega = d.id === 'arduino-mega-2560-r3'
     const functions = label.includes('PWM') ? ['Digital I/O','PWM'] : analog ? ['ADC analog input',...(!isMega && label.includes('A4')?['I²C SDA']:[]),...(!isMega && label.includes('A5')?['I²C SCL']:[])] : label.includes('SDA') ? ['Digital I/O','I²C SDA'] : label.includes('SCL') ? ['Digital I/O','I²C SCL'] : uart ? ['Digital I/O','UART',...(label.includes('/') ? [label.split('/')[1]] : [])] : !isPower ? ['Digital I/O'] : label === 'GND' ? ['Ground'] : ['Nguồn / điều khiển']
-    const group = analog ? 1 : isPower ? 2 : 0
-    const groupItems = d.pinNames.filter((p) => (p.startsWith('A') ? 1 : ['5V','3V3','GND','VIN','RESET'].includes(p) ? 2 : 0) === group)
-    const inGroup = groupItems.indexOf(label), half = Math.ceil(groupItems.length/2), row=Math.floor(inGroup/half), left=inGroup<half
-    const x=(left?-1:1)*(d.size[0]/2000-.003), z=((row/(Math.ceil(groupItems.length/2)-1||1))-.5)*Math.max(.01,d.size[1]/1000-.012)
-    return {id:`pin-${index+1}`,side:left?'left':'right',position:row+1,label,anchor:[x,.002,z],plainDescription:isPower?`${label} là chân nguồn, mass hoặc điều khiển; đối chiếu silkscreen trên board.`:`Chân ${label} đưa tín hiệu giữa MCU và mạch bên ngoài.`,technicalRole:functions.join(' · '),connection:isPower?'Đối chiếu pinout và schematic đúng revision trước khi nối.':'Dùng đúng số chân theo pinout board và cấu hình firmware.',safetyNote:`Mức logic tham chiếu ${d.logic}; không mặc định tương thích với module 3,3 V.`,functions}
+    const padRoles = isExtraContact && !isPower
+      ? label === 'NC' ? ['Không nối'] : label === 'IOREF' || label === 'AREF' ? ['Điện áp tham chiếu'] : ['Tiếp điểm theo CAD']
+      : functions
+    return {
+      ...pad, label, side: 'reference',
+      anchor: [pad.anchor[0], pad.anchor[1], pad.anchor[2]],
+      plainDescription: `Chân ${label}, pad ${pad.padNumber} của ${pad.headerReference} trên ${d.name}.`,
+      technicalRole: padRoles.join(' · '),
+      connection: pad.netName ? `Net ${pad.netName} trên PCB tham chiếu.` : 'Pad chưa nối net trong CAD.',
+      safetyNote: `Mức logic GPIO tham chiếu ${d.logic}. Đối chiếu pinout và revision trước khi đấu.`,
+      functions: padRoles,
+    }
   })
+  for (const feature of features) {
+    const headerPads = pads.filter(pad => pad.headerReference === feature.designator)
+    if (feature.cadFootprint && headerPads.length) feature.cadFootprint = {
+      ...feature.cadFootprint, pads: headerPads.map(pad => ({ number: pad.padNumber, net: pad.netName ?? null })),
+    }
+  }
   const assetVersion=getBoardAssetVersion(`/models/${d.asset}.glb`)
   const url=`/models/${d.asset}.glb?v=${assetVersion}`
   const signalFlows=[{id:'program',title:'Nạp chương trình',summary:'Dữ liệu từ máy tính đi qua USB và cầu nối nối tiếp tới MCU.',steps:['IDE biên dịch sketch','USB truyền dữ liệu qua IC giao tiếp','Bootloader nhận firmware','MCU chạy chương trình'],relatedPinIds:[],note:`Board này dùng ${d.usbBridge}; bootloader phụ thuộc phiên bản.`},{id:'power',title:'Đường cấp nguồn',summary:'Nguồn vào được bảo vệ/ổn áp rồi phân phối tới các khối.',steps:['Nguồn vào qua USB hoặc cổng được hỗ trợ','Mạch bảo vệ và ổn áp xử lý nguồn','Rail nguồn cấp MCU và ngoại vi'],relatedPinIds:[],note:'Đây là sơ đồ khối tham khảo, không mô phỏng điện.'}]
-  return {id:d.id,assetUrl:url,assetVersion,features,hotspots,pins,signalFlows,pinPicking:false,pinoutEvidence:{summary:`Pinout ${d.name} theo tài liệu Arduino; anchor minh họa chưa được xác nhận theo pad CAD hoặc board vật lý, chỉ chọn tên trong danh sách.`,sourceLabel:`Pinout chính thức ${d.name}`,sourceUrl:`https://docs.arduino.cc/resources/pinouts/${d.id === 'arduino-mega-2560-r3' ? 'A000067' : d.id === 'arduino-nano-classic' ? 'A000005' : 'A000066'}-full-pinout.pdf`},audit:{status:'cad-reference',revision:cad.revision,sourceRefs:cad.sourceRefs,unverifiedReferences:cad.unverifiedReferences,auditNotes:cad.auditNotes},scenes:[{id:'pcb',label:'PCB theo CAD',assetUrl:url,assetVersion,hotspots,note:`${d.name} · CAD ${cad.revision}. Danh sách gồm đủ ${cad.components.length} footprint CAD; ${cad.components.filter((component)=>component.has3dBody).length} có mesh 3D trong GLB. Footprint còn lại không được dựng thành vật thể giả. Vị trí theo CAD; chức năng và BOM của clone cần xác minh riêng.`}]}
+  return {id:d.id,assetUrl:url,assetVersion,features,hotspots,pins,signalFlows,pinPicking:true,pinoutEvidence:{summary:`Tọa độ chân ${d.name} lấy từ pad CAD Arduino. Đối chiếu tên và revision trước khi nối board thật.`,sourceLabel:`Pinout chính thức ${d.name}`,sourceUrl:`https://docs.arduino.cc/resources/pinouts/${d.id === 'arduino-mega-2560-r3' ? 'A000067' : d.id === 'arduino-nano-classic' ? 'A000005' : 'A000066'}-full-pinout.pdf`},audit:{status:'cad-reference',revision:cad.revision,sourceRefs:cad.sourceRefs,unverifiedReferences:cad.unverifiedReferences,auditNotes:cad.auditNotes},scenes:[{id:'pcb',label:'PCB theo CAD',assetUrl:url,assetVersion,hotspots,note:`${d.name} · CAD ${cad.revision}. Danh sách gồm đủ ${cad.components.length} footprint CAD; ${cad.components.filter((component)=>component.has3dBody).length} có mesh 3D trong GLB. Footprint còn lại không được dựng thành vật thể giả. Vị trí theo CAD; chức năng và BOM của clone cần xác minh riêng.`}]}
 })

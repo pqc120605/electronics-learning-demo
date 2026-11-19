@@ -1,0 +1,2320 @@
+{
+  "arduino-uno-r3": [
+    {
+      "id": "pin-15",
+      "label": "A0",
+      "headerReference": "AD0",
+      "padNumber": "1",
+      "netName": "AD0",
+      "position": 201,
+      "anchor": [
+        0.165011,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-16",
+      "label": "A1",
+      "headerReference": "AD0",
+      "padNumber": "2",
+      "netName": "AD1",
+      "position": 202,
+      "anchor": [
+        0.167551,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-17",
+      "label": "A2",
+      "headerReference": "AD0",
+      "padNumber": "3",
+      "netName": "AD2",
+      "position": 203,
+      "anchor": [
+        0.170091,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-18",
+      "label": "A3",
+      "headerReference": "AD0",
+      "padNumber": "4",
+      "netName": "AD3",
+      "position": 204,
+      "anchor": [
+        0.172631,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-19",
+      "label": "A4",
+      "headerReference": "AD0",
+      "padNumber": "5",
+      "netName": "AD4/SDA",
+      "position": 205,
+      "anchor": [
+        0.175171,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-20",
+      "label": "A5",
+      "headerReference": "AD0",
+      "padNumber": "6",
+      "netName": "AD5/SCL",
+      "position": 206,
+      "anchor": [
+        0.177711,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-ICSP0-1",
+      "label": "CIPO",
+      "headerReference": "ICSP0",
+      "padNumber": "1",
+      "netName": "MISO",
+      "position": 401,
+      "anchor": [
+        0.177838,
+        0.010135,
+        0.101194
+      ]
+    },
+    {
+      "id": "pin-ICSP0-2",
+      "label": "5V",
+      "headerReference": "ICSP0",
+      "padNumber": "2",
+      "netName": "+5V",
+      "position": 402,
+      "anchor": [
+        0.180378,
+        0.010135,
+        0.101194
+      ]
+    },
+    {
+      "id": "pin-ICSP0-3",
+      "label": "SCK",
+      "headerReference": "ICSP0",
+      "padNumber": "3",
+      "netName": "SCK",
+      "position": 403,
+      "anchor": [
+        0.177838,
+        0.010135,
+        0.103734
+      ]
+    },
+    {
+      "id": "pin-ICSP0-4",
+      "label": "COPI",
+      "headerReference": "ICSP0",
+      "padNumber": "4",
+      "netName": "MOSI",
+      "position": 404,
+      "anchor": [
+        0.180378,
+        0.010135,
+        0.103734
+      ]
+    },
+    {
+      "id": "pin-ICSP0-5",
+      "label": "RESET",
+      "headerReference": "ICSP0",
+      "padNumber": "5",
+      "netName": "RESET",
+      "position": 405,
+      "anchor": [
+        0.177838,
+        0.010135,
+        0.106274
+      ]
+    },
+    {
+      "id": "pin-ICSP0-6",
+      "label": "GND",
+      "headerReference": "ICSP0",
+      "padNumber": "6",
+      "netName": "GND",
+      "position": 406,
+      "anchor": [
+        0.180378,
+        0.010135,
+        0.106274
+      ]
+    },
+    {
+      "id": "pin-ICSP1-1",
+      "label": "CIPO",
+      "headerReference": "ICSP1",
+      "padNumber": "1",
+      "netName": "MISO2",
+      "position": 501,
+      "anchor": [
+        0.135039,
+        0.010135,
+        0.084176
+      ]
+    },
+    {
+      "id": "pin-ICSP1-2",
+      "label": "5V",
+      "headerReference": "ICSP1",
+      "padNumber": "2",
+      "netName": "+5V",
+      "position": 502,
+      "anchor": [
+        0.135039,
+        0.010135,
+        0.086716
+      ]
+    },
+    {
+      "id": "pin-ICSP1-3",
+      "label": "SCK",
+      "headerReference": "ICSP1",
+      "padNumber": "3",
+      "netName": "SCK2",
+      "position": 503,
+      "anchor": [
+        0.132499,
+        0.010135,
+        0.084176
+      ]
+    },
+    {
+      "id": "pin-ICSP1-4",
+      "label": "COPI",
+      "headerReference": "ICSP1",
+      "padNumber": "4",
+      "netName": "MOSI2",
+      "position": 504,
+      "anchor": [
+        0.132499,
+        0.010135,
+        0.086716
+      ]
+    },
+    {
+      "id": "pin-ICSP1-5",
+      "label": "RESET",
+      "headerReference": "ICSP1",
+      "padNumber": "5",
+      "netName": "RESET2",
+      "position": 505,
+      "anchor": [
+        0.129959,
+        0.010135,
+        0.084176
+      ]
+    },
+    {
+      "id": "pin-ICSP1-6",
+      "label": "GND",
+      "headerReference": "ICSP1",
+      "padNumber": "6",
+      "netName": "GND",
+      "position": 506,
+      "anchor": [
+        0.129959,
+        0.010135,
+        0.086716
+      ]
+    },
+    {
+      "id": "pin-9",
+      "label": "D8",
+      "headerReference": "IOH0",
+      "padNumber": "1",
+      "netName": "IO8",
+      "position": 101,
+      "anchor": [
+        0.155867,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-10",
+      "label": "D9",
+      "headerReference": "IOH0",
+      "padNumber": "2",
+      "netName": "IO9",
+      "position": 102,
+      "anchor": [
+        0.153327,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-11",
+      "label": "D10",
+      "headerReference": "IOH0",
+      "padNumber": "3",
+      "netName": "SS",
+      "position": 103,
+      "anchor": [
+        0.150787,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-12",
+      "label": "D11",
+      "headerReference": "IOH0",
+      "padNumber": "4",
+      "netName": "MOSI",
+      "position": 104,
+      "anchor": [
+        0.148247,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-13",
+      "label": "D12",
+      "headerReference": "IOH0",
+      "padNumber": "5",
+      "netName": "MISO",
+      "position": 105,
+      "anchor": [
+        0.145707,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-14",
+      "label": "D13",
+      "headerReference": "IOH0",
+      "padNumber": "6",
+      "netName": "SCK",
+      "position": 106,
+      "anchor": [
+        0.143167,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-23",
+      "label": "GND",
+      "headerReference": "IOH0",
+      "padNumber": "7",
+      "netName": "GND",
+      "position": 107,
+      "anchor": [
+        0.140627,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-IOH0-8",
+      "label": "AREF",
+      "headerReference": "IOH0",
+      "padNumber": "8",
+      "netName": "AREF",
+      "position": 108,
+      "anchor": [
+        0.138087,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-IOH0-9",
+      "label": "SDA",
+      "headerReference": "IOH0",
+      "padNumber": "9",
+      "netName": "AD4/SDA",
+      "position": 109,
+      "anchor": [
+        0.135547,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-IOH0-10",
+      "label": "SCL",
+      "headerReference": "IOH0",
+      "padNumber": "10",
+      "netName": "AD5/SCL",
+      "position": 110,
+      "anchor": [
+        0.133007,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-1",
+      "label": "D0",
+      "headerReference": "IOL0",
+      "padNumber": "1",
+      "netName": "IO0",
+      "position": 1,
+      "anchor": [
+        0.177711,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-2",
+      "label": "D1",
+      "headerReference": "IOL0",
+      "padNumber": "2",
+      "netName": "IO1",
+      "position": 2,
+      "anchor": [
+        0.175171,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-3",
+      "label": "D2",
+      "headerReference": "IOL0",
+      "padNumber": "3",
+      "netName": "IO2",
+      "position": 3,
+      "anchor": [
+        0.172631,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-4",
+      "label": "D3",
+      "headerReference": "IOL0",
+      "padNumber": "4",
+      "netName": "IO3",
+      "position": 4,
+      "anchor": [
+        0.170091,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-5",
+      "label": "D4",
+      "headerReference": "IOL0",
+      "padNumber": "5",
+      "netName": "IO4",
+      "position": 5,
+      "anchor": [
+        0.167551,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-6",
+      "label": "D5",
+      "headerReference": "IOL0",
+      "padNumber": "6",
+      "netName": "IO5",
+      "position": 6,
+      "anchor": [
+        0.165011,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-7",
+      "label": "D6",
+      "headerReference": "IOL0",
+      "padNumber": "7",
+      "netName": "IO6",
+      "position": 7,
+      "anchor": [
+        0.162471,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-8",
+      "label": "D7",
+      "headerReference": "IOL0",
+      "padNumber": "8",
+      "netName": "IO7",
+      "position": 8,
+      "anchor": [
+        0.159931,
+        0.010095,
+        0.080874
+      ]
+    },
+    {
+      "id": "pin-POWER0-1",
+      "label": "NC",
+      "headerReference": "POWER0",
+      "padNumber": "1",
+      "position": 301,
+      "anchor": [
+        0.142151,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-POWER0-2",
+      "label": "IOREF",
+      "headerReference": "POWER0",
+      "padNumber": "2",
+      "netName": "+5V",
+      "position": 302,
+      "anchor": [
+        0.144691,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-25",
+      "label": "RESET",
+      "headerReference": "POWER0",
+      "padNumber": "3",
+      "netName": "RESET",
+      "position": 303,
+      "anchor": [
+        0.147231,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-22",
+      "label": "3V3",
+      "headerReference": "POWER0",
+      "padNumber": "4",
+      "netName": "+3V3",
+      "position": 304,
+      "anchor": [
+        0.149771,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-21",
+      "label": "5V",
+      "headerReference": "POWER0",
+      "padNumber": "5",
+      "netName": "+5V",
+      "position": 305,
+      "anchor": [
+        0.152311,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-POWER0-6",
+      "label": "GND",
+      "headerReference": "POWER0",
+      "padNumber": "6",
+      "netName": "GND",
+      "position": 306,
+      "anchor": [
+        0.154851,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-POWER0-7",
+      "label": "GND",
+      "headerReference": "POWER0",
+      "padNumber": "7",
+      "netName": "GND",
+      "position": 307,
+      "anchor": [
+        0.157391,
+        0.010095,
+        0.129134
+      ]
+    },
+    {
+      "id": "pin-24",
+      "label": "VIN",
+      "headerReference": "POWER0",
+      "padNumber": "8",
+      "netName": "VIN",
+      "position": 308,
+      "anchor": [
+        0.159931,
+        0.010095,
+        0.129134
+      ]
+    }
+  ],
+  "arduino-nano-classic": [
+    {
+      "id": "pin-2",
+      "label": "D1",
+      "headerReference": "J1",
+      "padNumber": "1",
+      "netName": "D1/TX",
+      "position": 1,
+      "anchor": [
+        0.166281,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-1",
+      "label": "D0",
+      "headerReference": "J1",
+      "padNumber": "2",
+      "netName": "D0/RX",
+      "position": 2,
+      "anchor": [
+        0.163741,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-27",
+      "label": "RESET",
+      "headerReference": "J1",
+      "padNumber": "3",
+      "netName": "RESET",
+      "position": 3,
+      "anchor": [
+        0.161201,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-25",
+      "label": "GND",
+      "headerReference": "J1",
+      "padNumber": "4",
+      "netName": "COM",
+      "position": 4,
+      "anchor": [
+        0.158661,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-3",
+      "label": "D2",
+      "headerReference": "J1",
+      "padNumber": "5",
+      "netName": "D2",
+      "position": 5,
+      "anchor": [
+        0.156121,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-4",
+      "label": "D3",
+      "headerReference": "J1",
+      "padNumber": "6",
+      "netName": "D3",
+      "position": 6,
+      "anchor": [
+        0.153581,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-5",
+      "label": "D4",
+      "headerReference": "J1",
+      "padNumber": "7",
+      "netName": "D4",
+      "position": 7,
+      "anchor": [
+        0.151041,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-6",
+      "label": "D5",
+      "headerReference": "J1",
+      "padNumber": "8",
+      "netName": "D5",
+      "position": 8,
+      "anchor": [
+        0.148501,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-7",
+      "label": "D6",
+      "headerReference": "J1",
+      "padNumber": "9",
+      "netName": "D6",
+      "position": 9,
+      "anchor": [
+        0.145961,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-8",
+      "label": "D7",
+      "headerReference": "J1",
+      "padNumber": "10",
+      "netName": "D7",
+      "position": 10,
+      "anchor": [
+        0.143421,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-9",
+      "label": "D8",
+      "headerReference": "J1",
+      "padNumber": "11",
+      "netName": "D8",
+      "position": 11,
+      "anchor": [
+        0.140881,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-10",
+      "label": "D9",
+      "headerReference": "J1",
+      "padNumber": "12",
+      "netName": "D9",
+      "position": 12,
+      "anchor": [
+        0.138341,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-11",
+      "label": "D10",
+      "headerReference": "J1",
+      "padNumber": "13",
+      "netName": "D10",
+      "position": 13,
+      "anchor": [
+        0.135801,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-12",
+      "label": "D11",
+      "headerReference": "J1",
+      "padNumber": "14",
+      "netName": "D11/MOSI",
+      "position": 14,
+      "anchor": [
+        0.133261,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-13",
+      "label": "D12",
+      "headerReference": "J1",
+      "padNumber": "15",
+      "netName": "D12/MISO",
+      "position": 15,
+      "anchor": [
+        0.130721,
+        0.002995,
+        0.097384
+      ]
+    },
+    {
+      "id": "pin-26",
+      "label": "VIN",
+      "headerReference": "J2",
+      "padNumber": "1",
+      "netName": "VIN",
+      "position": 101,
+      "anchor": [
+        0.166281,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-J2-2",
+      "label": "GND",
+      "headerReference": "J2",
+      "padNumber": "2",
+      "netName": "COM",
+      "position": 102,
+      "anchor": [
+        0.163741,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-J2-3",
+      "label": "RESET",
+      "headerReference": "J2",
+      "padNumber": "3",
+      "netName": "RESET",
+      "position": 103,
+      "anchor": [
+        0.161201,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-23",
+      "label": "5V",
+      "headerReference": "J2",
+      "padNumber": "4",
+      "netName": "+5V",
+      "position": 104,
+      "anchor": [
+        0.158661,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-22",
+      "label": "A7",
+      "headerReference": "J2",
+      "padNumber": "5",
+      "netName": "A7",
+      "position": 105,
+      "anchor": [
+        0.156121,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-21",
+      "label": "A6",
+      "headerReference": "J2",
+      "padNumber": "6",
+      "netName": "A6",
+      "position": 106,
+      "anchor": [
+        0.153581,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-20",
+      "label": "A5",
+      "headerReference": "J2",
+      "padNumber": "7",
+      "netName": "A5",
+      "position": 107,
+      "anchor": [
+        0.151041,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-19",
+      "label": "A4",
+      "headerReference": "J2",
+      "padNumber": "8",
+      "netName": "A4",
+      "position": 108,
+      "anchor": [
+        0.148501,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-18",
+      "label": "A3",
+      "headerReference": "J2",
+      "padNumber": "9",
+      "netName": "A3",
+      "position": 109,
+      "anchor": [
+        0.145961,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-17",
+      "label": "A2",
+      "headerReference": "J2",
+      "padNumber": "10",
+      "netName": "A2",
+      "position": 110,
+      "anchor": [
+        0.143421,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-16",
+      "label": "A1",
+      "headerReference": "J2",
+      "padNumber": "11",
+      "netName": "A1",
+      "position": 111,
+      "anchor": [
+        0.140881,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-15",
+      "label": "A0",
+      "headerReference": "J2",
+      "padNumber": "12",
+      "netName": "A0",
+      "position": 112,
+      "anchor": [
+        0.138341,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-J2-13",
+      "label": "AREF",
+      "headerReference": "J2",
+      "padNumber": "13",
+      "netName": "AREF",
+      "position": 113,
+      "anchor": [
+        0.135801,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-24",
+      "label": "3V3",
+      "headerReference": "J2",
+      "padNumber": "14",
+      "netName": "3V3",
+      "position": 114,
+      "anchor": [
+        0.133261,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-14",
+      "label": "D13",
+      "headerReference": "J2",
+      "padNumber": "15",
+      "netName": "D13/SCK",
+      "position": 115,
+      "anchor": [
+        0.130721,
+        0.002995,
+        0.112624
+      ]
+    },
+    {
+      "id": "pin-J4-1",
+      "label": "CIPO",
+      "headerReference": "J4",
+      "padNumber": "1",
+      "netName": "D12/MISO",
+      "position": 201,
+      "anchor": [
+        0.168719,
+        0.001595,
+        0.107544
+      ]
+    },
+    {
+      "id": "pin-J4-2",
+      "label": "5V",
+      "headerReference": "J4",
+      "padNumber": "2",
+      "netName": "+5V",
+      "position": 202,
+      "anchor": [
+        0.166179,
+        0.001595,
+        0.107544
+      ]
+    },
+    {
+      "id": "pin-J4-3",
+      "label": "SCK",
+      "headerReference": "J4",
+      "padNumber": "3",
+      "netName": "D13/SCK",
+      "position": 203,
+      "anchor": [
+        0.168719,
+        0.001595,
+        0.105004
+      ]
+    },
+    {
+      "id": "pin-J4-4",
+      "label": "COPI",
+      "headerReference": "J4",
+      "padNumber": "4",
+      "netName": "D11/MOSI",
+      "position": 204,
+      "anchor": [
+        0.166179,
+        0.001595,
+        0.105004
+      ]
+    },
+    {
+      "id": "pin-J4-5",
+      "label": "RESET",
+      "headerReference": "J4",
+      "padNumber": "5",
+      "netName": "RESET",
+      "position": 205,
+      "anchor": [
+        0.168719,
+        0.001595,
+        0.102464
+      ]
+    },
+    {
+      "id": "pin-J4-6",
+      "label": "GND",
+      "headerReference": "J4",
+      "padNumber": "6",
+      "netName": "COM",
+      "position": 206,
+      "anchor": [
+        0.166179,
+        0.001595,
+        0.102464
+      ]
+    }
+  ],
+  "arduino-mega-2560-r3": [
+    {
+      "id": "pin-63",
+      "label": "A8",
+      "headerReference": "ADCH0",
+      "padNumber": "1",
+      "netName": "ADC8",
+      "position": 501,
+      "anchor": [
+        0.171387,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-64",
+      "label": "A9",
+      "headerReference": "ADCH0",
+      "padNumber": "2",
+      "netName": "ADC9",
+      "position": 502,
+      "anchor": [
+        0.173927,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-65",
+      "label": "A10",
+      "headerReference": "ADCH0",
+      "padNumber": "3",
+      "netName": "ADC10",
+      "position": 503,
+      "anchor": [
+        0.176467,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-66",
+      "label": "A11",
+      "headerReference": "ADCH0",
+      "padNumber": "4",
+      "netName": "ADC11",
+      "position": 504,
+      "anchor": [
+        0.179007,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-67",
+      "label": "A12",
+      "headerReference": "ADCH0",
+      "padNumber": "5",
+      "netName": "ADC12",
+      "position": 505,
+      "anchor": [
+        0.181547,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-68",
+      "label": "A13",
+      "headerReference": "ADCH0",
+      "padNumber": "6",
+      "netName": "ADC13",
+      "position": 506,
+      "anchor": [
+        0.184087,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-69",
+      "label": "A14",
+      "headerReference": "ADCH0",
+      "padNumber": "7",
+      "netName": "ADC14",
+      "position": 507,
+      "anchor": [
+        0.186627,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-70",
+      "label": "A15",
+      "headerReference": "ADCH0",
+      "padNumber": "8",
+      "netName": "ADC15",
+      "position": 508,
+      "anchor": [
+        0.189167,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-55",
+      "label": "A0",
+      "headerReference": "ADCL0",
+      "padNumber": "1",
+      "netName": "ADC0",
+      "position": 401,
+      "anchor": [
+        0.148527,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-56",
+      "label": "A1",
+      "headerReference": "ADCL0",
+      "padNumber": "2",
+      "netName": "ADC1",
+      "position": 402,
+      "anchor": [
+        0.151067,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-57",
+      "label": "A2",
+      "headerReference": "ADCL0",
+      "padNumber": "3",
+      "netName": "ADC2",
+      "position": 403,
+      "anchor": [
+        0.153607,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-58",
+      "label": "A3",
+      "headerReference": "ADCL0",
+      "padNumber": "4",
+      "netName": "ADC3",
+      "position": 404,
+      "anchor": [
+        0.156147,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-59",
+      "label": "A4",
+      "headerReference": "ADCL0",
+      "padNumber": "5",
+      "netName": "ADC4",
+      "position": 405,
+      "anchor": [
+        0.158687,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-60",
+      "label": "A5",
+      "headerReference": "ADCL0",
+      "padNumber": "6",
+      "netName": "ADC5",
+      "position": 406,
+      "anchor": [
+        0.161227,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-61",
+      "label": "A6",
+      "headerReference": "ADCL0",
+      "padNumber": "7",
+      "netName": "ADC6",
+      "position": 407,
+      "anchor": [
+        0.163767,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-62",
+      "label": "A7",
+      "headerReference": "ADCL0",
+      "padNumber": "8",
+      "netName": "ADC7",
+      "position": 408,
+      "anchor": [
+        0.166307,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-22",
+      "label": "D21",
+      "headerReference": "COMMUNICATION0",
+      "padNumber": "1",
+      "netName": "SCL",
+      "position": 201,
+      "anchor": [
+        0.184087,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-21",
+      "label": "D20",
+      "headerReference": "COMMUNICATION0",
+      "padNumber": "2",
+      "netName": "SDA",
+      "position": 202,
+      "anchor": [
+        0.181547,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-20",
+      "label": "D19",
+      "headerReference": "COMMUNICATION0",
+      "padNumber": "3",
+      "netName": "RXD1",
+      "position": 203,
+      "anchor": [
+        0.179007,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-19",
+      "label": "D18",
+      "headerReference": "COMMUNICATION0",
+      "padNumber": "4",
+      "netName": "TXD1",
+      "position": 204,
+      "anchor": [
+        0.176467,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-18",
+      "label": "D17",
+      "headerReference": "COMMUNICATION0",
+      "padNumber": "5",
+      "netName": "RXD2",
+      "position": 205,
+      "anchor": [
+        0.173927,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-17",
+      "label": "D16",
+      "headerReference": "COMMUNICATION0",
+      "padNumber": "6",
+      "netName": "TXD2",
+      "position": 206,
+      "anchor": [
+        0.171387,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-16",
+      "label": "D15",
+      "headerReference": "COMMUNICATION0",
+      "padNumber": "7",
+      "netName": "RXD3",
+      "position": 207,
+      "anchor": [
+        0.168847,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-15",
+      "label": "D14",
+      "headerReference": "COMMUNICATION0",
+      "padNumber": "8",
+      "netName": "TXD3",
+      "position": 208,
+      "anchor": [
+        0.166307,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-ICSP0-1",
+      "label": "CIPO",
+      "headerReference": "ICSP0",
+      "padNumber": "1",
+      "netName": "PB3",
+      "position": 701,
+      "anchor": [
+        0.161354,
+        0.010135,
+        0.101181
+      ]
+    },
+    {
+      "id": "pin-ICSP0-2",
+      "label": "5V",
+      "headerReference": "ICSP0",
+      "padNumber": "2",
+      "netName": "+5V",
+      "position": 702,
+      "anchor": [
+        0.163894,
+        0.010135,
+        0.101181
+      ]
+    },
+    {
+      "id": "pin-ICSP0-3",
+      "label": "SCK",
+      "headerReference": "ICSP0",
+      "padNumber": "3",
+      "netName": "PB1",
+      "position": 703,
+      "anchor": [
+        0.161354,
+        0.010135,
+        0.103721
+      ]
+    },
+    {
+      "id": "pin-ICSP0-4",
+      "label": "COPI",
+      "headerReference": "ICSP0",
+      "padNumber": "4",
+      "netName": "PB2",
+      "position": 704,
+      "anchor": [
+        0.163894,
+        0.010135,
+        0.103721
+      ]
+    },
+    {
+      "id": "pin-ICSP0-5",
+      "label": "RESET",
+      "headerReference": "ICSP0",
+      "padNumber": "5",
+      "netName": "RESET",
+      "position": 705,
+      "anchor": [
+        0.161354,
+        0.010135,
+        0.106261
+      ]
+    },
+    {
+      "id": "pin-ICSP0-6",
+      "label": "GND",
+      "headerReference": "ICSP0",
+      "padNumber": "6",
+      "netName": "GND",
+      "position": 706,
+      "anchor": [
+        0.163894,
+        0.010135,
+        0.106261
+      ]
+    },
+    {
+      "id": "pin-ICSP1-1",
+      "label": "CIPO",
+      "headerReference": "ICSP1",
+      "padNumber": "1",
+      "netName": "MISO2",
+      "position": 801,
+      "anchor": [
+        0.118555,
+        0.010135,
+        0.084163
+      ]
+    },
+    {
+      "id": "pin-ICSP1-2",
+      "label": "5V",
+      "headerReference": "ICSP1",
+      "padNumber": "2",
+      "netName": "+5V",
+      "position": 802,
+      "anchor": [
+        0.118555,
+        0.010135,
+        0.086703
+      ]
+    },
+    {
+      "id": "pin-ICSP1-3",
+      "label": "SCK",
+      "headerReference": "ICSP1",
+      "padNumber": "3",
+      "netName": "SCK2",
+      "position": 803,
+      "anchor": [
+        0.116015,
+        0.010135,
+        0.084163
+      ]
+    },
+    {
+      "id": "pin-ICSP1-4",
+      "label": "COPI",
+      "headerReference": "ICSP1",
+      "padNumber": "4",
+      "netName": "MOSI2",
+      "position": 804,
+      "anchor": [
+        0.116015,
+        0.010135,
+        0.086703
+      ]
+    },
+    {
+      "id": "pin-ICSP1-5",
+      "label": "RESET",
+      "headerReference": "ICSP1",
+      "padNumber": "5",
+      "netName": "RESET2",
+      "position": 805,
+      "anchor": [
+        0.113475,
+        0.010135,
+        0.084163
+      ]
+    },
+    {
+      "id": "pin-ICSP1-6",
+      "label": "GND",
+      "headerReference": "ICSP1",
+      "padNumber": "6",
+      "netName": "GND",
+      "position": 806,
+      "anchor": [
+        0.113475,
+        0.010135,
+        0.086703
+      ]
+    },
+    {
+      "id": "pin-JP6-1",
+      "label": "SCL",
+      "headerReference": "JP6",
+      "padNumber": "1",
+      "netName": "SCL",
+      "position": 101,
+      "anchor": [
+        0.116523,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-JP6-2",
+      "label": "SDA",
+      "headerReference": "JP6",
+      "padNumber": "2",
+      "netName": "SDA",
+      "position": 102,
+      "anchor": [
+        0.119063,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-JP6-3",
+      "label": "AREF",
+      "headerReference": "JP6",
+      "padNumber": "3",
+      "netName": "AREF",
+      "position": 103,
+      "anchor": [
+        0.121603,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-73",
+      "label": "GND",
+      "headerReference": "JP6",
+      "padNumber": "4",
+      "netName": "GND",
+      "position": 104,
+      "anchor": [
+        0.124143,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-14",
+      "label": "D13",
+      "headerReference": "JP6",
+      "padNumber": "5",
+      "netName": "PB7",
+      "position": 105,
+      "anchor": [
+        0.126683,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-13",
+      "label": "D12",
+      "headerReference": "JP6",
+      "padNumber": "6",
+      "netName": "PB6",
+      "position": 106,
+      "anchor": [
+        0.129223,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-12",
+      "label": "D11",
+      "headerReference": "JP6",
+      "padNumber": "7",
+      "netName": "PB5",
+      "position": 107,
+      "anchor": [
+        0.131763,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-11",
+      "label": "D10",
+      "headerReference": "JP6",
+      "padNumber": "8",
+      "netName": "PB4",
+      "position": 108,
+      "anchor": [
+        0.134303,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-10",
+      "label": "D9",
+      "headerReference": "JP6",
+      "padNumber": "9",
+      "netName": "PH6",
+      "position": 109,
+      "anchor": [
+        0.136843,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-9",
+      "label": "D8",
+      "headerReference": "JP6",
+      "padNumber": "10",
+      "netName": "PH5",
+      "position": 110,
+      "anchor": [
+        0.139383,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-POWER0-1",
+      "label": "NC",
+      "headerReference": "POWER0",
+      "padNumber": "1",
+      "position": 601,
+      "anchor": [
+        0.125667,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-POWER0-2",
+      "label": "IOREF",
+      "headerReference": "POWER0",
+      "padNumber": "2",
+      "netName": "+5V",
+      "position": 602,
+      "anchor": [
+        0.128207,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-75",
+      "label": "RESET",
+      "headerReference": "POWER0",
+      "padNumber": "3",
+      "netName": "RESET",
+      "position": 603,
+      "anchor": [
+        0.130747,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-72",
+      "label": "3V3",
+      "headerReference": "POWER0",
+      "padNumber": "4",
+      "netName": "+3V3",
+      "position": 604,
+      "anchor": [
+        0.133287,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-71",
+      "label": "5V",
+      "headerReference": "POWER0",
+      "padNumber": "5",
+      "netName": "+5V",
+      "position": 605,
+      "anchor": [
+        0.135827,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-POWER0-6",
+      "label": "GND",
+      "headerReference": "POWER0",
+      "padNumber": "6",
+      "netName": "GND",
+      "position": 606,
+      "anchor": [
+        0.138367,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-POWER0-7",
+      "label": "GND",
+      "headerReference": "POWER0",
+      "padNumber": "7",
+      "netName": "GND",
+      "position": 607,
+      "anchor": [
+        0.140907,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-74",
+      "label": "VIN",
+      "headerReference": "POWER0",
+      "padNumber": "8",
+      "netName": "VIN",
+      "position": 608,
+      "anchor": [
+        0.143447,
+        0.010095,
+        0.129121
+      ]
+    },
+    {
+      "id": "pin-1",
+      "label": "D0",
+      "headerReference": "PWML0",
+      "padNumber": "1",
+      "netName": "PE0",
+      "position": 1,
+      "anchor": [
+        0.161227,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-2",
+      "label": "D1",
+      "headerReference": "PWML0",
+      "padNumber": "2",
+      "netName": "PE1",
+      "position": 2,
+      "anchor": [
+        0.158687,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-3",
+      "label": "D2",
+      "headerReference": "PWML0",
+      "padNumber": "3",
+      "netName": "PE4",
+      "position": 3,
+      "anchor": [
+        0.156147,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-4",
+      "label": "D3",
+      "headerReference": "PWML0",
+      "padNumber": "4",
+      "netName": "PE5",
+      "position": 4,
+      "anchor": [
+        0.153607,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-5",
+      "label": "D4",
+      "headerReference": "PWML0",
+      "padNumber": "5",
+      "netName": "PG5",
+      "position": 5,
+      "anchor": [
+        0.151067,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-6",
+      "label": "D5",
+      "headerReference": "PWML0",
+      "padNumber": "6",
+      "netName": "PE3",
+      "position": 6,
+      "anchor": [
+        0.148527,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-7",
+      "label": "D6",
+      "headerReference": "PWML0",
+      "padNumber": "7",
+      "netName": "PH3",
+      "position": 7,
+      "anchor": [
+        0.145987,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-8",
+      "label": "D7",
+      "headerReference": "PWML0",
+      "padNumber": "8",
+      "netName": "PH4",
+      "position": 8,
+      "anchor": [
+        0.143447,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-XIO0-1",
+      "label": "5V",
+      "headerReference": "XIO0",
+      "padNumber": "1",
+      "netName": "+5V",
+      "position": 301,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-XIO0-2",
+      "label": "5V",
+      "headerReference": "XIO0",
+      "padNumber": "2",
+      "netName": "+5V",
+      "position": 302,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.080861
+      ]
+    },
+    {
+      "id": "pin-23",
+      "label": "D22",
+      "headerReference": "XIO0",
+      "padNumber": "3",
+      "netName": "PA0",
+      "position": 303,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.083401
+      ]
+    },
+    {
+      "id": "pin-24",
+      "label": "D23",
+      "headerReference": "XIO0",
+      "padNumber": "4",
+      "netName": "PA1",
+      "position": 304,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.083401
+      ]
+    },
+    {
+      "id": "pin-25",
+      "label": "D24",
+      "headerReference": "XIO0",
+      "padNumber": "5",
+      "netName": "PA2",
+      "position": 305,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.085941
+      ]
+    },
+    {
+      "id": "pin-26",
+      "label": "D25",
+      "headerReference": "XIO0",
+      "padNumber": "6",
+      "netName": "PA3",
+      "position": 306,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.085941
+      ]
+    },
+    {
+      "id": "pin-27",
+      "label": "D26",
+      "headerReference": "XIO0",
+      "padNumber": "7",
+      "netName": "PA4",
+      "position": 307,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.088481
+      ]
+    },
+    {
+      "id": "pin-28",
+      "label": "D27",
+      "headerReference": "XIO0",
+      "padNumber": "8",
+      "netName": "PA5",
+      "position": 308,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.088481
+      ]
+    },
+    {
+      "id": "pin-29",
+      "label": "D28",
+      "headerReference": "XIO0",
+      "padNumber": "9",
+      "netName": "PA6",
+      "position": 309,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.091021
+      ]
+    },
+    {
+      "id": "pin-30",
+      "label": "D29",
+      "headerReference": "XIO0",
+      "padNumber": "10",
+      "netName": "PA7",
+      "position": 310,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.091021
+      ]
+    },
+    {
+      "id": "pin-31",
+      "label": "D30",
+      "headerReference": "XIO0",
+      "padNumber": "11",
+      "netName": "PC7",
+      "position": 311,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.093561
+      ]
+    },
+    {
+      "id": "pin-32",
+      "label": "D31",
+      "headerReference": "XIO0",
+      "padNumber": "12",
+      "netName": "PC6",
+      "position": 312,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.093561
+      ]
+    },
+    {
+      "id": "pin-33",
+      "label": "D32",
+      "headerReference": "XIO0",
+      "padNumber": "13",
+      "netName": "PC5",
+      "position": 313,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.096101
+      ]
+    },
+    {
+      "id": "pin-34",
+      "label": "D33",
+      "headerReference": "XIO0",
+      "padNumber": "14",
+      "netName": "PC4",
+      "position": 314,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.096101
+      ]
+    },
+    {
+      "id": "pin-35",
+      "label": "D34",
+      "headerReference": "XIO0",
+      "padNumber": "15",
+      "netName": "PC3",
+      "position": 315,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.098641
+      ]
+    },
+    {
+      "id": "pin-36",
+      "label": "D35",
+      "headerReference": "XIO0",
+      "padNumber": "16",
+      "netName": "PC2",
+      "position": 316,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.098641
+      ]
+    },
+    {
+      "id": "pin-37",
+      "label": "D36",
+      "headerReference": "XIO0",
+      "padNumber": "17",
+      "netName": "PC1",
+      "position": 317,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.101181
+      ]
+    },
+    {
+      "id": "pin-38",
+      "label": "D37",
+      "headerReference": "XIO0",
+      "padNumber": "18",
+      "netName": "PC0",
+      "position": 318,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.101181
+      ]
+    },
+    {
+      "id": "pin-39",
+      "label": "D38",
+      "headerReference": "XIO0",
+      "padNumber": "19",
+      "netName": "PD7",
+      "position": 319,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.103721
+      ]
+    },
+    {
+      "id": "pin-40",
+      "label": "D39",
+      "headerReference": "XIO0",
+      "padNumber": "20",
+      "netName": "PG2",
+      "position": 320,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.103721
+      ]
+    },
+    {
+      "id": "pin-41",
+      "label": "D40",
+      "headerReference": "XIO0",
+      "padNumber": "21",
+      "netName": "PG1",
+      "position": 321,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.106261
+      ]
+    },
+    {
+      "id": "pin-42",
+      "label": "D41",
+      "headerReference": "XIO0",
+      "padNumber": "22",
+      "netName": "PG0",
+      "position": 322,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.106261
+      ]
+    },
+    {
+      "id": "pin-43",
+      "label": "D42",
+      "headerReference": "XIO0",
+      "padNumber": "23",
+      "netName": "PL7",
+      "position": 323,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.108801
+      ]
+    },
+    {
+      "id": "pin-44",
+      "label": "D43",
+      "headerReference": "XIO0",
+      "padNumber": "24",
+      "netName": "PL6",
+      "position": 324,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.108801
+      ]
+    },
+    {
+      "id": "pin-45",
+      "label": "D44",
+      "headerReference": "XIO0",
+      "padNumber": "25",
+      "netName": "PL5",
+      "position": 325,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.111341
+      ]
+    },
+    {
+      "id": "pin-46",
+      "label": "D45",
+      "headerReference": "XIO0",
+      "padNumber": "26",
+      "netName": "PL4",
+      "position": 326,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.111341
+      ]
+    },
+    {
+      "id": "pin-47",
+      "label": "D46",
+      "headerReference": "XIO0",
+      "padNumber": "27",
+      "netName": "PL3",
+      "position": 327,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.113881
+      ]
+    },
+    {
+      "id": "pin-48",
+      "label": "D47",
+      "headerReference": "XIO0",
+      "padNumber": "28",
+      "netName": "PL2",
+      "position": 328,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.113881
+      ]
+    },
+    {
+      "id": "pin-49",
+      "label": "D48",
+      "headerReference": "XIO0",
+      "padNumber": "29",
+      "netName": "PL1",
+      "position": 329,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.116421
+      ]
+    },
+    {
+      "id": "pin-50",
+      "label": "D49",
+      "headerReference": "XIO0",
+      "padNumber": "30",
+      "netName": "PL0",
+      "position": 330,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.116421
+      ]
+    },
+    {
+      "id": "pin-51",
+      "label": "D50",
+      "headerReference": "XIO0",
+      "padNumber": "31",
+      "netName": "PB3",
+      "position": 331,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.118961
+      ]
+    },
+    {
+      "id": "pin-52",
+      "label": "D51",
+      "headerReference": "XIO0",
+      "padNumber": "32",
+      "netName": "PB2",
+      "position": 332,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.118961
+      ]
+    },
+    {
+      "id": "pin-53",
+      "label": "D52",
+      "headerReference": "XIO0",
+      "padNumber": "33",
+      "netName": "PB1",
+      "position": 333,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.121501
+      ]
+    },
+    {
+      "id": "pin-54",
+      "label": "D53",
+      "headerReference": "XIO0",
+      "padNumber": "34",
+      "netName": "PB0",
+      "position": 334,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.121501
+      ]
+    },
+    {
+      "id": "pin-XIO0-35",
+      "label": "GND",
+      "headerReference": "XIO0",
+      "padNumber": "35",
+      "netName": "GND",
+      "position": 335,
+      "anchor": [
+        0.191707,
+        0.010095,
+        0.124041
+      ]
+    },
+    {
+      "id": "pin-XIO0-36",
+      "label": "GND",
+      "headerReference": "XIO0",
+      "padNumber": "36",
+      "netName": "GND",
+      "position": 336,
+      "anchor": [
+        0.194247,
+        0.010095,
+        0.124041
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3462 @@
+{
+  "boardId": "raspberry-pi-pico",
+  "source": {
+    "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+    "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+    "revision": "Raspberry Pi Pico R3a",
+    "license": "Raspberry Pi permissive design-file license"
+  },
+  "modelSha256": "aa1b6f4bb7b95187569451feb6f5d1f0ff4eb2b5ab42791d68a25c9e320f2671",
+  "modelOffsetMm": {
+    "x": 0,
+    "z": 0
+  },
+  "components": [
+    {
+      "ref": "C1",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 13.4,
+      "yMm": -42.6,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 2.9499999999999993,
+        "h": 1.4500000000000028,
+        "x": 13.4,
+        "y": -42.6
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "VSYS",
+          "electricalType": "unspecified",
+          "xMm": 14.3,
+          "yMm": -42.6,
+          "side": "front",
+          "net": "VSYS"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 12.5,
+          "yMm": -42.6,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 14.3,
+        "yMm": -42.6
+      }
+    },
+    {
+      "ref": "C10",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 10.5,
+      "yMm": -30.1,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 0.34999999999999964,
+        "h": 0.8000000000000007,
+        "x": 10.5,
+        "y": -30.1
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 10.5,
+          "yMm": -29.825,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 10.5,
+          "yMm": -30.375,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 10.5,
+        "yMm": -29.825
+      }
+    },
+    {
+      "ref": "C11",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 9.8,
+      "yMm": -30.1,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 0.34999999999999964,
+        "h": 0.8000000000000007,
+        "x": 9.8,
+        "y": -30.1
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "1V1",
+          "electricalType": "unspecified",
+          "xMm": 9.8,
+          "yMm": -29.825,
+          "side": "front",
+          "net": "1V1"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 9.8,
+          "yMm": -30.375,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 9.8,
+        "yMm": -29.825
+      }
+    },
+    {
+      "ref": "C12",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 12.7,
+      "yMm": -30.1,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 0.5299999999999994,
+        "h": 1.4899999999999984,
+        "x": 12.7,
+        "y": -30.1
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "1V1",
+          "electricalType": "unspecified",
+          "xMm": 12.7,
+          "yMm": -29.615,
+          "side": "front",
+          "net": "1V1"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 12.7,
+          "yMm": -30.585,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 12.7,
+        "yMm": -29.615
+      }
+    },
+    {
+      "ref": "C13",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 15.1,
+      "yMm": -30.1,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 0.5299999999999994,
+        "h": 1.4899999999999984,
+        "x": 15.100000000000001,
+        "y": -30.1
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "ADC_AVDD",
+          "electricalType": "unspecified",
+          "xMm": 15.1,
+          "yMm": -29.615,
+          "side": "front",
+          "net": "ADC_AVDD"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 15.1,
+          "yMm": -30.585,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 15.1,
+        "yMm": -29.615
+      }
+    },
+    {
+      "ref": "C14",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 13.6,
+      "yMm": -30.1,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 0.5299999999999994,
+        "h": 1.4899999999999984,
+        "x": 13.600000000000001,
+        "y": -30.1
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 13.6,
+          "yMm": -29.615,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 13.6,
+          "yMm": -30.585,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 13.6,
+        "yMm": -29.615
+      }
+    },
+    {
+      "ref": "C15",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 5.95,
+      "yMm": -34.35,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 0.34999999999999964,
+        "h": 0.7999999999999972,
+        "x": 5.95,
+        "y": -34.35
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 5.95,
+          "yMm": -34.075,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 5.95,
+          "yMm": -34.625,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 5.95,
+        "yMm": -34.075
+      }
+    },
+    {
+      "ref": "C16",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 5.9,
+      "yMm": -15.95,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 0.34999999999999964,
+        "h": 0.8000000000000007,
+        "x": 5.8999999999999995,
+        "y": -15.950000000000001
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XIN",
+          "electricalType": "unspecified",
+          "xMm": 5.9,
+          "yMm": -15.675,
+          "side": "front",
+          "net": "XIN"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 5.9,
+          "yMm": -16.225,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 5.9,
+        "yMm": -15.675
+      }
+    },
+    {
+      "ref": "C17",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 10.5,
+      "yMm": -16.95,
+      "rotationDeg": -90.0,
+      "bboxMm": {
+        "w": 0.34999999999999964,
+        "h": 0.8000000000000007,
+        "x": 10.5,
+        "y": -16.950000000000003
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XR",
+          "electricalType": "unspecified",
+          "xMm": 10.5,
+          "yMm": -17.225,
+          "side": "front",
+          "net": "XR"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 10.5,
+          "yMm": -16.675,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 10.5,
+        "yMm": -17.225
+      }
+    },
+    {
+      "ref": "C18",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 5.8,
+      "yMm": -28.55,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 1.4900000000000002,
+        "h": 0.5300000000000011,
+        "x": 5.8,
+        "y": -28.55
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 6.285,
+          "yMm": -28.55,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 5.315,
+          "yMm": -28.55,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 6.285,
+        "yMm": -28.55
+      }
+    },
+    {
+      "ref": "C2",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 13.4,
+      "yMm": -37.6,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 2.9499999999999993,
+        "h": 1.4500000000000028,
+        "x": 13.4,
+        "y": -37.6
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 14.3,
+          "yMm": -37.6,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 12.5,
+          "yMm": -37.6,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 14.3,
+        "yMm": -37.6
+      }
+    },
+    {
+      "ref": "C3",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 16.5,
+      "yMm": -34.9,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 0.3500000000000014,
+        "h": 0.7999999999999972,
+        "x": 16.5,
+        "y": -34.9
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "N1286133",
+          "electricalType": "unspecified",
+          "xMm": 16.5,
+          "yMm": -34.625,
+          "side": "front",
+          "net": "N1286133"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 16.5,
+          "yMm": -35.175,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 16.5,
+        "yMm": -34.625
+      }
+    },
+    {
+      "ref": "C4",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 6.0,
+      "yMm": -27.7,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 0.8000000000000007,
+        "h": 0.3500000000000014,
+        "x": 6.0,
+        "y": -27.7
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 6.275,
+          "yMm": -27.7,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 5.725,
+          "yMm": -27.7,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 6.275,
+        "yMm": -27.7
+      }
+    },
+    {
+      "ref": "C5",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 6.0,
+      "yMm": -24.0,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 0.8000000000000007,
+        "h": 0.3500000000000014,
+        "x": 6.0,
+        "y": -24.0
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 6.275,
+          "yMm": -24.0,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 5.725,
+          "yMm": -24.0,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 6.275,
+        "yMm": -24.0
+      }
+    },
+    {
+      "ref": "C6",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 15.1,
+      "yMm": -23.6,
+      "rotationDeg": -45.0,
+      "bboxMm": {
+        "w": 0.7717500000000008,
+        "h": 0.7717500000000008,
+        "x": 15.1,
+        "y": -23.6
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 14.905546,
+          "yMm": -23.794454,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 15.294454,
+          "yMm": -23.405546,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 14.905546,
+        "yMm": -23.794454
+      }
+    },
+    {
+      "ref": "C7",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 15.0,
+      "yMm": -27.9,
+      "rotationDeg": 0.0,
+      "bboxMm": {
+        "w": 0.8000000000000007,
+        "h": 0.3500000000000014,
+        "x": 15.0,
+        "y": -27.9
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 14.725,
+          "yMm": -27.9,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 15.275,
+          "yMm": -27.9,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 14.725,
+        "yMm": -27.9
+      }
+    },
+    {
+      "ref": "C8",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 10.5,
+      "yMm": -20.0,
+      "rotationDeg": -90.0,
+      "bboxMm": {
+        "w": 0.34999999999999964,
+        "h": 0.7999999999999972,
+        "x": 10.5,
+        "y": -20.0
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 10.5,
+          "yMm": -20.275,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 10.5,
+          "yMm": -19.725,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 10.5,
+        "yMm": -20.275
+      }
+    },
+    {
+      "ref": "C9",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 11.2,
+      "yMm": -20.0,
+      "rotationDeg": -90.0,
+      "bboxMm": {
+        "w": 0.34999999999999964,
+        "h": 0.7999999999999972,
+        "x": 11.2,
+        "y": -20.0
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "1V1",
+          "electricalType": "unspecified",
+          "xMm": 11.2,
+          "yMm": -20.275,
+          "side": "front",
+          "net": "1V1"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 11.2,
+          "yMm": -19.725,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 11.2,
+        "yMm": -20.275
+      }
+    },
+    {
+      "ref": "D1",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 16.5,
+      "yMm": -44.4,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 1.299999999999999,
+        "h": 4.25,
+        "x": 16.5,
+        "y": -44.4
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "VSYS",
+          "electricalType": "unspecified",
+          "xMm": 16.5,
+          "yMm": -42.85,
+          "side": "front",
+          "net": "VSYS"
+        },
+        {
+          "padNumber": "2",
+          "name": "VBUS",
+          "electricalType": "unspecified",
+          "xMm": 16.5,
+          "yMm": -45.95,
+          "side": "front",
+          "net": "VBUS"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 16.5,
+        "yMm": -42.85
+      }
+    },
+    {
+      "ref": "D2",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 4.8,
+      "yMm": -46.2,
+      "rotationDeg": 0.0,
+      "bboxMm": {
+        "w": 2.3499999999999996,
+        "h": 0.8999999999999986,
+        "x": 4.8,
+        "y": -46.2
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 4.05,
+          "yMm": -46.2,
+          "side": "front",
+          "net": "GND"
+        },
+        {
+          "padNumber": "2",
+          "name": "N1283798",
+          "electricalType": "unspecified",
+          "xMm": 5.55,
+          "yMm": -46.2,
+          "side": "front",
+          "net": "N1283798"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 4.05,
+        "yMm": -46.2
+      }
+    },
+    {
+      "ref": "J0",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 10.5,
+      "yMm": -25.5,
+      "rotationDeg": 0.0,
+      "bboxMm": {
+        "w": 22.58,
+        "h": 49.86,
+        "x": 10.5,
+        "y": -25.5
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GPIO0",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -49.63,
+          "side": "front",
+          "net": "GPIO0",
+          "pinId": "j0-1"
+        },
+        {
+          "padNumber": "2",
+          "name": "GPIO1",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -47.09,
+          "side": "front",
+          "net": "GPIO1",
+          "pinId": "j0-2"
+        },
+        {
+          "padNumber": "3",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -44.55,
+          "side": "front",
+          "net": "GND",
+          "pinId": "j0-3"
+        },
+        {
+          "padNumber": "4",
+          "name": "GPIO2",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -42.01,
+          "side": "front",
+          "net": "GPIO2",
+          "pinId": "j0-4"
+        },
+        {
+          "padNumber": "5",
+          "name": "GPIO3",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -39.47,
+          "side": "front",
+          "net": "GPIO3",
+          "pinId": "j0-5"
+        },
+        {
+          "padNumber": "6",
+          "name": "GPIO4",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -36.93,
+          "side": "front",
+          "net": "GPIO4",
+          "pinId": "j0-6"
+        },
+        {
+          "padNumber": "7",
+          "name": "GPIO5",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -34.39,
+          "side": "front",
+          "net": "GPIO5",
+          "pinId": "j0-7"
+        },
+        {
+          "padNumber": "8",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -31.85,
+          "side": "front",
+          "net": "GND",
+          "pinId": "j0-8"
+        },
+        {
+          "padNumber": "9",
+          "name": "GPIO6",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -29.31,
+          "side": "front",
+          "net": "GPIO6",
+          "pinId": "j0-9"
+        },
+        {
+          "padNumber": "10",
+          "name": "GPIO7",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -26.77,
+          "side": "front",
+          "net": "GPIO7",
+          "pinId": "j0-10"
+        },
+        {
+          "padNumber": "11",
+          "name": "GPIO8",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -24.23,
+          "side": "front",
+          "net": "GPIO8",
+          "pinId": "j0-11"
+        },
+        {
+          "padNumber": "12",
+          "name": "GPIO9",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -21.69,
+          "side": "front",
+          "net": "GPIO9",
+          "pinId": "j0-12"
+        },
+        {
+          "padNumber": "13",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -19.15,
+          "side": "front",
+          "net": "GND",
+          "pinId": "j0-13"
+        },
+        {
+          "padNumber": "14",
+          "name": "GPIO10",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -16.61,
+          "side": "front",
+          "net": "GPIO10",
+          "pinId": "j0-14"
+        },
+        {
+          "padNumber": "15",
+          "name": "GPIO11",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -14.07,
+          "side": "front",
+          "net": "GPIO11",
+          "pinId": "j0-15"
+        },
+        {
+          "padNumber": "16",
+          "name": "GPIO12",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -11.53,
+          "side": "front",
+          "net": "GPIO12",
+          "pinId": "j0-16"
+        },
+        {
+          "padNumber": "17",
+          "name": "GPIO13",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -8.99,
+          "side": "front",
+          "net": "GPIO13",
+          "pinId": "j0-17"
+        },
+        {
+          "padNumber": "18",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -6.45,
+          "side": "front",
+          "net": "GND",
+          "pinId": "j0-18"
+        },
+        {
+          "padNumber": "19",
+          "name": "GPIO14",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -3.91,
+          "side": "front",
+          "net": "GPIO14",
+          "pinId": "j0-19"
+        },
+        {
+          "padNumber": "20",
+          "name": "GPIO15",
+          "electricalType": "unspecified",
+          "xMm": 1.61,
+          "yMm": -1.37,
+          "side": "front",
+          "net": "GPIO15",
+          "pinId": "j0-20"
+        },
+        {
+          "padNumber": "21",
+          "name": "GPIO16",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -1.37,
+          "side": "front",
+          "net": "GPIO16",
+          "pinId": "j0-21"
+        },
+        {
+          "padNumber": "22",
+          "name": "GPIO17",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -3.91,
+          "side": "front",
+          "net": "GPIO17",
+          "pinId": "j0-22"
+        },
+        {
+          "padNumber": "23",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -6.45,
+          "side": "front",
+          "net": "GND",
+          "pinId": "j0-23"
+        },
+        {
+          "padNumber": "24",
+          "name": "GPIO18",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -8.99,
+          "side": "front",
+          "net": "GPIO18",
+          "pinId": "j0-24"
+        },
+        {
+          "padNumber": "25",
+          "name": "GPIO19",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -11.53,
+          "side": "front",
+          "net": "GPIO19",
+          "pinId": "j0-25"
+        },
+        {
+          "padNumber": "26",
+          "name": "GPIO20",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -14.07,
+          "side": "front",
+          "net": "GPIO20",
+          "pinId": "j0-26"
+        },
+        {
+          "padNumber": "27",
+          "name": "GPIO21",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -16.61,
+          "side": "front",
+          "net": "GPIO21",
+          "pinId": "j0-27"
+        },
+        {
+          "padNumber": "28",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -19.15,
+          "side": "front",
+          "net": "GND",
+          "pinId": "j0-28"
+        },
+        {
+          "padNumber": "29",
+          "name": "GPIO22",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -21.69,
+          "side": "front",
+          "net": "GPIO22",
+          "pinId": "j0-29"
+        },
+        {
+          "padNumber": "30",
+          "name": "RUN",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -24.23,
+          "side": "front",
+          "net": "RUN",
+          "pinId": "j0-30"
+        },
+        {
+          "padNumber": "31",
+          "name": "GPIO26_ADC0",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -26.77,
+          "side": "front",
+          "net": "GPIO26_ADC0",
+          "pinId": "j0-31"
+        },
+        {
+          "padNumber": "32",
+          "name": "GPIO27_ADC1",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -29.31,
+          "side": "front",
+          "net": "GPIO27_ADC1",
+          "pinId": "j0-32"
+        },
+        {
+          "padNumber": "33",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -31.85,
+          "side": "front",
+          "net": "GND",
+          "pinId": "j0-33"
+        },
+        {
+          "padNumber": "34",
+          "name": "GPIO28_ADC2",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -34.39,
+          "side": "front",
+          "net": "GPIO28_ADC2",
+          "pinId": "j0-34"
+        },
+        {
+          "padNumber": "35",
+          "name": "ADC_VREF",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -36.93,
+          "side": "front",
+          "net": "ADC_VREF",
+          "pinId": "j0-35"
+        },
+        {
+          "padNumber": "36",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -39.47,
+          "side": "front",
+          "net": "3V3",
+          "pinId": "j0-36"
+        },
+        {
+          "padNumber": "37",
+          "name": "3V3_EN",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -42.01,
+          "side": "front",
+          "net": "3V3_EN",
+          "pinId": "j0-37"
+        },
+        {
+          "padNumber": "38",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -44.55,
+          "side": "front",
+          "net": "GND",
+          "pinId": "j0-38"
+        },
+        {
+          "padNumber": "39",
+          "name": "VSYS",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -47.09,
+          "side": "front",
+          "net": "VSYS",
+          "pinId": "j0-39"
+        },
+        {
+          "padNumber": "40",
+          "name": "VBUS",
+          "electricalType": "unspecified",
+          "xMm": 19.39,
+          "yMm": -49.63,
+          "side": "front",
+          "net": "VBUS",
+          "pinId": "j0-40"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 1.61,
+        "yMm": -49.63
+      }
+    },
+    {
+      "ref": "J1",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 10.5,
+      "yMm": -49.5,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 7.800000000000001,
+        "h": 4.855000000000004,
+        "x": 10.5,
+        "y": -48.1725
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 11.46,
+          "yMm": -49.55,
+          "side": "front"
+        },
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 9.54,
+          "yMm": -49.55,
+          "side": "front"
+        },
+        {
+          "padNumber": "1",
+          "name": "VBUS",
+          "electricalType": "unspecified",
+          "xMm": 11.8,
+          "yMm": -46.675,
+          "side": "front",
+          "net": "VBUS"
+        },
+        {
+          "padNumber": "2",
+          "name": "USB_DM",
+          "electricalType": "unspecified",
+          "xMm": 11.15,
+          "yMm": -46.675,
+          "side": "front",
+          "net": "USB_DM"
+        },
+        {
+          "padNumber": "3",
+          "name": "USB_DP",
+          "electricalType": "unspecified",
+          "xMm": 10.5,
+          "yMm": -46.675,
+          "side": "front",
+          "net": "USB_DP"
+        },
+        {
+          "padNumber": "4",
+          "name": "Net_1",
+          "electricalType": "unspecified",
+          "xMm": 9.85,
+          "yMm": -46.675,
+          "side": "front",
+          "net": "Net_1"
+        },
+        {
+          "padNumber": "5",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 9.2,
+          "yMm": -46.675,
+          "side": "front",
+          "net": "GND"
+        },
+        {
+          "padNumber": "6",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 12.925,
+          "yMm": -46.47,
+          "side": "front",
+          "net": "GND"
+        },
+        {
+          "padNumber": "7",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 13.225,
+          "yMm": -49.5,
+          "side": "front",
+          "net": "GND"
+        },
+        {
+          "padNumber": "8",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 8.075,
+          "yMm": -46.47,
+          "side": "front",
+          "net": "GND"
+        },
+        {
+          "padNumber": "9",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 7.775,
+          "yMm": -49.5,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 11.8,
+        "yMm": -46.675
+      }
+    },
+    {
+      "ref": "J2",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 10.5,
+      "yMm": -1.6,
+      "rotationDeg": 0.0,
+      "bboxMm": {
+        "w": 6.68,
+        "h": 3.2,
+        "x": 10.5,
+        "y": -0.7999999999999998
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "SWCLK",
+          "electricalType": "unspecified",
+          "xMm": 7.96,
+          "yMm": -1.6,
+          "side": "front",
+          "net": "SWCLK"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 10.5,
+          "yMm": -1.6,
+          "side": "front",
+          "net": "GND"
+        },
+        {
+          "padNumber": "3",
+          "name": "SWDIO",
+          "electricalType": "unspecified",
+          "xMm": 13.04,
+          "yMm": -1.6,
+          "side": "front",
+          "net": "SWDIO"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 7.96,
+        "yMm": -1.6
+      }
+    },
+    {
+      "ref": "L1",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 16.5,
+      "yMm": -40.1,
+      "rotationDeg": -90.0,
+      "bboxMm": {
+        "w": 2.299999999999999,
+        "h": 2.8500000000000014,
+        "x": 16.5,
+        "y": -40.099999999999994
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "N1248345",
+          "electricalType": "unspecified",
+          "xMm": 16.5,
+          "yMm": -41.05,
+          "side": "front",
+          "net": "N1248345"
+        },
+        {
+          "padNumber": "2",
+          "name": "N1248352",
+          "electricalType": "unspecified",
+          "xMm": 16.5,
+          "yMm": -39.15,
+          "side": "front",
+          "net": "N1248352"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 16.5,
+        "yMm": -41.05
+      }
+    },
+    {
+      "ref": "Q1",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 16.9,
+      "yMm": -32.7,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 1.3500000000000014,
+        "h": 2.400000000000002,
+        "x": 16.900000000000002,
+        "y": -32.699999999999996
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 16.4,
+          "yMm": -31.9,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "GPIO29_ADC3",
+          "electricalType": "unspecified",
+          "xMm": 17.4,
+          "yMm": -31.9,
+          "side": "front",
+          "net": "GPIO29_ADC3"
+        },
+        {
+          "padNumber": "3",
+          "name": "N1286133",
+          "electricalType": "unspecified",
+          "xMm": 16.9,
+          "yMm": -33.5,
+          "side": "front",
+          "net": "N1286133"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 16.4,
+        "yMm": -31.9
+      }
+    },
+    {
+      "ref": "R1",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 16.6,
+      "yMm": -24.6,
+      "rotationDeg": 0.0,
+      "bboxMm": {
+        "w": 1.4899999999999984,
+        "h": 0.5300000000000011,
+        "x": 16.6,
+        "y": -24.599999999999998
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GPIO24",
+          "electricalType": "unspecified",
+          "xMm": 16.115,
+          "yMm": -24.6,
+          "side": "front",
+          "net": "GPIO24"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 17.085,
+          "yMm": -24.6,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 16.115,
+        "yMm": -24.6
+      }
+    },
+    {
+      "ref": "R10",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 16.6,
+      "yMm": -25.5,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 1.4899999999999984,
+        "h": 0.5300000000000011,
+        "x": 16.6,
+        "y": -25.5
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "VBUS",
+          "electricalType": "unspecified",
+          "xMm": 17.085,
+          "yMm": -25.5,
+          "side": "front",
+          "net": "VBUS"
+        },
+        {
+          "padNumber": "2",
+          "name": "GPIO24",
+          "electricalType": "unspecified",
+          "xMm": 16.115,
+          "yMm": -25.5,
+          "side": "front",
+          "net": "GPIO24"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 17.085,
+        "yMm": -25.5
+      }
+    },
+    {
+      "ref": "R11",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 5.0,
+      "yMm": -32.9,
+      "rotationDeg": -90.0,
+      "bboxMm": {
+        "w": 0.5300000000000002,
+        "h": 1.490000000000009,
+        "x": 5.0,
+        "y": -32.9
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "N1327876",
+          "electricalType": "unspecified",
+          "xMm": 5.0,
+          "yMm": -33.385,
+          "side": "front",
+          "net": "N1327876"
+        },
+        {
+          "padNumber": "2",
+          "name": "QSPI_SS",
+          "electricalType": "unspecified",
+          "xMm": 5.0,
+          "yMm": -32.415,
+          "side": "front",
+          "net": "QSPI_SS"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 5.0,
+        "yMm": -33.385
+      }
+    },
+    {
+      "ref": "R12",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 11.2,
+      "yMm": -30.1,
+      "rotationDeg": -90.0,
+      "bboxMm": {
+        "w": 0.34999999999999964,
+        "h": 0.8000000000000007,
+        "x": 11.2,
+        "y": -30.1
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "USB_DP",
+          "electricalType": "unspecified",
+          "xMm": 11.2,
+          "yMm": -30.375,
+          "side": "front",
+          "net": "USB_DP"
+        },
+        {
+          "padNumber": "2",
+          "name": "USB_DPX",
+          "electricalType": "unspecified",
+          "xMm": 11.2,
+          "yMm": -29.825,
+          "side": "front",
+          "net": "USB_DPX"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 11.2,
+        "yMm": -30.375
+      }
+    },
+    {
+      "ref": "R13",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 11.9,
+      "yMm": -30.1,
+      "rotationDeg": -90.0,
+      "bboxMm": {
+        "w": 0.34999999999999964,
+        "h": 0.8000000000000007,
+        "x": 11.899999999999999,
+        "y": -30.1
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "USB_DM",
+          "electricalType": "unspecified",
+          "xMm": 11.9,
+          "yMm": -30.375,
+          "side": "front",
+          "net": "USB_DM"
+        },
+        {
+          "padNumber": "2",
+          "name": "USB_DMX",
+          "electricalType": "unspecified",
+          "xMm": 11.9,
+          "yMm": -29.825,
+          "side": "front",
+          "net": "USB_DMX"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 11.9,
+        "yMm": -30.375
+      }
+    },
+    {
+      "ref": "R14",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 9.35,
+      "yMm": -18.4,
+      "rotationDeg": 0.0,
+      "bboxMm": {
+        "w": 1.4899999999999984,
+        "h": 0.5300000000000011,
+        "x": 9.35,
+        "y": -18.4
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XOUT",
+          "electricalType": "unspecified",
+          "xMm": 8.865,
+          "yMm": -18.4,
+          "side": "front",
+          "net": "XOUT"
+        },
+        {
+          "padNumber": "2",
+          "name": "XR",
+          "electricalType": "unspecified",
+          "xMm": 9.835,
+          "yMm": -18.4,
+          "side": "front",
+          "net": "XR"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 8.865,
+        "yMm": -18.4
+      }
+    },
+    {
+      "ref": "R15",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 8.7,
+      "yMm": -19.3,
+      "rotationDeg": 0.0,
+      "bboxMm": {
+        "w": 1.4900000000000002,
+        "h": 0.5300000000000011,
+        "x": 8.7,
+        "y": -19.3
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XIN",
+          "electricalType": "unspecified",
+          "xMm": 8.215,
+          "yMm": -19.3,
+          "side": "front",
+          "net": "XIN"
+        },
+        {
+          "padNumber": "2",
+          "name": "XOUT",
+          "electricalType": "unspecified",
+          "xMm": 9.185,
+          "yMm": -19.3,
+          "side": "front",
+          "net": "XOUT"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 8.215,
+        "yMm": -19.3
+      }
+    },
+    {
+      "ref": "R2",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 14.0,
+      "yMm": -44.1,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 1.4899999999999984,
+        "h": 0.5300000000000011,
+        "x": 14.0,
+        "y": -44.1
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "VSYS",
+          "electricalType": "unspecified",
+          "xMm": 14.485,
+          "yMm": -44.1,
+          "side": "front",
+          "net": "VSYS"
+        },
+        {
+          "padNumber": "2",
+          "name": "3V3_EN",
+          "electricalType": "unspecified",
+          "xMm": 13.515,
+          "yMm": -44.1,
+          "side": "front",
+          "net": "3V3_EN"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 14.485,
+        "yMm": -44.1
+      }
+    },
+    {
+      "ref": "R3",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 7.8,
+      "yMm": -43.3,
+      "rotationDeg": 0.0,
+      "bboxMm": {
+        "w": 1.4900000000000002,
+        "h": 0.5300000000000011,
+        "x": 7.8,
+        "y": -43.3
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GPIO25",
+          "electricalType": "unspecified",
+          "xMm": 7.315,
+          "yMm": -43.3,
+          "side": "front",
+          "net": "GPIO25"
+        },
+        {
+          "padNumber": "2",
+          "name": "N1283798",
+          "electricalType": "unspecified",
+          "xMm": 8.285,
+          "yMm": -43.3,
+          "side": "front",
+          "net": "N1283798"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 7.315,
+        "yMm": -43.3
+      }
+    },
+    {
+      "ref": "R4",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 5.0,
+      "yMm": -30.9,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 0.5300000000000002,
+        "h": 1.4899999999999984,
+        "x": 5.0,
+        "y": -30.9
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 5.0,
+          "yMm": -30.415,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "QSPI_SS",
+          "electricalType": "unspecified",
+          "xMm": 5.0,
+          "yMm": -31.385,
+          "side": "front",
+          "net": "QSPI_SS"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 5.0,
+        "yMm": -30.415
+      }
+    },
+    {
+      "ref": "R5",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 17.4,
+      "yMm": -35.1,
+      "rotationDeg": -90.0,
+      "bboxMm": {
+        "w": 0.5300000000000011,
+        "h": 1.490000000000002,
+        "x": 17.400000000000002,
+        "y": -35.099999999999994
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "VSYS",
+          "electricalType": "unspecified",
+          "xMm": 17.4,
+          "yMm": -35.585,
+          "side": "front",
+          "net": "VSYS"
+        },
+        {
+          "padNumber": "2",
+          "name": "N1286133",
+          "electricalType": "unspecified",
+          "xMm": 17.4,
+          "yMm": -34.615,
+          "side": "front",
+          "net": "N1286133"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 17.4,
+        "yMm": -35.585
+      }
+    },
+    {
+      "ref": "R6",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 16.9,
+      "yMm": -30.1,
+      "rotationDeg": -90.0,
+      "bboxMm": {
+        "w": 0.5300000000000011,
+        "h": 1.4899999999999984,
+        "x": 16.900000000000002,
+        "y": -30.1
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "N1286133",
+          "electricalType": "unspecified",
+          "xMm": 16.9,
+          "yMm": -30.585,
+          "side": "front",
+          "net": "N1286133"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 16.9,
+          "yMm": -29.615,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 16.9,
+        "yMm": -30.585
+      }
+    },
+    {
+      "ref": "R7",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 14.9,
+      "yMm": -34.6,
+      "rotationDeg": -90.0,
+      "bboxMm": {
+        "w": 0.9000000000000004,
+        "h": 2.450000000000003,
+        "x": 14.899999999999999,
+        "y": -34.6
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 14.9,
+          "yMm": -35.4,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "ADC_VREF",
+          "electricalType": "unspecified",
+          "xMm": 14.9,
+          "yMm": -33.8,
+          "side": "front",
+          "net": "ADC_VREF"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 14.9,
+        "yMm": -35.4
+      }
+    },
+    {
+      "ref": "R8",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 7.8,
+      "yMm": -44.3,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 1.4900000000000002,
+        "h": 0.5300000000000011,
+        "x": 7.8,
+        "y": -44.3
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GPIO23",
+          "electricalType": "unspecified",
+          "xMm": 8.285,
+          "yMm": -44.3,
+          "side": "front",
+          "net": "GPIO23"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 7.315,
+          "yMm": -44.3,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 8.285,
+        "yMm": -44.3
+      }
+    },
+    {
+      "ref": "R9",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 16.0,
+      "yMm": -30.1,
+      "rotationDeg": -90.0,
+      "bboxMm": {
+        "w": 0.5300000000000011,
+        "h": 1.4899999999999984,
+        "x": 16.0,
+        "y": -30.1
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "ADC_VREF",
+          "electricalType": "unspecified",
+          "xMm": 16.0,
+          "yMm": -30.585,
+          "side": "front",
+          "net": "ADC_VREF"
+        },
+        {
+          "padNumber": "2",
+          "name": "ADC_AVDD",
+          "electricalType": "unspecified",
+          "xMm": 16.0,
+          "yMm": -29.615,
+          "side": "front",
+          "net": "ADC_AVDD"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 16.0,
+        "yMm": -30.585
+      }
+    },
+    {
+      "ref": "SW1",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 7.0,
+      "yMm": -39.0,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 2.8000000000000007,
+        "h": 5.199999999999996,
+        "x": 7.0,
+        "y": -39.0
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "N1327876",
+          "electricalType": "unspecified",
+          "xMm": 5.925,
+          "yMm": -36.925,
+          "side": "front",
+          "net": "N1327876"
+        },
+        {
+          "padNumber": "2",
+          "name": "N1327876",
+          "electricalType": "unspecified",
+          "xMm": 5.925,
+          "yMm": -41.075,
+          "side": "front",
+          "net": "N1327876"
+        },
+        {
+          "padNumber": "3",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 8.075,
+          "yMm": -36.925,
+          "side": "front",
+          "net": "GND"
+        },
+        {
+          "padNumber": "4",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 8.075,
+          "yMm": -41.075,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 5.925,
+        "yMm": -36.925
+      }
+    },
+    {
+      "ref": "TP1",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "back",
+      "xMm": 10.5,
+      "yMm": -46.5,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 1.5,
+        "h": 1.5,
+        "x": 10.5,
+        "y": -46.5
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 10.5,
+          "yMm": -46.5,
+          "side": "back",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 10.5,
+        "yMm": -46.5
+      }
+    },
+    {
+      "ref": "TP2",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "back",
+      "xMm": 11.5,
+      "yMm": -49.8,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 1.5,
+        "h": 1.5,
+        "x": 11.5,
+        "y": -49.8
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "USB_DM",
+          "electricalType": "unspecified",
+          "xMm": 11.5,
+          "yMm": -49.8,
+          "side": "back",
+          "net": "USB_DM"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 11.5,
+        "yMm": -49.8
+      }
+    },
+    {
+      "ref": "TP3",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "back",
+      "xMm": 9.5,
+      "yMm": -49.8,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 1.5,
+        "h": 1.5,
+        "x": 9.5,
+        "y": -49.8
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "USB_DP",
+          "electricalType": "unspecified",
+          "xMm": 9.5,
+          "yMm": -49.8,
+          "side": "back",
+          "net": "USB_DP"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 9.5,
+        "yMm": -49.8
+      }
+    },
+    {
+      "ref": "TP4",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "back",
+      "xMm": 8.0,
+      "yMm": -43.0,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 1.5,
+        "h": 1.5,
+        "x": 8.0,
+        "y": -43.0
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GPIO23",
+          "electricalType": "unspecified",
+          "xMm": 8.0,
+          "yMm": -43.0,
+          "side": "back",
+          "net": "GPIO23"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 8.0,
+        "yMm": -43.0
+      }
+    },
+    {
+      "ref": "TP5",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "back",
+      "xMm": 8.0,
+      "yMm": -40.5,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 1.5,
+        "h": 1.5,
+        "x": 8.0,
+        "y": -40.5
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "N1283798",
+          "electricalType": "unspecified",
+          "xMm": 8.0,
+          "yMm": -40.5,
+          "side": "back",
+          "net": "N1283798"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 8.0,
+        "yMm": -40.5
+      }
+    },
+    {
+      "ref": "TP6",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "back",
+      "xMm": 8.0,
+      "yMm": -38.0,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 1.5,
+        "h": 1.5,
+        "x": 8.0,
+        "y": -38.0
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "N1327876",
+          "electricalType": "unspecified",
+          "xMm": 8.0,
+          "yMm": -38.0,
+          "side": "back",
+          "net": "N1327876"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 8.0,
+        "yMm": -38.0
+      }
+    },
+    {
+      "ref": "U1",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 10.5,
+      "yMm": -25.0,
+      "rotationDeg": 0.0,
+      "bboxMm": {
+        "w": 7.300000000000001,
+        "h": 7.300000000000001,
+        "x": 10.5,
+        "y": -25.0
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -27.6,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "GPIO0",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -27.2,
+          "side": "front",
+          "net": "GPIO0"
+        },
+        {
+          "padNumber": "3",
+          "name": "GPIO1",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -26.8,
+          "side": "front",
+          "net": "GPIO1"
+        },
+        {
+          "padNumber": "4",
+          "name": "GPIO2",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -26.4,
+          "side": "front",
+          "net": "GPIO2"
+        },
+        {
+          "padNumber": "5",
+          "name": "GPIO3",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -26.0,
+          "side": "front",
+          "net": "GPIO3"
+        },
+        {
+          "padNumber": "6",
+          "name": "GPIO4",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -25.6,
+          "side": "front",
+          "net": "GPIO4"
+        },
+        {
+          "padNumber": "7",
+          "name": "GPIO5",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -25.2,
+          "side": "front",
+          "net": "GPIO5"
+        },
+        {
+          "padNumber": "8",
+          "name": "GPIO6",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -24.8,
+          "side": "front",
+          "net": "GPIO6"
+        },
+        {
+          "padNumber": "9",
+          "name": "GPIO7",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -24.4,
+          "side": "front",
+          "net": "GPIO7"
+        },
+        {
+          "padNumber": "10",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -24.0,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "11",
+          "name": "GPIO8",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -23.6,
+          "side": "front",
+          "net": "GPIO8"
+        },
+        {
+          "padNumber": "12",
+          "name": "GPIO9",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -23.2,
+          "side": "front",
+          "net": "GPIO9"
+        },
+        {
+          "padNumber": "13",
+          "name": "GPIO10",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -22.8,
+          "side": "front",
+          "net": "GPIO10"
+        },
+        {
+          "padNumber": "14",
+          "name": "GPIO11",
+          "electricalType": "unspecified",
+          "xMm": 7.15,
+          "yMm": -22.4,
+          "side": "front",
+          "net": "GPIO11"
+        },
+        {
+          "padNumber": "15",
+          "name": "GPIO12",
+          "electricalType": "unspecified",
+          "xMm": 7.9,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "GPIO12"
+        },
+        {
+          "padNumber": "16",
+          "name": "GPIO13",
+          "electricalType": "unspecified",
+          "xMm": 8.3,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "GPIO13"
+        },
+        {
+          "padNumber": "17",
+          "name": "GPIO14",
+          "electricalType": "unspecified",
+          "xMm": 8.7,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "GPIO14"
+        },
+        {
+          "padNumber": "18",
+          "name": "GPIO15",
+          "electricalType": "unspecified",
+          "xMm": 9.1,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "GPIO15"
+        },
+        {
+          "padNumber": "19",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 9.5,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "GND"
+        },
+        {
+          "padNumber": "20",
+          "name": "XIN",
+          "electricalType": "unspecified",
+          "xMm": 9.9,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "XIN"
+        },
+        {
+          "padNumber": "21",
+          "name": "XOUT",
+          "electricalType": "unspecified",
+          "xMm": 10.3,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "XOUT"
+        },
+        {
+          "padNumber": "22",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 10.7,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "23",
+          "name": "1V1",
+          "electricalType": "unspecified",
+          "xMm": 11.1,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "1V1"
+        },
+        {
+          "padNumber": "24",
+          "name": "SWCLK",
+          "electricalType": "unspecified",
+          "xMm": 11.5,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "SWCLK"
+        },
+        {
+          "padNumber": "25",
+          "name": "SWDIO",
+          "electricalType": "unspecified",
+          "xMm": 11.9,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "SWDIO"
+        },
+        {
+          "padNumber": "26",
+          "name": "RUN",
+          "electricalType": "unspecified",
+          "xMm": 12.3,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "RUN"
+        },
+        {
+          "padNumber": "27",
+          "name": "GPIO16",
+          "electricalType": "unspecified",
+          "xMm": 12.7,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "GPIO16"
+        },
+        {
+          "padNumber": "28",
+          "name": "GPIO17",
+          "electricalType": "unspecified",
+          "xMm": 13.1,
+          "yMm": -21.65,
+          "side": "front",
+          "net": "GPIO17"
+        },
+        {
+          "padNumber": "29",
+          "name": "GPIO18",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -22.4,
+          "side": "front",
+          "net": "GPIO18"
+        },
+        {
+          "padNumber": "30",
+          "name": "GPIO19",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -22.8,
+          "side": "front",
+          "net": "GPIO19"
+        },
+        {
+          "padNumber": "31",
+          "name": "GPIO20",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -23.2,
+          "side": "front",
+          "net": "GPIO20"
+        },
+        {
+          "padNumber": "32",
+          "name": "GPIO21",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -23.6,
+          "side": "front",
+          "net": "GPIO21"
+        },
+        {
+          "padNumber": "33",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -24.0,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "34",
+          "name": "GPIO22",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -24.4,
+          "side": "front",
+          "net": "GPIO22"
+        },
+        {
+          "padNumber": "35",
+          "name": "GPIO23",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -24.8,
+          "side": "front",
+          "net": "GPIO23"
+        },
+        {
+          "padNumber": "36",
+          "name": "GPIO24",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -25.2,
+          "side": "front",
+          "net": "GPIO24"
+        },
+        {
+          "padNumber": "37",
+          "name": "GPIO25",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -25.6,
+          "side": "front",
+          "net": "GPIO25"
+        },
+        {
+          "padNumber": "38",
+          "name": "GPIO26_ADC0",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -26.0,
+          "side": "front",
+          "net": "GPIO26_ADC0"
+        },
+        {
+          "padNumber": "39",
+          "name": "GPIO27_ADC1",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -26.4,
+          "side": "front",
+          "net": "GPIO27_ADC1"
+        },
+        {
+          "padNumber": "40",
+          "name": "GPIO28_ADC2",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -26.8,
+          "side": "front",
+          "net": "GPIO28_ADC2"
+        },
+        {
+          "padNumber": "41",
+          "name": "GPIO29_ADC3",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -27.2,
+          "side": "front",
+          "net": "GPIO29_ADC3"
+        },
+        {
+          "padNumber": "42",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 13.85,
+          "yMm": -27.6,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "43",
+          "name": "ADC_AVDD",
+          "electricalType": "unspecified",
+          "xMm": 13.1,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "ADC_AVDD"
+        },
+        {
+          "padNumber": "44",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 12.7,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "45",
+          "name": "1V1",
+          "electricalType": "unspecified",
+          "xMm": 12.3,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "1V1"
+        },
+        {
+          "padNumber": "46",
+          "name": "USB_DMX",
+          "electricalType": "unspecified",
+          "xMm": 11.9,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "USB_DMX"
+        },
+        {
+          "padNumber": "47",
+          "name": "USB_DPX",
+          "electricalType": "unspecified",
+          "xMm": 11.5,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "USB_DPX"
+        },
+        {
+          "padNumber": "48",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 11.1,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "49",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 10.7,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "50",
+          "name": "1V1",
+          "electricalType": "unspecified",
+          "xMm": 10.3,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "1V1"
+        },
+        {
+          "padNumber": "51",
+          "name": "QSPI_SD3",
+          "electricalType": "unspecified",
+          "xMm": 9.9,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "QSPI_SD3"
+        },
+        {
+          "padNumber": "52",
+          "name": "QSPI_SCLK",
+          "electricalType": "unspecified",
+          "xMm": 9.5,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "QSPI_SCLK"
+        },
+        {
+          "padNumber": "53",
+          "name": "QSPI_SD0",
+          "electricalType": "unspecified",
+          "xMm": 9.1,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "QSPI_SD0"
+        },
+        {
+          "padNumber": "54",
+          "name": "QSPI_SD2",
+          "electricalType": "unspecified",
+          "xMm": 8.7,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "QSPI_SD2"
+        },
+        {
+          "padNumber": "55",
+          "name": "QSPI_SD1",
+          "electricalType": "unspecified",
+          "xMm": 8.3,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "QSPI_SD1"
+        },
+        {
+          "padNumber": "56",
+          "name": "QSPI_SS",
+          "electricalType": "unspecified",
+          "xMm": 7.9,
+          "yMm": -28.35,
+          "side": "front",
+          "net": "QSPI_SS"
+        },
+        {
+          "padNumber": "57",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 10.5,
+          "yMm": -25.0,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 7.15,
+        "yMm": -27.6
+      }
+    },
+    {
+      "ref": "U2",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 13.4,
+      "yMm": -40.1,
+      "rotationDeg": 180.0,
+      "bboxMm": {
+        "w": 2.9000000000000004,
+        "h": 2.299999999999997,
+        "x": 13.399999999999999,
+        "y": -40.1
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 14.55,
+          "yMm": -39.1,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "2",
+          "name": "N1248352",
+          "electricalType": "unspecified",
+          "xMm": 14.55,
+          "yMm": -39.6,
+          "side": "front",
+          "net": "N1248352"
+        },
+        {
+          "padNumber": "3",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 14.55,
+          "yMm": -40.1,
+          "side": "front",
+          "net": "GND"
+        },
+        {
+          "padNumber": "4",
+          "name": "N1248345",
+          "electricalType": "unspecified",
+          "xMm": 14.55,
+          "yMm": -40.6,
+          "side": "front",
+          "net": "N1248345"
+        },
+        {
+          "padNumber": "5",
+          "name": "VSYS",
+          "electricalType": "unspecified",
+          "xMm": 14.55,
+          "yMm": -41.1,
+          "side": "front",
+          "net": "VSYS"
+        },
+        {
+          "padNumber": "6",
+          "name": "3V3_EN",
+          "electricalType": "unspecified",
+          "xMm": 12.25,
+          "yMm": -41.1,
+          "side": "front",
+          "net": "3V3_EN"
+        },
+        {
+          "padNumber": "7",
+          "name": "GPIO23",
+          "electricalType": "unspecified",
+          "xMm": 12.25,
+          "yMm": -40.6,
+          "side": "front",
+          "net": "GPIO23"
+        },
+        {
+          "padNumber": "8",
+          "name": "VSYS",
+          "electricalType": "unspecified",
+          "xMm": 12.25,
+          "yMm": -40.1,
+          "side": "front",
+          "net": "VSYS"
+        },
+        {
+          "padNumber": "9",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 12.25,
+          "yMm": -39.6,
+          "side": "front",
+          "net": "GND"
+        },
+        {
+          "padNumber": "10",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 12.25,
+          "yMm": -39.1,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "11",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 13.4,
+          "yMm": -40.1,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 14.55,
+        "yMm": -39.1
+      }
+    },
+    {
+      "ref": "U3",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 6.7,
+      "yMm": -31.9,
+      "rotationDeg": 90.0,
+      "bboxMm": {
+        "w": 1.7999999999999998,
+        "h": 3.6999999999999993,
+        "x": 6.699999999999999,
+        "y": -31.9
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "QSPI_SS",
+          "electricalType": "unspecified",
+          "xMm": 5.95,
+          "yMm": -30.5,
+          "side": "front",
+          "net": "QSPI_SS"
+        },
+        {
+          "padNumber": "2",
+          "name": "QSPI_SD1",
+          "electricalType": "unspecified",
+          "xMm": 6.45,
+          "yMm": -30.5,
+          "side": "front",
+          "net": "QSPI_SD1"
+        },
+        {
+          "padNumber": "3",
+          "name": "QSPI_SD2",
+          "electricalType": "unspecified",
+          "xMm": 6.95,
+          "yMm": -30.5,
+          "side": "front",
+          "net": "QSPI_SD2"
+        },
+        {
+          "padNumber": "4",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 7.45,
+          "yMm": -30.5,
+          "side": "front",
+          "net": "GND"
+        },
+        {
+          "padNumber": "5",
+          "name": "QSPI_SD0",
+          "electricalType": "unspecified",
+          "xMm": 7.45,
+          "yMm": -33.3,
+          "side": "front",
+          "net": "QSPI_SD0"
+        },
+        {
+          "padNumber": "6",
+          "name": "QSPI_SCLK",
+          "electricalType": "unspecified",
+          "xMm": 6.95,
+          "yMm": -33.3,
+          "side": "front",
+          "net": "QSPI_SCLK"
+        },
+        {
+          "padNumber": "7",
+          "name": "QSPI_SD3",
+          "electricalType": "unspecified",
+          "xMm": 6.45,
+          "yMm": -33.3,
+          "side": "front",
+          "net": "QSPI_SD3"
+        },
+        {
+          "padNumber": "8",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "xMm": 5.95,
+          "yMm": -33.3,
+          "side": "front",
+          "net": "3V3"
+        },
+        {
+          "padNumber": "9",
+          "name": "Net_7",
+          "electricalType": "unspecified",
+          "xMm": 6.7,
+          "yMm": -31.9,
+          "side": "front",
+          "net": "Net_7"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 5.95,
+        "yMm": -30.5
+      }
+    },
+    {
+      "ref": "X1",
+      "value": "",
+      "description": "",
+      "footprint": "",
+      "side": "front",
+      "xMm": 8.2,
+      "yMm": -16.45,
+      "rotationDeg": 0.0,
+      "bboxMm": {
+        "w": 3.5999999999999996,
+        "h": 2.4999999999999982,
+        "x": 8.2,
+        "y": -16.45
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XIN",
+          "electricalType": "unspecified",
+          "xMm": 7.1,
+          "yMm": -15.65,
+          "side": "front",
+          "net": "XIN"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 9.3,
+          "yMm": -15.65,
+          "side": "front",
+          "net": "GND"
+        },
+        {
+          "padNumber": "3",
+          "name": "XR",
+          "electricalType": "unspecified",
+          "xMm": 9.3,
+          "yMm": -17.25,
+          "side": "front",
+          "net": "XR"
+        },
+        {
+          "padNumber": "4",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "xMm": 7.1,
+          "yMm": -17.25,
+          "side": "front",
+          "net": "GND"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd",
+        "revision": "Raspberry Pi Pico R3a",
+        "license": "Raspberry Pi permissive design-file license"
+      },
+      "pin1": {
+        "xMm": 7.1,
+        "yMm": -15.65
+      }
+    }
+  ]
+}

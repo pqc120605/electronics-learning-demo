@@ -20,12 +20,13 @@ test('catalog identity maps exact representations and rejects ceramic and unknow
  for(const [id,want] of [['arduino-nano-classic','arduino-nano'],['arduino-mega-2560-r3','arduino-mega-2560'],['stm32-nucleo','stm32-nucleo-f401re'],['arduino-uno-r3','arduino-uno-r3']]) assert.equal(board(id),want,id)
  assert.equal(part('not-a-part'),undefined);assert.equal(board('not-a-board'),undefined)
 })
-test('illustrative Arduino anchors never promise direct coordinate picking by default',()=>{
+test('Arduino model enables coordinate picking with a documented CAD pad for every listed pin',()=>{
  for(const m of models){
- assert.equal(m.pinPicking,false)
- const html=renderToStaticMarkup(createElement(explorer.BoardPinoutExplorer,{pins:m.pins,selectedPinId:m.pins[0].id,onSelectPin:()=>{}}))
- assert.doesNotMatch(html,/bấm vào đúng vị trí trên mô hình 3D/)
- assert.match(html,/Chọn tên chân trong danh sách/)
+ assert.equal(m.pinPicking,true)
+ assert.ok(m.pins.every(pin=>pin.anchor&&pin.headerReference&&pin.padNumber))
+ const html=renderToStaticMarkup(createElement(explorer.BoardPinoutExplorer,{pins:m.pins,selectedPinId:m.pins[0].id,onSelectPin:()=>{},coordinatePicking:m.pinPicking}))
+ assert.match(html,/bấm vào đúng vị trí trên mô hình 3D/)
+ assert.ok([...new Set(m.pins.map(pin=>pin.headerReference))].every(ref=>html.includes(`Chọn nhóm chân ${ref}`)))
  }
 })
 test('Mega functions expose exact PWM range, UART channels, ADC and documented source',()=>{
@@ -72,7 +73,8 @@ test('catalog launch links preserve catalog part identity and board aliases in r
    assert.ok(actions.includes('class="board-freestyle-link" href="/build/freestyle?board=' + builderId + '"'), catalogId)
  }
  const inspector=html.slice(html.indexOf('board-cad-details'),html.indexOf('board-cad-viewer-note'))
- assert.match(inspector,/Chọn tên chân trong danh sách/);assert.doesNotMatch(inspector,/bấm vào đúng vị trí trên mô hình 3D/)
+ assert.match(inspector,/bấm vào đúng vị trí trên mô hình 3D/)
+ assert.match(inspector,/Chọn nhóm chân POWER0/)
 })
 test('Arduino body flags reflect mesh-bearing nodes in the current GLB, never invented physical verification',()=>{
  for(const [id,d] of Object.entries(cad)){

@@ -1,0 +1,2303 @@
+{
+  "boardId": "esp32-devkit",
+  "source": {
+    "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+    "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+    "license": "MIT",
+    "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+  },
+  "modelSha256": "b3d0a6b0be0900f4ec6dc2e23ec2bd3a180ab78c359ade9a52b9604723c82f21",
+  "modelOffsetMm": {
+    "x": 126.6194,
+    "z": 91.4404
+  },
+  "maxHeaderCenterErrorMm": 0,
+  "components": [
+    {
+      "ref": "C1",
+      "value": "10uf",
+      "description": "",
+      "footprint": "C_0805_2012Metric_Pad1.18x1.45mm_HandSolder",
+      "side": "front",
+      "xMm": 28.2483,
+      "yMm": 13.7918,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 3.25,
+        "h": 1.45,
+        "x": 28.2483,
+        "y": 13.7918
+      },
+      "pin1": {
+        "xMm": 29.2858,
+        "yMm": 13.7918
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "Net-(D1-K)",
+          "electricalType": "unspecified",
+          "net": "Net-(D1-K)",
+          "xMm": 29.2858,
+          "yMm": 13.7918,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 27.2108,
+          "yMm": 13.7918,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "C2",
+      "value": "10uf",
+      "description": "",
+      "footprint": "C_0805_2012Metric_Pad1.18x1.45mm_HandSolder",
+      "side": "front",
+      "xMm": 28.1682,
+      "yMm": 23.8248,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 3.25,
+        "h": 1.45,
+        "x": 28.1682,
+        "y": 23.8248
+      },
+      "pin1": {
+        "xMm": 29.2057,
+        "yMm": 23.8248
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "/3.3v",
+          "electricalType": "unspecified",
+          "net": "/3.3v",
+          "xMm": 29.2057,
+          "yMm": 23.8248,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 27.1307,
+          "yMm": 23.8248,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "C3",
+      "value": "0.1uf",
+      "description": "",
+      "footprint": "C_0805_2012Metric_Pad1.18x1.45mm_HandSolder",
+      "side": "front",
+      "xMm": 23.4438,
+      "yMm": 23.7994,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 3.25,
+        "h": 1.45,
+        "x": 23.4438,
+        "y": 23.7994
+      },
+      "pin1": {
+        "xMm": 24.4813,
+        "yMm": 23.7994
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "/3.3v",
+          "electricalType": "unspecified",
+          "net": "/3.3v",
+          "xMm": 24.4813,
+          "yMm": 23.7994,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 22.4063,
+          "yMm": 23.7994,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "C4",
+      "value": "100nf",
+      "description": "",
+      "footprint": "C_0805_2012Metric_Pad1.18x1.45mm_HandSolder",
+      "side": "front",
+      "xMm": 39.1664,
+      "yMm": 7.4418,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.45,
+        "h": 3.25,
+        "x": 39.1664,
+        "y": 7.4418
+      },
+      "pin1": {
+        "xMm": 39.1664,
+        "yMm": 8.4793
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "Net-(J1-Shield)",
+          "electricalType": "unspecified",
+          "net": "Net-(J1-Shield)",
+          "xMm": 39.1664,
+          "yMm": 8.4793,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 39.1664,
+          "yMm": 6.4043,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "C5",
+      "value": "0.1uf",
+      "description": "",
+      "footprint": "C_0805_2012Metric_Pad1.18x1.45mm_HandSolder",
+      "side": "front",
+      "xMm": 42.9764,
+      "yMm": 27.1522,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.25,
+        "h": 1.45,
+        "x": 42.9764,
+        "y": 27.1522
+      },
+      "pin1": {
+        "xMm": 41.9389,
+        "yMm": 27.1522
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "/5v",
+          "electricalType": "unspecified",
+          "net": "/5v",
+          "xMm": 41.9389,
+          "yMm": 27.1522,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 44.0139,
+          "yMm": 27.1522,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "C6",
+      "value": "100nf",
+      "description": "",
+      "footprint": "C_0805_2012Metric_Pad1.18x1.45mm_HandSolder",
+      "side": "front",
+      "xMm": 23.3168,
+      "yMm": 5.867,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 3.25,
+        "h": 1.45,
+        "x": 23.3168,
+        "y": 5.867
+      },
+      "pin1": {
+        "xMm": 24.3543,
+        "yMm": 5.867
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "/DTR",
+          "electricalType": "unspecified",
+          "net": "/DTR",
+          "xMm": 24.3543,
+          "yMm": 5.867,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "/Boot",
+          "electricalType": "unspecified",
+          "net": "/Boot",
+          "xMm": 22.2793,
+          "yMm": 5.867,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "D1",
+      "value": "D_Schottky",
+      "description": "",
+      "footprint": "D_SOD-123",
+      "side": "front",
+      "xMm": 34.0356,
+      "yMm": 13.7156,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 4.2,
+        "h": 1.2,
+        "x": 34.0356,
+        "y": 13.7156
+      },
+      "pin1": {
+        "xMm": 32.3856,
+        "yMm": 13.7156
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "Net-(D1-K)",
+          "electricalType": "unspecified",
+          "net": "Net-(D1-K)",
+          "xMm": 32.3856,
+          "yMm": 13.7156,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "/5v",
+          "electricalType": "unspecified",
+          "net": "/5v",
+          "xMm": 35.6856,
+          "yMm": 13.7156,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "D2",
+      "value": "LED",
+      "description": "",
+      "footprint": "LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder",
+      "side": "front",
+      "xMm": 22.2754,
+      "yMm": 17.4748,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 1.4,
+        "h": 3.2,
+        "x": 22.2754,
+        "y": 17.4748
+      },
+      "pin1": {
+        "xMm": 22.2754,
+        "yMm": 16.4498
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 22.2754,
+          "yMm": 16.4498,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "Net-(D2-A)",
+          "electricalType": "unspecified",
+          "net": "Net-(D2-A)",
+          "xMm": 22.2754,
+          "yMm": 18.4998,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "G***",
+      "value": "LOGO",
+      "description": "",
+      "footprint": "Brij Logo",
+      "side": "back",
+      "xMm": 10.2619,
+      "yMm": 9.3023,
+      "rotationDeg": 180,
+      "bboxMm": null,
+      "pads": [],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "J1",
+      "value": "USB_B_Micro",
+      "description": "",
+      "footprint": "USB_Micro-B_Molex_47346-0001",
+      "side": "front",
+      "xMm": 42.9306,
+      "yMm": 14.9096,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 4.3,
+        "h": 8.4,
+        "x": 42.9306,
+        "y": 14.9096
+      },
+      "pin1": {
+        "xMm": 41.4706,
+        "yMm": 16.2096
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "/5v",
+          "electricalType": "unspecified",
+          "net": "/5v",
+          "xMm": 41.4706,
+          "yMm": 16.2096,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "Net-(J1-D-)",
+          "electricalType": "unspecified",
+          "net": "Net-(J1-D-)",
+          "xMm": 41.4706,
+          "yMm": 15.5596,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "Net-(J1-D+)",
+          "electricalType": "unspecified",
+          "net": "Net-(J1-D+)",
+          "xMm": 41.4706,
+          "yMm": 14.9096,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "unconnected-(J1-ID-Pad4)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(J1-ID-Pad4)",
+          "xMm": 41.4706,
+          "yMm": 14.2596,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 41.4706,
+          "yMm": 13.6096,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "Net-(J1-Shield)",
+          "electricalType": "unspecified",
+          "net": "Net-(J1-Shield)",
+          "xMm": 44.1306,
+          "yMm": 18.2846,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "Net-(J1-Shield)",
+          "electricalType": "unspecified",
+          "net": "Net-(J1-Shield)",
+          "xMm": 41.5556,
+          "yMm": 17.3971,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "Net-(J1-Shield)",
+          "electricalType": "unspecified",
+          "net": "Net-(J1-Shield)",
+          "xMm": 44.1306,
+          "yMm": 16.0596,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "Net-(J1-Shield)",
+          "electricalType": "unspecified",
+          "net": "Net-(J1-Shield)",
+          "xMm": 44.1306,
+          "yMm": 13.3596,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "Net-(J1-Shield)",
+          "electricalType": "unspecified",
+          "net": "Net-(J1-Shield)",
+          "xMm": 41.5556,
+          "yMm": 12.4221,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "Net-(J1-Shield)",
+          "electricalType": "unspecified",
+          "net": "Net-(J1-Shield)",
+          "xMm": 44.1306,
+          "yMm": 11.5346,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "J2",
+      "value": "Conn_01x15",
+      "description": "",
+      "footprint": "PinHeader_1x15_P2.54mm_Vertical",
+      "side": "back",
+      "xMm": 37.8914,
+      "yMm": 1.9046,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 37.26,
+        "h": 1.7,
+        "x": 20.1114,
+        "y": 1.9046
+      },
+      "pin1": {
+        "xMm": 37.8914,
+        "yMm": 1.9046
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "net": "/3.3v",
+          "xMm": 37.8914,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-1"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 35.3514,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-2"
+        },
+        {
+          "padNumber": "3",
+          "name": "D15",
+          "electricalType": "unspecified",
+          "net": "/D15",
+          "xMm": 32.8114,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-3"
+        },
+        {
+          "padNumber": "4",
+          "name": "D2",
+          "electricalType": "unspecified",
+          "net": "/D2",
+          "xMm": 30.2714,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-4"
+        },
+        {
+          "padNumber": "5",
+          "name": "D4",
+          "electricalType": "unspecified",
+          "net": "/D4",
+          "xMm": 27.7314,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-5"
+        },
+        {
+          "padNumber": "6",
+          "name": "RX2",
+          "electricalType": "unspecified",
+          "net": "/RX2",
+          "xMm": 25.1914,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-6"
+        },
+        {
+          "padNumber": "7",
+          "name": "TX2",
+          "electricalType": "unspecified",
+          "net": "/TX2",
+          "xMm": 22.6514,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-7"
+        },
+        {
+          "padNumber": "8",
+          "name": "D5",
+          "electricalType": "unspecified",
+          "net": "/D5",
+          "xMm": 20.1114,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-8"
+        },
+        {
+          "padNumber": "9",
+          "name": "D18",
+          "electricalType": "unspecified",
+          "net": "/D18",
+          "xMm": 17.5714,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-9"
+        },
+        {
+          "padNumber": "10",
+          "name": "D19",
+          "electricalType": "unspecified",
+          "net": "/D19",
+          "xMm": 15.0314,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-10"
+        },
+        {
+          "padNumber": "11",
+          "name": "D21",
+          "electricalType": "unspecified",
+          "net": "/D21",
+          "xMm": 12.4914,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-11"
+        },
+        {
+          "padNumber": "12",
+          "name": "RX0",
+          "electricalType": "unspecified",
+          "net": "/RX0",
+          "xMm": 9.9514,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-12"
+        },
+        {
+          "padNumber": "13",
+          "name": "TX0",
+          "electricalType": "unspecified",
+          "net": "/TX0",
+          "xMm": 7.4114,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-13"
+        },
+        {
+          "padNumber": "14",
+          "name": "D22",
+          "electricalType": "unspecified",
+          "net": "/D22",
+          "xMm": 4.8714,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-14"
+        },
+        {
+          "padNumber": "15",
+          "name": "D23",
+          "electricalType": "unspecified",
+          "net": "/D23",
+          "xMm": 2.3314,
+          "yMm": 1.9046,
+          "side": "back",
+          "pinId": "right-15"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "J3",
+      "value": "Conn_01x15",
+      "description": "",
+      "footprint": "PinHeader_1x15_P2.54mm_Vertical",
+      "side": "back",
+      "xMm": 37.7898,
+      "yMm": 27.4062,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 37.26,
+        "h": 1.7,
+        "x": 20.0098,
+        "y": 27.4062
+      },
+      "pin1": {
+        "xMm": 37.7898,
+        "yMm": 27.4062
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "5V",
+          "electricalType": "unspecified",
+          "net": "/5v",
+          "xMm": 37.7898,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-1"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 35.2498,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-2"
+        },
+        {
+          "padNumber": "3",
+          "name": "D13",
+          "electricalType": "unspecified",
+          "net": "/D13",
+          "xMm": 32.7098,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-3"
+        },
+        {
+          "padNumber": "4",
+          "name": "D12",
+          "electricalType": "unspecified",
+          "net": "/D12",
+          "xMm": 30.1698,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-4"
+        },
+        {
+          "padNumber": "5",
+          "name": "D14",
+          "electricalType": "unspecified",
+          "net": "/D14",
+          "xMm": 27.6298,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-5"
+        },
+        {
+          "padNumber": "6",
+          "name": "D27",
+          "electricalType": "unspecified",
+          "net": "/D27",
+          "xMm": 25.0898,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-6"
+        },
+        {
+          "padNumber": "7",
+          "name": "D26",
+          "electricalType": "unspecified",
+          "net": "/D26",
+          "xMm": 22.5498,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-7"
+        },
+        {
+          "padNumber": "8",
+          "name": "D25",
+          "electricalType": "unspecified",
+          "net": "/D25",
+          "xMm": 20.0098,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-8"
+        },
+        {
+          "padNumber": "9",
+          "name": "D33",
+          "electricalType": "unspecified",
+          "net": "/D33",
+          "xMm": 17.4698,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-9"
+        },
+        {
+          "padNumber": "10",
+          "name": "D32",
+          "electricalType": "unspecified",
+          "net": "/D32",
+          "xMm": 14.9298,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-10"
+        },
+        {
+          "padNumber": "11",
+          "name": "D35",
+          "electricalType": "unspecified",
+          "net": "/D35",
+          "xMm": 12.3898,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-11"
+        },
+        {
+          "padNumber": "12",
+          "name": "D34",
+          "electricalType": "unspecified",
+          "net": "/D34",
+          "xMm": 9.8498,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-12"
+        },
+        {
+          "padNumber": "13",
+          "name": "VN",
+          "electricalType": "unspecified",
+          "net": "/VN",
+          "xMm": 7.3098,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-13"
+        },
+        {
+          "padNumber": "14",
+          "name": "VP",
+          "electricalType": "unspecified",
+          "net": "/VP",
+          "xMm": 4.7698,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-14"
+        },
+        {
+          "padNumber": "15",
+          "name": "EN",
+          "electricalType": "unspecified",
+          "net": "/EN",
+          "xMm": 2.2298,
+          "yMm": 27.4062,
+          "side": "back",
+          "pinId": "left-15"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "Q1",
+      "value": "2N2222",
+      "description": "",
+      "footprint": "SOT-23",
+      "side": "front",
+      "xMm": 27.838,
+      "yMm": 10.0834,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 2.5,
+        "h": 3.35,
+        "x": 27.838,
+        "y": 10.0834
+      },
+      "pin1": {
+        "xMm": 28.788,
+        "yMm": 9.1459
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 28.788,
+          "yMm": 9.1459,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "Net-(Q1-B)",
+          "electricalType": "unspecified",
+          "net": "Net-(Q1-B)",
+          "xMm": 26.888,
+          "yMm": 9.1459,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "/Boot",
+          "electricalType": "unspecified",
+          "net": "/Boot",
+          "xMm": 27.838,
+          "yMm": 11.0209,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "Q2",
+      "value": "2N2222",
+      "description": "",
+      "footprint": "SOT-23",
+      "side": "front",
+      "xMm": 28.2049,
+      "yMm": 17.6526,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 2.5,
+        "h": 3.35,
+        "x": 28.2049,
+        "y": 17.6526
+      },
+      "pin1": {
+        "xMm": 27.2549,
+        "yMm": 18.5901
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 27.2549,
+          "yMm": 18.5901,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "Net-(Q2-B)",
+          "electricalType": "unspecified",
+          "net": "Net-(Q2-B)",
+          "xMm": 29.1549,
+          "yMm": 18.5901,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "/EN",
+          "electricalType": "unspecified",
+          "net": "/EN",
+          "xMm": 28.2049,
+          "yMm": 16.7151,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "R1",
+      "value": "330",
+      "description": "",
+      "footprint": "R_0805_2012Metric_Pad1.20x1.40mm_HandSolder",
+      "side": "front",
+      "xMm": 23.4438,
+      "yMm": 20.9546,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 1.4,
+        "x": 23.4438,
+        "y": 20.9546
+      },
+      "pin1": {
+        "xMm": 24.4438,
+        "yMm": 20.9546
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "/3.3v",
+          "electricalType": "unspecified",
+          "net": "/3.3v",
+          "xMm": 24.4438,
+          "yMm": 20.9546,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "Net-(D2-A)",
+          "electricalType": "unspecified",
+          "net": "Net-(D2-A)",
+          "xMm": 22.4438,
+          "yMm": 20.9546,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "R2",
+      "value": "10k",
+      "description": "",
+      "footprint": "R_0805_2012Metric_Pad1.20x1.40mm_HandSolder",
+      "side": "front",
+      "xMm": 23.266,
+      "yMm": 10.2866,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.4,
+        "h": 3.2,
+        "x": 23.266,
+        "y": 10.2866
+      },
+      "pin1": {
+        "xMm": 23.266,
+        "yMm": 11.2866
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "/3.3v",
+          "electricalType": "unspecified",
+          "net": "/3.3v",
+          "xMm": 23.266,
+          "yMm": 11.2866,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "/Boot",
+          "electricalType": "unspecified",
+          "net": "/Boot",
+          "xMm": 23.266,
+          "yMm": 9.2866,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "R3",
+      "value": "1M",
+      "description": "",
+      "footprint": "R_0805_2012Metric_Pad1.20x1.40mm_HandSolder",
+      "side": "front",
+      "xMm": 38.6584,
+      "yMm": 13.5886,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 1.4,
+        "h": 3.2,
+        "x": 38.6584,
+        "y": 13.5886
+      },
+      "pin1": {
+        "xMm": 38.6584,
+        "yMm": 12.5886
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "Net-(J1-Shield)",
+          "electricalType": "unspecified",
+          "net": "Net-(J1-Shield)",
+          "xMm": 38.6584,
+          "yMm": 12.5886,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 38.6584,
+          "yMm": 14.5886,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "R4",
+      "value": "1k",
+      "description": "",
+      "footprint": "R_0805_2012Metric_Pad1.20x1.40mm_HandSolder",
+      "side": "front",
+      "xMm": 28.2952,
+      "yMm": 5.867,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 1.4,
+        "x": 28.2952,
+        "y": 5.867
+      },
+      "pin1": {
+        "xMm": 29.2952,
+        "yMm": 5.867
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "/RTS",
+          "electricalType": "unspecified",
+          "net": "/RTS",
+          "xMm": 29.2952,
+          "yMm": 5.867,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "Net-(Q1-B)",
+          "electricalType": "unspecified",
+          "net": "Net-(Q1-B)",
+          "xMm": 27.2952,
+          "yMm": 5.867,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "R5",
+      "value": "10k",
+      "description": "",
+      "footprint": "R_0805_2012Metric_Pad1.20x1.40mm_HandSolder",
+      "side": "front",
+      "xMm": 28.2049,
+      "yMm": 21.1578,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 1.4,
+        "x": 28.2049,
+        "y": 21.1578
+      },
+      "pin1": {
+        "xMm": 29.2049,
+        "yMm": 21.1578
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "/3.3v",
+          "electricalType": "unspecified",
+          "net": "/3.3v",
+          "xMm": 29.2049,
+          "yMm": 21.1578,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "/EN",
+          "electricalType": "unspecified",
+          "net": "/EN",
+          "xMm": 27.2049,
+          "yMm": 21.1578,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "R6",
+      "value": "1k",
+      "description": "",
+      "footprint": "R_0805_2012Metric_Pad1.20x1.40mm_HandSolder",
+      "side": "front",
+      "xMm": 24.9424,
+      "yMm": 17.4748,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 1.4,
+        "h": 3.2,
+        "x": 24.9424,
+        "y": 17.4748
+      },
+      "pin1": {
+        "xMm": 24.9424,
+        "yMm": 16.4748
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "/DTR",
+          "electricalType": "unspecified",
+          "net": "/DTR",
+          "xMm": 24.9424,
+          "yMm": 16.4748,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "Net-(Q2-B)",
+          "electricalType": "unspecified",
+          "net": "Net-(Q2-B)",
+          "xMm": 24.9424,
+          "yMm": 18.4748,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "REF**",
+      "value": "KiCad-Logo2_5mm_SilkScreen",
+      "description": "",
+      "footprint": "KiCad-Logo2_5mm_SilkScreen",
+      "side": "back",
+      "xMm": 35.1786,
+      "yMm": 21.1578,
+      "rotationDeg": 180,
+      "bboxMm": null,
+      "pads": [],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "SW1",
+      "value": "SW_Push",
+      "description": "",
+      "footprint": "SW_SPST_B3U-1000P",
+      "side": "front",
+      "xMm": 43.5806,
+      "yMm": 6.9596,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 4.3,
+        "h": 1.7,
+        "x": 43.5806,
+        "y": 6.9596
+      },
+      "pin1": {
+        "xMm": 41.8806,
+        "yMm": 6.9596
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "/Boot",
+          "electricalType": "unspecified",
+          "net": "/Boot",
+          "xMm": 41.8806,
+          "yMm": 6.9596,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 45.2806,
+          "yMm": 6.9596,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "SW2",
+      "value": "SW_Push",
+      "description": "",
+      "footprint": "SW_SPST_B3U-1000P",
+      "side": "front",
+      "xMm": 43.5806,
+      "yMm": 22.8596,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 4.3,
+        "h": 1.7,
+        "x": 43.5806,
+        "y": 22.8596
+      },
+      "pin1": {
+        "xMm": 41.8806,
+        "yMm": 22.8596
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "/EN",
+          "electricalType": "unspecified",
+          "net": "/EN",
+          "xMm": 41.8806,
+          "yMm": 22.8596,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 45.2806,
+          "yMm": 22.8596,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "U1",
+      "value": "ESP32-WROOM-32",
+      "description": "",
+      "footprint": "ESP32-WROOM-32",
+      "side": "front",
+      "xMm": 9.9256,
+      "yMm": 14.6861,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 18.96,
+        "h": 19,
+        "x": 10.7056,
+        "y": 14.6861
+      },
+      "pin1": {
+        "xMm": 1.6756,
+        "yMm": 23.4361
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 1.6756,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "/3.3v",
+          "electricalType": "unspecified",
+          "net": "/3.3v",
+          "xMm": 2.9456,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "/EN",
+          "electricalType": "unspecified",
+          "net": "/EN",
+          "xMm": 4.2156,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "/VP",
+          "electricalType": "unspecified",
+          "net": "/VP",
+          "xMm": 5.4856,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "/VN",
+          "electricalType": "unspecified",
+          "net": "/VN",
+          "xMm": 6.7556,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "/D34",
+          "electricalType": "unspecified",
+          "net": "/D34",
+          "xMm": 8.0256,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "/D35",
+          "electricalType": "unspecified",
+          "net": "/D35",
+          "xMm": 9.2956,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "/D32",
+          "electricalType": "unspecified",
+          "net": "/D32",
+          "xMm": 10.5656,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "9",
+          "name": "/D33",
+          "electricalType": "unspecified",
+          "net": "/D33",
+          "xMm": 11.8356,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "10",
+          "name": "/D25",
+          "electricalType": "unspecified",
+          "net": "/D25",
+          "xMm": 13.1056,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "11",
+          "name": "/D26",
+          "electricalType": "unspecified",
+          "net": "/D26",
+          "xMm": 14.3756,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "12",
+          "name": "/D27",
+          "electricalType": "unspecified",
+          "net": "/D27",
+          "xMm": 15.6456,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "13",
+          "name": "/D14",
+          "electricalType": "unspecified",
+          "net": "/D14",
+          "xMm": 16.9156,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "14",
+          "name": "/D12",
+          "electricalType": "unspecified",
+          "net": "/D12",
+          "xMm": 18.1856,
+          "yMm": 23.4361,
+          "side": "front"
+        },
+        {
+          "padNumber": "15",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 19.4356,
+          "yMm": 20.3961,
+          "side": "front"
+        },
+        {
+          "padNumber": "16",
+          "name": "/D13",
+          "electricalType": "unspecified",
+          "net": "/D13",
+          "xMm": 19.4356,
+          "yMm": 19.1261,
+          "side": "front"
+        },
+        {
+          "padNumber": "17",
+          "name": "unconnected-(U1-SHD{slash}SD2-Pad17)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U1-SHD{slash}SD2-Pad17)",
+          "xMm": 19.4356,
+          "yMm": 17.8561,
+          "side": "front"
+        },
+        {
+          "padNumber": "18",
+          "name": "unconnected-(U1-SWP{slash}SD3-Pad18)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U1-SWP{slash}SD3-Pad18)",
+          "xMm": 19.4356,
+          "yMm": 16.5861,
+          "side": "front"
+        },
+        {
+          "padNumber": "19",
+          "name": "unconnected-(U1-SCS{slash}CMD-Pad19)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U1-SCS{slash}CMD-Pad19)",
+          "xMm": 19.4356,
+          "yMm": 15.3161,
+          "side": "front"
+        },
+        {
+          "padNumber": "20",
+          "name": "unconnected-(U1-SCK{slash}CLK-Pad20)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U1-SCK{slash}CLK-Pad20)",
+          "xMm": 19.4356,
+          "yMm": 14.0461,
+          "side": "front"
+        },
+        {
+          "padNumber": "21",
+          "name": "unconnected-(U1-SDO{slash}SD0-Pad21)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U1-SDO{slash}SD0-Pad21)",
+          "xMm": 19.4356,
+          "yMm": 12.7761,
+          "side": "front"
+        },
+        {
+          "padNumber": "22",
+          "name": "unconnected-(U1-SDI{slash}SD1-Pad22)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U1-SDI{slash}SD1-Pad22)",
+          "xMm": 19.4356,
+          "yMm": 11.5061,
+          "side": "front"
+        },
+        {
+          "padNumber": "23",
+          "name": "/D15",
+          "electricalType": "unspecified",
+          "net": "/D15",
+          "xMm": 19.4356,
+          "yMm": 10.2361,
+          "side": "front"
+        },
+        {
+          "padNumber": "24",
+          "name": "/D2",
+          "electricalType": "unspecified",
+          "net": "/D2",
+          "xMm": 19.4356,
+          "yMm": 8.9661,
+          "side": "front"
+        },
+        {
+          "padNumber": "25",
+          "name": "/Boot",
+          "electricalType": "unspecified",
+          "net": "/Boot",
+          "xMm": 18.1856,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "26",
+          "name": "/D4",
+          "electricalType": "unspecified",
+          "net": "/D4",
+          "xMm": 16.9156,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "27",
+          "name": "/RX2",
+          "electricalType": "unspecified",
+          "net": "/RX2",
+          "xMm": 15.6456,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "28",
+          "name": "/TX2",
+          "electricalType": "unspecified",
+          "net": "/TX2",
+          "xMm": 14.3756,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "29",
+          "name": "/D5",
+          "electricalType": "unspecified",
+          "net": "/D5",
+          "xMm": 13.1056,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "30",
+          "name": "/D18",
+          "electricalType": "unspecified",
+          "net": "/D18",
+          "xMm": 11.8356,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "31",
+          "name": "/D19",
+          "electricalType": "unspecified",
+          "net": "/D19",
+          "xMm": 10.5656,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "32",
+          "name": "unconnected-(U1-NC-Pad32)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U1-NC-Pad32)",
+          "xMm": 9.2956,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "33",
+          "name": "/D21",
+          "electricalType": "unspecified",
+          "net": "/D21",
+          "xMm": 8.0256,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "34",
+          "name": "/RX0",
+          "electricalType": "unspecified",
+          "net": "/RX0",
+          "xMm": 6.7556,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "35",
+          "name": "/TX0",
+          "electricalType": "unspecified",
+          "net": "/TX0",
+          "xMm": 5.4856,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "36",
+          "name": "/D22",
+          "electricalType": "unspecified",
+          "net": "/D22",
+          "xMm": 4.2156,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "37",
+          "name": "/D23",
+          "electricalType": "unspecified",
+          "net": "/D23",
+          "xMm": 2.9456,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "38",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 1.6756,
+          "yMm": 5.9361,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 7.4906,
+          "yMm": 16.8911,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 8.2531,
+          "yMm": 16.8911,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 9.0156,
+          "yMm": 16.8911,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 9.7781,
+          "yMm": 16.8911,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 10.5406,
+          "yMm": 16.8911,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 7.4906,
+          "yMm": 16.1286,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 9.0156,
+          "yMm": 16.1286,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 10.5406,
+          "yMm": 16.1286,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 7.4906,
+          "yMm": 15.3661,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 8.2531,
+          "yMm": 15.3661,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 9.0156,
+          "yMm": 15.3661,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 9.0156,
+          "yMm": 15.3661,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 9.7781,
+          "yMm": 15.3661,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 10.5406,
+          "yMm": 15.3661,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 7.4906,
+          "yMm": 14.6036,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 9.0156,
+          "yMm": 14.6036,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 10.5406,
+          "yMm": 14.6036,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 7.4906,
+          "yMm": 13.8411,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 8.2531,
+          "yMm": 13.8411,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 9.0156,
+          "yMm": 13.8411,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 9.7781,
+          "yMm": 13.8411,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 10.5406,
+          "yMm": 13.8411,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "U2",
+      "value": "AMS1117-3.3",
+      "description": "",
+      "footprint": "SOT-223-3_TabPin2",
+      "side": "front",
+      "xMm": 34.2521,
+      "yMm": 20.2688,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 6.1,
+        "h": 8.3,
+        "x": 34.2521,
+        "y": 20.2688
+      },
+      "pin1": {
+        "xMm": 36.5521,
+        "yMm": 17.1188
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 36.5521,
+          "yMm": 17.1188,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "/3.3v",
+          "electricalType": "unspecified",
+          "net": "/3.3v",
+          "xMm": 34.2521,
+          "yMm": 17.1188,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "/3.3v",
+          "electricalType": "unspecified",
+          "net": "/3.3v",
+          "xMm": 34.2521,
+          "yMm": 23.4188,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "Net-(D1-K)",
+          "electricalType": "unspecified",
+          "net": "Net-(D1-K)",
+          "xMm": 31.9521,
+          "yMm": 17.1188,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    },
+    {
+      "ref": "U3",
+      "value": "CP2102-GMR_NRND",
+      "description": "",
+      "footprint": "VFQFN-28-1EP_5x5mm",
+      "side": "front",
+      "xMm": 34.2388,
+      "yMm": 8.2546,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 6,
+        "h": 6,
+        "x": 34.2388,
+        "y": 8.2546
+      },
+      "pin1": {
+        "xMm": 32.7388,
+        "yMm": 10.7546
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "unconnected-(U3-DCD-Pad1)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-DCD-Pad1)",
+          "xMm": 32.7388,
+          "yMm": 10.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "unconnected-(U3-RI-Pad2)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-RI-Pad2)",
+          "xMm": 33.2388,
+          "yMm": 10.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 33.7388,
+          "yMm": 10.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "Net-(J1-D+)",
+          "electricalType": "unspecified",
+          "net": "Net-(J1-D+)",
+          "xMm": 34.2388,
+          "yMm": 10.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "Net-(J1-D-)",
+          "electricalType": "unspecified",
+          "net": "Net-(J1-D-)",
+          "xMm": 34.7388,
+          "yMm": 10.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "/5v",
+          "electricalType": "unspecified",
+          "net": "/5v",
+          "xMm": 35.2388,
+          "yMm": 10.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "unconnected-(U3-REGIN-Pad7)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-REGIN-Pad7)",
+          "xMm": 35.7388,
+          "yMm": 10.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "/5v",
+          "electricalType": "unspecified",
+          "net": "/5v",
+          "xMm": 36.7388,
+          "yMm": 9.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "9",
+          "name": "unconnected-(U3-RST-Pad9)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-RST-Pad9)",
+          "xMm": 36.7388,
+          "yMm": 9.2546,
+          "side": "front"
+        },
+        {
+          "padNumber": "10",
+          "name": "unconnected-(U3-NC-Pad10)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-NC-Pad10)",
+          "xMm": 36.7388,
+          "yMm": 8.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "11",
+          "name": "unconnected-(U3-~{SUSPEND}-Pad11)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-~{SUSPEND}-Pad11)",
+          "xMm": 36.7388,
+          "yMm": 8.2546,
+          "side": "front"
+        },
+        {
+          "padNumber": "12",
+          "name": "unconnected-(U3-SUSPEND-Pad12)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-SUSPEND-Pad12)",
+          "xMm": 36.7388,
+          "yMm": 7.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "13",
+          "name": "unconnected-(U3-NC-Pad13)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-NC-Pad13)",
+          "xMm": 36.7388,
+          "yMm": 7.2546,
+          "side": "front"
+        },
+        {
+          "padNumber": "14",
+          "name": "unconnected-(U3-NC-Pad14)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-NC-Pad14)",
+          "xMm": 36.7388,
+          "yMm": 6.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "15",
+          "name": "unconnected-(U3-NC-Pad15)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-NC-Pad15)",
+          "xMm": 35.7388,
+          "yMm": 5.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "16",
+          "name": "unconnected-(U3-NC-Pad16)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-NC-Pad16)",
+          "xMm": 35.2388,
+          "yMm": 5.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "17",
+          "name": "unconnected-(U3-NC-Pad17)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-NC-Pad17)",
+          "xMm": 34.7388,
+          "yMm": 5.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "18",
+          "name": "unconnected-(U3-NC-Pad18)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-NC-Pad18)",
+          "xMm": 34.2388,
+          "yMm": 5.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "19",
+          "name": "unconnected-(U3-NC-Pad19)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-NC-Pad19)",
+          "xMm": 33.7388,
+          "yMm": 5.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "20",
+          "name": "unconnected-(U3-NC-Pad20)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-NC-Pad20)",
+          "xMm": 33.2388,
+          "yMm": 5.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "21",
+          "name": "unconnected-(U3-NC-Pad21)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-NC-Pad21)",
+          "xMm": 32.7388,
+          "yMm": 5.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "22",
+          "name": "unconnected-(U3-NC-Pad22)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-NC-Pad22)",
+          "xMm": 31.7388,
+          "yMm": 6.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "23",
+          "name": "unconnected-(U3-CTS-Pad23)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-CTS-Pad23)",
+          "xMm": 31.7388,
+          "yMm": 7.2546,
+          "side": "front"
+        },
+        {
+          "padNumber": "24",
+          "name": "/RTS",
+          "electricalType": "unspecified",
+          "net": "/RTS",
+          "xMm": 31.7388,
+          "yMm": 7.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "25",
+          "name": "/TX0",
+          "electricalType": "unspecified",
+          "net": "/TX0",
+          "xMm": 31.7388,
+          "yMm": 8.2546,
+          "side": "front"
+        },
+        {
+          "padNumber": "26",
+          "name": "/RX0",
+          "electricalType": "unspecified",
+          "net": "/RX0",
+          "xMm": 31.7388,
+          "yMm": 8.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "27",
+          "name": "unconnected-(U3-DSR-Pad27)",
+          "electricalType": "unspecified",
+          "net": "unconnected-(U3-DSR-Pad27)",
+          "xMm": 31.7388,
+          "yMm": 9.2546,
+          "side": "front"
+        },
+        {
+          "padNumber": "28",
+          "name": "/DTR",
+          "electricalType": "unspecified",
+          "net": "/DTR",
+          "xMm": 31.7388,
+          "yMm": 9.7546,
+          "side": "front"
+        },
+        {
+          "padNumber": "29",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 34.2388,
+          "yMm": 8.2546,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/esp32-devkit-v1-30pin/esp32-devkit-v1-30pin.kicad_pcb",
+        "revision": "ESP32 Dev Kit Clone · Brij Modi reference design",
+        "license": "MIT",
+        "sha256": "2e83000844ac05297de6e5b4839d8e5c05f2b5d108fc9338b79ca86ffaecc0ec"
+      }
+    }
+  ]
+}

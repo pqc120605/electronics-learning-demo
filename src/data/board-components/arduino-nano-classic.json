@@ -1,0 +1,2624 @@
+{
+  "boardId": "arduino-nano-classic",
+  "source": {
+    "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+    "revision": "Arduino Nano classic · source CAD import (V3.3)",
+    "license": "CC BY-SA 4.0",
+    "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+  },
+  "modelSha256": "43c1f8047b7f83c3b955f91097fc42dc24d8f147a68f9e844bbb6da710beff55",
+  "modelOffsetMm": {
+    "x": 126.8861,
+    "z": 96.0886
+  },
+  "maxHeaderCenterErrorMm": 0,
+  "components": [
+    {
+      "ref": "C1",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "back",
+      "xMm": 7.06,
+      "yMm": 14.7824,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 7.06,
+        "y": 14.7824
+      },
+      "pin1": {
+        "xMm": 7.949,
+        "yMm": 14.7824
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "AREF",
+          "electricalType": "unspecified",
+          "net": "AREF",
+          "xMm": 7.949,
+          "yMm": 14.7824,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 6.171,
+          "yMm": 14.7824,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "C2",
+      "value": "4,7uF_16V",
+      "description": "",
+      "footprint": "TAN-A",
+      "side": "back",
+      "xMm": 2.565,
+      "yMm": 10.185,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.778,
+        "h": 3.9116,
+        "x": 2.565,
+        "y": 8.788
+      },
+      "pin1": {
+        "xMm": 2.565,
+        "yMm": 10.185
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "VUSB",
+          "electricalType": "unspecified",
+          "net": "VUSB",
+          "xMm": 2.565,
+          "yMm": 10.185,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 2.565,
+          "yMm": 7.391,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "C3",
+      "value": "1uF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "back",
+      "xMm": 19.8878,
+      "yMm": 11.6836,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 19.8878,
+        "y": 11.6836
+      },
+      "pin1": {
+        "xMm": 18.9988,
+        "yMm": 11.6836
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 18.9988,
+          "yMm": 11.6836,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 20.7768,
+          "yMm": 11.6836,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "C4",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "back",
+      "xMm": 16.8398,
+      "yMm": 11.7598,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 16.8398,
+        "y": 11.7598
+      },
+      "pin1": {
+        "xMm": 17.7288,
+        "yMm": 11.7598
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 17.7288,
+          "yMm": 11.7598,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "N$4",
+          "electricalType": "unspecified",
+          "net": "N$4",
+          "xMm": 15.9508,
+          "yMm": 11.7598,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "C5",
+      "value": "4,7uF_16V",
+      "description": "",
+      "footprint": "TAN-A",
+      "side": "back",
+      "xMm": 31.5464,
+      "yMm": 6.6544,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.9116,
+        "h": 1.778,
+        "x": 32.9434,
+        "y": 6.6544
+      },
+      "pin1": {
+        "xMm": 31.5464,
+        "yMm": 6.6544
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 31.5464,
+          "yMm": 6.6544,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 34.3404,
+          "yMm": 6.6544,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "C6",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "back",
+      "xMm": 4.597,
+      "yMm": 8.788,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 1.1,
+        "h": 2.6764,
+        "x": 4.597,
+        "y": 8.788
+      },
+      "pin1": {
+        "xMm": 4.597,
+        "yMm": 7.899
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 4.597,
+          "yMm": 7.899,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "net": "3V3",
+          "xMm": 4.597,
+          "yMm": 9.677,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "C7",
+      "value": "1uF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "back",
+      "xMm": 29.6668,
+      "yMm": 8.534,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 29.6668,
+        "y": 8.534
+      },
+      "pin1": {
+        "xMm": 30.5558,
+        "yMm": 8.534
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 30.5558,
+          "yMm": 8.534,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 28.7778,
+          "yMm": 8.534,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "C8",
+      "value": "1uF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "back",
+      "xMm": 28.6,
+      "yMm": 14.249,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 28.6,
+        "y": 14.249
+      },
+      "pin1": {
+        "xMm": 29.489,
+        "yMm": 14.249
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 29.489,
+          "yMm": 14.249,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 27.711,
+          "yMm": 14.249,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "C9",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "back",
+      "xMm": 31.3178,
+      "yMm": 3.962,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 31.3178,
+        "y": 3.962
+      },
+      "pin1": {
+        "xMm": 30.4288,
+        "yMm": 3.962
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "VUSB",
+          "electricalType": "unspecified",
+          "net": "VUSB",
+          "xMm": 30.4288,
+          "yMm": 3.962,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 32.2068,
+          "yMm": 3.962,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "D+0",
+      "value": "DNP",
+      "description": "",
+      "footprint": "TP-1.00MM",
+      "side": "front",
+      "xMm": 1.803,
+      "yMm": 5.994,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1,
+        "h": 1,
+        "x": 1.803,
+        "y": 5.994
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "N$5",
+          "electricalType": "unspecified",
+          "net": "N$5",
+          "xMm": 1.803,
+          "yMm": 5.994,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "D-0",
+      "value": "DNP",
+      "description": "",
+      "footprint": "TP-1.00MM",
+      "side": "front",
+      "xMm": 1.803,
+      "yMm": 3.454,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1,
+        "h": 1,
+        "x": 1.803,
+        "y": 3.454
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "N$6",
+          "electricalType": "unspecified",
+          "net": "N$6",
+          "xMm": 1.803,
+          "yMm": 3.454,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "D1",
+      "value": "SS1P3L",
+      "description": "",
+      "footprint": "DO220AAL",
+      "side": "back",
+      "xMm": 28.6,
+      "yMm": 5.486,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 2.54,
+        "h": 4.0645,
+        "x": 28.6,
+        "y": 5.48725
+      },
+      "pads": [
+        {
+          "padNumber": "P$1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 28.6,
+          "yMm": 6.186,
+          "side": "back"
+        },
+        {
+          "padNumber": "P$2",
+          "name": "VUSB",
+          "electricalType": "unspecified",
+          "net": "VUSB",
+          "xMm": 28.6,
+          "yMm": 3.836,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "F1",
+      "value": "MFFSMF050",
+      "description": "",
+      "footprint": "0603-1608X90N",
+      "side": "back",
+      "xMm": 2.1078,
+      "yMm": 13.3092,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.55,
+        "h": 1,
+        "x": 2.1078,
+        "y": 13.3092
+      },
+      "pin1": {
+        "xMm": 1.3078,
+        "yMm": 13.3092
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "VUSB",
+          "electricalType": "unspecified",
+          "net": "VUSB",
+          "xMm": 1.3078,
+          "yMm": 13.3092,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "N$26",
+          "electricalType": "unspecified",
+          "net": "N$26",
+          "xMm": 2.9078,
+          "yMm": 13.3092,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "FRAME1",
+      "value": "DNP",
+      "description": "",
+      "footprint": "FRAME",
+      "side": "front",
+      "xMm": 0.025,
+      "yMm": 17.805,
+      "rotationDeg": 0,
+      "bboxMm": null,
+      "pads": [],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "IC1",
+      "value": "FT232RL",
+      "description": "",
+      "footprint": "SSOP28",
+      "side": "back",
+      "xMm": 14.63,
+      "yMm": 12.4964,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 8.8311,
+        "h": 9.144,
+        "x": 10.40495,
+        "y": 8.9404
+      },
+      "pin1": {
+        "xMm": 14.63,
+        "yMm": 12.4964
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "RX",
+          "electricalType": "unspecified",
+          "net": "RX",
+          "xMm": 14.63,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "N$4",
+          "electricalType": "unspecified",
+          "net": "N$4",
+          "xMm": 13.9798,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "3",
+          "name": "3",
+          "electricalType": "unspecified",
+          "xMm": 13.33,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "4",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 12.68,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "5",
+          "name": "TX",
+          "electricalType": "unspecified",
+          "net": "TX",
+          "xMm": 12.0298,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "6",
+          "name": "6",
+          "electricalType": "unspecified",
+          "xMm": 11.3801,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "7",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 10.7303,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "8",
+          "name": "8",
+          "electricalType": "unspecified",
+          "xMm": 10.0801,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "9",
+          "name": "9",
+          "electricalType": "unspecified",
+          "xMm": 9.4301,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "10",
+          "name": "10",
+          "electricalType": "unspecified",
+          "xMm": 8.7799,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "11",
+          "name": "11",
+          "electricalType": "unspecified",
+          "xMm": 8.1296,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "12",
+          "name": "12",
+          "electricalType": "unspecified",
+          "xMm": 7.4799,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "13",
+          "name": "13",
+          "electricalType": "unspecified",
+          "xMm": 6.8302,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "14",
+          "name": "14",
+          "electricalType": "unspecified",
+          "xMm": 6.1799,
+          "yMm": 12.4964,
+          "side": "back"
+        },
+        {
+          "padNumber": "15",
+          "name": "N$5",
+          "electricalType": "unspecified",
+          "net": "N$5",
+          "xMm": 6.1799,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "16",
+          "name": "N$6",
+          "electricalType": "unspecified",
+          "net": "N$6",
+          "xMm": 6.8302,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "17",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "net": "3V3",
+          "xMm": 7.4799,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "18",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 8.1296,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "19",
+          "name": "19",
+          "electricalType": "unspecified",
+          "xMm": 8.7799,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "20",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 9.4301,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "21",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 10.0801,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "22",
+          "name": "N$9",
+          "electricalType": "unspecified",
+          "net": "N$9",
+          "xMm": 10.7303,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "23",
+          "name": "N$8",
+          "electricalType": "unspecified",
+          "net": "N$8",
+          "xMm": 11.3801,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "24",
+          "name": "24",
+          "electricalType": "unspecified",
+          "xMm": 12.0298,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "25",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 12.68,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "26",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 13.33,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "27",
+          "name": "27",
+          "electricalType": "unspecified",
+          "xMm": 13.9803,
+          "yMm": 5.3844,
+          "side": "back"
+        },
+        {
+          "padNumber": "28",
+          "name": "28",
+          "electricalType": "unspecified",
+          "xMm": 14.63,
+          "yMm": 5.3844,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "IC2",
+      "value": "LM1117IMPX-5.0",
+      "description": "",
+      "footprint": "LINEAR_SOT223",
+      "side": "back",
+      "xMm": 33.172,
+      "yMm": 11.328,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 8.4154,
+        "h": 5.842,
+        "x": 33.1807,
+        "y": 11.328
+      },
+      "pin1": {
+        "xMm": 36.2708,
+        "yMm": 9.0166
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 36.2708,
+          "yMm": 9.0166,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 36.2708,
+          "yMm": 11.328,
+          "side": "back"
+        },
+        {
+          "padNumber": "3",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 36.2708,
+          "yMm": 13.6394,
+          "side": "back"
+        },
+        {
+          "padNumber": "4",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 30.073,
+          "yMm": 11.328,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "IC3",
+      "value": "328P-MUR",
+      "description": "",
+      "footprint": "VQFN32",
+      "side": "front",
+      "xMm": 15.519,
+      "yMm": 8.9658,
+      "rotationDeg": -135,
+      "bboxMm": {
+        "w": 6.632565,
+        "h": 6.632565,
+        "x": 15.519,
+        "y": 8.9658
+      },
+      "pin1": {
+        "xMm": 18.4888,
+        "yMm": 8.4708
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "D3",
+          "electricalType": "unspecified",
+          "net": "D3",
+          "xMm": 18.4888,
+          "yMm": 8.4708,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "D4",
+          "electricalType": "unspecified",
+          "net": "D4",
+          "xMm": 18.1353,
+          "yMm": 8.1173,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 17.7817,
+          "yMm": 7.7637,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 17.4282,
+          "yMm": 7.4102,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 17.0746,
+          "yMm": 7.0566,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 16.7211,
+          "yMm": 6.7031,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "N$2",
+          "electricalType": "unspecified",
+          "net": "N$2",
+          "xMm": 16.3675,
+          "yMm": 6.3495,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "N$1",
+          "electricalType": "unspecified",
+          "net": "N$1",
+          "xMm": 16.014,
+          "yMm": 5.996,
+          "side": "front"
+        },
+        {
+          "padNumber": "9",
+          "name": "D5",
+          "electricalType": "unspecified",
+          "net": "D5",
+          "xMm": 15.024,
+          "yMm": 5.996,
+          "side": "front"
+        },
+        {
+          "padNumber": "10",
+          "name": "D6",
+          "electricalType": "unspecified",
+          "net": "D6",
+          "xMm": 14.6705,
+          "yMm": 6.3495,
+          "side": "front"
+        },
+        {
+          "padNumber": "11",
+          "name": "D7",
+          "electricalType": "unspecified",
+          "net": "D7",
+          "xMm": 14.3169,
+          "yMm": 6.7031,
+          "side": "front"
+        },
+        {
+          "padNumber": "12",
+          "name": "D8",
+          "electricalType": "unspecified",
+          "net": "D8",
+          "xMm": 13.9634,
+          "yMm": 7.0566,
+          "side": "front"
+        },
+        {
+          "padNumber": "13",
+          "name": "D9",
+          "electricalType": "unspecified",
+          "net": "D9",
+          "xMm": 13.6098,
+          "yMm": 7.4102,
+          "side": "front"
+        },
+        {
+          "padNumber": "14",
+          "name": "D10",
+          "electricalType": "unspecified",
+          "net": "D10",
+          "xMm": 13.2563,
+          "yMm": 7.7637,
+          "side": "front"
+        },
+        {
+          "padNumber": "15",
+          "name": "D11/MOSI",
+          "electricalType": "unspecified",
+          "net": "D11/MOSI",
+          "xMm": 12.9027,
+          "yMm": 8.1173,
+          "side": "front"
+        },
+        {
+          "padNumber": "16",
+          "name": "D12/MISO",
+          "electricalType": "unspecified",
+          "net": "D12/MISO",
+          "xMm": 12.5492,
+          "yMm": 8.4708,
+          "side": "front"
+        },
+        {
+          "padNumber": "17",
+          "name": "D13/SCK",
+          "electricalType": "unspecified",
+          "net": "D13/SCK",
+          "xMm": 12.5492,
+          "yMm": 9.4608,
+          "side": "front"
+        },
+        {
+          "padNumber": "18",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 12.9027,
+          "yMm": 9.8143,
+          "side": "front"
+        },
+        {
+          "padNumber": "19",
+          "name": "A6",
+          "electricalType": "unspecified",
+          "net": "A6",
+          "xMm": 13.2563,
+          "yMm": 10.1679,
+          "side": "front"
+        },
+        {
+          "padNumber": "20",
+          "name": "AREF",
+          "electricalType": "unspecified",
+          "net": "AREF",
+          "xMm": 13.6098,
+          "yMm": 10.5214,
+          "side": "front"
+        },
+        {
+          "padNumber": "21",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 13.9634,
+          "yMm": 10.875,
+          "side": "front"
+        },
+        {
+          "padNumber": "22",
+          "name": "A7",
+          "electricalType": "unspecified",
+          "net": "A7",
+          "xMm": 14.3169,
+          "yMm": 11.2285,
+          "side": "front"
+        },
+        {
+          "padNumber": "23",
+          "name": "A0",
+          "electricalType": "unspecified",
+          "net": "A0",
+          "xMm": 14.6705,
+          "yMm": 11.5821,
+          "side": "front"
+        },
+        {
+          "padNumber": "24",
+          "name": "A1",
+          "electricalType": "unspecified",
+          "net": "A1",
+          "xMm": 15.024,
+          "yMm": 11.9356,
+          "side": "front"
+        },
+        {
+          "padNumber": "25",
+          "name": "A2",
+          "electricalType": "unspecified",
+          "net": "A2",
+          "xMm": 16.014,
+          "yMm": 11.9356,
+          "side": "front"
+        },
+        {
+          "padNumber": "26",
+          "name": "A3",
+          "electricalType": "unspecified",
+          "net": "A3",
+          "xMm": 16.3675,
+          "yMm": 11.5821,
+          "side": "front"
+        },
+        {
+          "padNumber": "27",
+          "name": "A4",
+          "electricalType": "unspecified",
+          "net": "A4",
+          "xMm": 16.7211,
+          "yMm": 11.2285,
+          "side": "front"
+        },
+        {
+          "padNumber": "28",
+          "name": "A5",
+          "electricalType": "unspecified",
+          "net": "A5",
+          "xMm": 17.0746,
+          "yMm": 10.875,
+          "side": "front"
+        },
+        {
+          "padNumber": "29",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 17.4282,
+          "yMm": 10.5214,
+          "side": "front"
+        },
+        {
+          "padNumber": "30",
+          "name": "D0/RX",
+          "electricalType": "unspecified",
+          "net": "D0/RX",
+          "xMm": 17.7817,
+          "yMm": 10.1679,
+          "side": "front"
+        },
+        {
+          "padNumber": "31",
+          "name": "D1/TX",
+          "electricalType": "unspecified",
+          "net": "D1/TX",
+          "xMm": 18.1353,
+          "yMm": 9.8143,
+          "side": "front"
+        },
+        {
+          "padNumber": "32",
+          "name": "D2",
+          "electricalType": "unspecified",
+          "net": "D2",
+          "xMm": 18.4888,
+          "yMm": 9.4608,
+          "side": "front"
+        },
+        {
+          "padNumber": "33",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 15.519,
+          "yMm": 8.9658,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "J1",
+      "value": "XXXX_STRIPNANO",
+      "description": "",
+      "footprint": "HEAD15-NOSS",
+      "side": "front",
+      "xMm": 39.395,
+      "yMm": 1.295,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 37.338,
+        "h": 1.778,
+        "x": 21.615,
+        "y": 1.295
+      },
+      "pin1": {
+        "xMm": 39.395,
+        "yMm": 1.295
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "D1",
+          "electricalType": "unspecified",
+          "net": "D1/TX",
+          "xMm": 39.395,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-2",
+          "headerPosition": 1,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "2",
+          "name": "D0",
+          "electricalType": "unspecified",
+          "net": "D0/RX",
+          "xMm": 36.855,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-1",
+          "headerPosition": 2,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "3",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 34.315,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-27",
+          "headerPosition": 3,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "4",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 31.775,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-25",
+          "headerPosition": 4,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "5",
+          "name": "D2",
+          "electricalType": "unspecified",
+          "net": "D2",
+          "xMm": 29.235,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-3",
+          "headerPosition": 5,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "6",
+          "name": "D3",
+          "electricalType": "unspecified",
+          "net": "D3",
+          "xMm": 26.695,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-4",
+          "headerPosition": 6,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "7",
+          "name": "D4",
+          "electricalType": "unspecified",
+          "net": "D4",
+          "xMm": 24.155,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-5",
+          "headerPosition": 7,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "8",
+          "name": "D5",
+          "electricalType": "unspecified",
+          "net": "D5",
+          "xMm": 21.615,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-6",
+          "headerPosition": 8,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "9",
+          "name": "D6",
+          "electricalType": "unspecified",
+          "net": "D6",
+          "xMm": 19.075,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-7",
+          "headerPosition": 9,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "10",
+          "name": "D7",
+          "electricalType": "unspecified",
+          "net": "D7",
+          "xMm": 16.535,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-8",
+          "headerPosition": 10,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "11",
+          "name": "D8",
+          "electricalType": "unspecified",
+          "net": "D8",
+          "xMm": 13.995,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-9",
+          "headerPosition": 11,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "12",
+          "name": "D9",
+          "electricalType": "unspecified",
+          "net": "D9",
+          "xMm": 11.455,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-10",
+          "headerPosition": 12,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "13",
+          "name": "D10",
+          "electricalType": "unspecified",
+          "net": "D10",
+          "xMm": 8.915,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-11",
+          "headerPosition": 13,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "14",
+          "name": "D11",
+          "electricalType": "unspecified",
+          "net": "D11/MOSI",
+          "xMm": 6.375,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-12",
+          "headerPosition": 14,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "15",
+          "name": "D12",
+          "electricalType": "unspecified",
+          "net": "D12/MISO",
+          "xMm": 3.835,
+          "yMm": 1.295,
+          "side": "front",
+          "pinId": "pin-13",
+          "headerPosition": 15,
+          "anchorYMm": 2.995
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "J2",
+      "value": "XXXX_STRIPNANO",
+      "description": "",
+      "footprint": "HEAD15-NOSS",
+      "side": "front",
+      "xMm": 39.395,
+      "yMm": 16.535,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 37.338,
+        "h": 1.778,
+        "x": 21.615,
+        "y": 16.535
+      },
+      "pin1": {
+        "xMm": 39.395,
+        "yMm": 16.535
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 39.395,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-26",
+          "headerPosition": 101,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 36.855,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-J2-2",
+          "headerPosition": 102,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "3",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 34.315,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-J2-3",
+          "headerPosition": 103,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "4",
+          "name": "5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 31.775,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-23",
+          "headerPosition": 104,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "5",
+          "name": "A7",
+          "electricalType": "unspecified",
+          "net": "A7",
+          "xMm": 29.235,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-22",
+          "headerPosition": 105,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "6",
+          "name": "A6",
+          "electricalType": "unspecified",
+          "net": "A6",
+          "xMm": 26.695,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-21",
+          "headerPosition": 106,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "7",
+          "name": "A5",
+          "electricalType": "unspecified",
+          "net": "A5",
+          "xMm": 24.155,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-20",
+          "headerPosition": 107,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "8",
+          "name": "A4",
+          "electricalType": "unspecified",
+          "net": "A4",
+          "xMm": 21.615,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-19",
+          "headerPosition": 108,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "9",
+          "name": "A3",
+          "electricalType": "unspecified",
+          "net": "A3",
+          "xMm": 19.075,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-18",
+          "headerPosition": 109,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "10",
+          "name": "A2",
+          "electricalType": "unspecified",
+          "net": "A2",
+          "xMm": 16.535,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-17",
+          "headerPosition": 110,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "11",
+          "name": "A1",
+          "electricalType": "unspecified",
+          "net": "A1",
+          "xMm": 13.995,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-16",
+          "headerPosition": 111,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "12",
+          "name": "A0",
+          "electricalType": "unspecified",
+          "net": "A0",
+          "xMm": 11.455,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-15",
+          "headerPosition": 112,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "13",
+          "name": "AREF",
+          "electricalType": "unspecified",
+          "net": "AREF",
+          "xMm": 8.915,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-J2-13",
+          "headerPosition": 113,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "14",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "net": "3V3",
+          "xMm": 6.375,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-24",
+          "headerPosition": 114,
+          "anchorYMm": 2.995
+        },
+        {
+          "padNumber": "15",
+          "name": "D13",
+          "electricalType": "unspecified",
+          "net": "D13/SCK",
+          "xMm": 3.835,
+          "yMm": 16.535,
+          "side": "front",
+          "pinId": "pin-14",
+          "headerPosition": 115,
+          "anchorYMm": 2.995
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "J3",
+      "value": "",
+      "description": "",
+      "footprint": "USB-MINI-B_2",
+      "side": "front",
+      "xMm": 7.0862,
+      "yMm": 10.5152,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 8.107,
+        "h": 10.922,
+        "x": 4.3027,
+        "y": 8.9147
+      },
+      "pin1": {
+        "xMm": 7.0862,
+        "yMm": 10.5152
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 4.1862,
+          "yMm": 11.1152,
+          "side": "front"
+        },
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 4.1862,
+          "yMm": 6.7152,
+          "side": "front"
+        },
+        {
+          "padNumber": "1",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 7.0862,
+          "yMm": 10.5152,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "2",
+          "electricalType": "unspecified",
+          "xMm": 7.0862,
+          "yMm": 9.7152,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "N$5",
+          "electricalType": "unspecified",
+          "net": "N$5",
+          "xMm": 7.0862,
+          "yMm": 8.9152,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "N$6",
+          "electricalType": "unspecified",
+          "net": "N$6",
+          "xMm": 7.0862,
+          "yMm": 8.1152,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "N$26",
+          "electricalType": "unspecified",
+          "net": "N$26",
+          "xMm": 7.0862,
+          "yMm": 7.3152,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 1.1382,
+          "yMm": 13.2327,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 6.7262,
+          "yMm": 13.2327,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 6.7262,
+          "yMm": 4.5967,
+          "side": "front"
+        },
+        {
+          "padNumber": "9",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 1.1382,
+          "yMm": 4.5967,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "J4",
+      "value": "",
+      "description": "",
+      "footprint": "2X03",
+      "side": "front",
+      "xMm": 40.5634,
+      "yMm": 8.915,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 4.09,
+        "h": 6.63,
+        "x": 40.5634,
+        "y": 8.915
+      },
+      "pin1": {
+        "xMm": 41.8334,
+        "yMm": 11.455
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "CIPO",
+          "electricalType": "unspecified",
+          "net": "D12/MISO",
+          "xMm": 41.8334,
+          "yMm": 11.455,
+          "side": "front",
+          "pinId": "pin-J4-1",
+          "headerPosition": 201,
+          "anchorYMm": 1.595
+        },
+        {
+          "padNumber": "2",
+          "name": "5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 39.2934,
+          "yMm": 11.455,
+          "side": "front",
+          "pinId": "pin-J4-2",
+          "headerPosition": 202,
+          "anchorYMm": 1.595
+        },
+        {
+          "padNumber": "3",
+          "name": "SCK",
+          "electricalType": "unspecified",
+          "net": "D13/SCK",
+          "xMm": 41.8334,
+          "yMm": 8.915,
+          "side": "front",
+          "pinId": "pin-J4-3",
+          "headerPosition": 203,
+          "anchorYMm": 1.595
+        },
+        {
+          "padNumber": "4",
+          "name": "COPI",
+          "electricalType": "unspecified",
+          "net": "D11/MOSI",
+          "xMm": 39.2934,
+          "yMm": 8.915,
+          "side": "front",
+          "pinId": "pin-J4-4",
+          "headerPosition": 204,
+          "anchorYMm": 1.595
+        },
+        {
+          "padNumber": "5",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 41.8334,
+          "yMm": 6.375,
+          "side": "front",
+          "pinId": "pin-J4-5",
+          "headerPosition": 205,
+          "anchorYMm": 1.595
+        },
+        {
+          "padNumber": "6",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 39.2934,
+          "yMm": 6.375,
+          "side": "front",
+          "pinId": "pin-J4-6",
+          "headerPosition": 206,
+          "anchorYMm": 1.595
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "L0",
+      "value": "Yellow",
+      "description": "",
+      "footprint": "CHIPLED_0805",
+      "side": "front",
+      "xMm": 28.981,
+      "yMm": 13.487,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 3.3,
+        "h": 1.2,
+        "x": 28.981,
+        "y": 13.487
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "N$7",
+          "electricalType": "unspecified",
+          "net": "N$7",
+          "xMm": 27.931,
+          "yMm": 13.487,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 30.031,
+          "yMm": 13.487,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "PWR0",
+      "value": "Green",
+      "description": "",
+      "footprint": "CHIPLED_0805",
+      "side": "front",
+      "xMm": 28.981,
+      "yMm": 10.439,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 3.3,
+        "h": 1.2,
+        "x": 28.981,
+        "y": 10.439
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "N$3",
+          "electricalType": "unspecified",
+          "net": "N$3",
+          "xMm": 27.931,
+          "yMm": 10.439,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 30.031,
+          "yMm": 10.439,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "RP1",
+      "value": "1K",
+      "description": "",
+      "footprint": "CAY16",
+      "side": "back",
+      "xMm": 23.647,
+      "yMm": 12.0138,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 2,
+        "h": 2.9,
+        "x": 23.647,
+        "y": 12.0138
+      },
+      "pin1": {
+        "xMm": 24.322,
+        "yMm": 10.8138
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "D0/RX",
+          "electricalType": "unspecified",
+          "net": "D0/RX",
+          "xMm": 24.322,
+          "yMm": 10.8138,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "D1/TX",
+          "electricalType": "unspecified",
+          "net": "D1/TX",
+          "xMm": 24.322,
+          "yMm": 11.6138,
+          "side": "back"
+        },
+        {
+          "padNumber": "3",
+          "name": "N$3",
+          "electricalType": "unspecified",
+          "net": "N$3",
+          "xMm": 24.322,
+          "yMm": 12.4138,
+          "side": "back"
+        },
+        {
+          "padNumber": "4",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 24.322,
+          "yMm": 13.2138,
+          "side": "back"
+        },
+        {
+          "padNumber": "5",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 22.972,
+          "yMm": 13.2138,
+          "side": "back"
+        },
+        {
+          "padNumber": "6",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 22.972,
+          "yMm": 12.4138,
+          "side": "back"
+        },
+        {
+          "padNumber": "7",
+          "name": "TX",
+          "electricalType": "unspecified",
+          "net": "TX",
+          "xMm": 22.972,
+          "yMm": 11.6138,
+          "side": "back"
+        },
+        {
+          "padNumber": "8",
+          "name": "RX",
+          "electricalType": "unspecified",
+          "net": "RX",
+          "xMm": 22.972,
+          "yMm": 10.8138,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "RP2",
+      "value": "1K",
+      "description": "",
+      "footprint": "CAY16",
+      "side": "back",
+      "xMm": 23.647,
+      "yMm": 5.613,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 2,
+        "h": 2.9,
+        "x": 23.647,
+        "y": 5.613
+      },
+      "pin1": {
+        "xMm": 22.972,
+        "yMm": 6.813
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "D13/SCK",
+          "electricalType": "unspecified",
+          "net": "D13/SCK",
+          "xMm": 22.972,
+          "yMm": 6.813,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "N$8",
+          "electricalType": "unspecified",
+          "net": "N$8",
+          "xMm": 22.972,
+          "yMm": 6.013,
+          "side": "back"
+        },
+        {
+          "padNumber": "3",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 22.972,
+          "yMm": 5.213,
+          "side": "back"
+        },
+        {
+          "padNumber": "4",
+          "name": "N$9",
+          "electricalType": "unspecified",
+          "net": "N$9",
+          "xMm": 22.972,
+          "yMm": 4.413,
+          "side": "back"
+        },
+        {
+          "padNumber": "5",
+          "name": "N$11",
+          "electricalType": "unspecified",
+          "net": "N$11",
+          "xMm": 24.322,
+          "yMm": 4.413,
+          "side": "back"
+        },
+        {
+          "padNumber": "6",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 24.322,
+          "yMm": 5.213,
+          "side": "back"
+        },
+        {
+          "padNumber": "7",
+          "name": "N$29",
+          "electricalType": "unspecified",
+          "net": "N$29",
+          "xMm": 24.322,
+          "yMm": 6.013,
+          "side": "back"
+        },
+        {
+          "padNumber": "8",
+          "name": "N$7",
+          "electricalType": "unspecified",
+          "net": "N$7",
+          "xMm": 24.322,
+          "yMm": 6.813,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "RX0",
+      "value": "Red",
+      "description": "",
+      "footprint": "CHIPLED_0805",
+      "side": "front",
+      "xMm": 28.981,
+      "yMm": 7.391,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 3.3,
+        "h": 1.2,
+        "x": 28.981,
+        "y": 7.391
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 30.031,
+          "yMm": 7.391,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "N$29",
+          "electricalType": "unspecified",
+          "net": "N$29",
+          "xMm": 27.931,
+          "yMm": 7.391,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "SW1",
+      "value": "RESET",
+      "description": "",
+      "footprint": "SMD_157SW",
+      "side": "front",
+      "xMm": 24.536,
+      "yMm": 6.883,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 1.9812,
+        "h": 5.0165,
+        "x": 24.536,
+        "y": 8.88325
+      },
+      "pin1": {
+        "xMm": 24.536,
+        "yMm": 6.883
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 24.536,
+          "yMm": 6.883,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 24.536,
+          "yMm": 10.8835,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "TX0",
+      "value": "Green",
+      "description": "",
+      "footprint": "CHIPLED_0805",
+      "side": "front",
+      "xMm": 28.981,
+      "yMm": 4.343,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 3.3,
+        "h": 1.2,
+        "x": 28.981,
+        "y": 4.343
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 30.031,
+          "yMm": 4.343,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "N$11",
+          "electricalType": "unspecified",
+          "net": "N$11",
+          "xMm": 27.931,
+          "yMm": 4.343,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "U$4",
+      "value": "DNP",
+      "description": "",
+      "footprint": "FD-1-1.5",
+      "side": "front",
+      "xMm": 37.5408,
+      "yMm": 13.6902,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 1.016,
+        "h": 1.016,
+        "x": 37.5408,
+        "y": 13.6902
+      },
+      "pads": [
+        {
+          "padNumber": "P$1",
+          "name": "P$1",
+          "electricalType": "unspecified",
+          "xMm": 37.5408,
+          "yMm": 13.6902,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "U$5",
+      "value": "DNP",
+      "description": "",
+      "footprint": "FD-1-1.5",
+      "side": "front",
+      "xMm": 41.9096,
+      "yMm": 3.2,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1.016,
+        "h": 1.016,
+        "x": 41.9096,
+        "y": 3.2
+      },
+      "pads": [
+        {
+          "padNumber": "P$1",
+          "name": "P$1",
+          "electricalType": "unspecified",
+          "xMm": 41.9096,
+          "yMm": 3.2,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "U$53",
+      "value": "DNP",
+      "description": "",
+      "footprint": "FD-1-1.5",
+      "side": "back",
+      "xMm": 41.6048,
+      "yMm": 13.9442,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.016,
+        "h": 1.016,
+        "x": 41.6048,
+        "y": 13.9442
+      },
+      "pads": [
+        {
+          "padNumber": "P$1",
+          "name": "P$1",
+          "electricalType": "unspecified",
+          "xMm": 41.6048,
+          "yMm": 13.9442,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "U$54",
+      "value": "DNP",
+      "description": "",
+      "footprint": "FD-1-1.5",
+      "side": "back",
+      "xMm": 41.9096,
+      "yMm": 3.2,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.016,
+        "h": 1.016,
+        "x": 41.9096,
+        "y": 3.2
+      },
+      "pads": [
+        {
+          "padNumber": "P$1",
+          "name": "P$1",
+          "electricalType": "unspecified",
+          "xMm": 41.9096,
+          "yMm": 3.2,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_0",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp0",
+      "side": "front",
+      "xMm": 1.295,
+      "yMm": 1.295,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1.651,
+        "h": 1.651,
+        "x": 1.295,
+        "y": 1.295
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 1.295,
+          "yMm": 1.295,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_1",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp1",
+      "side": "front",
+      "xMm": 1.295,
+      "yMm": 16.535,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1.651,
+        "h": 1.651,
+        "x": 1.295,
+        "y": 16.535
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 1.295,
+          "yMm": 16.535,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_2",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp2",
+      "side": "front",
+      "xMm": 41.935,
+      "yMm": 16.535,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1.651,
+        "h": 1.651,
+        "x": 41.935,
+        "y": 16.535
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 41.935,
+          "yMm": 16.535,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_3",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp3",
+      "side": "front",
+      "xMm": 41.935,
+      "yMm": 1.295,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1.651,
+        "h": 1.651,
+        "x": 41.935,
+        "y": 1.295
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 41.935,
+          "yMm": 1.295,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    },
+    {
+      "ref": "Y1",
+      "value": "16MHz",
+      "description": "",
+      "footprint": "RESONATOR",
+      "side": "front",
+      "xMm": 20.8784,
+      "yMm": 4.5986,
+      "rotationDeg": -45,
+      "bboxMm": {
+        "w": 3.323388,
+        "h": 3.323388,
+        "x": 20.8784,
+        "y": 4.5986
+      },
+      "pin1": {
+        "xMm": 20.1713,
+        "yMm": 3.8915
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "N$2",
+          "electricalType": "unspecified",
+          "net": "N$2",
+          "xMm": 20.1713,
+          "yMm": 3.8915,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "COM",
+          "electricalType": "unspecified",
+          "net": "COM",
+          "xMm": 20.8784,
+          "yMm": 4.5986,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "N$1",
+          "electricalType": "unspecified",
+          "net": "N$1",
+          "xMm": 21.5855,
+          "yMm": 5.3057,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb",
+        "revision": "Arduino Nano classic · source CAD import (V3.3)",
+        "license": "CC BY-SA 4.0",
+        "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"
+      }
+    }
+  ]
+}

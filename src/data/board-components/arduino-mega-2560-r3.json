@@ -1,0 +1,5760 @@
+{
+  "boardId": "arduino-mega-2560-r3",
+  "source": {
+    "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+    "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+    "license": "CC BY-SA 4.0",
+    "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+  },
+  "modelSha256": "adf1fcf07b4a6d9ae8cd0cede3570019b85ae57c0370d2305c3e5ccc4cd2d408",
+  "modelOffsetMm": {
+    "x": 97.5741,
+    "z": 78.2066
+  },
+  "maxHeaderCenterErrorMm": 0,
+  "components": [
+    {
+      "ref": "ADCH0",
+      "value": "FH254-108DF08500V",
+      "description": "",
+      "footprint": "1X08",
+      "side": "front",
+      "xMm": 82.7026,
+      "yMm": 50.9142,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 19.2024,
+        "h": 2.2758,
+        "x": 82.7026,
+        "y": 50.9142
+      },
+      "pin1": {
+        "xMm": 73.8126,
+        "yMm": 50.9142
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "A8",
+          "electricalType": "unspecified",
+          "net": "ADC8",
+          "xMm": 73.8126,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-63",
+          "headerPosition": 501,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "2",
+          "name": "A9",
+          "electricalType": "unspecified",
+          "net": "ADC9",
+          "xMm": 76.3526,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-64",
+          "headerPosition": 502,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "3",
+          "name": "A10",
+          "electricalType": "unspecified",
+          "net": "ADC10",
+          "xMm": 78.8926,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-65",
+          "headerPosition": 503,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "4",
+          "name": "A11",
+          "electricalType": "unspecified",
+          "net": "ADC11",
+          "xMm": 81.4326,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-66",
+          "headerPosition": 504,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "5",
+          "name": "A12",
+          "electricalType": "unspecified",
+          "net": "ADC12",
+          "xMm": 83.9726,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-67",
+          "headerPosition": 505,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "6",
+          "name": "A13",
+          "electricalType": "unspecified",
+          "net": "ADC13",
+          "xMm": 86.5126,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-68",
+          "headerPosition": 506,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "7",
+          "name": "A14",
+          "electricalType": "unspecified",
+          "net": "ADC14",
+          "xMm": 89.0526,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-69",
+          "headerPosition": 507,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "8",
+          "name": "A15",
+          "electricalType": "unspecified",
+          "net": "ADC15",
+          "xMm": 91.5926,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-70",
+          "headerPosition": 508,
+          "anchorYMm": 10.095
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "ADCL0",
+      "value": "FH254-108DF08500V",
+      "description": "",
+      "footprint": "1X08",
+      "side": "front",
+      "xMm": 59.8426,
+      "yMm": 50.9142,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 19.2024,
+        "h": 2.2758,
+        "x": 59.8426,
+        "y": 50.9142
+      },
+      "pin1": {
+        "xMm": 50.9526,
+        "yMm": 50.9142
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "A0",
+          "electricalType": "unspecified",
+          "net": "ADC0",
+          "xMm": 50.9526,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-55",
+          "headerPosition": 401,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "2",
+          "name": "A1",
+          "electricalType": "unspecified",
+          "net": "ADC1",
+          "xMm": 53.4926,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-56",
+          "headerPosition": 402,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "3",
+          "name": "A2",
+          "electricalType": "unspecified",
+          "net": "ADC2",
+          "xMm": 56.0326,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-57",
+          "headerPosition": 403,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "4",
+          "name": "A3",
+          "electricalType": "unspecified",
+          "net": "ADC3",
+          "xMm": 58.5726,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-58",
+          "headerPosition": 404,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "5",
+          "name": "A4",
+          "electricalType": "unspecified",
+          "net": "ADC4",
+          "xMm": 61.1126,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-59",
+          "headerPosition": 405,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "6",
+          "name": "A5",
+          "electricalType": "unspecified",
+          "net": "ADC5",
+          "xMm": 63.6526,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-60",
+          "headerPosition": 406,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "7",
+          "name": "A6",
+          "electricalType": "unspecified",
+          "net": "ADC6",
+          "xMm": 66.1926,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-61",
+          "headerPosition": 407,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "8",
+          "name": "A7",
+          "electricalType": "unspecified",
+          "net": "ADC7",
+          "xMm": 68.7326,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-62",
+          "headerPosition": 408,
+          "anchorYMm": 10.095
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C1",
+      "value": "22p",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 33.6806,
+      "yMm": 38.8492,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 1.1,
+        "h": 2.6764,
+        "x": 33.6806,
+        "y": 38.8492
+      },
+      "pin1": {
+        "xMm": 33.6806,
+        "yMm": 37.9602
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 33.6806,
+          "yMm": 37.9602,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 33.6806,
+          "yMm": 39.7382,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C10",
+      "value": "1uF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 15.4688,
+      "yMm": 16.2432,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 15.4688,
+        "y": 16.2432
+      },
+      "pin1": {
+        "xMm": 16.3578,
+        "yMm": 16.2432
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "VUCAP",
+          "electricalType": "unspecified",
+          "net": "VUCAP",
+          "xMm": 16.3578,
+          "yMm": 16.2432,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "UGND",
+          "electricalType": "unspecified",
+          "net": "UGND",
+          "xMm": 14.5798,
+          "yMm": 16.2432,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C11",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 24.9176,
+      "yMm": 24.1172,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 24.9176,
+        "y": 24.1172
+      },
+      "pin1": {
+        "xMm": 24.0286,
+        "yMm": 24.1172
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 24.0286,
+          "yMm": 24.1172,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 25.8066,
+          "yMm": 24.1172,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C12",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 21.7426,
+      "yMm": 36.3092,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 21.7426,
+        "y": 36.3092
+      },
+      "pin1": {
+        "xMm": 22.6316,
+        "yMm": 36.3092
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 22.6316,
+          "yMm": 36.3092,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "CMP",
+          "electricalType": "unspecified",
+          "net": "CMP",
+          "xMm": 20.8536,
+          "yMm": 36.3092,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C13",
+      "value": "1uF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 28.0926,
+      "yMm": 31.8642,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 28.0926,
+        "y": 31.8642
+      },
+      "pin1": {
+        "xMm": 27.2036,
+        "yMm": 31.8642
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 27.2036,
+          "yMm": 31.8642,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+3V3",
+          "electricalType": "unspecified",
+          "net": "+3V3",
+          "xMm": 28.9816,
+          "yMm": 31.8642,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C14",
+      "value": "22p",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 15.3926,
+      "yMm": 24.1172,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 15.3926,
+        "y": 24.1172
+      },
+      "pin1": {
+        "xMm": 16.2816,
+        "yMm": 24.1172
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XT1",
+          "electricalType": "unspecified",
+          "net": "XT1",
+          "xMm": 16.2816,
+          "yMm": 24.1172,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 14.5036,
+          "yMm": 24.1172,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C15",
+      "value": "22p",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 21.7426,
+      "yMm": 24.1172,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 21.7426,
+        "y": 24.1172
+      },
+      "pin1": {
+        "xMm": 20.8536,
+        "yMm": 24.1172
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XT2",
+          "electricalType": "unspecified",
+          "net": "XT2",
+          "xMm": 20.8536,
+          "yMm": 24.1172,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 22.6316,
+          "yMm": 24.1172,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C16",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 43.7878,
+      "yMm": 16.584,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 1.1,
+        "h": 2.6764,
+        "x": 43.7878,
+        "y": 16.584
+      },
+      "pin1": {
+        "xMm": 43.7878,
+        "yMm": 15.695
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "AVCC",
+          "electricalType": "unspecified",
+          "net": "AVCC",
+          "xMm": 43.7878,
+          "yMm": 15.695,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 43.7878,
+          "yMm": 17.473,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C2",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 14.5036,
+      "yMm": 35.8012,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 1.1,
+        "h": 2.6764,
+        "x": 14.5036,
+        "y": 35.8012
+      },
+      "pin1": {
+        "xMm": 14.5036,
+        "yMm": 34.9122
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 14.5036,
+          "yMm": 34.9122,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 14.5036,
+          "yMm": 36.6902,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C3",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 28.0926,
+      "yMm": 9.0042,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 28.0926,
+        "y": 9.0042
+      },
+      "pin1": {
+        "xMm": 27.2036,
+        "yMm": 9.0042
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "AREF",
+          "electricalType": "unspecified",
+          "net": "AREF",
+          "xMm": 27.2036,
+          "yMm": 9.0042,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 28.9816,
+          "yMm": 9.0042,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C4",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 38.7606,
+      "yMm": 46.3422,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 38.7606,
+        "y": 46.3422
+      },
+      "pin1": {
+        "xMm": 37.8716,
+        "yMm": 46.3422
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 37.8716,
+          "yMm": 46.3422,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 39.6496,
+          "yMm": 46.3422,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C5",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 59.1822,
+      "yMm": 14.0842,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 59.1822,
+        "y": 14.0842
+      },
+      "pin1": {
+        "xMm": 58.2932,
+        "yMm": 14.0842
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 58.2932,
+          "yMm": 14.0842,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 60.0712,
+          "yMm": 14.0842,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C6",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 40.1976,
+      "yMm": 23.0352,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 40.1976,
+        "y": 23.0352
+      },
+      "pin1": {
+        "xMm": 41.0866,
+        "yMm": 23.0352
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 41.0866,
+          "yMm": 23.0352,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 39.3086,
+          "yMm": 23.0352,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C7",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 28.0926,
+      "yMm": 35.1662,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 28.0926,
+        "y": 35.1662
+      },
+      "pin1": {
+        "xMm": 27.2036,
+        "yMm": 35.1662
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "DTR",
+          "electricalType": "unspecified",
+          "net": "DTR",
+          "xMm": 27.2036,
+          "yMm": 35.1662,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 28.9816,
+          "yMm": 35.1662,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C8",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 12.2176,
+      "yMm": 22.4662,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 12.2176,
+        "y": 22.4662
+      },
+      "pin1": {
+        "xMm": 13.1066,
+        "yMm": 22.4662
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "USBVCC",
+          "electricalType": "unspecified",
+          "net": "USBVCC",
+          "xMm": 13.1066,
+          "yMm": 22.4662,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 11.3286,
+          "yMm": 22.4662,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "C9",
+      "value": "100nF",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 12.2176,
+      "yMm": 24.1172,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 12.2176,
+        "y": 24.1172
+      },
+      "pin1": {
+        "xMm": 13.1066,
+        "yMm": 24.1172
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 13.1066,
+          "yMm": 24.1172,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 11.3286,
+          "yMm": 24.1172,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "COMMUNICATION0",
+      "value": "FH254-108DF08500V",
+      "description": "",
+      "footprint": "1X08",
+      "side": "front",
+      "xMm": 77.6226,
+      "yMm": 2.6542,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 19.2024,
+        "h": 2.2758,
+        "x": 77.6226,
+        "y": 2.6542
+      },
+      "pin1": {
+        "xMm": 86.5126,
+        "yMm": 2.6542
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "D21",
+          "electricalType": "unspecified",
+          "net": "SCL",
+          "xMm": 86.5126,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-22",
+          "headerPosition": 201,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "2",
+          "name": "D20",
+          "electricalType": "unspecified",
+          "net": "SDA",
+          "xMm": 83.9726,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-21",
+          "headerPosition": 202,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "3",
+          "name": "D19",
+          "electricalType": "unspecified",
+          "net": "RXD1",
+          "xMm": 81.4326,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-20",
+          "headerPosition": 203,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "4",
+          "name": "D18",
+          "electricalType": "unspecified",
+          "net": "TXD1",
+          "xMm": 78.8926,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-19",
+          "headerPosition": 204,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "5",
+          "name": "D17",
+          "electricalType": "unspecified",
+          "net": "RXD2",
+          "xMm": 76.3526,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-18",
+          "headerPosition": 205,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "6",
+          "name": "D16",
+          "electricalType": "unspecified",
+          "net": "TXD2",
+          "xMm": 73.8126,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-17",
+          "headerPosition": 206,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "7",
+          "name": "D15",
+          "electricalType": "unspecified",
+          "net": "RXD3",
+          "xMm": 71.2726,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-16",
+          "headerPosition": 207,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "8",
+          "name": "D14",
+          "electricalType": "unspecified",
+          "net": "TXD3",
+          "xMm": 68.7326,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-15",
+          "headerPosition": 208,
+          "anchorYMm": 10.095
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "D1",
+      "value": "M7",
+      "description": "",
+      "footprint": "SMB",
+      "side": "front",
+      "xMm": 21.7426,
+      "yMm": 50.6602,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 6.8,
+        "h": 2.4,
+        "x": 21.7426,
+        "y": 50.6602
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "PWRIN",
+          "electricalType": "unspecified",
+          "net": "PWRIN",
+          "xMm": 19.5426,
+          "yMm": 50.6602,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 23.9426,
+          "yMm": 50.6602,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "D2",
+      "value": "CD1206-S01575",
+      "description": "",
+      "footprint": "MINIMELF",
+      "side": "front",
+      "xMm": 13.2336,
+      "yMm": 7.2262,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.8,
+        "h": 4.8,
+        "x": 13.2336,
+        "y": 7.2262
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "RESET2",
+          "electricalType": "unspecified",
+          "net": "RESET2",
+          "xMm": 13.2336,
+          "yMm": 5.5262,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 13.2336,
+          "yMm": 8.9262,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "D3",
+      "value": "CD1206-S01575",
+      "description": "",
+      "footprint": "MINIMELF",
+      "side": "front",
+      "xMm": 35.7126,
+      "yMm": 38.8492,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.8,
+        "h": 4.8,
+        "x": 35.7126,
+        "y": 38.8492
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 35.7126,
+          "yMm": 37.1492,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 35.7126,
+          "yMm": 40.5492,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "F1",
+      "value": "MF-MSMF050-2 500mA",
+      "description": "",
+      "footprint": "L1812",
+      "side": "front",
+      "xMm": 4.5976,
+      "yMm": 26.7842,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 3.4,
+        "h": 5.8,
+        "x": 4.5976,
+        "y": 26.7842
+      },
+      "pin1": {
+        "xMm": 4.5976,
+        "yMm": 28.7342
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "USBVCC",
+          "electricalType": "unspecified",
+          "net": "USBVCC",
+          "xMm": 4.5976,
+          "yMm": 28.7342,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "XVCC",
+          "electricalType": "unspecified",
+          "net": "XVCC",
+          "xMm": 4.5976,
+          "yMm": 24.8342,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "FD1",
+      "value": "FIDUCIALMOUNT",
+      "description": "",
+      "footprint": "FIDUCIA-MOUNT",
+      "side": "front",
+      "xMm": 70.9932,
+      "yMm": 15.262,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1.016,
+        "h": 1.016,
+        "x": 70.9932,
+        "y": 15.262
+      },
+      "pads": [
+        {
+          "padNumber": "P$1",
+          "name": "P$1",
+          "electricalType": "unspecified",
+          "xMm": 70.9932,
+          "yMm": 15.262,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "FD2",
+      "value": "FIDUCIALMOUNT",
+      "description": "",
+      "footprint": "FIDUCIA-MOUNT",
+      "side": "front",
+      "xMm": 2.8196,
+      "yMm": 51.0412,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1.016,
+        "h": 1.016,
+        "x": 2.8196,
+        "y": 51.0412
+      },
+      "pads": [
+        {
+          "padNumber": "P$1",
+          "name": "P$1",
+          "electricalType": "unspecified",
+          "xMm": 2.8196,
+          "yMm": 51.0412,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "FD3",
+      "value": "FIDUCIALMOUNT",
+      "description": "",
+      "footprint": "FIDUCIA-MOUNT",
+      "side": "front",
+      "xMm": 1.9306,
+      "yMm": 15.3542,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1.016,
+        "h": 1.016,
+        "x": 1.9306,
+        "y": 15.3542
+      },
+      "pads": [
+        {
+          "padNumber": "P$1",
+          "name": "P$1",
+          "electricalType": "unspecified",
+          "xMm": 1.9306,
+          "yMm": 15.3542,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "FD4",
+      "value": "FIDUCIALMOUNT",
+      "description": "",
+      "footprint": "FIDUCIA-MOUNT",
+      "side": "front",
+      "xMm": 50.9526,
+      "yMm": 25.1078,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1.016,
+        "h": 1.016,
+        "x": 50.9526,
+        "y": 25.1078
+      },
+      "pads": [
+        {
+          "padNumber": "P$1",
+          "name": "P$1",
+          "electricalType": "unspecified",
+          "xMm": 50.9526,
+          "yMm": 25.1078,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "GROUND0",
+      "value": "",
+      "description": "",
+      "footprint": "SJ",
+      "side": "back",
+      "xMm": 10.9476,
+      "yMm": 20.4342,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6924,
+        "h": 1.6002,
+        "x": 10.9476,
+        "y": 20.4342
+      },
+      "pin1": {
+        "xMm": 10.1856,
+        "yMm": 20.4342
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "UGND",
+          "electricalType": "unspecified",
+          "net": "UGND",
+          "xMm": 10.1856,
+          "yMm": 20.4342,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 11.7096,
+          "yMm": 20.4342,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "IC1",
+      "value": "1870_LD1117S50CTR",
+      "description": "",
+      "footprint": "LINEAR_SOT223",
+      "side": "front",
+      "xMm": 8.7886,
+      "yMm": 35.6742,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 8.4154,
+        "h": 5.842,
+        "x": 8.7973,
+        "y": 35.6742
+      },
+      "pin1": {
+        "xMm": 11.8874,
+        "yMm": 37.9856
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 11.8874,
+          "yMm": 37.9856,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 11.8874,
+          "yMm": 35.6742,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 11.8874,
+          "yMm": 33.3628,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 5.6896,
+          "yMm": 35.6742,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "IC3",
+      "value": "ATMEGA2560-15AU",
+      "description": "",
+      "footprint": "TQFP100",
+      "side": "front",
+      "xMm": 50.9526,
+      "yMm": 25.1078,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 17.5,
+        "h": 17.5,
+        "x": 50.9526,
+        "y": 25.1078
+      },
+      "pin1": {
+        "xMm": 42.9526,
+        "yMm": 19.1078
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "PG5",
+          "electricalType": "unspecified",
+          "net": "PG5",
+          "xMm": 42.9526,
+          "yMm": 19.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "PE0",
+          "electricalType": "unspecified",
+          "net": "PE0",
+          "xMm": 42.9526,
+          "yMm": 19.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "PE1",
+          "electricalType": "unspecified",
+          "net": "PE1",
+          "xMm": 42.9526,
+          "yMm": 20.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "4",
+          "electricalType": "unspecified",
+          "xMm": 42.9526,
+          "yMm": 20.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "PE3",
+          "electricalType": "unspecified",
+          "net": "PE3",
+          "xMm": 42.9526,
+          "yMm": 21.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "PE4",
+          "electricalType": "unspecified",
+          "net": "PE4",
+          "xMm": 42.9526,
+          "yMm": 21.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "PE5",
+          "electricalType": "unspecified",
+          "net": "PE5",
+          "xMm": 42.9526,
+          "yMm": 22.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "8",
+          "electricalType": "unspecified",
+          "xMm": 42.9526,
+          "yMm": 22.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "9",
+          "name": "9",
+          "electricalType": "unspecified",
+          "xMm": 42.9526,
+          "yMm": 23.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "10",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 42.9526,
+          "yMm": 23.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "11",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 42.9526,
+          "yMm": 24.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "12",
+          "name": "RXD2",
+          "electricalType": "unspecified",
+          "net": "RXD2",
+          "xMm": 42.9526,
+          "yMm": 24.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "13",
+          "name": "TXD2",
+          "electricalType": "unspecified",
+          "net": "TXD2",
+          "xMm": 42.9526,
+          "yMm": 25.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "14",
+          "name": "14",
+          "electricalType": "unspecified",
+          "xMm": 42.9526,
+          "yMm": 25.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "15",
+          "name": "PH3",
+          "electricalType": "unspecified",
+          "net": "PH3",
+          "xMm": 42.9526,
+          "yMm": 26.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "16",
+          "name": "PH4",
+          "electricalType": "unspecified",
+          "net": "PH4",
+          "xMm": 42.9526,
+          "yMm": 26.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "17",
+          "name": "PH5",
+          "electricalType": "unspecified",
+          "net": "PH5",
+          "xMm": 42.9526,
+          "yMm": 27.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "18",
+          "name": "PH6",
+          "electricalType": "unspecified",
+          "net": "PH6",
+          "xMm": 42.9526,
+          "yMm": 27.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "19",
+          "name": "PB0",
+          "electricalType": "unspecified",
+          "net": "PB0",
+          "xMm": 42.9526,
+          "yMm": 28.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "20",
+          "name": "PB1",
+          "electricalType": "unspecified",
+          "net": "PB1",
+          "xMm": 42.9526,
+          "yMm": 28.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "21",
+          "name": "PB2",
+          "electricalType": "unspecified",
+          "net": "PB2",
+          "xMm": 42.9526,
+          "yMm": 29.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "22",
+          "name": "PB3",
+          "electricalType": "unspecified",
+          "net": "PB3",
+          "xMm": 42.9526,
+          "yMm": 29.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "23",
+          "name": "PB4",
+          "electricalType": "unspecified",
+          "net": "PB4",
+          "xMm": 42.9526,
+          "yMm": 30.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "24",
+          "name": "PB5",
+          "electricalType": "unspecified",
+          "net": "PB5",
+          "xMm": 42.9526,
+          "yMm": 30.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "25",
+          "name": "PB6",
+          "electricalType": "unspecified",
+          "net": "PB6",
+          "xMm": 42.9526,
+          "yMm": 31.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "26",
+          "name": "PB7",
+          "electricalType": "unspecified",
+          "net": "PB7",
+          "xMm": 44.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "27",
+          "name": "27",
+          "electricalType": "unspecified",
+          "xMm": 45.4526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "28",
+          "name": "28",
+          "electricalType": "unspecified",
+          "xMm": 45.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "29",
+          "name": "29",
+          "electricalType": "unspecified",
+          "xMm": 46.4526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "30",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 46.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "31",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 47.4526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "32",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 47.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "33",
+          "name": "XTAL2",
+          "electricalType": "unspecified",
+          "net": "XTAL2",
+          "xMm": 48.4526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "34",
+          "name": "XTAL1",
+          "electricalType": "unspecified",
+          "net": "XTAL1",
+          "xMm": 48.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "35",
+          "name": "PL0",
+          "electricalType": "unspecified",
+          "net": "PL0",
+          "xMm": 49.4526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "36",
+          "name": "PL1",
+          "electricalType": "unspecified",
+          "net": "PL1",
+          "xMm": 49.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "37",
+          "name": "PL2",
+          "electricalType": "unspecified",
+          "net": "PL2",
+          "xMm": 50.4526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "38",
+          "name": "PL3",
+          "electricalType": "unspecified",
+          "net": "PL3",
+          "xMm": 50.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "39",
+          "name": "PL4",
+          "electricalType": "unspecified",
+          "net": "PL4",
+          "xMm": 51.4526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "40",
+          "name": "PL5",
+          "electricalType": "unspecified",
+          "net": "PL5",
+          "xMm": 51.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "41",
+          "name": "PL6",
+          "electricalType": "unspecified",
+          "net": "PL6",
+          "xMm": 52.4526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "42",
+          "name": "PL7",
+          "electricalType": "unspecified",
+          "net": "PL7",
+          "xMm": 52.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "43",
+          "name": "SCL",
+          "electricalType": "unspecified",
+          "net": "SCL",
+          "xMm": 53.4526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "44",
+          "name": "SDA",
+          "electricalType": "unspecified",
+          "net": "SDA",
+          "xMm": 53.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "45",
+          "name": "RXD1",
+          "electricalType": "unspecified",
+          "net": "RXD1",
+          "xMm": 54.4526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "46",
+          "name": "TXD1",
+          "electricalType": "unspecified",
+          "net": "TXD1",
+          "xMm": 54.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "47",
+          "name": "47",
+          "electricalType": "unspecified",
+          "xMm": 55.4526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "48",
+          "name": "48",
+          "electricalType": "unspecified",
+          "xMm": 55.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "49",
+          "name": "49",
+          "electricalType": "unspecified",
+          "xMm": 56.4526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "50",
+          "name": "PD7",
+          "electricalType": "unspecified",
+          "net": "PD7",
+          "xMm": 56.9526,
+          "yMm": 33.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "51",
+          "name": "PG0",
+          "electricalType": "unspecified",
+          "net": "PG0",
+          "xMm": 58.9526,
+          "yMm": 31.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "52",
+          "name": "PG1",
+          "electricalType": "unspecified",
+          "net": "PG1",
+          "xMm": 58.9526,
+          "yMm": 30.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "53",
+          "name": "PC0",
+          "electricalType": "unspecified",
+          "net": "PC0",
+          "xMm": 58.9526,
+          "yMm": 30.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "54",
+          "name": "PC1",
+          "electricalType": "unspecified",
+          "net": "PC1",
+          "xMm": 58.9526,
+          "yMm": 29.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "55",
+          "name": "PC2",
+          "electricalType": "unspecified",
+          "net": "PC2",
+          "xMm": 58.9526,
+          "yMm": 29.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "56",
+          "name": "PC3",
+          "electricalType": "unspecified",
+          "net": "PC3",
+          "xMm": 58.9526,
+          "yMm": 28.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "57",
+          "name": "PC4",
+          "electricalType": "unspecified",
+          "net": "PC4",
+          "xMm": 58.9526,
+          "yMm": 28.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "58",
+          "name": "PC5",
+          "electricalType": "unspecified",
+          "net": "PC5",
+          "xMm": 58.9526,
+          "yMm": 27.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "59",
+          "name": "PC6",
+          "electricalType": "unspecified",
+          "net": "PC6",
+          "xMm": 58.9526,
+          "yMm": 27.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "60",
+          "name": "PC7",
+          "electricalType": "unspecified",
+          "net": "PC7",
+          "xMm": 58.9526,
+          "yMm": 26.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "61",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 58.9526,
+          "yMm": 26.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "62",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 58.9526,
+          "yMm": 25.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "63",
+          "name": "RXD3",
+          "electricalType": "unspecified",
+          "net": "RXD3",
+          "xMm": 58.9526,
+          "yMm": 25.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "64",
+          "name": "TXD3",
+          "electricalType": "unspecified",
+          "net": "TXD3",
+          "xMm": 58.9526,
+          "yMm": 24.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "65",
+          "name": "65",
+          "electricalType": "unspecified",
+          "xMm": 58.9526,
+          "yMm": 24.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "66",
+          "name": "66",
+          "electricalType": "unspecified",
+          "xMm": 58.9526,
+          "yMm": 23.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "67",
+          "name": "67",
+          "electricalType": "unspecified",
+          "xMm": 58.9526,
+          "yMm": 23.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "68",
+          "name": "68",
+          "electricalType": "unspecified",
+          "xMm": 58.9526,
+          "yMm": 22.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "69",
+          "name": "69",
+          "electricalType": "unspecified",
+          "xMm": 58.9526,
+          "yMm": 22.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "70",
+          "name": "PG2",
+          "electricalType": "unspecified",
+          "net": "PG2",
+          "xMm": 58.9526,
+          "yMm": 21.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "71",
+          "name": "PA7",
+          "electricalType": "unspecified",
+          "net": "PA7",
+          "xMm": 58.9526,
+          "yMm": 21.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "72",
+          "name": "PA6",
+          "electricalType": "unspecified",
+          "net": "PA6",
+          "xMm": 58.9526,
+          "yMm": 20.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "73",
+          "name": "PA5",
+          "electricalType": "unspecified",
+          "net": "PA5",
+          "xMm": 58.9526,
+          "yMm": 20.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "74",
+          "name": "PA4",
+          "electricalType": "unspecified",
+          "net": "PA4",
+          "xMm": 58.9526,
+          "yMm": 19.6078,
+          "side": "front"
+        },
+        {
+          "padNumber": "75",
+          "name": "PA3",
+          "electricalType": "unspecified",
+          "net": "PA3",
+          "xMm": 58.9526,
+          "yMm": 19.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "76",
+          "name": "PA2",
+          "electricalType": "unspecified",
+          "net": "PA2",
+          "xMm": 56.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "77",
+          "name": "PA1",
+          "electricalType": "unspecified",
+          "net": "PA1",
+          "xMm": 56.4526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "78",
+          "name": "PA0",
+          "electricalType": "unspecified",
+          "net": "PA0",
+          "xMm": 55.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "79",
+          "name": "79",
+          "electricalType": "unspecified",
+          "xMm": 55.4526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "80",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 54.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "81",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 54.4526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "82",
+          "name": "ADC15",
+          "electricalType": "unspecified",
+          "net": "ADC15",
+          "xMm": 53.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "83",
+          "name": "ADC14",
+          "electricalType": "unspecified",
+          "net": "ADC14",
+          "xMm": 53.4526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "84",
+          "name": "ADC13",
+          "electricalType": "unspecified",
+          "net": "ADC13",
+          "xMm": 52.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "85",
+          "name": "ADC12",
+          "electricalType": "unspecified",
+          "net": "ADC12",
+          "xMm": 52.4526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "86",
+          "name": "ADC11",
+          "electricalType": "unspecified",
+          "net": "ADC11",
+          "xMm": 51.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "87",
+          "name": "ADC10",
+          "electricalType": "unspecified",
+          "net": "ADC10",
+          "xMm": 51.4526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "88",
+          "name": "ADC9",
+          "electricalType": "unspecified",
+          "net": "ADC9",
+          "xMm": 50.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "89",
+          "name": "ADC8",
+          "electricalType": "unspecified",
+          "net": "ADC8",
+          "xMm": 50.4526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "90",
+          "name": "ADC7",
+          "electricalType": "unspecified",
+          "net": "ADC7",
+          "xMm": 49.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "91",
+          "name": "ADC6",
+          "electricalType": "unspecified",
+          "net": "ADC6",
+          "xMm": 49.4526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "92",
+          "name": "ADC5",
+          "electricalType": "unspecified",
+          "net": "ADC5",
+          "xMm": 48.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "93",
+          "name": "ADC4",
+          "electricalType": "unspecified",
+          "net": "ADC4",
+          "xMm": 48.4526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "94",
+          "name": "ADC3",
+          "electricalType": "unspecified",
+          "net": "ADC3",
+          "xMm": 47.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "95",
+          "name": "ADC2",
+          "electricalType": "unspecified",
+          "net": "ADC2",
+          "xMm": 47.4526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "96",
+          "name": "ADC1",
+          "electricalType": "unspecified",
+          "net": "ADC1",
+          "xMm": 46.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "97",
+          "name": "ADC0",
+          "electricalType": "unspecified",
+          "net": "ADC0",
+          "xMm": 46.4526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "98",
+          "name": "AREF",
+          "electricalType": "unspecified",
+          "net": "AREF",
+          "xMm": 45.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "99",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 45.4526,
+          "yMm": 17.1078,
+          "side": "front"
+        },
+        {
+          "padNumber": "100",
+          "name": "AVCC",
+          "electricalType": "unspecified",
+          "net": "AVCC",
+          "xMm": 44.9526,
+          "yMm": 17.1078,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "IC4",
+      "value": "ATMEGA16U2-MU",
+      "description": "",
+      "footprint": "MLF32",
+      "side": "front",
+      "xMm": 20.0916,
+      "yMm": 18.6562,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 5.6,
+        "h": 5.6,
+        "x": 20.0916,
+        "y": 18.6562
+      },
+      "pin1": {
+        "xMm": 18.3416,
+        "yMm": 21.1062
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XT1",
+          "electricalType": "unspecified",
+          "net": "XT1",
+          "xMm": 18.3416,
+          "yMm": 21.1062,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "XT2",
+          "electricalType": "unspecified",
+          "net": "XT2",
+          "xMm": 18.8416,
+          "yMm": 21.1062,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 19.3416,
+          "yMm": 21.1062,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 19.8416,
+          "yMm": 21.1062,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "5",
+          "electricalType": "unspecified",
+          "xMm": 20.3416,
+          "yMm": 21.1062,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "6",
+          "electricalType": "unspecified",
+          "xMm": 20.8416,
+          "yMm": 21.1062,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "7",
+          "electricalType": "unspecified",
+          "xMm": 21.3416,
+          "yMm": 21.1062,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "M8TXD",
+          "electricalType": "unspecified",
+          "net": "M8TXD",
+          "xMm": 21.8416,
+          "yMm": 21.1062,
+          "side": "front"
+        },
+        {
+          "padNumber": "9",
+          "name": "M8RXD",
+          "electricalType": "unspecified",
+          "net": "M8RXD",
+          "xMm": 22.5416,
+          "yMm": 20.4062,
+          "side": "front"
+        },
+        {
+          "padNumber": "10",
+          "name": "RXL",
+          "electricalType": "unspecified",
+          "net": "RXL",
+          "xMm": 22.5416,
+          "yMm": 19.9062,
+          "side": "front"
+        },
+        {
+          "padNumber": "11",
+          "name": "TXL",
+          "electricalType": "unspecified",
+          "net": "TXL",
+          "xMm": 22.5416,
+          "yMm": 19.4062,
+          "side": "front"
+        },
+        {
+          "padNumber": "12",
+          "name": "12",
+          "electricalType": "unspecified",
+          "xMm": 22.5416,
+          "yMm": 18.9062,
+          "side": "front"
+        },
+        {
+          "padNumber": "13",
+          "name": "DTR",
+          "electricalType": "unspecified",
+          "net": "DTR",
+          "xMm": 22.5416,
+          "yMm": 18.4062,
+          "side": "front"
+        },
+        {
+          "padNumber": "14",
+          "name": "14",
+          "electricalType": "unspecified",
+          "xMm": 22.5416,
+          "yMm": 17.9062,
+          "side": "front"
+        },
+        {
+          "padNumber": "15",
+          "name": "SCK2",
+          "electricalType": "unspecified",
+          "net": "SCK2",
+          "xMm": 22.5416,
+          "yMm": 17.4062,
+          "side": "front"
+        },
+        {
+          "padNumber": "16",
+          "name": "MOSI2",
+          "electricalType": "unspecified",
+          "net": "MOSI2",
+          "xMm": 22.5416,
+          "yMm": 16.9062,
+          "side": "front"
+        },
+        {
+          "padNumber": "17",
+          "name": "MISO2",
+          "electricalType": "unspecified",
+          "net": "MISO2",
+          "xMm": 21.8416,
+          "yMm": 16.2062,
+          "side": "front"
+        },
+        {
+          "padNumber": "18",
+          "name": "8PB4",
+          "electricalType": "unspecified",
+          "net": "8PB4",
+          "xMm": 21.3416,
+          "yMm": 16.2062,
+          "side": "front"
+        },
+        {
+          "padNumber": "19",
+          "name": "8PB5",
+          "electricalType": "unspecified",
+          "net": "8PB5",
+          "xMm": 20.8416,
+          "yMm": 16.2062,
+          "side": "front"
+        },
+        {
+          "padNumber": "20",
+          "name": "8PB6",
+          "electricalType": "unspecified",
+          "net": "8PB6",
+          "xMm": 20.3416,
+          "yMm": 16.2062,
+          "side": "front"
+        },
+        {
+          "padNumber": "21",
+          "name": "8PB7",
+          "electricalType": "unspecified",
+          "net": "8PB7",
+          "xMm": 19.8416,
+          "yMm": 16.2062,
+          "side": "front"
+        },
+        {
+          "padNumber": "22",
+          "name": "22",
+          "electricalType": "unspecified",
+          "xMm": 19.3416,
+          "yMm": 16.2062,
+          "side": "front"
+        },
+        {
+          "padNumber": "23",
+          "name": "23",
+          "electricalType": "unspecified",
+          "xMm": 18.8416,
+          "yMm": 16.2062,
+          "side": "front"
+        },
+        {
+          "padNumber": "24",
+          "name": "RESET2",
+          "electricalType": "unspecified",
+          "net": "RESET2",
+          "xMm": 18.3416,
+          "yMm": 16.2062,
+          "side": "front"
+        },
+        {
+          "padNumber": "25",
+          "name": "25",
+          "electricalType": "unspecified",
+          "xMm": 17.6416,
+          "yMm": 16.9062,
+          "side": "front"
+        },
+        {
+          "padNumber": "26",
+          "name": "26",
+          "electricalType": "unspecified",
+          "xMm": 17.6416,
+          "yMm": 17.4062,
+          "side": "front"
+        },
+        {
+          "padNumber": "27",
+          "name": "VUCAP",
+          "electricalType": "unspecified",
+          "net": "VUCAP",
+          "xMm": 17.6416,
+          "yMm": 17.9062,
+          "side": "front"
+        },
+        {
+          "padNumber": "28",
+          "name": "UGND",
+          "electricalType": "unspecified",
+          "net": "UGND",
+          "xMm": 17.6416,
+          "yMm": 18.4062,
+          "side": "front"
+        },
+        {
+          "padNumber": "29",
+          "name": "RD+",
+          "electricalType": "unspecified",
+          "net": "RD+",
+          "xMm": 17.6416,
+          "yMm": 18.9062,
+          "side": "front"
+        },
+        {
+          "padNumber": "30",
+          "name": "RD-",
+          "electricalType": "unspecified",
+          "net": "RD-",
+          "xMm": 17.6416,
+          "yMm": 19.4062,
+          "side": "front"
+        },
+        {
+          "padNumber": "31",
+          "name": "USBVCC",
+          "electricalType": "unspecified",
+          "net": "USBVCC",
+          "xMm": 17.6416,
+          "yMm": 19.9062,
+          "side": "front"
+        },
+        {
+          "padNumber": "32",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 17.6416,
+          "yMm": 20.4062,
+          "side": "front"
+        },
+        {
+          "padNumber": "33",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 20.0916,
+          "yMm": 18.6562,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "IC6",
+      "value": "LP2985-33DBVR",
+      "description": "",
+      "footprint": "SOT23-DBV",
+      "side": "front",
+      "xMm": 28.0926,
+      "yMm": 28.2828,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.45,
+        "h": 3.8,
+        "x": 28.0926,
+        "y": 28.2828
+      },
+      "pin1": {
+        "xMm": 29.0426,
+        "yMm": 26.9828
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 29.0426,
+          "yMm": 26.9828,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 28.0926,
+          "yMm": 26.9828,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 27.1426,
+          "yMm": 26.9828,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "4",
+          "electricalType": "unspecified",
+          "xMm": 27.1426,
+          "yMm": 29.5828,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "+3V3",
+          "electricalType": "unspecified",
+          "net": "+3V3",
+          "xMm": 29.0426,
+          "yMm": 29.5828,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "IC7",
+      "value": "LMV358IDGKR",
+      "description": "",
+      "footprint": "MSOP08",
+      "side": "front",
+      "xMm": 18.5676,
+      "yMm": 32.1182,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 5.425,
+        "h": 2.25,
+        "x": 18.5681,
+        "y": 32.1192
+      },
+      "pin1": {
+        "xMm": 20.6806,
+        "yMm": 33.0942
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "L13",
+          "electricalType": "unspecified",
+          "net": "L13",
+          "xMm": 20.6806,
+          "yMm": 33.0942,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "L13",
+          "electricalType": "unspecified",
+          "net": "L13",
+          "xMm": 20.6806,
+          "yMm": 32.4442,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "PB7",
+          "electricalType": "unspecified",
+          "net": "PB7",
+          "xMm": 20.6806,
+          "yMm": 31.7942,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 20.6806,
+          "yMm": 31.1442,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "CMP",
+          "electricalType": "unspecified",
+          "net": "CMP",
+          "xMm": 16.4556,
+          "yMm": 31.1442,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "+3V3",
+          "electricalType": "unspecified",
+          "net": "+3V3",
+          "xMm": 16.4556,
+          "yMm": 31.7942,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "GATE_CMD",
+          "electricalType": "unspecified",
+          "net": "GATE_CMD",
+          "xMm": 16.4556,
+          "yMm": 32.4442,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 16.4556,
+          "yMm": 33.0942,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "ICSP0",
+      "value": "ICSP",
+      "description": "",
+      "footprint": "2X03",
+      "side": "front",
+      "xMm": 65.0496,
+      "yMm": 25.5142,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 4.09,
+        "h": 6.63,
+        "x": 65.0496,
+        "y": 25.5142
+      },
+      "pin1": {
+        "xMm": 63.7796,
+        "yMm": 22.9742
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "CIPO",
+          "electricalType": "unspecified",
+          "net": "PB3",
+          "xMm": 63.7796,
+          "yMm": 22.9742,
+          "side": "front",
+          "pinId": "pin-ICSP0-1",
+          "headerPosition": 701,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "2",
+          "name": "5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 66.3196,
+          "yMm": 22.9742,
+          "side": "front",
+          "pinId": "pin-ICSP0-2",
+          "headerPosition": 702,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "3",
+          "name": "SCK",
+          "electricalType": "unspecified",
+          "net": "PB1",
+          "xMm": 63.7796,
+          "yMm": 25.5142,
+          "side": "front",
+          "pinId": "pin-ICSP0-3",
+          "headerPosition": 703,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "4",
+          "name": "COPI",
+          "electricalType": "unspecified",
+          "net": "PB2",
+          "xMm": 66.3196,
+          "yMm": 25.5142,
+          "side": "front",
+          "pinId": "pin-ICSP0-4",
+          "headerPosition": 704,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "5",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 63.7796,
+          "yMm": 28.0542,
+          "side": "front",
+          "pinId": "pin-ICSP0-5",
+          "headerPosition": 705,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "6",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 66.3196,
+          "yMm": 28.0542,
+          "side": "front",
+          "pinId": "pin-ICSP0-6",
+          "headerPosition": 706,
+          "anchorYMm": 10.135
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "ICSP1",
+      "value": "ICSP",
+      "description": "",
+      "footprint": "2X03",
+      "side": "front",
+      "xMm": 18.4406,
+      "yMm": 7.2262,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 6.63,
+        "h": 4.09,
+        "x": 18.4406,
+        "y": 7.2262
+      },
+      "pin1": {
+        "xMm": 20.9806,
+        "yMm": 5.9562
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "CIPO",
+          "electricalType": "unspecified",
+          "net": "MISO2",
+          "xMm": 20.9806,
+          "yMm": 5.9562,
+          "side": "front",
+          "pinId": "pin-ICSP1-1",
+          "headerPosition": 801,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "2",
+          "name": "5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 20.9806,
+          "yMm": 8.4962,
+          "side": "front",
+          "pinId": "pin-ICSP1-2",
+          "headerPosition": 802,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "3",
+          "name": "SCK",
+          "electricalType": "unspecified",
+          "net": "SCK2",
+          "xMm": 18.4406,
+          "yMm": 5.9562,
+          "side": "front",
+          "pinId": "pin-ICSP1-3",
+          "headerPosition": 803,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "4",
+          "name": "COPI",
+          "electricalType": "unspecified",
+          "net": "MOSI2",
+          "xMm": 18.4406,
+          "yMm": 8.4962,
+          "side": "front",
+          "pinId": "pin-ICSP1-4",
+          "headerPosition": 804,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "5",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET2",
+          "xMm": 15.9006,
+          "yMm": 5.9562,
+          "side": "front",
+          "pinId": "pin-ICSP1-5",
+          "headerPosition": 805,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "6",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 15.9006,
+          "yMm": 8.4962,
+          "side": "front",
+          "pinId": "pin-ICSP1-6",
+          "headerPosition": 806,
+          "anchorYMm": 10.135
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "JP5",
+      "value": "2x2M - NM",
+      "description": "",
+      "footprint": "2X02",
+      "side": "front",
+      "xMm": 19.7106,
+      "yMm": 12.3062,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 4.2164,
+        "h": 4.2164,
+        "x": 19.7106,
+        "y": 12.3062
+      },
+      "pin1": {
+        "xMm": 20.9806,
+        "yMm": 13.5762
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "8PB4",
+          "electricalType": "unspecified",
+          "net": "8PB4",
+          "xMm": 20.9806,
+          "yMm": 13.5762,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "8PB6",
+          "electricalType": "unspecified",
+          "net": "8PB6",
+          "xMm": 18.4406,
+          "yMm": 13.5762,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "8PB5",
+          "electricalType": "unspecified",
+          "net": "8PB5",
+          "xMm": 20.9806,
+          "yMm": 11.0362,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "8PB7",
+          "electricalType": "unspecified",
+          "net": "8PB7",
+          "xMm": 18.4406,
+          "yMm": 11.0362,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "JP6",
+      "value": "FH254-110DF08500V",
+      "description": "",
+      "footprint": "1X10",
+      "side": "front",
+      "xMm": 30.3786,
+      "yMm": 2.6542,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 24.2824,
+        "h": 2.2758,
+        "x": 30.3786,
+        "y": 2.6542
+      },
+      "pin1": {
+        "xMm": 18.9486,
+        "yMm": 2.6542
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "SCL",
+          "electricalType": "unspecified",
+          "net": "SCL",
+          "xMm": 18.9486,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-JP6-1",
+          "headerPosition": 101,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "2",
+          "name": "SDA",
+          "electricalType": "unspecified",
+          "net": "SDA",
+          "xMm": 21.4886,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-JP6-2",
+          "headerPosition": 102,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "3",
+          "name": "AREF",
+          "electricalType": "unspecified",
+          "net": "AREF",
+          "xMm": 24.0286,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-JP6-3",
+          "headerPosition": 103,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "4",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 26.5686,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-73",
+          "headerPosition": 104,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "5",
+          "name": "D13",
+          "electricalType": "unspecified",
+          "net": "PB7",
+          "xMm": 29.1086,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-14",
+          "headerPosition": 105,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "6",
+          "name": "D12",
+          "electricalType": "unspecified",
+          "net": "PB6",
+          "xMm": 31.6486,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-13",
+          "headerPosition": 106,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "7",
+          "name": "D11",
+          "electricalType": "unspecified",
+          "net": "PB5",
+          "xMm": 34.1886,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-12",
+          "headerPosition": 107,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "8",
+          "name": "D10",
+          "electricalType": "unspecified",
+          "net": "PB4",
+          "xMm": 36.7286,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-11",
+          "headerPosition": 108,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "9",
+          "name": "D9",
+          "electricalType": "unspecified",
+          "net": "PH6",
+          "xMm": 39.2686,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-10",
+          "headerPosition": 109,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "10",
+          "name": "D8",
+          "electricalType": "unspecified",
+          "net": "PH5",
+          "xMm": 41.8086,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-9",
+          "headerPosition": 110,
+          "anchorYMm": 10.095
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "L0",
+      "value": "Yellow",
+      "description": "",
+      "footprint": "CHIPLED_0805",
+      "side": "front",
+      "xMm": 28.0926,
+      "yMm": 11.2902,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 3.3,
+        "h": 1.2,
+        "x": 28.0926,
+        "y": 11.2902
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "N$2",
+          "electricalType": "unspecified",
+          "net": "N$2",
+          "xMm": 29.1426,
+          "yMm": 11.2902,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 27.0426,
+          "yMm": 11.2902,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "L1",
+      "value": "MH2029-300Y",
+      "description": "",
+      "footprint": "0805",
+      "side": "front",
+      "xMm": 12.116,
+      "yMm": 11.9506,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 3.4,
+        "h": 1,
+        "x": 12.116,
+        "y": 11.9506
+      },
+      "pin1": {
+        "xMm": 13.216,
+        "yMm": 11.9506
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "UGND",
+          "electricalType": "unspecified",
+          "net": "UGND",
+          "xMm": 13.216,
+          "yMm": 11.9506,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "USHIELD",
+          "electricalType": "unspecified",
+          "net": "USHIELD",
+          "xMm": 11.016,
+          "yMm": 11.9506,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "L2",
+      "value": "10uH",
+      "description": "",
+      "footprint": "0805",
+      "side": "front",
+      "xMm": 41.839,
+      "yMm": 15.7246,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 1,
+        "h": 3.4,
+        "x": 41.839,
+        "y": 15.7246
+      },
+      "pin1": {
+        "xMm": 41.839,
+        "yMm": 14.6246
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "AVCC",
+          "electricalType": "unspecified",
+          "net": "AVCC",
+          "xMm": 41.839,
+          "yMm": 14.6246,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 41.839,
+          "yMm": 16.8246,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "ON0",
+      "value": "Green",
+      "description": "",
+      "footprint": "CHIPLED_0805",
+      "side": "front",
+      "xMm": 76.3526,
+      "yMm": 16.6242,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 3.3,
+        "h": 1.2,
+        "x": 76.3526,
+        "y": 16.6242
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "N$3",
+          "electricalType": "unspecified",
+          "net": "N$3",
+          "xMm": 77.4026,
+          "yMm": 16.6242,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 75.3026,
+          "yMm": 16.6242,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "PC1",
+      "value": "47uF",
+      "description": "",
+      "footprint": "PANASONIC_D",
+      "side": "front",
+      "xMm": 18.5676,
+      "yMm": 44.3102,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.4,
+        "h": 7.8,
+        "x": 18.5676,
+        "y": 44.3102
+      },
+      "pads": [
+        {
+          "padNumber": "+",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 18.5676,
+          "yMm": 41.9102,
+          "side": "front"
+        },
+        {
+          "padNumber": "-",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 18.5676,
+          "yMm": 46.7102,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "PC2",
+      "value": "47uF",
+      "description": "",
+      "footprint": "PANASONIC_D",
+      "side": "front",
+      "xMm": 25.6796,
+      "yMm": 44.3102,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.4,
+        "h": 7.8,
+        "x": 25.6796,
+        "y": 44.3102
+      },
+      "pads": [
+        {
+          "padNumber": "+",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 25.6796,
+          "yMm": 41.9102,
+          "side": "front"
+        },
+        {
+          "padNumber": "-",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 25.6796,
+          "yMm": 46.7102,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "POWER0",
+      "value": "FH254-108DF08500V",
+      "description": "",
+      "footprint": "1X08",
+      "side": "front",
+      "xMm": 36.9826,
+      "yMm": 50.9142,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 19.2024,
+        "h": 2.2758,
+        "x": 36.9826,
+        "y": 50.9142
+      },
+      "pin1": {
+        "xMm": 28.0926,
+        "yMm": 50.9142
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "NC",
+          "electricalType": "unspecified",
+          "xMm": 28.0926,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-POWER0-1",
+          "headerPosition": 601,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "2",
+          "name": "IOREF",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 30.6326,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-POWER0-2",
+          "headerPosition": 602,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "3",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 33.1726,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-75",
+          "headerPosition": 603,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "4",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "net": "+3V3",
+          "xMm": 35.7126,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-72",
+          "headerPosition": 604,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "5",
+          "name": "5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 38.2526,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-71",
+          "headerPosition": 605,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "6",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 40.7926,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-POWER0-6",
+          "headerPosition": 606,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "7",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 43.3326,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-POWER0-7",
+          "headerPosition": 607,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "8",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 45.8726,
+          "yMm": 50.9142,
+          "side": "front",
+          "pinId": "pin-74",
+          "headerPosition": 608,
+          "anchorYMm": 10.095
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "PWML0",
+      "value": "FH254-108DF08500V",
+      "description": "",
+      "footprint": "1X08",
+      "side": "front",
+      "xMm": 54.7626,
+      "yMm": 2.6542,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 19.2024,
+        "h": 2.2758,
+        "x": 54.7626,
+        "y": 2.6542
+      },
+      "pin1": {
+        "xMm": 63.6526,
+        "yMm": 2.6542
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "D0",
+          "electricalType": "unspecified",
+          "net": "PE0",
+          "xMm": 63.6526,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-1",
+          "headerPosition": 1,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "2",
+          "name": "D1",
+          "electricalType": "unspecified",
+          "net": "PE1",
+          "xMm": 61.1126,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-2",
+          "headerPosition": 2,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "3",
+          "name": "D2",
+          "electricalType": "unspecified",
+          "net": "PE4",
+          "xMm": 58.5726,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-3",
+          "headerPosition": 3,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "4",
+          "name": "D3",
+          "electricalType": "unspecified",
+          "net": "PE5",
+          "xMm": 56.0326,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-4",
+          "headerPosition": 4,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "5",
+          "name": "D4",
+          "electricalType": "unspecified",
+          "net": "PG5",
+          "xMm": 53.4926,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-5",
+          "headerPosition": 5,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "6",
+          "name": "D5",
+          "electricalType": "unspecified",
+          "net": "PE3",
+          "xMm": 50.9526,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-6",
+          "headerPosition": 6,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "7",
+          "name": "D6",
+          "electricalType": "unspecified",
+          "net": "PH3",
+          "xMm": 48.4126,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-7",
+          "headerPosition": 7,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "8",
+          "name": "D7",
+          "electricalType": "unspecified",
+          "net": "PH4",
+          "xMm": 45.8726,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-8",
+          "headerPosition": 8,
+          "anchorYMm": 10.095
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "R1",
+      "value": "1M",
+      "description": "",
+      "footprint": "R0603-ROUND",
+      "side": "front",
+      "xMm": 40.6656,
+      "yMm": 38.8492,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.1,
+        "h": 2.6764,
+        "x": 40.6656,
+        "y": 38.8492
+      },
+      "pin1": {
+        "xMm": 40.6656,
+        "yMm": 39.7382
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XTAL1",
+          "electricalType": "unspecified",
+          "net": "XTAL1",
+          "xMm": 40.6656,
+          "yMm": 39.7382,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "XTAL2",
+          "electricalType": "unspecified",
+          "net": "XTAL2",
+          "xMm": 40.6656,
+          "yMm": 37.9602,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "R2",
+      "value": "1M",
+      "description": "",
+      "footprint": "R0603-ROUND",
+      "side": "front",
+      "xMm": 18.5676,
+      "yMm": 24.1172,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 18.5676,
+        "y": 24.1172
+      },
+      "pin1": {
+        "xMm": 17.6786,
+        "yMm": 24.1172
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XT1",
+          "electricalType": "unspecified",
+          "net": "XT1",
+          "xMm": 17.6786,
+          "yMm": 24.1172,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "XT2",
+          "electricalType": "unspecified",
+          "net": "XT2",
+          "xMm": 19.4566,
+          "yMm": 24.1172,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "RESET-EN0",
+      "value": "",
+      "description": "",
+      "footprint": "SJ",
+      "side": "front",
+      "xMm": 28.0926,
+      "yMm": 37.7062,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6924,
+        "h": 1.6002,
+        "x": 28.0926,
+        "y": 37.7062
+      },
+      "pin1": {
+        "xMm": 27.3306,
+        "yMm": 37.7062
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 27.3306,
+          "yMm": 37.7062,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 28.8546,
+          "yMm": 37.7062,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "RESET0",
+      "value": "TS42",
+      "description": "",
+      "footprint": "TS42",
+      "side": "front",
+      "xMm": 6.3756,
+      "yMm": 4.6852,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 10,
+        "h": 5.9,
+        "x": 6.3756,
+        "y": 4.6852
+      },
+      "pin1": {
+        "xMm": 2.1756,
+        "yMm": 2.4352
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 2.1756,
+          "yMm": 2.4352,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 10.5756,
+          "yMm": 2.4352,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 2.1756,
+          "yMm": 6.9352,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 10.5756,
+          "yMm": 6.9352,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "5-GND",
+          "electricalType": "unspecified",
+          "net": "5-GND",
+          "xMm": 2.1756,
+          "yMm": 4.6852,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "RN1",
+      "value": "10k",
+      "description": "",
+      "footprint": "CAY16",
+      "side": "front",
+      "xMm": 80.7976,
+      "yMm": 16.6242,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 2,
+        "h": 2.9,
+        "x": 80.7976,
+        "y": 16.6242
+      },
+      "pin1": {
+        "xMm": 80.1226,
+        "yMm": 15.4242
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "1",
+          "electricalType": "unspecified",
+          "xMm": 80.1226,
+          "yMm": 15.4242,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "SCL",
+          "electricalType": "unspecified",
+          "net": "SCL",
+          "xMm": 80.1226,
+          "yMm": 16.2242,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "SDA",
+          "electricalType": "unspecified",
+          "net": "SDA",
+          "xMm": 80.1226,
+          "yMm": 17.0242,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "4",
+          "electricalType": "unspecified",
+          "xMm": 80.1226,
+          "yMm": 17.8242,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "5",
+          "electricalType": "unspecified",
+          "xMm": 81.4726,
+          "yMm": 17.8242,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 81.4726,
+          "yMm": 17.0242,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 81.4726,
+          "yMm": 16.2242,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "8",
+          "electricalType": "unspecified",
+          "xMm": 81.4726,
+          "yMm": 15.4242,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "RN2",
+      "value": "22R",
+      "description": "",
+      "footprint": "CAY16",
+      "side": "front",
+      "xMm": 12.2176,
+      "yMm": 16.3702,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 2,
+        "h": 2.9,
+        "x": 12.2176,
+        "y": 16.3702
+      },
+      "pin1": {
+        "xMm": 12.8926,
+        "yMm": 17.5702
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "RD-",
+          "electricalType": "unspecified",
+          "net": "RD-",
+          "xMm": 12.8926,
+          "yMm": 17.5702,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "2",
+          "electricalType": "unspecified",
+          "xMm": 12.8926,
+          "yMm": 16.7702,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "3",
+          "electricalType": "unspecified",
+          "xMm": 12.8926,
+          "yMm": 15.9702,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "RD+",
+          "electricalType": "unspecified",
+          "net": "RD+",
+          "xMm": 12.8926,
+          "yMm": 15.1702,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "D+",
+          "electricalType": "unspecified",
+          "net": "D+",
+          "xMm": 11.5426,
+          "yMm": 15.1702,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "6",
+          "electricalType": "unspecified",
+          "xMm": 11.5426,
+          "yMm": 15.9702,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "7",
+          "electricalType": "unspecified",
+          "xMm": 11.5426,
+          "yMm": 16.7702,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "D-",
+          "electricalType": "unspecified",
+          "net": "D-",
+          "xMm": 11.5426,
+          "yMm": 17.5702,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "RN3",
+      "value": "1K",
+      "description": "",
+      "footprint": "CAY16",
+      "side": "front",
+      "xMm": 28.0926,
+      "yMm": 14.0842,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 2,
+        "h": 2.9,
+        "x": 28.0926,
+        "y": 14.0842
+      },
+      "pin1": {
+        "xMm": 27.4176,
+        "yMm": 12.8842
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 27.4176,
+          "yMm": 12.8842,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "N$2",
+          "electricalType": "unspecified",
+          "net": "N$2",
+          "xMm": 27.4176,
+          "yMm": 13.6842,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "3",
+          "electricalType": "unspecified",
+          "xMm": 27.4176,
+          "yMm": 14.4842,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "DTR",
+          "electricalType": "unspecified",
+          "net": "DTR",
+          "xMm": 27.4176,
+          "yMm": 15.2842,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 28.7676,
+          "yMm": 15.2842,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "6",
+          "electricalType": "unspecified",
+          "xMm": 28.7676,
+          "yMm": 14.4842,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "L13",
+          "electricalType": "unspecified",
+          "net": "L13",
+          "xMm": 28.7676,
+          "yMm": 13.6842,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "N$3",
+          "electricalType": "unspecified",
+          "net": "N$3",
+          "xMm": 28.7676,
+          "yMm": 12.8842,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "RN4",
+      "value": "1K",
+      "description": "",
+      "footprint": "CAY16",
+      "side": "front",
+      "xMm": 28.0926,
+      "yMm": 22.3392,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 2,
+        "h": 2.9,
+        "x": 28.0926,
+        "y": 22.3392
+      },
+      "pin1": {
+        "xMm": 28.7676,
+        "yMm": 23.5392
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "PE1",
+          "electricalType": "unspecified",
+          "net": "PE1",
+          "xMm": 28.7676,
+          "yMm": 23.5392,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "PE0",
+          "electricalType": "unspecified",
+          "net": "PE0",
+          "xMm": 28.7676,
+          "yMm": 22.7392,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "N$55",
+          "electricalType": "unspecified",
+          "net": "N$55",
+          "xMm": 28.7676,
+          "yMm": 21.9392,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "N$54",
+          "electricalType": "unspecified",
+          "net": "N$54",
+          "xMm": 28.7676,
+          "yMm": 21.1392,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 27.4176,
+          "yMm": 21.1392,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 27.4176,
+          "yMm": 21.9392,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "M8RXD",
+          "electricalType": "unspecified",
+          "net": "M8RXD",
+          "xMm": 27.4176,
+          "yMm": 22.7392,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "M8TXD",
+          "electricalType": "unspecified",
+          "net": "M8TXD",
+          "xMm": 27.4176,
+          "yMm": 23.5392,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "RN5",
+      "value": "10k",
+      "description": "",
+      "footprint": "CAY16",
+      "side": "front",
+      "xMm": 18.5676,
+      "yMm": 36.9442,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 2,
+        "h": 2.9,
+        "x": 18.5676,
+        "y": 36.9442
+      },
+      "pin1": {
+        "xMm": 19.2426,
+        "yMm": 38.1442
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 19.2426,
+          "yMm": 38.1442,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 19.2426,
+          "yMm": 37.3442,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "CMP",
+          "electricalType": "unspecified",
+          "net": "CMP",
+          "xMm": 19.2426,
+          "yMm": 36.5442,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 19.2426,
+          "yMm": 35.7442,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "CMP",
+          "electricalType": "unspecified",
+          "net": "CMP",
+          "xMm": 17.8926,
+          "yMm": 35.7442,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 17.8926,
+          "yMm": 36.5442,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "RESET2",
+          "electricalType": "unspecified",
+          "net": "RESET2",
+          "xMm": 17.8926,
+          "yMm": 37.3442,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 17.8926,
+          "yMm": 38.1442,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "RX0",
+      "value": "Yellow",
+      "description": "",
+      "footprint": "CHIPLED_0805",
+      "side": "front",
+      "xMm": 28.0926,
+      "yMm": 19.1642,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 3.3,
+        "h": 1.2,
+        "x": 28.0926,
+        "y": 19.1642
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "N$54",
+          "electricalType": "unspecified",
+          "net": "N$54",
+          "xMm": 29.1426,
+          "yMm": 19.1642,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "RXL",
+          "electricalType": "unspecified",
+          "net": "RXL",
+          "xMm": 27.0426,
+          "yMm": 19.1642,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "T1",
+      "value": "PMV48XP",
+      "description": "",
+      "footprint": "SOT-23",
+      "side": "front",
+      "xMm": 9.2966,
+      "yMm": 27.5462,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 2.921,
+        "h": 2.7178,
+        "x": 9.2966,
+        "y": 27.5716
+      },
+      "pin1": {
+        "xMm": 8.2806,
+        "yMm": 27.5716
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "USBVCC",
+          "electricalType": "unspecified",
+          "net": "USBVCC",
+          "xMm": 8.2806,
+          "yMm": 27.5716,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 10.3126,
+          "yMm": 26.6064,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "GATE_CMD",
+          "electricalType": "unspecified",
+          "net": "GATE_CMD",
+          "xMm": 10.3126,
+          "yMm": 28.5368,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "TX0",
+      "value": "Yellow",
+      "description": "",
+      "footprint": "CHIPLED_0805",
+      "side": "front",
+      "xMm": 28.0926,
+      "yMm": 16.8782,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 3.3,
+        "h": 1.2,
+        "x": 28.0926,
+        "y": 16.8782
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "N$55",
+          "electricalType": "unspecified",
+          "net": "N$55",
+          "xMm": 29.1426,
+          "yMm": 16.8782,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "TXL",
+          "electricalType": "unspecified",
+          "net": "TXL",
+          "xMm": 27.0426,
+          "yMm": 16.8782,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "U$1",
+      "value": "DNP",
+      "description": "",
+      "footprint": "FRAME",
+      "side": "front",
+      "xMm": 0.1526,
+      "yMm": 53.4542,
+      "rotationDeg": 0,
+      "bboxMm": null,
+      "pads": [],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "U$2",
+      "value": "DNP",
+      "description": "",
+      "footprint": "FRAME",
+      "side": "front",
+      "xMm": 0.1526,
+      "yMm": 53.4542,
+      "rotationDeg": 0,
+      "bboxMm": null,
+      "pads": [],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_0",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp0",
+      "side": "front",
+      "xMm": 96.6726,
+      "yMm": 50.9142,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 3.2,
+        "x": 96.6726,
+        "y": 50.9142
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 96.6726,
+          "yMm": 50.9142,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_1",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp1",
+      "side": "front",
+      "xMm": 15.3926,
+      "yMm": 2.6542,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 3.2,
+        "x": 15.3926,
+        "y": 2.6542
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 15.3926,
+          "yMm": 2.6542,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_2",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp2",
+      "side": "front",
+      "xMm": 90.3226,
+      "yMm": 2.6542,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 3.2,
+        "x": 90.3226,
+        "y": 2.6542
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 90.3226,
+          "yMm": 2.6542,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_3",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp3",
+      "side": "front",
+      "xMm": 14.1226,
+      "yMm": 50.9142,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 3.2,
+        "x": 14.1226,
+        "y": 50.9142
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 14.1226,
+          "yMm": 50.9142,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_4",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp4",
+      "side": "front",
+      "xMm": 66.1926,
+      "yMm": 17.8942,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 3.2,
+        "x": 66.1926,
+        "y": 17.8942
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 66.1926,
+          "yMm": 17.8942,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_5",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp5",
+      "side": "front",
+      "xMm": 66.1926,
+      "yMm": 45.8342,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 3.2,
+        "x": 66.1926,
+        "y": 45.8342
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 66.1926,
+          "yMm": 45.8342,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "X1",
+      "value": "POWERSUPPLY_DC21MMX",
+      "description": "",
+      "footprint": "POWERSUPPLY_DC-21MM",
+      "side": "front",
+      "xMm": 5.4866,
+      "yMm": 45.0722,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 10.8204,
+        "h": 9.8298,
+        "x": 8.8394,
+        "y": 47.6503
+      },
+      "pin1": {
+        "xMm": 8.8394,
+        "yMm": 50.1522
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 8.8394,
+          "yMm": 50.1522,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "PWRIN",
+          "electricalType": "unspecified",
+          "net": "PWRIN",
+          "xMm": 11.8366,
+          "yMm": 45.1484,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 5.8422,
+          "yMm": 45.1484,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "4",
+          "electricalType": "unspecified",
+          "xMm": 9.6014,
+          "yMm": 50.1522,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "5",
+          "electricalType": "unspecified",
+          "xMm": 8.0774,
+          "yMm": 50.1522,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "6",
+          "electricalType": "unspecified",
+          "xMm": 5.8422,
+          "yMm": 45.9104,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "7",
+          "electricalType": "unspecified",
+          "xMm": 5.8422,
+          "yMm": 44.3864,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "8",
+          "electricalType": "unspecified",
+          "xMm": 11.8366,
+          "yMm": 45.9104,
+          "side": "front"
+        },
+        {
+          "padNumber": "9",
+          "name": "9",
+          "electricalType": "unspecified",
+          "xMm": 11.8366,
+          "yMm": 44.3864,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "X2",
+      "value": "",
+      "description": "",
+      "footprint": "PN61729",
+      "side": "front",
+      "xMm": 3.9626,
+      "yMm": 15.3542,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 7.1562,
+        "h": 15.216,
+        "x": 5.9327,
+        "y": 15.3542
+      },
+      "pin1": {
+        "xMm": 8.6726,
+        "yMm": 16.6042
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XVCC",
+          "electricalType": "unspecified",
+          "net": "XVCC",
+          "xMm": 8.6726,
+          "yMm": 16.6042,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "D-",
+          "electricalType": "unspecified",
+          "net": "D-",
+          "xMm": 8.6726,
+          "yMm": 14.1042,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "D+",
+          "electricalType": "unspecified",
+          "net": "D+",
+          "xMm": 6.6726,
+          "yMm": 14.1042,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "UGND",
+          "electricalType": "unspecified",
+          "net": "UGND",
+          "xMm": 6.6726,
+          "yMm": 16.6042,
+          "side": "front"
+        },
+        {
+          "padNumber": "P$1",
+          "name": "USHIELD",
+          "electricalType": "unspecified",
+          "net": "USHIELD",
+          "xMm": 3.9626,
+          "yMm": 9.3542,
+          "side": "front"
+        },
+        {
+          "padNumber": "P$2",
+          "name": "USHIELD",
+          "electricalType": "unspecified",
+          "net": "USHIELD",
+          "xMm": 3.9626,
+          "yMm": 21.3542,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "XIO0",
+      "value": "18x2F-H8.5",
+      "description": "",
+      "footprint": "2X18",
+      "side": "front",
+      "xMm": 95.4026,
+      "yMm": 24.2442,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 4.2164,
+        "h": 44.8564,
+        "x": 95.4026,
+        "y": 24.2442
+      },
+      "pin1": {
+        "xMm": 94.1326,
+        "yMm": 2.6542
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 94.1326,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-XIO0-1",
+          "headerPosition": 301,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "2",
+          "name": "5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 96.6726,
+          "yMm": 2.6542,
+          "side": "front",
+          "pinId": "pin-XIO0-2",
+          "headerPosition": 302,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "3",
+          "name": "D22",
+          "electricalType": "unspecified",
+          "net": "PA0",
+          "xMm": 94.1326,
+          "yMm": 5.1942,
+          "side": "front",
+          "pinId": "pin-23",
+          "headerPosition": 303,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "4",
+          "name": "D23",
+          "electricalType": "unspecified",
+          "net": "PA1",
+          "xMm": 96.6726,
+          "yMm": 5.1942,
+          "side": "front",
+          "pinId": "pin-24",
+          "headerPosition": 304,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "5",
+          "name": "D24",
+          "electricalType": "unspecified",
+          "net": "PA2",
+          "xMm": 94.1326,
+          "yMm": 7.7342,
+          "side": "front",
+          "pinId": "pin-25",
+          "headerPosition": 305,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "6",
+          "name": "D25",
+          "electricalType": "unspecified",
+          "net": "PA3",
+          "xMm": 96.6726,
+          "yMm": 7.7342,
+          "side": "front",
+          "pinId": "pin-26",
+          "headerPosition": 306,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "7",
+          "name": "D26",
+          "electricalType": "unspecified",
+          "net": "PA4",
+          "xMm": 94.1326,
+          "yMm": 10.2742,
+          "side": "front",
+          "pinId": "pin-27",
+          "headerPosition": 307,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "8",
+          "name": "D27",
+          "electricalType": "unspecified",
+          "net": "PA5",
+          "xMm": 96.6726,
+          "yMm": 10.2742,
+          "side": "front",
+          "pinId": "pin-28",
+          "headerPosition": 308,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "9",
+          "name": "D28",
+          "electricalType": "unspecified",
+          "net": "PA6",
+          "xMm": 94.1326,
+          "yMm": 12.8142,
+          "side": "front",
+          "pinId": "pin-29",
+          "headerPosition": 309,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "10",
+          "name": "D29",
+          "electricalType": "unspecified",
+          "net": "PA7",
+          "xMm": 96.6726,
+          "yMm": 12.8142,
+          "side": "front",
+          "pinId": "pin-30",
+          "headerPosition": 310,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "11",
+          "name": "D30",
+          "electricalType": "unspecified",
+          "net": "PC7",
+          "xMm": 94.1326,
+          "yMm": 15.3542,
+          "side": "front",
+          "pinId": "pin-31",
+          "headerPosition": 311,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "12",
+          "name": "D31",
+          "electricalType": "unspecified",
+          "net": "PC6",
+          "xMm": 96.6726,
+          "yMm": 15.3542,
+          "side": "front",
+          "pinId": "pin-32",
+          "headerPosition": 312,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "13",
+          "name": "D32",
+          "electricalType": "unspecified",
+          "net": "PC5",
+          "xMm": 94.1326,
+          "yMm": 17.8942,
+          "side": "front",
+          "pinId": "pin-33",
+          "headerPosition": 313,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "14",
+          "name": "D33",
+          "electricalType": "unspecified",
+          "net": "PC4",
+          "xMm": 96.6726,
+          "yMm": 17.8942,
+          "side": "front",
+          "pinId": "pin-34",
+          "headerPosition": 314,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "15",
+          "name": "D34",
+          "electricalType": "unspecified",
+          "net": "PC3",
+          "xMm": 94.1326,
+          "yMm": 20.4342,
+          "side": "front",
+          "pinId": "pin-35",
+          "headerPosition": 315,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "16",
+          "name": "D35",
+          "electricalType": "unspecified",
+          "net": "PC2",
+          "xMm": 96.6726,
+          "yMm": 20.4342,
+          "side": "front",
+          "pinId": "pin-36",
+          "headerPosition": 316,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "17",
+          "name": "D36",
+          "electricalType": "unspecified",
+          "net": "PC1",
+          "xMm": 94.1326,
+          "yMm": 22.9742,
+          "side": "front",
+          "pinId": "pin-37",
+          "headerPosition": 317,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "18",
+          "name": "D37",
+          "electricalType": "unspecified",
+          "net": "PC0",
+          "xMm": 96.6726,
+          "yMm": 22.9742,
+          "side": "front",
+          "pinId": "pin-38",
+          "headerPosition": 318,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "19",
+          "name": "D38",
+          "electricalType": "unspecified",
+          "net": "PD7",
+          "xMm": 94.1326,
+          "yMm": 25.5142,
+          "side": "front",
+          "pinId": "pin-39",
+          "headerPosition": 319,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "20",
+          "name": "D39",
+          "electricalType": "unspecified",
+          "net": "PG2",
+          "xMm": 96.6726,
+          "yMm": 25.5142,
+          "side": "front",
+          "pinId": "pin-40",
+          "headerPosition": 320,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "21",
+          "name": "D40",
+          "electricalType": "unspecified",
+          "net": "PG1",
+          "xMm": 94.1326,
+          "yMm": 28.0542,
+          "side": "front",
+          "pinId": "pin-41",
+          "headerPosition": 321,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "22",
+          "name": "D41",
+          "electricalType": "unspecified",
+          "net": "PG0",
+          "xMm": 96.6726,
+          "yMm": 28.0542,
+          "side": "front",
+          "pinId": "pin-42",
+          "headerPosition": 322,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "23",
+          "name": "D42",
+          "electricalType": "unspecified",
+          "net": "PL7",
+          "xMm": 94.1326,
+          "yMm": 30.5942,
+          "side": "front",
+          "pinId": "pin-43",
+          "headerPosition": 323,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "24",
+          "name": "D43",
+          "electricalType": "unspecified",
+          "net": "PL6",
+          "xMm": 96.6726,
+          "yMm": 30.5942,
+          "side": "front",
+          "pinId": "pin-44",
+          "headerPosition": 324,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "25",
+          "name": "D44",
+          "electricalType": "unspecified",
+          "net": "PL5",
+          "xMm": 94.1326,
+          "yMm": 33.1342,
+          "side": "front",
+          "pinId": "pin-45",
+          "headerPosition": 325,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "26",
+          "name": "D45",
+          "electricalType": "unspecified",
+          "net": "PL4",
+          "xMm": 96.6726,
+          "yMm": 33.1342,
+          "side": "front",
+          "pinId": "pin-46",
+          "headerPosition": 326,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "27",
+          "name": "D46",
+          "electricalType": "unspecified",
+          "net": "PL3",
+          "xMm": 94.1326,
+          "yMm": 35.6742,
+          "side": "front",
+          "pinId": "pin-47",
+          "headerPosition": 327,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "28",
+          "name": "D47",
+          "electricalType": "unspecified",
+          "net": "PL2",
+          "xMm": 96.6726,
+          "yMm": 35.6742,
+          "side": "front",
+          "pinId": "pin-48",
+          "headerPosition": 328,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "29",
+          "name": "D48",
+          "electricalType": "unspecified",
+          "net": "PL1",
+          "xMm": 94.1326,
+          "yMm": 38.2142,
+          "side": "front",
+          "pinId": "pin-49",
+          "headerPosition": 329,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "30",
+          "name": "D49",
+          "electricalType": "unspecified",
+          "net": "PL0",
+          "xMm": 96.6726,
+          "yMm": 38.2142,
+          "side": "front",
+          "pinId": "pin-50",
+          "headerPosition": 330,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "31",
+          "name": "D50",
+          "electricalType": "unspecified",
+          "net": "PB3",
+          "xMm": 94.1326,
+          "yMm": 40.7542,
+          "side": "front",
+          "pinId": "pin-51",
+          "headerPosition": 331,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "32",
+          "name": "D51",
+          "electricalType": "unspecified",
+          "net": "PB2",
+          "xMm": 96.6726,
+          "yMm": 40.7542,
+          "side": "front",
+          "pinId": "pin-52",
+          "headerPosition": 332,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "33",
+          "name": "D52",
+          "electricalType": "unspecified",
+          "net": "PB1",
+          "xMm": 94.1326,
+          "yMm": 43.2942,
+          "side": "front",
+          "pinId": "pin-53",
+          "headerPosition": 333,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "34",
+          "name": "D53",
+          "electricalType": "unspecified",
+          "net": "PB0",
+          "xMm": 96.6726,
+          "yMm": 43.2942,
+          "side": "front",
+          "pinId": "pin-54",
+          "headerPosition": 334,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "35",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 94.1326,
+          "yMm": 45.8342,
+          "side": "front",
+          "pinId": "pin-XIO0-35",
+          "headerPosition": 335,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "36",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 96.6726,
+          "yMm": 45.8342,
+          "side": "front",
+          "pinId": "pin-XIO0-36",
+          "headerPosition": 336,
+          "anchorYMm": 10.095
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "Y1",
+      "value": "CSTCE16M0V53-R0",
+      "description": "",
+      "footprint": "RESONATOR",
+      "side": "front",
+      "xMm": 38.5066,
+      "yMm": 38.8492,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 2,
+        "h": 2.7,
+        "x": 38.5066,
+        "y": 38.8492
+      },
+      "pin1": {
+        "xMm": 38.5066,
+        "yMm": 37.8492
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XTAL2",
+          "electricalType": "unspecified",
+          "net": "XTAL2",
+          "xMm": 38.5066,
+          "yMm": 37.8492,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 38.5066,
+          "yMm": 38.8492,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "XTAL1",
+          "electricalType": "unspecified",
+          "net": "XTAL1",
+          "xMm": 38.5066,
+          "yMm": 39.8492,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "Y2",
+      "value": "16MHz",
+      "description": "",
+      "footprint": "QS",
+      "side": "front",
+      "xMm": 18.5676,
+      "yMm": 27.4192,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 6.7564,
+        "h": 1.6764,
+        "x": 18.5676,
+        "y": 27.4192
+      },
+      "pin1": {
+        "xMm": 21.1076,
+        "yMm": 27.4192
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XT2",
+          "electricalType": "unspecified",
+          "net": "XT2",
+          "xMm": 21.1076,
+          "yMm": 27.4192,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "XT1",
+          "electricalType": "unspecified",
+          "net": "XT1",
+          "xMm": 16.0276,
+          "yMm": 27.4192,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "Z1",
+      "value": "BRNCG0603MLC-05E",
+      "description": "",
+      "footprint": "CT_CN0603",
+      "side": "front",
+      "xMm": 12.2176,
+      "yMm": 19.1642,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3,
+        "h": 1,
+        "x": 12.2176,
+        "y": 19.1642
+      },
+      "pin1": {
+        "xMm": 11.2176,
+        "yMm": 19.1642
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "USHIELD",
+          "electricalType": "unspecified",
+          "net": "USHIELD",
+          "xMm": 11.2176,
+          "yMm": 19.1642,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "D-",
+          "electricalType": "unspecified",
+          "net": "D-",
+          "xMm": 13.2176,
+          "yMm": 19.1642,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    },
+    {
+      "ref": "Z2",
+      "value": "BRNCG0603MLC-05E",
+      "description": "",
+      "footprint": "CT_CN0603",
+      "side": "front",
+      "xMm": 12.2176,
+      "yMm": 13.7794,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3,
+        "h": 1,
+        "x": 12.2176,
+        "y": 13.7794
+      },
+      "pin1": {
+        "xMm": 11.2176,
+        "yMm": 13.7794
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "USHIELD",
+          "electricalType": "unspecified",
+          "net": "USHIELD",
+          "xMm": 11.2176,
+          "yMm": 13.7794,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "D+",
+          "electricalType": "unspecified",
+          "net": "D+",
+          "xMm": 13.2176,
+          "yMm": 13.7794,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb",
+        "revision": "Arduino Mega 2560 Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"
+      }
+    }
+  ]
+}

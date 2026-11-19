@@ -11,11 +11,14 @@ type BoardPinoutExplorerProps = {
 export function BoardPinoutExplorer({ pins, selectedPinId, onSelectPin, evidence, coordinatePicking }: BoardPinoutExplorerProps) {
   const hasCoordinatePicking = coordinatePicking === true
   const selectedPin = pins.find((pin) => pin.id === selectedPinId)
-  const groups = (['left', 'right', 'reference'] as const).map((side) => ({
-    side,
-    header: pins.find((pin) => pin.side === side)?.headerReference ?? (side === 'left' ? 'Header trái' : side === 'right' ? 'Header phải' : 'Theo tên pin hãng'),
-    pins: pins.filter((pin) => pin.side === side).sort((a, b) => a.position - b.position),
-  })).filter((group) => group.pins.length > 0)
+  const groups = new Map<string, { side: BoardPin['side']; header: string; pins: BoardPin[] }>()
+  for (const pin of [...pins].sort((a, b) => a.position - b.position)) {
+    const header = pin.headerReference ?? (pin.side === 'left' ? 'Header trái' : pin.side === 'right' ? 'Header phải' : 'Theo tên pin hãng')
+    const key = `${pin.side}:${header}`
+    const existing = groups.get(key)
+    if (existing) existing.pins.push(pin)
+    else groups.set(key, { side: pin.side, header, pins: [pin] })
+  }
 
   return <section className="board-pinout-explorer" aria-labelledby="board-pinout-heading">
     <div className="board-pinout-explorer-heading">
@@ -31,9 +34,9 @@ export function BoardPinoutExplorer({ pins, selectedPinId, onSelectPin, evidence
       <div className="board-pin-functions">{selectedPin.functions.map((name) => <span key={name}>{name}</span>)}</div>
     </article>}
     <div className="board-pinout-header-groups">
-      {groups.map((group) => <div className={`board-pinout-header-group ${group.side === 'reference' ? 'board-pinout-header-group-reference' : ''}`} key={`${group.header}-${group.side}`} role="group" aria-label={`Chọn nhóm chân ${group.header}`}>
+      {[...groups.values()].map((group) => <div className={`board-pinout-header-group ${group.side === 'reference' ? 'board-pinout-header-group-reference' : ''}`} key={`${group.header}-${group.side}`} role="group" aria-label={`Chọn nhóm chân ${group.header}`}>
         <h5>{group.header}</h5>
-        <div>{group.pins.map((pin) => <button key={pin.id} type="button" aria-pressed={selectedPinId === pin.id} className={selectedPinId === pin.id ? 'board-pinout-pin-active' : ''} onClick={() => onSelectPin(pin.id)}>
+        <div>{group.pins.map((pin) => <button key={pin.id} type="button" aria-label={pin.padNumber ? `${pin.label}, ${group.header} chân ${pin.padNumber}` : undefined} aria-pressed={selectedPinId === pin.id} className={selectedPinId === pin.id ? 'board-pinout-pin-active' : ''} onClick={() => onSelectPin(pin.id)}>
           <strong>{pin.label}</strong><small>{pin.gpio === undefined ? pin.functions[0] : `GPIO${pin.gpio}`}</small>
         </button>)}</div>
       </div>)}

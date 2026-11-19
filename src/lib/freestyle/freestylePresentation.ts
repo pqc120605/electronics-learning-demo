@@ -4,7 +4,6 @@ import { espressifBoardModels } from '../../data/espressifBoardModels'
 import { raspberryPiBoardModels } from '../../data/raspberryPiBoardModels'
 import { stm32BoardModels } from '../../data/stm32BoardModels'
 import { getBoardModelEvidence } from '../../data/boardModelSources'
-import anchors from '../../data/board-pin-anchors.json'
 import { getFreestyleBoard, pinDisplayName, SIGNAL_PINS, type PinMap, type SignalPin } from './freestyleCircuit'
 import type { BoardModelManifest } from '../../components/board/boardSceneTypes'
 import type { Bounds, Vec3 } from '../assemblyLayout'
@@ -32,15 +31,14 @@ export function freestylePresentation(boardId: string, pinMap: PinMap): Freestyl
   view.pinAnchors=Object.fromEntries(Object.keys(view.pinLabels).flatMap(role=>{const point=freestylePinAnchor(view,pinMap,role);return point?[[role,point]]:[]}))
   return view
 }
-/** Exact known source anchors only. Arduino's generated manifest positions are NOT used as CAD pads. */
+/** Wire endpoints share the CAD pad anchors used by the board inspector. */
 export function freestylePinAnchor(view: FreestylePresentation, pinMap: PinMap, role: string): Vec3 | undefined {
   // STM32 manifests are educational reconstructions; estimated headers are not exact wire anchors.
   if(view.family==='stm32')return undefined
-  const source = (anchors as unknown as Record<string,{boundsMm:Bounds;topYMm?:number;pins:Record<string,number[]>}>)[view.canonicalId]
   const label = view.pinLabels[role]
   if (view.family==='arduino') {
-    const xy=source?.pins[label]
-    return xy && source.topYMm!==undefined ? [xy[0],source.topYMm,xy[1]] : undefined
+    const pin = view.model.pins.find(pin => /^pin-\d+$/.test(pin.id) && pin.label.split('/')[0] === label)
+    return pin?.anchor?.map(value => value * 1000) as Vec3 | undefined
   }
   const num=pinMap[role as SignalPin]
   const pin = view.model.pins.find(pin=> Number.isFinite(num) && pin.gpio===num || (label && (pin.label===label || pin.label.split(' ')[0]===label)))

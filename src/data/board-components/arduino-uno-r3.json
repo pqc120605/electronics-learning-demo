@@ -1,0 +1,5970 @@
+{
+  "boardId": "arduino-uno-r3",
+  "source": {
+    "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+    "revision": "Arduino Uno Rev3 · source CAD import",
+    "license": "CC BY-SA 4.0",
+    "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+  },
+  "modelSha256": "53330cd2b0d2fac39206f2774e71e8961316634ea3f027331583379a43965ff6",
+  "modelOffsetMm": {
+    "x": 114.0841,
+    "z": 78.2066
+  },
+  "maxHeaderCenterErrorMm": 0,
+  "components": [
+    {
+      "ref": "AD0",
+      "value": "6x1F-H8.5",
+      "description": "",
+      "footprint": "1X06",
+      "side": "front",
+      "xMm": 57.277,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 14.1224,
+        "h": 2.1336,
+        "x": 57.277,
+        "y": 50.927
+      },
+      "pin1": {
+        "xMm": 50.927,
+        "yMm": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "A0",
+          "electricalType": "unspecified",
+          "net": "AD0",
+          "xMm": 50.927,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-15",
+          "headerPosition": 201,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "2",
+          "name": "A1",
+          "electricalType": "unspecified",
+          "net": "AD1",
+          "xMm": 53.467,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-16",
+          "headerPosition": 202,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "3",
+          "name": "A2",
+          "electricalType": "unspecified",
+          "net": "AD2",
+          "xMm": 56.007,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-17",
+          "headerPosition": 203,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "4",
+          "name": "A3",
+          "electricalType": "unspecified",
+          "net": "AD3",
+          "xMm": 58.547,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-18",
+          "headerPosition": 204,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "5",
+          "name": "A4",
+          "electricalType": "unspecified",
+          "net": "AD4/SDA",
+          "xMm": 61.087,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-19",
+          "headerPosition": 205,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "6",
+          "name": "A5",
+          "electricalType": "unspecified",
+          "net": "AD5/SCL",
+          "xMm": 63.627,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-20",
+          "headerPosition": 206,
+          "anchorYMm": 10.095
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "C1",
+      "value": "100n",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 18.542,
+      "yMm": 38.1,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 1.1,
+        "h": 2.6764,
+        "x": 18.542,
+        "y": 38.1
+      },
+      "pin1": {
+        "xMm": 18.542,
+        "yMm": 37.211
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 18.542,
+          "yMm": 37.211,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 18.542,
+          "yMm": 38.989,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "C10",
+      "value": "100n",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 44.45,
+      "yMm": 42.926,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 44.45,
+        "y": 42.926
+      },
+      "pin1": {
+        "xMm": 45.339,
+        "yMm": 42.926
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 45.339,
+          "yMm": 42.926,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "AVCC",
+          "electricalType": "unspecified",
+          "net": "AVCC",
+          "xMm": 43.561,
+          "yMm": 42.926,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "C11",
+      "value": "22p",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 22.352,
+      "yMm": 23.876,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 22.352,
+        "y": 23.876
+      },
+      "pin1": {
+        "xMm": 21.463,
+        "yMm": 23.876
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XT2",
+          "electricalType": "unspecified",
+          "net": "XT2",
+          "xMm": 21.463,
+          "yMm": 23.876,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 23.241,
+          "yMm": 23.876,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "C2",
+      "value": "100n",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 12.192,
+      "yMm": 23.622,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 12.192,
+        "y": 23.622
+      },
+      "pin1": {
+        "xMm": 13.081,
+        "yMm": 23.622
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 13.081,
+          "yMm": 23.622,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 11.303,
+          "yMm": 23.622,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "C3",
+      "value": "1u",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 25.654,
+      "yMm": 38.1,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.1,
+        "h": 2.6764,
+        "x": 25.654,
+        "y": 38.1
+      },
+      "pin1": {
+        "xMm": 25.654,
+        "yMm": 38.989
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 25.654,
+          "yMm": 38.989,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+3V3",
+          "electricalType": "unspecified",
+          "net": "+3V3",
+          "xMm": 25.654,
+          "yMm": 37.211,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "C4",
+      "value": "100n",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 28.067,
+      "yMm": 9.017,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 28.067,
+        "y": 9.017
+      },
+      "pin1": {
+        "xMm": 28.956,
+        "yMm": 9.017
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 28.956,
+          "yMm": 9.017,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "AREF",
+          "electricalType": "unspecified",
+          "net": "AREF",
+          "xMm": 27.178,
+          "yMm": 9.017,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "C5",
+      "value": "100n",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 28.067,
+      "yMm": 23.622,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 28.067,
+        "y": 23.622
+      },
+      "pin1": {
+        "xMm": 27.178,
+        "yMm": 23.622
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "DTR",
+          "electricalType": "unspecified",
+          "net": "DTR",
+          "xMm": 27.178,
+          "yMm": 23.622,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 28.956,
+          "yMm": 23.622,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "C6",
+      "value": "100n",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 45.847,
+      "yMm": 30.607,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 45.847,
+        "y": 30.607
+      },
+      "pin1": {
+        "xMm": 44.958,
+        "yMm": 30.607
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 44.958,
+          "yMm": 30.607,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 46.736,
+          "yMm": 30.607,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "C7",
+      "value": "100n",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 28.067,
+      "yMm": 21.971,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 28.067,
+        "y": 21.971
+      },
+      "pin1": {
+        "xMm": 27.178,
+        "yMm": 21.971
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 27.178,
+          "yMm": 21.971,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 28.956,
+          "yMm": 21.971,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "C8",
+      "value": "1u",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 12.827,
+      "yMm": 11.557,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 12.827,
+        "y": 11.557
+      },
+      "pin1": {
+        "xMm": 13.716,
+        "yMm": 11.557
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "TP_VUCAP",
+          "electricalType": "unspecified",
+          "net": "TP_VUCAP",
+          "xMm": 13.716,
+          "yMm": 11.557,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "UGND",
+          "electricalType": "unspecified",
+          "net": "UGND",
+          "xMm": 11.938,
+          "yMm": 11.557,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "C9",
+      "value": "22p",
+      "description": "",
+      "footprint": "C0603-ROUND",
+      "side": "front",
+      "xMm": 16.129,
+      "yMm": 23.876,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 16.129,
+        "y": 23.876
+      },
+      "pin1": {
+        "xMm": 17.018,
+        "yMm": 23.876
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XT1",
+          "electricalType": "unspecified",
+          "net": "XT1",
+          "xMm": 17.018,
+          "yMm": 23.876,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 15.24,
+          "yMm": 23.876,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "D1",
+      "value": "M7",
+      "description": "",
+      "footprint": "SMB",
+      "side": "front",
+      "xMm": 21.717,
+      "yMm": 50.673,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 6.8,
+        "h": 2.4,
+        "x": 21.717,
+        "y": 50.673
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "PWRIN",
+          "electricalType": "unspecified",
+          "net": "PWRIN",
+          "xMm": 19.517,
+          "yMm": 50.673,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 23.917,
+          "yMm": 50.673,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "D2",
+      "value": "CD1206-S01575",
+      "description": "",
+      "footprint": "MINIMELF",
+      "side": "front",
+      "xMm": 59.563,
+      "yMm": 25.527,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 1.8,
+        "h": 4.8,
+        "x": 59.563,
+        "y": 25.527
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 59.563,
+          "yMm": 27.227,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 59.563,
+          "yMm": 23.827,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "D3",
+      "value": "CD1206-S01575",
+      "description": "",
+      "footprint": "MINIMELF",
+      "side": "front",
+      "xMm": 13.208,
+      "yMm": 7.239,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.8,
+        "h": 4.8,
+        "x": 13.208,
+        "y": 7.239
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "RESET2",
+          "electricalType": "unspecified",
+          "net": "RESET2",
+          "xMm": 13.208,
+          "yMm": 5.539,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 13.208,
+          "yMm": 8.939,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "F1",
+      "value": "MF-MSMF050-2 500mA",
+      "description": "",
+      "footprint": "L1812",
+      "side": "front",
+      "xMm": 4.191,
+      "yMm": 26.924,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 3.4,
+        "h": 5.8,
+        "x": 4.191,
+        "y": 26.924
+      },
+      "pin1": {
+        "xMm": 4.191,
+        "yMm": 28.874
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "USBVCC",
+          "electricalType": "unspecified",
+          "net": "USBVCC",
+          "xMm": 4.191,
+          "yMm": 28.874,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "XUSB",
+          "electricalType": "unspecified",
+          "net": "XUSB",
+          "xMm": 4.191,
+          "yMm": 24.974,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "FD1",
+      "value": "FIDUCIALMOUNT",
+      "description": "",
+      "footprint": "FIDUCIA-MOUNT",
+      "side": "front",
+      "xMm": 6.477,
+      "yMm": 3.556,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1.016,
+        "h": 1.016,
+        "x": 6.477,
+        "y": 3.556
+      },
+      "pads": [
+        {
+          "padNumber": "P$1",
+          "name": "P$1",
+          "electricalType": "unspecified",
+          "xMm": 6.477,
+          "yMm": 3.556,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "FD2",
+      "value": "FIDUCIALMOUNT",
+      "description": "",
+      "footprint": "FIDUCIA-MOUNT",
+      "side": "front",
+      "xMm": 53.967,
+      "yMm": 36.726,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1.016,
+        "h": 1.016,
+        "x": 53.967,
+        "y": 36.726
+      },
+      "pads": [
+        {
+          "padNumber": "P$1",
+          "name": "P$1",
+          "electricalType": "unspecified",
+          "xMm": 53.967,
+          "yMm": 36.726,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "FD3",
+      "value": "FIDUCIALMOUNT",
+      "description": "",
+      "footprint": "FIDUCIA-MOUNT",
+      "side": "front",
+      "xMm": 3.857,
+      "yMm": 50.057,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 1.016,
+        "h": 1.016,
+        "x": 3.857,
+        "y": 50.057
+      },
+      "pads": [
+        {
+          "padNumber": "P$1",
+          "name": "P$1",
+          "electricalType": "unspecified",
+          "xMm": 3.857,
+          "yMm": 50.057,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "FRAME1",
+      "value": "DNP",
+      "description": "",
+      "footprint": "FRAME",
+      "side": "front",
+      "xMm": 0.127,
+      "yMm": 53.467,
+      "rotationDeg": 0,
+      "bboxMm": null,
+      "pads": [],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "GND_TP0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 43.307,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 43.307,
+        "y": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 43.307,
+          "yMm": 50.927,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "GND_TP1",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 26.543,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 26.543,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 26.543,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "GROUND0",
+      "value": "",
+      "description": "",
+      "footprint": "SJ",
+      "side": "back",
+      "xMm": 11.557,
+      "yMm": 12.827,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6924,
+        "h": 1.6002,
+        "x": 11.557,
+        "y": 12.827
+      },
+      "pin1": {
+        "xMm": 12.319,
+        "yMm": 12.827
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 12.319,
+          "yMm": 12.827,
+          "side": "back"
+        },
+        {
+          "padNumber": "2",
+          "name": "UGND",
+          "electricalType": "unspecified",
+          "net": "UGND",
+          "xMm": 10.795,
+          "yMm": 12.827,
+          "side": "back"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "ICSP0",
+      "value": "3x2 M",
+      "description": "",
+      "footprint": "2X03",
+      "side": "front",
+      "xMm": 65.024,
+      "yMm": 25.527,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 4.09,
+        "h": 6.63,
+        "x": 65.024,
+        "y": 25.527
+      },
+      "pin1": {
+        "xMm": 63.754,
+        "yMm": 22.987
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "CIPO",
+          "electricalType": "unspecified",
+          "net": "MISO",
+          "xMm": 63.754,
+          "yMm": 22.987,
+          "side": "front",
+          "pinId": "pin-ICSP0-1",
+          "headerPosition": 401,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "2",
+          "name": "5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 66.294,
+          "yMm": 22.987,
+          "side": "front",
+          "pinId": "pin-ICSP0-2",
+          "headerPosition": 402,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "3",
+          "name": "SCK",
+          "electricalType": "unspecified",
+          "net": "SCK",
+          "xMm": 63.754,
+          "yMm": 25.527,
+          "side": "front",
+          "pinId": "pin-ICSP0-3",
+          "headerPosition": 403,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "4",
+          "name": "COPI",
+          "electricalType": "unspecified",
+          "net": "MOSI",
+          "xMm": 66.294,
+          "yMm": 25.527,
+          "side": "front",
+          "pinId": "pin-ICSP0-4",
+          "headerPosition": 404,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "5",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 63.754,
+          "yMm": 28.067,
+          "side": "front",
+          "pinId": "pin-ICSP0-5",
+          "headerPosition": 405,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "6",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 66.294,
+          "yMm": 28.067,
+          "side": "front",
+          "pinId": "pin-ICSP0-6",
+          "headerPosition": 406,
+          "anchorYMm": 10.135
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "ICSP1",
+      "value": "3x2 M",
+      "description": "",
+      "footprint": "2X03",
+      "side": "front",
+      "xMm": 18.415,
+      "yMm": 7.239,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 6.63,
+        "h": 4.09,
+        "x": 18.415,
+        "y": 7.239
+      },
+      "pin1": {
+        "xMm": 20.955,
+        "yMm": 5.969
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "CIPO",
+          "electricalType": "unspecified",
+          "net": "MISO2",
+          "xMm": 20.955,
+          "yMm": 5.969,
+          "side": "front",
+          "pinId": "pin-ICSP1-1",
+          "headerPosition": 501,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "2",
+          "name": "5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 20.955,
+          "yMm": 8.509,
+          "side": "front",
+          "pinId": "pin-ICSP1-2",
+          "headerPosition": 502,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "3",
+          "name": "SCK",
+          "electricalType": "unspecified",
+          "net": "SCK2",
+          "xMm": 18.415,
+          "yMm": 5.969,
+          "side": "front",
+          "pinId": "pin-ICSP1-3",
+          "headerPosition": 503,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "4",
+          "name": "COPI",
+          "electricalType": "unspecified",
+          "net": "MOSI2",
+          "xMm": 18.415,
+          "yMm": 8.509,
+          "side": "front",
+          "pinId": "pin-ICSP1-4",
+          "headerPosition": 504,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "5",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET2",
+          "xMm": 15.875,
+          "yMm": 5.969,
+          "side": "front",
+          "pinId": "pin-ICSP1-5",
+          "headerPosition": 505,
+          "anchorYMm": 10.135
+        },
+        {
+          "padNumber": "6",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 15.875,
+          "yMm": 8.509,
+          "side": "front",
+          "pinId": "pin-ICSP1-6",
+          "headerPosition": 506,
+          "anchorYMm": 10.135
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "IOH0",
+      "value": "10x1F-H8.5",
+      "description": "",
+      "footprint": "1X10",
+      "side": "front",
+      "xMm": 30.353,
+      "yMm": 2.667,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 24.2824,
+        "h": 2.1336,
+        "x": 30.353,
+        "y": 2.667
+      },
+      "pin1": {
+        "xMm": 41.783,
+        "yMm": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "D8",
+          "electricalType": "unspecified",
+          "net": "IO8",
+          "xMm": 41.783,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-9",
+          "headerPosition": 101,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "2",
+          "name": "D9",
+          "electricalType": "unspecified",
+          "net": "IO9",
+          "xMm": 39.243,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-10",
+          "headerPosition": 102,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "3",
+          "name": "D10",
+          "electricalType": "unspecified",
+          "net": "SS",
+          "xMm": 36.703,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-11",
+          "headerPosition": 103,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "4",
+          "name": "D11",
+          "electricalType": "unspecified",
+          "net": "MOSI",
+          "xMm": 34.163,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-12",
+          "headerPosition": 104,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "5",
+          "name": "D12",
+          "electricalType": "unspecified",
+          "net": "MISO",
+          "xMm": 31.623,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-13",
+          "headerPosition": 105,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "6",
+          "name": "D13",
+          "electricalType": "unspecified",
+          "net": "SCK",
+          "xMm": 29.083,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-14",
+          "headerPosition": 106,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "7",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 26.543,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-23",
+          "headerPosition": 107,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "8",
+          "name": "AREF",
+          "electricalType": "unspecified",
+          "net": "AREF",
+          "xMm": 24.003,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-IOH0-8",
+          "headerPosition": 108,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "9",
+          "name": "SDA",
+          "electricalType": "unspecified",
+          "net": "AD4/SDA",
+          "xMm": 21.463,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-IOH0-9",
+          "headerPosition": 109,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "10",
+          "name": "SCL",
+          "electricalType": "unspecified",
+          "net": "AD5/SCL",
+          "xMm": 18.923,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-IOH0-10",
+          "headerPosition": 110,
+          "anchorYMm": 10.095
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "IOL0",
+      "value": "8x1F-H8.5",
+      "description": "",
+      "footprint": "1X08",
+      "side": "front",
+      "xMm": 54.737,
+      "yMm": 2.667,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 19.2024,
+        "h": 2.1336,
+        "x": 54.737,
+        "y": 2.667
+      },
+      "pin1": {
+        "xMm": 63.627,
+        "yMm": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "D0",
+          "electricalType": "unspecified",
+          "net": "IO0",
+          "xMm": 63.627,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-1",
+          "headerPosition": 1,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "2",
+          "name": "D1",
+          "electricalType": "unspecified",
+          "net": "IO1",
+          "xMm": 61.087,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-2",
+          "headerPosition": 2,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "3",
+          "name": "D2",
+          "electricalType": "unspecified",
+          "net": "IO2",
+          "xMm": 58.547,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-3",
+          "headerPosition": 3,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "4",
+          "name": "D3",
+          "electricalType": "unspecified",
+          "net": "IO3",
+          "xMm": 56.007,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-4",
+          "headerPosition": 4,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "5",
+          "name": "D4",
+          "electricalType": "unspecified",
+          "net": "IO4",
+          "xMm": 53.467,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-5",
+          "headerPosition": 5,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "6",
+          "name": "D5",
+          "electricalType": "unspecified",
+          "net": "IO5",
+          "xMm": 50.927,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-6",
+          "headerPosition": 6,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "7",
+          "name": "D6",
+          "electricalType": "unspecified",
+          "net": "IO6",
+          "xMm": 48.387,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-7",
+          "headerPosition": 7,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "8",
+          "name": "D7",
+          "electricalType": "unspecified",
+          "net": "IO7",
+          "xMm": 45.847,
+          "yMm": 2.667,
+          "side": "front",
+          "pinId": "pin-8",
+          "headerPosition": 8,
+          "anchorYMm": 10.095
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "JP2",
+      "value": "2x2 M - NM",
+      "description": "",
+      "footprint": "2X02",
+      "side": "front",
+      "xMm": 19.685,
+      "yMm": 12.319,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 4.2164,
+        "h": 4.2164,
+        "x": 19.685,
+        "y": 12.319
+      },
+      "pin1": {
+        "xMm": 20.955,
+        "yMm": 13.589
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "PB4",
+          "electricalType": "unspecified",
+          "net": "PB4",
+          "xMm": 20.955,
+          "yMm": 13.589,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "PB6",
+          "electricalType": "unspecified",
+          "net": "PB6",
+          "xMm": 18.415,
+          "yMm": 13.589,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "PB5",
+          "electricalType": "unspecified",
+          "net": "PB5",
+          "xMm": 20.955,
+          "yMm": 11.049,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "PB7",
+          "electricalType": "unspecified",
+          "net": "PB7",
+          "xMm": 18.415,
+          "yMm": 11.049,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "L0",
+      "value": "YELLOW",
+      "description": "",
+      "footprint": "CHIP-LED0805",
+      "side": "front",
+      "xMm": 28.067,
+      "yMm": 11.303,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 3.3,
+        "h": 1.2,
+        "x": 28.067,
+        "y": 11.303
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "N$1",
+          "electricalType": "unspecified",
+          "net": "N$1",
+          "xMm": 27.017,
+          "yMm": 11.303,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 29.117,
+          "yMm": 11.303,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "L1",
+      "value": "BLM21",
+      "description": "",
+      "footprint": "0805",
+      "side": "front",
+      "xMm": 7.747,
+      "yMm": 8.382,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 3.4,
+        "h": 1,
+        "x": 7.747,
+        "y": 8.382
+      },
+      "pin1": {
+        "xMm": 8.847,
+        "yMm": 8.382
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "UGND",
+          "electricalType": "unspecified",
+          "net": "UGND",
+          "xMm": 8.847,
+          "yMm": 8.382,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "USHIELD",
+          "electricalType": "unspecified",
+          "net": "USHIELD",
+          "xMm": 6.647,
+          "yMm": 8.382,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "L2",
+      "value": "10uH",
+      "description": "",
+      "footprint": "0805",
+      "side": "front",
+      "xMm": 39.243,
+      "yMm": 45.339,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.4,
+        "h": 1,
+        "x": 39.243,
+        "y": 45.339
+      },
+      "pin1": {
+        "xMm": 38.143,
+        "yMm": 45.339
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 38.143,
+          "yMm": 45.339,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "AVCC",
+          "electricalType": "unspecified",
+          "net": "AVCC",
+          "xMm": 40.343,
+          "yMm": 45.339,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "ON0",
+      "value": "GREEN",
+      "description": "",
+      "footprint": "CHIP-LED0805",
+      "side": "front",
+      "xMm": 58.547,
+      "yMm": 16.891,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 3.3,
+        "h": 1.2,
+        "x": 58.547,
+        "y": 16.891
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "N$3",
+          "electricalType": "unspecified",
+          "net": "N$3",
+          "xMm": 57.497,
+          "yMm": 16.891,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 59.597,
+          "yMm": 16.891,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "ORIGIN0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 0.127,
+      "yMm": 53.467,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 0.127,
+        "y": 53.467
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "X",
+          "electricalType": "unspecified",
+          "xMm": 0.127,
+          "yMm": 53.467,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "PC1",
+      "value": "47u",
+      "description": "",
+      "footprint": "PANASONIC_D",
+      "side": "front",
+      "xMm": 25.654,
+      "yMm": 44.323,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.4,
+        "h": 7.8,
+        "x": 25.654,
+        "y": 44.323
+      },
+      "pads": [
+        {
+          "padNumber": "+",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 25.654,
+          "yMm": 41.923,
+          "side": "front"
+        },
+        {
+          "padNumber": "-",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 25.654,
+          "yMm": 46.723,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "PC2",
+      "value": "47u",
+      "description": "",
+      "footprint": "PANASONIC_D",
+      "side": "front",
+      "xMm": 18.542,
+      "yMm": 44.323,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 1.4,
+        "h": 7.8,
+        "x": 18.542,
+        "y": 44.323
+      },
+      "pads": [
+        {
+          "padNumber": "+",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 18.542,
+          "yMm": 41.923,
+          "side": "front"
+        },
+        {
+          "padNumber": "-",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 18.542,
+          "yMm": 46.723,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "POWER0",
+      "value": "8x1F-H8.5",
+      "description": "",
+      "footprint": "1X08",
+      "side": "front",
+      "xMm": 36.957,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 19.2024,
+        "h": 2.1336,
+        "x": 36.957,
+        "y": 50.927
+      },
+      "pin1": {
+        "xMm": 28.067,
+        "yMm": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "NC",
+          "electricalType": "unspecified",
+          "xMm": 28.067,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-POWER0-1",
+          "headerPosition": 301,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "2",
+          "name": "IOREF",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 30.607,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-POWER0-2",
+          "headerPosition": 302,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "3",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 33.147,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-25",
+          "headerPosition": 303,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "4",
+          "name": "3V3",
+          "electricalType": "unspecified",
+          "net": "+3V3",
+          "xMm": 35.687,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-22",
+          "headerPosition": 304,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "5",
+          "name": "5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 38.227,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-21",
+          "headerPosition": 305,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "6",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 40.767,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-POWER0-6",
+          "headerPosition": 306,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "7",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 43.307,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-POWER0-7",
+          "headerPosition": 307,
+          "anchorYMm": 10.095
+        },
+        {
+          "padNumber": "8",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 45.847,
+          "yMm": 50.927,
+          "side": "front",
+          "pinId": "pin-24",
+          "headerPosition": 308,
+          "anchorYMm": 10.095
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "R1",
+      "value": "1M",
+      "description": "",
+      "footprint": "R0603-ROUND",
+      "side": "front",
+      "xMm": 19.177,
+      "yMm": 23.876,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 19.177,
+        "y": 23.876
+      },
+      "pin1": {
+        "xMm": 18.288,
+        "yMm": 23.876
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XT1",
+          "electricalType": "unspecified",
+          "net": "XT1",
+          "xMm": 18.288,
+          "yMm": 23.876,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "XT2",
+          "electricalType": "unspecified",
+          "net": "XT2",
+          "xMm": 20.066,
+          "yMm": 23.876,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "R2",
+      "value": "1M",
+      "description": "",
+      "footprint": "R0603-ROUND",
+      "side": "front",
+      "xMm": 41.402,
+      "yMm": 30.734,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 2.6764,
+        "h": 1.1,
+        "x": 41.402,
+        "y": 30.734
+      },
+      "pin1": {
+        "xMm": 42.291,
+        "yMm": 30.734
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XTAL1",
+          "electricalType": "unspecified",
+          "net": "XTAL1",
+          "xMm": 42.291,
+          "yMm": 30.734,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "XTAL2",
+          "electricalType": "unspecified",
+          "net": "XTAL2",
+          "xMm": 40.513,
+          "yMm": 30.734,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "RESET-EN0",
+      "value": "",
+      "description": "",
+      "footprint": "SJ",
+      "side": "front",
+      "xMm": 28.067,
+      "yMm": 26.162,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.6924,
+        "h": 1.6002,
+        "x": 28.067,
+        "y": 26.162
+      },
+      "pin1": {
+        "xMm": 27.305,
+        "yMm": 26.162
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 27.305,
+          "yMm": 26.162,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 28.829,
+          "yMm": 26.162,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "RESET0",
+      "value": "TS42031-160R-TR-7260",
+      "description": "",
+      "footprint": "TS42",
+      "side": "front",
+      "xMm": 6.477,
+      "yMm": 4.064,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 10,
+        "h": 5.9,
+        "x": 6.477,
+        "y": 4.064
+      },
+      "pin1": {
+        "xMm": 2.277,
+        "yMm": 1.814
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 2.277,
+          "yMm": 1.814,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 10.677,
+          "yMm": 1.814,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 2.277,
+          "yMm": 6.314,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 10.677,
+          "yMm": 6.314,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "5-GND",
+          "electricalType": "unspecified",
+          "net": "5-GND",
+          "xMm": 2.277,
+          "yMm": 4.064,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "RN1",
+      "value": "10K",
+      "description": "",
+      "footprint": "CAY16",
+      "side": "front",
+      "xMm": 28.067,
+      "yMm": 29.591,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 2,
+        "h": 2.9,
+        "x": 28.067,
+        "y": 29.591
+      },
+      "pin1": {
+        "xMm": 28.742,
+        "yMm": 30.791
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "CMP",
+          "electricalType": "unspecified",
+          "net": "CMP",
+          "xMm": 28.742,
+          "yMm": 30.791,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "CMP",
+          "electricalType": "unspecified",
+          "net": "CMP",
+          "xMm": 28.742,
+          "yMm": 29.991,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 28.742,
+          "yMm": 29.191,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 28.742,
+          "yMm": 28.391,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 27.392,
+          "yMm": 28.391,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "RESET2",
+          "electricalType": "unspecified",
+          "net": "RESET2",
+          "xMm": 27.392,
+          "yMm": 29.191,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 27.392,
+          "yMm": 29.991,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 27.392,
+          "yMm": 30.791,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "RN2",
+      "value": "1K",
+      "description": "",
+      "footprint": "CAY16",
+      "side": "front",
+      "xMm": 28.067,
+      "yMm": 14.097,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 2,
+        "h": 2.9,
+        "x": 28.067,
+        "y": 14.097
+      },
+      "pin1": {
+        "xMm": 27.392,
+        "yMm": 12.897
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "N$1",
+          "electricalType": "unspecified",
+          "net": "N$1",
+          "xMm": 27.392,
+          "yMm": 12.897,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 27.392,
+          "yMm": 13.697,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 27.392,
+          "yMm": 14.497,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "DTR",
+          "electricalType": "unspecified",
+          "net": "DTR",
+          "xMm": 27.392,
+          "yMm": 15.297,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 28.742,
+          "yMm": 15.297,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "N$36",
+          "electricalType": "unspecified",
+          "net": "N$36",
+          "xMm": 28.742,
+          "yMm": 14.497,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "N$35",
+          "electricalType": "unspecified",
+          "net": "N$35",
+          "xMm": 28.742,
+          "yMm": 13.697,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "L13",
+          "electricalType": "unspecified",
+          "net": "L13",
+          "xMm": 28.742,
+          "yMm": 12.897,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "RN3",
+      "value": "22R",
+      "description": "",
+      "footprint": "CAY16",
+      "side": "front",
+      "xMm": 12.954,
+      "yMm": 16.637,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 2,
+        "h": 2.9,
+        "x": 12.954,
+        "y": 16.637
+      },
+      "pin1": {
+        "xMm": 13.629,
+        "yMm": 17.837
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "RD-",
+          "electricalType": "unspecified",
+          "net": "RD-",
+          "xMm": 13.629,
+          "yMm": 17.837,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "2",
+          "electricalType": "unspecified",
+          "xMm": 13.629,
+          "yMm": 17.037,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "3",
+          "electricalType": "unspecified",
+          "xMm": 13.629,
+          "yMm": 16.237,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "RD+",
+          "electricalType": "unspecified",
+          "net": "RD+",
+          "xMm": 13.629,
+          "yMm": 15.437,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "D+",
+          "electricalType": "unspecified",
+          "net": "D+",
+          "xMm": 12.279,
+          "yMm": 15.437,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "6",
+          "electricalType": "unspecified",
+          "xMm": 12.279,
+          "yMm": 16.237,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "7",
+          "electricalType": "unspecified",
+          "xMm": 12.279,
+          "yMm": 17.037,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "D-",
+          "electricalType": "unspecified",
+          "net": "D-",
+          "xMm": 12.279,
+          "yMm": 17.837,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "RN4",
+      "value": "1K",
+      "description": "",
+      "footprint": "CAY16",
+      "side": "front",
+      "xMm": 58.547,
+      "yMm": 19.685,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 2,
+        "h": 2.9,
+        "x": 58.547,
+        "y": 19.685
+      },
+      "pin1": {
+        "xMm": 59.222,
+        "yMm": 20.885
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "IO1",
+          "electricalType": "unspecified",
+          "net": "IO1",
+          "xMm": 59.222,
+          "yMm": 20.885,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "IO0",
+          "electricalType": "unspecified",
+          "net": "IO0",
+          "xMm": 59.222,
+          "yMm": 20.085,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 59.222,
+          "yMm": 19.285,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 59.222,
+          "yMm": 18.485,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "N$3",
+          "electricalType": "unspecified",
+          "net": "N$3",
+          "xMm": 57.872,
+          "yMm": 18.485,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "N$3",
+          "electricalType": "unspecified",
+          "net": "N$3",
+          "xMm": 57.872,
+          "yMm": 19.285,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "M8RXD",
+          "electricalType": "unspecified",
+          "net": "M8RXD",
+          "xMm": 57.872,
+          "yMm": 20.085,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "M8TXD",
+          "electricalType": "unspecified",
+          "net": "M8TXD",
+          "xMm": 57.872,
+          "yMm": 20.885,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "RX0",
+      "value": "YELLOW",
+      "description": "",
+      "footprint": "CHIP-LED0805",
+      "side": "front",
+      "xMm": 28.067,
+      "yMm": 19.177,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 3.3,
+        "h": 1.2,
+        "x": 28.067,
+        "y": 19.177
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "N$35",
+          "electricalType": "unspecified",
+          "net": "N$35",
+          "xMm": 29.117,
+          "yMm": 19.177,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "RXLED",
+          "electricalType": "unspecified",
+          "net": "RXLED",
+          "xMm": 27.017,
+          "yMm": 19.177,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "T1",
+      "value": "FDN340P",
+      "description": "",
+      "footprint": "SOT-23",
+      "side": "front",
+      "xMm": 8.255,
+      "yMm": 26.924,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 2.921,
+        "h": 2.7178,
+        "x": 8.255,
+        "y": 26.9494
+      },
+      "pin1": {
+        "xMm": 7.239,
+        "yMm": 26.9494
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "USBVCC",
+          "electricalType": "unspecified",
+          "net": "USBVCC",
+          "xMm": 7.239,
+          "yMm": 26.9494,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 9.271,
+          "yMm": 25.9842,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "GATE_CMD",
+          "electricalType": "unspecified",
+          "net": "GATE_CMD",
+          "xMm": 9.271,
+          "yMm": 27.9146,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 63.627,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 63.627,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "IO0",
+          "electricalType": "unspecified",
+          "net": "IO0",
+          "xMm": 63.627,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_1",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 61.087,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 61.087,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "IO1",
+          "electricalType": "unspecified",
+          "net": "IO1",
+          "xMm": 61.087,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_10",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 36.703,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 36.703,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "SS",
+          "electricalType": "unspecified",
+          "net": "SS",
+          "xMm": 36.703,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_11",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 34.163,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 34.163,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "MOSI",
+          "electricalType": "unspecified",
+          "net": "MOSI",
+          "xMm": 34.163,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_12",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 31.623,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 31.623,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "MISO",
+          "electricalType": "unspecified",
+          "net": "MISO",
+          "xMm": 31.623,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_13",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 29.083,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 29.083,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "SCK",
+          "electricalType": "unspecified",
+          "net": "SCK",
+          "xMm": 29.083,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_2",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 58.547,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 58.547,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "IO2",
+          "electricalType": "unspecified",
+          "net": "IO2",
+          "xMm": 58.547,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_3",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 56.007,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 56.007,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "IO3",
+          "electricalType": "unspecified",
+          "net": "IO3",
+          "xMm": 56.007,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_3V3",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 35.687,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 35.687,
+        "y": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "+3V3",
+          "electricalType": "unspecified",
+          "net": "+3V3",
+          "xMm": 35.687,
+          "yMm": 50.927,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_4",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 53.467,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 53.467,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "IO4",
+          "electricalType": "unspecified",
+          "net": "IO4",
+          "xMm": 53.467,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_5",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 50.927,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 50.927,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "IO5",
+          "electricalType": "unspecified",
+          "net": "IO5",
+          "xMm": 50.927,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_5V0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 38.227,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 38.227,
+        "y": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 38.227,
+          "yMm": 50.927,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_5V1",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 66.294,
+      "yMm": 22.987,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 66.294,
+        "y": 22.987
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 66.294,
+          "yMm": 22.987,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_6",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 48.387,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 48.387,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "IO6",
+          "electricalType": "unspecified",
+          "net": "IO6",
+          "xMm": 48.387,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_7",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 45.847,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 45.847,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "IO7",
+          "electricalType": "unspecified",
+          "net": "IO7",
+          "xMm": 45.847,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_8",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 41.783,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 41.783,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "IO8",
+          "electricalType": "unspecified",
+          "net": "IO8",
+          "xMm": 41.783,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_9",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 39.243,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 39.243,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "IO9",
+          "electricalType": "unspecified",
+          "net": "IO9",
+          "xMm": 39.243,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_A0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 50.927,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 50.927,
+        "y": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "AD0",
+          "electricalType": "unspecified",
+          "net": "AD0",
+          "xMm": 50.927,
+          "yMm": 50.927,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_A1",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 53.467,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 53.467,
+        "y": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "AD1",
+          "electricalType": "unspecified",
+          "net": "AD1",
+          "xMm": 53.467,
+          "yMm": 50.927,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_A2",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 56.007,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 56.007,
+        "y": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "AD2",
+          "electricalType": "unspecified",
+          "net": "AD2",
+          "xMm": 56.007,
+          "yMm": 50.927,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_A3",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 58.547,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 58.547,
+        "y": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "AD3",
+          "electricalType": "unspecified",
+          "net": "AD3",
+          "xMm": 58.547,
+          "yMm": 50.927,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_A4",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 61.087,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 61.087,
+        "y": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "AD4/SDA",
+          "electricalType": "unspecified",
+          "net": "AD4/SDA",
+          "xMm": 61.087,
+          "yMm": 50.927,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_A5",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 63.627,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 63.627,
+        "y": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "AD5/SCL",
+          "electricalType": "unspecified",
+          "net": "AD5/SCL",
+          "xMm": 63.627,
+          "yMm": 50.927,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_AREF0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 24.003,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 24.003,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "AREF",
+          "electricalType": "unspecified",
+          "net": "AREF",
+          "xMm": 24.003,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_CMP0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 30.099,
+      "yMm": 30.099,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 30.099,
+        "y": 30.099
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "CMP",
+          "electricalType": "unspecified",
+          "net": "CMP",
+          "xMm": 30.099,
+          "yMm": 30.099,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_D+0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 6.096,
+      "yMm": 14.097,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 6.096,
+        "y": 14.097
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "D+",
+          "electricalType": "unspecified",
+          "net": "D+",
+          "xMm": 6.096,
+          "yMm": 14.097,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_D-0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 8.636,
+      "yMm": 14.097,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 8.636,
+        "y": 14.097
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "D-",
+          "electricalType": "unspecified",
+          "net": "D-",
+          "xMm": 8.636,
+          "yMm": 14.097,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_DTR0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 26.035,
+      "yMm": 23.622,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 26.035,
+        "y": 23.622
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "DTR",
+          "electricalType": "unspecified",
+          "net": "DTR",
+          "xMm": 26.035,
+          "yMm": 23.622,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_GATE0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 12.192,
+      "yMm": 32.004,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 12.192,
+        "y": 32.004
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "GATE_CMD",
+          "electricalType": "unspecified",
+          "net": "GATE_CMD",
+          "xMm": 12.192,
+          "yMm": 32.004,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_LCMD0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 19.05,
+      "yMm": 32.385,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 19.05,
+        "y": 32.385
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "L13",
+          "electricalType": "unspecified",
+          "net": "L13",
+          "xMm": 19.05,
+          "yMm": 32.385,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_LL0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 25.654,
+      "yMm": 10.287,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 25.654,
+        "y": 10.287
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "N$1",
+          "electricalType": "unspecified",
+          "net": "N$1",
+          "xMm": 25.654,
+          "yMm": 10.287,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_MISO2",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 20.955,
+      "yMm": 5.969,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 20.955,
+        "y": 5.969
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "MISO2",
+          "electricalType": "unspecified",
+          "net": "MISO2",
+          "xMm": 20.955,
+          "yMm": 5.969,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_MOSI2",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 18.415,
+      "yMm": 8.509,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 18.415,
+        "y": 8.509
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "MOSI2",
+          "electricalType": "unspecified",
+          "net": "MOSI2",
+          "xMm": 18.415,
+          "yMm": 8.509,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_ONL0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 56.769,
+      "yMm": 18.415,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 56.769,
+        "y": 18.415
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "N$3",
+          "electricalType": "unspecified",
+          "net": "N$3",
+          "xMm": 56.769,
+          "yMm": 18.415,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_PB4",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 20.955,
+      "yMm": 13.589,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 20.955,
+        "y": 13.589
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "PB4",
+          "electricalType": "unspecified",
+          "net": "PB4",
+          "xMm": 20.955,
+          "yMm": 13.589,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_PB5",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 20.955,
+      "yMm": 11.049,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 20.955,
+        "y": 11.049
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "PB5",
+          "electricalType": "unspecified",
+          "net": "PB5",
+          "xMm": 20.955,
+          "yMm": 11.049,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_PB6",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 18.415,
+      "yMm": 13.589,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 18.415,
+        "y": 13.589
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "PB6",
+          "electricalType": "unspecified",
+          "net": "PB6",
+          "xMm": 18.415,
+          "yMm": 13.589,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_PB7",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 18.415,
+      "yMm": 11.049,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 18.415,
+        "y": 11.049
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "PB7",
+          "electricalType": "unspecified",
+          "net": "PB7",
+          "xMm": 18.415,
+          "yMm": 11.049,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_PWRIN0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 13.335,
+      "yMm": 45.212,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 13.335,
+        "y": 45.212
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "PWRIN",
+          "electricalType": "unspecified",
+          "net": "PWRIN",
+          "xMm": 13.335,
+          "yMm": 45.212,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_RESET0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 33.147,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 33.147,
+        "y": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 33.147,
+          "yMm": 50.927,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_RESET2",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 15.875,
+      "yMm": 5.969,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 15.875,
+        "y": 5.969
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "RESET2",
+          "electricalType": "unspecified",
+          "net": "RESET2",
+          "xMm": 15.875,
+          "yMm": 5.969,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_RX0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 52.578,
+      "yMm": 19.304,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 52.578,
+        "y": 19.304
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "M8RXD",
+          "electricalType": "unspecified",
+          "net": "M8RXD",
+          "xMm": 52.578,
+          "yMm": 19.304,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_RXL0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 31.496,
+      "yMm": 17.78,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 31.496,
+        "y": 17.78
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "N$35",
+          "electricalType": "unspecified",
+          "net": "N$35",
+          "xMm": 31.496,
+          "yMm": 17.78,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_SCK2",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 18.415,
+      "yMm": 5.969,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 18.415,
+        "y": 5.969
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "SCK2",
+          "electricalType": "unspecified",
+          "net": "SCK2",
+          "xMm": 18.415,
+          "yMm": 5.969,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_SCL0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 18.923,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 18.923,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "AD5/SCL",
+          "electricalType": "unspecified",
+          "net": "AD5/SCL",
+          "xMm": 18.923,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_SDA0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 21.463,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 21.463,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "AD4/SDA",
+          "electricalType": "unspecified",
+          "net": "AD4/SDA",
+          "xMm": 21.463,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_TX0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 51.181,
+      "yMm": 21.463,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 51.181,
+        "y": 21.463
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "M8TXD",
+          "electricalType": "unspecified",
+          "net": "M8TXD",
+          "xMm": 51.181,
+          "yMm": 21.463,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_TXL0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 31.496,
+      "yMm": 14.732,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 31.496,
+        "y": 14.732
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "N$36",
+          "electricalType": "unspecified",
+          "net": "N$36",
+          "xMm": 31.496,
+          "yMm": 14.732,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_UGND0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 6.096,
+      "yMm": 16.637,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 6.096,
+        "y": 16.637
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "UGND",
+          "electricalType": "unspecified",
+          "net": "UGND",
+          "xMm": 6.096,
+          "yMm": 16.637,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_USBVCC0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 10.033,
+      "yMm": 22.606,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 10.033,
+        "y": 22.606
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "USBVCC",
+          "electricalType": "unspecified",
+          "net": "USBVCC",
+          "xMm": 10.033,
+          "yMm": 22.606,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_USH0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 9.144,
+      "yMm": 10.668,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 9.144,
+        "y": 10.668
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "USHIELD",
+          "electricalType": "unspecified",
+          "net": "USHIELD",
+          "xMm": 9.144,
+          "yMm": 10.668,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_VIN0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 45.847,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 45.847,
+        "y": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 45.847,
+          "yMm": 50.927,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_VUCAP0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 15.113,
+      "yMm": 11.557,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 15.113,
+        "y": 11.557
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "TP_VUCAP",
+          "electricalType": "unspecified",
+          "net": "TP_VUCAP",
+          "xMm": 15.113,
+          "yMm": 11.557,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_XT1",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 42.672,
+      "yMm": 33.274,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 42.672,
+        "y": 33.274
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "XTAL1",
+          "electricalType": "unspecified",
+          "net": "XTAL1",
+          "xMm": 42.672,
+          "yMm": 33.274,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_XT2",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 40.132,
+      "yMm": 33.274,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 40.132,
+        "y": 33.274
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "XTAL2",
+          "electricalType": "unspecified",
+          "net": "XTAL2",
+          "xMm": 40.132,
+          "yMm": 33.274,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_XT3",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 16.51,
+      "yMm": 27.305,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 16.51,
+        "y": 27.305
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "XT1",
+          "electricalType": "unspecified",
+          "net": "XT1",
+          "xMm": 16.51,
+          "yMm": 27.305,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_XT4",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 21.59,
+      "yMm": 27.305,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 21.59,
+        "y": 27.305
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "XT2",
+          "electricalType": "unspecified",
+          "net": "XT2",
+          "xMm": 21.59,
+          "yMm": 27.305,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TP_XUSB0",
+      "value": "TP_SP",
+      "description": "",
+      "footprint": "TP-SP",
+      "side": "front",
+      "xMm": 8.636,
+      "yMm": 16.637,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 0.8,
+        "h": 0.8,
+        "x": 8.636,
+        "y": 16.637
+      },
+      "pads": [
+        {
+          "padNumber": "X",
+          "name": "XUSB",
+          "electricalType": "unspecified",
+          "net": "XUSB",
+          "xMm": 8.636,
+          "yMm": 16.637,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "TX0",
+      "value": "YELLOW",
+      "description": "",
+      "footprint": "CHIP-LED0805",
+      "side": "front",
+      "xMm": 28.067,
+      "yMm": 16.891,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 3.3,
+        "h": 1.2,
+        "x": 28.067,
+        "y": 16.891
+      },
+      "pads": [
+        {
+          "padNumber": "A",
+          "name": "N$36",
+          "electricalType": "unspecified",
+          "net": "N$36",
+          "xMm": 29.117,
+          "yMm": 16.891,
+          "side": "front"
+        },
+        {
+          "padNumber": "C",
+          "name": "TXLED",
+          "electricalType": "unspecified",
+          "net": "TXLED",
+          "xMm": 27.017,
+          "yMm": 16.891,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "U1",
+      "value": "NCP1117ST50T3G",
+      "description": "",
+      "footprint": "SOT223",
+      "side": "front",
+      "xMm": 7.874,
+      "yMm": 36.068,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 8.4154,
+        "h": 5.842,
+        "x": 7.8827,
+        "y": 36.068
+      },
+      "pin1": {
+        "xMm": 10.9728,
+        "yMm": 38.3794
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 10.9728,
+          "yMm": 38.3794,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 10.9728,
+          "yMm": 36.068,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "VIN",
+          "electricalType": "unspecified",
+          "net": "VIN",
+          "xMm": 10.9728,
+          "yMm": 33.7566,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 4.775,
+          "yMm": 36.068,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "U2",
+      "value": "LP2985-33DBVR",
+      "description": "",
+      "footprint": "SOT23-DBV",
+      "side": "front",
+      "xMm": 22.098,
+      "yMm": 38.227,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 3.8,
+        "h": 2.45,
+        "x": 22.098,
+        "y": 38.227
+      },
+      "pin1": {
+        "xMm": 20.798,
+        "yMm": 37.277
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 20.798,
+          "yMm": 37.277,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 20.798,
+          "yMm": 38.227,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 20.798,
+          "yMm": 39.177,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "4",
+          "electricalType": "unspecified",
+          "xMm": 23.398,
+          "yMm": 39.177,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "+3V3",
+          "electricalType": "unspecified",
+          "net": "+3V3",
+          "xMm": 23.398,
+          "yMm": 37.277,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "U3",
+      "value": "ATMEGA16U2-MU(R)",
+      "description": "",
+      "footprint": "MLF32",
+      "side": "front",
+      "xMm": 20.066,
+      "yMm": 18.796,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 5.6,
+        "h": 5.6,
+        "x": 20.066,
+        "y": 18.796
+      },
+      "pin1": {
+        "xMm": 18.316,
+        "yMm": 21.246
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XT1",
+          "electricalType": "unspecified",
+          "net": "XT1",
+          "xMm": 18.316,
+          "yMm": 21.246,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "XT2",
+          "electricalType": "unspecified",
+          "net": "XT2",
+          "xMm": 18.816,
+          "yMm": 21.246,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 19.316,
+          "yMm": 21.246,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 19.816,
+          "yMm": 21.246,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "5",
+          "electricalType": "unspecified",
+          "xMm": 20.316,
+          "yMm": 21.246,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "6",
+          "electricalType": "unspecified",
+          "xMm": 20.816,
+          "yMm": 21.246,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "7",
+          "electricalType": "unspecified",
+          "xMm": 21.316,
+          "yMm": 21.246,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "M8TXD",
+          "electricalType": "unspecified",
+          "net": "M8TXD",
+          "xMm": 21.816,
+          "yMm": 21.246,
+          "side": "front"
+        },
+        {
+          "padNumber": "9",
+          "name": "M8RXD",
+          "electricalType": "unspecified",
+          "net": "M8RXD",
+          "xMm": 22.516,
+          "yMm": 20.546,
+          "side": "front"
+        },
+        {
+          "padNumber": "10",
+          "name": "RXLED",
+          "electricalType": "unspecified",
+          "net": "RXLED",
+          "xMm": 22.516,
+          "yMm": 20.046,
+          "side": "front"
+        },
+        {
+          "padNumber": "11",
+          "name": "TXLED",
+          "electricalType": "unspecified",
+          "net": "TXLED",
+          "xMm": 22.516,
+          "yMm": 19.546,
+          "side": "front"
+        },
+        {
+          "padNumber": "12",
+          "name": "12",
+          "electricalType": "unspecified",
+          "xMm": 22.516,
+          "yMm": 19.046,
+          "side": "front"
+        },
+        {
+          "padNumber": "13",
+          "name": "DTR",
+          "electricalType": "unspecified",
+          "net": "DTR",
+          "xMm": 22.516,
+          "yMm": 18.546,
+          "side": "front"
+        },
+        {
+          "padNumber": "14",
+          "name": "14",
+          "electricalType": "unspecified",
+          "xMm": 22.516,
+          "yMm": 18.046,
+          "side": "front"
+        },
+        {
+          "padNumber": "15",
+          "name": "SCK2",
+          "electricalType": "unspecified",
+          "net": "SCK2",
+          "xMm": 22.516,
+          "yMm": 17.546,
+          "side": "front"
+        },
+        {
+          "padNumber": "16",
+          "name": "MOSI2",
+          "electricalType": "unspecified",
+          "net": "MOSI2",
+          "xMm": 22.516,
+          "yMm": 17.046,
+          "side": "front"
+        },
+        {
+          "padNumber": "17",
+          "name": "MISO2",
+          "electricalType": "unspecified",
+          "net": "MISO2",
+          "xMm": 21.816,
+          "yMm": 16.346,
+          "side": "front"
+        },
+        {
+          "padNumber": "18",
+          "name": "PB4",
+          "electricalType": "unspecified",
+          "net": "PB4",
+          "xMm": 21.316,
+          "yMm": 16.346,
+          "side": "front"
+        },
+        {
+          "padNumber": "19",
+          "name": "PB5",
+          "electricalType": "unspecified",
+          "net": "PB5",
+          "xMm": 20.816,
+          "yMm": 16.346,
+          "side": "front"
+        },
+        {
+          "padNumber": "20",
+          "name": "PB6",
+          "electricalType": "unspecified",
+          "net": "PB6",
+          "xMm": 20.316,
+          "yMm": 16.346,
+          "side": "front"
+        },
+        {
+          "padNumber": "21",
+          "name": "PB7",
+          "electricalType": "unspecified",
+          "net": "PB7",
+          "xMm": 19.816,
+          "yMm": 16.346,
+          "side": "front"
+        },
+        {
+          "padNumber": "22",
+          "name": "22",
+          "electricalType": "unspecified",
+          "xMm": 19.316,
+          "yMm": 16.346,
+          "side": "front"
+        },
+        {
+          "padNumber": "23",
+          "name": "23",
+          "electricalType": "unspecified",
+          "xMm": 18.816,
+          "yMm": 16.346,
+          "side": "front"
+        },
+        {
+          "padNumber": "24",
+          "name": "RESET2",
+          "electricalType": "unspecified",
+          "net": "RESET2",
+          "xMm": 18.316,
+          "yMm": 16.346,
+          "side": "front"
+        },
+        {
+          "padNumber": "25",
+          "name": "25",
+          "electricalType": "unspecified",
+          "xMm": 17.616,
+          "yMm": 17.046,
+          "side": "front"
+        },
+        {
+          "padNumber": "26",
+          "name": "26",
+          "electricalType": "unspecified",
+          "xMm": 17.616,
+          "yMm": 17.546,
+          "side": "front"
+        },
+        {
+          "padNumber": "27",
+          "name": "TP_VUCAP",
+          "electricalType": "unspecified",
+          "net": "TP_VUCAP",
+          "xMm": 17.616,
+          "yMm": 18.046,
+          "side": "front"
+        },
+        {
+          "padNumber": "28",
+          "name": "UGND",
+          "electricalType": "unspecified",
+          "net": "UGND",
+          "xMm": 17.616,
+          "yMm": 18.546,
+          "side": "front"
+        },
+        {
+          "padNumber": "29",
+          "name": "RD+",
+          "electricalType": "unspecified",
+          "net": "RD+",
+          "xMm": 17.616,
+          "yMm": 19.046,
+          "side": "front"
+        },
+        {
+          "padNumber": "30",
+          "name": "RD-",
+          "electricalType": "unspecified",
+          "net": "RD-",
+          "xMm": 17.616,
+          "yMm": 19.546,
+          "side": "front"
+        },
+        {
+          "padNumber": "31",
+          "name": "USBVCC",
+          "electricalType": "unspecified",
+          "net": "USBVCC",
+          "xMm": 17.616,
+          "yMm": 20.046,
+          "side": "front"
+        },
+        {
+          "padNumber": "32",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 17.616,
+          "yMm": 20.546,
+          "side": "front"
+        },
+        {
+          "padNumber": "33",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 20.066,
+          "yMm": 18.796,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "U5",
+      "value": "LMV358IDGKR",
+      "description": "",
+      "footprint": "MSOP08",
+      "side": "front",
+      "xMm": 19.177,
+      "yMm": 33.147,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 5.425,
+        "h": 2.25,
+        "x": 19.1775,
+        "y": 33.148
+      },
+      "pin1": {
+        "xMm": 21.29,
+        "yMm": 34.123
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GATE_CMD",
+          "electricalType": "unspecified",
+          "net": "GATE_CMD",
+          "xMm": 21.29,
+          "yMm": 34.123,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "+3V3",
+          "electricalType": "unspecified",
+          "net": "+3V3",
+          "xMm": 21.29,
+          "yMm": 33.473,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "CMP",
+          "electricalType": "unspecified",
+          "net": "CMP",
+          "xMm": 21.29,
+          "yMm": 32.823,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 21.29,
+          "yMm": 32.173,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "SCK",
+          "electricalType": "unspecified",
+          "net": "SCK",
+          "xMm": 17.065,
+          "yMm": 32.173,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "L13",
+          "electricalType": "unspecified",
+          "net": "L13",
+          "xMm": 17.065,
+          "yMm": 32.823,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "L13",
+          "electricalType": "unspecified",
+          "net": "L13",
+          "xMm": 17.065,
+          "yMm": 33.473,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 17.065,
+          "yMm": 34.123,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_0",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp0",
+      "side": "front",
+      "xMm": 66.167,
+      "yMm": 17.907,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 3.2,
+        "x": 66.167,
+        "y": 17.907
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 66.167,
+          "yMm": 17.907,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_1",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp1",
+      "side": "front",
+      "xMm": 66.167,
+      "yMm": 45.847,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 3.2,
+        "x": 66.167,
+        "y": 45.847
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 66.167,
+          "yMm": 45.847,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_2",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp2",
+      "side": "front",
+      "xMm": 15.367,
+      "yMm": 2.667,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 3.2,
+        "x": 15.367,
+        "y": 2.667
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 15.367,
+          "yMm": 2.667,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "UNK_HOLE_3",
+      "value": "",
+      "description": "",
+      "footprint": "dummyfp3",
+      "side": "front",
+      "xMm": 14.097,
+      "yMm": 50.927,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 3.2,
+        "h": 3.2,
+        "x": 14.097,
+        "y": 50.927
+      },
+      "pads": [
+        {
+          "padNumber": "",
+          "name": "",
+          "electricalType": "unspecified",
+          "xMm": 14.097,
+          "yMm": 50.927,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "X1",
+      "value": "POWERSUPPLY_DC21MMX",
+      "description": "",
+      "footprint": "POWERSUPPLY_DC-21MM",
+      "side": "front",
+      "xMm": 5.461,
+      "yMm": 45.085,
+      "rotationDeg": 90,
+      "bboxMm": {
+        "w": 9.9944,
+        "h": 9.0038,
+        "x": 8.8138,
+        "y": 47.6631
+      },
+      "pin1": {
+        "xMm": 8.8138,
+        "yMm": 50.165
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 8.8138,
+          "yMm": 50.165,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "PWRIN",
+          "electricalType": "unspecified",
+          "net": "PWRIN",
+          "xMm": 11.811,
+          "yMm": 45.1612,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 5.8166,
+          "yMm": 45.1612,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "4",
+          "electricalType": "unspecified",
+          "xMm": 9.5758,
+          "yMm": 50.165,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "5",
+          "electricalType": "unspecified",
+          "xMm": 8.0518,
+          "yMm": 50.165,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "6",
+          "electricalType": "unspecified",
+          "xMm": 5.8166,
+          "yMm": 45.9232,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "7",
+          "electricalType": "unspecified",
+          "xMm": 5.8166,
+          "yMm": 44.3992,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "8",
+          "electricalType": "unspecified",
+          "xMm": 11.811,
+          "yMm": 45.9232,
+          "side": "front"
+        },
+        {
+          "padNumber": "9",
+          "name": "9",
+          "electricalType": "unspecified",
+          "xMm": 11.811,
+          "yMm": 44.3992,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "X2",
+      "value": "USB-B_TH",
+      "description": "",
+      "footprint": "PN61729",
+      "side": "front",
+      "xMm": 3.937,
+      "yMm": 15.367,
+      "rotationDeg": -90,
+      "bboxMm": {
+        "w": 7.1562,
+        "h": 15.216,
+        "x": 5.9071,
+        "y": 15.367
+      },
+      "pin1": {
+        "xMm": 8.647,
+        "yMm": 16.617
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XUSB",
+          "electricalType": "unspecified",
+          "net": "XUSB",
+          "xMm": 8.647,
+          "yMm": 16.617,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "D-",
+          "electricalType": "unspecified",
+          "net": "D-",
+          "xMm": 8.647,
+          "yMm": 14.117,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "D+",
+          "electricalType": "unspecified",
+          "net": "D+",
+          "xMm": 6.647,
+          "yMm": 14.117,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "UGND",
+          "electricalType": "unspecified",
+          "net": "UGND",
+          "xMm": 6.647,
+          "yMm": 16.617,
+          "side": "front"
+        },
+        {
+          "padNumber": "P$1",
+          "name": "USHIELD",
+          "electricalType": "unspecified",
+          "net": "USHIELD",
+          "xMm": 3.937,
+          "yMm": 9.367,
+          "side": "front"
+        },
+        {
+          "padNumber": "P$2",
+          "name": "USHIELD",
+          "electricalType": "unspecified",
+          "net": "USHIELD",
+          "xMm": 3.937,
+          "yMm": 21.367,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "Y1",
+      "value": "16MHz",
+      "description": "",
+      "footprint": "QS",
+      "side": "front",
+      "xMm": 19.05,
+      "yMm": 27.305,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 6.7564,
+        "h": 1.6764,
+        "x": 19.05,
+        "y": 27.305
+      },
+      "pin1": {
+        "xMm": 21.59,
+        "yMm": 27.305
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XT2",
+          "electricalType": "unspecified",
+          "net": "XT2",
+          "xMm": 21.59,
+          "yMm": 27.305,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "XT1",
+          "electricalType": "unspecified",
+          "net": "XT1",
+          "xMm": 16.51,
+          "yMm": 27.305,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "Y2",
+      "value": "CSTCE16M0V53-R0 16MHZ",
+      "description": "",
+      "footprint": "RESONATOR",
+      "side": "front",
+      "xMm": 41.402,
+      "yMm": 28.575,
+      "rotationDeg": 0,
+      "bboxMm": {
+        "w": 2.7,
+        "h": 2,
+        "x": 41.402,
+        "y": 28.575
+      },
+      "pin1": {
+        "xMm": 40.402,
+        "yMm": 28.575
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "XTAL2",
+          "electricalType": "unspecified",
+          "net": "XTAL2",
+          "xMm": 40.402,
+          "yMm": 28.575,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 41.402,
+          "yMm": 28.575,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "XTAL1",
+          "electricalType": "unspecified",
+          "net": "XTAL1",
+          "xMm": 42.402,
+          "yMm": 28.575,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "Z1",
+      "value": "CG0603MLC-05E",
+      "description": "",
+      "footprint": "CT_CN0603",
+      "side": "front",
+      "xMm": 12.827,
+      "yMm": 14.097,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 3,
+        "h": 1,
+        "x": 12.827,
+        "y": 14.097
+      },
+      "pin1": {
+        "xMm": 13.827,
+        "yMm": 14.097
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "D+",
+          "electricalType": "unspecified",
+          "net": "D+",
+          "xMm": 13.827,
+          "yMm": 14.097,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "USHIELD",
+          "electricalType": "unspecified",
+          "net": "USHIELD",
+          "xMm": 11.827,
+          "yMm": 14.097,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "Z2",
+      "value": "CG0603MLC-05E",
+      "description": "",
+      "footprint": "CT_CN0603",
+      "side": "front",
+      "xMm": 12.827,
+      "yMm": 19.812,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 3,
+        "h": 1,
+        "x": 12.827,
+        "y": 19.812
+      },
+      "pin1": {
+        "xMm": 13.827,
+        "yMm": 19.812
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "D-",
+          "electricalType": "unspecified",
+          "net": "D-",
+          "xMm": 13.827,
+          "yMm": 19.812,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "USHIELD",
+          "electricalType": "unspecified",
+          "net": "USHIELD",
+          "xMm": 11.827,
+          "yMm": 19.812,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    },
+    {
+      "ref": "ZU4",
+      "value": "ATMEGA328P-PU",
+      "description": "",
+      "footprint": "DIL28-3",
+      "side": "front",
+      "xMm": 46.482,
+      "yMm": 37.084,
+      "rotationDeg": 180,
+      "bboxMm": {
+        "w": 34.4424,
+        "h": 9.7536,
+        "x": 46.482,
+        "y": 37.084
+      },
+      "pin1": {
+        "xMm": 62.992,
+        "yMm": 33.274
+      },
+      "pads": [
+        {
+          "padNumber": "1",
+          "name": "RESET",
+          "electricalType": "unspecified",
+          "net": "RESET",
+          "xMm": 62.992,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "2",
+          "name": "IO0",
+          "electricalType": "unspecified",
+          "net": "IO0",
+          "xMm": 60.452,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "3",
+          "name": "IO1",
+          "electricalType": "unspecified",
+          "net": "IO1",
+          "xMm": 57.912,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "4",
+          "name": "IO2",
+          "electricalType": "unspecified",
+          "net": "IO2",
+          "xMm": 55.372,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "5",
+          "name": "IO3",
+          "electricalType": "unspecified",
+          "net": "IO3",
+          "xMm": 52.832,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "6",
+          "name": "IO4",
+          "electricalType": "unspecified",
+          "net": "IO4",
+          "xMm": 50.292,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "7",
+          "name": "+5V",
+          "electricalType": "unspecified",
+          "net": "+5V",
+          "xMm": 47.752,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "8",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 45.212,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "9",
+          "name": "XTAL1",
+          "electricalType": "unspecified",
+          "net": "XTAL1",
+          "xMm": 42.672,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "10",
+          "name": "XTAL2",
+          "electricalType": "unspecified",
+          "net": "XTAL2",
+          "xMm": 40.132,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "11",
+          "name": "IO5",
+          "electricalType": "unspecified",
+          "net": "IO5",
+          "xMm": 37.592,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "12",
+          "name": "IO6",
+          "electricalType": "unspecified",
+          "net": "IO6",
+          "xMm": 35.052,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "13",
+          "name": "IO7",
+          "electricalType": "unspecified",
+          "net": "IO7",
+          "xMm": 32.512,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "14",
+          "name": "IO8",
+          "electricalType": "unspecified",
+          "net": "IO8",
+          "xMm": 29.972,
+          "yMm": 33.274,
+          "side": "front"
+        },
+        {
+          "padNumber": "15",
+          "name": "IO9",
+          "electricalType": "unspecified",
+          "net": "IO9",
+          "xMm": 29.972,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "16",
+          "name": "SS",
+          "electricalType": "unspecified",
+          "net": "SS",
+          "xMm": 32.512,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "17",
+          "name": "MOSI",
+          "electricalType": "unspecified",
+          "net": "MOSI",
+          "xMm": 35.052,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "18",
+          "name": "MISO",
+          "electricalType": "unspecified",
+          "net": "MISO",
+          "xMm": 37.592,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "19",
+          "name": "SCK",
+          "electricalType": "unspecified",
+          "net": "SCK",
+          "xMm": 40.132,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "20",
+          "name": "AVCC",
+          "electricalType": "unspecified",
+          "net": "AVCC",
+          "xMm": 42.672,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "21",
+          "name": "AREF",
+          "electricalType": "unspecified",
+          "net": "AREF",
+          "xMm": 45.212,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "22",
+          "name": "GND",
+          "electricalType": "unspecified",
+          "net": "GND",
+          "xMm": 47.752,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "23",
+          "name": "AD0",
+          "electricalType": "unspecified",
+          "net": "AD0",
+          "xMm": 50.292,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "24",
+          "name": "AD1",
+          "electricalType": "unspecified",
+          "net": "AD1",
+          "xMm": 52.832,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "25",
+          "name": "AD2",
+          "electricalType": "unspecified",
+          "net": "AD2",
+          "xMm": 55.372,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "26",
+          "name": "AD3",
+          "electricalType": "unspecified",
+          "net": "AD3",
+          "xMm": 57.912,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "27",
+          "name": "AD4/SDA",
+          "electricalType": "unspecified",
+          "net": "AD4/SDA",
+          "xMm": 60.452,
+          "yMm": 40.894,
+          "side": "front"
+        },
+        {
+          "padNumber": "28",
+          "name": "AD5/SCL",
+          "electricalType": "unspecified",
+          "net": "AD5/SCL",
+          "xMm": 62.992,
+          "yMm": 40.894,
+          "side": "front"
+        }
+      ],
+      "source": {
+        "file": "assets/boards/arduino-reference/arduino-uno-r3-official-import.kicad_pcb",
+        "revision": "Arduino Uno Rev3 · source CAD import",
+        "license": "CC BY-SA 4.0",
+        "sha256": "c723c23f2eb1755d04072fc1adf7d90c620d1b55af7312a050603fa0c1fd519e"
+      }
+    }
+  ]
+}
