@@ -61,3 +61,14 @@ test('unused function aliases do not intercept clicks on a connected physical he
  await lab.getByRole('group',{name:'Chọn hình chiếu mạch'}).getByRole('button',{name:'3D',exact:true}).click()
  await expect(lab.locator('.assembly-pin-marker')).toContainText('GPIO 18')
 })
+
+test('mobile opens the selected CAD board directly on the circuit', async ({page}) => {
+  await page.setViewportSize({width:375,height:812})
+  await page.addInitScript(() => {
+    if (window === window.top) localStorage.setItem('mm-tour-seen', JSON.stringify({home:1,freestyle:1}))
+  })
+  await page.goto('/boards?board=arduino-mega-2560-r3')
+  await page.locator('.board-cad-viewer-actions').getByRole('link', {name:/Lắp thử Arduino Mega 2560 R3/}).click()
+  await expect(page.locator('[data-board-art="arduino-mega-2560"]')).toBeVisible()
+  await expect(page.getByRole('button', {name:'Mở bảng thao tác',exact:true})).toBeVisible()
+})

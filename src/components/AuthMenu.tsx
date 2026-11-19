@@ -13,6 +13,7 @@ export function AuthMenu({ variant }: { variant: 'public' | 'app' }) {
   const auth = useAuth()
   const { pathname, search } = useLocation()
   const [busy, setBusy] = useState(false)
+  const [error, setError] = useState(false)
   const onLoginPage = pathname === '/login' || pathname === '/app/login'
   const next = onLoginPage ? undefined : `${pathname}${search}`
 
@@ -22,8 +23,10 @@ export function AuthMenu({ variant }: { variant: 'public' | 'app' }) {
         <span className="auth-menu-user"><UserAvatar name={auth.user.displayName} url={auth.user.avatarUrl} size={26} /><span className="auth-menu-name">{auth.user.displayName}</span></span>
         <button type="button" className="auth-menu-button" disabled={busy} onClick={async () => {
           setBusy(true)
-          try { await signOutUser() } finally { setBusy(false) }
+          setError(false)
+          try { await signOutUser() } catch { setError(true) } finally { setBusy(false) }
         }}>Đăng xuất</button>
+        {error && <span role="alert">Chưa đăng xuất được. Hãy thử lại.</span>}
       </div>
     )
   }

@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, type FormEvent } from 'react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { UserAvatar } from '../components/UserAvatar'
-import { signInWithProvider, signOutUser, useAuth } from '../lib/auth'
+import { isSelfHostedAuth, signInWithProvider, signOutUser, useAuth } from '../lib/auth'
+import { redeemSelfHostedInvite } from '../lib/selfHostedAuth'
 import { OAUTH_PROVIDERS, safeNextPath, type OAuthProviderId } from '../lib/authUser'
 import { communityBase } from '../lib/communityStore'
 import './Community.css'
@@ -18,7 +19,27 @@ export function LoginPage() {
   const next = safeNextPath(params.get('next'), communityBase(pathname))
   const [pending, setPending] = useState<OAuthProviderId | null>(null)
   const [error, setError] = useState('')
+  const [invite, setInvite] = useState('')
+  const [sessionBusy, setSessionBusy] = useState(false)
   const unconfigured = auth.status === 'unconfigured'
+
+  async function manageSession(event?: FormEvent<HTMLFormElement>) {
+    event?.preventDefault()
+    setError('')
+    setSessionBusy(true)
+    try {
+      if (event) {
+        await redeemSelfHostedInvite(invite.trim())
+        setInvite('')
+      } else {
+        await signOutUser()
+      }
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : 'Không cập nhật được phiên đăng nhập.')
+    } finally {
+      setSessionBusy(false)
+    }
+  }
 
   async function start(provider: OAuthProviderId) {
     setError('')
@@ -37,7 +58,7 @@ export function LoginPage() {
       <section className="auth-card" aria-labelledby="login-title">
         <p className="eyebrow">TÀI KHOẢN MẠCH MỞ</p>
         <h1 id="login-title">Đăng nhập</h1>
-        <p className="auth-lead">Đăng nhập để viết bài và bình luận trong cộng đồng. Bài học, phòng thử và công cụ vẫn dùng được ở chế độ khách.</p>
+        <p className="auth-lead">{isSelfHostedAuth ? 'Đăng nhập bằng mã mời để thử tài khoản. Bài học, phòng thử và công cụ vẫn dùng được ở chế độ khách.' : 'Đăng nhập để viết bài và bình luận trong cộng đồng. Bài học, phòng thử và công cụ vẫn dùng được ở chế độ khách.'}</p>
 
         {auth.status === 'signed-in' ? (
           <div className="auth-signed-in" role="status">
@@ -45,7 +66,7 @@ export function LoginPage() {
             <div><strong>{auth.user.displayName}</strong><p>Bạn đã đăng nhập.</p></div>
             <div className="auth-actions-row">
               <Link className="button-primary" to={next}>Tiếp tục</Link>
-              <button type="button" className="auth-secondary" onClick={() => { void signOutUser() }}>Đăng xuất</button>
+              <button type="button" className="auth-secondary" disabled={sessionBusy} onClick={() => { void manageSession() }}>Đăng xuất</button>
             </div>
           </div>
         ) : (
@@ -56,23 +77,29 @@ export function LoginPage() {
                 <p>Bản web này chưa khai báo Supabase nên chưa thể đăng nhập bằng Google hay GitHub. Không có tài khoản nào được tạo giả. Bạn vẫn có thể học và lưu tiến độ trên thiết bị.</p>
               </div>
             )}
-            <div className="auth-providers">
+            {isSelfHostedAuth ? <form className="auth-providers" onSubmit={manageSession}>
+              <label htmlFor="pilot-invite">Mã mời dùng một lần</label>
+              <input type="password" id="pilot-invite" autoComplete="off" required maxLength={80} value={invite} onChange={event => setInvite(event.currentTarget.value)} />
+              <button type="submit" className="button-primary" disabled={sessionBusy || auth.status === 'loading' || !invite.trim()}>
+                {sessionBusy ? 'Đang kiểm tra mã…' : 'Đăng nhập bằng mã mời'}
+              </button>
+            </form> : <div className="auth-providers">
               {OAUTH_PROVIDERS.map(provider => (
                 <button key={provider.id} type="button" className={`auth-provider auth-provider-${provider.id}`} disabled={unconfigured || pending !== null || auth.status === 'loading'} aria-describedby={unconfigured ? 'auth-unconfigured' : undefined} onClick={() => start(provider.id)}>
                   <ProviderIcon id={provider.id} />
                   <span>{pending === provider.id ? 'Đang chuyển hướng…' : `Đăng nhập bằng ${provider.label}`}</span>
                 </button>
               ))}
-            </div>
-            {error && <p className="auth-error" role="alert">{error}</p>}
+            </div>}
           </>
         )}
+        {(error || auth.status === 'error') && <p className="auth-error" role="alert">{error || (auth.status === 'error' ? auth.message : '')}</p>}
 
         <div className="auth-guest">
           <p><strong>Chế độ khách:</strong> tiến độ học, mạch và bài nháp được lưu cục bộ trong trình duyệt này, không gửi lên máy chủ.</p>
           <Link to={pathname.startsWith('/app') ? '/app' : '/'}>Tiếp tục với chế độ khách</Link>
         </div>
-        <p className="auth-fineprint">Khi đăng nhập, Mạch Mở chỉ hiển thị tên và ảnh đại diện từ Google/GitHub. Xem <Link to="/privacy">chính sách quyền riêng tư</Link>.</p>
+        <p className="auth-fineprint">{isSelfHostedAuth ? 'Bản thử tài khoản chỉ hiển thị tên bạn dùng khi được mời.' : 'Khi đăng nhập, Mạch Mở chỉ hiển thị tên và ảnh đại diện từ Google/GitHub.'} Xem <Link to="/privacy">chính sách quyền riêng tư</Link>.</p>
       </section>
     </div>
   )

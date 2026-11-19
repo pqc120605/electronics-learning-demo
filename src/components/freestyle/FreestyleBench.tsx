@@ -299,7 +299,10 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
       if(added.partId){intended={...intended,doc:added.doc,sampleId:undefined};changed=true;setSelectedPartId(added.partId);setStep('parts')}
       else setNotice(added.error??'Chưa thêm được linh kiện.')
     }
-    if(changed && (!boardParam || !workspace.boardId || archiveBeforeReplace()))update(intended)
+    if (changed && (!boardParam || !workspace.boardId || archiveBeforeReplace())) {
+      update(intended)
+      revealMobileCircuit()
+    }
     const next = new URLSearchParams(searchParams)
     next.delete('board'); next.delete('part')
     setSearchParams(next, { replace: true })

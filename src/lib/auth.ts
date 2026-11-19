@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { isSupabaseConfigured, supabase } from './supabase'
 import { toAuthUser, type AuthUser, type OAuthProviderId } from './authUser'
+import { endSelfHostedSession, readSelfHostedUser, selfHostedSessionChanged } from './selfHostedAuth'
 
 export type AuthState =
   | { status: 'unconfigured' }
@@ -9,7 +10,8 @@ export type AuthState =
   | { status: 'signed-in'; user: AuthUser }
   | { status: 'error'; message: string }
 
-export const isAuthConfigured = isSupabaseConfigured
+export const isSelfHostedAuth = import.meta.env.VITE_MACHMO_SELF_HOSTED_AUTH === 'true' && !isSupabaseConfigured
+export const isAuthConfigured = isSupabaseConfigured || isSelfHostedAuth
 
 /** Đường dẫn callback OAuth; phải được thêm vào Redirect URLs trong Supabase dashboard. */
 export function oauthRedirectUrl(next: string): string {
@@ -27,12 +29,14 @@ export async function signInWithProvider(provider: OAuthProviderId, next: string
 }
 
 export async function signOutUser(): Promise<void> {
+  if (isSelfHostedAuth) return endSelfHostedSession()
   if (!supabase) return
   const { error } = await supabase.auth.signOut()
   if (error) throw error
 }
 
 export async function readCurrentUser(): Promise<AuthUser | null> {
+  if (isSelfHostedAuth) return readSelfHostedUser()
   if (!supabase) return null
   const { data, error } = await supabase.auth.getSession()
   if (error) throw error
@@ -41,9 +45,28 @@ export async function readCurrentUser(): Promise<AuthUser | null> {
 
 /** Trạng thái đăng nhập dùng chung cho header, topbar, cộng đồng. */
 export function useAuth(): AuthState {
-  const [state, setState] = useState<AuthState>(() => (isSupabaseConfigured ? { status: 'loading' } : { status: 'unconfigured' }))
+  const [state, setState] = useState<AuthState>(() => (isAuthConfigured ? { status: 'loading' } : { status: 'unconfigured' }))
 
   useEffect(() => {
+    if (isSelfHostedAuth) {
+      let version = 0
+      function refresh() {
+        const request = ++version
+        readSelfHostedUser()
+          .then(user => { if (request === version) setState(user ? { status: 'signed-in', user } : { status: 'signed-out' }) })
+          .catch(() => { if (request === version) setState({ status: 'error', message: 'Không đọc được phiên đăng nhập.' }) })
+      }
+      refresh()
+      const refreshTimer = window.setInterval(refresh, 60_000)
+      window.addEventListener('focus', refresh)
+      window.addEventListener(selfHostedSessionChanged, refresh)
+      return () => {
+        version++
+        window.clearInterval(refreshTimer)
+        window.removeEventListener('focus', refresh)
+        window.removeEventListener(selfHostedSessionChanged, refresh)
+      }
+    }
     if (!supabase) return
     let active = true
     readCurrentUser()

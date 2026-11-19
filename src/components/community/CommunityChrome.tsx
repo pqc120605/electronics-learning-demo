@@ -12,7 +12,7 @@ export function PreviewBanner() {
     <p className="community-preview-banner" role="note">
       <strong>{remote ? 'Cộng đồng online' : 'Bản xem trước'}</strong>
       <span>{remote ? 'Nguồn máy chủ: bài đã công bố dùng chung. Lỗi kết nối sẽ được báo; dữ liệu cục bộ không tự tải lên.' : 'Bài viết chưa đồng bộ: bài mẫu và bài/bình luận cục bộ chỉ có trên thiết bị này. Chữ lưu localStorage, tệp lưu IndexedDB; có thể bị trình duyệt xoá. Tệp đang chọn chỉ ở bộ nhớ cho tới khi đăng thành công.'}</span>
-      {!canUseOnlineCommunity && <span>Online chưa được kết nối. Founder cần tạo Supabase và áp dụng gói docs/software/community-online.</span>}
+      {!canUseOnlineCommunity && <span>Tính năng chia sẻ bài trực tuyến chưa được bật. Bạn vẫn có thể viết và lưu trên thiết bị này.</span>}
       {canUseOnlineCommunity && <button type="button" onClick={() => { try { setCommunitySource(remote ? 'preview' : 'remote') } catch (cause) { setError(cause instanceof Error ? cause.message : 'Không đổi được nguồn.') } }}>{remote ? 'Xem bài trên thiết bị' : 'Mở cộng đồng online'}</button>}
       {error && <span role="alert">{error}</span>}
     </p>
