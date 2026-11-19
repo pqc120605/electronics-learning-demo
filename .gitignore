@@ -1,5 +1,12 @@
 node_modules/
 dist/
+# The local SPICE dependency must carry its reviewed runtime on a clean clone.
+!/vendor/mach-mo-spice/dist/
+/vendor/mach-mo-spice/dist/*
+!/vendor/mach-mo-spice/dist/eecircuit-engine.mjs
+!/vendor/mach-mo-spice/dist/readOutput.mjs
+!/vendor/mach-mo-spice/dist/spice.mjs
+!/vendor/mach-mo-spice/dist/spice.wasm
 .env
 .env.*
 !.env.example
