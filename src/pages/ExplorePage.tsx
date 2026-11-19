@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from 'react'
+import { lazy, Suspense } from 'react'
 import { BeginnerResumeCard, useBeginnerResume } from '../components/learning/BeginnerResumeCard'
 import { Link } from 'react-router-dom'
 import { RecentProjectResume } from '../components/learning/RecentProjectResume'
@@ -15,19 +15,23 @@ const startFlows = [
 
 export function ExplorePage() {
   const foundation = useBeginnerResume()
-  const [benchOpened, setBenchOpened] = useState(false)
   return <>
     <section className="hero-section">
       <div className="hero-copy">
         <p className="eyebrow"><span className="eyebrow-line" /> ĐIỆN TỬ · LẬP TRÌNH NHÚNG · IOT</p>
         <h1>Từ linh kiện nhỏ<br />đến thế giới <span>thông minh.</span></h1>
         <p className="hero-description">Lắp mạch, viết code và bấm Chạy ngay trên trình duyệt. Mạch Mở giúp bạn hiểu board, cảm biến và code qua những mạch thử trực quan.</p>
-        <div className="hero-actions"><Link className="button-primary" to={beginnerResumeUrl('/learn/basics', foundation.session?.repairs)}>{foundation.session?.repairs?.active ? 'Tiếp tục sửa mạch' : foundation.session ? 'Tiếp tục thử nghiệm' : 'Thử mạch đầu tiên'} <span aria-hidden="true">↗</span></Link><Link className="text-link" to="/build/freestyle">Mở bàn lắp mạch <span aria-hidden="true">↗</span></Link></div>
+        <div className="hero-actions"><Link className="button-primary" to={beginnerResumeUrl('/learn/basics', foundation.session?.repairs)}>{foundation.session?.repairs?.active ? 'Tiếp tục sửa mạch' : foundation.session ? 'Tiếp tục thử nghiệm' : 'Thử mạch đầu tiên'} <span aria-hidden="true">↗</span></Link><a className="text-link" href="#ban-lap-mach">Mở bàn lắp mạch <span aria-hidden="true">↓</span></a></div>
         <RecentProjectResume />
         <div className="hero-note"><span className="note-icon">✳</span><span>Miễn phí để khám phá<br /><strong>Không cần tài khoản hay kinh nghiệm</strong></span></div>
       </div>
     </section>
     <BeginnerResumeCard />
+    <section id="ban-lap-mach" className="home-freestyle" aria-label="Bàn lắp mạch tự do" tabIndex={-1}>
+      <Suspense fallback={<p role="status">Đang mở bàn lắp mạch…</p>}>
+        <FreestyleBench />
+      </Suspense>
+    </section>
     <section className="home-start" id="bat-dau" aria-labelledby="home-start-title">
       <div className="home-section-heading"><p className="eyebrow">BA CÁCH BẮT ĐẦU</p><h2 id="home-start-title">Chọn một đường, mỗi đường ba bước</h2><p>Không chắc bắt đầu từ đâu? Chọn “Học bài đầu tiên”.</p></div>
       <ul className="home-start-grid">
@@ -38,12 +42,6 @@ export function ExplorePage() {
           <span className="home-flow-action">{flow.action} <span aria-hidden="true">↗</span></span>
         </Link></li>)}
       </ul>
-      <details className="home-inline-bench" onToggle={event => {
-        if (event.currentTarget.open) setBenchOpened(true)
-      }}>
-        <summary>Thử bàn lắp ngay trên trang</summary>
-        {benchOpened && <Suspense fallback={<p role="status">Đang mở bàn lắp mạch…</p>}><FreestyleBench /></Suspense>}
-      </details>
     </section>
     <section className="home-world" aria-labelledby="home-world-title">
       <div className="home-section-heading"><p className="eyebrow">THẾ GIỚI ĐIỆN TỬ</p><h2 id="home-world-title">Một thiết bị thông minh hoạt động ra sao?</h2><p>Từ tín hiệu đầu vào đến hành động đầu ra, mỗi phần đảm nhiệm một vai trò.</p></div>

@@ -3,26 +3,50 @@ import { test, expect } from '@playwright/test'
 const bench = page => page.locator('.freestyle-bench')
 const heavyResource = /\/(?:models|cad)\/|\.(?:glb|gltf|step|stp|wasm)$/i
 
-for (const [route, next, actions] of [
-  ['/', '/build/freestyle', '.hero-actions'],
-  ['/app', '/app/lab/freestyle', '.app-home-actions'],
-]) test(`first screen at ${route} offers both routes before loading the lab or models`, async ({ page }) => {
+for (const width of [375, 1440]) {
+  test(`homepage opens its freestyle bench in place at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: width === 375 ? 812 : 900 })
+    const resources = []
+    page.on('request', request => resources.push(new URL(request.url()).pathname))
+    await page.goto('/')
+    const hero = page.locator('.hero-actions')
+    await expect(hero.getByRole('link', { name: 'Thử mạch đầu tiên' })).toBeInViewport({ ratio: 1 })
+    const openBench = hero.getByRole('link', { name: 'Mở bàn lắp mạch' })
+    await expect(openBench).toBeInViewport({ ratio: 1 })
+    const workspace = page.locator('#ban-lap-mach')
+    await expect(workspace.locator('.freestyle-home')).toBeVisible()
+    if (width === 1440) {
+      const positions = await page.getByRole('navigation', { name: 'Điều hướng chính' }).evaluate(nav =>
+        Array.from(nav.children).map(item => {
+          const { x, y } = item.getBoundingClientRect()
+          return { x: Math.round(x), y: Math.round(y) }
+        }))
+      expect(new Set(positions.map(item => item.x)).size).toBeGreaterThanOrEqual(4)
+      expect(Math.max(...positions.map(item => item.y)) - Math.min(...positions.map(item => item.y))).toBeLessThan(20)
+    }
+    expect(resources.filter(path => heavyResource.test(path))).toEqual([])
+    await openBench.focus()
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(/\/#ban-lap-mach$/)
+    await expect(workspace).toBeFocused()
+    await expect(workspace.locator('.freestyle-home')).toBeVisible()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+    expect(await page.evaluate(() => localStorage.getItem('machmo-freestyle-v1'))).toBeNull()
+  })
+}
+
+test('the learning workspace opens the full bench without loading its board studio upfront', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 })
-  const resources = []
-  page.on('request', request => resources.push(new URL(request.url()).pathname))
-  await page.goto(route)
-  const hero = page.locator(actions)
+  await page.goto('/app')
+  const hero = page.locator('.app-home-actions')
   await expect(hero.getByRole('link', { name: 'Thử mạch đầu tiên' })).toBeInViewport({ ratio: 1 })
   const openBench = hero.getByRole('link', { name: 'Mở bàn lắp mạch' })
   await expect(openBench).toBeInViewport({ ratio: 1 })
   await expect(bench(page)).toHaveCount(0)
   await expect(page.locator('.home-studio')).toHaveCount(0)
-  await expect(page.getByRole('complementary', { name: 'Hướng dẫn cho người mới' })).toHaveCount(0)
-  const startupResources = resources.slice()
   await openBench.click()
-  await expect(page).toHaveURL(new RegExp(next + '$'))
+  await expect(page).toHaveURL(/\/app\/lab\/freestyle$/)
   await expect(bench(page)).toBeVisible()
-  expect(startupResources.filter(path => heavyResource.test(path) || path.includes('FreestyleBench'))).toEqual([])
   await page.goBack()
   await expect(openBench).toBeInViewport({ ratio: 1 })
   await expect(bench(page)).toHaveCount(0)

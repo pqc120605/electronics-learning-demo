@@ -14,7 +14,6 @@ test('fresh home and room have no implicit board, circuit, code, or saved replac
  await start(page)
  for(const url of ['/','/build/freestyle']){
   await page.goto(url)
-  if (url === '/') await page.getByText('Thử bàn lắp ngay trên trang', { exact: true }).click()
   await expect(bench(page).getByRole('radio',{checked:true})).toHaveCount(0)
   await expect(page.locator('[data-diagram-part],[data-board-art]')).toHaveCount(0)
   await expect(page.locator('.freestyle-work-actions').getByRole('button',{name:'▶ Chạy'})).toBeDisabled()
@@ -63,7 +62,7 @@ test('draft is opt-in and byte-preserved until resumed or safely backed up',asyn
  expect(await page.evaluate(()=>localStorage.getItem('machmo-freestyle-v1'))).toBe(raw)
  await page.goto('/')
  await page.locator('.hero-actions').getByRole('link',{name:'Mở bàn lắp mạch'}).click()
- await expect(page).toHaveURL(/\/build\/freestyle$/)
+ await expect(page).toHaveURL(/\/#ban-lap-mach$/)
  await expect(page.locator('[data-board-art]')).toHaveCount(0)
  expect(await page.evaluate(()=>localStorage.getItem('machmo-freestyle-v1'))).toBe(raw)
  await page.getByRole('button',{name:'Mở bản nháp đã lưu'}).click()
@@ -136,7 +135,6 @@ test('switching board during a pending compile rejects the stale completion and 
 })
 test('home full-screen action preserves unsaved session-only work in place',async({page})=>{
  await start(page);await page.goto('/')
- await page.getByText('Thử bàn lắp ngay trên trang', { exact: true }).click()
  await page.evaluate(()=>{Storage.prototype.setItem=()=>{throw new DOMException('quota','QuotaExceededError')}})
  await page.getByRole('radio',{name:/Arduino Nano classic/}).check()
  await page.getByRole('tab',{name:/Viết code & Chạy/}).click()
