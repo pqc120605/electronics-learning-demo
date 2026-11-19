@@ -249,5 +249,11 @@
 .freestyle-import-draft { position: relative; display: inline-flex; align-items: center; cursor: pointer; }
 .freestyle-import-draft input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
 .freestyle-import-draft:focus-within { outline: 3px solid var(--mm-signal); outline-offset: 2px; }
+.freestyle-reopen-selection { display: none; }
+@media (max-width: 767px) {
+  .freestyle-workbar { scroll-margin-top: var(--mm-header-h, 68px); }
+  .freestyle-reopen-selection { display: inline-flex; align-items: center; min-height: 36px; margin-bottom: 6px; }
+  .freestyle-stage:focus-visible, .freestyle-selected:focus-visible { outline: 2px solid var(--mm-signal); outline-offset: -2px; }
+}
 .freestyle-wire-actions { display: flex; flex: 1 0 100%; flex-wrap: wrap; gap: 6px; }
 .freestyle-wire-actions .freestyle-button { min-height: 36px; }

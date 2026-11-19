@@ -59,6 +59,10 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
   const lastSavedRaw = useRef(draft?.raw ?? null)
   const [started,setStarted]=useState(()=>variant==='full' && typeof window!=='undefined' && new URLSearchParams(window.location.search).get('resume')==='1' && Boolean(draft?.workspace))
   const rootRef=useRef<HTMLElement>(null),expandButton=useRef<HTMLButtonElement>(null)
+  const workbarRef = useRef<HTMLDivElement>(null)
+  const stageRef = useRef<HTMLDivElement>(null)
+  const selectedPartRef = useRef<HTMLDivElement>(null)
+  const boardPointer = useRef(false)
   const [view,setView]=useState<View>('breadboard')
   const [panelOpen,setPanelOpen]=useState(!started)
   const [expanded,setExpanded]=useState(false)
@@ -302,10 +306,22 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams])
 
-  function chooseBoard(nextId: string) {
+  function revealMobileCircuit() {
+    if (!panelOpen || !window.matchMedia('(max-width: 767px)').matches) return
+    setView('breadboard')
+    setTracePopout(false)
+    setPanelOpen(false)
+    requestAnimationFrame(() => {
+      stageRef.current?.focus({ preventScroll: true })
+      workbarRef.current?.scrollIntoView({ block: 'start' })
+    })
+  }
+
+  function chooseBoard(nextId: string, reveal: boolean) {
     if(boardId && boardId!==nextId && !archiveBeforeReplace())return
     const next=workspaceWithFreestyleBoard(workspace,nextId)
     update(next)
+    if (reveal) revealMobileCircuit()
     if(!next.sampleId && code.trim())setNotice('Đã giữ nguyên code tự viết và dây nối. Kiểm tra lại ngôn ngữ, số chân và giới hạn của board mới trước khi chạy.')
   }
 
@@ -332,10 +348,11 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
   function addPart(type: string, at?: { col: number; row: number }) {
     const mountingDoc=isBreadboardPart(type)&&!doc.breadboards.length?{...doc,breadboards:createEmptyFreestyleDoc().breadboards}:doc
     const result = placePart(mountingDoc, type, at)
-    if (!result.partId) { setNotice(result.error ?? 'Không thêm được linh kiện.'); return }
+    if (!result.partId) { setNotice(result.error ?? 'Không thêm được linh kiện.'); return false }
     setSelectedPartId(result.partId)
     setNotice(`Đã thêm ${result.partId}. Nối dây: chọn chân/lỗ đầu rồi chọn điểm đích (hoặc kéo giữa hai điểm).`)
     update({ doc: result.doc, sampleId: undefined })
+    return true
   }
 
   function dropPart(event: DragEvent<HTMLDivElement>) {
@@ -428,7 +445,7 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
     </div>
 
     {draft && !started && <div className="freestyle-draft" role="status"><span>{draft.workspace?'Có một bản nháp đã lưu trên máy này. Bàn hiện tại bắt đầu trống.':'Bản lưu cũ chưa đọc được; dữ liệu gốc được giữ nguyên.'}</span>{draft.workspace&&<button className="freestyle-button" onClick={()=>{stop();setWorkspace(draft.workspace!);setStarted(true);setNotice('Đã mở bản nháp, giữ nguyên mạch và code.');setStep('parts');setView('breadboard');setPanelOpen(false)}}>Mở bản nháp đã lưu</button>}</div>}
-    <div className="freestyle-workbar">
+    <div className="freestyle-workbar" ref={workbarRef}>
       <div className="freestyle-view-tabs" role="group" aria-label="Chế độ xem mạch">{([['breadboard','Lắp mạch 2D'],['schematic','Schematic'],['3d','Lắp mạch 3D'],['wave','Dạng sóng']] as const).map(([id,label])=><button key={id} aria-pressed={view===id} onClick={()=>{setTracePopout(false);setView(id);setPanelOpen(false)}}>{label}</button>)}</div>
       <div className="freestyle-work-actions"><button className="freestyle-button" aria-expanded={panelOpen} onClick={()=>setPanelOpen(!panelOpen)}>{panelOpen?'Ẩn bảng thao tác':'Mở bảng thao tác'}</button><button ref={expandButton} className="freestyle-button" aria-pressed={expanded} onClick={()=>setExpanded(!expanded)}>{expanded?'Thu gọn bàn':'Mở rộng bàn'}</button><button type="button" disabled={!boardId||!code.trim()} className={`freestyle-run-button ${running?'is-running':''}`} onClick={running||preparing?stop:run}>{running||preparing?'■ Dừng':'▶ Chạy'}</button></div>
         {controlSpecs.length > 0 && <div className="freestyle-card freestyle-input-dock"><h3>Đầu vào</h3>{controlSpecs.map(spec => {
@@ -450,8 +467,13 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
         {step === 'board' && <div className="freestyle-board-step">
           <fieldset className="freestyle-board-list">
             <legend>Board / MCU</legend>
-            {freestyleBoards.map(item => <label key={item.id} className={item.id === boardId ? 'is-selected' : ''}>
-              <input type="radio" name="freestyle-board" value={item.id} checked={item.id === boardId} onChange={() => chooseBoard(item.id)} />
+            {freestyleBoards.map(item => <label key={item.id} className={item.id === boardId ? 'is-selected' : ''}
+              onPointerDown={() => { boardPointer.current = true }} onPointerCancel={() => { boardPointer.current = false }} onKeyDown={() => { boardPointer.current = false }}>
+              <input type="radio" name="freestyle-board" value={item.id} checked={item.id === boardId} onChange={() => {
+                const reveal = boardPointer.current
+                boardPointer.current = false
+                chooseBoard(item.id, reveal)
+              }} />
               <span><strong>{item.name}</strong><small>{item.logic} · {item.realEngine === 'avr' ? 'biên dịch thật (arduino-cli)' : item.realEngine === 'micropython' ? 'MicroPython thật' : 'trình thông dịch'}</small></span>
             </label>)}
           </fieldset>
@@ -466,17 +488,17 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
         </div>}
 
         {step === 'parts' && <div className="freestyle-parts-step">
-          <button className="freestyle-button" disabled={doc.breadboards.length>0} onClick={()=>{const bb=createEmptyFreestyleDoc();updateDoc({...doc,breadboards:bb.breadboards})}}>Thêm breadboard</button>
+          <button className="freestyle-button" disabled={doc.breadboards.length>0} onClick={()=>{const bb=createEmptyFreestyleDoc();updateDoc({...doc,breadboards:bb.breadboards});revealMobileCircuit()}}>Thêm breadboard</button>
           <label className="freestyle-filter">Tìm linh kiện<input type="search" value={partFilter} onChange={event => setPartFilter(event.target.value)} placeholder="LED, nút, biến trở…" /></label>
           <p className="freestyle-hint">Kéo linh kiện thả vào một lỗ breadboard, hoặc bấm “Thêm” để tự đặt chỗ trống.</p>
           <ul className="freestyle-library" aria-label="Thư viện linh kiện">
             {visibleParts.map(part => <li key={part.id} draggable onDragStart={event => { event.dataTransfer.setData('application/x-machmo-part', part.id); event.dataTransfer.effectAllowed = 'copy' }}>
               <span aria-hidden="true" className="freestyle-part-emoji">{part.emoji}</span>
               <span className="freestyle-part-name">{part.label}<small>{part.category}</small></span>
-              <button type="button" onClick={() => addPart(part.id)} aria-label={`Thêm ${part.label}`}>Thêm</button>
+              <button type="button" onClick={() => { if (addPart(part.id)) revealMobileCircuit() }} aria-label={`Thêm ${part.label}`}>Thêm</button>
             </li>)}
           </ul>
-          {selectedPart && selectedPart.type !== 'board' && <div className="freestyle-selected" aria-label={`Linh kiện đang chọn ${selectedPart.id}`}>
+          {selectedPart && selectedPart.type !== 'board' && <div className="freestyle-selected" ref={selectedPartRef} tabIndex={-1} aria-label={`Linh kiện đang chọn ${selectedPart.id}`}>
             <h3>{selectedDefinition?.label ?? selectedPart.type} <code>{selectedPart.id}</code></h3>
             <p>{selectedDefinition?.safetyNotes}</p>
             <div className="freestyle-selected-actions">
@@ -499,8 +521,13 @@ export function FreestyleBench({ variant = 'home' }: { variant?: 'home' | 'full'
         </div>}
       </div>
 
-      <div className="freestyle-stage" onDragOver={event => { if (event.dataTransfer.types.includes('application/x-machmo-part')) event.preventDefault() }} onDrop={dropPart}>
+      <div className="freestyle-stage" ref={stageRef} tabIndex={-1} aria-label="Mạch đang lắp" onDragOver={event => { if (event.dataTransfer.types.includes('application/x-machmo-part')) event.preventDefault() }} onDrop={dropPart}>
         {workspace.sampleId === 'motor' && <p className="freestyle-note" role="note">{motorProtection.independentSupply && motorProtection.commonGround && motorProtection.flyback ? 'Mạch này có nguồn tải lý tưởng riêng, GND chung và diode mắc ngược song song motor.' : 'Bản nháp motor này chưa có đủ nguồn tải riêng, GND chung hoặc diode đúng chiều. Mạch đang được giữ nguyên. Hãy tải bản nháp trước khi chọn “Dựng mạch mẫu” để dùng mẫu mới.'} Hoạt cảnh chỉ minh họa đóng/ngắt; chưa tính dòng tải, sụt áp, xung ngược, nhiệt hoặc chọn định mức linh kiện thật.</p>}
+        {!panelOpen && selectedPart && selectedPart.type !== 'board' && <button type="button" className="freestyle-button freestyle-reopen-selection" onClick={() => {
+          setStep('parts')
+          setPanelOpen(true)
+          requestAnimationFrame(() => selectedPartRef.current?.focus())
+        }}>Xem linh kiện {selectedDefinition?.label ?? selectedPart.type}</button>}
         {!doc.parts.length&&!doc.breadboards.length&&view!=='wave' ? <div className="freestyle-blank"><span aria-hidden="true">＋</span><h3>Bàn của bạn, bắt đầu từ trống</h3><p>Chọn board, thêm breadboard và linh kiện; tự nối dây và viết code. Không có mạch nào được dựng sẵn.</p><button className="freestyle-run-button" onClick={()=>{setStep('board');setPanelOpen(true)}}>Chọn board</button><button className="freestyle-button" onClick={()=>{const bb=createEmptyFreestyleDoc();updateDoc({...doc,breadboards:bb.breadboards});setStep('parts');setPanelOpen(true)}}>Thêm breadboard</button></div> : view==='3d' ? <Suspense fallback={<p>Đang mở cảnh 3D…</p>}><FreestyleAssemblyView key={boardId} doc={doc} boardId={boardId} pinMap={pinMap} selectedPartId={selectedPartId} wireSignals={wireSignals} litPartIds={evaluation.litPartIds} onSelectPart={setSelectedPartId}/></Suspense> : view==='wave' ? <FreestyleWaveform captureKey={traceCapture.current} preferredPins={wiredSignals.map(role=>pinMap[role])} samples={trace} boardId={boardId} source={boardId?engine.label:'Chưa chọn runtime'} running={running}/> : view==='schematic' ? <><p className="freestyle-note">{boardId?board.name:'Chưa chọn board'} · {wiredSignals.map(role=>`${SIGNAL_PIN_LABELS[role]} = ${pinDisplayName(boardId,pinMap[role])}`).join(' · ')}</p><CircuitSchematicV2 doc={doc} boardLabel={boardId?board.short:undefined} boardPinLabels={boardId?freestylePresentation(boardId,pinMap).pinLabels:undefined} selectedKey={selectedPartId} selectedWireId={selectedWireId} onSelectPart={setSelectedPartId} onSelectWire={setSelectedWireId}/></> : <BreadboardEditor
           compact
           presentation={boardId?freestylePresentation(boardId,pinMap):undefined}
