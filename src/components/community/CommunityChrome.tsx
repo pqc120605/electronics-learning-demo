@@ -11,8 +11,8 @@ export function PreviewBanner() {
   return (
     <p className="community-preview-banner" role="note">
       <strong>{remote ? 'Cộng đồng online' : 'Bản xem trước'}</strong>
-      <span>{remote ? 'Nguồn máy chủ: bài đã công bố dùng chung. Lỗi kết nối sẽ được báo; dữ liệu cục bộ không tự tải lên.' : 'Bài viết chưa đồng bộ: bài mẫu và bài/bình luận cục bộ chỉ có trên thiết bị này. Chữ lưu localStorage, tệp lưu IndexedDB; có thể bị trình duyệt xoá. Tệp đang chọn chỉ ở bộ nhớ cho tới khi đăng thành công.'}</span>
-      {!canUseOnlineCommunity && <span>Tính năng chia sẻ bài trực tuyến chưa được bật. Bạn vẫn có thể viết và lưu trên thiết bị này.</span>}
+      <span>{remote ? 'Mọi người có thể đọc bài đã đăng. Bài bạn lưu trên thiết bị chỉ được chia sẻ khi bạn đăng.' : 'Bài bạn viết chỉ lưu trên thiết bị này. Tệp đính kèm được lưu cùng bài, và dữ liệu có thể mất khi bạn xóa dữ liệu trình duyệt.'}</span>
+      {!canUseOnlineCommunity && <span>Cộng đồng trực tuyến chưa mở.</span>}
       {canUseOnlineCommunity && <button type="button" onClick={() => { try { setCommunitySource(remote ? 'preview' : 'remote') } catch (cause) { setError(cause instanceof Error ? cause.message : 'Không đổi được nguồn.') } }}>{remote ? 'Xem bài trên thiết bị' : 'Mở cộng đồng online'}</button>}
       {error && <span role="alert">{error}</span>}
     </p>

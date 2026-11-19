@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "node scripts/prepare-spice-engine.mjs",
     "dev": "vite",
-    "build": "npm run check:public-release && npm run build:local",
+    "build": "npm run check:public-release && npm run build:local && node scripts/write-release-manifest.mjs",
     "build:local": "tsc -b && vite build",
     "build:avr-demo": "node scripts/generate-atmega328p-d13-blink.mjs",
     "generate:xiao-c3-pin-anchors": "node scripts/export-seeed-xiao-esp32c3-pin-anchors.mjs",

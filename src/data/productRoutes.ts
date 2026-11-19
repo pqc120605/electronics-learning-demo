@@ -88,6 +88,19 @@ const PAGE_TITLES: Readonly<Record<string, string>> = {
 
 const APP_TO_PUBLIC_ROUTE = Object.fromEntries(Object.entries(PUBLIC_TO_APP_ROUTE).map(([publicRoute, appRoute]) => [appRoute, publicRoute]))
 
+export const PUBLIC_SITE_ORIGIN = 'https://mach-mo.vercel.app'
+
+export function getPublicCanonicalPath(pathname: string): string | null {
+  const path = pathname.replace(/\/+$/, '') || '/'
+  const canonical = APP_TO_PUBLIC_ROUTE[path] ?? path
+  if (canonical === PRODUCT_ROUTES.publicLogin || canonical === PRODUCT_ROUTES.authCallback || canonical.endsWith('/community/new')) return null
+  if (Object.hasOwn(PAGE_TITLES, canonical)) return canonical
+  const lesson = /^\/(?:app\/)?learn\/([^/]+)$/.exec(path)
+  if (lesson && builderLessons.some(item => item.id === lesson[1])) return `/learn/${lesson[1]}`
+  const post = /^\/(?:app\/)?community\/([^/]+)$/.exec(path)
+  return post ? `/community/${post[1]}` : null
+}
+
 /** One readable tab title per page, shared by the public and app URLs. */
 export function getPageTitle(pathname: string): string {
   const title = PAGE_TITLES[APP_TO_PUBLIC_ROUTE[pathname] ?? pathname]
