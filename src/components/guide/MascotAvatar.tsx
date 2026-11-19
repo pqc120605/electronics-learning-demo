@@ -1,5 +1,5 @@
 import {useEffect,useRef,useState,type PointerEvent} from 'react'
-import mascot from '../../../assets/brand/concepts/2026-11-15/mach-mo-mascot-concept-v1.png'
+import mascot from '../../../assets/brand/concepts/2026-11-15/mach-mo-mascot-concept-v1.webp'
 import {MascotScene,type MascotMood} from './MascotScene'
 
 export function MascotAvatar({mood,motion}:{mood:MascotMood;motion:boolean}){
@@ -32,7 +32,7 @@ export function MascotAvatar({mood,motion}:{mood:MascotMood;motion:boolean}){
   return <div className="guide-avatar mm-keep-light">
     <div className="guide-avatar-shadow" aria-hidden="true" />
     {status!=='fallback'&&<canvas ref={canvas} data-status={status} data-motion={motion&&visible?'on':'off'} aria-label="Mô hình 3D của Mở" role="img" onPointerDown={event=>{drag.current=event.clientX;event.currentTarget.setPointerCapture(event.pointerId)}} onPointerMove={move} onPointerUp={()=>{drag.current=null}} onPointerCancel={()=>{drag.current=null}} />}
-    {status!=='ready'&&<img src={mascot} alt="Mở, robot hướng dẫn học điện tử" width="1240" height="1400" />}
+    {status!=='ready'&&<img src={mascot} alt="Mở, robot hướng dẫn học điện tử" width="440" height="467" decoding="async" />}
     <span className="guide-avatar-caption">{status==='fallback'?'Ảnh thay thế':status==='loading'?'Đang mở Mở…':'3D tương tác'}</span>
     {status==='ready'&&<div className="guide-avatar-turn"><button type="button" aria-label="Xoay Mở sang trái" onClick={()=>scene.current?.rotate(-.25)}>↶</button><button type="button" aria-label="Xoay Mở sang phải" onClick={()=>scene.current?.rotate(.25)}>↷</button></div>}
   </div>

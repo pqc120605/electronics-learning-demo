@@ -5,7 +5,6 @@ import { readTheme, setTheme, THEME_KEY, type ThemePreference } from '../../lib/
 import { TOUR_ORDER, TOUR_PENDING_KEY, TOUR_SEEN_KEY, TOURS, markTourSeen, readSeenTours, tourIdForPath, type TourId } from './tours'
 import './Onboarding.css'
 import { requestGuideOpen } from '../guide/GuideContext'
-import mascot from '../../../assets/brand/concepts/2026-11-15/mach-mo-mascot-concept-v1.png'
 
 const START_EVENT = 'mm:start-tour'
 
@@ -107,7 +106,7 @@ export function HelpMenu() {
       <span className="help-menu-icon" aria-hidden="true">?</span><span className="help-menu-label">Trợ giúp</span>
     </button>
     <div id={menuId} className="help-menu-panel" hidden={!open}>
-      <button type="button" className="help-guide-entry" onClick={() => { setOpen(false); requestGuideOpen() }}><img src={mascot} width="34" height="40" loading="lazy" alt="" /><span><strong>Hỏi Mở</strong><small>Hướng dẫn · kiến thức điện tử cục bộ</small></span></button>
+      <button type="button" className="help-guide-entry" onClick={() => { setOpen(false); requestGuideOpen() }}><span><strong>Hỏi Mở</strong><small>Hướng dẫn · kiến thức điện tử cục bộ</small></span></button>
       <fieldset className="help-theme" role="radiogroup" aria-label="Giao diện">
         <legend>Giao diện</legend>
         {([['light', 'Sáng'], ['dark', 'Tối'], ['system', 'Theo hệ thống']] as const).map(([value, label]) => <label key={value}>

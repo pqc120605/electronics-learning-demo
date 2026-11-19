@@ -27,7 +27,7 @@ test('header and workspace topbar expose login while keeping guest mode', async 
 test('community lists groups, filters by search, group and tag', async ({ page }) => {
   await page.goto('/community')
   await expect(page.getByRole('heading', { level: 1, name: /Cộng đồng điện tử/ })).toBeVisible()
-  await expect(page.getByRole('note')).toContainText('Bài viết chưa đồng bộ')
+  await expect(page.getByRole('note')).toContainText('Bài bạn viết chỉ lưu trên thiết bị này')
   for (const label of ['Điện tử cơ bản', 'Vi điều khiển & nhúng', 'IoT', 'Dự án', 'Hỏi đáp lỗi']) await expect(page.getByRole('button', { name: label, exact: true })).toBeVisible()
   await page.getByRole('button', { name: 'IoT', exact: true }).click()
   await expect(page).toHaveURL(/cat=iot/)
