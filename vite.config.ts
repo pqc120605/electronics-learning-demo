@@ -16,6 +16,8 @@ function machMoLocalTools(): Plugin {
 
 export default defineConfig({
   plugins: [react(), machMoLocalTools()],
+  // The repo also contains archived HTML pages that are not app entry points.
+  optimizeDeps: { entries: ['index.html'] },
   // The browser based STEP viewer loads CAD files cross-origin from this dev server.
   // Production hosting must set an equivalent narrowly-scoped CORS policy for /cad/*.step.
   server: {
