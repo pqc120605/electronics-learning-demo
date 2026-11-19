@@ -49,9 +49,12 @@ export function BoardCatalogPage() {
     return (family === 'Tất cả' || board.platform === family) && text.includes(query.trim().toLocaleLowerCase('vi'))
   }), [family, query])
   const selected = boards.filter((board) => compare.includes(board.id))
-  const visibleBoards = showAllBoards || query.trim() || family !== 'Tất cả' ? filtered : filtered.slice(0, 8)
   const link = resolveBoardLink(searchParams.get('board'), knownBoardIds, cadBoardIds, 'esp32-devkit')
   const activeBoard = boards.find((board) => board.id === link.boardId)!
+  const collapsed = filtered.slice(0, 8)
+  const visibleBoards = showAllBoards || query.trim() || family !== 'Tất cả'
+    ? filtered
+    : collapsed.includes(activeBoard) ? collapsed : [...collapsed.slice(0, 7), activeBoard]
   const activeFreestyleBoardId = getFreestyleBoardId(activeBoard.id)
   const manifest = link.boardId === 'esp32-devkit' ? esp32DevkitModel : cadModels.find((model) => model.id === link.boardId)
   const activeCadView = getBoardCatalogView(activeBoard.id, searchParams.get('view') === '2d' ? '2d' : '3d')
@@ -100,7 +103,7 @@ export function BoardCatalogPage() {
         <label className="compare-checkbox"><input type="checkbox" checked={compare.includes(board.id)} disabled={!compare.includes(board.id) && compare.length >= 3} onChange={() => toggle(board.id)} /><span>So sánh</span></label>
         {labBoardIds.has(board.id) ? <Link className="row-arrow" aria-label={`Thử ${board.name} trong phòng lắp mạch`} to={productRoute(`/build?board=${encodeURIComponent(board.id)}`)}>↗</Link> : <span className="row-arrow muted-arrow" title="Board này chưa có trong phòng lắp mạch"><span aria-hidden="true">· · ·</span><span className="sr-only">Chưa có trong phòng lắp mạch</span></span>}
       </article>})}{!filtered.length && <p className="catalog-empty">Không tìm thấy board. Hãy đổi từ khóa hoặc xóa bộ lọc.</p>}</div>
-      {visibleBoards.length < filtered.length && <button className="button-secondary" type="button" onClick={() => setShowAllBoards(true)}>Xem thêm {filtered.length - visibleBoards.length} board</button>}
+      {visibleBoards.length < filtered.length && <button className="button-secondary" type="button" onClick={() => setShowAllBoards(true)}>Xem tất cả {filtered.length} board</button>}
       <BoardComparison boards={selected} onRemove={toggle} onClear={() => setCompare([])} />
     </section>
   </div>

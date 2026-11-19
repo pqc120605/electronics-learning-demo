@@ -75,7 +75,7 @@ test('mobile title, board search and progressive project list remain accessible'
   await expect(page.locator('.board-list .board-row').getByRole('heading', { name: 'STM32 NUCLEO-F401RE', exact: true })).toBeVisible()
   await expect(page.locator('.board-list .board-row').getByRole('heading', { name: /NUCLEO/i })).toHaveCount(4)
   await search.clear()
-  await page.getByRole('button', { name: /Xem thêm \d+ board/ }).click()
+  await page.getByRole('button', { name: /Xem tất cả \d+ board/ }).click()
   expect(await page.locator('.board-list .board-row').count()).toBeGreaterThan(8)
   await page.goto('/app/projects')
   await expect(page.getByRole('link', { name: 'Mở hoặc tiếp tục mini-project' })).toBeInViewport()
