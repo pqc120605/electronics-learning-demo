@@ -13,6 +13,11 @@ export type ArduinoSketchExportResult =
   | { ok: true; fileName: string; contents: string }
   | { ok: false; message: string }
 
+export function arduinoSourceFile(code: string, boardId: string, prefix = 'mach-mo-freestyle') {
+  const boardSlug = boardId.replace(/[^a-z0-9-]/gi, '-').toLowerCase()
+  return { fileName: `${prefix}-${boardSlug}.ino`, contents: code.endsWith('\n') ? code : `${code}\n` }
+}
+
 export function canExportArduinoSketch(boardId:string,lessonId:BuilderLessonId):boolean {
   return ['arduino-uno-r3','arduino-nano-classic','arduino-mega-2560-r3'].includes(boardId)&&['blink'].includes(lessonId)
 }
@@ -59,7 +64,6 @@ export function prepareArduinoSketchExport({ code, lessonId, target }: ArduinoSk
   const mismatch = findProgramTargetMismatch(parsed.program, target, lessonId)
   if (mismatch) return { ok: false, message: `Chưa xuất sketch vì pin trong code không khớp board. ${mismatch}` }
 
-  const boardSlug = target.boardId.replace(/[^a-z0-9-]/gi, '-').toLowerCase()
   const contents = [
     `// Mạch Mở · ${curriculum.title}`,
     `// Board target: ${target.name} (${target.mcu})`,
@@ -73,5 +77,5 @@ export function prepareArduinoSketchExport({ code, lessonId, target }: ArduinoSk
     '',
   ].join('\n')
 
-  return { ok: true, fileName: `mach-mo-${lessonId}-${boardSlug}.ino`, contents }
+  return { ok: true, ...arduinoSourceFile(contents, target.boardId, `mach-mo-${lessonId}`) }
 }

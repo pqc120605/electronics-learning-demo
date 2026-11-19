@@ -32,6 +32,7 @@ import { appendSerialPlot, createSerialPlot } from '../../lib/freestyle/serialPl
 import { CircuitSchematicV2 } from '../builder/CircuitSchematicV2'
 import { pushWireHistory, readWireLayout, type WireBend, type WireHistoryEntry } from '../../lib/freestyle/freestyleWireLayout'
 import { encodeFreestyleShare } from '../../lib/freestyle/freestyleShare'
+import { parseFreestyleProject, projectFileLimit } from '../../lib/freestyle/freestyleTransfer'
 const FreestyleAssemblyView = lazy(() => import('./FreestyleAssemblyView').then(m=>({default:m.FreestyleAssemblyView})))
 
 /**
@@ -238,9 +239,9 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     event.currentTarget.value = ''
     if (!file) return
     const request = ++draftImportRequest.current
-    if (file.size > 2 * 1024 * 1024) { setNotice('File nháp quá lớn (tối đa 2 MB). Mạch hiện tại được giữ.'); return }
+    if (file.size > projectFileLimit) { setNotice('File nháp quá lớn (tối đa 2 MiB). Mạch hiện tại được giữ.'); return }
     try {
-      const restored = parseFreestyleWorkspace(await file.text())
+      const restored = parseFreestyleProject(await file.text())
       if (draftImportRequest.current !== request) return
       if (!restored) { setNotice('Không đọc được file nháp. Mạch hiện tại được giữ.'); return }
       if (!archiveBeforeReplace()) return
@@ -669,7 +670,8 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       <div className="freestyle-wave-popout-bar"><strong>Tín hiệu vừa thu</strong><button className="freestyle-button" type="button" onClick={() => setTracePopout(false)}>Đóng dạng sóng</button></div>
       <FreestyleWaveform captureKey={traceCapture.current} preferredPins={wiredSignals.map(role => pinMap[role])} samples={trace} boardId={boardId} source={engine.label} running={running} />
     </aside>}
-    <FreestyleDraftsDialog current={workspace} open={draftsOpen} onClose={()=>setDraftsOpen(false)} onRestore={restored=>{if(!archiveBeforeReplace())return;update(restored);setDraftsOpen(false);setView('breadboard');setStep('parts');setPanelOpen(false);setNotice('Đã khôi phục bản nháp; công việc trước đó được sao lưu.')}} />
+    <FreestyleDraftsDialog current={workspace} open={draftsOpen} onClose={()=>setDraftsOpen(false)} onRestore={restored=>{if(!archiveBeforeReplace())return;update(restored);setDraftsOpen(false);setView('breadboard');setStep('parts');setPanelOpen(false);setNotice('Đã khôi phục bản nháp; công việc trước đó được sao lưu.')}}
+      drawing={view === 'breadboard' || view === 'schematic' ? {kind:view, get:()=>stageRef.current?.querySelector<SVGSVGElement>(view === 'breadboard' ? '.breadboard-diagram-svg' : '.circuit-schematic-svg') ?? null} : undefined} />
     <FreestyleToolsDrawer open={toolsOpen} onClose={() => setToolsOpen(false)} />
   </section>
 }
