@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build:public",
+  "outputDirectory": "dist",
+  "headers": [
+    {
+      "source": "/cad/:path*",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "https://3dviewer.net" }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/:section(app|learn|build|tools|community|auth)/:path*", "destination": "/index.html" },
+    { "source": "/:page(boards|components|topics|projects|feedback|privacy|login)", "destination": "/index.html" }
+  ]
+}
