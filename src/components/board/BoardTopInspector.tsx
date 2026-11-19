@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } fr
 import { projectTopViewPoint, type BoardTopView } from '../../lib/boardTopView'
 import type { BoardComponent, BoardComponents } from '../../types/boardComponents'
 import type { BoardPin } from './boardSceneTypes'
+import { requestGuideOpen } from '../guide/GuideContext'
 import './BoardTopInspector.css'
 
 const datasets = import.meta.glob<{ default: BoardComponents }>('../../data/board-components/*.json')
@@ -168,6 +169,7 @@ export default function BoardTopInspector({ top, pins, selectedPinId, featureRef
           <h3>{selected.label}</h3>
           <dl><dt>Pad</dt><dd>{selected.headerReference ?? '—'} · {selected.padNumber ?? '—'}</dd>
             <dt>Net CAD</dt><dd>{selectedPad?.net ?? selected.netName ?? 'Chưa gán'}</dd><dt>Chức năng</dt><dd>{selected.technicalRole}</dd></dl>
+          <button type="button" onClick={() => requestGuideOpen(`Chân ${selected.label} trên ${top.revision} làm gì?`)}>Hỏi Mở về chân này</button>
         </> : inspected ? <>
           <h3>{inspected.ref} · {inspected.value || inspected.footprint}</h3>
           <dl><dt>Footprint</dt><dd>{inspected.footprint}</dd><dt>Mặt</dt><dd>{inspected.side === 'front' ? 'Trên' : 'Dưới'}</dd>

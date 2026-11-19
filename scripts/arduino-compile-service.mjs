@@ -174,7 +174,7 @@ function readBody(req, limit) {
 
 /** Middleware kiểu connect cho Vite dev/preview hoặc http.createServer. */
 export function createLocalToolsMiddleware(options = {}) {
-  const guideAi = createGuideAiMiddleware()
+  const guideAi = createGuideAiMiddleware(options.guideAi)
   const cliPath = options.cliPath ?? DEFAULT_ARDUINO_CLI
   const compile = options.compile ?? compileArduinoSketch
   const getBootrom = options.loadBootrom ?? (() => (bootromPromise ??= loadRp2040Bootrom().catch((error) => { bootromPromise = undefined; throw error })))

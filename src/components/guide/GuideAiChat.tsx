@@ -4,7 +4,7 @@ import {
 } from '../../lib/guideAi'
 import type { GuideSnapshot, GuideSource } from '../../lib/guideKnowledge'
 
-type Turn = GuideAiTurn & { model: string; sources: GuideSource[] }
+type Turn = GuideAiTurn & { model: string; sources: GuideSource[]; followUps: string[]; vote?: boolean }
 type Props = {
   snapshot?: GuideSnapshot
   sourceLink: (href: string, label: string) => ReactNode
@@ -12,9 +12,11 @@ type Props = {
 }
 const stateText: Record<GuideAiStatus['state'], string> = {
   ready: 'AI trên máy đã sẵn sàng.',
-  'model-missing': 'Ollama đang chạy. Model được chọn chưa có trên máy.',
-  unavailable: 'Chưa kết nối được Ollama trên máy này.',
+  'model-missing': 'Model được chọn chưa có trên máy. Chế độ tra cứu vẫn dùng được.',
+  unavailable: 'Chế độ tra cứu đang sẵn sàng. Chưa kết nối được AI.',
   'invalid-model': 'Cấu hình model chưa được hỗ trợ.',
+  'quota-exceeded': 'Đã hết lượt hỏi AI. Bạn vẫn có thể tra cứu.',
+  'signed-out': 'Chế độ tra cứu đang sẵn sàng.',
 }
 
 export function GuideAiChat({ snapshot, sourceLink, onLocal }: Props) {
@@ -45,7 +47,7 @@ export function GuideAiChat({ snapshot, sourceLink, onLocal }: Props) {
     event.preventDefault()
     const text = question.trim()
     if (!text || requestRef.current || status?.state !== 'ready') return
-    const data = prepareGuideAi(text, turns.map(turn => turn.question), contextAllowed ? snapshot : undefined)
+    const data = prepareGuideAi(text, turns.map(turn => turn.question), contextAllowed ? snapshot : undefined, status.provider)
     if (data.kind === 'unknown') {
       setNotice(data.message)
       return
@@ -63,7 +65,7 @@ export function GuideAiChat({ snapshot, sourceLink, onLocal }: Props) {
       }
       const sources = data.evidence.filter(source => reply.sourceIds.includes(source.id)).flatMap(source => source.sources)
       setTurns(current => [...current, {
-        question: text, model: reply.model, answer: reply.answer,
+        question: text, model: reply.model, answer: reply.answer, followUps: reply.followUps ?? [],
         sources: sources.filter((source, index) => sources.findIndex(other => other.href === source.href) === index),
       }].slice(-6))
       setQuestion('')
@@ -84,17 +86,36 @@ export function GuideAiChat({ snapshot, sourceLink, onLocal }: Props) {
     setNotice('Đã dừng lượt trả lời.')
   }
 
+  function vote(index: number, helpful: boolean) {
+    setTurns(current => current.map((turn, position) => position === index ? { ...turn, vote: helpful } : turn))
+    try { localStorage.setItem('mach-mo:guide-ai-feedback:v1', JSON.stringify({ helpful, model: turns[index].model })) } catch { /* Feedback is optional. */ }
+  }
+
+  const onlineProvider = status?.provider === 'openai'
   return <section className="guide-ai" aria-label="Trò chuyện với Mở Bot AI">
     <h3>Hỏi AI về điện tử</h3>
-    <p role="status">{status ? stateText[status.state] : 'Đang kiểm tra model trên máy…'} {status?.model && <code>{status.model}</code>}</p>
+    <p role="status">{status?.state === 'ready' && onlineProvider ? 'AI đã được cấu hình.'
+      : status?.state === 'ready' && status?.provider === 'mock' ? 'Chế độ thử nghiệm.'
+      : status ? stateText[status.state] : 'Đang kiểm tra kết nối…'} {status?.model && <code>{status.model}</code>}</p>
     {status && status.state !== 'ready' && <button type="button" onClick={() => { setStatus(undefined); setCheck(number => number + 1) }}>Kiểm tra kết nối lại</button>}
     {!!turns.length && <div className="guide-ai-turns" role="log" aria-label="Đoạn trò chuyện" aria-live="polite">
       {turns.map((turn, index) => <article key={`${index}:${turn.question}`} ref={index === turns.length - 1 ? latestTurn : undefined}>
         <p><strong>Bạn</strong> · {turn.question}</p>
-        <p className="guide-ai-answer"><strong>Mở AI</strong> · {turn.answer}</p>
+        <p className="guide-ai-answer"><strong>{turn.model === 'mock' ? 'Trả lời thử nghiệm' : 'Trả lời bởi AI, dựa trên nguồn'}</strong> · {turn.answer}</p>
         <nav className="guide-sources" aria-label="Nguồn Mở AI đã dùng">
           {turn.sources.map(source => sourceLink(source.href, source.label))}
         </nav>
+        <div className="guide-ai-actions">
+          <button type="button" onClick={async () => {
+            try { await navigator.clipboard.writeText(turn.answer); setNotice('Đã sao chép câu trả lời.') }
+            catch { setNotice('Hãy chọn văn bản câu trả lời để sao chép.') }
+          }}>Sao chép câu trả lời</button>
+          <button type="button" aria-pressed={turn.vote === true} onClick={() => vote(index, true)}>Hữu ích</button>
+          <button type="button" aria-pressed={turn.vote === false} onClick={() => vote(index, false)}>Chưa hữu ích</button>
+        </div>
+        {turn.followUps.length > 0 && <div className="guide-ai-actions" aria-label="Câu hỏi tiếp theo">
+          {turn.followUps.map(suggestion => <button key={suggestion} type="button" onClick={() => setQuestion(suggestion)}>{suggestion}</button>)}
+        </div>}
       </article>)}
     </div>}
     <form className="guide-question" onSubmit={submit}>
@@ -107,11 +128,13 @@ export function GuideAiChat({ snapshot, sourceLink, onLocal }: Props) {
           setNotice('')
         }} /> Dùng ngữ cảnh bài đang mở
       </label>}
-      <p className="guide-retrieval-note">Gửi câu hỏi, đoạn hội thoại gần nhất và trích đoạn tài liệu đến Ollama trên máy này.</p>
+      <p className="guide-retrieval-note">{onlineProvider
+        ? 'Khi gửi, OpenAI xử lý câu hỏi, tối đa hai lượt hỏi đáp gần đây và trích đoạn tài liệu liên quan.'
+        : 'Câu hỏi và tài liệu liên quan được xử lý trên máy này.'}</p>
       <div className="guide-ai-actions">
         {pending
           ? <button key="cancel" type="button" onClick={event => { event.preventDefault(); cancel() }}>Dừng trả lời</button>
-          : <button key="send" className="guide-primary" type="submit" disabled={!question.trim() || status?.state !== 'ready'}>Gửi tới AI trên máy</button>}
+          : <button key="send" className="guide-primary" type="submit" disabled={!question.trim() || status?.state !== 'ready'}>{onlineProvider ? 'Gửi câu hỏi tới AI' : 'Gửi tới AI trên máy'}</button>}
         <button type="button" onClick={() => onLocal(question)}>Tra cứu cục bộ</button>
         {!!turns.length && <button type="button" disabled={pending} onClick={() => { setTurns([]); setNotice('Đã bắt đầu cuộc trò chuyện mới.') }}>Cuộc trò chuyện mới</button>}
       </div>

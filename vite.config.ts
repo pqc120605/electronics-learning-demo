@@ -1,5 +1,5 @@
 import react from '@vitejs/plugin-react'
-import { defineConfig, type Plugin } from 'vite'
+import { defineConfig, loadEnv, type Plugin } from 'vite'
 import { createLocalToolsMiddleware } from './scripts/arduino-compile-service.mjs'
 
 /**
@@ -9,7 +9,13 @@ import { createLocalToolsMiddleware } from './scripts/arduino-compile-service.mj
 function machMoLocalTools(): Plugin {
   return {
     name: 'machmo-local-tools',
-    configureServer(server) { server.middlewares.use(createLocalToolsMiddleware()) },
+    configureServer(server) {
+      const env = loadEnv(server.config.mode, server.config.envDir, ['GUIDE_AI_PROVIDER', 'OPENAI_API_KEY', 'OPENAI_MODEL'])
+      const providerEnv = env.GUIDE_AI_PROVIDER === 'ollama' ? undefined : env
+      server.middlewares.use(createLocalToolsMiddleware({
+        guideAi: { providerEnv, log: (event: object) => console.info('Mở Bot', event) },
+      }))
+    },
     configurePreviewServer(server) { server.middlewares.use(createLocalToolsMiddleware()) },
   }
 }

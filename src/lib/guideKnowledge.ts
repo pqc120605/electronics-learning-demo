@@ -103,7 +103,7 @@ export const GUIDE_ARTICLES: readonly GuideArticle[] = [
   ],'/components','Tra cứu motor và driver',['src/data/componentRegistry.ts: dc-motor, h-bridge']),
   article('save','Bản nháp và dữ liệu được lưu ở đâu?',['lưu','bản nháp','offline','mất dữ liệu','dự án'],[
     'Mạch Mở ưu tiên làm việc cục bộ. Tùy bề mặt, bản nháp có thể nằm trong bộ nhớ của trình duyệt hoặc phiên tab; hãy đọc trạng thái lưu cạnh công cụ.',
-    'Xóa dữ liệu trang hoặc đổi trình duyệt có thể làm mất dữ liệu cục bộ. Xuất project để giữ một bản sao. Câu hỏi tra cứu nằm trong phiên giao diện. Hỏi AI chỉ gửi khi bạn bấm Gửi tới AI trên máy, qua Ollama cục bộ.'
+    'Xóa dữ liệu trang hoặc đổi trình duyệt có thể làm mất dữ liệu cục bộ. Xuất project để giữ một bản sao. Câu hỏi tra cứu nằm trong phiên giao diện. Khi bạn chọn gửi trong Hỏi AI, mục này hiển thị nơi xử lý câu hỏi.'
   ],'/projects','Quản lý và xuất dự án',['src/lib/workspaceStorage.ts','src/pages/PrivacyPage.tsx']),
   article('views','Breadboard, schematic, 3D và PCB',['schematic','sơ đồ nguyên lý','3d','pcb','đường đồng'],[
     'Breadboard thể hiện điểm cắm; schematic trình bày ký hiệu và kết nối; 3D giúp quan sát hình dạng. Hãy dùng view phù hợp với câu hỏi bạn đang tìm hiểu.',
@@ -117,6 +117,8 @@ export const GUIDE_ARTICLES: readonly GuideArticle[] = [
 
 export function findGuideAnswers(question: string, snapshot?: GuideSnapshot): GuideSearchResult {
   const intent = normalizeGuideText(question)
+  const articleByTitle = GUIDE_ARTICLES.find(article => normalizeGuideText(article.title) === intent)
+  if (articleByTitle) return { kind: 'matches', articles: [articleByTitle] }
   if (snapshot?.beginner && ['toi nen lam gi tiep', 'giai thich ket qua hien tai'].includes(intent)) {
     const current = getBeginnerGuideArticle(snapshot)
     if (current) return { kind: 'matches', articles: [current] }

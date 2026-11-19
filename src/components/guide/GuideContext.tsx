@@ -4,7 +4,9 @@ import type {GuideSnapshot} from '../../lib/guideKnowledge'
 const SnapshotContext=createContext<GuideSnapshot|undefined>(undefined)
 const PublishContext=createContext<((id:string,snapshot:GuideSnapshot|null)=>void)|null>(null)
 export const GUIDE_OPEN_EVENT='mm:open-guide'
-export function requestGuideOpen(){window.dispatchEvent(new Event(GUIDE_OPEN_EVENT))}
+export function requestGuideOpen(question?: string) {
+  window.dispatchEvent(new CustomEvent(GUIDE_OPEN_EVENT, { detail: question?.slice(0, 400) }))
+}
 
 /** Only allowlisted teaching metadata; never code, files, serial text or learner identity. */
 export function GuideProvider({children}:{children:ReactNode}){

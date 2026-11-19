@@ -12,9 +12,16 @@ export function GuideHost(){
   const [open,setOpen]=useState(false),[hidden,setHidden]=useState(()=>read('mm-guide-hidden'))
   const [reduced,setReduced]=useState(()=>matchMedia('(prefers-reduced-motion: reduce)').matches)
   const [still,setStill]=useState(()=>read('mm-guide-still'))
+  const [entry,setEntry]=useState({ question: '', revision: 0 })
   const focusedWorkspace=/^\/(?:app\/)?(?:build|lab|learn\/|tools\/)/.test(pathname)
   const opener=useRef<HTMLElement|null>(null)
-  function show(){opener.current=document.activeElement instanceof HTMLElement?document.activeElement:null;setHidden(false);remember('mm-guide-hidden',false);setOpen(true)}
+  function show(question = '') {
+    opener.current = document.activeElement instanceof HTMLElement ? document.activeElement : null
+    setEntry(current => ({ question, revision: current.revision + 1 }))
+    setHidden(false)
+    remember('mm-guide-hidden', false)
+    setOpen(true)
+  }
   function closeTo(target: HTMLElement | null) {
     setOpen(false)
     requestAnimationFrame(() => {
@@ -23,7 +30,14 @@ export function GuideHost(){
     })
   }
   function close() { closeTo(opener.current) }
-  useEffect(()=>{const listener=()=>show();window.addEventListener(GUIDE_OPEN_EVENT,listener);return()=>window.removeEventListener(GUIDE_OPEN_EVENT,listener)},[])
+  useEffect(() => {
+    const listener = (event: Event) => {
+      const question = event instanceof CustomEvent && typeof event.detail === 'string' ? event.detail.slice(0, 400) : ''
+      show(question)
+    }
+    window.addEventListener(GUIDE_OPEN_EVENT, listener)
+    return () => window.removeEventListener(GUIDE_OPEN_EVENT, listener)
+  }, [])
   useEffect(()=>{
     const media=matchMedia('(prefers-reduced-motion: reduce)'),onChange=()=>setReduced(media.matches)
     media.addEventListener('change',onChange);return()=>media.removeEventListener('change',onChange)
@@ -31,11 +45,11 @@ export function GuideHost(){
   // Questions stay in the mounted panel only; a route change closes and discards them.
   useEffect(()=>{setOpen(false)},[pathname])
   return <>
-    {!open&&!hidden&&!focusedWorkspace&&<button type="button" className="guide-launcher" onClick={show}>
+    {!open&&!hidden&&!focusedWorkspace&&<button type="button" className="guide-launcher" onClick={() => show()}>
       <img src={mascot} alt="" width="56" height="64" decoding="async" /><span><strong>Hỏi Mở</strong><small>Cùng bạn làm mạch</small></span>
     </button>}
     {open&&<Suspense fallback={<aside className="guide-loading" role="status">Đang mở hướng dẫn… <button type="button" onClick={close}>Đóng</button></aside>}>
-      <GuidePanel pathname={pathname} motion={!still&&!reduced} reduced={reduced} onMotion={value=>{setStill(!value);remember('mm-guide-still',!value)}} onClose={close} onNavigate={closeTo} onStartTour={()=>setOpen(false)} onHide={()=>{setHidden(true);remember('mm-guide-hidden',true);close()}} />
+      <GuidePanel key={entry.revision} initialQuestion={entry.question} pathname={pathname} motion={!still&&!reduced} reduced={reduced} onMotion={value=>{setStill(!value);remember('mm-guide-still',!value)}} onClose={close} onNavigate={closeTo} onStartTour={()=>setOpen(false)} onHide={()=>{setHidden(true);remember('mm-guide-hidden',true);close()}} />
     </Suspense>}
   </>
 }

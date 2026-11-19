@@ -1,3 +1,5 @@
+import { handleChat, handleStatus } from '../server/guide-ai/handler.mjs'
+
 const PREFIX = '/api/guide-ai'
 const OLLAMA = 'http://127.0.0.1:11434'
 export const DEFAULT_GUIDE_MODEL = 'qwen3.5:2b'
@@ -109,7 +111,7 @@ async function readJson(req) {
 
 export function createGuideAiMiddleware({
   fetchImpl = globalThis.fetch, model = process.env.MACHMO_GUIDE_AI_MODEL || DEFAULT_GUIDE_MODEL,
-  timeoutMs = 55_000,
+  timeoutMs = 55_000, providerEnv, log,
 } = {}) {
   const configured = ALLOWED_MODELS.has(model)
   let busy = false
@@ -118,6 +120,10 @@ export function createGuideAiMiddleware({
     if (!route.startsWith(`${PREFIX}/`)) return next?.()
     if (!isSameLocalOrigin(req)) return json(res, 403, { error: 'local-only' })
     if (route === `${PREFIX}/status` && req.method === 'GET') {
+      if (providerEnv) {
+        const status = handleStatus(providerEnv)
+        return json(res, status.status, status.body)
+      }
       const check = await (async () => {
         if (!configured) return 'invalid-model'
         try {
@@ -129,7 +135,7 @@ export function createGuideAiMiddleware({
       return json(res, 200, { state: check, model })
     }
     if (route !== `${PREFIX}/chat` || req.method !== 'POST') return json(res, 405, { error: 'method' })
-    if (!configured) return json(res, 503, { error: 'invalid-model' })
+    if (!providerEnv && !configured) return json(res, 503, { error: 'invalid-model' })
     if (String(req.headers['content-type']).split(';')[0] !== 'application/json') return json(res, 415, { error: 'content-type' })
     if (Number(req.headers['content-length']) > MAX_BODY) {
       req.resume()
@@ -139,7 +145,7 @@ export function createGuideAiMiddleware({
     try {
       const data = await readJson(req)
       if (data.error) return json(res, data.error, { error: 'request' })
-      request = validateGuideAiInput(data.value)
+      request = providerEnv ? data.value : validateGuideAiInput(data.value)
     } catch { return json(res, 400, { error: 'request' }) }
     if (!request) return json(res, 400, { error: 'request' })
     if (busy) return json(res, 429, { error: 'busy' })
@@ -150,6 +156,10 @@ export function createGuideAiMiddleware({
     const disconnect = () => controller.abort()
     res.once('close', disconnect)
     try {
+      if (providerEnv) {
+        const result = await handleChat(request, providerEnv, { fetchImpl, signal, log })
+        return json(res, result.status, result.body)
+      }
       const response = await fetchImpl(`${OLLAMA}/api/chat`, {
         method: 'POST', redirect: 'error', signal, headers: { 'content-type': 'application/json' },
         body: JSON.stringify({

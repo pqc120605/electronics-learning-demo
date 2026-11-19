@@ -67,6 +67,40 @@ test('provider unavailable keeps deterministic local troubleshooting available',
   await expect(panel.locator('.guide-results article').first()).toBeVisible()
 })
 
+test('OpenAI mode discloses transfer and includes board context only after opt-in', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.route('**/api/guide-ai/status', route => route.fulfill({
+    json: { state: 'ready', provider: 'openai', model: 'gpt-test' },
+  }))
+  const requests = []
+  await page.route('**/api/guide-ai/chat', route => {
+    requests.push(route.request().postDataJSON())
+    return route.fulfill({
+      json: { status: 'answered', model: 'gpt-test', answer: `${answer} [S1]`, sourceIds: ['S1'], followUps: ['Tính điện trở thế nào?'] },
+    })
+  })
+  const panel = await openGuide(page, '/app/boards?board=arduino-uno-r3&view=top')
+  await panel.getByRole('button', { name: 'Hỏi AI', exact: true }).click()
+  await expect(panel.getByText(/OpenAI xử lý câu hỏi/)).toBeVisible()
+  const input = panel.getByRole('textbox', { name: 'Câu hỏi cho Mở AI' })
+  await panel.getByRole('checkbox', { name: 'Dùng ngữ cảnh bài đang mở' }).check()
+  await input.fill('Vì sao LED cần điện trở?')
+  await panel.getByRole('button', { name: 'Gửi câu hỏi tới AI' }).click()
+  await expect(panel.getByRole('log')).toContainText('[S1]')
+  expect(requests[0].evidence[0]).toMatchObject({ id: 'S0', text: expect.stringContaining('arduino-uno-r3') })
+  await panel.getByRole('button', { name: 'Tính điện trở thế nào?' }).click()
+  await expect(input).toHaveValue('Tính điện trở thế nào?')
+})
+
+test('asking about a selected pin opens Mở with a question and awaits confirmation', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('mm-tour-seen', JSON.stringify({ library: 1 })))
+  await page.goto('/app/boards?board=arduino-uno-r3&view=top&pin=pin-1')
+  await page.getByRole('button', { name: 'Hỏi Mở về chân này' }).click()
+  const panel = page.getByRole('dialog', { name: 'Mở — bạn đồng hành học điện tử' })
+  await expect(panel.getByRole('textbox', { name: 'Câu hỏi của bạn' })).toHaveValue(/D0\/RX.*Uno/i)
+  await expect(panel.locator('.guide-results article')).toHaveCount(0)
+})
+
 test('canceling a response ignores late content and keeps the pending question for retry', async ({ page }) => {
   await page.route('**/api/guide-ai/status', route => route.fulfill({ json: { state: 'ready', model } }))
   let release, started

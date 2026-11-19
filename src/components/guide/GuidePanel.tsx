@@ -13,6 +13,7 @@ import { GuideAiChat } from './GuideAiChat'
 
 type Props = {
   pathname: string
+  initialQuestion?: string
   motion: boolean
   reduced: boolean
   onMotion: (value: boolean) => void
@@ -24,13 +25,13 @@ type Props = {
 /** The Hỏi đáp tab always uses the curated provider. AI has its own explicit send action. */
 export const GUIDE_ANSWER_PROVIDER = { id: 'curated-local', external: false } as const
 
-export default function GuidePanel({ pathname, motion, reduced, onMotion, onClose, onNavigate, onHide, onStartTour }: Props) {
+export default function GuidePanel({ pathname, initialQuestion = '', motion, reduced, onMotion, onClose, onNavigate, onHide, onStartTour }: Props) {
   const snapshot = useGuideSnapshot()
   const heading = useId()
   const description = useId()
   const root = useRef<HTMLElement>(null)
-  const [tab, setTab] = useState<'guide' | 'ask' | 'context' | 'ai'>('guide')
-  const [question, setQuestion] = useState('')
+  const [tab, setTab] = useState<'guide' | 'ask' | 'context' | 'ai'>(initialQuestion ? 'ask' : 'guide')
+  const [question, setQuestion] = useState(initialQuestion)
   const [result, setResult] = useState<GuideSearchResult | null>(null)
   const [mood, setMood] = useState<MascotMood>('greeting')
   const [understood, setUnderstood] = useState(false)
