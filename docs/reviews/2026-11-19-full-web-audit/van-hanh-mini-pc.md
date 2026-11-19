@@ -87,7 +87,7 @@ Ghi lại target cũ, hash Caddyfile, file backend đang chạy, PostgreSQL majo
 
 Bản tester dùng Caddy tại `127.0.0.1:8180`. [Cấu hình tester](../../../server/tester/Caddyfile) dùng `MACHMO_TESTER_PORT` và `MACHMO_TESTER_ROOT` để chạy cùng cấu trúc ở bản diễn tập `8182`. Giữ bản chính trên origin và service riêng. Dùng thư mục phát hành riêng cho từng SHA-256 của manifest và commit Git.
 
-1. Kiểm nhánh sạch và build bằng `npm run build:public` từ đúng commit với tính năng online tắt cho bản khách.
+1. Từ nhánh sạch, chạy `bash scripts/update-tester-web.sh --build`. Bước này chạy public build với tính năng online tắt, lưu SHA-256 của toàn bộ dist và ghim commit. Khi chuyển bản, script kiểm lại cả commit và manifest đã ghi.
 2. Chạy `bash scripts/update-tester-web.sh tester-exercise` trước khi chuyển bản tester. Caddy dùng thư mục theo profile, khởi tạo `shared-assets` từ release hiện tại trước khi đổi cấu hình.
 3. Chạy `bash scripts/update-tester-web.sh tester`. Script đối chiếu checksum, đưa asset cũ vào vùng phục vụ chung và đổi symlink atomically. Khi smoke test nhận sai phiên bản, deep link lỗi, thiếu WASM hoặc route API riêng trả mã khác 404, script quay về release trước.
 4. Đối chiếu `/release.json`, kiểm trên URL HTTPS và ghi commit vào nhật ký. Nếu rollback thủ công, đổi `current` về thư mục release đã lưu bằng symlink tạm trên cùng filesystem và kiểm lại hai URL.

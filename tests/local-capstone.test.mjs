@@ -15,6 +15,25 @@ function settings(boardId = 'arduino-uno-r3', changes = {}) {
   return { boardId, threshold: 50, inputPercent: 51, pressed: true, gndConnected: true, ...changes }
 }
 
+test('compare the newest threshold runs with matching board, input, button and GND', () => {
+  function trial(fields) {
+    const context = settings('arduino-uno-r3', { threshold: 40, inputPercent: 50, ...fields })
+    return { ...context, prediction: 'on', result: capstone.observeCapstone(context) }
+  }
+  const first = trial({})
+  const second = trial({ threshold: 60 })
+  const wrongInput = trial({ threshold: 60, inputPercent: 55 })
+  const wrongButton = trial({ threshold: 60, pressed: false })
+  const wrongGnd = trial({ threshold: 60, gndConnected: false })
+  const wrongBoard = trial({ threshold: 60, boardId: 'arduino-nano' })
+  for (const other of [wrongInput, wrongButton, wrongGnd, wrongBoard, first]) {
+    assert.equal(capstone.getCapstoneThresholdComparison([first, other], first.boardId), null)
+  }
+  assert.deepEqual(capstone.getCapstoneThresholdComparison([first, second, wrongBoard], first.boardId), { first, second })
+  assert.equal(first.result.ledOn, true)
+  assert.equal(second.result.ledOn, false)
+})
+
 test('project skills require matching predictions, exact board and threshold, and repair in order', () => {
   const sample = (changes = {}, prediction = 'off') => {
     const context = settings('arduino-uno-r3', changes)

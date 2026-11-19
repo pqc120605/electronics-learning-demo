@@ -5,7 +5,8 @@ import { PRODUCT_ROUTES } from '../data/productRoutes'
 import { createNetIndexV2 } from '../lib/circuitNetsV2'
 import {
   CAPSTONE_MAX_FILE_BYTES, CAPSTONE_MAX_NOTES, CAPSTONE_MAX_OBSERVATIONS, CAPSTONE_STORAGE_KEY,
-  capstoneBoards, decodeCapstone, emptyCapstone, encodeCapstone, getCapstoneCircuit, getCapstoneSkillSteps, newCapstoneId, observeCapstone,
+  capstoneBoards, decodeCapstone, emptyCapstone, encodeCapstone, getCapstoneCircuit, getCapstoneSkillSteps,
+  getCapstoneThresholdComparison, newCapstoneId, observeCapstone,
   type CapstoneObservation, type CapstonePrediction, type CapstoneReport, type CapstoneSettings,
 } from '../lib/localCapstone'
 import { useProductRoute } from '../lib/useProductRoute'
@@ -68,6 +69,7 @@ export function LocalCapstonePage() {
   const checklist = getCapstoneSkillSteps(report)
   const nextSkill = checklist.find(item => !item.verified)
   const verifiedCount = checklist.filter(item => item.verified).length
+  const comparison = useMemo(() => getCapstoneThresholdComparison(report.observations, boardId), [report.observations, boardId])
 
   function save(next: CapstoneReport) {
     let status = record.status
@@ -189,7 +191,7 @@ export function LocalCapstonePage() {
     </section>
     {circuit && <div className="capstone-lab">
       <section className="capstone-card" aria-labelledby="capstone-run">
-        <h2 id="capstone-run">Dự đoán và quan sát</h2>
+        <h2 id="capstone-run" tabIndex={-1}>Dự đoán và quan sát</h2>
         <form onSubmit={event => { event.preventDefault(); run() }}>
           <label>Dự đoán LED<select value={prediction} onChange={event => setPrediction(event.target.value as CapstonePrediction | '')}>
             <option value="">Chọn dự đoán</option><option value="on">LED sáng</option><option value="off">LED tắt</option>
@@ -215,7 +217,10 @@ export function LocalCapstonePage() {
             document.getElementById('capstone-setup')?.focus()
           }}>Chuẩn bị phép thử: {nextSkill.skill}</button>
         </div>}
-        {checklist.every(item => item.recorded) && <div className="capstone-variation"><h3>Thử một ngưỡng khác</h3><p>Lưu bản hiện tại vào thư viện, rồi đổi ngưỡng và thử lại. So sánh dự đoán với mã ADC trong cùng mô hình logic.</p><button type="button" onClick={() => updateSettings({ threshold: threshold === 70 ? 30 : 70 })}>Đổi ngưỡng sang {threshold === 70 ? 30 : 70}%</button></div>}
+        {checklist.every(item => item.recorded) && <div className="capstone-variation"><h3>Thử một ngưỡng khác</h3><p>Chạy ở ngưỡng hiện tại. Sau đó chỉ đổi ngưỡng, dự đoán và chạy lại. Cả hai lần thử được lưu trong hồ sơ.</p><button type="button" disabled={full} onClick={() => {
+          updateSettings({ threshold: threshold === 70 ? 30 : 70 })
+          document.getElementById('capstone-run')?.focus()
+        }}>Đổi ngưỡng sang {threshold === 70 ? 30 : 70}%</button></div>}
       </section>
       <section className="capstone-card capstone-maps" aria-labelledby="capstone-circuit">
         <h2 id="capstone-circuit">Mạch và code</h2>
@@ -236,6 +241,17 @@ export function LocalCapstonePage() {
       <h2 id="capstone-report">Hồ sơ thực hành</h2>
       <label htmlFor="capstone-notes">Ghi lại lỗi đã thấy và cách bạn sửa</label>
       <textarea id="capstone-notes" value={report.notes} rows={3} maxLength={CAPSTONE_MAX_NOTES} onChange={event => save({ ...report, notes: event.target.value })}/>
+      {comparison && <section className="capstone-ab" aria-labelledby="capstone-ab-heading">
+        <h3 id="capstone-ab-heading">So sánh hai lần thử ngưỡng</h3>
+        <p>{capstoneBoards.find(board => board.id === boardId)?.name} · Biến trở {comparison.first.inputPercent}% (ADC {comparison.first.result.inputAdc}/1023) · {comparison.first.pressed ? 'Nhấn nút' : 'Nhả nút'} · GND {comparison.first.gndConnected ? 'nối' : 'hở'}</p>
+        <table aria-label="So sánh thí nghiệm A và B">
+          <thead><tr><th scope="col">Lần</th><th scope="col">Ngưỡng</th><th scope="col">Dự đoán</th><th scope="col">Quan sát</th></tr></thead>
+          <tbody>{[comparison.first, comparison.second].map((trial, index) => <tr key={trial.threshold}>
+            <th scope="row">{index === 0 ? 'A' : 'B'}</th><td>{trial.threshold}%</td>
+            <td>{ledText(trial.prediction === 'on')}</td><td>{ledText(trial.result.ledOn)}</td>
+          </tr>)}</tbody>
+        </table>
+      </section>}
       {report.observations.length ? <ol className="capstone-observations">
         {report.observations.map((item, index) => <li key={index}>
           <strong>{ledText(item.result.ledOn)}</strong>

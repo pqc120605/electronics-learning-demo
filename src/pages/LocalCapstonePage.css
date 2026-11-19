@@ -58,3 +58,8 @@
 .capstone-journey a { display:inline-flex;align-items:center;min-height:36px; }
 .capstone-journey [aria-current] { color:var(--mm-text-signal);font-weight:700;align-content:center; }
 .capstone-checklist small { display:block;margin-top:.2rem;color:var(--mm-muted); }
+.capstone-ab { margin-block: 1rem; }
+.capstone-ab h3 { margin-bottom: .3rem; }
+.capstone-ab p { margin: 0 0 .5rem; color: var(--mm-muted); font-size: .9rem; }
+.capstone-ab table { width: 100%; max-width: 34rem; border-collapse: collapse; }
+.capstone-ab th, .capstone-ab td { padding: .45rem .35rem; border-block-end: 1px solid var(--mm-line); text-align: start; }

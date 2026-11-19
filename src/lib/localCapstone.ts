@@ -35,6 +35,20 @@ export type CapstonePrediction = 'on' | 'off'
 export type CapstoneObservation = CapstoneSettings & { prediction: CapstonePrediction; result: ObservationResult }
 export type CapstoneReport = { projectId: string; settings: CapstoneSettings; notes: string; observations: CapstoneObservation[] }
 
+/** Compare observations for the selected board where only the threshold changes. */
+export function getCapstoneThresholdComparison(observations: readonly CapstoneObservation[], boardId: CapstoneSettings['boardId']) {
+  const runs = observations.filter(observation => observation.boardId === boardId)
+  for (let index = runs.length - 1; index > 0; index--) {
+    const second = runs[index]
+    const first = runs.slice(0, index).findLast(other => (
+      other.inputPercent === second.inputPercent && other.pressed === second.pressed
+      && other.gndConnected === second.gndConnected && other.threshold !== second.threshold
+    ))
+    if (first) return { first, second }
+  }
+  return null
+}
+
 export function newCapstoneId() {
   return Array.from(crypto.getRandomValues(new Uint8Array(16)), byte => byte.toString(16).padStart(2, '0')).join('')
 }

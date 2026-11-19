@@ -4,6 +4,7 @@ import localAnalyticsPaths from '../../server/analytics/paths.json'
 export type AnalyticsEventName = 'page_view' | 'lesson_open' | 'component_select' | 'code_copy' | 'builder_run'
 
 export const localAnalyticsEnabled = import.meta.env.VITE_MACHMO_LOCAL_ANALYTICS === 'true'
+export const analyticsConfigured = localAnalyticsEnabled || isSupabaseConfigured
 export function isLocalAnalyticsAdmin() {
   return localAnalyticsEnabled && typeof window !== 'undefined' && window.location.origin === 'http://127.0.0.1:8081'
 }

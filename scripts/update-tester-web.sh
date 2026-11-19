@@ -3,7 +3,36 @@
 set -euo pipefail
 umask 077
 
-surface=${1:-tester}
+src="$(pwd -P)/dist"
+revision=$(git rev-parse HEAD)
+[[ "$revision" =~ ^[a-f0-9]{40}$ ]]
+test -z "$(git status --porcelain)"
+install -d -m 700 .tmp
+exec 8>.tmp/tester-build.lock
+flock -n 8
+build_manifest=.tmp/tester-dist.sha256
+build_record=.tmp/tester-dist.commit
+list_hashes() {
+  (cd "$1" && find . -type f -print0 | sort -z | xargs -0 sha256sum)
+}
+if [[ "$*" == --build ]]; then
+  VITE_MACHMO_LOCAL_ANALYTICS=false VITE_MACHMO_SELF_HOSTED_AUTH=false VITE_SUPABASE_URL= VITE_SUPABASE_ANON_KEY= npm run build:public
+  test "$(git rev-parse HEAD)" = "$revision"
+  test -z "$(git status --porcelain)"
+  test -z "$(find "$src" -type l -print -quit)"
+  manifest_draft=$(mktemp .tmp/tester-dist.XXXXXXXX)
+  list_hashes "$src" > "$manifest_draft"
+  mv -- "$manifest_draft" "$build_manifest"
+  printf '%s %s\n' "$revision" "$(sha256sum "$build_manifest" | cut -d ' ' -f 1)" > "$build_record"
+  exit 0
+fi
+
+test -s "$build_record" || { echo 'Run scripts/update-tester-web.sh --build for this commit.' >&2; exit 2; }
+read -r built_revision built_manifest_hash < "$build_record"
+test "$built_revision" = "$revision" || { echo 'Build commit does not match HEAD.' >&2; exit 2; }
+test "$(sha256sum "$build_manifest" | cut -d ' ' -f 1)" = "$built_manifest_hash"
+surface=tester
+if (( $# )); then surface=$1; fi
 case "$surface" in
   tester) port=8180 ;;
   tester-exercise) port=8182 ;;
@@ -11,10 +40,6 @@ case "$surface" in
 esac
 root="$HOME/.local/share/mach-mo/$surface"
 base="http://127.0.0.1:$port"
-src="$(pwd -P)/dist"
-revision=$(git rev-parse HEAD)
-[[ "$revision" =~ ^[a-f0-9]{40}$ ]]
-test -z "$(git status --porcelain)"
 test -f "$src/index.html"
 test -f "$src/licenses/ngspice-selfbuild/release-files.json"
 test -z "$(find "$src" -type l -print -quit)"
@@ -72,7 +97,8 @@ trap cleanup EXIT
 trap 'exit 130' INT
 trap 'exit 143' TERM
 
-(cd "$src" && find . -type f -print0 | sort -z | xargs -0 sha256sum) > "$scratch/manifest"
+list_hashes "$src" > "$scratch/manifest"
+cmp -s "$build_manifest" "$scratch/manifest" || { echo 'Build artifact does not match the recorded checksum.' >&2; exit 2; }
 if [[ -d "$target" ]]; then
   cmp -s "$manifest" "$scratch/manifest"
   (cd "$target" && sha256sum --check --quiet "$manifest")
