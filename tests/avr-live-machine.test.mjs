@@ -4,6 +4,9 @@ import { after, before, test } from 'node:test'
 import { createServer } from 'vite'
 import { ARDUINO_FQBN, DEFAULT_ARDUINO_CLI, compileArduinoSketch } from '../scripts/arduino-compile-service.mjs'
 
+const noOptionalToolchain = !process.env.MACHMO_ARDUINO_CLI && !existsSync(DEFAULT_ARDUINO_CLI)
+const liveToolchain = { timeout: 240_000, skip: noOptionalToolchain ? 'arduino-cli và AVR core là công cụ kiểm thử tùy chọn' : false }
+
 // Chạy firmware thật do arduino-cli biên dịch trên avr8js (cần arduino-cli + core AVR trên máy).
 let server, live
 before(async () => {
@@ -49,7 +52,7 @@ function runCollect(machine, totalMs, onFrame) {
 }
 
 for (const board of ['arduino-uno-r3', 'arduino-mega-2560']) {
-  test(`${board}: compiled blink toggles D13, prints Serial and reads button + A0 from the circuit`, { timeout: 240_000 }, async () => {
+  test(`${board}: compiled blink toggles D13, prints Serial and reads button + A0 from the circuit`, liveToolchain, async () => {
     const machine = live.createAvrLiveMachine(await build(board), board)
     machine.setDigitalInput(2, true)
     machine.setAnalogInput(board === 'arduino-mega-2560' ? 54 : 14, 0.5)
@@ -68,7 +71,7 @@ for (const board of ['arduino-uno-r3', 'arduino-mega-2560']) {
   })
 }
 
-test('PWM duty is measured from real timer output', { timeout: 240_000 }, async () => {
+test('PWM duty is measured from real timer output', liveToolchain, async () => {
   const result = await compileArduinoSketch({ source: 'void setup(){ pinMode(9, OUTPUT); analogWrite(9, 64); }\nvoid loop(){}\n', fqbn: ARDUINO_FQBN['arduino-uno-r3'] })
   assert.equal(result.ok, true, result.log)
   const machine = live.createAvrLiveMachine(result.hex, 'arduino-uno-r3')

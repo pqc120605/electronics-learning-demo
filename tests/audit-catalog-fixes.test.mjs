@@ -66,7 +66,11 @@ test('catalog launch links preserve catalog part identity and board aliases in r
  assert.match(render(ComponentsPage,'/components?component=electrolytic'),/class="component-freestyle-link" href="\/build\/freestyle\?part=capacitor"/)
  const {BoardCatalogPage}=await server.ssrLoadModule('/src/pages/BoardCatalogPage.tsx')
  const html=render(BoardCatalogPage,'/boards?board=arduino-mega-2560-r3')
- for(const id of ['arduino-nano','arduino-mega-2560','stm32-nucleo-f401re']) assert.match(html,new RegExp(`class="board-freestyle-link" href="/build/freestyle\\?board=${id}"`))
+ for (const [catalogId, builderId] of [['arduino-mega-2560-r3', 'arduino-mega-2560'], ['arduino-nano-classic', 'arduino-nano'], ['stm32-nucleo', 'stm32-nucleo-f401re']]) {
+   const boardPage = render(BoardCatalogPage, '/boards?board=' + catalogId)
+   const actions = boardPage.slice(boardPage.indexOf('class="board-cad-viewer-actions"'), boardPage.indexOf('class="board-profile"'))
+   assert.ok(actions.includes('class="board-freestyle-link" href="/build/freestyle?board=' + builderId + '"'), catalogId)
+ }
  const inspector=html.slice(html.indexOf('board-cad-details'),html.indexOf('board-cad-viewer-note'))
  assert.match(inspector,/Chọn tên chân trong danh sách/);assert.doesNotMatch(inspector,/bấm vào đúng vị trí trên mô hình 3D/)
 })

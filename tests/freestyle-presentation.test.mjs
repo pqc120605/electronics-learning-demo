@@ -53,3 +53,26 @@ test('Pico power stations use its actual 3V3(OUT) and VBUS source pins',()=>{
  assert.ok(presentation.freestylePinAnchor(view,board.defaultPins,'vcc'))
  assert.ok(presentation.freestylePinAnchor(view,board.defaultPins,'v5'))
 })
+
+test('a new Uno breadboard places LED outside the resistor legs and draws every wire after reopening', () => {
+ const workspace = fs.workspaceWithFreestyleBoard(fs.blankFreestyleWorkspace(), 'arduino-uno-r3')
+ const doc = { ...workspace.doc, breadboards: fs.createEmptyFreestyleDoc().breadboards }
+ const resistor = fs.placePart(doc, 'resistor')
+ assert.ok(resistor.partId, resistor.error)
+ const led = fs.placePart(resistor.doc, 'led')
+ assert.ok(led.partId, led.error)
+ const pin = (partId, pinId) => ({ kind: 'pin', partId, pinId })
+ const resistorId = resistor.partId
+ const ledId = led.partId
+ let wired = fs.addFreestyleWire(led.doc, pin('board', 'ledOut'), pin(resistorId, 'a'))
+ wired = fs.addFreestyleWire(wired, pin(resistorId, 'b'), pin(ledId, 'anode'))
+ wired = fs.addFreestyleWire(wired, pin(ledId, 'cathode'), pin('board', 'gnd'))
+ const reopened = fs.parseFreestyleWorkspace(JSON.stringify({ ...workspace, doc: wired }))
+ assert.deepEqual(reopened?.doc.wires, wired.wires)
+ const view = presentation.freestylePresentation(workspace.boardId, workspace.pinMap)
+ const layout = diagram.buildBreadboardDiagram(reopened.doc, view)
+ assert.deepEqual(layout.diagnostics, [])
+ assert.deepEqual(layout.wires.map(wire => [wire.fromKey, wire.toKey]), [
+   ['board:ledOut', resistorId + ':a'], [resistorId + ':b', ledId + ':anode'], [ledId + ':cathode', 'board:gnd'],
+ ])
+})

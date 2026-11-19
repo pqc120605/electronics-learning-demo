@@ -122,7 +122,9 @@ export function placePart(doc: CircuitDocV2, type: string, at?: { col: number; r
   for (const candidate of candidates) {
     const part: CircuitPartV2 = { id, type, mount: { kind: 'breadboard', board: 'bb1', ...candidate } }
     const result = canMount(part, part.mount, doc)
-    if (result.ok && (at || !touchesUsedStrip(doc, part))) return { doc: withExpect({ ...doc, parts: [...doc.parts, part] }), partId: id }
+    if (result.ok && (at || (!touchesUsedStrip(doc, part) && !overlapsMountedFootprint(doc, part)))) {
+      return { doc: withExpect({ ...doc, parts: [...doc.parts, part] }), partId: id }
+    }
     if (at && !result.ok && candidate.rotation === 90) return { doc, error: result.reason }
   }
   return { doc, error: at ? 'Không cắm được ở lỗ này.' : 'Breadboard đã kín chỗ.' }
@@ -132,6 +134,30 @@ export function placePart(doc: CircuitDocV2, type: string, at?: { col: number; r
 function touchesUsedStrip(doc: CircuitDocV2, part: CircuitPartV2): boolean {
   const used = new Set(doc.parts.flatMap(other => (footprintHoles(other) ?? []).map(hole => holeNet(hole))))
   return (footprintHoles(part) ?? []).some(hole => used.has(holeNet(hole)))
+}
+
+function footprintBounds(part: CircuitPartV2) {
+  const holes = footprintHoles(part)
+  if (!holes?.length) return
+  const columns = holes.map(hole => hole.column)
+  const rows = holes.map(hole => hole.row)
+  return {
+    minColumn: Math.min(...columns), maxColumn: Math.max(...columns),
+    minRow: rows.reduce((a, b) => a < b ? a : b),
+    maxRow: rows.reduce((a, b) => a > b ? a : b),
+  }
+}
+
+/** Leave the space between a mounted part's legs clear when automatically placing a new part. */
+function overlapsMountedFootprint(doc: CircuitDocV2, part: CircuitPartV2): boolean {
+  const candidate = footprintBounds(part)
+  if (!candidate) return false
+  return doc.parts.some(other => {
+    const current = footprintBounds(other)
+    return current !== undefined
+      && candidate.minColumn <= current.maxColumn && current.minColumn <= candidate.maxColumn
+      && candidate.minRow <= current.maxRow && current.minRow <= candidate.maxRow
+  })
 }
 
 export function movePart(doc: CircuitDocV2, partId: string, at: { col: number; row: number }): { doc: CircuitDocV2; error?: string } {
