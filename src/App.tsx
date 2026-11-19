@@ -3,6 +3,7 @@ import { Link, Route, Routes, useLocation, useNavigate, useSearchParams } from '
 import { SiteShell } from './components/SiteShell'
 import { AdminGate } from './components/AdminGate'
 import { isLocalAnalyticsAdmin, localAnalyticsEnabled, trackPageView } from './lib/analytics'
+import { isSupabaseConfigured } from './lib/supabase'
 import { PRODUCT_ROUTES as R } from './data/productRoutes'
 import { builderLessons } from './data/builderLessons'
 import { getBrowserStorage, quarantineWorkspaceData } from './lib/workspaceStorage'
@@ -146,6 +147,7 @@ export default function App() {
   }, [location.pathname, location.search, navigate])
 
   const shell = (children: ReactNode) => <SiteShell variant={inAppSurface ? 'app' : 'public'}>{children}</SiteShell>
+  const adminUnavailable = shell(<div className="route-placeholder"><h1>Khu quản trị chưa mở</h1><Link to="/">Về trang khám phá</Link></div>)
 
   return (
     <Suspense fallback={<RouteSkeleton />}>
@@ -196,8 +198,8 @@ export default function App() {
       <Route path={R.publicBasics} element={shell(<BeginnerLearningPage />)} />
       <Route path={R.publicCapstone} element={shell(<LocalCapstonePage />)} />
       <Route path="/learn/:lessonId" element={shell(<LessonPreflightPage />)} />
-      <Route path="/admin" element={isLocalAnalyticsAdmin() ? <AdminDashboardPage local /> : <AdminGate>{(access) => <AdminDashboardPage access={access} />}</AdminGate>} />
-      <Route path="/admin/login" element={<AdminLoginPage />} />
+      <Route path="/admin" element={isLocalAnalyticsAdmin() ? <AdminDashboardPage local /> : isSupabaseConfigured ? <AdminGate>{(access) => <AdminDashboardPage access={access} />}</AdminGate> : adminUnavailable} />
+      <Route path="/admin/login" element={isSupabaseConfigured ? <AdminLoginPage /> : adminUnavailable} />
       <Route path="*" element={shell(<RoutePlaceholder title="Không tìm thấy trang" />)} />
     </Routes>
     </RouteErrorBoundary>
