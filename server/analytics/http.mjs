@@ -50,14 +50,17 @@ function midnight(value) {
   return utc - 7 * 60 * 60 * 1000
 }
 
-export function createAnalyticsServer({ mode, store, origins = [], adminAuthority = '127.0.0.1:8081', requestsPerMinute = 600 }) {
+export function createAnalyticsHandler({
+  mode, store, origins = [], adminAuthority = '127.0.0.1:8081', requestsPerMinute = 600,
+  onFailure = () => console.error(`Analytics ${mode} operation failed`),
+}) {
   if (mode !== 'public' && mode !== 'private') throw new TypeError('Unknown analytics listener mode')
   const allowedOrigins = new Set(origins)
   let windowStarted = 0
   let accepted = 0
   const day = 24 * 60 * 60 * 1000
 
-  return createServer({ requestTimeout: 10_000, headersTimeout: 5_000, keepAliveTimeout: 4_000, maxHeaderSize: 8192 }, async (request, response) => {
+  return async (request, response) => {
     try {
       if (mode === 'private') {
         if (request.headers.host !== adminAuthority || request.method !== 'GET' || request.headers['sec-fetch-site'] === 'cross-site' || (request.headers.origin && request.headers.origin !== `http://${adminAuthority}`)) return finish(response, 404)
@@ -86,8 +89,12 @@ export function createAnalyticsServer({ mode, store, origins = [], adminAuthorit
         if (error === 413) response.setHeader('Connection', 'close')
         return finish(response, error)
       }
-      console.error(`Analytics ${mode} operation failed`)
+      onFailure()
       return finish(response, 503)
     }
-  })
+  }
+}
+
+export function createAnalyticsServer(options) {
+  return createServer({ requestTimeout: 10_000, headersTimeout: 5_000, keepAliveTimeout: 4_000, maxHeaderSize: 8192 }, createAnalyticsHandler(options))
 }
