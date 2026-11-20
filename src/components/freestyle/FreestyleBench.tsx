@@ -34,7 +34,9 @@ import { pushWireHistory, readWireLayout, type WireBend, type WireHistoryEntry }
 import { encodeFreestyleShare } from '../../lib/freestyle/freestyleShare'
 import { parseFreestyleProject, projectFileLimit } from '../../lib/freestyle/freestyleTransfer'
 import { KitPartExample } from './KitPartExample'
+import { isEsp32Target } from '../../lib/esp32Firmware'
 const FreestyleAssemblyView = lazy(() => import('./FreestyleAssemblyView').then(m=>({default:m.FreestyleAssemblyView})))
+const Esp32UsbDialog = lazy(() => import('./Esp32UsbDialog').then(m => ({default:m.Esp32UsbDialog})))
 
 /**
  * Bàn lắp mạch tự do (2026-11-14): Chọn board → Thêm linh kiện → Viết code & Chạy.
@@ -64,6 +66,7 @@ type BenchProps = {
 }
 
 export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = false, storageKey = FREESTYLE_STORAGE_KEY, onCopy }: BenchProps) {
+  const [usbOpen, setUsbOpen] = useState(false)
   const [draft] = useState(() => readOnly ? null : loadDraft(storageKey))
   const [workspace, setWorkspace] = useState<FreestyleWorkspace>(() => initialWorkspace ?? (variant==='full' && typeof window!=='undefined' && new URLSearchParams(window.location.search).get('resume')==='1' && draft?.workspace ? draft.workspace : blankFreestyleWorkspace()))
   const dedicatedDraft = storageKey !== FREESTYLE_STORAGE_KEY && Boolean(draft?.workspace)
@@ -577,6 +580,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
           <div className="freestyle-code-toolbar">
             {!readOnly && board.languages.length > 1 && <label>Ngôn ngữ<select value={language} onChange={event => chooseLanguage(event.target.value as FreestyleLanguage)}>{board.languages.map(item => <option key={item} value={item}>{item === 'micropython' ? 'MicroPython' : 'Arduino C++'}</option>)}</select></label>}
             <span className="freestyle-code-board">{boardId?board.short:'Chưa chọn board'} · {language === 'micropython' ? 'MicroPython' : 'Arduino C++'}</span>
+            {!readOnly && isEsp32Target(boardId) && <button type="button" className="freestyle-button" onClick={() => setUsbOpen(true)}>Nạp mẫu qua USB</button>}
           </div>
           <div className="freestyle-editor">
             <pre className="freestyle-gutter" aria-hidden="true">{Array.from({ length: lineCount }, (_, index) => <span key={index} className={error?.line === index + 1 ? 'is-error' : undefined}>{index + 1}</span>)}</pre>
@@ -684,6 +688,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       <div className="freestyle-wave-popout-bar"><strong>Tín hiệu vừa thu</strong><button className="freestyle-button" type="button" onClick={() => setTracePopout(false)}>Đóng dạng sóng</button></div>
       <FreestyleWaveform captureKey={traceCapture.current} preferredPins={preferredTracePins} samples={trace} boardId={boardId} source={engine.label} running={running} />
     </aside>}
+    {usbOpen && isEsp32Target(boardId) && <Suspense fallback={<p role="status">Đang mở bảng USB…</p>}><Esp32UsbDialog board={boardId} code={code} lesson={workspace.sampleId} onClose={() => setUsbOpen(false)} /></Suspense>}
     <FreestyleDraftsDialog current={workspace} open={draftsOpen} onClose={()=>setDraftsOpen(false)} onRestore={restored=>{if(!archiveBeforeReplace())return;update(restored);setDraftsOpen(false);setView('breadboard');setStep('parts');setPanelOpen(false);setNotice('Đã khôi phục bản nháp; công việc trước đó được sao lưu.')}}
       drawing={view === 'breadboard' || view === 'schematic' ? {kind:view, get:()=>stageRef.current?.querySelector<SVGSVGElement>(view === 'breadboard' ? '.breadboard-diagram-svg' : '.circuit-schematic-svg') ?? null} : undefined} />
     <FreestyleToolsDrawer open={toolsOpen} onClose={() => setToolsOpen(false)} />

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "mode": "proposal",
+  "scope": "Build-only verification of the existing Mạch Mở Blink example for the ESP32 DevKit V1, without device access or publication",
+  "board": "esp32-devkit",
+  "hardware": "ESP32 DevKit V1 30-pin board with ESP32, 4 MiB flash and USB-UART bridge; confirm markings before physical test",
+  "arduinoCliVersion": "1.6.0",
+  "esp32CoreVersion": "4.0.0",
+  "fqbn": "esp32:esp32:esp32",
+  "source": "existing freestyle sampleCode('blink', 'esp32-devkit', 'cpp', defaultPins)",
+  "sketchSha256": "87cbcbbd2e5f1fc4d29dbb7b23b3c91b0284ee01a07cf9ecb76babc8a8bffd51",
+  "lesson": "blink",
+  "signal": "existing educational GPIO23 mapping; build and inspect only",
+  "serialBaud": 115200,
+  "parts": { "bootloader": 4096, "partitions": 32768, "boot_app0": 57344, "app": 65536 },
+  "flashBytes": 4194304,
+  "eraseAll": false,
+  "gates": [
+    "Verify flash_args from the pinned core and fail if any offset differs from this proposal",
+    "Keep build output as a verification artifact pending review of hashes and redistribution terms",
+    "Require separate approval of the actual firmware manifest and exact target hardware before flashing"
+  ],
+  "sources": [
+    "https://github.com/arduino/arduino-cli/releases/tag/v1.6.0",
+    "https://github.com/espressif/arduino-esp32/blob/4.0.0/platform.txt#L160-L178",
+    "https://github.com/espressif/arduino-esp32/blob/4.0.0/boards.txt#L1985"
+  ]
+}

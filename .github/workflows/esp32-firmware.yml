@@ -1,0 +1,34 @@
+name: Build ESP32 firmware for review
+on:
+  workflow_dispatch:
+    inputs:
+      approved_config_sha256:
+        description: SHA-256 of the founder-approved Blink pilot build configuration
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  blink-pilot:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - uses: arduino/setup-arduino-cli@v2
+        with:
+          version: 1.6.0
+      - uses: actions/cache@v4
+        with:
+          path: ~/.arduino15
+          key: esp32-arduino-cli-1.6.0-core-4.0.0-${{ runner.os }}
+      - run: npm ci
+      - run: |
+          arduino-cli core update-index --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+          arduino-cli core install esp32:esp32@4.0.0 --additional-urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+      - run: node scripts/build-esp32-pilot.mjs "$APPROVED_CONFIG_SHA" ci
+        env:
+          APPROVED_CONFIG_SHA: ${{ inputs.approved_config_sha256 }}
+      # The pilot remains a build check. Publishing images or installing them on a board is a separate approval.
