@@ -38,9 +38,16 @@ test('representation levels stay separate facts', () => {
   assert.match(m.getComponentMesh('limit-switch').modelNote, /COM\/NO\/NC/)
 })
 
-test('all physical builder parts have an explicit 3D model or an intentional board-viewer route', () => {
+test('only declared 2D kit parts and the board-viewer route may lack builder meshes', () => {
   const missing = m.componentRegistry.filter((part) => part.id !== 'board' && !m.getComponentMesh(part.id)).map((part) => part.id)
-  assert.deepEqual(missing, [])
+  assert.deepEqual(missing, ['dht11', 'dht22-bare', 'keypad-4x4', 'seven-segment-anode'])
+  for (const id of missing) {
+    const representation = m.getComponentRepresentations(id)
+    assert.equal(representation.illustration2d, true, id)
+    assert.equal(representation.cssBlock3d, false, id)
+    assert.equal(representation.schematicSymbol, 'specific', id)
+    assert.ok(m.components.some(part => part.id === id && part.source), id)
+  }
 })
 
 test('common catalog modules have distinct, explicitly generic 3D models', () => {

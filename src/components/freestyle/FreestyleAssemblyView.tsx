@@ -5,11 +5,14 @@ import { freestylePresentation } from '../../lib/freestyle/freestylePresentation
 import type { CircuitDocV2 } from '../../lib/circuitDocV2'
 import type { PinMap } from '../../lib/freestyle/freestyleCircuit'
 import type { WireSignalLabel } from '../builder/BreadboardDiagram'
+import { getKitPartProfile } from '../../data/kitPartProfiles'
+import { getComponentMesh } from '../../data/componentModels'
 export function FreestyleAssemblyView({doc,boardId,pinMap,selectedPartId,litPartIds,onSelectPart,wireSignals}:{doc:CircuitDocV2;boardId:string;pinMap:PinMap;selectedPartId:string|null;litPartIds:ReadonlySet<string>;onSelectPart:(id:string)=>void;wireSignals:ReadonlyMap<string,WireSignalLabel>}){
  const canvas=useRef<HTMLCanvasElement>(null),scene=useRef<AssemblyScene|null>(null)
  const [error,setError]=useState(''),[loading,setLoading]=useState(0)
  const [failed,setFailed]=useState(false)
  const plan=useMemo(()=>freestyleAssembly(doc,boardId,pinMap),[doc,boardId,pinMap])
+ const only2D=doc.parts.filter(part=>getKitPartProfile(part.type)&&!getComponentMesh(part.type))
  const planRef=useRef(plan);planRef.current=plan
  useEffect(()=>{
    if(!canvas.current)return
@@ -30,6 +33,7 @@ export function FreestyleAssemblyView({doc,boardId,pinMap,selectedPartId,litPart
    <div className="freestyle-assembly-meta"><strong>{boardId?freestylePresentation(boardId,pinMap).name:'Bàn chưa chọn board'}</strong><span>{loading?'Đang tải model…':failed?'Một model chưa tải được':error?'3D không khả dụng':'Hình học tham chiếu · không phải mô phỏng điện'}</span></div>
    <canvas ref={canvas} aria-label="Mô hình mạch 3D, kéo để xoay; dùng các nút bên dưới để điều khiển bằng bàn phím" onPointerDown={e=>{drag.current={x:e.clientX,y:e.clientY,moved:false};e.currentTarget.setPointerCapture(e.pointerId)}} onPointerMove={e=>{const p=drag.current;if(!p)return;const dx=e.clientX-p.x,dy=e.clientY-p.y;p.moved ||= Math.abs(dx)+Math.abs(dy)>3;scene.current?.rotate(dx*.006,dy*.006);p.x=e.clientX;p.y=e.clientY}} onPointerCancel={()=>{drag.current=null}} onPointerUp={e=>{if(drag.current&&!drag.current.moved){const pick=scene.current?.pick(e.clientX,e.clientY);if(pick)onSelectPart(pick.partId)}drag.current=null}} />
    {error&&<p role="alert">{error}</p>}{failed&&<p role="status">Model lỗi không được thay bằng board khác. Bạn vẫn nối dây trong view 2D.</p>}
+   {only2D.length>0&&<p role="note">{only2D.map(part=>part.id).join(', ')} chỉ có minh họa 2D và sơ đồ nguyên lý.</p>}
    <div className="freestyle-view-controls" aria-label="Điều khiển cảnh 3D">
     <button onClick={()=>scene.current?.rotate(-Math.PI/9,0)} aria-label="Xoay trái 3D">↶</button><button onClick={()=>scene.current?.rotate(Math.PI/9,0)} aria-label="Xoay phải 3D">↷</button><button onClick={()=>scene.current?.zoom(-1)} aria-label="Thu nhỏ 3D">−</button><button onClick={()=>scene.current?.zoom(1)} aria-label="Phóng to 3D">+</button><button onClick={()=>scene.current?.setPreset('top')}>Nhìn từ trên</button><button onClick={()=>scene.current?.resetView()}>Vừa mạch</button>
    </div>

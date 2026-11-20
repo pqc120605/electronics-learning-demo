@@ -1,8 +1,9 @@
 import { componentRegistry } from '../data/componentRegistry'
+import { getKitPartProfile } from '../data/kitPartProfiles'
 import { createNetIndexV2 } from './circuitNetsV2'
 import type { CircuitDocV2 } from './circuitDocV2'
 
-export type SchematicSymbolKind = 'board' | 'resistor' | 'potentiometer' | 'led' | 'diode' | 'button' | 'unsupported'
+export type SchematicSymbolKind = 'board' | 'resistor' | 'potentiometer' | 'led' | 'diode' | 'button' | 'kit-module' | 'unsupported'
 export type SchematicTerminalV2 = { key: string; label: string; x: number; y: number }
 export type SchematicPartV2 = { partId: string; type: string; label: string; value: string; x: number; y: number; width: number; height: number; rotation: number; symbolKind: SchematicSymbolKind; terminals: SchematicTerminalV2[] }
 export type SchematicSegmentV2 = { from: [number, number]; to: [number, number] }
@@ -24,30 +25,32 @@ export function layoutSchematicV2(doc: CircuitDocV2): SchematicLayoutV2 {
   const counts = new Map<string, number>()
   const parts: SchematicPartV2[] = doc.parts.filter(p => p.type !== 'breadboard').map(part => {
     const definition = componentRegistry.find(item => item.id === part.type)
-    const symbolKind = definition ? SYMBOLS[part.type] ?? 'unsupported' : 'unsupported'
+    const profile = getKitPartProfile(part.type)
+    const symbolKind = definition ? SYMBOLS[part.type] ?? (profile ? 'kit-module' : 'unsupported') : 'unsupported'
     if (symbolKind === 'unsupported') diagnostics.push({ code: 'UNSUPPORTED_SYMBOL', message: `${part.id} (${part.type}): chưa có symbol nguyên lý được hỗ trợ; khối này chỉ giữ nhãn linh kiện.`, partId: part.id })
-    const ordinalKey = symbolKind === 'unsupported' ? '__unsupported' : part.type
+    const ordinalKey = symbolKind === 'unsupported' || symbolKind === 'kit-module' ? 'bench-symbols' : part.type
     const ordinal = counts.get(ordinalKey) ?? 0
     counts.set(ordinalKey, ordinal + 1)
-    const x = part.type === 'board' ? 130 : symbolKind === 'potentiometer' ? 900 : ['led', 'diode'].includes(part.type) ? 680 : 440
-    const y = (symbolKind === 'unsupported' ? 530 : symbolKind === 'potentiometer' ? 320 : part.type === 'button' ? 320 : part.type === 'board' ? 230 : 140) + ordinal * 210
+    const x = part.type === 'board' ? 130 : symbolKind === 'potentiometer' ? 900 : symbolKind === 'kit-module' ? 780 : ['led', 'diode'].includes(part.type) ? 680 : 440
+    const y = (symbolKind === 'kit-module' || symbolKind === 'unsupported' ? 530 : symbolKind === 'potentiometer' ? 320 : part.type === 'button' ? 320 : part.type === 'board' ? 230 : 140) + ordinal * 210
     // Show only connected board aliases, never inferred physical pin numbers.
     const pins = (definition?.pins ?? []).filter(pin => part.type !== 'board' || connectedNets.some(net => net.endpoints.has(`${part.id}:${pin.id}`)))
     const height = part.type === 'board' ? Math.max(260, pins.length * 90 + 20) : Math.max(100, Math.ceil(pins.length / 2) * 36)
-    const width = part.type === 'board' ? 150 : 112
+    const width = part.type === 'board' ? 150 : symbolKind === 'kit-module' ? 178 : 112
     const terminals = pins.map((pin, i) => {
       const sideTerminal = symbolKind !== 'potentiometer' || pin.id === 'wiper'
       const right = part.type === 'board' || (symbolKind === 'potentiometer' ? pin.id !== 'gnd' : i % 2 === 1)
       const tx = sideTerminal ? x + (right ? 1 : -1) * width / 2 : x
       const ty = part.type === 'board' ? y - (pins.length - 1) * 45 + i * 90
         : symbolKind === 'potentiometer' ? y + (pin.id === 'wiper' ? 0 : pin.id === 'vcc' ? -50 : 50)
+        : symbolKind === 'kit-module' ? y - (Math.ceil(pins.length / 2) - 1) * 18 + Math.floor(i / 2) * 36
         : y + Math.floor(i / 2) * 36
       const key = `${part.id}:${pin.id}`
       pinPositions.set(key, [tx, ty])
       escapeDirections.set(key, right ? 1 : -1)
       return { key, label: pin.label, x: tx, y: ty }
     })
-    return { partId: part.id, type: part.type, label: definition?.label ?? part.type, value: fmtValue(part), x, y, width, height, rotation: 0, symbolKind, terminals }
+    return { partId: part.id, type: part.type, label: profile?.model ?? definition?.label ?? part.type, value: fmtValue(part), x, y, width, height, rotation: 0, symbolKind, terminals }
   })
   const contentBottom = Math.max(400, ...parts.map(p => p.y + p.height / 2 + 50))
   const nets: SchematicNetV2[] = connectedNets.map((net, netPosition) => {

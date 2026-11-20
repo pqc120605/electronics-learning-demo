@@ -21,6 +21,7 @@ function Symbol({ part }: { part: SchematicPartV2 }) {
       : kind === 'led' || kind === 'diode' ? <><path d="M-56 0h35m0-19 33 19-33 19zM12-19v38M12 0h44"/>{kind === 'led' && <path className="schematic-led-emission" d="M0-28l14-14m-7 0h7v7M18-22l14-14m-7 0h7v7"/>}<text x="0" y="-54">{partId}</text><text x="0" y="42">{label}</text></>
       : kind === 'button' ? <g data-symbol-state="open"><path d="M-56 0h37m0 0 27-23M12 0h44M-8-30v-10m-12 0H4"/><circle cx="-19" cy="0" r="3"/><circle cx="12" cy="0" r="3"/><text x="0" y="-56">{partId}</text><text x="0" y="42">{label} · thường mở</text></g>
       : kind === 'board' ? <><rect x="-75" y={-height / 2} width="140" height={height} rx="4"/><text x="-5" y={-height / 2 + 24}>{partId}</text><text x="-5" y={height / 2 - 28}>Chân đang nối</text><text x="-5" y={height / 2 - 12}>Alias theo bài học</text></>
+      : kind === 'kit-module' ? <><rect x={-part.width / 2 + 16} y={-height / 2} width={part.width - 32} height={height}/><text x="0" y={-height / 2 - 10}>{partId}</text><text x="0" y={height / 2 + 18}>{label}</text></>
       : <><rect x="-48" y="-28" width="96" height="56" rx="4"/><text x="0" y="-8">{partId}</text><text x="0" y="12">{label}</text><text x="0" y="48">chưa có symbol</text></>}
   </g>
 }
@@ -56,6 +57,7 @@ export function CircuitSchematicV2({ doc, boardLabel, boardPinLabels, selectedKe
         <Symbol part={boardLabel && part.symbolKind==='board'?{...part,partId:boardLabel}:part}/>
         {part.terminals.map(terminal => <g key={terminal.key} className={`schematic-terminal ${selectedEndpointKey === terminal.key ? 'is-selected' : ''}`} data-pin-key={terminal.key} role="button" tabIndex={0} aria-pressed={selectedEndpointKey === terminal.key} aria-label={`Chọn chân ${terminal.key} · ${part.symbolKind==='board'?boardPinLabels?.[terminal.key.split(':').at(-1)??'']??terminal.label:terminal.label}`} onClick={event => { event.stopPropagation(); onSelectEndpoint(terminal.key) }} onKeyDown={event => { event.stopPropagation(); keyboardSelect(event, () => onSelectEndpoint(terminal.key)) }}>
           {part.symbolKind === 'board' && <path d={`M65 ${terminal.y - part.y}h10`}/>}
+          {part.symbolKind === 'kit-module' && <path d={`M${terminal.x - part.x} ${terminal.y - part.y}h${terminal.x < part.x ? 16 : -16}`}/>}
           <circle cx={terminal.x - part.x} cy={terminal.y - part.y} r="3"/>
           <text x={part.symbolKind === 'board' ? 56 : terminal.x - part.x} y={terminal.y - part.y - 10} textAnchor={part.symbolKind === 'board' ? 'end' : terminal.x < part.x ? 'end' : 'start'}>{part.symbolKind==='board'?boardPinLabels?.[terminal.key.split(':').at(-1)??'']??terminal.label:terminal.label}</text>
         </g>)}

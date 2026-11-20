@@ -1,8 +1,17 @@
+import { kitPartProfiles } from './kitPartProfiles'
+
 export type ComponentCategory = 'MCU' | 'Cảm biến' | 'Đầu vào' | 'Đầu ra' | 'Linh kiện cơ bản' | 'Hiển thị' | 'Kết nối' | 'Nguồn' | 'Cơ điện'
 export type ComponentRecord = { id: string; name: string; category: ComponentCategory; summary: string; pins: string; use: string; caution: string; tags: string[]; source?: string; boardViewerRoute?: string; boardProfileRoute?: string }
 
 // Catalogue records are learning references. Module revisions and breakout pinouts can differ.
 export const components: ComponentRecord[] = [
+  ...(['dht11', 'dht22-bare', 'keypad-4x4', 'seven-segment-anode'] as const).map((id): ComponentRecord => {
+    const profile = kitPartProfiles[id]
+    return { id, name: profile.title, category: id === 'keypad-4x4' ? 'Đầu vào' : id === 'seven-segment-anode' ? 'Hiển thị' : 'Cảm biến',
+      summary: profile.model, pins: [...profile.pins].sort((a, b) => a.physicalPin - b.physicalPin).map(pin => `${pin.physicalPin} ${pin.name}`).join(' · '),
+      use: profile.example, caution: 'Hình và vị trí đầu dây trong bàn tự do là minh họa 2D. Đối chiếu mã linh kiện và pinout khi lắp thật.',
+      tags: [profile.title, profile.model], source: profile.url }
+  }),
   {id:'seeed-xiao-esp32c3',name:'Seeed Studio XIAO ESP32-C3',category:'MCU',summary:'Board IoT mini dùng ESP32-C3, Wi‑Fi 2,4 GHz, BLE và USB-C; viewer 3D giáo dục có 14 chân J1/J2 chọn theo pad PCB KiCad v1.3.',pins:'D0–D10; 3V3, 5V, GND; D4/D5 là SDA/SCL, D6/D7 là TX/RX, D8/D9/D10 là SCK/MISO/MOSI theo tài liệu hãng.',use:'Tra pinout, chọn một trong 14 chân header trên cảnh 3D hoặc danh sách trợ năng, và xem net CAD/chức năng tương ứng.',caution:'GPIO2, GPIO8, GPIO9 là strapping pins; GPIO chỉ mức 3,3 V, không đưa 5 V vào. Chọn chân không tô đường đồng/net và không mô phỏng điện; mesh package không thể hiện marking riêng của linh kiện.',tags:['ESP32-C3','Seeed','XIAO','Wi-Fi','BLE','USB-C'],source:'https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/',boardViewerRoute:'/boards?board=seeed-xiao-esp32c3',boardProfileRoute:'/boards?board=seeed-xiao-esp32c3'},
   {id:'seeed-xiao-esp32-s3',name:'Seeed Studio XIAO ESP32-S3',category:'MCU',summary:'Board IoT mini ESP32-S3R8, Wi-Fi/BLE và USB-C; viewer STEP chính hãng có 14 pad header chọn được theo PCB KiCad Seeed OPL, không phải Sense.',pins:'5V, GND, 3V3 và D0–D10: click pad J1/J2 hoặc chọn tên để xem GPIO/chức năng; tọa độ lấy từ OPL và căn với STEP.',use:'Khám phá board, tài liệu, ảnh hai mặt và chọn pad header trong viewer 3D của XIAO ESP32-S3 bản thường.',caution:'GPIO mức 3,3 V; header có thể chưa hàn. File PCB OPL không ghi revision và chưa được đối chiếu với board thật; tên net CAD không khẳng định tuyến điện ở mọi revision. Viewer không mô phỏng điện hoặc firmware.',tags:['ESP32-S3','Seeed','XIAO','Wi-Fi','BLE','USB-C'],source:'https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/',boardViewerRoute:'/boards?board=seeed-xiao-esp32-s3',boardProfileRoute:'/boards?board=seeed-xiao-esp32-s3'},
   {id:'esp32-devkit',name:'ESP32 DevKit V1',category:'MCU',summary:'Board phát triển ESP32 có Wi‑Fi và Bluetooth; MCU dùng mức I/O 3,3 V.',pins:'GPIO, 3V3, GND, VIN; pin khả dụng tùy revision.',use:'Đọc cảm biến, điều khiển đầu ra và gửi dữ liệu không dây.',caution:'Không đưa 5 V vào GPIO; chân strapping/boot và ADC có giới hạn riêng.',tags:['ESP32','Wi-Fi','Bluetooth','IoT'],boardViewerRoute:'/boards?board=esp32-devkit'},

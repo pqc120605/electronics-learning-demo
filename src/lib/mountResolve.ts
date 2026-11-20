@@ -1,6 +1,7 @@
 import type { ComponentDefinition } from '../data/componentRegistry'
 import { componentRegistry } from '../data/componentRegistry'
 import { getComponentMesh, type ComponentLeg } from '../data/componentModels'
+import { getKitPartProfile } from '../data/kitPartProfiles'
 import { getInputAlias } from '../data/builderLessons'
 import { getSimulationTarget } from '../data/simulationTargets'
 import { esp32DevkitModel } from '../data/esp32DevkitModel'
@@ -64,8 +65,15 @@ export function resolvePartGeometry(type: string, lessonId = 'blink', registry: 
   if (type === 'board') return { legsMm: [], pinsMm: boardPinsMm(lessonId), geometrySource: 'unknown', mount: 'bench' }
   if (type === 'breadboard') return { legsMm: [], pinsMm: breadboardPinsMm(), geometrySource: 'parametric', mount: 'bench' }
   const model = getComponentMesh(type)
-  if (!model) return null
   const override = registry.find(item => item.id === type)
+  if (!model) {
+    const profile = getKitPartProfile(type)
+    if (!override || !profile) return null
+    // Logical terminals for the bench's 2D illustration; there is no registered 3D mesh.
+    const ordered = [...profile.pins].sort((a, b) => a.physicalPin - b.physicalPin)
+    const pinsMm = Object.fromEntries(ordered.map(({ id }, index) => [id, [((index % 2) - 0.5) * 8, 0, (Math.floor(index / 2) - (Math.ceil(ordered.length / 2) - 1) / 2) * 3]]))
+    return { legsMm: [], pinsMm, geometrySource: 'parametric', mount: 'bench' }
+  }
   return {
     legsMm: override?.legsMm ?? model.legsMm,
     pinsMm: override?.pinsMm ?? model.pinsMm,

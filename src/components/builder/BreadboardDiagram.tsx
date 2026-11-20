@@ -1,4 +1,5 @@
 import { FreestyleBoardArt } from '../freestyle/FreestyleBoardArt'
+import { isDhtPart, keypadKeys } from '../../data/kitPartProfiles'
 import type { BoardDiagramPresentation } from '../../lib/boardTopView'
 import { adjacentBreadboardHole, buildBreadboardDiagram, breadboardDiagramWireColor, type DiagramPart, type DiagramPin } from '../../lib/breadboardDiagram'
 import type { CircuitDocV2, CircuitEndpointV2 } from '../../lib/circuitDocV2'
@@ -78,6 +79,17 @@ function PartBody({ part, selected, lit = false, selectedEndpointId, onSelect, o
       <circle className="diagram-led-body" cx="0" cy="0" r="13" />
       <path className="diagram-led-cap" d="M-10 1q10 13 20 0v-3q-10-12-20 0z" />
       <text className="diagram-component-value" x="0" y="-23" textAnchor="middle">LED</text>
+    </g> : isDhtPart(part.type) ? <g aria-hidden="true">
+      <rect x="-33" y="-26" width="66" height="52" rx="7" fill={part.type === 'dht11' ? '#096997' : '#d2d9d7'} stroke="#2c484e"/>
+      {Array.from({length:12}, (_,i) => <rect key={i} x={-21 + (i % 4) * 12} y={-19 + Math.floor(i / 4) * 8} width="7" height="4" rx="1" fill="#1e3a45"/>)}
+      <text x="0" y="19" textAnchor="middle" fontSize="11" fill={part.type === 'dht11' ? '#fff' : '#1e3a45'}>{part.type === 'dht11' ? 'DHT11' : 'DHT22'}</text>
+    </g> : part.type === 'keypad-4x4' ? <g aria-hidden="true">
+      <rect x="-43" y="-30" width="86" height="60" rx="6" fill="#263841"/>
+      {keypadKeys.map((key, index) => <g key={key} transform={`translate(${-32 + index % 4 * 16},${-22 + Math.floor(index / 4) * 12})`}><rect width="13" height="9" rx="2" fill="#f6eee0"/><text x="6.5" y="7" fill="#1e3a45" textAnchor="middle" fontSize="7">{key}</text></g>)}
+    </g> : part.type === 'seven-segment' || part.type === 'seven-segment-anode' ? <g aria-hidden="true">
+      <rect x="-24" y="-25" width="48" height="50" rx="4" fill="#23323a"/>
+      <path d="M-10 -16H7M9 -13V-3M9 3V13M-10 16H7M-12 3V13M-12 -13V-3M-10 0H7" fill="none" stroke="#e9867f" strokeWidth="3" strokeLinecap="round" opacity=".73"/>
+      <circle cx="16" cy="16" r="2" fill="#e9867f"/>
     </g> : <g>
       <rect className="diagram-generic-body" x={-part.width / 2} y={-part.height / 2} width={part.width} height={part.height} rx="5" />
       <text className="diagram-component-value" x="0" y="4" textAnchor="middle">{part.label}</text>

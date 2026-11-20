@@ -1,3 +1,5 @@
+import { getKitPartProfile, kitPartProfiles } from './kitPartProfiles'
+
 export type ElectricalType = 'input' | 'output' | 'power' | 'ground' | 'passive'
 export type ComponentPin = { id: string; label: string; electricalType: ElectricalType; polarity?: 'positive' | 'negative' }
 export type ResistanceNominal = { value: number; unit: 'ohm' }
@@ -91,8 +93,21 @@ const shapeById: Record<string, { shape3d: string; dimensionsMm: [number, number
   tb6612: { shape3d: 'motor-driver', dimensionsMm: [25, 20, 5] }, 'h-bridge': { shape3d: 'motor-driver-large', dimensionsMm: [43, 43, 15] }, 'dc-motor': { shape3d: 'dc-motor', dimensionsMm: [22, 22, 28] },
 }
 
-export const componentRegistry: ComponentDefinition[] = baseComponentRegistry.map((part): ComponentDefinition => ({
+const additionalKitParts: Omit<ComponentDefinition, 'visual'>[] = (['dht11', 'dht22-bare', 'keypad-4x4', 'seven-segment-anode'] as const).map(id => {
+  const profile = kitPartProfiles[id]
+  return {
+    id, catalogId: id, label: profile.title, category: id === 'keypad-4x4' ? 'Điều khiển' : id === 'seven-segment-anode' ? 'Hiển thị' : 'Cảm biến',
+    emoji: id === 'keypad-4x4' ? '▦' : id === 'seven-segment-anode' ? '▥' : '♨',
+    pins: profile.pins.map(entry => pin(entry.id, `${entry.name} (${entry.physicalPin})`, entry.role)),
+    explanation: profile.model,
+    safetyNotes: profile.example,
+    simulation: id === 'dht11' || id === 'dht22-bare' ? 'visual-only' : 'supported', sourceRefs: [profile.url],
+  }
+})
+
+export const componentRegistry: ComponentDefinition[] = [...baseComponentRegistry, ...additionalKitParts].map((part): ComponentDefinition => ({
   ...part,
+  sourceRefs: [...new Set([...part.sourceRefs, ...[getKitPartProfile(part.id)?.url].filter((url): url is string => Boolean(url))])],
   visual: { ...(shapeById[part.id] ?? { shape3d: 'small-component', dimensionsMm: [8, 6, 4] as [number, number, number] }), modelStatus: 'parametric-illustration' },
 }))
 

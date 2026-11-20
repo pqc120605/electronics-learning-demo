@@ -1,4 +1,5 @@
 import { componentRegistry } from './componentRegistry'
+import { getKitPartProfile } from './kitPartProfiles'
 import manifest from './component-models.manifest.json'
 
 export type ComponentMeshKind = 'source-cad-mesh' | 'kicad-assembly' | 'parametric-mesh'
@@ -45,5 +46,8 @@ export function getComponentMeshForCatalog(catalogId: string): ComponentMesh | u
 }
 
 export function getComponentRepresentations(id: string): ComponentRepresentations {
-  return { schematicSymbol: specificSymbols.has(id) ? 'specific' : 'generic', illustration2d: true, cssBlock3d: componentRegistry.some((part) => part.id === id), mesh: meshes.get(id) }
+  const kit = getKitPartProfile(id)
+  const mesh = meshes.get(id)
+  return { schematicSymbol: specificSymbols.has(id) || kit ? 'specific' : 'generic', illustration2d: true,
+    cssBlock3d: componentRegistry.some((part) => part.id === id) && (!kit || Boolean(mesh)), mesh }
 }

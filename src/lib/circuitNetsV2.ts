@@ -140,6 +140,7 @@ export function createNetIndexV2(doc: CircuitDocV2, registry: readonly CircuitRe
       .map(pin => `${part.id}:${pin.id}`)
     for (const key of grounds.slice(1)) union(grounds[0], key)
   }
+  for (const part of parts) if (part.type === 'seven-segment-anode') union(`${part.id}:com1`, `${part.id}:com2`)
 
   const netByRoot = new Map<string, CircuitNetV2>()
   const netByKey = new Map<string, CircuitNetV2>()

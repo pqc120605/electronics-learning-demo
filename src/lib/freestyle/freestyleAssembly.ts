@@ -4,6 +4,7 @@ import { holeToMm, parseHole } from '../breadboardGrid'
 import type { CircuitDocV2, CircuitEndpointV2 } from '../circuitDocV2'
 import type { PinMap } from './freestyleCircuit'
 import { getComponentMesh } from '../../data/componentModels'
+import { getKitPartProfile } from '../../data/kitPartProfiles'
 import { freestyleModelBounds, freestylePinAnchor, freestylePresentation } from './freestylePresentation'
 
 /** Reuse canonical part/hole geometry, replace lesson aliases with the user's actual mapped board pads. */
@@ -43,5 +44,6 @@ export function freestyleAssembly(doc: CircuitDocV2, boardId: string, pinMap: Pi
     return {kind:'pin',evidence:placement?.kind==='board-cad'||placement?.kind==='component-cad'?'cad':'parametric',sourceKey:`${endpoint.partId}:${endpoint.pinId}`}
   }
   for(const wire of doc.wires){const a=resolve(wire.from),b=resolve(wire.to);if(a&&b){wireEnds[wire.id]=[a,b];wireEvidence[wire.id]={from:evidence(wire.from),to:evidence(wire.to)}}else diagnostics.push({code:'UNRESOLVED_ENDPOINT',wireId:wire.id,message:`${wire.id}: chưa có tọa độ chân đúng board/pinMap; không vẽ đầu dây đoán.`})}
-  return {...plan,pinPoints,wireEnds,wireEvidence,diagnostics}
+  const placements = plan.placements.filter(part => !getKitPartProfile(part.type) || Boolean(getComponentMesh(part.type)))
+  return {...plan,placements,pinPoints,wireEnds,wireEvidence,diagnostics}
 }

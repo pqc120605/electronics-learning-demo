@@ -1,4 +1,5 @@
 import { componentRegistry } from '../../data/componentRegistry'
+import { keypadContact } from '../../data/kitPartProfiles'
 import { createNetIndexV2 } from '../circuitNetsV2'
 import { canMount, footprintHoles, occupancy, resolvePartGeometry } from '../mountResolve'
 import { formatHole, holeNet, type GridHole } from '../breadboardGrid'
@@ -412,6 +413,12 @@ export function evaluateFreestyleCircuit(doc: CircuitDocV2, pinMap: PinMap, pinS
       case 'resistor': case 'ldr': case 'thermistor': edges.push({ a: n('a'), b: n('b'), strong: false }); break
       case 'potentiometer': edges.push({ a: n('vcc'), b: n('wiper'), strong: false }, { a: n('wiper'), b: n('gnd'), strong: false }); break
       case 'button': if (on(part.id)) edges.push({ a: n('contactA'), b: n('contactB'), strong: true }); break
+      case 'keypad-4x4': {
+        const key = controls[part.id]
+        const contact = typeof key === 'number' ? keypadContact(key) : null
+        if (contact) edges.push({ a: n(contact.row), b: n(contact.column), strong: true })
+        break
+      }
       case 'limit-switch': edges.push({ a: n('com'), b: n(on(part.id) ? 'no' : 'nc'), strong: true }); break
       case 'slide-switch': edges.push({ a: n('common'), b: n(on(part.id) ? 'a' : 'b'), strong: true }); break
       case 'battery': sources.push({ net: n('positive'), high: true, rail: 'vcc' }, { net: n('negative'), high: false, rail: 'gnd' }); break
@@ -467,9 +474,10 @@ export function evaluateFreestyleCircuit(doc: CircuitDocV2, pinMap: PinMap, pinS
       // Xung servo 50 Hz: 1–2 ms trên chu kỳ 20 ms ⇒ duty 5–10 %.
       const angle = signal.pwm !== undefined && signal.pwm >= 0.02 && signal.pwm <= 0.13 ? Math.round(Math.min(180, Math.max(0, (signal.pwm * 20 - 1) * 180))) : undefined
       outputs.push({ partId: part.id, kind: 'servo', ...(angle === undefined ? {} : { angle }) })
-    } else if (part.type === 'seven-segment') {
-      const common = [level(n('com1')), level(n('com2'))].some(item => item.level === 'low')
-      outputs.push({ partId: part.id, kind: 'segments', lit: common ? ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'dp'].filter(seg => level(n(seg)).level === 'high') : [] })
+    } else if (part.type === 'seven-segment' || part.type === 'seven-segment-anode') {
+      const anode = part.type === 'seven-segment-anode'
+      const common = [level(n('com1')), level(n('com2'))].some(item => item.level === (anode ? 'high' : 'low'))
+      outputs.push({ partId: part.id, kind: 'segments', lit: common ? ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'dp'].filter(seg => level(n(seg)).level === (anode ? 'low' : 'high')) : [] })
     } else if (['ultrasonic', 'oled', 'tb6612', 'h-bridge'].includes(part.type)) {
       warnings.push(`${part.id}: ${componentRegistry.find(item => item.id === part.type)?.label ?? part.type} chưa được mô phỏng trên bàn tự do; chỉ hiển thị dây nối.`)
     }

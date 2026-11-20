@@ -1,3 +1,5 @@
+import { getKitPartProfile } from './kitPartProfiles'
+
 export type ComponentReference = {
   label: string
   url: string
@@ -136,7 +138,10 @@ export const componentReferences: Record<string, ComponentReference[]> = {
 }
 
 export function getComponentReferences(componentId: string): ComponentReference[] {
-  return componentReferences[componentId] ?? []
+  const profile = getKitPartProfile(componentId)
+  if (componentReferences[componentId]) return componentReferences[componentId]
+  return profile ? [{ label: `${profile.model} · ${profile.revision}`, url: profile.url,
+    kind: componentId === 'keypad-4x4' ? 'Hướng dẫn tham khảo' : 'Datasheet chip', note: profile.example }] : []
 }
 
 export type ComponentSourceLevel = 'exact' | 'chip' | 'general'

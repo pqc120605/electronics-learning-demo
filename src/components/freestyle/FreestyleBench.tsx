@@ -33,6 +33,7 @@ import { CircuitSchematicV2 } from '../builder/CircuitSchematicV2'
 import { pushWireHistory, readWireLayout, type WireBend, type WireHistoryEntry } from '../../lib/freestyle/freestyleWireLayout'
 import { encodeFreestyleShare } from '../../lib/freestyle/freestyleShare'
 import { parseFreestyleProject, projectFileLimit } from '../../lib/freestyle/freestyleTransfer'
+import { KitPartExample } from './KitPartExample'
 const FreestyleAssemblyView = lazy(() => import('./FreestyleAssemblyView').then(m=>({default:m.FreestyleAssemblyView})))
 
 /**
@@ -551,6 +552,14 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
           {selectedPart && selectedPart.type !== 'board' && <div className="freestyle-selected" ref={selectedPartRef} tabIndex={-1} aria-label={`Linh kiện đang chọn ${selectedPart.id}`}>
             <h3>{selectedDefinition?.label ?? selectedPart.type} <code>{selectedPart.id}</code></h3>
             <p>{selectedDefinition?.safetyNotes}</p>
+            <KitPartExample key={selectedPart.id} type={selectedPart.type}
+              keypadIndex={typeof controls[selectedPart.id] === 'number' ? Number(controls[selectedPart.id]) : undefined}
+              onKeypad={index => setControls(current => {
+                const next = { ...current }
+                if (index === undefined) delete next[selectedPart.id]
+                else next[selectedPart.id] = index
+                return next
+              })} />
             <div className="freestyle-selected-actions">
               {selectedPart.mount.kind === 'breadboard' && <button type="button" aria-pressed={moving} onClick={() => { setMoving(!moving); setNotice(moving ? '' : `Chọn một lỗ breadboard để chuyển ${selectedPart.id} tới đó.`) }}>Di chuyển</button>}
               {selectedPart.mount.kind === 'breadboard' && <button type="button" onClick={() => { const result = rotatePart(doc, selectedPart.id); if (result.error) setNotice(result.error); else updateDoc(result.doc) }}>Xoay 180°</button>}

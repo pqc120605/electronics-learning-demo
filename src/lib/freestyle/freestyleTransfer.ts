@@ -1,6 +1,7 @@
 import { getComponentDefinition } from '../../data/componentRegistry'
 import { getComponentReferences } from '../../data/componentReferences'
 import { getComponentMesh } from '../../data/componentModels'
+import { getKitPartProfile } from '../../data/kitPartProfiles'
 import { getFreestyleBoard, parseFreestyleWorkspace, type FreestyleWorkspace } from './freestyleCircuit'
 import { archiveFreestyle, type SavedFreestyleDraft } from './freestyleDrafts'
 
@@ -61,7 +62,7 @@ export function freestyleBomCsv({ boardId, doc }: FreestyleWorkspace): string {
       : part.value?.farad !== undefined ? `${part.value.farad} F`
       : part.value?.label ?? (board ? board.name : definition?.label ?? part.type)
     const sources = getComponentReferences(definition?.catalogId ?? part.type)
-    const source = sources.find(item => item.kind === 'Datasheet chip')?.url ?? ''
+    const source = getKitPartProfile(part.type)?.url ?? sources.find(item => item.kind === 'Datasheet chip')?.url ?? ''
     const key = JSON.stringify([part.type, value, source])
     const footprint = getComponentMesh(part.type)?.footprint
     const group = groups.get(key) ?? { ids: [], value, footprint: footprint ? `${footprint} (tham chiếu)` : 'Chưa xác minh', source }
