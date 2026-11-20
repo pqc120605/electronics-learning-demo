@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent } from 'react'
+import { lazy, Suspense, useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent, type KeyboardEvent } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { BreadboardEditor } from '../builder/BreadboardEditor'
 import { getFreestyleBoardId, getFreestylePartId } from '../../lib/catalogPracticeLinks'
@@ -37,6 +37,7 @@ import { KitPartExample } from './KitPartExample'
 import { isEsp32Target } from '../../lib/esp32Firmware'
 import { findFreestyleSample, sampleLanguage } from '../../lib/freestyle/freestyleSampleLibrary'
 import { keypadKeys } from '../../data/kitPartProfiles'
+import { editParts, emptyCircuitHistory, recordCircuitEdit, takeCircuitHistory } from '../../lib/freestyle/freestyleEditHistory'
 const FreestyleAssemblyView = lazy(() => import('./FreestyleAssemblyView').then(m=>({default:m.FreestyleAssemblyView})))
 const Esp32UsbDialog = lazy(() => import('./Esp32UsbDialog').then(m => ({default:m.Esp32UsbDialog})))
 
@@ -69,6 +70,9 @@ type BenchProps = {
 
 export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = false, storageKey = FREESTYLE_STORAGE_KEY, onCopy }: BenchProps) {
   const [usbOpen, setUsbOpen] = useState(false)
+  const [editorHistory, setEditorHistory] = useState(emptyCircuitHistory)
+  const [selection, setSelection] = useState<string[]>([])
+  const [shortcutHelp, setShortcutHelp] = useState(false)
   const [draft] = useState(() => readOnly ? null : loadDraft(storageKey))
   const [workspace, setWorkspace] = useState<FreestyleWorkspace>(() => initialWorkspace ?? (variant==='full' && typeof window!=='undefined' && new URLSearchParams(window.location.search).get('resume')==='1' && draft?.workspace ? draft.workspace : blankFreestyleWorkspace()))
   const dedicatedDraft = storageKey !== FREESTYLE_STORAGE_KEY && Boolean(draft?.workspace)
@@ -177,9 +181,16 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     }
   }, [evaluation.inputs, running])
 
-  function update(patch: Partial<FreestyleWorkspace>, options: { wireAction?: boolean; renderOnly?: boolean } = {}) {
+  function update(patch: Partial<FreestyleWorkspace>, options: { wireAction?: boolean; renderOnly?: boolean; historyReplay?: boolean } = {}) {
     if (readOnly) return
     draftImportRequest.current++
+    if (!options.historyReplay) {
+      if (patch.boardId!==undefined || patch.code!==undefined || patch.language!==undefined) {
+        setEditorHistory(emptyCircuitHistory())
+        setSelection([])
+      }
+      else if ((patch.doc && patch.doc!==doc) || Object.hasOwn(patch,'wireLayout')) setEditorHistory(previous => recordCircuitEdit(previous,workspace))
+    }
     if (!options.wireAction && (patch.doc || patch.boardId !== undefined)) setWireHistory([])
     if (!options.renderOnly) {
       traceCapture.current++
@@ -201,6 +212,60 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       updatedAt:new Date().toISOString()}))
   }
   const updateDoc = (next: CircuitDocV2) => update({ doc: next })
+
+  function selectParts(ids: string[]) {
+    setSelection(ids)
+    setSelectedPartId(ids.at(-1) ?? null)
+    setSelectedWireId(null)
+  }
+
+  function choosePart(id: string, extend = false) {
+    if (!extend) { selectParts([id]); return }
+    const current = selection.length ? selection : selectedPartId ? [selectedPartId] : []
+    selectParts(current.includes(id) ? current.filter(item=>item!==id) : [...current,id])
+  }
+
+  function replayCircuit(direction: 'undo' | 'redo') {
+    const result = takeCircuitHistory(editorHistory,workspace,direction)
+    if (!result) return
+    setEditorHistory(result.history)
+    selectParts([])
+    setSelectedWireId(null);setPendingEndpoint(null);setWireHistory([])
+    update(result.entry,{historyReplay:true,renderOnly:result.entry.doc===doc})
+    setNotice(direction==='undo'?'Đã hoàn tác thay đổi mạch.':'Đã làm lại thay đổi mạch.')
+  }
+
+  function changeSelected(action: Parameters<typeof editParts>[2]) {
+    const ids = selection.length ? selection : selectedPartId ? [selectedPartId] : []
+    const result = editParts(doc,ids,action)
+    if (result.error) { setNotice(result.error); return }
+    if (result.doc===doc) return
+    updateDoc(result.doc)
+    selectParts(result.ids)
+  }
+
+  function benchKeyDown(event: KeyboardEvent<HTMLElement>) {
+    if (event.defaultPrevented || (event.target instanceof Element && event.target.closest('dialog[open]'))) return
+    if (expanded && event.key==='Escape') { event.preventDefault();setExpanded(false);expandButton.current?.focus();return }
+    if (expanded && event.key==='Tab') {
+      const items=[...event.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled),a,input,select,textarea,[tabindex="0"]')].filter(el=>el.getClientRects().length>0)
+      const first=items[0],last=items.at(-1)
+      if(event.shiftKey&&(document.activeElement===first||document.activeElement===event.currentTarget)){event.preventDefault();last?.focus()}
+      else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus()}
+    }
+    if (readOnly || event.altKey || (event.target instanceof Element && event.target.closest('input,textarea,select,[contenteditable="true"]'))) return
+    const key=event.key.toLowerCase(), mod=event.ctrlKey||event.metaKey
+    if (mod && key==='z') { event.preventDefault();replayCircuit(event.shiftKey?'redo':'undo');return }
+    if (mod && key==='d' && selectedPartId) { event.preventDefault();changeSelected('duplicate');return }
+    if (mod) return
+    if (key==='?') { event.preventDefault();setShortcutHelp(previous=>!previous);return }
+    if (key==='delete' && selectedWireId) { event.preventDefault();updateWireDoc(removeWire(doc,selectedWireId).doc);setSelectedWireId(null);return }
+    if (!selectedPartId) return
+    if (key==='delete'||key==='r') { event.preventDefault();changeSelected(key==='delete'?'remove':'rotate');return }
+    const directions: Record<string,{column:number;row:number}> = {arrowleft:{column:-1,row:0},arrowright:{column:1,row:0},arrowup:{column:0,row:-1},arrowdown:{column:0,row:1}}
+    const direction = directions[key]
+    if (direction) { event.preventDefault();changeSelected(direction) }
+  }
 
   async function createShare() {
     setShareUrl('')
@@ -466,7 +531,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   const serialPlotVisible = panelOpen && step === 'observe' && serialPlotOpen
   const showTracePopout = tracePopout && view !== 'wave' && trace.length > 0 && !serialPlotVisible
 
-  return <section className={`freestyle-bench freestyle-${variant}${expanded?' is-expanded':''}${panelOpen?'':' panel-closed'}${draft&&!started?' has-draft':''}`} ref={rootRef} tabIndex={-1} role={expanded?'dialog':undefined} aria-modal={expanded?true:undefined} onKeyDown={event=>{if(!expanded||(event.target instanceof Element&&event.target.closest('dialog[open]')))return;if(event.key==='Escape'){event.preventDefault();setExpanded(false);expandButton.current?.focus()}if(event.key==='Tab'){const items=[...event.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled),a,input,select,textarea,[tabindex="0"]')].filter(el=>el.getClientRects().length>0);const first=items[0],last=items.at(-1);if(event.shiftKey&&(document.activeElement===first||document.activeElement===event.currentTarget)){event.preventDefault();last?.focus()}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus()}}}} data-view={view} data-step={step} aria-labelledby="freestyle-title">
+  return <section className={`freestyle-bench freestyle-${variant}${expanded?' is-expanded':''}${panelOpen?'':' panel-closed'}${draft&&!started?' has-draft':''}`} ref={rootRef} tabIndex={-1} role={expanded?'dialog':undefined} aria-modal={expanded?true:undefined} onKeyDown={benchKeyDown} data-view={view} data-step={step} aria-labelledby="freestyle-title">
     <GuideContextBridge snapshot={{owner:"freestyle",priority:70,lesson:workspace.sampleId?freestyleSamples.find(item=>item.id===workspace.sampleId)?.title??"Mạch tự do":"Mạch tự do",board:boardId?{id:boardId,name:board.name}:undefined,part:selectedPart&&selectedDefinition?{id:selectedPart.id,type:selectedPart.type,name:selectedPart.type==="resistor"?"Điện trở":selectedDefinition.label,summary:selectedDefinition.explanation,pins:selectedDefinition.pins.map(pin=>pin.label),note:selectedDefinition.safetyNotes}:undefined,status:running?"Runtime đang chạy":status||"Chưa chạy",issues:[...(error?[error.message]:[]),...evaluation.warnings].slice(0,3)}} />
     <header className="freestyle-head">
       <div className="freestyle-title">
@@ -530,7 +595,12 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       {!readOnly && <div className="freestyle-wire-actions" aria-label="Bản nháp và thao tác dây" role="group">
         <label className="freestyle-button freestyle-import-draft">Nhập bản nháp<input type="file" accept=".json,application/json" aria-label="Nhập bản nháp từ file" onChange={importDraft} /></label>
         <button type="button" className="freestyle-button" disabled={!wireHistory.length} onClick={undoWire}>Hoàn tác dây</button>
+        <button type="button" className="freestyle-button" disabled={!editorHistory.past.length} onClick={()=>replayCircuit('undo')}>Hoàn tác mạch</button>
+        <button type="button" className="freestyle-button" disabled={!editorHistory.future.length} onClick={()=>replayCircuit('redo')}>Làm lại mạch</button>
+        <button type="button" className="freestyle-button" aria-expanded={shortcutHelp} onClick={()=>setShortcutHelp(!shortcutHelp)}>Phím tắt</button>
+        {selectedPart && selectedPart.type!=='board' && <button type="button" className="freestyle-button" onClick={()=>changeSelected('duplicate')}>Nhân bản linh kiện đang chọn</button>}
       </div>}
+      {shortcutHelp && <p className="freestyle-note" role="note">Shift + chọn hoặc Shift + kéo vùng để chọn nhiều. Ctrl/Cmd + Z hoàn tác, thêm Shift để làm lại. Ctrl/Cmd + D nhân bản linh kiện. Delete xóa; R xoay 180°; mũi tên di chuyển một lỗ; ? mở bảng này.</p>}
     </div>
     <div className="freestyle-layout">
       <div id="freestyle-step-panel" role="tabpanel" aria-labelledby={`freestyle-step-${step}`} className="freestyle-panel" hidden={step==='observe'}>
@@ -617,9 +687,11 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
           onWireBendChange={changeWireBend}
           selectedWireId={selectedWireId}
           selectedPartId={selectedPartId}
+          selectedPartIds={new Set(selection)}
+          onSelectParts={readOnly ? undefined : selectParts}
           pendingEndpoint={pendingEndpoint}
           onSelectEndpoint={selectEndpoint}
-          onSelectPart={id => setSelectedPartId(id)}
+          onSelectPart={(id,extend) => choosePart(id,!readOnly&&extend)}
           onSelectWire={setSelectedWireId}
           onCommitWire={(from, to, role) => {
             const wire = addFreestyleWire(doc, from, to, role).wires.at(-1)!

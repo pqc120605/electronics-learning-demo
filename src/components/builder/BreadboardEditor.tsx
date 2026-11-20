@@ -20,11 +20,13 @@ type Props = {
   compact?: boolean
   selectedWireId: string | null
   selectedPartId?: string | null
+  selectedPartIds?: ReadonlySet<string>
   selectedEndpointKey?: string | null
   highlightedNetKey?: string | null
   pendingEndpoint: CircuitEndpointV2 | null
   onSelectEndpoint: (endpoint: CircuitEndpointV2) => void
-  onSelectPart?: (partId: string) => void
+  onSelectPart?: (partId: string, extend?: boolean) => void
+  onSelectParts?: (partIds: string[]) => void
   onSelectWire: (id: string) => void
   onCommitWire: (from: CircuitEndpointV2, to: CircuitEndpointV2, role: WireRole) => void | boolean
   onEditWireEndpoint: (id: string, end: WireEnd, endpoint: CircuitEndpointV2) => void | boolean
@@ -263,11 +265,11 @@ export function BreadboardEditor(props: Props) {
     <div className="breadboard-workspace" onKeyDown={event => {
       if (event.key === 'Escape' && inspectedPart) { event.stopPropagation(); closeInspector() }
     }}>
-      <BreadboardDiagram wireLayout={props.wireLayout} onWireBendChange={readOnly ? undefined : props.onWireBendChange} doc={doc} presentation={props.presentation} selectedWireId={selectedWireId} selectedPartId={selectedPartId} selectedEndpointId={lessonWiring?.selectedEndpointId ?? (pendingEndpoint ? endpointId(pendingEndpoint) : clickStart ? endpointId(clickStart) : selectedEndpointKey)} focusedHoleId={focusedDiagramHoleId} showHeading={Boolean(lessonWiring)} onFocusHole={setFocusedDiagramHoleId} activeWireIds={activeWireIds} traceLevel={traceLevel} litPartIds={litPartIds} wireSignals={wireSignals} highlightedWireIds={highlightedNetWireIds} onChooseEndpoint={choose} onActivateEndpoint={activateEndpoint} onStartEndpointDrag={startDrag} onMoveEndpointDrag={moveDrag} onFinishEndpointDrag={finishDrag} onCancelEndpointDrag={clearDrag} onSelectWire={id => { setInspectedPartId(null); onSelectWire(id) }} adjustWirePath={!readOnly && !editingEnd && !connecting && !lessonEdit} onSelectPart={partId => {
+      <BreadboardDiagram wireLayout={props.wireLayout} onWireBendChange={readOnly ? undefined : props.onWireBendChange} doc={doc} presentation={props.presentation} selectedWireId={selectedWireId} selectedPartId={selectedPartId} selectedPartIds={props.selectedPartIds} onSelectParts={props.onSelectParts ? ids=>{setInspectedPartId(null);props.onSelectParts?.(ids)} : undefined} selectedEndpointId={lessonWiring?.selectedEndpointId ?? (pendingEndpoint ? endpointId(pendingEndpoint) : clickStart ? endpointId(clickStart) : selectedEndpointKey)} focusedHoleId={focusedDiagramHoleId} showHeading={Boolean(lessonWiring)} onFocusHole={setFocusedDiagramHoleId} activeWireIds={activeWireIds} traceLevel={traceLevel} litPartIds={litPartIds} wireSignals={wireSignals} highlightedWireIds={highlightedNetWireIds} onChooseEndpoint={choose} onActivateEndpoint={activateEndpoint} onStartEndpointDrag={startDrag} onMoveEndpointDrag={moveDrag} onFinishEndpointDrag={finishDrag} onCancelEndpointDrag={clearDrag} onSelectWire={id => { setInspectedPartId(null); onSelectWire(id) }} adjustWirePath={!readOnly && !editingEnd && !connecting && !lessonEdit} onSelectPart={(partId,extend) => {
         const active = document.activeElement
         inspectorTrigger.current = active instanceof HTMLElement || active instanceof SVGElement ? active : null
-        onSelectPart?.(partId)
-        setInspectedPartId(partId)
+        onSelectPart?.(partId,extend)
+        setInspectedPartId(extend ? null : partId)
       }} />
       {inspectedPart && <CircuitPartInspector key={inspectedPart.id} part={inspectedPart} presentation={props.presentation} onClose={closeInspector}
         onSave={!readOnly && props.onChangePartValue ? value => props.onChangePartValue?.(inspectedPart.id, value) : undefined} />}
