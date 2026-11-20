@@ -49,6 +49,7 @@ self.addEventListener('fetch', (event) => {
 
   const bundledAsset = url.pathname.startsWith('/assets/') && /\.(?:js|css|wasm)$/.test(url.pathname)
   const boardModel = /^\/models\/[a-z0-9-]+\.glb$/i.test(url.pathname)
+    || (/^\/models\/optimized\/[a-z0-9-]+\.meshopt\.glb$/.test(url.pathname) && /^[0-9a-f]{12}$/.test(url.searchParams.get('v') ?? ''))
   const spiceEngine = url.pathname === '/vendor/eecircuit-engine/spice.wasm'
   // Cache complete immutable app assets and published simulation assets after use.
   if ((bundledAsset || boardModel || spiceEngine) && !request.headers.has('range')) {

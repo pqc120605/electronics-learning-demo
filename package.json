@@ -16,7 +16,7 @@
     "audit:board-models": "node scripts/audit-board-models.mjs",
     "audit:board-model-geometry": "node scripts/audit-step-board-body-geometry.mjs",
     "check:public-release": "node scripts/check-public-release-gates.mjs",
-    "build:public": "npm run build",
+    "build:public": "npm run build && node scripts/record-web-release.mjs",
     "preview": "vite preview",
     "typecheck": "node --max-old-space-size=4096 node_modules/typescript/bin/tsc -p tsconfig.app.json --noEmit",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs",
