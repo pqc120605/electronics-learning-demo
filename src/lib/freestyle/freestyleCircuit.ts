@@ -7,6 +7,8 @@ import { sketchBoards } from '../sketchInterpreter'
 import { validateCircuitDoc, type CircuitDocV2, type CircuitEndpointV2, type CircuitPartV2 } from '../circuitDocV2'
 import type { LivePinState } from '../avrLiveMachine'
 import { readWireLayout, type FreestyleWireLayout } from './freestyleWireLayout'
+import { freestyleSamples, sampleLanguage, type FreestyleSampleId } from './freestyleSampleLibrary'
+export { freestyleSamples, type FreestyleSampleId } from './freestyleSampleLibrary'
 
 /**
  * Bàn lắp mạch tự do (2026-11-14): board tự chọn, linh kiện tự đặt, dây tự nối, code tự viết.
@@ -235,27 +237,34 @@ function place(doc: CircuitDocV2, type: string, col: number, row: number): { doc
 
 // ---------------- Mạch mẫu ----------------
 
-export type FreestyleSampleId = 'blink' | 'button-led' | 'pot-dimmer' | 'motor'
-export type FreestyleSample = { id: FreestyleSampleId; title: string; summary: string }
-export const freestyleSamples: readonly FreestyleSample[] = [
-  { id: 'blink', title: 'Nháy LED', summary: 'LED + điện trở 220 Ω nối chân GPIO LED, nháy mỗi 0,5 s.' },
-  { id: 'button-led', title: 'Nút nhấn bật LED', summary: 'Nút nối GPIO IN xuống GND (INPUT_PULLUP); giữ nút thì LED sáng.' },
-  { id: 'pot-dimmer', title: 'Biến trở chỉnh độ sáng', summary: 'Biến trở đưa điện áp vào chân analog; LED đổi độ sáng bằng PWM.' },
-  { id: 'motor', title: 'Động cơ DC qua transistor', summary: 'GPIO → điện trở → transistor NPN đóng/ngắt động cơ, chạy 2 s, nghỉ 1 s.' },
-]
-
 export function buildSampleCircuit(sampleId: FreestyleSampleId, boardId: string): { doc: CircuitDocV2; pinMap: PinMap } {
   const board = getFreestyleBoard(boardId)
   const pinMap: PinMap = { ...board.defaultPins }
-  if (sampleId === 'pot-dimmer') Object.assign(pinMap, analogDimmerPins(boardId))
+  if (sampleId === 'pot-dimmer' || sampleId === 'night-light') Object.assign(pinMap, analogDimmerPins(boardId))
   let doc = createEmptyFreestyleDoc()
   doc = link(doc, { part: 'board', pin: 'gnd' }, { rail: 'B-' }, 'ground')
-  const led = (resistorCol: number, ledCol: number) => {
-    const r = place(doc, 'resistor', resistorCol, 2); doc = r.doc
-    const l = place(doc, 'led', ledCol, 2); doc = l.doc
-    doc = link(doc, { part: 'board', pin: 'ledOut' }, { part: r.id, pin: 'a' })
-    doc = link(doc, { part: r.id, pin: 'b' }, { part: l.id, pin: 'anode' })
-    doc = link(doc, { part: l.id, pin: 'cathode' }, { rail: 'B-' }, 'ground')
+  const connect = (from: Spec, to: Spec, role?: 'power' | 'ground' | 'signal') => { doc = link(doc, from, to, role) }
+  const at = (type: string, col: number, row = 2) => {
+    const result = place(doc, type, col, row)
+    doc = result.doc
+    return result.id
+  }
+  const bench = (type: string) => {
+    const result = placePart(doc, type)
+    if (!result.partId) throw new Error(`Không đặt được ${type} trong mạch mẫu.`)
+    doc = result.doc
+    return result.partId
+  }
+  const resistor = (col: number, row: number, ohm: number) => {
+    const id = at('resistor', col, row)
+    doc = { ...doc, parts: doc.parts.map(part => part.id === id ? { ...part, value: { ohm } } : part) }
+    return id
+  }
+  const led = (resistorCol: number, ledCol: number, source: Spec = { part: 'board', pin: 'ledOut' }, row = 2) => {
+    const r = at('resistor', resistorCol, row), l = at('led', ledCol, row)
+    connect(source, { part: r, pin: 'a' })
+    connect({ part: r, pin: 'b' }, { part: l, pin: 'anode' })
+    connect({ part: l, pin: 'cathode' }, { rail: 'B-' }, 'ground')
   }
   if (sampleId === 'blink') led(4, 12)
   if (sampleId === 'button-led') {
@@ -289,6 +298,75 @@ export function buildSampleCircuit(sampleId: FreestyleSampleId, boardId: string)
     doc = link(doc, { part: supply.partId!, pin: 'negative' }, { rail: 'B-' }, 'ground')
     doc = link(doc, { part: flyback.id, pin: 'cathode' }, { part: m.partId!, pin: 'positive' }, 'power')
     doc = link(doc, { part: flyback.id, pin: 'anode' }, { part: m.partId!, pin: 'negative' })
+  }
+  if (sampleId === 'dual-led') {
+    led(4, 12)
+    led(19, 26, { part: 'board', pin: 'trig' }, 7)
+  }
+  if (sampleId === 'keypad-five') {
+    led(4, 12)
+    const keypad = bench('keypad-4x4')
+    connect({ rail: 'B-' }, { part: keypad, pin: 'r2' }, 'ground')
+    connect({ part: keypad, pin: 'c2' }, { part: 'board', pin: 'input' })
+  }
+  if (sampleId === 'night-light') {
+    led(4, 12)
+    const ldr = at('ldr', 19), pull = resistor(22, 7, 10_000)
+    connect({ part: 'board', pin: 'vcc' }, { part: ldr, pin: 'a' }, 'power')
+    connect({ part: ldr, pin: 'b' }, { part: pull, pin: 'a' })
+    connect({ part: pull, pin: 'a' }, { part: 'board', pin: 'input' })
+    connect({ part: pull, pin: 'b' }, { rail: 'B-' }, 'ground')
+  }
+  if (sampleId === 'dht-demo') {
+    const dht = bench('dht22-bare'), pull = resistor(9, 2, 4700)
+    connect({ part: 'board', pin: 'vcc' }, { rail: 'B+' }, 'power')
+    connect({ rail: 'B+' }, { part: dht, pin: 'vcc' }, 'power')
+    connect({ rail: 'B+' }, { part: pull, pin: 'a' }, 'power')
+    connect({ part: dht, pin: 'gnd' }, { rail: 'B-' }, 'ground')
+    connect({ part: dht, pin: 'data' }, { part: pull, pin: 'b' })
+    connect({ part: pull, pin: 'b' }, { part: 'board', pin: 'input' })
+  }
+  if (sampleId === 'ultrasonic') {
+    const sonar = at('ultrasonic', 7)
+    if (board.logic === '5 V') connect({ part: 'board', pin: 'vcc' }, { part: sonar, pin: 'vcc' }, 'power')
+    else {
+      const supply = bench('battery')
+      doc = { ...doc, parts: doc.parts.map(part => part.id === supply ? { ...part, value: { label: 'Nguồn 5 V lý tưởng' } } : part) }
+      connect({ part: supply, pin: 'negative' }, { rail: 'B-' }, 'ground')
+      connect({ part: supply, pin: 'positive' }, { part: sonar, pin: 'vcc' }, 'power')
+    }
+    connect({ rail: 'B-' }, { part: sonar, pin: 'gnd' }, 'ground')
+    connect({ part: 'board', pin: 'trig' }, { part: sonar, pin: 'trig' })
+    if (board.logic === '5 V') connect({ part: sonar, pin: 'echo' }, { part: 'board', pin: 'echo' })
+    else {
+      const top = resistor(16, 7, 2200), bottom = resistor(23, 7, 3300)
+      connect({ part: sonar, pin: 'echo' }, { part: top, pin: 'a' })
+      connect({ part: top, pin: 'b' }, { part: bottom, pin: 'a' })
+      connect({ part: bottom, pin: 'a' }, { part: 'board', pin: 'echo' })
+      connect({ part: bottom, pin: 'b' }, { rail: 'B-' }, 'ground')
+    }
+  }
+  if (sampleId === 'seg-display') {
+    const display = at('seven-segment', 12, 7)
+    connect({ part: display, pin: 'com1' }, { rail: 'B-' }, 'ground')
+    connect({ part: display, pin: 'com2' }, { rail: 'B-' }, 'ground')
+    for (const [i, segment] of ['a', 'b', 'c'].entries()) {
+      const r = resistor([3, 19, 25][i], 8, 330)
+      connect({ part: 'board', pin: `seg${i}` }, { part: r, pin: 'a' })
+      connect({ part: r, pin: 'b' }, { part: display, pin: segment })
+    }
+  }
+  if (sampleId === 'servo-pulse' || sampleId === 'relay-led') {
+    const supply = bench('battery')
+    const output = bench(sampleId === 'servo-pulse' ? 'servo' : 'relay')
+    connect({ part: supply, pin: 'negative' }, { rail: 'B-' }, 'ground')
+    connect({ part: output, pin: 'gnd' }, { rail: 'B-' }, 'ground')
+    connect({ part: supply, pin: 'positive' }, { part: output, pin: 'vcc' }, 'power')
+    connect({ part: 'board', pin: 'ledOut' }, { part: output, pin: sampleId === 'servo-pulse' ? 'signal' : 'in' })
+    if (sampleId === 'relay-led') {
+      connect({ part: supply, pin: 'positive' }, { part: output, pin: 'com' }, 'power')
+      led(4, 12, { part: output, pin: 'no' })
+    }
   }
   return { doc: withExpect(doc), pinMap }
 }
@@ -340,11 +418,20 @@ export function sampleCode(sampleId: FreestyleSampleId, boardId: string, languag
     }
   }
   const serial = boardId.startsWith('esp32') ? 115200 : 9600
+  const boardPin = (pin: SignalPin) => pinCodeName(boardId, pinMap[pin])
   switch (sampleId) {
     case 'blink': return `const int LED = ${out};   // chân GPIO LED trên bàn lắp mạch\n\nvoid setup() {\n  pinMode(LED, OUTPUT);\n  Serial.begin(${serial});\n  Serial.println("Bat dau nhay LED");\n}\n\nvoid loop() {\n  digitalWrite(LED, HIGH);\n  Serial.println("LED: BAT");\n  delay(500);\n  digitalWrite(LED, LOW);\n  Serial.println("LED: TAT");\n  delay(500);\n}\n`
     case 'button-led': return `const int LED = ${out};\nconst int NUT = ${input};   // nút nối xuống GND\nint truoc = HIGH;\n\nvoid setup() {\n  pinMode(LED, OUTPUT);\n  pinMode(NUT, INPUT_PULLUP);\n  Serial.begin(${serial});\n}\n\nvoid loop() {\n  int trangThai = digitalRead(NUT);\n  digitalWrite(LED, trangThai == LOW ? HIGH : LOW);\n  if (trangThai != truoc) {\n    Serial.println(trangThai == LOW ? "Nhan" : "Nha");\n    truoc = trangThai;\n  }\n  delay(20);\n}\n`
     case 'pot-dimmer': return `const int LED = ${out};      // chân có PWM\nconst int BIEN_TRO = ${input};\n\nvoid setup() {\n  pinMode(LED, OUTPUT);\n  Serial.begin(${serial});\n}\n\nvoid loop() {\n  int giaTri = analogRead(BIEN_TRO);          // 0..${adcMax}\n  analogWrite(LED, map(giaTri, 0, ${adcMax}, 0, 255));\n  Serial.print("ADC ");\n  Serial.println(giaTri);\n  delay(200);\n}\n`
     case 'motor': return `const int MOTOR = ${out};   // qua điện trở vào cực B của transistor\n\nvoid setup() {\n  pinMode(MOTOR, OUTPUT);\n  Serial.begin(${serial});\n}\n\nvoid loop() {\n  digitalWrite(MOTOR, HIGH);\n  Serial.println("Motor: CHAY");\n  delay(2000);\n  digitalWrite(MOTOR, LOW);\n  Serial.println("Motor: DUNG");\n  delay(1000);\n}\n`
+    case 'dual-led': return `const int A = ${out};\nconst int B = ${boardPin('trig')};\nvoid setup() { pinMode(A, OUTPUT); pinMode(B, OUTPUT); }\nvoid loop() {\n  digitalWrite(A, HIGH); digitalWrite(B, LOW); delay(300);\n  digitalWrite(A, LOW); digitalWrite(B, HIGH); delay(600);\n}\n`
+    case 'keypad-five': return `const int COL2 = ${input};\nconst int LED = ${out};\nvoid setup() { pinMode(COL2, INPUT_PULLUP); pinMode(LED, OUTPUT); }\nvoid loop() {\n  digitalWrite(LED, digitalRead(COL2) == LOW ? HIGH : LOW);\n  delay(20);\n}\n`
+    case 'night-light': return `const int LDR = ${input};\nconst int LED = ${out};\nvoid setup() { pinMode(LED, OUTPUT); Serial.begin(${serial}); }\nvoid loop() {\n  int sample = analogRead(LDR);\n  digitalWrite(LED, sample < ${Math.round(adcMax * 0.35)} ? HIGH : LOW);\n  Serial.println(sample);\n  delay(100);\n}\n`
+    case 'dht-demo': return `// Vi du doc cam bien that can Arduino DHT sensor library (Adafruit).\n#include <DHT.h>\nDHT sensor(${input}, DHT22);\nvoid setup() { Serial.begin(${serial}); sensor.begin(); }\nvoid loop() {\n  Serial.print(sensor.readTemperature());\n  Serial.print(" C, ");\n  Serial.print(sensor.readHumidity());\n  Serial.println(" %RH");\n  delay(2500);\n}\n`
+    case 'ultrasonic': return `const int TRIG = ${boardPin('trig')};\nconst int ECHO = ${boardPin('echo')};\nvoid setup() { pinMode(TRIG, OUTPUT); pinMode(ECHO, INPUT); Serial.begin(${serial}); }\nvoid loop() {\n  digitalWrite(TRIG, LOW); delayMicroseconds(2);\n  digitalWrite(TRIG, HIGH); delayMicroseconds(10); digitalWrite(TRIG, LOW);\n  unsigned long echo = pulseIn(ECHO, HIGH, 30000);\n  if (echo > 0) Serial.println(echo / 58.0);\n  delay(100);\n}\n`
+    case 'seg-display': return `const int A = ${boardPin('seg0')}, B = ${boardPin('seg1')}, C = ${boardPin('seg2')};\nvoid setup() {\n  pinMode(A, OUTPUT); pinMode(B, OUTPUT); pinMode(C, OUTPUT);\n  digitalWrite(A, HIGH); digitalWrite(B, HIGH); digitalWrite(C, HIGH);\n}\nvoid loop() { delay(1000); }\n`
+    case 'servo-pulse': return `const int SERVO = ${out};\nvoid setup() { pinMode(SERVO, OUTPUT); }\nvoid loop() {\n  digitalWrite(SERVO, HIGH); delayMicroseconds(1500);\n  digitalWrite(SERVO, LOW); delayMicroseconds(18500);\n}\n`
+    case 'relay-led': return `const int RELAY = ${out};\nvoid setup() { pinMode(RELAY, OUTPUT); }\nvoid loop() {\n  digitalWrite(RELAY, HIGH); delay(1200);\n  digitalWrite(RELAY, LOW); delay(800);\n}\n`
   }
 }
 
@@ -373,11 +460,12 @@ type Edge = { a: string; b: string; strong: boolean }
 type Source = { net: string; high: boolean; pwm?: number; rail?: 'vcc' | 'gnd' }
 
 /** Linh kiện cảm biến/điều khiển cần thanh trượt hoặc nút trên bàn. */
-export type ControlSpec = { partId: string; kind: 'press' | 'toggle' | 'slider'; label: string }
+export type ControlSpec = { partId: string; kind: 'press' | 'toggle' | 'slider' | 'keypad'; label: string }
 export function controlsFor(doc: CircuitDocV2): ControlSpec[] {
   return doc.parts.flatMap((part): ControlSpec[] => {
     switch (part.type) {
       case 'button': return [{ partId: part.id, kind: 'press', label: `Giữ để nhấn ${part.id}` }]
+      case 'keypad-4x4': return [{ partId: part.id, kind: 'keypad', label: `Phím của ${part.id}` }]
       case 'limit-switch': return [{ partId: part.id, kind: 'press', label: `Tì công tắc ${part.id}` }]
       case 'slide-switch': return [{ partId: part.id, kind: 'toggle', label: `Gạt ${part.id} sang A` }]
       case 'ir-sensor': return [{ partId: part.id, kind: 'toggle', label: `Có vật cản trước ${part.id}` }]
@@ -574,7 +662,7 @@ export type FreestyleWorkspace = {
 export function defaultFreestyleWorkspace(boardId = 'arduino-uno-r3', sampleId: FreestyleSampleId = 'blink'): FreestyleWorkspace {
   const board = getFreestyleBoard(boardId)
   const { doc, pinMap } = buildSampleCircuit(sampleId, board.id)
-  const language = board.languages[0]
+  const language = sampleLanguage(sampleId, board.languages[0])
   return { version: 1, boardId: board.id, doc, pinMap, language, code: sampleCode(sampleId, board.id, language, pinMap), sampleId, updatedAt: new Date(0).toISOString() }
 }
 
@@ -587,9 +675,13 @@ export function blankFreestyleWorkspace(): FreestyleWorkspace {
 export function workspaceWithFreestyleBoard(current: FreestyleWorkspace, nextId: string): FreestyleWorkspace {
   const next=getFreestyleBoard(nextId)
   const fromSample=current.sampleId && current.code===sampleCode(current.sampleId,current.boardId,current.language,current.pinMap)?current.sampleId:undefined
-  const pinMap=fromSample?buildSampleCircuit(fromSample,next.id).pinMap:{...next.defaultPins}
-  const language=next.languages[0]
-  const doc=current.doc.parts.some(p=>p.type==='board')?current.doc:{...current.doc,parts:[...current.doc.parts,{id:'board',type:'board',mount:{kind:'bench' as const,lane:'left' as const,order:0}}],expect:{...current.doc.expect,partCount:current.doc.parts.length+1}}
+  const replacement=fromSample?buildSampleCircuit(fromSample,next.id):undefined
+  const pinMap=replacement?.pinMap??{...next.defaultPins}
+  const language=fromSample ? sampleLanguage(fromSample,next.languages[0]) : next.languages[0]
+  const boardDoc=current.doc.parts.some(p=>p.type==='board')?current.doc:{...current.doc,parts:[...current.doc.parts,{id:'board',type:'board',mount:{kind:'bench' as const,lane:'left' as const,order:0}}],expect:{...current.doc.expect,partCount:current.doc.parts.length+1}}
+  // A pristine sonar example changes the Echo divider when the board logic voltage changes.
+  const pristineSonar=fromSample==='ultrasonic'&&!current.wireLayout && JSON.stringify(current.doc)===JSON.stringify(buildSampleCircuit(fromSample,current.boardId).doc)
+  const doc=pristineSonar&&replacement?replacement.doc:boardDoc
   return {...current,boardId:next.id,doc,pinMap,language,sampleId:fromSample,...(fromSample?{code:sampleCode(fromSample,next.id,language,pinMap)}:{})}
 }
 

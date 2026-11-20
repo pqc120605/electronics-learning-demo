@@ -35,6 +35,8 @@ import { encodeFreestyleShare } from '../../lib/freestyle/freestyleShare'
 import { parseFreestyleProject, projectFileLimit } from '../../lib/freestyle/freestyleTransfer'
 import { KitPartExample } from './KitPartExample'
 import { isEsp32Target } from '../../lib/esp32Firmware'
+import { findFreestyleSample, sampleLanguage } from '../../lib/freestyle/freestyleSampleLibrary'
+import { keypadKeys } from '../../data/kitPartProfiles'
 const FreestyleAssemblyView = lazy(() => import('./FreestyleAssemblyView').then(m=>({default:m.FreestyleAssemblyView})))
 const Esp32UsbDialog = lazy(() => import('./Esp32UsbDialog').then(m => ({default:m.Esp32UsbDialog})))
 
@@ -279,6 +281,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   async function run() {
     stop()
     if(!boardId || !code.trim())return
+    if(findFreestyleSample(workspace.sampleId)?.mode === 'wiring') { setNotice('Mẫu này dùng để xem cách lắp và đọc sketch. Runtime hiện tại chưa chạy được bài này.'); return }
     const runId=generation.current
     setTracePopout(view !== 'wave')
     traceCapture.current++
@@ -374,13 +377,16 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     setControls({})
     setSelectedPartId(null)
     setSelectedWireId(null)
-    update({ doc: sampleDoc, wireLayout: undefined, pinMap: samplePins, sampleId: id, code: sampleCode(id, boardId, language, samplePins) })
-    setNotice(`Đã dựng mạch mẫu “${freestyleSamples.find(item => item.id === id)?.title}”. Bấm ▶ Chạy để xem.`)
+    const nextLanguage=sampleLanguage(id,language)
+    update({ doc: sampleDoc, wireLayout: undefined, pinMap: samplePins, sampleId: id, language:nextLanguage, code: sampleCode(id, boardId, nextLanguage, samplePins) })
+    const sample=findFreestyleSample(id)
+    setNotice(`Đã dựng mạch mẫu “${sample?.title}”. ${sample?.mode==='wiring'?'Xem cách lắp và sketch tham khảo.':'Bấm ▶ Chạy để xem.'}`)
   }
 
   function chooseLanguage(next: FreestyleLanguage) {
     stop()
     const sample=workspace.sampleId && code===sampleCode(workspace.sampleId,boardId,language,pinMap) ? workspace.sampleId : undefined
+    if (sample && sampleLanguage(sample,next)!==next) { setNotice('Mạch mẫu này có sketch Arduino C++. Mở bàn mới để viết chương trình MicroPython.'); return }
     update({ language: next, ...(sample?{code:sampleCode(sample,boardId,next,pinMap)}:{}) })
   }
 
@@ -454,6 +460,8 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     if (role) preferredTracePins.unshift(pinMap[role])
   }
   const HeadingTag = variant === 'full' ? 'h1' : 'h2'
+  const activeSample = findFreestyleSample(workspace.sampleId)
+  const readyToRun = Boolean(boardId && code.trim() && activeSample?.mode !== 'wiring')
 
   const serialPlotVisible = panelOpen && step === 'observe' && serialPlotOpen
   const showTracePopout = tracePopout && view !== 'wave' && trace.length > 0 && !serialPlotVisible
@@ -470,7 +478,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       <div className="freestyle-head-actions">
         {readOnly ? <button type="button" className="freestyle-button" onClick={onCopy}>Mở bản sao để sửa</button> : <>
         <label className="freestyle-sample">Mạch mẫu
-          <select value={sampleId} onChange={event => setSampleId(event.target.value as FreestyleSampleId)}>{freestyleSamples.map(sample => <option key={sample.id} value={sample.id}>{sample.title}</option>)}</select>
+          <select value={sampleId} onChange={event => setSampleId(event.target.value as FreestyleSampleId)}>{[...new Set(freestyleSamples.map(sample=>sample.level))].map(level=><optgroup label={level} key={level}>{freestyleSamples.filter(sample=>sample.level===level).map(sample => <option key={sample.id} value={sample.id}>{sample.title}</option>)}</optgroup>)}</select>
         </label>
         <button type="button" className="freestyle-button" disabled={!boardId} onClick={() => loadSample(sampleId)}>Dựng mạch mẫu</button>
         <button type="button" className="freestyle-button" onClick={() => { if(!archiveBeforeReplace())return;setControls({});setSelectedPartId(null);setSelectedWireId(null);update(blankFreestyleWorkspace());setStep('board');setView('breadboard');setPanelOpen(true);setNotice('Bàn mới trống. Chọn board hoặc thêm breadboard để bắt đầu.') }}>Bàn trống</button>
@@ -506,13 +514,16 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     {draft && !started && <div className="freestyle-draft" role="status"><span>{draft.workspace?'Có một bản nháp đã lưu trên máy này. Bàn hiện tại bắt đầu trống.':'Bản lưu cũ chưa đọc được; dữ liệu gốc được giữ nguyên.'}</span>{draft.workspace&&<button className="freestyle-button" onClick={()=>{stop();setWorkspace(draft.workspace!);setStarted(true);setNotice('Đã mở bản nháp, giữ nguyên mạch và code.');setStep('parts');setView('breadboard');setPanelOpen(false)}}>Mở bản nháp đã lưu</button>}</div>}
     <div className="freestyle-workbar" ref={workbarRef}>
       <div className="freestyle-view-tabs" role="group" aria-label="Chế độ xem mạch">{([['breadboard','Lắp mạch 2D'],['schematic','Schematic'],['3d','Lắp mạch 3D'],['wave','Dạng sóng']] as const).map(([id,label])=><button key={id} aria-pressed={view===id} onClick={()=>{setTracePopout(false);setView(id);setPanelOpen(false)}}>{label}</button>)}</div>
-      <div className="freestyle-work-actions"><button className="freestyle-button" aria-expanded={panelOpen} onClick={()=>setPanelOpen(!panelOpen)}>{panelOpen?'Ẩn bảng thao tác':'Mở bảng thao tác'}</button><button ref={expandButton} className="freestyle-button" aria-pressed={expanded} onClick={()=>setExpanded(!expanded)}>{expanded?'Thu gọn bàn':'Mở rộng bàn'}</button><button type="button" disabled={!boardId||!code.trim()} className={`freestyle-run-button ${running?'is-running':''}`} onClick={running||preparing?stop:run}>{running||preparing?'■ Dừng':'▶ Chạy'}</button></div>
+      <div className="freestyle-work-actions"><button className="freestyle-button" aria-expanded={panelOpen} onClick={()=>setPanelOpen(!panelOpen)}>{panelOpen?'Ẩn bảng thao tác':'Mở bảng thao tác'}</button><button ref={expandButton} className="freestyle-button" aria-pressed={expanded} onClick={()=>setExpanded(!expanded)}>{expanded?'Thu gọn bàn':'Mở rộng bàn'}</button><button type="button" disabled={!readyToRun} className={`freestyle-run-button ${running?'is-running':''}`} onClick={running||preparing?stop:run}>{running||preparing?'■ Dừng':'▶ Chạy'}</button></div>
         {controlSpecs.length > 0 && <div className="freestyle-card freestyle-input-dock"><h3>Đầu vào</h3>{controlSpecs.map(spec => {
           if (spec.kind === 'slider') {
             const value = typeof controls[spec.partId] === 'number' ? Number(controls[spec.partId]) : 0.5
             return <label key={spec.partId} className="freestyle-slider">{spec.label} · {Math.round(value * 100)} %<input type="range" min={0} max={100} value={Math.round(value * 100)} onChange={event => setControls(current => ({ ...current, [spec.partId]: Number(event.target.value) / 100 }))} /></label>
           }
           if (spec.kind === 'toggle') return <label key={spec.partId} className="freestyle-toggle"><input type="checkbox" checked={Boolean(controls[spec.partId])} onChange={event => setControls(current => ({ ...current, [spec.partId]: event.target.checked }))} />{spec.label}</label>
+          if (spec.kind === 'keypad') return <label key={spec.partId}>{spec.label}<select value={typeof controls[spec.partId] === 'number' ? String(controls[spec.partId]) : ''} onChange={event => setControls(current => ({ ...current, [spec.partId]: event.target.value === '' ? false : Number(event.target.value) }))}>
+            <option value="">Thả tất cả</option>{keypadKeys.map((key,index)=><option key={key} value={index}>{key}</option>)}
+          </select></label>
           const press = (pressed: boolean) => setControls(current => ({ ...current, [spec.partId]: pressed }))
           return <button key={spec.partId} type="button" className="freestyle-press" aria-pressed={Boolean(controls[spec.partId])} onPointerDown={() => press(true)} onPointerUp={() => press(false)} onPointerLeave={() => press(false)} onPointerCancel={() => press(false)} onBlur={() => press(false)} onKeyDown={event => { if (event.key === ' ' || event.key === 'Enter') { event.preventDefault(); press(true) } }} onKeyUp={() => press(false)}>{spec.label}</button>
         })}</div>}
@@ -590,6 +601,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       </div>
 
       <div className="freestyle-stage" ref={stageRef} tabIndex={-1} aria-label="Mạch đang lắp" onDragOver={event => { if (!readOnly && event.dataTransfer.types.includes('application/x-machmo-part')) event.preventDefault() }} onDrop={readOnly ? undefined : dropPart}>
+        {activeSample && <details className="freestyle-note"><summary>{activeSample.title}{activeSample.mode==='wiring'?' · nối dây và đọc sketch':''}</summary><p>{activeSample.summary}</p><p>Thử {activeSample.challenge.charAt(0).toLocaleLowerCase('vi-VN')+activeSample.challenge.slice(1)}</p>{activeSample.mode==='wiring'&&<p>Máy mô phỏng hiện tại chưa chạy giao thức hoặc ngoại vi của mẫu này. Có thể tải sketch và đối chiếu tài liệu phần cứng.</p>}</details>}
         {workspace.sampleId === 'motor' && <p className="freestyle-note" role="note">{motorProtection.independentSupply && motorProtection.commonGround && motorProtection.flyback ? 'Mạch này có nguồn tải lý tưởng riêng, GND chung và diode mắc ngược song song motor.' : 'Bản nháp motor này chưa có đủ nguồn tải riêng, GND chung hoặc diode đúng chiều. Mạch đang được giữ nguyên. Hãy tải bản nháp trước khi chọn “Dựng mạch mẫu” để dùng mẫu mới.'} Hoạt cảnh chỉ minh họa đóng/ngắt; chưa tính dòng tải, sụt áp, xung ngược, nhiệt hoặc chọn định mức linh kiện thật.</p>}
         {!readOnly && !panelOpen && selectedPart && selectedPart.type !== 'board' && <button type="button" className="freestyle-button freestyle-reopen-selection" onClick={() => {
           setStep('parts')
@@ -643,7 +655,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
 
       <div id="freestyle-observe-panel" role="tabpanel" aria-labelledby="freestyle-step-observe" className="freestyle-observe" hidden={step!=='observe'} aria-label="Chạy và quan sát">
         <div className="freestyle-run">
-          <button type="button" className={`freestyle-run-button ${running ? 'is-running' : ''}`} disabled={!boardId||!code.trim()} onClick={running||preparing ? stop : run}>{running||preparing ? '■ Dừng' : '▶ Chạy'}</button>
+          <button type="button" className={`freestyle-run-button ${running ? 'is-running' : ''}`} disabled={!readyToRun} onClick={running||preparing ? stop : run}>{running||preparing ? '■ Dừng' : '▶ Chạy'}</button>
           <div className="freestyle-engine">
             <strong>{boardId?engine.label:'Chưa chọn runtime'}</strong>
             <span aria-live="polite">{running ? `${(simMs / 1000).toFixed(2)} s mô phỏng` : status || 'Chưa chạy'}</span>

@@ -14,7 +14,7 @@ after(async () => { await server?.close() })
 
 test('twenty distinct sample mạch round-trip with exact topology, code and board', async () => {
   const fixtures = ['arduino-uno-r3', 'arduino-nano', 'arduino-mega-2560', 'esp32-devkit', 'raspberry-pi-pico'].flatMap(board =>
-    circuits.freestyleSamples.map(sample => circuits.defaultFreestyleWorkspace(board, sample.id)))
+    ['blink', 'button-led', 'pot-dimmer', 'motor'].map(id => circuits.defaultFreestyleWorkspace(board, id)))
   assert.equal(fixtures.length, 20)
   for (const workspace of fixtures) {
     const encoded = await share.encodeFreestyleShare(workspace)
