@@ -1,4 +1,5 @@
-import { parseBoardGlb, type GpuBatch, type NodeBounds } from '../board/glbParser'
+import type { GpuBatch, NodeBounds } from '../board/glbParser'
+import { loadBoardGeometry } from '../board/loadBoardGeometry'
 import { compileShader, cross, dot, makeCamera, multiply, normalize, perspective, rayTriangle, subtract, viewMatrix, type Vec3 } from '../board/sceneMath'
 import { createShadowTarget, depthFragmentShader, depthVertexShader, LIGHT_DIR, lightViewProjection, loadEnvTexture, pbrFragmentShader, pbrVertexShader, sceneQuality, toLinear, type ShadowTarget } from '../board/pbrShading'
 import { BENCH_MM, footprintBox, localToWorld, placementMatrix, type AssemblyPlacement, type AssemblyPlan, type Bounds } from '../../lib/assemblyLayout'
@@ -175,9 +176,8 @@ export class AssemblyScene {
     this.loading.set(url, controller)
     this.reportAssets()
     try {
-      const response = await fetch(url, { signal: controller.signal })
-      if (!response.ok) throw new Error(`Không tải được model (${response.status}).`)
-      const parsed = parseBoardGlb(await response.arrayBuffer())
+      const parsed = await loadBoardGeometry(url,controller.signal)
+      controller.signal.throwIfAborted()
       if (this.disposed) return
       const gl = this.gl
       const batches = parsed.batches.map((batch) => ({ ...batch, buffers: [this.buffer(gl.ARRAY_BUFFER, batch.positions), this.buffer(gl.ARRAY_BUFFER, batch.normals), this.buffer(gl.ELEMENT_ARRAY_BUFFER, batch.indices)] }))

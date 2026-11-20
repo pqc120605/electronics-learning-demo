@@ -1,4 +1,5 @@
-import { parseBoardGlb, type GpuBatch, type NodeBounds } from './glbParser'
+import type { GpuBatch, NodeBounds } from './glbParser'
+import { loadBoardGeometry } from './loadBoardGeometry'
 import type { BoardModelManifest, BoardSceneDefinition } from './boardSceneTypes'
 import { getFeatureFocusBounds } from '../../lib/boardFeatureFocus'
 import { compileShader as shader, dot, makeCamera, multiply, normalize, perspective, rayTriangle, subtract, viewMatrix, type Vec3 } from './sceneMath'
@@ -64,9 +65,8 @@ export class BoardScene {
   }
 
   async load(manifest: BoardModelManifest, scene: BoardSceneDefinition, signal?: AbortSignal): Promise<void> {
-    const response = await fetch(scene.assetUrl, { signal })
-    if (!response.ok) throw new Error(`Không tải được mô hình PCB (${response.status}).`)
-    const parsed = parseBoardGlb(await response.arrayBuffer())
+    const parsed = await loadBoardGeometry(scene.assetUrl,signal)
+    signal?.throwIfAborted()
     const gl = this.gl
     this.clearBuffers()
     this.featureNodes.clear()

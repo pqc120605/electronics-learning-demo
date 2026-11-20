@@ -6,7 +6,7 @@ test('library defers 3D model bytes until the stage approaches the viewport', as
   await page.setViewportSize({ width: 375, height: 812 })
   const requested = []
   page.on('request', request => {
-    if (new URL(request.url()).pathname === '/models/arduino-uno-r3.glb') requested.push(request.url())
+    if (/\/models\/(?:optimized\/)?arduino-uno-r3(?:\.meshopt)?\.glb$/.test(new URL(request.url()).pathname)) requested.push(request.url())
   })
   await page.goto('/app/boards?board=arduino-uno-r3', { waitUntil: 'networkidle' })
   const stage = page.locator('.board-viewer-stage')
@@ -15,4 +15,5 @@ test('library defers 3D model bytes until the stage approaches the viewport', as
   expect(requested).toEqual([])
   await stage.scrollIntoViewIfNeeded()
   await expect.poll(() => requested.length).toBe(1)
+  expect(requested[0]).toContain('/models/optimized/arduino-uno-r3.meshopt.glb')
 })

@@ -40,7 +40,7 @@ test('board selection changes 2D art, accessible pins, schematic and correct 3D 
  const loaded=[];page.on('response',r=>{if(r.url().includes('/models/')&&r.ok())loaded.push(r.url())})
  await page.getByRole('button',{name:'Lắp mạch 3D',exact:true}).click()
  await expect(page.locator('.freestyle-assembly canvas')).toBeVisible()
- await expect.poll(()=>loaded.some(url=>url.includes('arduino-uno-r3.glb'))).toBe(true)
+ await expect.poll(()=>loaded.some(url=>url.includes('arduino-uno-r3.meshopt.glb'))).toBe(true)
  await expect(page.locator('.freestyle-assembly-meta')).not.toContainText('Đang tải model')
  await page.locator('.freestyle-assembly canvas').screenshot({path:`${root}/uno-3d.png`})
  await page.getByRole('button',{name:'Nhìn từ trên',exact:true}).click()

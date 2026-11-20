@@ -1,0 +1,110 @@
+[
+  {
+    "original": "arduino-mega-2560-r3.glb",
+    "optimized": "arduino-mega-2560-r3.meshopt.glb",
+    "sourceBytes": 10289120,
+    "optimizedBytes": 1590616,
+    "sourceSha256": "adf1fcf07b4a6d9ae8cd0cede3570019b85ae57c0370d2305c3e5ccc4cd2d408",
+    "optimizedSha256": "6d7297a0ff5e8607ce306344cef28a93efb7df1f745df53d8750552da4cb4714",
+    "sourceNodes": 61,
+    "optimizedNodes": 61,
+    "maxErrorMm": 0.00162127130524806,
+    "missing": []
+  },
+  {
+    "original": "arduino-nano-classic.glb",
+    "optimized": "arduino-nano-classic.meshopt.glb",
+    "sourceBytes": 4060836,
+    "optimizedBytes": 571324,
+    "sourceSha256": "43c1f8047b7f83c3b955f91097fc42dc24d8f147a68f9e844bbb6da710beff55",
+    "optimizedSha256": "2ebe2cdcff64c27e74137c79ca25d75a43ac42f5a56e4cf432e04a787d1a9dcf",
+    "sourceNodes": 28,
+    "optimizedNodes": 28,
+    "maxErrorMm": 0.0013911337575639449,
+    "missing": []
+  },
+  {
+    "original": "arduino-uno-r3.glb",
+    "optimized": "arduino-uno-r3.meshopt.glb",
+    "sourceBytes": 6679512,
+    "optimizedBytes": 1054112,
+    "sourceSha256": "53330cd2b0d2fac39206f2774e71e8961316634ea3f027331583379a43965ff6",
+    "optimizedSha256": "3ea6670274cc8697ec964f63bdebd9289a0dd75b48800a563a062fd7e108576c",
+    "sourceNodes": 52,
+    "optimizedNodes": 52,
+    "maxErrorMm": 0.0014951416144387206,
+    "missing": []
+  },
+  {
+    "original": "esp32-s3-devkitc-1-v1.1.glb",
+    "optimized": "esp32-s3-devkitc-1-v1.1.meshopt.glb",
+    "sourceBytes": 8225996,
+    "optimizedBytes": 1168508,
+    "sourceSha256": "1ffe23480ffabcb5ba740b05fd60fa835a56fecd00d76075ce79a88a4f685515",
+    "optimizedSha256": "21a03f47db653a93df57d46ab575be3e2f87ae08eed8bca25a34f304783da6c2",
+    "sourceNodes": 56,
+    "optimizedNodes": 56,
+    "maxErrorMm": 0.0021121271651103335,
+    "missing": []
+  },
+  {
+    "original": "raspberry-pi-pico-2-h.glb",
+    "optimized": "raspberry-pi-pico-2-h.meshopt.glb",
+    "sourceBytes": 3964776,
+    "optimizedBytes": 909192,
+    "sourceSha256": "b3ce57f26b5267be6d64ff899846b8c6db2bccb4c5186434317870e48e94395a",
+    "optimizedSha256": "da0a0739a4ea17a2f650395a12fff05c1b4fe051d07a50f7e0ed69d6adbf73b7",
+    "sourceNodes": 55,
+    "optimizedNodes": 55,
+    "maxErrorMm": 0.00039781501128509367,
+    "missing": []
+  },
+  {
+    "original": "raspberry-pi-pico-2.glb",
+    "optimized": "raspberry-pi-pico-2.meshopt.glb",
+    "sourceBytes": 4369996,
+    "optimizedBytes": 951968,
+    "sourceSha256": "38ba3e6ddefb82bc71a5cf7d610f799876bfc866022ee02e8a0ee44788992846",
+    "optimizedSha256": "1071d53694bdcccb10ac73f047d2abb90ce80f92d161773f0d850eb120b55145",
+    "sourceNodes": 53,
+    "optimizedNodes": 53,
+    "maxErrorMm": 0.00039781501128509367,
+    "missing": []
+  },
+  {
+    "original": "seeed-xiao-esp32-c3.glb",
+    "optimized": "seeed-xiao-esp32-c3.meshopt.glb",
+    "sourceBytes": 4920452,
+    "optimizedBytes": 739024,
+    "sourceSha256": "1c9ddcc5d43ab72af3bf44808cde942365c5e863a3c63c566e6df0c3ac42e9ab",
+    "optimizedSha256": "cbdeaadea06792f05b30d848418ec70317c8fd9d9b9422792756b1285400b652",
+    "sourceNodes": 53,
+    "optimizedNodes": 53,
+    "maxErrorMm": 0.0012205422372192284,
+    "missing": []
+  },
+  {
+    "original": "stm32-blue-pill-f103.glb",
+    "optimized": "stm32-blue-pill-f103.meshopt.glb",
+    "sourceBytes": 2278248,
+    "optimizedBytes": 378300,
+    "sourceSha256": "a520c6f436e242e3c4b9032e3efcf90e180c1d41c09a8adf86f849c1c0932ec2",
+    "optimizedSha256": "1fa6d4866562e5e66407d0da8f3b8a43dbad458fbb34fd37062d86357ff284e6",
+    "sourceNodes": 18,
+    "optimizedNodes": 18,
+    "maxErrorMm": 0.00042582488000032087,
+    "missing": []
+  },
+  {
+    "original": "stm32-nucleo-f401re.glb",
+    "optimized": "stm32-nucleo-f401re.meshopt.glb",
+    "sourceBytes": 4754776,
+    "optimizedBytes": 739932,
+    "sourceSha256": "9124a49017a50e7627f3d7c6e3100b3778c3f603ec4e8d883881d1ec3019ddbd",
+    "optimizedSha256": "afcd0f4532d9b3e1ff7d0a3e7b8c47a5bdae0c378ff4d80a8941f14259d0a571",
+    "sourceNodes": 23,
+    "optimizedNodes": 23,
+    "maxErrorMm": 0.0006720880748670166,
+    "missing": []
+  }
+]

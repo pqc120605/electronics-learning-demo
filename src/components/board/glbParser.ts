@@ -111,7 +111,7 @@ function transformNormal(matrix: number[], x: number, y: number, z: number): [nu
   return [nx / length, ny / length, nz / length]
 }
 
-export function parseBoardGlb(buffer: ArrayBuffer): ParsedBoardGlb {
+function readGlbChunks(buffer: ArrayBuffer) {
   if (buffer.byteLength < 20) fail('tệp quá nhỏ.')
   const view = new DataView(buffer)
   if (view.getUint32(0, true) !== 0x46546c67) fail('không phải tệp GLB.')
@@ -142,7 +142,55 @@ export function parseBoardGlb(buffer: ArrayBuffer): ParsedBoardGlb {
     offset = chunkEnd
   }
   if (!json || !binary) fail('thiếu JSON hoặc BIN chunk.')
+  return { json, binary }
+}
 
+export function parseBoardGlb(buffer: ArrayBuffer): ParsedBoardGlb {
+  const { json, binary } = readGlbChunks(buffer)
+  return parseBoardGltf(json, binary)
+}
+
+export async function parseOptimizedBoardGlb(buffer: ArrayBuffer): Promise<ParsedBoardGlb> {
+  const { json, binary } = readGlbChunks(buffer)
+  const extensions = json.extensionsUsed
+  if (!Array.isArray(extensions) || !extensions.includes('EXT_meshopt_compression')) return parseBoardGltf(json, binary)
+  if (extensions.some(extension => !['EXT_meshopt_compression', 'KHR_mesh_quantization'].includes(extension))) fail('asset có extension chưa được hỗ trợ.')
+  if (!Array.isArray(json.bufferViews)) fail('thiếu bufferView.')
+  const { MeshoptDecoder } = await import('meshoptimizer/decoder')
+  if (!MeshoptDecoder.supported) fail('trình duyệt chưa hỗ trợ giải nén mô hình.')
+  await MeshoptDecoder.ready
+  let length = 0
+  const integer = (value: unknown): value is number => typeof value === 'number' && Number.isSafeInteger(value) && value >= 0
+  const ranges = json.bufferViews.map((entry: unknown) => {
+    if (!isRecord(entry) || !integer(entry.byteLength) || !entry.byteLength) fail('bufferView không hợp lệ.')
+    const destination = Math.ceil(length / 4) * 4
+    length = destination + entry.byteLength
+    if (length > 48 * 1024 * 1024) fail('model giải nén vượt giới hạn 48 MiB.')
+    const compression = isRecord(entry.extensions) ? entry.extensions.EXT_meshopt_compression : undefined
+    if (!isRecord(compression)) {
+      const offset = entry.byteOffset ?? 0
+      if (entry.buffer !== 0 || !integer(offset) || offset + entry.byteLength > binary.byteLength) fail('bufferView vượt khỏi BIN chunk.')
+      return { entry, destination, source:new Uint8Array(binary.buffer,binary.byteOffset+offset,entry.byteLength) }
+    }
+    const { buffer: sourceBuffer, byteOffset = 0, byteLength, byteStride, count, mode, filter = 'NONE' } = compression
+    if (sourceBuffer !== 0 || !integer(byteOffset) || !integer(byteLength) || !byteLength || byteOffset + byteLength > binary.byteLength
+      || !integer(byteStride) || !byteStride || byteStride > 256 || !integer(count) || count * byteStride !== entry.byteLength
+      || typeof mode !== 'string' || !['ATTRIBUTES', 'TRIANGLES', 'INDICES'].includes(mode)
+      || typeof filter !== 'string' || !['NONE', 'OCTAHEDRAL', 'QUATERNION', 'EXPONENTIAL'].includes(filter)) fail('phạm vi hoặc định dạng nén không hợp lệ.')
+    return { entry, destination, source:new Uint8Array(binary.buffer,binary.byteOffset+byteOffset,byteLength), count, byteStride, mode, filter }
+  })
+  const data = new Uint8Array(length)
+  const bufferViews = ranges.map(range => {
+    const { entry, destination, source } = range
+    if (range.mode) MeshoptDecoder.decodeGltfBuffer(data.subarray(destination,destination+Number(entry.byteLength)),range.count!,range.byteStride!,source,range.mode,range.filter)
+    else data.set(source,destination)
+    const { extensions: _removed, ...view } = entry
+    return { ...view, buffer:0, byteOffset:destination }
+  })
+  return parseBoardGltf({ ...json, bufferViews, buffers:[{byteLength:length}], extensionsUsed:[] },new DataView(data.buffer),true)
+}
+
+function parseBoardGltf(json: JsonRecord, binary: DataView, optimized = false): ParsedBoardGlb {
   if (!isRecord(json.asset) || json.asset.version !== '2.0') fail('thiếu thông tin glTF 2.0.')
   if (Array.isArray(json.extensionsUsed) && json.extensionsUsed.length > 0) fail('asset có extension chưa được hỗ trợ.')
   if (Array.isArray(json.textures) && json.textures.length > 0) fail('asset có texture chưa được hỗ trợ.')
@@ -157,45 +205,56 @@ export function parseBoardGlb(buffer: ArrayBuffer): ParsedBoardGlb {
 
   const readVec3 = (accessorIndex: number): Float32Array => {
     const accessor = accessors[accessorIndex]
-    if (!accessor || accessor.componentType !== 5126 || accessor.type !== 'VEC3' || accessor.sparse) fail('POSITION/NORMAL phải là FLOAT VEC3 không sparse.')
+    const type = accessor?.componentType
+    const componentBytes = type === 5126 ? 4 : optimized && (type === 5122 || type === 5123) ? 2 : optimized && (type === 5120 || type === 5121) ? 1 : 0
+    if (!accessor || !componentBytes || accessor.type !== 'VEC3' || accessor.sparse) fail('POSITION/NORMAL có định dạng không hỗ trợ.')
     const bufferView = bufferViews[accessor.bufferView as number]
     if (!bufferView) fail('bufferView VEC3 không tồn tại.')
-    const stride = (bufferView.byteStride as number | undefined) ?? 12
-    if (stride < 12 || stride % 4 !== 0) fail('stride VEC3 không được hỗ trợ.')
+    const elementBytes = componentBytes * 3
+    const stride = (bufferView.byteStride as number | undefined) ?? elementBytes
+    if (stride < elementBytes || stride % componentBytes !== 0) fail('stride VEC3 không được hỗ trợ.')
     const start = (bufferView.byteOffset as number | undefined ?? 0) + (accessor.byteOffset as number | undefined ?? 0)
     const count = accessor.count as number
-    if (!Number.isInteger(count) || count < 1 || start < 0 || start + (count - 1) * stride + 12 > binary.byteLength) fail('phạm vi accessor VEC3 không hợp lệ.')
+    if (!Number.isInteger(count) || count < 1 || start < 0 || start + (count - 1) * stride + elementBytes > binary.byteLength) fail('phạm vi accessor VEC3 không hợp lệ.')
+    const read = (offset: number) => {
+      if (type === 5126) return binary.getFloat32(offset,true)
+      const signed = type === 5120 || type === 5122
+      const value = componentBytes === 2 ? signed ? binary.getInt16(offset,true) : binary.getUint16(offset,true) : signed ? binary.getInt8(offset) : binary.getUint8(offset)
+      return accessor.normalized ? Math.max(-1,value / (2 ** (componentBytes * 8 - Number(signed)) - 1)) : value
+    }
     const values = new Float32Array(count * 3)
     for (let index = 0; index < count; index += 1) {
       const source = start + index * stride
-      values[index * 3] = binary.getFloat32(source, true)
-      values[index * 3 + 1] = binary.getFloat32(source + 4, true)
-      values[index * 3 + 2] = binary.getFloat32(source + 8, true)
+      values[index * 3] = read(source)
+      values[index * 3 + 1] = read(source + componentBytes)
+      values[index * 3 + 2] = read(source + componentBytes * 2)
     }
     return values
   }
 
-  const readIndices = (accessorIndex: number): Uint16Array => {
+  const readIndices = (accessorIndex: number): Uint16Array | Uint32Array => {
     const accessor = accessors[accessorIndex]
-    if (!accessor || accessor.componentType !== 5123 || accessor.type !== 'SCALAR' || accessor.sparse) fail('index phải là UNSIGNED_SHORT SCALAR không sparse.')
+    const stride = accessor?.componentType === 5123 ? 2 : optimized && accessor?.componentType === 5125 ? 4 : 0
+    if (!accessor || !stride || accessor.type !== 'SCALAR' || accessor.sparse) fail('index có định dạng không hỗ trợ.')
     const bufferView = bufferViews[accessor.bufferView as number]
     if (!bufferView) fail('bufferView index không tồn tại.')
     const start = (bufferView.byteOffset as number | undefined ?? 0) + (accessor.byteOffset as number | undefined ?? 0)
     const count = accessor.count as number
-    if (!Number.isInteger(count) || count < 3 || start < 0 || start + count * 2 > binary.byteLength) fail('phạm vi accessor index không hợp lệ.')
-    const values = new Uint16Array(count)
-    for (let index = 0; index < count; index += 1) values[index] = binary.getUint16(start + index * 2, true)
+    if (!Number.isInteger(count) || count < 3 || start < 0 || start + count * stride > binary.byteLength) fail('phạm vi accessor index không hợp lệ.')
+    const values = stride === 2 ? new Uint16Array(count) : new Uint32Array(count)
+    for (let index = 0; index < count; index += 1) values[index] = stride === 2 ? binary.getUint16(start + index * stride, true) : binary.getUint32(start + index * stride, true)
     return values
   }
 
   const groups = new Map<string, Group>()
   const bounds = new Map<string, { min: [number, number, number]; max: [number, number, number] }>()
-  const visit = (nodeIndex: number, parentMatrix: number[]) => {
+  const visit = (nodeIndex: number, parentMatrix: number[], parentName?: string) => {
     const node = nodes[nodeIndex]
     if (!node) fail('node tham chiếu không tồn tại.')
     const matrix = multiplyMatrices(parentMatrix, nodeMatrix(node))
+    const nodeName = node.name ?? (optimized ? parentName : undefined)
     if (node.mesh !== undefined) {
-      if (!node.name) fail('mesh không có tên node để map hotspot.')
+      if (!nodeName) fail('mesh không có tên node để map hotspot.')
       const mesh = meshes[node.mesh]
       if (!mesh || !Array.isArray(mesh.primitives)) fail('mesh không hợp lệ.')
       for (const primitive of mesh.primitives as JsonRecord[]) {
@@ -212,10 +271,10 @@ export function parseBoardGlb(buffer: ArrayBuffer): ParsedBoardGlb {
         const pbr = material && isRecord(material.pbrMetallicRoughness) ? material.pbrMetallicRoughness : undefined
         const factors = pbr && Array.isArray(pbr.baseColorFactor) ? pbr.baseColorFactor as number[] : [0.72, 0.75, 0.74, 1]
         const color: [number, number, number] = [factors[0] ?? 0.72, factors[1] ?? 0.75, factors[2] ?? 0.74]
-        const key = `${node.name}::${materialIndex}`
+        const key = `${nodeName}::${materialIndex}`
         let group = groups.get(key)
         if (!group) {
-          group = { nodeName: node.name, materialIndex, color, metallic: typeof pbr?.metallicFactor === 'number' ? pbr.metallicFactor : 0, roughness: typeof pbr?.roughnessFactor === 'number' ? pbr.roughnessFactor : 0.6, positions: [], normals: [], indices: [] }
+          group = { nodeName, materialIndex, color, metallic: typeof pbr?.metallicFactor === 'number' ? pbr.metallicFactor : 0, roughness: typeof pbr?.roughnessFactor === 'number' ? pbr.roughnessFactor : 0.6, positions: [], normals: [], indices: [] }
           groups.set(key, group)
         }
         const vertexOffset = group.positions.length / 3
@@ -224,10 +283,10 @@ export function parseBoardGlb(buffer: ArrayBuffer): ParsedBoardGlb {
           const normal = transformNormal(matrix, sourceNormals[index], sourceNormals[index + 1], sourceNormals[index + 2])
           group.positions.push(...point)
           group.normals.push(...normal)
-          let nodeBound = bounds.get(node.name)
+          let nodeBound = bounds.get(nodeName)
           if (!nodeBound) {
             nodeBound = { min: [Infinity, Infinity, Infinity], max: [-Infinity, -Infinity, -Infinity] }
-            bounds.set(node.name, nodeBound)
+            bounds.set(nodeName, nodeBound)
           }
           for (let axis = 0; axis < 3; axis += 1) {
             nodeBound.min[axis] = Math.min(nodeBound.min[axis], point[axis])
@@ -237,7 +296,7 @@ export function parseBoardGlb(buffer: ArrayBuffer): ParsedBoardGlb {
         for (const index of sourceIndices) group.indices.push(vertexOffset + index)
       }
     }
-    for (const child of node.children ?? []) visit(child, matrix)
+    for (const child of node.children ?? []) visit(child, matrix, nodeName)
   }
 
   const scenes = json.scenes as JsonRecord[] | undefined
