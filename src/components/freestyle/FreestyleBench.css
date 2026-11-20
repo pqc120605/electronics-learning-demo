@@ -179,6 +179,8 @@
 .freestyle-wave-path { stroke:var(--mm-signal);fill:none;stroke-width:2;vector-effect:non-scaling-stroke; }
 .freestyle-assembly { height:100%;min-height:400px;display:grid;grid-template-rows:auto minmax(240px,1fr) auto auto;gap:8px; }
 .freestyle-assembly canvas { width:100%;height:100%;min-height:240px;touch-action:none;background:var(--mm-bg);border-radius:8px; }
+.freestyle-assembly-stage { position:relative;min-width:0;min-height:240px;overflow:hidden; }
+.freestyle-assembly-pin { position:absolute;transform:translate(-50%,-110%);padding:2px 7px;background:var(--mm-surface);color:var(--mm-ink);border:2px solid var(--mm-signal);border-radius:6px;font-size:12px;font-weight:700;pointer-events:none;white-space:nowrap; }
 .freestyle-assembly-meta { display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px; }
 .freestyle-assembly-meta span,.freestyle-assembly details { color:var(--mm-muted);font-size:12px; }
 .freestyle-view-controls { display:flex;flex-wrap:wrap;gap:5px;justify-content:center; }

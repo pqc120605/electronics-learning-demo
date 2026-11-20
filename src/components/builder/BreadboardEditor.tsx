@@ -1,6 +1,7 @@
 import type { BoardDiagramPresentation } from '../../lib/boardTopView'
 import { useId, useMemo, useRef, useState, type KeyboardEvent, type MouseEvent, type PointerEvent } from 'react'
 import { componentRegistry } from '../../data/componentRegistry'
+import { boardCapabilityRegistry } from '../../data/boardCapabilityRegistry'
 import { BREADBOARD_ELECTRICAL_SPEC, RAIL_IDS, holeNet, parseHole, type RailId } from '../../lib/breadboardGrid'
 import { occupancy } from '../../lib/mountResolve'
 import { createNetIndexV2 } from '../../lib/circuitNetsV2'
@@ -25,6 +26,7 @@ type Props = {
   highlightedNetKey?: string | null
   pendingEndpoint: CircuitEndpointV2 | null
   onSelectEndpoint: (endpoint: CircuitEndpointV2) => void
+  onInspectEndpoint?: (key: string) => void
   onSelectPart?: (partId: string, extend?: boolean) => void
   onSelectParts?: (partIds: string[]) => void
   onSelectWire: (id: string) => void
@@ -81,6 +83,28 @@ export function BreadboardEditor(props: Props) {
   const [inspectedPartId, setInspectedPartId] = useState<string | null>(null)
   const inspectorTrigger = useRef<HTMLElement | SVGElement | null>(null)
   const inspectedPart = doc.parts.find(part => part.id === inspectedPartId)
+  const netIndex = useMemo(() => createNetIndexV2(doc), [doc])
+  const ledSeries = useMemo(() => {
+    if (!inspectedPart || !['led', 'resistor'].includes(inspectedPart.type)) return undefined
+    const board = doc.parts.find(part => part.type === 'board')
+    if (!board) return undefined
+    const logicLevel = boardCapabilityRegistry.find(entry => entry.boardId === (props.presentation?.topView?.id ?? props.presentation?.id))?.logicLevel
+    const volts = Number(logicLevel?.split(' ')[0].replace(',', '.'))
+    const output = netIndex.netOf(`${board.id}:ledOut`)
+    const ground = netIndex.netOf(`${board.id}:gnd`)
+    if (!output || !ground || output === ground || !Number.isFinite(volts)) return undefined
+    const resistors = doc.parts.filter(part => part.type === 'resistor')
+    const branches = doc.parts.filter(part => part.type === 'led').flatMap(led => {
+      const anode = netIndex.netOf(`${led.id}:anode`)
+      if (!anode || anode === output || anode === ground || anode.endpoints.size !== 2
+        || netIndex.netOf(`${led.id}:cathode`) !== ground) return []
+      return resistors.filter(resistor => (
+        anode.endpoints.has(`${resistor.id}:a`) && output.endpoints.has(`${resistor.id}:b`)
+        || anode.endpoints.has(`${resistor.id}:b`) && output.endpoints.has(`${resistor.id}:a`)
+      )).map(resistor => ({ ledId: led.id, resistorId: resistor.id, volts }))
+    }).filter(branch => branch.ledId === inspectedPart.id || branch.resistorId === inspectedPart.id)
+    return branches.length === 1 ? branches[0] : undefined
+  }, [doc, inspectedPart, netIndex, props.presentation])
   function closeInspector() {
     setInspectedPartId(null)
     inspectorTrigger.current?.focus({ preventScroll: true })
@@ -96,7 +120,6 @@ export function BreadboardEditor(props: Props) {
     if (editingEnd) setEditingEnd(null)
   }
   const occupied = useMemo(() => occupancy(doc, doc.lessonId), [doc])
-  const netIndex = useMemo(() => createNetIndexV2(doc), [doc])
   const highlightedNetWireIds = useMemo(() => new Set(netIndex.netOf(highlightedNetKey ?? '')?.wireIds ?? []), [netIndex, highlightedNetKey])
   const highlightedNet = highlightedNetKey ? netIndex.netOf(highlightedNetKey) : undefined
   const selectedNet = selectedWire ? netIndex.netOf(endpointId(selectedWire.from)) : undefined
@@ -272,6 +295,9 @@ export function BreadboardEditor(props: Props) {
         setInspectedPartId(extend ? null : partId)
       }} />
       {inspectedPart && <CircuitPartInspector key={inspectedPart.id} part={inspectedPart} presentation={props.presentation} onClose={closeInspector}
+        selectedBoardPin={selectedEndpointKey?.startsWith(`${inspectedPart.id}:`) ? selectedEndpointKey.split(':').at(-1) : undefined}
+        onInspectBoardPin={pin => props.onInspectEndpoint?.(pin ? `${inspectedPart.id}:${pin}` : '')}
+        ledSeries={ledSeries} onApplyResistor={!readOnly ? props.onChangePartValue : undefined}
         onSave={!readOnly && props.onChangePartValue ? value => props.onChangePartValue?.(inspectedPart.id, value) : undefined} />}
     </div>
     {highlightedNet && <p className="breadboard-net-cross-probe" role="status">Đang xem net <code>{highlightedNet.key}</code> · {highlightedNet.wireIds.size} dây · chọn từ sơ đồ nguyên lý</p>}

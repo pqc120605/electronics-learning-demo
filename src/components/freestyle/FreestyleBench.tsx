@@ -119,6 +119,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   const [wireHistory, setWireHistory] = useState<WireHistoryEntry[]>([])
   const draftImportRequest = useRef(0)
   const [pendingEndpoint, setPendingEndpoint] = useState<CircuitEndpointV2 | null>(null)
+  const [inspectedEndpointKey, setInspectedEndpointKey] = useState('')
   const [moving, setMoving] = useState(false)
   const [sampleId, setSampleId] = useState<FreestyleSampleId>(workspace.sampleId ?? 'blink')
   const [toolsOpen, setToolsOpen] = useState(false)
@@ -192,6 +193,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       else if ((patch.doc && patch.doc!==doc) || Object.hasOwn(patch,'wireLayout')) setEditorHistory(previous => recordCircuitEdit(previous,workspace))
     }
     if (!options.wireAction && (patch.doc || patch.boardId !== undefined)) setWireHistory([])
+    if (patch.boardId !== undefined) setInspectedEndpointKey('')
     if (!options.renderOnly) {
       traceCapture.current++
       setTracePopout(false)
@@ -489,6 +491,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       return
     }
     setPendingEndpoint(endpoint)
+    setInspectedEndpointKey(endpoint.kind === 'pin' ? `${endpoint.partId}:${endpoint.pinId}` : '')
     if (endpoint.kind === 'pin') setSelectedPartId(endpoint.partId)
   }
 
@@ -678,7 +681,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
           setPanelOpen(true)
           requestAnimationFrame(() => selectedPartRef.current?.focus())
         }}>Xem linh kiện {selectedDefinition?.label ?? selectedPart.type}</button>}
-        {!doc.parts.length&&!doc.breadboards.length&&view!=='wave' ? <div className="freestyle-blank"><span aria-hidden="true">＋</span><h3>Bàn của bạn, bắt đầu từ trống</h3><p>Chọn board, thêm breadboard và linh kiện; tự nối dây và viết code. Không có mạch nào được dựng sẵn.</p><button className="freestyle-run-button" onClick={()=>{setStep('board');setPanelOpen(true)}}>Chọn board</button><button className="freestyle-button" onClick={()=>{const bb=createEmptyFreestyleDoc();updateDoc({...doc,breadboards:bb.breadboards});setStep('parts');setPanelOpen(true)}}>Thêm breadboard</button></div> : view==='3d' ? <Suspense fallback={<p>Đang mở cảnh 3D…</p>}><FreestyleAssemblyView key={boardId} doc={doc} boardId={boardId} pinMap={pinMap} selectedPartId={selectedPartId} wireSignals={wireSignals} litPartIds={evaluation.litPartIds} onSelectPart={setSelectedPartId}/></Suspense> : view==='wave' ? <FreestyleWaveform captureKey={traceCapture.current} preferredPins={preferredTracePins} samples={trace} boardId={boardId} source={boardId?engine.label:'Chưa chọn runtime'} running={running}/> : view==='schematic' ? <><p className="freestyle-note">{boardId?board.name:'Chưa chọn board'} · {wiredSignals.map(role=>`${SIGNAL_PIN_LABELS[role]} = ${pinDisplayName(boardId,pinMap[role])}`).join(' · ')}</p><CircuitSchematicV2 doc={doc} boardLabel={boardId?board.short:undefined} boardPinLabels={boardId?freestylePresentation(boardId,pinMap).pinLabels:undefined} selectedKey={selectedPartId} selectedWireId={selectedWireId} onSelectPart={setSelectedPartId} onSelectWire={setSelectedWireId}/></> : <BreadboardEditor
+        {!doc.parts.length&&!doc.breadboards.length&&view!=='wave' ? <div className="freestyle-blank"><span aria-hidden="true">＋</span><h3>Bàn của bạn, bắt đầu từ trống</h3><p>Chọn board, thêm breadboard và linh kiện; tự nối dây và viết code. Không có mạch nào được dựng sẵn.</p><button className="freestyle-run-button" onClick={()=>{setStep('board');setPanelOpen(true)}}>Chọn board</button><button className="freestyle-button" onClick={()=>{const bb=createEmptyFreestyleDoc();updateDoc({...doc,breadboards:bb.breadboards});setStep('parts');setPanelOpen(true)}}>Thêm breadboard</button></div> : view==='3d' ? <Suspense fallback={<p>Đang mở cảnh 3D…</p>}><FreestyleAssemblyView key={boardId} doc={doc} boardId={boardId} pinMap={pinMap} selectedPartId={selectedPartId} selectedEndpointKey={inspectedEndpointKey} onInspectEndpoint={setInspectedEndpointKey} wireSignals={wireSignals} litPartIds={evaluation.litPartIds} onSelectPart={setSelectedPartId}/></Suspense> : view==='wave' ? <FreestyleWaveform captureKey={traceCapture.current} preferredPins={preferredTracePins} samples={trace} boardId={boardId} source={boardId?engine.label:'Chưa chọn runtime'} running={running}/> : view==='schematic' ? <><p className="freestyle-note">{boardId?board.name:'Chưa chọn board'} · {wiredSignals.map(role=>`${SIGNAL_PIN_LABELS[role]} = ${pinDisplayName(boardId,pinMap[role])}`).join(' · ')}</p><CircuitSchematicV2 doc={doc} boardLabel={boardId?board.short:undefined} boardPinLabels={boardId?freestylePresentation(boardId,pinMap).pinLabels:undefined} selectedKey={selectedPartId} selectedWireId={selectedWireId} selectedEndpointKey={inspectedEndpointKey} onSelectEndpoint={setInspectedEndpointKey} onSelectPart={setSelectedPartId} onSelectWire={setSelectedWireId}/></> : <BreadboardEditor
           compact
           readOnly={readOnly}
           presentation={boardId?freestylePresentation(boardId,pinMap):undefined}
@@ -690,6 +693,8 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
           selectedPartIds={new Set(selection)}
           onSelectParts={readOnly ? undefined : selectParts}
           pendingEndpoint={pendingEndpoint}
+          selectedEndpointKey={inspectedEndpointKey}
+          onInspectEndpoint={setInspectedEndpointKey}
           onSelectEndpoint={selectEndpoint}
           onSelectPart={(id,extend) => choosePart(id,!readOnly&&extend)}
           onSelectWire={setSelectedWireId}

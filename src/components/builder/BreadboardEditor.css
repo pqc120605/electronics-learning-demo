@@ -187,4 +187,8 @@
 .circuit-part-value { display: grid; gap: 6px; }
 .circuit-part-value > div { display: grid; grid-template-columns: minmax(0,1fr) auto auto; gap: 5px; }
 .circuit-part-value input { min-width: 0; }
+.circuit-part-calculator { margin-top: 8px; }
+.circuit-part-calculator form { display: grid; gap: 6px; }
+.circuit-part-calculator label { display: grid; gap: 3px; }
+.circuit-part-calculator input { min-width: 0; }
 @media (max-width: 520px) { .circuit-part-popup { position: relative; inset: auto; width: 100%; margin-top: 8px; } }
