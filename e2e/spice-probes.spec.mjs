@@ -28,5 +28,5 @@ test('transient probe follows the time cursor and the plot cursor', async ({ pag
   const atStart = await readout.textContent()
   await slider.fill('100')
   await expect(readout).not.toHaveText(atStart ?? '')
-  await expect(page.locator('.spice-plot-cursor')).toHaveCount(1)
+  await expect(page.locator('.spice-plot-cursor')).toHaveCount(2)
 })
