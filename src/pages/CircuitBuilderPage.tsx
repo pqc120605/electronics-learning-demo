@@ -187,6 +187,11 @@ import {resolveLessonBoardChoice} from '../lib/lessonBoardSelection'
 import {lessonBoardPresentation} from '../lib/lessonBoardPresentation'
 
 import { GuideContextBridge } from '../components/guide/GuideContext'
+import { CircuitBuilderBoardChoice } from './CircuitBuilderEntry'
+
+export function CircuitBuilderPage() {
+  return <CircuitBuilderBoardChoice renderWorkspace={boardId => <SelectedCircuitBuilderPage selectedBoardId={boardId} />} />
+}
 
 export function SelectedCircuitBuilderPage({selectedBoardId}:{selectedBoardId:string}) {
   const productRoute=useProductRoute()
