@@ -10,7 +10,7 @@ export function Esp32UsbDialog({board, lesson, code, onClose}: Props) {
   const dialog = useRef<HTMLDialogElement>(null)
   const flash = useRef<AbortController | undefined>(undefined)
   const monitor = useRef<AbortController | undefined>(undefined)
-  const [verified, setVerified] = useState<VerifiedFirmware>()
+  const [verification, setVerification] = useState<{ firmware: VerifiedFirmware; code: string; manifestSha256: string }>()
   const [acknowledged, setAcknowledged] = useState(false)
   const [busy, setBusy] = useState(false)
   const [listening, setListening] = useState(false)
@@ -20,6 +20,8 @@ export function Esp32UsbDialog({board, lesson, code, onClose}: Props) {
   const [serialText, setSerialText] = useState('')
   const pin = releasedEsp32Firmware.find(item => item.board === board && item.lesson === lesson)
   const serial = getWebSerial()
+  const verified = verification?.code === code && verification.manifestSha256 === pin?.manifestSha256
+    ? verification.firmware : undefined
 
   useEffect(() => {
     dialog.current?.showModal()
@@ -27,11 +29,17 @@ export function Esp32UsbDialog({board, lesson, code, onClose}: Props) {
   }, [])
 
   useEffect(() => {
+    setAcknowledged(false)
+    setError('')
+    setStatus('')
     if (!pin || !serial) return
     const abort = new AbortController()
     setStatus('Đang kiểm SHA-256 của bản firmware mẫu…')
     void loadPinnedFirmware(pin, code, {signal:abort.signal}).then(value => {
-      if (!abort.signal.aborted) { setVerified(value); setStatus('Đã kiểm đủ các tệp theo manifest.') }
+      if (!abort.signal.aborted) {
+        setVerification({ firmware: value, code, manifestSha256: pin.manifestSha256 })
+        setStatus('Đã kiểm đủ các tệp theo manifest.')
+      }
     }).catch(reason => {
       if (!abort.signal.aborted) { setError(reason.message); setStatus('') }
     })
