@@ -104,4 +104,5 @@ test('cache fetches published GLB and solver WASM only on demand, and skips part
   assert.equal(network, 2)
   assert.equal(send(new Request(model.url, { headers: { Range: 'bytes=0-500' } })), undefined)
   assert.equal(send(new Request('https://example.test/api/user.glb')), undefined)
+  assert.equal(send({ method: 'GET', mode: 'navigate', url: 'https://example.test/api/auth/login/google' }), undefined)
 })

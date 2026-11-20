@@ -4,6 +4,7 @@ import { isIP } from 'node:net'
 import { createAnalyticsHandler } from '../analytics/http.mjs'
 import { createSessionHandler } from '../community/session-http.mjs'
 import { handleChat, handleStatus } from '../guide-ai/handler.mjs'
+import { s2Route } from './s2.mjs'
 
 export const MAX_BODY_BYTES = 64 * 1024
 const MINUTE_MS = 60_000
@@ -81,7 +82,7 @@ function createLimiter(requestsPerMinute, trustedProxies) {
 }
 
 export function createApiServer({
-  origins, commit, checkDatabase, sessionStore, analyticsStore, guideEnv = {},
+  origins, commit, checkDatabase, sessionStore, analyticsStore, guideEnv = {}, s2,
   trustedProxyIps = [], requestsPerMinute = 120, log = entry => console.log(JSON.stringify(entry)),
 }) {
   if (!Array.isArray(origins) || !origins.length || origins.some(value => {
@@ -104,7 +105,12 @@ export function createApiServer({
   return createServer({ requestTimeout: 10_000, headersTimeout: 5_000, keepAliveTimeout: 4_000, maxHeaderSize: 8192 }, async (request, response) => {
     const started = Date.now()
     const path = request.url?.split('?', 1)[0]
-    const route = routes.get(path)
+    const method = request.method
+    const routeMethod = method === 'OPTIONS' ? request.headers['access-control-request-method'] : method
+    const s2Action = s2 && s2Route(routeMethod, path)
+    const route = s2Action || routes.get(path)
+    const s2Session = s2 && (route?.id === 'session' || route?.id === 'logout')
+    const csrf = route?.csrf || (s2Session && route.id === 'logout')
     response.once('finish', () => log({ route: route?.id ?? 'unknown', status: response.statusCode, ms: Date.now() - started }))
     response.setHeader('Cache-Control', 'no-store')
     response.setHeader('X-Content-Type-Options', 'nosniff')
@@ -124,13 +130,13 @@ export function createApiServer({
       response.setHeader('Retry-After', '60')
       return json(response, 429)
     }
-    const method = request.method
     if (method === 'OPTIONS') {
       const requested = request.headers['access-control-request-method']
       const requestedHeaders = request.headers['access-control-request-headers']?.split(',').map(header => header.trim().toLowerCase()) ?? []
-      if (!origin || requested !== route.method || requestedHeaders.some(header => header !== 'content-type')) return json(response, 403)
+      const allowedHeaders = csrf ? ['content-type', 'x-machmo-csrf'] : ['content-type']
+      if (!origin || requested !== route.method || requestedHeaders.some(header => !allowedHeaders.includes(header))) return json(response, 403)
       response.setHeader('Access-Control-Allow-Methods', route.method)
-      response.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+      response.setHeader('Access-Control-Allow-Headers', allowedHeaders.join(', '))
       return json(response, 204)
     }
     if (method !== route.method) {
@@ -140,9 +146,17 @@ export function createApiServer({
     const length = Number(request.headers['content-length'] ?? 0)
     if (length > MAX_BODY_BYTES) return closeRequest(response, 413)
     if (!route.acceptsBody && (length > 0 || request.headers['transfer-encoding'])) return closeRequest(response, 400)
-    if (method === 'POST' && !origin) return json(response, 403)
+    if ((method === 'POST' || csrf) && !origin) return json(response, 403)
 
     try {
+      if (s2Action || s2Session) {
+        const params = new URLSearchParams(request.url.split('?').slice(1).join('?'))
+        return await s2.handle({ ...route, csrf }, request, response, json, params, () => {
+          const mediaType = request.headers['content-type']?.split(';', 1)[0].trim().toLowerCase()
+          if (mediaType !== 'application/json') throw 415
+          return readJson(request)
+        })
+      }
       if (route.id === 'health') {
         const ready = await Promise.resolve().then(checkDatabase).catch(() => false)
         const ai = handleStatus(guideEnv).body
@@ -170,6 +184,7 @@ export function createApiServer({
       return json(response, result.status, result.body)
     } catch (error) {
       if (error === 413 || error === 400) return closeRequest(response, error)
+      if (error === 415) return json(response, 415)
       return json(response, 503)
     }
   })

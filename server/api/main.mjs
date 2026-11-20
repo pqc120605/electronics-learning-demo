@@ -2,6 +2,9 @@ import { createPostgresStore } from '../analytics/store.mjs'
 import { createSessionStore } from '../community/session-store.mjs'
 import { createStagingPool, STAGING_APP, verifyStagingDatabase } from './database.mjs'
 import { createApiServer } from './server.mjs'
+import { createS2 } from './s2.mjs'
+import { createOAuthStore } from './oauth-store.mjs'
+import { createCommunityStore } from './community-store.mjs'
 
 const event = (name, fields = {}) => console.log(JSON.stringify({ event: name, ...fields }))
 let pool
@@ -27,8 +30,12 @@ try {
   pool = createStagingPool(process.env.DATABASE_URL, STAGING_APP)
   const sessionStore = createSessionStore(pool)
   const analyticsStore = createPostgresStore(pool)
+  const oauthOrigin = process.env.MACHMO_S2_ORIGIN
+  if (oauthOrigin && !origins.includes(oauthOrigin)) throw new Error('Unknown S2 origin')
+  const authStore = oauthOrigin && createOAuthStore(pool, process.env.ADMIN_ACCOUNTS)
+  const s2 = authStore && createS2({ origin: oauthOrigin, env: process.env, authStore, community: createCommunityStore(pool) })
   server = createApiServer({
-    origins, commit: process.env.MACHMO_API_COMMIT, trustedProxyIps,
+    origins, commit: process.env.MACHMO_API_COMMIT, trustedProxyIps, s2,
     sessionStore, analyticsStore, checkDatabase: () => verifyStagingDatabase(pool),
     guideEnv: guideProvider ? { GUIDE_AI_PROVIDER: guideProvider } : {},
   })
@@ -37,7 +44,7 @@ try {
     server.listen(port, '127.0.0.1', resolve)
   })
   retention = setInterval(() => {
-    Promise.all([sessionStore.expire(), analyticsStore.expire()]).catch(() => event('staging_retention_failed'))
+    Promise.all([sessionStore.expire(), analyticsStore.expire(), authStore && authStore.expire()]).catch(() => event('staging_retention_failed'))
   }, 60 * 60 * 1000)
   retention.unref()
   event('staging_api_started', { port })

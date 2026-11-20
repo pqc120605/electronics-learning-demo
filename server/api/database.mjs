@@ -9,6 +9,7 @@ export const STAGING_APP = 'machmo_api_stg_app'
 const migrationFiles = [
   [1, './migrations/001-session.sql'],
   [2, './migrations/002-analytics.sql'],
+  [3, './migrations/003-oauth-community.sql'],
 ]
 const requirePg = createRequire(new URL('../community/package.json', import.meta.url))
 

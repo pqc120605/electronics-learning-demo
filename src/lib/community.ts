@@ -17,7 +17,7 @@ export const COMMUNITY_CATEGORIES: ReadonlyArray<{ id: CommunityCategoryId; labe
   { id: 'hoi-dap-loi', label: 'Hỏi đáp lỗi', summary: 'Mạch không chạy, code lỗi biên dịch, board không nhận.' },
 ]
 
-export type CommunityAuthor = { id: string; name: string; avatarUrl: string | null }
+export type CommunityAuthor = { id?: string; name: string; avatarUrl: string | null }
 
 export type CommunityPost = {
   id: string
@@ -31,6 +31,7 @@ export type CommunityPost = {
   /** 'sample' = mẫu; 'local' = trên thiết bị; 'remote' = đã công bố trên máy chủ. */
   origin: 'sample' | 'local' | 'remote'
   attachments?: CommunityAttachment[]
+  canEdit?: boolean
 }
 
 export type CommunityComment = {
@@ -40,6 +41,7 @@ export type CommunityComment = {
   author: CommunityAuthor
   createdAt: string
   origin: 'sample' | 'local' | 'remote'
+  canEdit?: boolean
 }
 
 export type ReportReason = 'spam' | 'offensive' | 'unsafe' | 'off-topic' | 'other'
@@ -64,11 +66,14 @@ export type CommunityReport = {
 export type PostQuery = { search?: string; category?: CommunityCategoryId | null; tag?: string | null }
 
 export type NewPostInput = { title: string; body: string; category: CommunityCategoryId; tags: string[]; files?: File[]; requestId?: string }
+export type CommunityPageResult = { items: CommunityPost[]; nextCursor: string | null }
+export type CommunityModerationReport = { id: string; postId: string | null; commentId: string | null; reason: ReportReason; note: string; createdAt: string }
 
 export type CommunityRepository = {
   /** 'preview' = chưa đồng bộ máy chủ. */
   readonly mode: 'preview' | 'remote'
   listPosts(query?: PostQuery): Promise<CommunityPost[]>
+  listPostsPage?(query: PostQuery, cursor?: string): Promise<CommunityPageResult>
   getPost(id: string): Promise<CommunityPost | null>
   listComments(postId: string): Promise<CommunityComment[]>
   createPost(input: NewPostInput, author: CommunityAuthor): Promise<CommunityPost>
@@ -76,6 +81,12 @@ export type CommunityRepository = {
   report(input: Omit<CommunityReport, 'id' | 'createdAt'>): Promise<CommunityReport>
   listTags(): Promise<Array<{ tag: string; count: number }>>
   getAttachment?(attachment: CommunityAttachment): Promise<Blob | null>
+  supportsAttachments?: false
+  updatePost?(id: string, input: Omit<NewPostInput, 'files' | 'requestId'>): Promise<void>
+  updateComment?(id: string, body: string): Promise<void>
+  remove?(kind: 'post' | 'comment', id: string): Promise<void>
+  moderationQueue?(): Promise<CommunityModerationReport[]>
+  moderate?(id: string, action: 'hide' | 'dismiss'): Promise<void>
 }
 
 export const POST_LIMITS = { titleMin: 8, titleMax: 120, bodyMin: 20, bodyMax: 10000, tagsMax: 5, tagMax: 24, commentMin: 2, commentMax: 4000, reportNoteMax: 500 } as const
