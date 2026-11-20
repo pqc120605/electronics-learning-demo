@@ -42,8 +42,12 @@ test('every sample circuit builds a structurally valid CircuitDocV2 on every boa
       for (const pin of Object.values(pinMap)) assert.ok(fs.availablePins(board.id).includes(pin), `${board.id}: chân ${pin} không có trên board`)
       for (const language of board.languages) {
         const code = fs.sampleCode(sample.id, board.id, language, pinMap)
-        if (language === 'cpp') assert.equal(sketch.compileSketch(code, fs.sketchBoardFor(board.id)).ok, true, `${board.id}/${sample.id} C++ mẫu phải chạy được bằng trình thông dịch`)
-        else assert.match(code, /from machine import/)
+        if (language === 'cpp' && sample.mode === 'run') {
+          assert.equal(sketch.compileSketch(code, fs.sketchBoardFor(board.id)).ok, true, `${board.id}/${sample.id} C++ mẫu phải chạy được bằng trình thông dịch`)
+        } else if (language === 'cpp' && sample.id === 'dht-demo') {
+          assert.match(code, /#include <DHT\.h>/)
+          assert.equal(sketch.compileSketch(code, fs.sketchBoardFor(board.id)).ok, false, 'Trình thông dịch không chạy thư viện DHT của Arduino')
+        } else if (language === 'micropython') assert.match(code, /from machine import/)
       }
     }
   }

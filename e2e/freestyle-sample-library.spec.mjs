@@ -22,5 +22,9 @@ for(const width of [375,1440]) {
     await page.getByText('Siêu âm đo khoảng cách · nối dây và đọc sketch',{exact:true}).click()
     await expect(page.getByText(/Thử đổi thời gian chờ ECHO/)).toBeVisible()
     await page.screenshot({path:`.tmp/l6f-samples-${width}.png`})
+    await examples.selectOption('dht-demo')
+    await page.getByRole('button',{name:'Dựng mạch mẫu',exact:true}).click()
+    await expect(page.getByRole('button',{name:'▶ Chạy'})).toBeDisabled()
+    await expect(page.getByText('Nhiệt độ và độ ẩm DHT22 · nối dây và đọc sketch',{exact:true})).toBeVisible()
   })
 }
