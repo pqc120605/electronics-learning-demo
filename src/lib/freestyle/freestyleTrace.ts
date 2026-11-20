@@ -1,6 +1,15 @@
 import type { LivePinState } from '../avrLiveMachine'
 export type TraceSample = { atMs: number; pins: Record<number, LivePinState> }
 export const MAX_TRACE_SAMPLES = 512
+
+export function freestyleTraceCsv(samples: readonly TraceSample[]) {
+  const pins = [...new Set(samples.flatMap(sample => Object.keys(sample.pins).map(Number)))].filter(Number.isFinite).sort((a, b) => a - b)
+  const rows = samples.map(sample => [sample.atMs, ...pins.map(pin => {
+    const level = sample.pins[pin]?.level
+    return typeof level === 'boolean' ? (level ? 'HIGH' : 'LOW') : 'UNKNOWN'
+  })].join(','))
+  return [['t_ms_simulated', ...pins.map(pin => `pin_${pin}_logic`)].join(','), ...rows].join('\r\n') + '\r\n'
+}
 export function traceChannels(samples: TraceSample[], preferred: readonly number[] = [], focus?: number): number[] {
   const observed=new Set(samples.flatMap(sample=>Object.keys(sample.pins).map(Number)))
   return [...new Set([...(focus===undefined?[]:[focus]),...preferred,...[...observed].sort((a,b)=>a-b)])].filter(pin=>observed.has(pin)).slice(0,8)

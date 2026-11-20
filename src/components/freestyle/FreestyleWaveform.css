@@ -1,4 +1,6 @@
 .freestyle-waveform { min-width: 0; overflow-wrap: anywhere; }
+.freestyle-wave-tools { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; margin-block: 8px; }
+.freestyle-wave-tools label { display: grid; gap: 4px; min-width: 0; }
 .freestyle-measure { min-width: 0; margin: 16px 0; padding: 12px; color: var(--mm-ink); border: 1px solid var(--mm-line); border-radius: 8px; }
 .freestyle-measure legend { padding: 0 6px; font-weight: 700; }
 .freestyle-measure-toolbar { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }

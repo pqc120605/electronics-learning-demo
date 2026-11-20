@@ -445,6 +445,11 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   const lineCount = code.split('\n').length
   const motorProtection = useMemo(() => getMotorProtection(doc), [doc])
   const visibleParts = placeableParts.filter(part => !partFilter || `${part.label} ${part.category}`.toLowerCase().includes(partFilter.toLowerCase()))
+  const preferredTracePins = wiredSignals.map(role => pinMap[role])
+  if (pendingEndpoint?.kind === 'pin' && doc.parts.some(part => part.id === pendingEndpoint.partId && part.type === 'board')) {
+    const role = SIGNAL_PINS.find(pin => pin === pendingEndpoint.pinId)
+    if (role) preferredTracePins.unshift(pinMap[role])
+  }
   const HeadingTag = variant === 'full' ? 'h1' : 'h2'
 
   const serialPlotVisible = panelOpen && step === 'observe' && serialPlotOpen
@@ -587,7 +592,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
           setPanelOpen(true)
           requestAnimationFrame(() => selectedPartRef.current?.focus())
         }}>Xem linh kiện {selectedDefinition?.label ?? selectedPart.type}</button>}
-        {!doc.parts.length&&!doc.breadboards.length&&view!=='wave' ? <div className="freestyle-blank"><span aria-hidden="true">＋</span><h3>Bàn của bạn, bắt đầu từ trống</h3><p>Chọn board, thêm breadboard và linh kiện; tự nối dây và viết code. Không có mạch nào được dựng sẵn.</p><button className="freestyle-run-button" onClick={()=>{setStep('board');setPanelOpen(true)}}>Chọn board</button><button className="freestyle-button" onClick={()=>{const bb=createEmptyFreestyleDoc();updateDoc({...doc,breadboards:bb.breadboards});setStep('parts');setPanelOpen(true)}}>Thêm breadboard</button></div> : view==='3d' ? <Suspense fallback={<p>Đang mở cảnh 3D…</p>}><FreestyleAssemblyView key={boardId} doc={doc} boardId={boardId} pinMap={pinMap} selectedPartId={selectedPartId} wireSignals={wireSignals} litPartIds={evaluation.litPartIds} onSelectPart={setSelectedPartId}/></Suspense> : view==='wave' ? <FreestyleWaveform captureKey={traceCapture.current} preferredPins={wiredSignals.map(role=>pinMap[role])} samples={trace} boardId={boardId} source={boardId?engine.label:'Chưa chọn runtime'} running={running}/> : view==='schematic' ? <><p className="freestyle-note">{boardId?board.name:'Chưa chọn board'} · {wiredSignals.map(role=>`${SIGNAL_PIN_LABELS[role]} = ${pinDisplayName(boardId,pinMap[role])}`).join(' · ')}</p><CircuitSchematicV2 doc={doc} boardLabel={boardId?board.short:undefined} boardPinLabels={boardId?freestylePresentation(boardId,pinMap).pinLabels:undefined} selectedKey={selectedPartId} selectedWireId={selectedWireId} onSelectPart={setSelectedPartId} onSelectWire={setSelectedWireId}/></> : <BreadboardEditor
+        {!doc.parts.length&&!doc.breadboards.length&&view!=='wave' ? <div className="freestyle-blank"><span aria-hidden="true">＋</span><h3>Bàn của bạn, bắt đầu từ trống</h3><p>Chọn board, thêm breadboard và linh kiện; tự nối dây và viết code. Không có mạch nào được dựng sẵn.</p><button className="freestyle-run-button" onClick={()=>{setStep('board');setPanelOpen(true)}}>Chọn board</button><button className="freestyle-button" onClick={()=>{const bb=createEmptyFreestyleDoc();updateDoc({...doc,breadboards:bb.breadboards});setStep('parts');setPanelOpen(true)}}>Thêm breadboard</button></div> : view==='3d' ? <Suspense fallback={<p>Đang mở cảnh 3D…</p>}><FreestyleAssemblyView key={boardId} doc={doc} boardId={boardId} pinMap={pinMap} selectedPartId={selectedPartId} wireSignals={wireSignals} litPartIds={evaluation.litPartIds} onSelectPart={setSelectedPartId}/></Suspense> : view==='wave' ? <FreestyleWaveform captureKey={traceCapture.current} preferredPins={preferredTracePins} samples={trace} boardId={boardId} source={boardId?engine.label:'Chưa chọn runtime'} running={running}/> : view==='schematic' ? <><p className="freestyle-note">{boardId?board.name:'Chưa chọn board'} · {wiredSignals.map(role=>`${SIGNAL_PIN_LABELS[role]} = ${pinDisplayName(boardId,pinMap[role])}`).join(' · ')}</p><CircuitSchematicV2 doc={doc} boardLabel={boardId?board.short:undefined} boardPinLabels={boardId?freestylePresentation(boardId,pinMap).pinLabels:undefined} selectedKey={selectedPartId} selectedWireId={selectedWireId} onSelectPart={setSelectedPartId} onSelectWire={setSelectedWireId}/></> : <BreadboardEditor
           compact
           readOnly={readOnly}
           presentation={boardId?freestylePresentation(boardId,pinMap):undefined}
@@ -629,7 +634,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
           litPartIds={evaluation.litPartIds}
           wireSignals={wireSignals}
         />}
-        {view!=='wave' && trace.length>0 && !showTracePopout && <details className="freestyle-trace-dock"><summary>Dạng sóng đã thu · {trace.length} mẫu</summary><FreestyleWaveform captureKey={traceCapture.current} preferredPins={wiredSignals.map(role=>pinMap[role])} samples={trace} boardId={boardId} source={engine.label} running={running}/></details>}
+        {view!=='wave' && trace.length>0 && !showTracePopout && <details className="freestyle-trace-dock"><summary>Dạng sóng đã thu · {trace.length} mẫu</summary><FreestyleWaveform captureKey={traceCapture.current} preferredPins={preferredTracePins} samples={trace} boardId={boardId} source={engine.label} running={running}/></details>}
       </div>
 
       <div id="freestyle-observe-panel" role="tabpanel" aria-labelledby="freestyle-step-observe" className="freestyle-observe" hidden={step!=='observe'} aria-label="Chạy và quan sát">
@@ -677,7 +682,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       if (event.key === 'Escape') { event.stopPropagation(); setTracePopout(false) }
     }}>
       <div className="freestyle-wave-popout-bar"><strong>Tín hiệu vừa thu</strong><button className="freestyle-button" type="button" onClick={() => setTracePopout(false)}>Đóng dạng sóng</button></div>
-      <FreestyleWaveform captureKey={traceCapture.current} preferredPins={wiredSignals.map(role => pinMap[role])} samples={trace} boardId={boardId} source={engine.label} running={running} />
+      <FreestyleWaveform captureKey={traceCapture.current} preferredPins={preferredTracePins} samples={trace} boardId={boardId} source={engine.label} running={running} />
     </aside>}
     <FreestyleDraftsDialog current={workspace} open={draftsOpen} onClose={()=>setDraftsOpen(false)} onRestore={restored=>{if(!archiveBeforeReplace())return;update(restored);setDraftsOpen(false);setView('breadboard');setStep('parts');setPanelOpen(false);setNotice('Đã khôi phục bản nháp; công việc trước đó được sao lưu.')}}
       drawing={view === 'breadboard' || view === 'schematic' ? {kind:view, get:()=>stageRef.current?.querySelector<SVGSVGElement>(view === 'breadboard' ? '.breadboard-diagram-svg' : '.circuit-schematic-svg') ?? null} : undefined} />

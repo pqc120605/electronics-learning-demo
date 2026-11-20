@@ -1,7 +1,9 @@
 import { useId, useState } from 'react'
 import { pinDisplayName } from '../../lib/freestyle/freestyleCircuit'
-import { traceChannels, tracePath, type TraceSample } from '../../lib/freestyle/freestyleTrace'
+import { freestyleTraceCsv, traceChannels, tracePath, type TraceSample } from '../../lib/freestyle/freestyleTrace'
 import { isValidSampledTrace, measureSampledCursors, type SampledCursor } from '../../lib/freestyle/freestyleTraceMeasure'
+import { signalWindow } from '../../lib/signalWindow'
+import { downloadBlob } from '../../lib/communityAttachments'
 import './FreestyleWaveform.css'
 
 type Props = { samples: TraceSample[]; boardId: string; source: string; running: boolean; preferredPins?: number[]; captureKey?: string | number }
@@ -21,8 +23,13 @@ function WaveformCapture({ samples, boardId, source, running, preferredPins = []
   // Undefined follows the window endpoint; explicit timestamps never become indices.
   const [aMs, setAMs] = useState<number>()
   const [bMs, setBMs] = useState<number>()
-  const valid = isValidSampledTrace(samples)
-  const points = valid ? samples : []
+  const [freeze, setFreeze] = useState<TraceSample[]>()
+  const [zoom, setZoom] = useState(1)
+  const [position, setPosition] = useState(1)
+  const capture = freeze ?? samples
+  const valid = isValidSampledTrace(capture)
+  const { start: windowStart, end: windowEnd } = signalWindow(capture.length, zoom, position)
+  const points = valid ? capture.slice(windowStart, windowEnd) : []
   const observed = [...new Set(points.flatMap(sample => Object.keys(sample.pins).map(Number)))].filter(Number.isFinite).sort((a, b) => a - b)
   const channels = traceChannels(points, preferredPins, focusPin)
   const pin = measurementPin ?? observed[0]
@@ -35,9 +42,15 @@ function WaveformCapture({ samples, boardId, source, running, preferredPins = []
   const formatCursor = (cursor: SampledCursor) => `${displayMs(cursor.atMs)} ms mô phỏng · ${cursor.level}${cursor.pwm === undefined ? '' : ` · PWM metadata runtime: ${Math.round(cursor.pwm * 100)}%`}`
 
   return <section className="freestyle-waveform" aria-label="Dạng sóng tín hiệu">
-    <header><h3>Dạng sóng logic</h3><span>{source} · {running ? 'đang lấy mẫu' : points.length ? 'đã dừng' : 'chưa chạy'}</span></header>
+    <header><h3>Dạng sóng logic</h3><span>{source} · {freeze ? 'đồ thị đang tạm dừng' : running ? 'đang lấy mẫu' : points.length ? 'đã dừng' : 'chưa chạy'}</span></header>
     <p>Mẫu trạng thái từ runtime, tối đa 512 mẫu gần nhất / 8 kênh vẽ. Xung nhanh có thể bị bỏ lỡ; khoảng trống là chưa có dữ liệu. HIGH/LOW không phải điện áp đo hay kết quả SPICE.</p>
     {!valid ? <p role="status">Timestamp không hợp lệ; chưa thể đo. Chạy lại để thu dữ liệu mới.</p> : !points.length ? <p className="freestyle-empty">Chọn board, viết code và bấm Chạy để thu tín hiệu GPIO.</p> : <>
+      <div className="freestyle-wave-tools" role="group" aria-label="Điều khiển đồ thị logic">
+        <button type="button" className="freestyle-button" onClick={() => setFreeze(freeze ? undefined : samples)}>{freeze ? 'Tiếp tục đồ thị' : 'Tạm dừng đồ thị'}</button>
+        <button type="button" className="freestyle-button" onClick={() => downloadBlob(new Blob([freestyleTraceCsv(capture)], {type:'text/csv;charset=utf-8'}), 'mach-mo-trace-logic.csv')}>Tải trace CSV</button>
+        <label>Thu phóng trace<select value={zoom} onChange={event => setZoom(Number(event.target.value))}>{[1,2,4,8].map(value => <option key={value} value={value}>{value}×</option>)}</select></label>
+        {zoom > 1 && <label>Vị trí trace<input type="range" min="0" max="1" step="0.01" value={position} onChange={event => setPosition(event.target.valueAsNumber)} /></label>}
+      </div>
       <label className="freestyle-channel-picker">Ưu tiên kênh<select value={focusPin ?? ''} onChange={event => setFocusPin(event.target.value === '' ? undefined : Number(event.target.value))}><option value="">Chân đang nối trong mạch</option>{observed.map(value => <option key={value} value={value}>{pinDisplayName(boardId, value)}</option>)}</select><span>Đang vẽ {channels.length}/{observed.length} kênh có dữ liệu</span></label>
       <fieldset className="freestyle-measure">
         <legend>Con trỏ trên mẫu logic</legend>

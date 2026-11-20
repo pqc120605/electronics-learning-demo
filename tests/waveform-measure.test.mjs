@@ -57,6 +57,16 @@ test('a complete transition period preserves exact frequency, duty and plateau s
   ]), measure.measureLogicSignal(events))
 })
 
+test('70 percent PWM and one-second Blink use complete transition periods', () => {
+  for (const [period, high, expected] of [[10, 7, 70], [1000, 500, 50]]) {
+    const input = [{ time: 0, level: false }, { time: 1, level: true },
+      { time: 1 + high, level: false }, { time: 1 + period, level: true }]
+    const measured = measure.measureLogicSignal(input)
+    assert.ok(Math.abs(measured.dutyCycle - expected) <= 1)
+    assert.equal(measured.frequencyHz, 1000 / period)
+  }
+})
+
 test('invalid transition timestamps never leave a plausible partial estimate', () => {
   const prefix = [{ time: 0, level: false }, { time: 10, level: true }, { time: 20, level: false }, { time: 30, level: true }]
   for (const time of [NaN, Infinity, -1, 15, 30]) {
