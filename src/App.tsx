@@ -4,8 +4,6 @@ import { SiteShell } from './components/SiteShell'
 import { AdminGate } from './components/AdminGate'
 import { isLocalAnalyticsAdmin, localAnalyticsEnabled, trackPageView } from './lib/analytics'
 import { PRODUCT_ROUTES as R } from './data/productRoutes'
-import { builderLessons } from './data/builderLessons'
-import { getBrowserStorage, quarantineWorkspaceData } from './lib/workspaceStorage'
 import './styles/app.css'
 import './styles/one-screen.css'
 import './styles/redesign.css'
@@ -24,7 +22,7 @@ const BoardCatalogPage = lazy(() => import('./pages/BoardCatalogPage').then(modu
 const TopicsPage = lazy(() => import('./pages/TopicsPage').then(module => ({ default: module.TopicsPage })))
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage').then(module => ({ default: module.ProjectsPage })))
 const ComponentsPage = lazy(() => import('./pages/ComponentsPage').then(module => ({ default: module.ComponentsPage })))
-const CircuitBuilderPage = lazy(() => import('./pages/CircuitBuilderPage').then(module => ({ default: module.CircuitBuilderPage })))
+const CircuitBuilderEntry = lazy(() => import('./pages/CircuitBuilderEntry').then(module => ({ default: module.CircuitBuilderEntry })))
 const FirmwareHexToolPage = lazy(() => import('./pages/FirmwareHexToolPage').then(module => ({ default: module.FirmwareHexToolPage })))
 const ElectronicsCalculatorsPage = lazy(() => import('./pages/ElectronicsCalculatorsPage').then(module => ({ default: module.ElectronicsCalculatorsPage })))
 const FreestyleLabPage = lazy(() => import('./pages/FreestyleLabPage').then(module => ({ default: module.FreestyleLabPage })))
@@ -41,8 +39,9 @@ const CommunityNewPostPage = lazy(() => import('./pages/CommunityNewPostPage').t
 class BuilderErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean; resetError: string }> {
   state = { failed: false, resetError: '' }
   static getDerivedStateFromError() { return { failed: true } }
-  resetWorkspace = () => {
+  resetWorkspace = async () => {
     try {
+      const { getBrowserStorage, quarantineWorkspaceData } = await import('./lib/workspaceStorage')
       quarantineWorkspaceData(getBrowserStorage('localStorage'), getBrowserStorage('sessionStorage'))
       window.location.reload()
     } catch (error) {
@@ -83,7 +82,7 @@ class RouteErrorBoundary extends Component<{ children: ReactNode; resetKey: stri
 function CircuitBuilderRoute({ variant = 'public' }: { variant?: 'public' | 'app' }) {
   const [searchParams] = useSearchParams()
   const sessionKey = `${searchParams.get('guided') ?? ''}:${searchParams.get('lesson') ?? ''}:${searchParams.get('board') ?? ''}`
-  return <BuilderErrorBoundary key={sessionKey}><SiteShell variant={variant}><CircuitBuilderPage key={sessionKey} /></SiteShell></BuilderErrorBoundary>
+  return <BuilderErrorBoundary key={sessionKey}><SiteShell variant={variant}><CircuitBuilderEntry key={sessionKey} /></SiteShell></BuilderErrorBoundary>
 }
 
 function RoutePlaceholder({ title }: { title: string }) {
@@ -124,7 +123,12 @@ export default function App() {
     if (!localAnalyticsEnabled) return
     trackPageView('page_view', 'router')
     const lessonId = /^(?:\/app)?\/learn\/([^/]+)\/?$/.exec(location.pathname)?.[1]
-    if (builderLessons.some(lesson => lesson.id === lessonId)) trackPageView('lesson_open')
+    if (!lessonId) return
+    let cancelled = false
+    void import('./data/builderLessons').then(({ builderLessons }) => {
+      if (!cancelled && builderLessons.some(lesson => lesson.id === lessonId)) trackPageView('lesson_open')
+    }).catch(() => undefined)
+    return () => { cancelled = true }
   }, [location.pathname])
 
   useEffect(() => {

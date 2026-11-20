@@ -48,7 +48,7 @@ export function TourHost() {
   const tour = tourId ? TOURS[tourId] : null
 
   return <>
-    {invite && tour && !active && <aside className="mm-tour-invite" aria-label="Hướng dẫn cho người mới">
+    {invite && tour && !active && <aside className={`mm-tour-invite${tour.id === 'lab' ? ' mm-tour-invite-lab' : ''}`} aria-label="Hướng dẫn cho người mới">
       <p className="mm-tour-invite-kicker"><span aria-hidden="true">✳</span> Lần đầu đến đây?</p>
       <p className="mm-tour-invite-title">{tour.label} · {tour.steps.length} bước</p>
       <p className="mm-tour-invite-text">{tour.invite}</p>

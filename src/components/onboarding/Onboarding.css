@@ -38,6 +38,7 @@
 .mm-tour-invite-title { margin: 0 0 4px; color: var(--mm-ink); font: 700 17px/1.25 var(--mm-font-display); }
 .mm-tour-invite-text { margin: 0 0 12px; font-size: 14px; line-height: 1.45; }
 .mm-tour-invite-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 620px) { .mm-tour-invite.mm-tour-invite-lab { position: relative; inset: auto; margin: 12px 16px; z-index: 1; } }
 .app-workspace-frame .mm-tour-invite { left: calc(var(--mm-rail-w) + 16px); }
 @media (max-width: 1279px), (max-height: 719px) { .app-workspace-frame .mm-tour-invite { left: 16px; } }
 @media (max-width: 760px) { .app-workspace-frame .mm-tour-invite { bottom: 84px; } }

@@ -25,6 +25,9 @@ export const MICROPYTHON_FIRMWARE_PATH = 'firmware/micropython/RPI_PICO-20260824
 let toolsPromise: Promise<LocalTools | null> | undefined
 /** Hỏi dịch vụ cục bộ (chỉ có khi chạy `vite` dev/preview trên máy). Bản tĩnh trả null. */
 export function detectLocalTools(force = false): Promise<LocalTools | null> {
+  if (typeof window !== 'undefined' && !['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname)) {
+    return Promise.resolve(null)
+  }
   if (!force && toolsPromise) return toolsPromise
   toolsPromise = (async () => {
     try {

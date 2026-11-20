@@ -88,6 +88,10 @@ const PAGE_TITLES: Readonly<Record<string, string>> = {
 
 const APP_TO_PUBLIC_ROUTE = Object.fromEntries(Object.entries(PUBLIC_TO_APP_ROUTE).map(([publicRoute, appRoute]) => [appRoute, publicRoute]))
 
+export function publicCanonicalRoute(pathname: string): string {
+  return APP_TO_PUBLIC_ROUTE[pathname] ?? pathname.replace(/^\/app(?=\/(?:learn|community)\/)/, '')
+}
+
 /** One readable tab title per page, shared by the public and app URLs. */
 export function getPageTitle(pathname: string): string {
   const title = PAGE_TITLES[APP_TO_PUBLIC_ROUTE[pathname] ?? pathname]

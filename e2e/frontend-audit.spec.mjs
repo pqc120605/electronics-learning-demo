@@ -15,6 +15,7 @@ test('public guests load the workbench without requesting local tools or Supabas
   })
 
   await page.goto(guest)
+  await page.locator('.hero-actions').getByRole('link', { name: 'Mở bàn lắp mạch' }).click()
   await expect(page.locator('#ban-lap-mach .freestyle-home')).toBeVisible()
   await page.getByRole('radio', { name: /Arduino Uno R3/ }).check()
   await expect(page.locator('[data-board-art="arduino-uno-r3"]')).toBeVisible()

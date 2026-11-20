@@ -60,7 +60,9 @@ test('invalid kit station count stays visible with an error and does not overwri
 test('mobile working zoom keeps endpoints usable inside a pannable canvas without page overflow', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 })
   await blink(page)
-  await page.getByRole('button', { name: 'Ẩn bảng thao tác', exact: true }).click()
+  const hidePanel = page.getByRole('button', { name: 'Ẩn bảng thao tác', exact: true })
+  if (await hidePanel.isVisible()) await hidePanel.click()
+  await expect(page.getByRole('button', { name: 'Mở bảng thao tác', exact: true })).toBeVisible()
   const svg = page.locator('.breadboard-diagram-svg')
   const hole = page.locator('[data-circuit-endpoint="bb1:3a"]')
   await hole.scrollIntoViewIfNeeded()

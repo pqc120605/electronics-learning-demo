@@ -1,6 +1,6 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { getPageTitle, PRODUCT_ROUTES } from '../data/productRoutes'
+import { getPageTitle, PRODUCT_ROUTES, publicCanonicalRoute } from '../data/productRoutes'
 import { analyticsConfigured, trackPageView } from '../lib/analytics'
 import { SiteNavigation } from './SiteNavigation'
 import { AppWorkspaceNavigation } from './AppWorkspaceNavigation'
@@ -37,6 +37,8 @@ export function SiteShell({ children, variant = 'public' }: SiteShellProps) {
 
   return (
     <GuideProvider><div className={`site-frame${variant === 'app' ? ' app-workspace-frame' : ''}`}>
+      <link rel="canonical" href={`https://mach-mo.vercel.app${publicCanonicalRoute(pathname)}`} />
+      <meta property="og:title" content={getPageTitle(pathname)} />
       <a className="skip-link" href="#main-content">Đi đến nội dung chính</a>
       {variant === 'app' ? <AppWorkspaceNavigation /> : <header className="site-header">
         <Link className="brand" to="/" aria-label="Mạch Mở, về trang khám phá">
@@ -50,7 +52,7 @@ export function SiteShell({ children, variant = 'public' }: SiteShellProps) {
         <div className="header-auth"><AuthMenu variant="public" /></div>
       </header>}
       <div className="site-scroll" data-scroll-root="">
-      <main id="main-content">{children}</main>
+      <main id="main-content"><TourHost />{children}</main>
       <footer className="site-footer">
         <div className="footer-brand">
           <BrandLogo compact />
@@ -63,7 +65,6 @@ export function SiteShell({ children, variant = 'public' }: SiteShellProps) {
         {variant === 'public' && <Link className="admin-entry" to="/admin/login">Khu quản trị</Link>}
       </footer>
       </div>
-      <TourHost />
       <GuideHost />
     </div></GuideProvider>
   )

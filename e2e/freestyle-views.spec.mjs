@@ -14,6 +14,7 @@ test('fresh home and room have no implicit board, circuit, code, or saved replac
  await start(page)
  for(const url of ['/','/build/freestyle']){
   await page.goto(url)
+  if(url==='/')await page.locator('.hero-actions').getByRole('link',{name:'Mở bàn lắp mạch'}).click()
   await expect(bench(page).getByRole('radio',{checked:true})).toHaveCount(0)
   await expect(page.locator('[data-diagram-part],[data-board-art]')).toHaveCount(0)
   await expect(page.locator('.freestyle-work-actions').getByRole('button',{name:'▶ Chạy'})).toBeDisabled()
@@ -135,6 +136,7 @@ test('switching board during a pending compile rejects the stale completion and 
 })
 test('home full-screen action preserves unsaved session-only work in place',async({page})=>{
  await start(page);await page.goto('/')
+ await page.locator('#ban-lap-mach').scrollIntoViewIfNeeded()
  await page.evaluate(()=>{Storage.prototype.setItem=()=>{throw new DOMException('quota','QuotaExceededError')}})
  await page.getByRole('radio',{name:/Arduino Nano classic/}).check()
  await page.getByRole('tab',{name:/Viết code & Chạy/}).click()

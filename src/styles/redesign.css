@@ -121,6 +121,7 @@ p { text-wrap: pretty; }
 /* ---------- Trang chủ: ba cách bắt đầu ---------- */
 .home-start { margin: 0 var(--page-pad) var(--mm-space-6); }
 .home-freestyle { scroll-margin-top: 100px; }
+.home-freestyle-placeholder { min-height: 440px; display: grid; place-content: center; margin-inline: var(--page-pad); }
 .home-freestyle > [role="status"] { margin-inline: var(--page-pad); }
 .home-start-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
 .home-flow-card { display: grid; grid-template-rows: auto auto 1fr auto; gap: 8px; height: 100%; padding: 18px; border: 1px solid var(--mm-line); border-radius: var(--mm-radius-lg); background: var(--mm-surface); color: var(--mm-text); text-decoration: none; box-shadow: var(--mm-shadow-card); }

@@ -52,9 +52,11 @@ export function BoardCatalogPage() {
     return (family === 'Tất cả' || board.platform === family) && text.includes(query.trim().toLocaleLowerCase('vi'))
   }), [family, query])
   const selected = boards.filter((board) => compare.includes(board.id))
-  const visibleBoards = showAllBoards || query.trim() || family !== 'Tất cả' ? filtered : filtered.slice(0, 8)
   const link = resolveBoardLink(searchParams.get('board'), knownBoardIds, cadBoardIds, 'esp32-devkit')
   const activeBoard = boards.find((board) => board.id === link.boardId)!
+  const firstBoards = filtered.slice(0, 8)
+  const visibleBoards = showAllBoards || query.trim() || family !== 'Tất cả' ? filtered
+    : firstBoards.some(board => board.id === activeBoard.id) ? firstBoards : [...firstBoards.slice(0, 7), activeBoard]
   const activeFreestyleBoardId = getFreestyleBoardId(activeBoard.id)
   const manifest = link.boardId === 'esp32-devkit' ? esp32DevkitModel : cadModels.find((model) => model.id === link.boardId)
   const topView = topInspectorBoards.has(activeBoard.id) ? getBoardTopView(activeBoard.id) : undefined

@@ -585,6 +585,7 @@ test('PCB copper viewer keeps controls readable in the warm interface and render
 
 test('beginner follows curriculum into an editable guided lesson', async ({ page }) => {
   await page.goto('/app')
+  await page.getByText('Lộ trình và tiến độ đã lưu', { exact: true }).click()
   await page.getByRole('link', { name: 'Bắt đầu bài LED', exact: true }).click()
   await page.getByLabel('Board của bạn', { exact: true }).selectOption('esp32-devkit')
   await page.getByRole('link', { name: /Thực hành|Bắt đầu thực hành/ }).first().click()
@@ -606,6 +607,7 @@ test('learner discovers and completes the conceptual robot lesson across narrow 
   for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
     await page.setViewportSize(viewport)
     await page.goto('/app')
+    await page.getByText('Công cụ và nội dung thực hành khác', { exact: true }).click()
     await page.getByRole('link', { name: /Bài học robot mô phỏng/ }).click()
     await expect(page.getByRole('heading', { name: 'Khám phá chuyển động của robot', exact: true })).toBeVisible()
     await expect(page.getByText(/Mô phỏng khái niệm/)).toBeVisible()

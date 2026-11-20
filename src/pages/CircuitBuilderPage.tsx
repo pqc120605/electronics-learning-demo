@@ -183,22 +183,12 @@ function loadLessonDrafts(storage: Storage, storageKey: string): LessonDrafts {
   } catch { return {} }
 }
 
-import {LessonBoardChooser} from '../components/lesson/LessonBoardChooser'
-import {resolveLessonBoardChoice,savedLessonBoard} from '../lib/lessonBoardSelection'
+import {resolveLessonBoardChoice} from '../lib/lessonBoardSelection'
 import {lessonBoardPresentation} from '../lib/lessonBoardPresentation'
 
 import { GuideContextBridge } from '../components/guide/GuideContext'
 
-export function CircuitBuilderPage() {
- const [params,setParams]=useSearchParams()
- const requested=params.get('board'),lesson=params.get('lesson')
- let saved:string|undefined
- if(!requested&&!lesson){try{const storage=window.localStorage;saved=savedLessonBoard(storage.getItem('machmo-builder-session-v5'))??savedLessonBoard(storage.getItem('machmo-builder-session'))}catch{}}
- const choice=resolveLessonBoardChoice(requested??saved)
- if(choice.kind!=='selected')return <LessonBoardChooser lessonId={builderLessons.some(item=>item.id===lesson)?lesson as BuilderLessonId:'blink'} requestedId={requested} onChoose={board=>{const next=new URLSearchParams(params);next.set('board',board);setParams(next)}}/>
- return <SelectedCircuitBuilderPage selectedBoardId={choice.target.boardId}/>
-}
-function SelectedCircuitBuilderPage({selectedBoardId}:{selectedBoardId:string}) {
+export function SelectedCircuitBuilderPage({selectedBoardId}:{selectedBoardId:string}) {
   const productRoute=useProductRoute()
   const location=useLocation()
   const navigate=useNavigate()

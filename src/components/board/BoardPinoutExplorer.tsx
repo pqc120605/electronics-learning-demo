@@ -36,9 +36,13 @@ export function BoardPinoutExplorer({ pins, selectedPinId, onSelectPin, evidence
     <div className="board-pinout-header-groups">
       {[...groups.values()].map((group) => <div className={`board-pinout-header-group ${group.side === 'reference' ? 'board-pinout-header-group-reference' : ''}`} key={`${group.header}-${group.side}`} role="group" aria-label={`Chọn nhóm chân ${group.header}`}>
         <h5>{group.header}</h5>
-        <div>{group.pins.map((pin) => <button key={pin.id} type="button" aria-label={pin.padNumber ? `${pin.label}, ${group.header} chân ${pin.padNumber}` : undefined} aria-pressed={selectedPinId === pin.id} className={selectedPinId === pin.id ? 'board-pinout-pin-active' : ''} onClick={() => onSelectPin(pin.id)}>
-          <strong>{pin.label}</strong><small>{pin.gpio === undefined ? pin.functions[0] : `GPIO${pin.gpio}`}</small>
-        </button>)}</div>
+        <div>{group.pins.map((pin) => {
+          const secondary = pin.gpio === undefined ? pin.functions[0] : `GPIO${pin.gpio}`
+          return <button key={pin.id} type="button" aria-pressed={selectedPinId === pin.id} className={selectedPinId === pin.id ? 'board-pinout-pin-active' : ''} onClick={() => onSelectPin(pin.id)}>
+            <strong>{pin.label}</strong>{' '}<small>{secondary}</small>
+            {pin.padNumber && <span className="sr-only"> {group.header} chân {pin.padNumber}</span>}
+          </button>
+        })}</div>
       </div>)}
     </div>
     <p className="board-pinout-explorer-note">{evidence?.summary ?? 'Danh sách chân là dữ liệu tham chiếu của model hiện tại; đối chiếu đúng revision và tài liệu board trước khi đấu thật.'} Chọn chân chỉ cập nhật thông tin; chưa tô đường đồng/net, chạy firmware hoặc mô phỏng điện.</p>

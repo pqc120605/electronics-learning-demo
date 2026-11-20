@@ -14,7 +14,7 @@ for (const width of [375, 1440]) {
     const openBench = hero.getByRole('link', { name: 'Mở bàn lắp mạch' })
     await expect(openBench).toBeInViewport({ ratio: 1 })
     const workspace = page.locator('#ban-lap-mach')
-    await expect(workspace.locator('.freestyle-home')).toBeVisible()
+    await expect(workspace).toBeVisible()
     if (width === 1440) {
       const positions = await page.getByRole('navigation', { name: 'Điều hướng chính' }).evaluate(nav =>
         Array.from(nav.children).map(item => {
@@ -25,6 +25,7 @@ for (const width of [375, 1440]) {
       expect(Math.max(...positions.map(item => item.y)) - Math.min(...positions.map(item => item.y))).toBeLessThan(20)
     }
     expect(resources.filter(path => heavyResource.test(path))).toEqual([])
+    if (width === 375) expect(resources.filter(path => /\/FreestyleBench-.*\.js$/.test(path))).toEqual([])
     await openBench.focus()
     await page.keyboard.press('Enter')
     await expect(page).toHaveURL(/\/#ban-lap-mach$/)

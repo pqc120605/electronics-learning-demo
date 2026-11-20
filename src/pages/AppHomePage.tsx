@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { RecentProjectResume } from '../components/learning/RecentProjectResume'
 import { BeginnerResumeCard, useBeginnerResume } from '../components/learning/BeginnerResumeCard'
 import { beginnerResumeUrl } from '../lib/beginnerRepair'
@@ -6,13 +6,15 @@ import { Link } from 'react-router-dom'
 import { curriculumLessons } from '../data/curriculumSchema'
 import { PRODUCT_ROUTES as R, toAppRoute } from '../data/productRoutes'
 import { CapabilityLegend } from '../components/CapabilityBadge'
-import { FirstBoardStudio, LearningPath } from '../components/LearningPath'
 import { LearningActivity } from '../components/LearningActivity'
 import { esp32LedLesson } from '../data/lessons'
 import { getKnownChecklistItems } from '../lib/learningProgress'
 import { useLearningProgress } from '../lib/useLearningProgress'
 import { getLearningResume } from '../data/learningPath'
 import './AppHomePage.css'
+
+const FirstBoardStudio = lazy(() => import('../components/FirstBoardStudio').then(module => ({ default: module.FirstBoardStudio })))
+const LearningPath = lazy(() => import('../components/LearningPath').then(module => ({ default: module.LearningPath })))
 
 const workspaceLinks = [
   {
@@ -72,6 +74,7 @@ const exploreLinks = [
 export function AppHomePage() {
   const foundation = useBeginnerResume()
   const [studioOpened, setStudioOpened] = useState(false)
+  const [courseOpened, setCourseOpened] = useState(false)
   const progress = useLearningProgress()
   const resume = getLearningResume(progress.lastLessonId, progress.selfReportedCompletedLessonIds)
   const resumeLesson = curriculumLessons.find((lesson) => lesson.id === resume.lessonId)
@@ -110,10 +113,12 @@ export function AppHomePage() {
         if (event.currentTarget.open) setStudioOpened(true)
       }}>
         <summary>Xem board mẫu và sơ đồ chân</summary>
-        {studioOpened && <FirstBoardStudio />}
+        {studioOpened && <Suspense fallback={<p role="status">Đang tải board mẫu…</p>}><FirstBoardStudio /></Suspense>}
       </details>
 
-      <details className="app-home-disclosure" id="app-home-course">
+      <details className="app-home-disclosure" id="app-home-course" onToggle={event => {
+        if (event.currentTarget.open) setCourseOpened(true)
+      }}>
         <summary>Lộ trình và tiến độ đã lưu</summary>
         <section className="app-home-section app-home-path" aria-labelledby="app-home-path-title">
         <div className="app-home-section-heading">
@@ -122,7 +127,9 @@ export function AppHomePage() {
             <h2 id="app-home-path-title">Đi theo lộ trình, hoặc mở bài bạn quan tâm</h2>
           </div>
         </div>
-        <LearningPath lastLessonId={progress.lastLessonId} startedLessonIds={progress.startedLessonIds} completedLessonIds={progress.selfReportedCompletedLessonIds} headingLevel="h3" />
+        {courseOpened && <Suspense fallback={<p role="status">Đang tải lộ trình…</p>}>
+          <LearningPath lastLessonId={progress.lastLessonId} startedLessonIds={progress.startedLessonIds} completedLessonIds={progress.selfReportedCompletedLessonIds} headingLevel="h3" />
+        </Suspense>}
         {resume.state !== 'all-complete' && <Link className="app-home-course-resume" to={toAppRoute(resume.route)}>{resume.label}</Link>}
         <p className="app-home-path-note">{resumeNote}</p>
         <p className="app-home-path-note">{`Bạn đã bắt đầu ${progress.startedLessonIds.length}/${curriculumLessons.length} bài; tự đánh dấu hoàn thành ${progress.selfReportedCompletedLessonIds.length}/${curriculumLessons.length} bài. `}{ledChecklistCount > 0 ? `Checklist bài LED đã tự xác nhận ${ledChecklistCount}/${esp32LedLesson.verificationChecklist.length} mục. ` : ''}Tiến độ chỉ lưu trên trình duyệt này, không chấm điểm và không xác minh đã chạy phần cứng.</p>

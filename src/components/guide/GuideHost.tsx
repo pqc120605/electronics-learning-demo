@@ -1,6 +1,5 @@
 import {lazy,Suspense,useEffect,useRef,useState} from 'react'
 import {useLocation} from 'react-router-dom'
-import mascot from '../../../assets/brand/concepts/2026-11-15/mach-mo-mascot-concept-v1.png'
 import {GUIDE_OPEN_EVENT} from './GuideContext'
 import './Guide.css'
 
@@ -13,6 +12,7 @@ export function GuideHost(){
   const [reduced,setReduced]=useState(()=>matchMedia('(prefers-reduced-motion: reduce)').matches)
   const [still,setStill]=useState(()=>read('mm-guide-still'))
   const [entry,setEntry]=useState({ question: '', revision: 0 })
+  const [compact,setCompact]=useState(false)
   const focusedWorkspace=/^\/(?:app\/)?(?:build|lab|learn\/|tools\/)/.test(pathname)
   const opener=useRef<HTMLElement|null>(null)
   function show(question = '') {
@@ -44,9 +44,15 @@ export function GuideHost(){
   },[])
   // Questions stay in the mounted panel only; a route change closes and discards them.
   useEffect(()=>{setOpen(false)},[pathname])
+  useEffect(() => {
+    const onScroll = () => setCompact(Math.max(window.scrollY, document.querySelector('[data-scroll-root]')?.scrollTop ?? 0) > 160)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { capture: true, passive: true })
+    return () => window.removeEventListener('scroll', onScroll, true)
+  }, [pathname])
   return <>
-    {!open&&!hidden&&!focusedWorkspace&&<button type="button" className="guide-launcher" onClick={() => show()}>
-      <img src={mascot} alt="" width="56" height="64" decoding="async" /><span><strong>Hỏi Mở</strong><small>Cùng bạn làm mạch</small></span>
+    {!open&&!hidden&&!focusedWorkspace&&<button type="button" aria-label="Hỏi Mở" className={`guide-launcher${compact?' is-compact':''}`} onClick={() => show()}>
+      <span className="guide-launcher-icon" aria-hidden="true">?</span><strong>Hỏi Mở</strong>
     </button>}
     {open&&<Suspense fallback={<aside className="guide-loading" role="status">Đang mở hướng dẫn… <button type="button" onClick={close}>Đóng</button></aside>}>
       <GuidePanel key={entry.revision} initialQuestion={entry.question} pathname={pathname} motion={!still&&!reduced} reduced={reduced} onMotion={value=>{setStill(!value);remember('mm-guide-still',!value)}} onClose={close} onNavigate={closeTo} onStartTour={()=>setOpen(false)} onHide={()=>{setHidden(true);remember('mm-guide-hidden',true);close()}} />

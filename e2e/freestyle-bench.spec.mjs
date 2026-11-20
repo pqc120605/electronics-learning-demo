@@ -11,6 +11,7 @@ async function freshHome(page) {
   await page.goto('/')
   await page.evaluate(() => localStorage.removeItem('machmo-freestyle-v1'))
   await page.reload()
+  await page.locator('.hero-actions').getByRole('link', { name: 'Mở bàn lắp mạch' }).click()
   await expect(bench(page).getByRole('heading', { name: 'Tự lắp mạch, tự viết code, bấm Chạy' })).toBeVisible()
 }
 
@@ -155,6 +156,7 @@ for (const width of [375, 1440]) {
       await page.setViewportSize({ width, height: width === 375 ? 812 : 900 })
       await page.goto(route)
       await expect(page.locator('main h1')).toBeVisible()
+      if (route === '/') await page.locator('.hero-actions').getByRole('link', { name: 'Mở bàn lắp mạch' }).click()
       await expect(bench(page)).toBeVisible()
       const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze()
       await testInfo.attach('axe-results', { body: JSON.stringify(result.violations, null, 2), contentType: 'application/json' })
