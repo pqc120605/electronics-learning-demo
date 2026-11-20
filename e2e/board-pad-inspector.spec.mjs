@@ -1,4 +1,16 @@
 import { expect, test } from '@playwright/test'
+
+test('catalog loads the board-specific CAD evidence and pin groups after opening a direct link', async ({ page }) => {
+  await page.goto('/app/boards?board=esp32-s3-devkitc-1&feature=cad-j1')
+  const inspector = page.locator('.board-cad-details')
+  await expect(inspector).toContainText('PADS')
+  await expect(inspector).toContainText('V1.1')
+  await expect(inspector).not.toContainText(/KiCad v1\.3|D0–D10|Seeed|manual ST/)
+
+  await page.goto('/app/boards?board=arduino-mega-2560-r3')
+  await expect(inspector).toContainText('bấm vào đúng vị trí trên mô hình 3D')
+  await expect(inspector.getByRole('group', { name: 'Chọn nhóm chân POWER0' })).toBeAttached()
+})
 import { mkdir, readFile } from 'node:fs/promises'
 
 const boards = [

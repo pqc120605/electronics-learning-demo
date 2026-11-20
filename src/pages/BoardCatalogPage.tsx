@@ -7,15 +7,8 @@ import { BoardProfile } from '../components/board/BoardProfile'
 import { BoardViewer } from '../components/board/BoardViewer'
 import { BoardModelEvidencePanel } from '../components/board/BoardModelEvidencePanel'
 import { BoardPinoutExplorer } from '../components/board/BoardPinoutExplorer'
-import { Pcb2DViewer } from '../components/pcb/Pcb2DViewer'
-import { raspberryPiBoardModels } from '../data/raspberryPiBoardModels'
-import { communityBoardModels } from '../data/communityBoardModels'
-import { adafruitBoardModels } from '../data/adafruitBoardModels'
-import { seeedBoardModels } from '../data/seeedBoardModels'
-import { espressifBoardModels } from '../data/espressifBoardModels'
+import type { BoardModelManifest } from '../components/board/boardSceneTypes'
 import { getBoardModelEvidence } from '../data/boardModelSources'
-import { arduinoBoardModels } from '../data/arduinoBoardModels'
-import { stm32BoardModels } from '../data/stm32BoardModels'
 import { esp32DevkitModel } from '../data/esp32DevkitModel'
 import { simulationTargets } from '../data/simulationTargets'
 import { CapabilityBadge, CapabilityLegend } from '../components/CapabilityBadge'
@@ -30,9 +23,17 @@ import { canExploreBoardPinout } from '../lib/boardPinoutPresentation'
 import { getBoardTopView } from '../lib/boardTopView'
 
 const BoardTopInspector = lazy(() => import('../components/board/BoardTopInspector'))
+const Pcb2DViewer = lazy(() => import('../components/pcb/Pcb2DViewer').then(({ Pcb2DViewer }) => ({ default: Pcb2DViewer })))
 const topInspectorBoards = new Set(['arduino-uno-r3', 'arduino-nano-classic', 'arduino-mega-2560-r3', 'esp32-devkit', 'raspberry-pi-pico'])
-const cadModels = [...arduinoBoardModels, ...raspberryPiBoardModels, ...communityBoardModels, ...adafruitBoardModels, ...seeedBoardModels, ...espressifBoardModels, ...stm32BoardModels]
-const cadBoardIds = new Set(['esp32-devkit', ...cadModels.map((model) => model.id)])
+const cadModelFamilies = [
+  { ids: ['arduino-uno-r3', 'arduino-nano-classic', 'arduino-mega-2560-r3'], load: () => import('../data/arduinoBoardModels').then(module => module.arduinoBoardModels) },
+  { ids: ['raspberry-pi-pico', 'raspberry-pi-pico-w', 'raspberry-pi-pico-2', 'raspberry-pi-pico-2-h'], load: () => import('../data/raspberryPiBoardModels').then(module => module.raspberryPiBoardModels) },
+  { ids: ['adafruit-qtpy-esp32-c3-5405', 'adafruit-feather-esp32-s3-5323', 'adafruit-feather-esp32-s3-tft-5483'], load: () => import('../data/adafruitBoardModels').then(module => module.adafruitBoardModels) },
+  { ids: ['seeed-xiao-esp32c3', 'seeed-xiao-esp32-s3'], load: () => import('../data/seeedBoardModels').then(module => module.seeedBoardModels) },
+  { ids: ['esp32-s3-devkitc-1'], load: () => import('../data/espressifBoardModels').then(module => module.espressifBoardModels) },
+  { ids: ['stm32-blue-pill-f103', 'stm32-nucleo'], load: () => import('../data/stm32BoardModels').then(module => module.stm32BoardModels) },
+]
+const cadBoardIds = new Set(['esp32-devkit', ...cadModelFamilies.flatMap(({ ids }) => ids)])
 const knownBoardIds = new Set(boards.map((board) => board.id))
 const labBoardIds = new Set(simulationTargets.map((target) => target.boardId))
 
@@ -46,6 +47,7 @@ export function BoardCatalogPage() {
   const [showAllBoards, setShowAllBoards] = useState(false)
   const [compare, setCompare] = useState<string[]>(['arduino-uno-r3', 'esp32-devkit'])
   const [hoveredCadFeatureId, setHoveredCadFeatureId] = useState('')
+  const [loadedModel, setLoadedModel] = useState<{ boardId: string; manifest?: BoardModelManifest }>()
   const panelHeadingRef = useRef<HTMLHeadingElement>(null)
   const filtered = useMemo(() => boards.filter((board) => {
     const text = `${board.id} ${board.name} ${board.mcu ?? ''} ${board.revision ?? ''}`.toLocaleLowerCase('vi')
@@ -58,7 +60,20 @@ export function BoardCatalogPage() {
   const visibleBoards = showAllBoards || query.trim() || family !== 'Tất cả' ? filtered
     : firstBoards.some(board => board.id === activeBoard.id) ? firstBoards : [...firstBoards.slice(0, 7), activeBoard]
   const activeFreestyleBoardId = getFreestyleBoardId(activeBoard.id)
-  const manifest = link.boardId === 'esp32-devkit' ? esp32DevkitModel : cadModels.find((model) => model.id === link.boardId)
+  const modelFamily = cadModelFamilies.find(({ ids }) => ids.includes(link.boardId))
+  const manifest = link.boardId === 'esp32-devkit' ? esp32DevkitModel
+    : loadedModel?.boardId === link.boardId ? loadedModel.manifest : undefined
+  const modelLoadFailed = loadedModel?.boardId === link.boardId && !manifest
+  useEffect(() => {
+    if (!modelFamily) return
+    const boardId = link.boardId
+    let active = true
+    void modelFamily.load().then(
+      models => { if (active) setLoadedModel({ boardId, manifest: models.find(model => model.id === boardId) }) },
+      () => { if (active) setLoadedModel({ boardId }) },
+    )
+    return () => { active = false }
+  }, [link.boardId, modelFamily])
   const topView = topInspectorBoards.has(activeBoard.id) ? getBoardTopView(activeBoard.id) : undefined
   const requestedView = searchParams.get('view')
   const activeCadView = requestedView === 'top' && topView ? 'top'
@@ -86,8 +101,9 @@ export function BoardCatalogPage() {
       <div className="catalog-controls"><label className="catalog-search"><span aria-hidden="true">⌕</span><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm board hoặc MCU…" aria-label="Tìm board hoặc vi điều khiển" /></label><div className="catalog-filters" role="group" aria-label="Lọc họ board">{['Tất cả','ESP','Arduino','STM32','Raspberry Pi'].map((item) => <button type="button" key={item} aria-pressed={family === item} className={family === item ? 'catalog-filter-active' : ''} onClick={() => setFamily(item)}>{item}</button>)}</div><button className="catalog-reset" type="button" onClick={() => { setQuery(''); setFamily('Tất cả'); setShowAllBoards(false) }} disabled={!query && family === 'Tất cả'}>Xóa bộ lọc</button><a className="button-secondary" href="#board-results">Đến danh sách board ↓</a></div>
       <section className="board-cad-viewer" aria-labelledby="board-cad-viewer-title">
         {link.status === 'unknown' && <p className="board-reference-warning board-link-notice" role="status">Không tìm thấy board trong liên kết. Trang đang hiện {activeBoard.name}.</p>}
-        <div className="board-cad-viewer-heading"><div><p className="eyebrow">{manifest ? 'CAD THAM CHIẾU · 3D TƯƠNG TÁC' : 'HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER'}</p><h2 id="board-cad-viewer-title" ref={panelHeadingRef} tabIndex={-1}>{manifest ? `Khám phá ${activeBoard.name}` : `Hồ sơ ${activeBoard.name}`}</h2><p>{manifest ? 'Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện.' : 'Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện.'}</p></div><div className="board-cad-viewer-actions">{activeFreestyleBoardId && <Link className="board-freestyle-link" to={productRoute(`/build/freestyle?board=${encodeURIComponent(activeFreestyleBoardId)}`)}>Lắp thử {activeBoard.name} <span aria-hidden="true">↗</span></Link>}{activeBoard.cadDownloadUrl && <a className="board-source-link board-cad-link" href={activeBoard.cadDownloadUrl} download>{activeBoard.cadDownloadLabel} ↓</a>}{activeBoard.cadViewerUrl && <a className="board-source-link" href={activeBoard.cadViewerUrl} download>{getCadViewerDownloadLabel(activeBoard.cadViewerUrl)} ↓</a>}{getCatalogEvidenceUrl(activeBoard) && <a className="board-source-link" href={getCatalogEvidenceUrl(activeBoard)} target="_blank" rel="noreferrer">Tài liệu hãng ↗</a>}{activeBoard.referenceDocs?.map((doc) => <a key={doc.url} className="board-source-link" href={doc.url} target="_blank" rel="noreferrer">{doc.label} ↗</a>)}</div></div>
+        <div className="board-cad-viewer-heading"><div><p className="eyebrow">{manifest || modelFamily ? 'CAD THAM CHIẾU · 3D TƯƠNG TÁC' : 'HỒ SƠ TRA CỨU · CHƯA CÓ VIEWER'}</p><h2 id="board-cad-viewer-title" ref={panelHeadingRef} tabIndex={-1}>{manifest || modelFamily ? `Khám phá ${activeBoard.name}` : `Hồ sơ ${activeBoard.name}`}</h2><p>{manifest || modelFamily ? 'Kéo để xoay toàn vòng, phóng to và chọn linh kiện trên mô hình hoặc trong danh sách để xem giải thích. Mô hình tham chiếu không chạy firmware hay mô phỏng điện.' : 'Board này chỉ có thông tin tra cứu. Chưa có mô hình tương tác, nên không có hình để chọn linh kiện.'}</p></div><div className="board-cad-viewer-actions">{activeFreestyleBoardId && <Link className="board-freestyle-link" to={productRoute(`/build/freestyle?board=${encodeURIComponent(activeFreestyleBoardId)}`)}>Lắp thử {activeBoard.name} <span aria-hidden="true">↗</span></Link>}{activeBoard.cadDownloadUrl && <a className="board-source-link board-cad-link" href={activeBoard.cadDownloadUrl} download>{activeBoard.cadDownloadLabel} ↓</a>}{activeBoard.cadViewerUrl && <a className="board-source-link" href={activeBoard.cadViewerUrl} download>{getCadViewerDownloadLabel(activeBoard.cadViewerUrl)} ↓</a>}{getCatalogEvidenceUrl(activeBoard) && <a className="board-source-link" href={getCatalogEvidenceUrl(activeBoard)} target="_blank" rel="noreferrer">Tài liệu hãng ↗</a>}{activeBoard.referenceDocs?.map((doc) => <a key={doc.url} className="board-source-link" href={doc.url} target="_blank" rel="noreferrer">{doc.label} ↗</a>)}</div></div>
         <BoardProfile board={activeBoard} />
+        {modelFamily && !manifest && <p className="board-cad-viewer-note" role="status">{modelLoadFailed ? 'Không tải được dữ liệu CAD. Hãy tải lại trang để thử lại.' : 'Đang tải dữ liệu CAD của board…'}</p>}
         {!manifest && <div className="board-profile-evidence"><BoardModelEvidencePanel evidence={evidence} /></div>}
         {manifest && activeFeature && shownFeature && <>
           <div className="catalog-filters board-cad-view-tabs" role="group" aria-label="Chọn góc nhìn CAD">
@@ -96,7 +112,9 @@ export function BoardCatalogPage() {
             {getBoardCatalogView(activeBoard.id, '2d') === '2d' && <button type="button" aria-pressed={activeCadView === '2d'} className={activeCadView === '2d' ? 'catalog-filter-active' : ''} onClick={() => updateQuery({ view: '2d' })}>Lớp đồng PCB 2D</button>}
           </div>
           {activeCadView === '2d'
-            ? <Pcb2DViewer key={`2d-${activeBoard.id}`} boardId={activeBoard.id} />
+            ? <Suspense fallback={<p role="status">Đang tải lớp đồng PCB…</p>}>
+                <Pcb2DViewer key={`2d-${activeBoard.id}`} boardId={activeBoard.id} />
+              </Suspense>
           : activeCadView === 'top' && topView
             ? <Suspense fallback={<p role="status">Đang tải mặt board 2D…</p>}>
                 <BoardTopInspector key={activeBoard.id} top={topView} pins={manifest.pins} selectedPinId={selectedPinId}

@@ -51,14 +51,6 @@ test('STM32 profiles acknowledge available reconstruction while keeping physical
  const b=boards.find(b=>b.id===id);assert.match(b.modelNote,/reconstruction/i);assert.doesNotMatch(b.modelNote,/chưa sẵn sàng|đã gỡ/);assert.match(b.modelNote,/vật lý|board thật/)
  }
 })
-test('S3 pad inspector uses its PADS revision instead of Seeed provenance',async()=>{
- const {BoardCatalogPage}=await server.ssrLoadModule('/src/pages/BoardCatalogPage.tsx')
- const {MemoryRouter}=await import('react-router-dom')
- const html=renderToStaticMarkup(createElement(MemoryRouter,{initialEntries:['/boards?board=esp32-s3-devkitc-1&feature=cad-j1']},createElement(BoardCatalogPage)))
- const inspector=html.slice(html.indexOf('board-cad-details'),html.indexOf('board-cad-viewer-note'))
- assert.match(inspector,/PADS/);assert.match(inspector,/V1\.1/)
- assert.doesNotMatch(inspector,/KiCad v1\.3|D0–D10|Seeed|manual ST/)
-})
 test('catalog launch links preserve catalog part identity and board aliases in rendered pages',async()=>{
  const {MemoryRouter}=await import('react-router-dom')
  const {ComponentsPage}=await server.ssrLoadModule('/src/pages/ComponentsPage.tsx')
@@ -66,15 +58,11 @@ test('catalog launch links preserve catalog part identity and board aliases in r
  assert.doesNotMatch(render(ComponentsPage,'/components?component=capacitor'),/class="component-freestyle-link"/)
  assert.match(render(ComponentsPage,'/components?component=electrolytic'),/class="component-freestyle-link" href="\/build\/freestyle\?part=capacitor"/)
  const {BoardCatalogPage}=await server.ssrLoadModule('/src/pages/BoardCatalogPage.tsx')
- const html=render(BoardCatalogPage,'/boards?board=arduino-mega-2560-r3')
  for (const [catalogId, builderId] of [['arduino-mega-2560-r3', 'arduino-mega-2560'], ['arduino-nano-classic', 'arduino-nano'], ['stm32-nucleo', 'stm32-nucleo-f401re']]) {
    const boardPage = render(BoardCatalogPage, '/boards?board=' + catalogId)
    const actions = boardPage.slice(boardPage.indexOf('class="board-cad-viewer-actions"'), boardPage.indexOf('class="board-profile"'))
    assert.ok(actions.includes('class="board-freestyle-link" href="/build/freestyle?board=' + builderId + '"'), catalogId)
  }
- const inspector=html.slice(html.indexOf('board-cad-details'),html.indexOf('board-cad-viewer-note'))
- assert.match(inspector,/bấm vào đúng vị trí trên mô hình 3D/)
- assert.match(inspector,/Chọn nhóm chân POWER0/)
 })
 test('Arduino body flags reflect mesh-bearing nodes in the current GLB, never invented physical verification',()=>{
  for(const [id,d] of Object.entries(cad)){

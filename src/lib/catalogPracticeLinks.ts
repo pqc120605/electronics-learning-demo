@@ -1,5 +1,5 @@
 import { componentRegistry } from '../data/componentRegistry'
-import { freestyleBoards } from './freestyle/freestyleCircuit'
+import { freestyleBoards } from './freestyle/freestyleBoards'
 
 const boardAliases: Readonly<Record<string, string>> = {
   'arduino-nano-classic': 'arduino-nano',

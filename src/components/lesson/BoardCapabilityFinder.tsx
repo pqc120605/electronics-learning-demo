@@ -14,7 +14,16 @@ function anchorDescription(row: LessonBoardCapabilities): string {
   return `${row.anchors.anchored.length}/${row.anchors.required.length} chân cần dùng có tọa độ nguồn trong hình bài học.`
 }
 
-export function BoardCapabilityFinder({ lessonId, onChoose }: { lessonId: BuilderLessonId; onChoose: (id: string) => void }) {
+type Props = { lessonId: BuilderLessonId; onChoose: (id: string) => void }
+
+export function BoardCapabilityFinder(props: Props) {
+  return <details className="board-capability-finder">
+    <summary>Chưa biết chọn board? So sánh khả năng</summary>
+    <BoardCapabilityOptions {...props} />
+  </details>
+}
+
+export function BoardCapabilityOptions({ lessonId, onChoose }: Props) {
   const id = useId()
   const route = useProductRoute()
   const searchRef = useRef<HTMLInputElement>(null)
@@ -41,8 +50,7 @@ export function BoardCapabilityFinder({ lessonId, onChoose }: { lessonId: Builde
     })
   }
 
-  return <details className="board-capability-finder">
-    <summary>Chưa biết chọn board? So sánh khả năng</summary>
+  return <>
     <p>So sánh tối đa hai board theo bài đang mở. Chỉ nút chọn board mới mở bài; bộ lọc và so sánh không tạo mạch hoặc sửa nháp.</p>
     <div className="board-finder-filters">
       <label htmlFor={`${id}-search`}>Tìm board để so sánh
@@ -92,5 +100,5 @@ export function BoardCapabilityFinder({ lessonId, onChoose }: { lessonId: Builde
         </div>
       </article>)}
     </section>
-  </details>
+  </>
 }

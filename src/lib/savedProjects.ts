@@ -1,8 +1,9 @@
 import { createProjectBundle, parseProjectBundle, type ProjectBundle } from './projectBundle'
 import { normalizeProjectTags } from './projectLibrary'
+import { SAVED_PROJECTS_KEY } from './savedProjectStorageKey'
 import { getBrowserStorage, isVolatileStorage, withoutLibraryWorkspaceMetadata } from './workspaceStorage'
 
-export const SAVED_PROJECTS_KEY = 'machmo-saved-projects'
+export { SAVED_PROJECTS_KEY } from './savedProjectStorageKey'
 const DRAFT_RECOVERY_KEY = 'machmo-draft-recovery'
 export type ProjectRevision = { id: string; updatedAt: string; bundle: ProjectBundle }
 export type SavedProject = { id: string; name: string; updatedAt: string; bundle: ProjectBundle; revisions: ProjectRevision[]; tags: string[]; unreadableRevisions?: unknown[] }
