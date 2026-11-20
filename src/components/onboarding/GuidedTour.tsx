@@ -51,13 +51,24 @@ export function GuidedTour({ tour, onClose }: { tour: TourDefinition; onClose: (
 
   // Đổi bước: tìm vùng, cuộn vào giữa, đo lại sau khi cuộn xong.
   useLayoutEffect(() => {
-    const element = findTarget(step.target)
-    targetRef.current = element
-    if (element) element.scrollIntoView({ block: 'center', inline: 'nearest', behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
-    measure()
-    const settle = window.setTimeout(measure, prefersReducedMotion() ? 0 : 380)
+    let settle: number | undefined
+    const attachTarget = () => {
+      const element = findTarget(step.target)
+      targetRef.current = element
+      if (element) {
+        element.scrollIntoView({ block: 'center', inline: 'nearest', behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
+        settle = window.setTimeout(measure, prefersReducedMotion() ? 0 : 380)
+      }
+      measure()
+      return Boolean(element)
+    }
+    const root = document.getElementById('root')
+    const observer = new MutationObserver(() => {
+      if (attachTarget()) observer.disconnect()
+    })
+    if (!attachTarget() && root) observer.observe(root, { childList: true, subtree: true })
     titleRef.current?.focus({ preventScroll: true })
-    return () => window.clearTimeout(settle)
+    return () => { observer.disconnect(); window.clearTimeout(settle) }
   }, [step, measure])
 
   useEffect(() => {

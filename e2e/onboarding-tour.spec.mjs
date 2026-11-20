@@ -44,6 +44,27 @@ for (const width of [375, 1440]) test(`app tours highlight real regions and keep
   }
 })
 
+test('the lab tour finds a target inserted after the tour opens', async ({ page }) => {
+  await page.goto('/app/lab?board=esp32-devkit')
+  const heading = page.locator('.circuit-builder-page .catalog-page-heading h1')
+  await expect(heading).toBeVisible()
+  const target = await heading.evaluateHandle(node => {
+    const parent = node.parentElement, next = node.nextSibling
+    node.remove()
+    return { node, parent, next }
+  })
+  try {
+    await page.getByRole('button', { name: 'Trợ giúp', exact: true }).click()
+    await page.getByRole('button', { name: /Hướng dẫn trang này/ }).click()
+    await expect(page.getByRole('dialog', { name: 'Phòng lắp mạch theo bài' })).toBeVisible()
+    await expect(page.locator('.mm-tour-spot')).toHaveCount(0)
+    await target.evaluate(({ node, parent, next }) => parent.insertBefore(node, next))
+    await expect(page.locator('.mm-tour-spot')).toBeVisible()
+    await page.keyboard.press('Escape')
+    await expect(heading).toBeVisible()
+  } finally { await target.dispose() }
+})
+
 const seen = (page) => page.evaluate(() => JSON.parse(localStorage.getItem('mm-tour-seen') ?? '{}'))
 
 test('home tour opens on request; keyboard stays inside, Esc skips and the choice is remembered', async ({ page }) => {
