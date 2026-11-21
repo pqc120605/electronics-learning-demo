@@ -5,6 +5,7 @@ const posts = 'machmo_community.community_posts'
 const comments = 'machmo_community.community_comments'
 const accounts = 'machmo_community.accounts'
 const reports = 'machmo_community.community_reports'
+const shares = 'machmo_community.project_shares'
 export const foldCommunityText = value => value.normalize('NFD').replace(/\p{M}/gu, '').replace(/[đĐ]/g, 'd').toLowerCase()
 
 function author(row) {
@@ -98,11 +99,10 @@ export function createCommunityStore(pool) {
       })
     },
     async report(input, viewer) {
-      const isPost = input.targetType === 'post'
-      const table = isPost ? posts : comments
-      const column = isPost ? 'post_id' : 'comment_id'
+      const targets = { post: [posts, 'post_id', 'id'], comment: [comments, 'comment_id', 'id'], project: [shares, 'share_code', 'code'] }
+      const [table, column, key] = targets[input.targetType]
       return inTransaction(pool, async db => {
-        const { rows } = await db.query('SELECT id FROM ' + table + ' WHERE id=$1 AND NOT hidden FOR SHARE', [input.targetId])
+        const { rows } = await db.query('SELECT ' + key + ' FROM ' + table + ' WHERE ' + key + '=$1 AND NOT hidden FOR SHARE', [input.targetId])
         if (!rows.length) return null
         await db.query('INSERT INTO ' + reports + ' (id,account_id,' + column + ',reason,note) VALUES ($1,$2,$3,$4,$5) ON CONFLICT DO NOTHING',
           [randomUUID(), viewer.id, input.targetId, input.reason, input.note])
@@ -112,16 +112,20 @@ export function createCommunityStore(pool) {
       })
     },
     async queue() {
-      const { rows } = await pool.query('SELECT r.id, coalesce(r.post_id,c.post_id) AS "postId", r.comment_id AS "commentId", r.reason, r.note, r.created_at AS "createdAt" ' +
+      const { rows } = await pool.query('SELECT r.id, coalesce(r.post_id,c.post_id) AS "postId", r.comment_id AS "commentId", r.share_code AS "shareCode", r.reason, r.note, r.created_at AS "createdAt" ' +
         'FROM ' + reports + ' r LEFT JOIN ' + comments + ' c ON c.id=r.comment_id WHERE r.resolved_at IS NULL ORDER BY r.created_at,r.id LIMIT 100')
       return rows
     },
     async moderate(id, action) {
       return inTransaction(pool, async db => {
-        const { rows } = await db.query('UPDATE ' + reports + ' SET resolved_at=now() WHERE id=$1 AND resolved_at IS NULL RETURNING post_id,comment_id', [id])
+        const { rows } = await db.query('UPDATE ' + reports + ' SET resolved_at=now() WHERE id=$1 AND resolved_at IS NULL RETURNING post_id,comment_id,share_code', [id])
         const report = rows[0]
         if (!report) return false
-        if (action === 'hide') await db.query('UPDATE ' + (report.post_id ? posts : comments) + ' SET hidden=true WHERE id=$1', [report.post_id ?? report.comment_id])
+        if (action === 'hide') {
+          const table = report.share_code ? shares : report.post_id ? posts : comments
+          const key = report.share_code ? 'code' : 'id'
+          await db.query('UPDATE ' + table + ' SET hidden=true WHERE ' + key + '=$1', [report.post_id ?? report.comment_id ?? report.share_code])
+        }
         return true
       })
     },

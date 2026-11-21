@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useProductRoute } from '../lib/useProductRoute'
-import { localAnalyticsEnabled } from '../lib/analytics'
+import { localAnalyticsEnabled, selfHostedAnalyticsEnabled } from '../lib/analytics'
 import { useAuth } from '../lib/auth'
 import { deleteSelfHostedAccount, selfHostedOAuthEnabled } from '../lib/selfHostedAuth'
 
@@ -12,6 +12,7 @@ function AccountPrivacy() {
   return <>
     <h2>Tài khoản và cộng đồng online</h2>
     <p>Mạch Mở lưu định danh từ Google hoặc GitHub, tên hiển thị, ảnh đại diện và phiên đăng nhập. Tên và ảnh đại diện đi kèm bài viết. Bạn có thể xóa tài khoản, phiên và nội dung cộng đồng của tài khoản tại đây. Bản sao lưu máy chủ có thể còn giữ dữ liệu đến khi đến lượt thay.</p>
+    <p>Project lưu lên tài khoản và lớp online được giữ trên máy chủ khi bạn chọn lưu hoặc nộp bài. Giáo viên của lớp thấy tên hiển thị và tiến độ nộp bài trong lớp. Project chỉ xuất hiện trong thư viện chung khi bạn chọn đăng công khai. Những bản sao đã tải về thiết bị khác vẫn do người giữ thiết bị quản lý.</p>
     {auth.status === 'signed-in' && <button type="button" disabled={busy} onClick={async () => {
       if (!window.confirm('Xóa tài khoản cùng bài viết, bình luận và phiên đăng nhập trên máy chủ?')) return
       setBusy(true)
@@ -38,6 +39,8 @@ export function PrivacyPage() {
     <h2>Thống kê sử dụng</h2>
     <p>Nếu dịch vụ thống kê được cấu hình, Mạch Mở gửi lượt xem trang, mở bài, chọn linh kiện, sao chép code và bắt đầu chạy mô phỏng cùng mã phiên ngẫu nhiên trong tab. Mã code, tên, email và nội dung project không được gửi trong các sự kiện này. Khi chưa cấu hình dịch vụ, các sự kiện không được gửi.</p>
     <p>Bạn có thể đóng tab để kết thúc phiên. {localAnalyticsEnabled ? 'Bản demo lưu sự kiện thô trên máy chủ Mạch Mở tối đa 30 ngày. Thống kê sử dụng mã phiên, đường dẫn trang đã chuẩn hóa và thời gian sự kiện.' : 'Thời hạn giữ dữ liệu phụ thuộc dịch vụ thống kê đang được cấu hình.'}</p>
+    {selfHostedAnalyticsEnabled && <p>Thống kê tự quản dùng mã phiên ngẫu nhiên trong tab, nhóm kích thước màn hình, tên miền giới thiệu và mã bài/board đã biết. Máy chủ giữ sự kiện tối đa 90 ngày và số liệu gộp theo ngày tối đa 13 tháng. Thao tác đánh dấu hoàn thành là tự khai báo.</p>}
+    {selfHostedOAuthEnabled && <p>Khi Hỏi AI yêu cầu tài khoản, backend lưu bộ đếm theo tài khoản và theo ngày. Nhật ký kỹ thuật giữ trạng thái, model, thời gian, token và đánh giá tối đa 90 ngày. Nội dung hội thoại không ghi trong nhật ký. Khi dùng OpenAI, định danh giả danh được tạo từ mã nội bộ để hỗ trợ kiểm soát lạm dụng.</p>}
     <Link to={productRoute('/')}>Về trang chính</Link>
   </article>
 }

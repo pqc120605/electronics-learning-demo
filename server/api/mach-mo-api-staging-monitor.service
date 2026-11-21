@@ -1,0 +1,16 @@
+[Unit]
+Description=Mạch Mở staging health and AI quota check
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/.local/share/mach-mo/api-staging/current
+EnvironmentFile=%h/.config/mach-mo/api-staging.env
+EnvironmentFile=%h/.local/share/mach-mo/api-staging/current/release.env
+ExecStart=/usr/bin/node %h/.local/share/mach-mo/api-staging/current/server/api/monitor-staging.mjs
+TimeoutStartSec=20s
+MemoryMax=128M
+NoNewPrivileges=true
+PrivateUsers=true
+ProtectSystem=strict
+ProtectHome=read-only
+UMask=0077

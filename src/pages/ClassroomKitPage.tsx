@@ -4,6 +4,8 @@ import { boards } from '../data/boards'
 import { componentRegistry } from '../data/componentRegistry'
 import { curriculumLessons } from '../data/curriculumSchema'
 import type { BuilderLessonId } from '../data/builderLessons'
+import { ClassroomOnlinePanel } from '../components/ClassroomOnlinePanel'
+import { selfHostedOAuthEnabled } from '../lib/selfHostedAuth'
 import {
   createDefaultClassroomKitBundle,
   getKitInventory,
@@ -219,6 +221,7 @@ export function ClassroomKitPage() {
         <div>
           <p className="eyebrow">LỚP HỌC · CHUẨN BỊ KIT</p>
           <h1>Lên kế hoạch lớp thực hành</h1>
+          {selfHostedOAuthEnabled && <ClassroomOnlinePanel bundle={bundle} />}
           <p className="classroom-kit-intro">Chọn board, bài học và số trạm để tính danh sách dụng cụ dùng lại qua các buổi. Lưu trên thiết bị hoặc xuất gói để chia sẻ thủ công.</p>
         </div>
         <div className="classroom-kit-actions">

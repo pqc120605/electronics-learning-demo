@@ -36,8 +36,9 @@ export function CommunityModeration({ base }: { base: string }) {
     <button type="button" onClick={refresh} disabled={busy}>{busy ? 'Đang xử lý…' : 'Tải báo cáo'}</button>
     {reports?.length === 0 && <p role="status">Không có báo cáo đang chờ.</p>}
     <ul>{reports?.map(report => <li key={report.id}>
-      <p>{REPORT_REASONS.find(reason => reason.id === report.reason)?.label} · {report.commentId ? 'Bình luận' : 'Bài viết'}</p>
+      <p>{REPORT_REASONS.find(reason => reason.id === report.reason)?.label} · {report.shareCode ? 'Project' : report.commentId ? 'Bình luận' : 'Bài viết'}</p>
       {report.postId && <Link to={base + '/' + encodeURIComponent(report.postId)}>Mở bài</Link>}
+      {report.shareCode && <Link to={'/s/' + encodeURIComponent(report.shareCode)}>Mở project</Link>}
       {report.note && <p>{report.note}</p>}
       <div className="community-form-actions">
         <button type="button" disabled={busy} onClick={() => review(report.id, 'hide')}>Ẩn nội dung</button>

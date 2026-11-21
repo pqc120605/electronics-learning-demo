@@ -11,7 +11,7 @@ const epoch = '1970-01-01T00:00:00.000Z'
 const pinOrHole = (endpoint: CircuitEndpointV2): CircuitEndpointV2 => endpoint.kind === 'pin'
   ? { kind: 'pin', partId: endpoint.partId, pinId: endpoint.pinId } : { kind: 'hole', holeId: endpoint.holeId }
 
-function portableWorkspace(workspace: FreestyleWorkspace): FreestyleWorkspace {
+export function portableWorkspace(workspace: FreestyleWorkspace): FreestyleWorkspace {
   const { doc } = workspace
   return {
     version: 1, boardId: workspace.boardId, code: workspace.code, language: workspace.language, sampleId: workspace.sampleId,

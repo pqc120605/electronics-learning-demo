@@ -1,6 +1,7 @@
 import { sessionDigest } from '../community/session-http.mjs'
 import { createOAuth, newSession, sessionCookie, sessionToken } from './oauth.mjs'
 import { foldCommunityText } from './community-store.mjs'
+import { shareCodePattern } from './projects.mjs'
 
 const categories = new Set(['co-ban', 'nhung', 'iot', 'du-an', 'hoi-dap-loi'])
 const reasons = new Set(['spam', 'offensive', 'unsafe', 'off-topic', 'other'])
@@ -172,7 +173,8 @@ export function createS2({ origin, env, authStore, community, now = Date.now, fe
         case 'delete-post': return send(res, await community.change('post', target, null, viewer))
         case 'delete-comment': return send(res, await community.change('comment', target, null, viewer))
         case 'report': {
-          if (!body || !['post', 'comment'].includes(body.targetType) || typeof body.targetId !== 'string' || !uuid.test(body.targetId)
+          if (!body || !['post', 'comment', 'project'].includes(body.targetType) || typeof body.targetId !== 'string'
+            || !(body.targetType === 'project' ? shareCodePattern : uuid).test(body.targetId)
             || !reasons.has(body.reason) || !lengthBetween(body.note, 0, 500)) return send(res, 400)
           const { targetType, targetId, reason, note } = body
           const report = await community.report({ targetType, targetId, reason, note: note.trim() }, viewer)

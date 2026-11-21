@@ -1192,7 +1192,7 @@ export function SelectedCircuitBuilderPage({selectedBoardId}:{selectedBoardId:st
     if(v2CircuitActive?v2TraceHasCircuitErrors:hasCircuitErrors){setNotice(v2CircuitActive?v2TraceBlockReason:diagnostics.find(item=>item.severity==='error')?.message??'Mạch có lỗi topology.');revealGuidance();return}
     const mismatch=findProgramTargetMismatch(parsed.program,target,lessonId);if(mismatch){setNotice(mismatch);revealGuidance();return}
     if(parsed.program.kind==='seven-segment'&&!sevenSegmentPathValid){setNotice('Mạch LED 7 đoạn chưa đủ kết nối: mỗi chân A–G cần điện trở riêng và hai chân COM về GND.');revealGuidance();return}
-    trackEvent('builder_run')
+    trackEvent('builder_run', undefined, { lessonId, boardId: board })
     const recorded=recordLessonSimulationStarted(lessonId,target.boardId,target.name,'lesson-model')
     const historyNotice=recorded?'':' Lịch sử lượt chạy chưa được lưu vào trình duyệt này.'
     elapsedRef.current=0;digitRef.current=0;setEducationalProgram(parsed.program);setTick(0);setDisplayDigit(0);setSim(initialEduState(target.codePin));if(parsed.program.kind==='concept'){setTick(1);setRunning(false);setNotice(`Đã mở luồng khái niệm. Dùng “Chạy từng bước” để lần theo đường nguồn, driver, tải và GND; đây là mô hình bài học, không thực thi firmware.${historyNotice}`);return}setRunning(true);setNotice(`Code đã được phân tích thành chương trình giáo dục giới hạn; mô phỏng đầu vào ảo, không thực thi firmware MCU trong chế độ bài học.${historyNotice}`)

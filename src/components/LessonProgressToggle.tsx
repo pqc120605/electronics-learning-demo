@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { BuilderLessonId } from '../data/builderLessons'
 import { isLessonSelfReportedComplete, setLessonSelfReportedCompletion } from '../lib/learningProgress'
+import { trackEvent } from '../lib/analytics'
 import './LessonProgressToggle.css'
 
 export function LessonProgressToggle({ lessonId }: { lessonId: BuilderLessonId }) {
@@ -17,7 +18,10 @@ export function LessonProgressToggle({ lessonId }: { lessonId: BuilderLessonId }
     const next = !completed
     const saved = setLessonSelfReportedCompletion(lessonId, next)
     setSaveFailed(!saved)
-    if (saved) setCompleted(next)
+    if (saved) {
+      setCompleted(next)
+      if (next) trackEvent('lesson_complete', undefined, { lessonId })
+    }
   }
 
   return <div className="lesson-progress-toggle">

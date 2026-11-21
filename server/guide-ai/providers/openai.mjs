@@ -33,6 +33,7 @@ export async function openAiAnswer(input, config, context = {}) {
   const start = performance.now()
   const body = JSON.stringify({
     model: config.model, instructions, input: JSON.stringify(input), store: false, max_output_tokens: 700,
+    ...(context.safetyIdentifier && { safety_identifier: context.safetyIdentifier }),
     text: { format: { type: 'json_schema', name: 'mobot_answer', strict: true, schema: answerSchema } },
   })
   let status
@@ -46,7 +47,7 @@ export async function openAiAnswer(input, config, context = {}) {
       status = response.status
       if (!response.ok) {
         await response.body?.cancel()
-        if (attempt === 0 && (status === 429 || status >= 500)) {
+        if (context.retry !== false && attempt === 0 && (status === 429 || status >= 500)) {
           await sleep(1_000)
           continue
         }

@@ -9,7 +9,6 @@ import { getBrowserStorage } from '../lib/workspaceStorage'
 function SharedCircuit({ fragment }: { fragment: string }) {
   const [workspace, setWorkspace] = useState<FreestyleWorkspace>()
   const [error, setError] = useState('')
-  const [copyKey, setCopyKey] = useState('')
 
   useEffect(() => {
     let active = true
@@ -23,6 +22,12 @@ function SharedCircuit({ fragment }: { fragment: string }) {
       : <p role="status">Đang đọc mạch chia sẻ…</p>}
   </section>
 
+  return <SharedFreestyleBench workspace={workspace} />
+}
+
+export function SharedFreestyleBench({ workspace }: { workspace: FreestyleWorkspace }) {
+  const [copyKey, setCopyKey] = useState('')
+  const [error, setError] = useState('')
   return <>
     {error && <p className="freestyle-card" role="alert">{error}</p>}
     {copyKey && <p className="freestyle-card" role="status">Đang sửa bản sao. Bản nháp gốc có thể mở lại từ Bản nháp.</p>}

@@ -3,8 +3,11 @@ import { createServer } from 'node:http'
 import { isIP } from 'node:net'
 import { createAnalyticsHandler } from '../analytics/http.mjs'
 import { createSessionHandler } from '../community/session-http.mjs'
-import { handleChat, handleStatus } from '../guide-ai/handler.mjs'
+import { checkGuideStatus, handleChat, handleStatus } from '../guide-ai/handler.mjs'
 import { s2Route } from './s2.mjs'
+import { adminPath } from './admin.mjs'
+import { projectRoute } from './projects.mjs'
+import { classroomRoute } from './classrooms.mjs'
 
 export const MAX_BODY_BYTES = 64 * 1024
 const MINUTE_MS = 60_000
@@ -18,6 +21,8 @@ const routes = new Map([
   ['/api/guide-ai/status', { id: 'guide-status', method: 'GET' }],
   ['/api/guide-ai/chat', { id: 'guide-chat', method: 'POST', acceptsBody: true }],
 ])
+const guideFeedback = { id: 'guide-feedback', method: 'POST', acceptsBody: true, csrf: true }
+const adminReport = { id: 'admin-report', method: 'GET' }
 
 function json(response, status, payload) {
   response.statusCode = status
@@ -32,6 +37,11 @@ function json(response, status, payload) {
 function closeRequest(response, status) {
   response.setHeader('Connection', 'close')
   json(response, status)
+}
+
+function requireJson(request) {
+  if (request.headers['content-type']?.split(';', 1)[0].trim().toLowerCase() !== 'application/json') throw 415
+  return readJson(request)
 }
 
 function readJson(request) {
@@ -82,7 +92,7 @@ function createLimiter(requestsPerMinute, trustedProxies) {
 }
 
 export function createApiServer({
-  origins, commit, checkDatabase, sessionStore, analyticsStore, guideEnv = {}, s2,
+  origins, commit, checkDatabase, sessionStore, analyticsStore, guideEnv = {}, s2, guide, admin, projects, classrooms,
   trustedProxyIps = [], requestsPerMinute = 120, log = entry => console.log(JSON.stringify(entry)),
 }) {
   if (!Array.isArray(origins) || !origins.length || origins.some(value => {
@@ -97,7 +107,7 @@ export function createApiServer({
   const sessions = new Map([...allowedOrigins].map(origin => [origin, createSessionHandler({ origin, store: sessionStore, validateHost: false })]))
   const sessionHosts = new Map([...allowedOrigins].map(origin => [new URL(origin).host, origin]))
   const analytics = createAnalyticsHandler({
-    mode: 'public', origins, store: analyticsStore,
+    mode: 'public', origins, store: analyticsStore, extended: Boolean(admin),
     onFailure: () => log({ event: 'analytics_failed' }),
   })
   const limit = createLimiter(requestsPerMinute, new Set(trustedProxyIps))
@@ -108,9 +118,13 @@ export function createApiServer({
     const method = request.method
     const routeMethod = method === 'OPTIONS' ? request.headers['access-control-request-method'] : method
     const s2Action = s2 && s2Route(routeMethod, path)
-    const route = s2Action || routes.get(path)
+    const project = projects && projectRoute(routeMethod, path)
+    const classroom = classrooms && classroomRoute(routeMethod, path)
+    const report = admin && adminPath.exec(path)
+    const route = s2Action || project || classroom || (report ? adminReport : guide && path === '/api/guide-ai/feedback' ? guideFeedback : routes.get(path))
     const s2Session = s2 && (route?.id === 'session' || route?.id === 'logout')
-    const csrf = route?.csrf || (s2Session && route.id === 'logout')
+    const guideAction = guide && route?.id.startsWith('guide-')
+    const csrf = route?.csrf || (s2Session && route.id === 'logout') || (guideAction && route.method === 'POST')
     response.once('finish', () => log({ route: route?.id ?? 'unknown', status: response.statusCode, ms: Date.now() - started }))
     response.setHeader('Cache-Control', 'no-store')
     response.setHeader('X-Content-Type-Options', 'nosniff')
@@ -149,17 +163,35 @@ export function createApiServer({
     if ((method === 'POST' || csrf) && !origin) return json(response, 403)
 
     try {
+      if (classroom) {
+        const result = await classrooms(classroom, request, () => requireJson(request))
+        return json(response, result.status, result.body)
+      }
+      if (project) {
+        const result = await projects(project, request, () => requireJson(request))
+        return json(response, result.status, result.body)
+      }
+      if (report) {
+        const result = await admin(report[1], request, new URLSearchParams(request.url.split('?').slice(1).join('?')))
+        return json(response, result.status, result.body)
+      }
+      if (guideAction) {
+        const disconnect = new AbortController()
+        response.once('close', () => disconnect.abort())
+        const result = await guide(route.id, request, () => requireJson(request), disconnect.signal)
+        if (result.status === 503) response.setHeader('Retry-After', '5')
+        return json(response, result.status, result.body)
+      }
+      if (s2 && route.id.startsWith('guide-')) {
+        return route.id === 'guide-status' ? json(response, 200, { state: 'unavailable', model: 'lookup' }) : json(response, 503)
+      }
       if (s2Action || s2Session) {
         const params = new URLSearchParams(request.url.split('?').slice(1).join('?'))
-        return await s2.handle({ ...route, csrf }, request, response, json, params, () => {
-          const mediaType = request.headers['content-type']?.split(';', 1)[0].trim().toLowerCase()
-          if (mediaType !== 'application/json') throw 415
-          return readJson(request)
-        })
+        return await s2.handle({ ...route, csrf }, request, response, json, params, () => requireJson(request))
       }
       if (route.id === 'health') {
         const ready = await Promise.resolve().then(checkDatabase).catch(() => false)
-        const ai = handleStatus(guideEnv).body
+        const ai = await checkGuideStatus(guideEnv)
         return json(response, ready ? 200 : 503, { version: 1, commit, db: ready ? 'ready' : 'unavailable', ai: ai.state === 'ready' ? ai.provider : 'unavailable' })
       }
       if (route.id === 'session' || route.id === 'logout') {

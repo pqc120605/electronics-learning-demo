@@ -56,7 +56,7 @@ export const REPORT_REASONS: ReadonlyArray<{ id: ReportReason; label: string }> 
 
 export type CommunityReport = {
   id: string
-  targetType: 'post' | 'comment'
+  targetType: 'post' | 'comment' | 'project'
   targetId: string
   reason: ReportReason
   note: string
@@ -67,7 +67,7 @@ export type PostQuery = { search?: string; category?: CommunityCategoryId | null
 
 export type NewPostInput = { title: string; body: string; category: CommunityCategoryId; tags: string[]; files?: File[]; requestId?: string }
 export type CommunityPageResult = { items: CommunityPost[]; nextCursor: string | null }
-export type CommunityModerationReport = { id: string; postId: string | null; commentId: string | null; reason: ReportReason; note: string; createdAt: string }
+export type CommunityModerationReport = { id: string; postId: string | null; commentId: string | null; shareCode?: string | null; reason: ReportReason; note: string; createdAt: string }
 
 export type CommunityRepository = {
   /** 'preview' = chưa đồng bộ máy chủ. */
