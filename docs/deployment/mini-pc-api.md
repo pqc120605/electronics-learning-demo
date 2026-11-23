@@ -2,6 +2,8 @@
 
 S1 staging chuẩn bị API cho session, thu sự kiện học và Mở Bot. Node dùng lại các handler và driver PostgreSQL đã ghim của dịch vụ community. L8 tiếp tục ở nhánh phát hành riêng.
 
+Khi nối frontend Vercel với API theo QĐ-1, dùng [checklist A3–A4](qd1-vercel-node-api.md).
+
 ## Luồng staging
 
 ```text
