@@ -4,6 +4,7 @@ Mạch Mở là website học miễn phí cho người mới. Khách có thể x
 
 ## Trang công khai và không gian học
 
+- Quyết định kiến trúc về dữ liệu dùng chung nằm trong [ADR 0001 · Node API tự quản](docs/adr/0001-backend-duy-nhat-node-api.md).
 - `/` là trang giới thiệu thế giới điện tử và các tính năng của Mạch Mở.
 - `/app` là dashboard học tập dành cho khách, dẫn tới bài học, thư viện board/linh kiện, bàn lắp mạch, chủ đề, công cụ và dự án đang có.
 - App workspace là một bề mặt guest-first chạy chung SPA React/Vite với website. Đây chưa phải native app. Service worker cache app shell cùng các JS/CSS đã tải để mở lại một số route khi offline; không cache model 3D lớn, firmware hay API, và chưa có đồng bộ offline.
