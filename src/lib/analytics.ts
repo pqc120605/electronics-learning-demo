@@ -2,6 +2,7 @@ import { isSupabaseConfigured, supabase } from './supabase'
 import localAnalyticsPaths from '../../server/analytics/paths.json'
 import analyticsDimensions from '../../server/analytics/dimensions.json'
 import { selfHostedOAuthEnabled } from './selfHostedAuth'
+import { apiRequest } from './api'
 
 export type AnalyticsEventName = 'page_view' | 'lesson_open' | 'component_select' | 'code_copy' | 'builder_run' | 'lesson_complete'
 
@@ -62,8 +63,8 @@ export function trackEvent(eventName: AnalyticsEventName, componentId?: string, 
     const referrer = selfHostedAnalyticsEnabled ? URL.parse(document.referrer) : null
     const host = referrer && ['http:', 'https:'].includes(referrer.protocol) && referrer.origin !== window.location.origin
       && /^(?:[a-z0-9-]+\.)+[a-z][a-z0-9-]*$/.test(referrer.hostname) ? referrer.hostname : null
-    void fetch('/api/analytics/events', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'omit',
+    void apiRequest('/api/analytics/events', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
       keepalive: true, body: JSON.stringify(selfHostedAnalyticsEnabled ? { ...payload,
         device: window.innerWidth < 600 ? 'mobile' : window.innerWidth < 1024 ? 'tablet' : 'desktop',
         referrer_host: host,

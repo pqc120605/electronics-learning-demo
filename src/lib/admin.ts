@@ -1,5 +1,6 @@
 import type { Session, User } from '@supabase/supabase-js'
 import { supabase } from './supabase'
+import { apiRequest, readApiJson } from './api'
 
 export type DailyAnalytics = {
   day: string
@@ -74,7 +75,9 @@ export async function getAnalyticsSummary(startAt: string, endAt: string): Promi
 
 export async function getLocalAnalyticsSummary(start: string, end: string): Promise<AnalyticsSummary> {
   const query = new URLSearchParams({ start, end })
-  const response = await fetch(`/api/analytics/admin/summary?${query}`, { cache: 'no-store' })
-  if (!response.ok) throw new Error('Không tải được thống kê trên máy chủ.')
-  return response.json() as Promise<AnalyticsSummary>
+  return readApiJson<AnalyticsSummary>(await apiRequest('/api/analytics/admin/summary?' + query))
+}
+
+export async function getAdminReport<T>(section: 'summary' | 'ai' | 'community' | 'system', days: 7 | 30 | 90, signal: AbortSignal): Promise<T> {
+  return readApiJson<T>(await apiRequest('/api/admin/' + section + '?days=' + days, { signal }))
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import type { AnalyticsSummary } from '../lib/admin'
+import { getAdminReport, type AnalyticsSummary } from '../lib/admin'
 import { useAuth } from '../lib/auth'
 import './SelfHostedAdminPage.css'
 
@@ -51,16 +51,11 @@ function Reports() {
   const [current, setCurrent] = useState<{ days: Range; data?: Dashboard; error?: string }>()
   useEffect(() => {
     const controller = new AbortController()
-    void Promise.all(sections.map(async section => {
-      const response = await fetch('/api/admin/' + section + '?days=' + days, {
-        credentials: 'same-origin', cache: 'no-store', signal: AbortSignal.any([controller.signal, AbortSignal.timeout(8000)]),
-      })
-      if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) throw new Error('report')
-      return [section, await response.json()] as const
-    })).then(entries => {
+    const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(8000)])
+    void Promise.all(sections.map(async section => [section, await getAdminReport(section, days, signal)] as const)).then(entries => {
       if (!controller.signal.aborted) setCurrent({ days, data: Object.fromEntries(entries) as Dashboard })
-    }).catch(() => {
-      if (!controller.signal.aborted) setCurrent({ days, error: 'Không tải được báo cáo. Hãy kiểm tra phiên đăng nhập và kết nối.' })
+    }).catch(error => {
+      if (!controller.signal.aborted) setCurrent({ days, error: error instanceof Error ? error.message : 'Không tải được báo cáo.' })
     })
     return () => controller.abort()
   }, [days])

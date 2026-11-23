@@ -2,6 +2,7 @@ import { compileSketch, type SketchSnapshot } from '../sketchInterpreter'
 import type { LivePinState } from '../avrLiveMachine'
 import type { LiveWorkerRequest, LiveWorkerResponse } from '../../simulation/liveRuntimeProtocol'
 import { getFreestyleBoard, sketchBoardFor, type FreestyleEngine, type FreestyleLanguage } from './freestyleCircuit'
+import { apiRequest } from '../api'
 
 /**
  * Chọn và điều khiển engine chạy code cho bàn lắp mạch tự do (2026-11-14):
@@ -31,7 +32,7 @@ export function detectLocalTools(force = false): Promise<LocalTools | null> {
   if (!force && toolsPromise) return toolsPromise
   toolsPromise = (async () => {
     try {
-      const response = await fetch(`${API}/health`, { cache: 'no-store' })
+      const response = await apiRequest(API + '/health')
       if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) return null
       const body = await response.json() as Partial<LocalTools> & { ok?: boolean }
       return body.ok ? { arduinoCli: Boolean(body.arduinoCli), rp2040Bootrom: String(body.rp2040Bootrom ?? ''), boards: Array.isArray(body.boards) ? body.boards.map(String) : [] } : null
@@ -52,7 +53,9 @@ export function chooseEngine(boardId: string, language: FreestyleLanguage, tools
 }
 
 export async function compileOnLocalService(boardId: string, source: string): Promise<{ ok: boolean; hex?: string; log: string }> {
-  const response = await fetch(`${API}/compile`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ board: boardId, source }) })
+  const response = await apiRequest(API + '/compile', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ board: boardId, source }),
+  }, [400, 403, 404, 413, 415, 422, 429, 500, 503])
   const body = await response.json().catch(() => ({})) as { ok?: boolean; hex?: string; log?: string; message?: string }
   return { ok: Boolean(body.ok && body.hex), ...(body.hex ? { hex: body.hex } : {}), log: body.log ?? body.message ?? `HTTP ${response.status}` }
 }
@@ -67,7 +70,7 @@ let micropythonAssets: Promise<{ bootrom: ArrayBuffer; firmware: ArrayBuffer }> 
 function loadMicroPythonAssets() {
   micropythonAssets ??= (async () => {
     const [bootrom, firmware] = await Promise.all([
-      fetch(`${API}/rp2040-bootrom`).then(response => { if (!response.ok) throw new Error('Không lấy được bootrom RP2040 từ dịch vụ cục bộ.'); return response.arrayBuffer() }),
+      apiRequest(API + '/rp2040-bootrom').then(response => response.arrayBuffer()),
       fetch(`${import.meta.env.BASE_URL}${MICROPYTHON_FIRMWARE_PATH}`).then(response => { if (!response.ok) throw new Error('Không tải được firmware MicroPython.'); return response.arrayBuffer() }),
     ])
     return { bootrom, firmware }

@@ -1,6 +1,7 @@
 import { findGuideAnswers, type GuideArticle, type GuideSnapshot, type GuideSource } from './guideKnowledge'
 import { guideSourceKind, normalizeGuideText } from './guideSearch'
 import { selfHostedCsrf, selfHostedOAuthEnabled } from './selfHostedAuth'
+import { apiRequest, readApiJson } from './api'
 
 export type GuideAiTurn = { question: string; answer: string }
 export type GuideAiEvidence = { id: string; title: string; text: string; sources: GuideSource[] }
@@ -46,9 +47,8 @@ export function prepareGuideAi(question: string, previousQuestions: readonly str
 
 export async function readGuideAiStatus(signal: AbortSignal): Promise<GuideAiStatus> {
   try {
-    const response = await fetch(`${endpoint}/status`, { signal, cache: 'no-store' })
-    if (!response.ok) throw new Error()
-    const data = await response.json()
+    const response = await apiRequest(endpoint + '/status', { signal })
+    const data = await readApiJson<GuideAiStatus>(response)
     if (data.state === 'invalid-model') return { state: 'invalid-model', model: '' }
     if (!knownModel(data.model) || !['ready', 'model-missing', 'unavailable', 'quota-exceeded', 'signed-out'].includes(data.state)) throw new Error()
     const provider = data.provider === 'openai' || data.provider === 'mock' ? data.provider : 'ollama'
@@ -65,13 +65,13 @@ export async function requestGuideAi(question: string, evidence: GuideAiEvidence
     question, history: recent, evidence: context.map(({ id, title, text }) => ({ id, title, text })),
   })
   while (context.length > 1 && encode().length > 6_500) context.pop()
-  const response = await fetch(`${endpoint}/chat`, {
+  const response = await apiRequest(endpoint + '/chat', {
     method: 'POST', signal, headers: { 'Content-Type': 'application/json', ...(selfHostedOAuthEnabled && selfHostedCsrf) },
     body: encode(),
-  })
+  }, [401, 429])
   if (!response.ok) throw new Error(response.status === 429 && selfHostedOAuthEnabled ? 'quota-exceeded'
     : response.status === 401 && selfHostedOAuthEnabled ? 'signed-out' : 'ai-unavailable')
-  const result: GuideAiReply = await response.json()
+  const result = await readApiJson<GuideAiReply>(response)
   const validSourceIds = Array.isArray(result?.sourceIds) && result.sourceIds.every(id => context.some(source => source.id === id))
   const validFollowUps = result?.followUps === undefined || (Array.isArray(result.followUps) && result.followUps.length <= 3
     && result.followUps.every(value => typeof value === 'string' && value.length > 0 && value.length <= 160))
@@ -82,8 +82,8 @@ export async function requestGuideAi(question: string, evidence: GuideAiEvidence
 }
 
 export async function sendGuideAiFeedback(feedback: GuideAiFeedback, helpful: boolean) {
-  const response = await fetch(endpoint + '/feedback', {
-    method: 'POST', credentials: 'same-origin', headers: { ...selfHostedCsrf, 'Content-Type': 'application/json' },
+  const response = await apiRequest(endpoint + '/feedback', {
+    method: 'POST', headers: { ...selfHostedCsrf, 'Content-Type': 'application/json' },
     body: JSON.stringify({ ...feedback, helpful }), signal: AbortSignal.timeout(8000),
   })
   if (response.status !== 204) throw new Error('feedback-unavailable')

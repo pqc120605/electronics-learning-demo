@@ -1,4 +1,5 @@
 import { safeAvatarUrl, safeNextPath, type AuthUser, type OAuthProviderId } from './authUser'
+import { ApiError, apiRequest, readApiJson } from './api'
 
 const sessionPath = '/api/session'
 export const selfHostedSessionChanged = 'machmo:session-changed'
@@ -10,23 +11,21 @@ export function startSelfHostedOAuth(provider: OAuthProviderId, next: string) {
 }
 
 async function sessionRequest(path: string, payload?: Record<string, string>) {
-  return fetch(sessionPath + path, {
+  return apiRequest(sessionPath + path, {
     signal: AbortSignal.timeout(8000),
-    credentials: 'same-origin',
-    cache: 'no-store',
     ...(payload && {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     }),
-  })
+  }, payload ? [400, 401, 409, 429] : [])
 }
 
 async function extractUser(response: Response): Promise<AuthUser | null> {
-  if (!response.ok || !response.headers.get('Content-Type')?.includes('application/json')) {
+  if (!response.ok) {
     throw new Error('Không đọc được phiên đăng nhập.')
   }
-  const { user } = await response.json()
+  const { user } = await readApiJson<{ user: AuthUser | null }>(response)
   if (user === null) return null
   if (typeof user?.id !== 'string' || typeof user.displayName !== 'string') {
     throw new Error('Không đọc được phiên đăng nhập.')
@@ -39,7 +38,10 @@ async function extractUser(response: Response): Promise<AuthUser | null> {
 let pendingRead: Promise<AuthUser | null> | undefined
 export function readSelfHostedUser() {
   if (!pendingRead) {
-    const request = sessionRequest('').then(extractUser).finally(() => {
+    const request = sessionRequest('').then(extractUser).catch(error => {
+      if (error instanceof ApiError && error.code === 'not-found') throw new ApiError('unavailable', error.status)
+      throw error
+    }).finally(() => {
       if (pendingRead === request) pendingRead = undefined
     })
     pendingRead = request
@@ -62,16 +64,16 @@ export async function redeemSelfHostedInvite(invite: string): Promise<void> {
 }
 
 export async function endSelfHostedSession(): Promise<void> {
-  const response = selfHostedOAuthEnabled ? await fetch('/api/session/logout', {
-    method: 'POST', credentials: 'same-origin', headers: selfHostedCsrf, signal: AbortSignal.timeout(8000),
+  const response = selfHostedOAuthEnabled ? await apiRequest('/api/session/logout', {
+    method: 'POST', headers: selfHostedCsrf, signal: AbortSignal.timeout(8000),
   }) : await sessionRequest('/logout', {})
   if (response.status !== 204) throw new Error('Không đăng xuất được. Hãy thử lại khi có kết nối.')
   notifyChange()
 }
 
 export async function deleteSelfHostedAccount(): Promise<void> {
-  const response = await fetch('/api/account', {
-    method: 'DELETE', credentials: 'same-origin', headers: selfHostedCsrf, signal: AbortSignal.timeout(8000),
+  const response = await apiRequest('/api/account', {
+    method: 'DELETE', headers: selfHostedCsrf, signal: AbortSignal.timeout(8000),
   })
   if (response.status !== 204) throw new Error('Không xóa được tài khoản. Hãy kiểm tra phiên đăng nhập và thử lại.')
   notifyChange()

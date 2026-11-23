@@ -1,5 +1,6 @@
 import type { CommunityComment, CommunityModerationReport, CommunityPageResult, CommunityPost, CommunityReport, CommunityRepository, PostQuery } from './community'
 import { selfHostedCsrf } from './selfHostedAuth'
+import { apiRequest, readApiJson } from './api'
 
 const base = '/api/community'
 const posts = base + '/posts'
@@ -7,19 +8,15 @@ const reports = base + '/moderation/reports'
 const item = (collection: string, id: string) => collection + '/' + encodeURIComponent(id)
 
 async function request<T>(path: string, method = 'GET', body?: unknown, allowMissing = false): Promise<T> {
-  const response = await fetch(path, {
-    method, credentials: 'same-origin', cache: 'no-store', signal: AbortSignal.timeout(8000),
+  const response = await apiRequest(path, {
+    method, signal: AbortSignal.timeout(8000),
     headers: { ...(method !== 'GET' && selfHostedCsrf), ...(body !== undefined && { 'Content-Type': 'application/json' }) },
     ...(body !== undefined && { body: JSON.stringify(body) }),
-  })
+  }, allowMissing ? [404, 409] : [409])
   if (response.status === 404 && allowMissing) return null as T
-  if (response.status === 401) throw new Error('Hãy đăng nhập để thực hiện thao tác này.')
-  if (response.status === 403) throw new Error('Bạn không có quyền thực hiện thao tác này.')
-  if (response.status === 429) throw new Error('Bạn thao tác quá nhanh. Hãy thử lại sau một phút.')
   if (response.status === 409) throw new Error('Mã lượt đăng đã được dùng. Hãy kiểm lại nội dung trước khi thử lại.')
   if (response.status === 204) return undefined as T
-  if (!response.ok || !response.headers.get('Content-Type')?.includes('application/json')) throw new Error('Cộng đồng online chưa xử lý được yêu cầu.')
-  return await response.json() as T
+  return readApiJson<T>(response)
 }
 
 function listPostsPage(query: PostQuery, cursor?: string): Promise<CommunityPageResult> {

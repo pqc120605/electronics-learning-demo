@@ -1,6 +1,7 @@
 import { parseProjectBundle, type ProjectBundle } from './projectBundle'
 import { addSavedProject, findSavedProjectByName, type SavedProject } from './savedProjects'
 import { selfHostedCsrf } from './selfHostedAuth'
+import { apiRequest, readApiJson } from './api'
 import { parseFreestyleProject } from './freestyle/freestyleTransfer'
 import type { FreestyleWorkspace } from './freestyle/freestyleCircuit'
 import { portableWorkspace } from './freestyle/freestyleShare'
@@ -10,18 +11,15 @@ type Snapshot = { id: string; name: string; sourceId: string; createdAt: string;
 export type ProjectShare = { code: string; name: string; listed: boolean; hidden?: boolean; createdAt: string; views: number; likes: number }
 
 export async function selfHostedJson<T>(path: string, method = 'GET', body?: unknown): Promise<T> {
-  const response = await fetch(path, {
-    method, credentials: 'same-origin', cache: 'no-store', signal: AbortSignal.timeout(8000),
+  const response = await apiRequest(path, {
+    method, signal: AbortSignal.timeout(8000),
     headers: { ...(method !== 'GET' && selfHostedCsrf), ...(body !== undefined && { 'Content-Type': 'application/json' }) },
     ...(body !== undefined && { body: JSON.stringify(body) }),
-  })
-  if (response.status === 401) throw new Error('Cần đăng nhập để dùng lưu trực tuyến.')
-  if (response.status === 403) throw new Error('Bạn chưa có quyền thực hiện thao tác này.')
+  }, [404, 409])
   if (response.status === 404) throw new Error('Không tìm thấy mục hoặc bản lưu không khớp bài.')
   if (response.status === 409) throw new Error('Đã chạm giới hạn lưu trữ hoặc mục đang bị ẩn.')
   if (response.status === 204) return undefined as T
-  if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) throw new Error('Máy chủ chưa xử lý được yêu cầu.')
-  return response.json() as Promise<T>
+  return readApiJson<T>(response)
 }
 
 export const projectRequest = <T>(path: string, method = 'GET', body?: unknown) => selfHostedJson<T>(base + path, method, body)
