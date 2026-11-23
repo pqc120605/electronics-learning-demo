@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { isSupabaseConfigured, supabase } from './supabase'
 import { toAuthUser, type AuthUser, type OAuthProviderId } from './authUser'
-import { endSelfHostedSession, readSelfHostedUser, selfHostedSessionChanged } from './selfHostedAuth'
+import { endSelfHostedSession, readSelfHostedUser, selfHostedOAuthEnabled, selfHostedSessionChanged, startSelfHostedOAuth } from './selfHostedAuth'
 
 export type AuthState =
   | { status: 'unconfigured' }
@@ -10,7 +10,7 @@ export type AuthState =
   | { status: 'signed-in'; user: AuthUser }
   | { status: 'error'; message: string }
 
-export const isSelfHostedAuth = import.meta.env.VITE_MACHMO_SELF_HOSTED_AUTH === 'true' && !isSupabaseConfigured
+export const isSelfHostedAuth = selfHostedOAuthEnabled || (import.meta.env.VITE_MACHMO_SELF_HOSTED_AUTH === 'true' && !isSupabaseConfigured)
 export const isAuthConfigured = isSupabaseConfigured || isSelfHostedAuth
 
 /** Đường dẫn callback OAuth; phải được thêm vào Redirect URLs trong Supabase dashboard. */
@@ -18,8 +18,9 @@ export function oauthRedirectUrl(next: string): string {
   return `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`
 }
 
-/** Mở trang đăng nhập của Google/GitHub qua Supabase Auth. Không giả lập khi chưa cấu hình. */
+/** Chuyển tới nhà cung cấp thông qua backend xác thực đang dùng. */
 export async function signInWithProvider(provider: OAuthProviderId, next: string): Promise<void> {
+  if (selfHostedOAuthEnabled) return startSelfHostedOAuth(provider, next)
   if (!supabase) throw new Error('Đăng nhập chưa được kết nối.')
   const { error } = await supabase.auth.signInWithOAuth({
     provider,

@@ -1,7 +1,13 @@
-import type { AuthUser } from './authUser'
+import { safeAvatarUrl, safeNextPath, type AuthUser, type OAuthProviderId } from './authUser'
 
 const sessionPath = '/api/session'
 export const selfHostedSessionChanged = 'machmo:session-changed'
+export const selfHostedOAuthEnabled = import.meta.env.VITE_MACHMO_SELF_HOSTED_OAUTH === 'true'
+export const selfHostedCsrf = { 'X-Machmo-CSRF': '1' }
+
+export function startSelfHostedOAuth(provider: OAuthProviderId, next: string) {
+  window.location.assign('/api/auth/login/' + provider + '?' + new URLSearchParams({ next: safeNextPath(next) }))
+}
 
 async function sessionRequest(path: string, payload?: Record<string, string>) {
   return fetch(sessionPath + path, {
@@ -25,7 +31,9 @@ async function extractUser(response: Response): Promise<AuthUser | null> {
   if (typeof user?.id !== 'string' || typeof user.displayName !== 'string') {
     throw new Error('Không đọc được phiên đăng nhập.')
   }
-  return { id: user.id, displayName: user.displayName, avatarUrl: null, provider: 'other' }
+  return { id: user.id, displayName: user.displayName, avatarUrl: safeAvatarUrl(user.avatarUrl),
+    provider: ['google', 'github'].includes(user.provider) ? user.provider : 'other',
+    role: user.role === 'admin' ? 'admin' : 'user' }
 }
 
 let pendingRead: Promise<AuthUser | null> | undefined
@@ -54,7 +62,17 @@ export async function redeemSelfHostedInvite(invite: string): Promise<void> {
 }
 
 export async function endSelfHostedSession(): Promise<void> {
-  const response = await sessionRequest('/logout', {})
+  const response = selfHostedOAuthEnabled ? await fetch('/api/session/logout', {
+    method: 'POST', credentials: 'same-origin', headers: selfHostedCsrf, signal: AbortSignal.timeout(8000),
+  }) : await sessionRequest('/logout', {})
   if (response.status !== 204) throw new Error('Không đăng xuất được. Hãy thử lại khi có kết nối.')
+  notifyChange()
+}
+
+export async function deleteSelfHostedAccount(): Promise<void> {
+  const response = await fetch('/api/account', {
+    method: 'DELETE', credentials: 'same-origin', headers: selfHostedCsrf, signal: AbortSignal.timeout(8000),
+  })
+  if (response.status !== 204) throw new Error('Không xóa được tài khoản. Hãy kiểm tra phiên đăng nhập và thử lại.')
   notifyChange()
 }

@@ -1,0 +1,4 @@
+{
+  "lessons": ["blink", "button-led", "ir-alert", "ultrasonic-distance", "seven-segment-counter", "source-led", "buck-boost-concept", "dc-motor-driver", "mosfet-switch", "analog-potentiometer", "analog-ldr"],
+  "boards": ["esp32-devkit", "esp32-s3-devkitc-1", "esp32-c6-devkitc-1", "arduino-uno-r3", "arduino-nano-classic", "arduino-mega-2560-r3", "raspberry-pi-pico", "raspberry-pi-pico-w", "raspberry-pi-pico-2", "stm32-blue-pill-f103", "stm32-nucleo-f401re", "stm32-nucleo-f411re"]
+}

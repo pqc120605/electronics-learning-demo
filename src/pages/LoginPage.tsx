@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { UserAvatar } from '../components/UserAvatar'
 import { isSelfHostedAuth, signInWithProvider, signOutUser, useAuth } from '../lib/auth'
-import { redeemSelfHostedInvite } from '../lib/selfHostedAuth'
+import { redeemSelfHostedInvite, selfHostedOAuthEnabled } from '../lib/selfHostedAuth'
 import { OAUTH_PROVIDERS, safeNextPath, type OAuthProviderId } from '../lib/authUser'
 import { communityBase } from '../lib/communityStore'
 import './Community.css'
@@ -22,6 +22,10 @@ export function LoginPage() {
   const [invite, setInvite] = useState('')
   const [sessionBusy, setSessionBusy] = useState(false)
   const unconfigured = auth.status === 'unconfigured'
+  const inviteMode = isSelfHostedAuth && !selfHostedOAuthEnabled
+  const oauthError = params.get('oauth_error')
+  const callbackNotice = oauthError === 'unavailable' ? 'Nhà cung cấp này chưa sẵn sàng trên máy chủ.'
+    : oauthError === 'retry' ? 'Không hoàn tất đăng nhập. Chọn nhà cung cấp để thử lại.' : ''
 
   async function manageSession(event?: FormEvent<HTMLFormElement>) {
     event?.preventDefault()
@@ -49,7 +53,7 @@ export function LoginPage() {
       // Trình duyệt sẽ chuyển sang trang của nhà cung cấp; giữ trạng thái chờ.
     } catch {
       setPending(null)
-      setError('Không mở được trang đăng nhập. Kiểm tra provider đã bật trong Supabase và thử lại.')
+      setError('Không mở được trang đăng nhập. Vui lòng thử lại.')
     }
   }
 
@@ -58,7 +62,8 @@ export function LoginPage() {
       <section className="auth-card" aria-labelledby="login-title">
         <p className="eyebrow">TÀI KHOẢN MẠCH MỞ</p>
         <h1 id="login-title">Đăng nhập</h1>
-        <p className="auth-lead">{isSelfHostedAuth ? 'Đăng nhập bằng mã mời để thử tài khoản. Bài học, phòng thử và công cụ vẫn dùng được ở chế độ khách.' : 'Đăng nhập để viết bài và bình luận trong cộng đồng. Bài học, phòng thử và công cụ vẫn dùng được ở chế độ khách.'}</p>
+        <p className="auth-lead">{inviteMode ? 'Đăng nhập bằng mã mời để thử tài khoản. Bài học, phòng thử và công cụ vẫn dùng được ở chế độ khách.' : 'Đăng nhập để viết bài và bình luận trong cộng đồng. Bài học, phòng thử và công cụ vẫn dùng được ở chế độ khách.'}</p>
+        {callbackNotice && <p className="auth-error" role="alert">{callbackNotice}</p>}
 
         {auth.status === 'signed-in' ? (
           <div className="auth-signed-in" role="status">
@@ -77,7 +82,7 @@ export function LoginPage() {
                 <p>Bản web này chưa khai báo Supabase nên chưa thể đăng nhập bằng Google hay GitHub. Không có tài khoản nào được tạo giả. Bạn vẫn có thể học và lưu tiến độ trên thiết bị.</p>
               </div>
             )}
-            {isSelfHostedAuth ? <form className="auth-providers" onSubmit={manageSession}>
+            {inviteMode ? <form className="auth-providers" onSubmit={manageSession}>
               <label htmlFor="pilot-invite">Mã mời dùng một lần</label>
               <input type="password" id="pilot-invite" autoComplete="off" required maxLength={80} value={invite} onChange={event => setInvite(event.currentTarget.value)} />
               <button type="submit" className="button-primary" disabled={sessionBusy || auth.status === 'loading' || !invite.trim()}>
@@ -99,7 +104,7 @@ export function LoginPage() {
           <p><strong>Chế độ khách:</strong> tiến độ học, mạch và bài nháp được lưu cục bộ trong trình duyệt này, không gửi lên máy chủ.</p>
           <Link to={pathname.startsWith('/app') ? '/app' : '/'}>Tiếp tục với chế độ khách</Link>
         </div>
-        <p className="auth-fineprint">{isSelfHostedAuth ? 'Bản thử tài khoản chỉ hiển thị tên bạn dùng khi được mời.' : 'Khi đăng nhập, Mạch Mở chỉ hiển thị tên và ảnh đại diện từ Google/GitHub.'} Xem <Link to="/privacy">chính sách quyền riêng tư</Link>.</p>
+        <p className="auth-fineprint">{inviteMode ? 'Bản thử tài khoản chỉ hiển thị tên bạn dùng khi được mời.' : 'Khi đăng nhập, Mạch Mở chỉ hiển thị tên và ảnh đại diện từ Google/GitHub.'} Xem <Link to="/privacy">chính sách quyền riêng tư</Link>.</p>
       </section>
     </div>
   )

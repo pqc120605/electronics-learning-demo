@@ -1,0 +1,17 @@
+.s4-admin { width: min(100%, 72rem); margin: 1rem auto; padding: clamp(1rem, 3vw, 2rem); }
+.s4-period { display: flex; flex-wrap: wrap; gap: .5rem; margin-block: 1rem; }
+.s4-period button[aria-pressed="true"] { font-weight: 700; outline: 2px solid currentColor; }
+.s4-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.s4-panels section { min-width: 0; padding: 1rem; border: 1px solid currentColor; border-radius: .75rem; overflow-wrap: anywhere; }
+.s4-panels h2 { margin-block: 0 .75rem; font-size: 1.125rem; }
+.s4-panels dl { margin: 0; }
+.s4-panels dl div { display: flex; justify-content: space-between; gap: 1rem; padding-block: .35rem; }
+.s4-panels dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.s4-chart { grid-column: 1 / -1; }
+.s4-chart svg { display: block; width: 100%; max-height: 14rem; color: inherit; }
+.s4-gridline { fill: none; stroke: currentColor; opacity: .25; }
+.s4-series { fill: none; stroke: currentColor; stroke-width: 2.5; }
+.s4-dot { fill: currentColor; }
+.s4-chart table { width: 100%; }
+.s4-chart summary { cursor: pointer; }
+@media (max-width: 650px) { .s4-panels { grid-template-columns: minmax(0, 1fr); } }

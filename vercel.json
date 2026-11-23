@@ -16,9 +16,24 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
+    },
+    {
+      "source": "/admin/:path*",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/s/:code",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "Referrer-Policy", "value": "no-referrer" }
+      ]
     }
   ],
   "rewrites": [
+    { "source": "/admin/:path*", "destination": "/index.html" },
+    { "source": "/s/:code", "destination": "/index.html" },
     { "source": "/:section(app|learn|build|tools|community|auth)/:path*", "destination": "/index.html" },
     { "source": "/:page(boards|components|topics|projects|feedback|privacy|login)", "destination": "/index.html" }
   ]

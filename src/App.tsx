@@ -2,13 +2,15 @@ import { Component, lazy, Suspense, useEffect, useState, type ReactNode } from '
 import { Link, Route, Routes, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { SiteShell } from './components/SiteShell'
 import { AdminGate } from './components/AdminGate'
-import { isLocalAnalyticsAdmin, localAnalyticsEnabled, trackPageView } from './lib/analytics'
+import { isLocalAnalyticsAdmin, localAnalyticsEnabled, selfHostedAnalyticsEnabled, trackPageView } from './lib/analytics'
 import { PRODUCT_ROUTES as R } from './data/productRoutes'
+import { selfHostedOAuthEnabled } from './lib/selfHostedAuth'
 import './styles/app.css'
 import './styles/one-screen.css'
 import './styles/redesign.css'
 
 const AdminDashboardPage = lazy(() => import('./pages/AdminDashboardPage').then(module => ({ default: module.AdminDashboardPage })))
+const SelfHostedAdminPage = lazy(() => import('./pages/SelfHostedAdminPage').then(module => ({ default: module.SelfHostedAdminPage })))
 const AdminLoginPage = lazy(() => import('./pages/AdminLoginPage').then(module => ({ default: module.AdminLoginPage })))
 const AppHomePage = lazy(() => import('./pages/AppHomePage').then(module => ({ default: module.AppHomePage })))
 const ClassroomKitPage = lazy(() => import('./pages/ClassroomKitPage').then(module => ({ default: module.ClassroomKitPage })))
@@ -21,6 +23,7 @@ const RobotSimulationLessonPage = lazy(() => import('./pages/RobotSimulationLess
 const BoardCatalogPage = lazy(() => import('./pages/BoardCatalogPage').then(module => ({ default: module.BoardCatalogPage })))
 const TopicsPage = lazy(() => import('./pages/TopicsPage').then(module => ({ default: module.TopicsPage })))
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage').then(module => ({ default: module.ProjectsPage })))
+const SharedProjectPage = lazy(() => import('./pages/SharedProjectPage').then(module => ({ default: module.SharedProjectPage })))
 const ComponentsPage = lazy(() => import('./pages/ComponentsPage').then(module => ({ default: module.ComponentsPage })))
 const CircuitBuilderEntry = lazy(() => import('./pages/CircuitBuilderEntry').then(module => ({ default: module.CircuitBuilderEntry })))
 const FirmwareHexToolPage = lazy(() => import('./pages/FirmwareHexToolPage').then(module => ({ default: module.FirmwareHexToolPage })))
@@ -120,7 +123,7 @@ export default function App() {
   const inAppSurface = location.pathname !== R.publicHome && (appSurface || location.pathname.startsWith('/app'))
 
   useEffect(() => {
-    if (!localAnalyticsEnabled) return
+    if (!localAnalyticsEnabled && !selfHostedAnalyticsEnabled) return
     trackPageView('page_view', 'router')
     const lessonId = /^(?:\/app)?\/learn\/([^/]+)\/?$/.exec(location.pathname)?.[1]
     if (!lessonId) return
@@ -196,12 +199,14 @@ export default function App() {
       <Route path={`${R.appCommunity}/:postId`} element={shell(<CommunityPostPage />)} />
       <Route path={R.publicTopics} element={shell(<TopicsPage />)} />
       <Route path={R.publicProjects} element={shell(<ProjectsPage />)} />
+      {selfHostedOAuthEnabled && <Route path="/s/:code" element={shell(<SharedProjectPage />)} />}
       <Route path={R.publicLesson} element={shell(<LessonPage />)} />
       <Route path={R.publicBasics} element={shell(<BeginnerLearningPage />)} />
       <Route path={R.publicCapstone} element={shell(<LocalCapstonePage />)} />
       <Route path="/learn/:lessonId" element={shell(<LessonPreflightPage />)} />
-      <Route path="/admin" element={isLocalAnalyticsAdmin() ? <AdminDashboardPage local /> : <AdminGate>{(access) => <AdminDashboardPage access={access} />}</AdminGate>} />
-      <Route path="/admin/login" element={<AdminLoginPage />} />
+      <Route path="/admin" element={selfHostedAnalyticsEnabled ? shell(<SelfHostedAdminPage />)
+        : isLocalAnalyticsAdmin() ? <AdminDashboardPage local /> : <AdminGate>{(access) => <AdminDashboardPage access={access} />}</AdminGate>} />
+      <Route path="/admin/login" element={selfHostedAnalyticsEnabled ? shell(<LoginPage />) : <AdminLoginPage />} />
       <Route path="*" element={shell(<RoutePlaceholder title="Không tìm thấy trang" />)} />
     </Routes>
     </RouteErrorBoundary>

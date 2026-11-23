@@ -1,0 +1,8 @@
+[Unit]
+Description=Mạch Mở PostgreSQL staging backup
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash %h/.local/share/mach-mo/api-staging/current/server/api/backup-staging.sh
+UMask=0077
+NoNewPrivileges=true

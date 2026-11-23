@@ -18,23 +18,23 @@ SELECT jsonb_build_object(
   'byPath', COALESCE((SELECT jsonb_agg(to_jsonb(path_counts) ORDER BY events DESC, path) FROM path_counts), '[]'::jsonb)
 ) AS summary`
 
-export function createPostgresStore(pool) {
+export function createPostgresStore(pool, extended = false) {
   return {
-    async record({ session_id, event_name, path, component_id }) {
+    async record({ session_id, event_name, path, component_id, device, referrer_host, lesson_id, board_id }) {
       const client = await pool.connect()
       let discard = false
       try {
         await client.query('BEGIN')
         await client.query('SELECT pg_advisory_xact_lock(hashtextextended($1, 0))', [session_id.toLowerCase()])
         const result = await client.query(`
-          INSERT INTO machmo_analytics.events (session_id, event_name, path, component_id)
-          SELECT $1::uuid, $2, $3, $4 WHERE (
+          INSERT INTO machmo_analytics.events (session_id, event_name, path, component_id${extended ? ', device, referrer_host, lesson_id, board_id' : ''})
+          SELECT $1::uuid, $2, $3, $4${extended ? ', $5, $6, $7, $8' : ''} WHERE (
             SELECT count(*) FROM machmo_analytics.events
             WHERE session_id = $1::uuid AND created_at > now() - interval '1 minute'
           ) < 60 AND (
             SELECT count(*) FROM machmo_analytics.events
             WHERE session_id = $1::uuid AND created_at > now() - interval '1 day'
-          ) < 1000`, [session_id, event_name, path, component_id])
+          ) < 1000`, [session_id, event_name, path, component_id, ...(extended ? [device, referrer_host, lesson_id, board_id] : [])])
         await client.query('COMMIT')
         return result.rowCount === 1
       } catch (error) {

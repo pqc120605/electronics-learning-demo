@@ -2,6 +2,8 @@ import { useEffect, useId, useState } from 'react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { CommunityRules, PreviewBanner } from '../components/community/CommunityChrome'
 import { UserAvatar } from '../components/UserAvatar'
+import { CommunityModeration } from '../components/community/CommunityModeration'
+import { useAuth } from '../lib/auth'
 import { COMMUNITY_CATEGORIES, categoryLabel, formatPostDate, isCategoryId, normalizeTag, type CommunityPost } from '../lib/community'
 import { communityBase, getCommunityRepository } from '../lib/communityStore'
 import { markdownExcerpt } from '../lib/simpleMarkdown'
@@ -10,14 +12,17 @@ import './Community.css'
 export function CommunityPage() {
   const { pathname } = useLocation()
   const base = communityBase(pathname)
+  const auth = useAuth()
   const [params, setParams] = useSearchParams()
   const searchId = useId()
   const rawCategory = params.get('cat')
   const category = isCategoryId(rawCategory) ? rawCategory : null
   const tag = params.get('tag') ? normalizeTag(params.get('tag') ?? '') : null
   const search = params.get('q') ?? ''
+  const cursor = params.get('after') ?? undefined
   const [draft, setDraft] = useState(search)
   const [posts, setPosts] = useState<CommunityPost[] | null>(null)
+  const [nextCursor, setNextCursor] = useState<string | null>(null)
   const [error, setError] = useState('')
   const [tags, setTags] = useState<Array<{ tag: string; count: number }>>([])
 
@@ -27,17 +32,23 @@ export function CommunityPage() {
     let active = true
     const repo = getCommunityRepository()
     setPosts(null)
+    setNextCursor(null)
     setError('')
-    Promise.all([repo.listPosts({ search, category, tag }), repo.listTags()]).then(([list, tagList]) => {
+    const query = { search, category, tag }
+    const page = repo.listPostsPage ? repo.listPostsPage(query, cursor)
+      : repo.listPosts(query).then(items => ({ items, nextCursor: null }))
+    Promise.all([page, repo.listTags()]).then(([result, tagList]) => {
       if (!active) return
-      setPosts(list)
+      setPosts(result.items)
+      setNextCursor(result.nextCursor)
       setTags(tagList.slice(0, 12))
     }).catch(cause => { if (active) { setError(cause instanceof Error ? cause.message : 'Không tải được cộng đồng.'); setPosts([]) } })
     return () => { active = false }
-  }, [search, category, tag])
+  }, [search, category, tag, cursor])
 
   const update = (changes: Record<string, string | null>) => {
     const nextParams = new URLSearchParams(params)
+    if (!Object.hasOwn(changes, 'after')) nextParams.delete('after')
     for (const [key, value] of Object.entries(changes)) {
       if (value) nextParams.set(key, value)
       else nextParams.delete(key)
@@ -72,13 +83,14 @@ export function CommunityPage() {
             </ul>
           </nav>
           <CommunityRules compact />
+          {auth.status === 'signed-in' && auth.user.role === 'admin' && <CommunityModeration base={base} />}
         </aside>
 
         <section className="community-main" aria-labelledby="community-list-title">
           <h2 id="community-list-title" className="sr-only">Danh sách bài thảo luận</h2>
           <form className="community-search" role="search" onSubmit={(event) => { event.preventDefault(); update({ q: draft.trim() || null }) }}>
             <label htmlFor={searchId}>Tìm bài</label>
-            <input id={searchId} type="search" value={draft} placeholder="vd: esp32 mqtt, điện trở led" onChange={(event) => setDraft(event.target.value)} />
+            <input id={searchId} type="search" value={draft} maxLength={160} placeholder="vd: esp32 mqtt, điện trở led" onChange={(event) => setDraft(event.target.value)} />
             <button type="submit">Tìm</button>
           </form>
           {tags.length > 0 && (
@@ -110,6 +122,10 @@ export function CommunityPage() {
               </li>
             ))}
           </ul>
+          {(cursor || nextCursor) && <nav className="community-form-actions" aria-label="Trang kết quả">
+            {cursor && <button type="button" onClick={() => update({ after: null })}>Về trang đầu</button>}
+            {nextCursor && <button type="button" onClick={() => update({ after: nextCursor })}>Trang kế tiếp</button>}
+          </nav>}
         </section>
       </div>
     </div>

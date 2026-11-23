@@ -1,10 +1,11 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { LoginRequired, PreviewBanner, useWriteAccess } from '../components/community/CommunityChrome'
 import { MarkdownEditor } from '../components/community/MarkdownEditor'
 import { MarkdownView } from '../components/community/MarkdownView'
 import { CommunityAttachments } from '../components/community/CommunityAttachments'
 import { ReportButton } from '../components/community/ReportButton'
+import { CommunityOwnerActions } from '../components/community/CommunityOwnerActions'
 import { UserAvatar } from '../components/UserAvatar'
 import { POST_LIMITS, categoryLabel, formatPostDate, validateComment, type CommunityComment, type CommunityPost } from '../lib/community'
 import { communityBase, getCommunityRepository } from '../lib/communityStore'
@@ -14,12 +15,15 @@ export function CommunityPostPage() {
   const { postId = '' } = useParams()
   const { pathname } = useLocation()
   const base = communityBase(pathname)
+  const navigate = useNavigate()
   const access = useWriteAccess()
+  const viewerId = access?.canWrite ? access.author.id : undefined
   const [post, setPost] = useState<CommunityPost | null | undefined>(undefined)
   const [comments, setComments] = useState<CommunityComment[]>([])
   const [draft, setDraft] = useState('')
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
+  const [revision, setRevision] = useState(0)
 
   useEffect(() => {
     let active = true
@@ -34,7 +38,7 @@ export function CommunityPostPage() {
       if (found) document.title = `${found.title} — Cộng đồng Mạch Mở`
     }).catch(cause => { if (active) { setError(cause instanceof Error ? cause.message : 'Không tải được bài.'); setPost(null) } })
     return () => { active = false }
-  }, [postId])
+  }, [postId, revision, viewerId])
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -85,6 +89,10 @@ export function CommunityPostPage() {
           </ul>
         )}
         <ReportButton targetType="post" targetId={post.id} targetLabel="bài viết này" />
+        <CommunityOwnerActions item={post} onChange={removed => {
+          if (removed) navigate(base)
+          else setRevision(value => value + 1)
+        }} />
       </article>
 
       <section className="community-comments" aria-labelledby="comments-title">
@@ -98,6 +106,7 @@ export function CommunityPostPage() {
                 {comment.origin === 'local' && <span className="community-chip community-chip-local">Trên thiết bị</span>}
               </p>
               <MarkdownView source={comment.body} />
+              <CommunityOwnerActions item={comment} onChange={() => setRevision(value => value + 1)} />
               <ReportButton targetType="comment" targetId={comment.id} targetLabel={`bình luận của ${comment.author.name}`} />
             </li>
           ))}

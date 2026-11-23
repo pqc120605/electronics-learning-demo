@@ -42,14 +42,14 @@ function reply(response, status, body) {
   return response.end(JSON.stringify(body))
 }
 
-export function createSessionServer({ origin, store, attemptsPerMinute = 60 }) {
+export function createSessionHandler({ origin, store, attemptsPerMinute = 60, validateHost = true }) {
   const expectedOrigin = new URL(origin)
   if (expectedOrigin.protocol !== 'https:' || expectedOrigin.origin !== origin) throw new TypeError('An explicit HTTPS origin is required')
   let attempts = 0
   let windowStarted = 0
-  return createServer({ requestTimeout: 8000, headersTimeout: 5000, keepAliveTimeout: 4000, maxHeaderSize: 8192 }, async (request, response) => {
+  return async (request, response) => {
     try {
-      if (request.headers.host !== expectedOrigin.host || request.headers['sec-fetch-site'] === 'cross-site') return reply(response, 404)
+      if ((validateHost && request.headers.host !== expectedOrigin.host) || request.headers['sec-fetch-site'] === 'cross-site') return reply(response, 404)
       const token = cookieToken(request.headers.cookie)
       if (request.url === '/api/session' && request.method === 'GET') {
         const account = token && await store.read(sessionDigest(token))
@@ -95,5 +95,9 @@ export function createSessionServer({ origin, store, attemptsPerMinute = 60 }) {
       if (error === 413) response.setHeader('Connection', 'close')
       return reply(response, error === 400 || error === 413 ? error : 503)
     }
-  })
+  }
+}
+
+export function createSessionServer(options) {
+  return createServer({ requestTimeout: 8000, headersTimeout: 5000, keepAliveTimeout: 4000, maxHeaderSize: 8192 }, createSessionHandler(options))
 }

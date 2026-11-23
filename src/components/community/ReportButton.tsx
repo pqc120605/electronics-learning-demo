@@ -1,19 +1,21 @@
 import { useId, useState, type FormEvent } from 'react'
-import { REPORT_REASONS, type ReportReason } from '../../lib/community'
+import { REPORT_REASONS, type CommunityReport, type ReportReason } from '../../lib/community'
 import { getCommunityRepository } from '../../lib/communityStore'
+import { createSelfHostedCommunityRepository } from '../../lib/communitySelfHostedRepository'
 
 /** Báo cáo vi phạm. Bản xem trước chỉ lưu báo cáo trên thiết bị; nói rõ điều đó với người dùng. */
-export function ReportButton({ targetType, targetId, targetLabel }: { targetType: 'post' | 'comment'; targetId: string; targetLabel: string }) {
+export function ReportButton({ targetType, targetId, targetLabel }: { targetType: CommunityReport['targetType']; targetId: string; targetLabel: string }) {
   const id = useId()
   const [open, setOpen] = useState(false)
   const [reason, setReason] = useState<ReportReason>('spam')
   const [note, setNote] = useState('')
   const [status, setStatus] = useState<'idle' | 'sent' | 'error'>('idle')
+  const repository = targetType === 'project' ? createSelfHostedCommunityRepository() : getCommunityRepository()
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     try {
-      await getCommunityRepository().report({ targetType, targetId, reason, note })
+      await repository.report({ targetType, targetId, reason, note })
       setStatus('sent')
       setOpen(false)
     } catch {
@@ -21,7 +23,7 @@ export function ReportButton({ targetType, targetId, targetLabel }: { targetType
     }
   }
 
-  if (status === 'sent') return <p className="community-report-done" role="status">{getCommunityRepository().mode === 'remote' ? 'Máy chủ đã ghi nhận báo cáo. Chưa có cam kết thời gian kiểm duyệt.' : 'Đã ghi nhận báo cáo trên thiết bị này. Chưa gửi tới người kiểm duyệt.'}</p>
+  if (status === 'sent') return <p className="community-report-done" role="status">{repository.mode === 'remote' ? 'Máy chủ đã ghi nhận báo cáo. Chưa có cam kết thời gian kiểm duyệt.' : 'Đã ghi nhận báo cáo trên thiết bị này. Chưa gửi tới người kiểm duyệt.'}</p>
 
   return (
     <div className="community-report">

@@ -1,6 +1,6 @@
 import { pathToFileURL } from 'node:url'
 import { createServer } from 'vite'
-import { handleChat } from '../server/guide-ai/handler.mjs'
+import { checkGuideStatus, handleChat } from '../server/guide-ai/handler.mjs'
 
 // Evidence titles and expected terms are independent of the retrieval result.
 const topics = [
@@ -42,7 +42,13 @@ const plain = text => text.normalize('NFD').replace(/\p{Mark}/gu, '').replace(/�
 const forbiddenAnswer = /(?:https?:\/\/|<\/?script|sk-[a-z0-9]{12,})/i
 const mockEnv = { GUIDE_AI_PROVIDER: 'mock' }
 
-export async function evaluateGuideMock() {
+export function evaluateGuideMock() {
+  return evaluateGuideProvider(mockEnv)
+}
+
+export async function evaluateGuideProvider(env) {
+  const status = await checkGuideStatus(env)
+  if (status.state !== 'ready' || status.provider !== env.GUIDE_AI_PROVIDER) throw new Error('Provider is unavailable for evaluation')
   const server = await createServer({ configFile: 'vite.config.ts', logLevel: 'silent', server: { middlewareMode: true, hmr: false } })
   const results = []
   try {
@@ -56,10 +62,10 @@ export async function evaluateGuideMock() {
     })
     for (const item of cases) {
       const started = performance.now()
-      const prepared = prepareGuideAi(item.query, [], item.snapshot, 'mock')
+      const prepared = prepareGuideAi(item.query, [], item.snapshot, status.provider, true)
       const evidence = prepared.kind === 'ready' ? prepared.evidence.map(({ id, title, text }) => ({ id, title, text })) : []
       const answer = prepared.kind === 'ready'
-        ? (await handleChat({ question: item.query, history: [], evidence }, mockEnv)).body : { status: 'insufficient' }
+        ? (await handleChat({ question: item.query, history: [], evidence }, env, { retry: false })).body : { status: 'insufficient' }
       const cited = prepared.kind === 'ready' && prepared.evidence.some(entry =>
         answer.sourceIds?.includes(entry.id) && entry.sources.some(source => source.href === item.href))
       const passed = item.keyword
@@ -75,7 +81,9 @@ export async function evaluateGuideMock() {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const results = await evaluateGuideMock()
+  const provider = process.argv[2] ?? 'mock'
+  if (!['mock', 'openai', 'ollama'].includes(provider) || process.argv.length > 3) throw new Error('Use mock, openai or ollama')
+  const results = await evaluateGuideProvider({ ...process.env, GUIDE_AI_PROVIDER: provider })
   const latencies = results.map(item => item.elapsedMs).sort((a, b) => a - b)
   for (const group of new Set(results.map(item => item.group))) {
     const cases = results.filter(item => item.group === group)
@@ -83,6 +91,6 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   }
   for (const result of results.filter(item => !item.passed)) console.log(`FAIL: ${result.query}`)
   const at = fraction => latencies[Math.ceil(latencies.length * fraction) - 1].toFixed(2)
-  console.log(`Mock p50=${at(0.5)} ms, p95=${at(0.95)} ms; 0 lượt API tính phí.`)
+  console.log(`${provider} p50=${at(0.5)} ms, p95=${at(0.95)} ms. Tiến trình đánh giá RSS ${Math.round(process.memoryUsage.rss() / 2 ** 20)} MiB.`)
   if (results.some(item => !item.passed)) process.exitCode = 1
 }

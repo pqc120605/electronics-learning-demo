@@ -38,6 +38,9 @@ import { isEsp32Target } from '../../lib/esp32Firmware'
 import { findFreestyleSample, sampleLanguage } from '../../lib/freestyle/freestyleSampleLibrary'
 import { keypadKeys } from '../../data/kitPartProfiles'
 import { editParts, emptyCircuitHistory, recordCircuitEdit, takeCircuitHistory } from '../../lib/freestyle/freestyleEditHistory'
+import { useAuth } from '../../lib/auth'
+import { selfHostedOAuthEnabled } from '../../lib/selfHostedAuth'
+import { loginPath } from '../../lib/communityStore'
 const FreestyleAssemblyView = lazy(() => import('./FreestyleAssemblyView').then(m=>({default:m.FreestyleAssemblyView})))
 const Esp32UsbDialog = lazy(() => import('./Esp32UsbDialog').then(m => ({default:m.Esp32UsbDialog})))
 
@@ -69,6 +72,7 @@ type BenchProps = {
 }
 
 export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = false, storageKey = FREESTYLE_STORAGE_KEY, onCopy }: BenchProps) {
+  const auth = useAuth()
   const [usbOpen, setUsbOpen] = useState(false)
   const [editorHistory, setEditorHistory] = useState(emptyCircuitHistory)
   const [selection, setSelection] = useState<string[]>([])
@@ -113,6 +117,10 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   const [controls, setControls] = useState<ControlState>({})
   const [notice, setNotice] = useState('')
   const [shareUrl, setShareUrl] = useState('')
+  const [shareOnline, setShareOnline] = useState(false)
+  const [shareName, setShareName] = useState('')
+  const [shareBusy, setShareBusy] = useState(false)
+  const shareSourceId = useRef('')
   const [shareStatus, setShareStatus] = useState('')
   const [selectedPartId, setSelectedPartId] = useState<string | null>(null)
   const [selectedWireId, setSelectedWireId] = useState<string | null>(null)
@@ -279,6 +287,20 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     } catch (reason) {
       setShareStatus(reason instanceof Error ? reason.message : 'Chưa tạo được liên kết mạch.')
     }
+  }
+
+  async function createOnlineShare() {
+    setShareBusy(true)
+    setShareUrl('')
+    setShareStatus('')
+    try {
+      const { shareFreestyle } = await import('../../lib/onlineProjects')
+      shareSourceId.current ||= crypto.randomUUID()
+      const result = await shareFreestyle(shareName.trim(), shareSourceId.current, workspace)
+      setShareUrl(new URL('/s/' + result.code, window.location.origin).href)
+    } catch (reason) {
+      setShareStatus(reason instanceof Error ? reason.message : 'Chưa tạo được link online.')
+    } finally { setShareBusy(false) }
   }
 
   function updateWireDoc(next: CircuitDocV2) {
@@ -552,11 +574,20 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
         <button type="button" className="freestyle-button" onClick={() => { if(!archiveBeforeReplace())return;setControls({});setSelectedPartId(null);setSelectedWireId(null);update(blankFreestyleWorkspace());setStep('board');setView('breadboard');setPanelOpen(true);setNotice('Bàn mới trống. Chọn board hoặc thêm breadboard để bắt đầu.') }}>Bàn trống</button>
         <button type="button" className="freestyle-button" onClick={() => setDraftsOpen(true)}>Bản nháp</button>
         <button type="button" className="freestyle-button" onClick={() => setToolsOpen(true)}>Công cụ</button>
-        <button type="button" className="freestyle-button" disabled={!boardId} onClick={() => void createShare()}>Chia sẻ mạch</button>
+        <button type="button" className="freestyle-button" disabled={!boardId || shareBusy} onClick={() => void createShare()}>Chia sẻ mạch</button>
+        {selfHostedOAuthEnabled && <button type="button" className="freestyle-button" disabled={!boardId}
+          aria-expanded={shareOnline} onClick={() => setShareOnline(value => !value)}>Chia sẻ online</button>}
         </>}
         {variant === 'home' ? sessionOnly ? <button className="freestyle-button" onClick={()=>setExpanded(true)}>Mở toàn màn hình <span aria-hidden="true">↗</span></button> : <Link className="freestyle-button" to={started?'/build/freestyle?resume=1':'/build/freestyle'}>Mở toàn màn hình <span aria-hidden="true">↗</span></Link> : <Link className="freestyle-button" to="/">Về trang chủ</Link>}
       </div>
     </header>
+    {!readOnly && shareOnline && <div className="freestyle-card freestyle-share-link">
+      {auth.status === 'signed-in' ? <form onSubmit={event => { event.preventDefault(); if (!shareBusy) void createOnlineShare() }}>
+        <label>Tên mạch chia sẻ<input required value={shareName} maxLength={80} onChange={event => setShareName(event.target.value)} /></label>
+        <p>Toàn bộ mạch và code sẽ được lưu trên tài khoản. Ai có link đều mở được. Bạn có thể thu hồi link trong Projects.</p>
+        <button className="freestyle-button" disabled={!boardId || !shareName.trim() || shareBusy}>{shareBusy ? 'Đang lưu…' : 'Tạo link ngắn'}</button>
+      </form> : <Link to={loginPath(location.pathname, location.pathname)}>Đăng nhập để tạo link online</Link>}
+    </div>}
     {!readOnly && (shareUrl || shareStatus) && <div className="freestyle-card freestyle-share-link">
       {shareUrl && <>
         <label>Liên kết chỉ đọc<input readOnly value={shareUrl} onFocus={event => event.currentTarget.select()} /></label>

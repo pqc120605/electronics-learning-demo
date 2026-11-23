@@ -1,0 +1,21 @@
+[Unit]
+Description=Mạch Mở API staging on loopback
+
+[Service]
+Type=simple
+WorkingDirectory=%h/.local/share/mach-mo/api-staging/current
+EnvironmentFile=%h/.config/mach-mo/api-staging.env
+EnvironmentFile=%h/.local/share/mach-mo/api-staging/current/release.env
+ExecStart=/usr/bin/node %h/.local/share/mach-mo/api-staging/current/server/api/main.mjs
+Restart=on-failure
+RestartSec=3s
+TimeoutStopSec=15s
+MemoryMax=512M
+NoNewPrivileges=true
+PrivateUsers=true
+ProtectSystem=strict
+ProtectHome=read-only
+UMask=0077
+
+[Install]
+WantedBy=default.target

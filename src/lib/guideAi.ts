@@ -1,11 +1,13 @@
 import { findGuideAnswers, type GuideArticle, type GuideSnapshot, type GuideSource } from './guideKnowledge'
 import { guideSourceKind, normalizeGuideText } from './guideSearch'
+import { selfHostedCsrf, selfHostedOAuthEnabled } from './selfHostedAuth'
 
 export type GuideAiTurn = { question: string; answer: string }
 export type GuideAiEvidence = { id: string; title: string; text: string; sources: GuideSource[] }
 export type GuideAiProvider = 'openai' | 'ollama' | 'mock'
 export type GuideAiStatus = { state: 'ready' | 'model-missing' | 'unavailable' | 'invalid-model' | 'quota-exceeded' | 'signed-out'; model: string; provider?: GuideAiProvider }
-export type GuideAiReply = { status: 'answered' | 'insufficient'; model: string; answer: string; sourceIds: string[]; followUps?: string[] }
+export type GuideAiFeedback = { id: string; token: string }
+export type GuideAiReply = { status: 'answered' | 'insufficient'; model: string; answer: string; sourceIds: string[]; followUps?: string[]; feedback?: GuideAiFeedback }
 const endpoint = '/api/guide-ai'
 const knownModel = (value: unknown): value is string => typeof value === 'string' && /^[a-z0-9._:-]{1,64}$/i.test(value)
 const followup = /^(?:vi sao vay|tai sao vay|no hoat dong the nao|giai thich them|noi ro hon|cho vi du|cho mot vi du|toi nen thu gi tiep)$/
@@ -17,7 +19,7 @@ function sourcesFor(article: GuideArticle) {
     && sources.findIndex(other => other.href === source.href) === index).slice(0, 3)
 }
 
-export function prepareGuideAi(question: string, previousQuestions: readonly string[], snapshot?: GuideSnapshot, provider?: GuideAiProvider) {
+export function prepareGuideAi(question: string, previousQuestions: readonly string[], snapshot?: GuideSnapshot, provider?: GuideAiProvider, serverHosted = selfHostedOAuthEnabled) {
   const normalized = normalizeGuideText(question)
   if (highRisk.test(normalized)) return { kind: 'unknown' as const, message: 'Phần hướng dẫn AI chỉ giải thích mạch điện tử điện áp thấp trên mô hình học tập. Hãy hỏi về linh kiện hoặc mạch mô phỏng đang học.' }
   const referencedQuestion = previousQuestions.findLast(text => !followup.test(normalizeGuideText(text)))
@@ -32,7 +34,7 @@ export function prepareGuideAi(question: string, previousQuestions: readonly str
     text: article.paragraphs.join('\n').slice(0, 1_100),
     sources: sourcesFor(article),
   }))
-  if (expanded && snapshot) {
+  if ((expanded || (provider === 'ollama' && serverHosted)) && snapshot) {
     const structure = [
       snapshot.board && `Board ${snapshot.board.id} · ${snapshot.board.name}`,
       snapshot.part && `Linh kiện ${snapshot.part.type} · chân ${snapshot.part.pins.slice(0, 20).join(', ')}`,
@@ -64,10 +66,11 @@ export async function requestGuideAi(question: string, evidence: GuideAiEvidence
   })
   while (context.length > 1 && encode().length > 6_500) context.pop()
   const response = await fetch(`${endpoint}/chat`, {
-    method: 'POST', signal, headers: { 'Content-Type': 'application/json' },
+    method: 'POST', signal, headers: { 'Content-Type': 'application/json', ...(selfHostedOAuthEnabled && selfHostedCsrf) },
     body: encode(),
   })
-  if (!response.ok) throw new Error('ai-unavailable')
+  if (!response.ok) throw new Error(response.status === 429 && selfHostedOAuthEnabled ? 'quota-exceeded'
+    : response.status === 401 && selfHostedOAuthEnabled ? 'signed-out' : 'ai-unavailable')
   const result: GuideAiReply = await response.json()
   const validSourceIds = Array.isArray(result?.sourceIds) && result.sourceIds.every(id => context.some(source => source.id === id))
   const validFollowUps = result?.followUps === undefined || (Array.isArray(result.followUps) && result.followUps.length <= 3
@@ -76,4 +79,12 @@ export async function requestGuideAi(question: string, evidence: GuideAiEvidence
     (result.status === 'answered' ? !result.sourceIds.length || !result.answer.trim() || result.answer.length > 1_600
       : result.status !== 'insufficient' || result.answer !== '' || result.sourceIds.length !== 0)) throw new Error('ai-unavailable')
   return result
+}
+
+export async function sendGuideAiFeedback(feedback: GuideAiFeedback, helpful: boolean) {
+  const response = await fetch(endpoint + '/feedback', {
+    method: 'POST', credentials: 'same-origin', headers: { ...selfHostedCsrf, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ...feedback, helpful }), signal: AbortSignal.timeout(8000),
+  })
+  if (response.status !== 204) throw new Error('feedback-unavailable')
 }

@@ -10,6 +10,8 @@ import { useProductRoute } from '../lib/useProductRoute'
 import { getBrowserStorage, listWorkspaceRecoveryEntries } from '../lib/workspaceStorage'
 import { getLessonPartsSummary } from '../lib/lessonPreflight'
 import { LocalCapstoneLibrary } from '../components/learning/LocalCapstoneLibrary'
+import { AccountProjectsPanel } from '../components/AccountProjectsPanel'
+import { selfHostedOAuthEnabled } from '../lib/selfHostedAuth'
 
 const projects = curriculumLessons.map((lesson, index) => ({
   id: String(index + 1).padStart(2, '0'),
@@ -217,6 +219,7 @@ export function ProjectsPage() {
     <section className="content-section project-page-section">
       <CapabilityLegend ids={['behavior-simulation', 'concept-illustration', 'electrical-simulation', 'firmware-execution']} title="Cách đọc nhãn mô phỏng" />
       <LocalCapstoneLibrary />
+      {selfHostedOAuthEnabled && <AccountProjectsPanel local={savedProjects} onCopy={project => setSavedProjects(current => [project, ...current])} />}
       <section id="saved-projects" className="saved-projects" aria-label="Project đã lưu trên thiết bị">
         <div className="saved-projects-heading"><div><p className="eyebrow">WORKSPACE CỦA BẠN · LƯU CỤC BỘ</p><h2>Project đã lưu{savedProjects.length>0&&<span> · {savedProjects.length}</span>}</h2><p>Project nằm trong bộ nhớ trình duyệt này. Xuất tệp để chuyển sang máy khác.</p></div><Link className="button-secondary" to={productRoute('/build')}>Tạo hoặc lưu project ↗</Link></div>
         {projectError&&<p className="builder-message" role="alert">{projectError}</p>}
