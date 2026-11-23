@@ -1,17 +1,14 @@
 import { Component, lazy, Suspense, useEffect, useState, type ReactNode } from 'react'
-import { Link, Route, Routes, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
+import { Link, Navigate, Route, Routes, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { SiteShell } from './components/SiteShell'
-import { AdminGate } from './components/AdminGate'
-import { isLocalAnalyticsAdmin, localAnalyticsEnabled, selfHostedAnalyticsEnabled, trackPageView } from './lib/analytics'
+import { selfHostedAnalyticsEnabled, trackPageView } from './lib/analytics'
 import { PRODUCT_ROUTES as R } from './data/productRoutes'
 import { selfHostedOAuthEnabled } from './lib/selfHostedAuth'
 import './styles/app.css'
 import './styles/one-screen.css'
 import './styles/redesign.css'
 
-const AdminDashboardPage = lazy(() => import('./pages/AdminDashboardPage').then(module => ({ default: module.AdminDashboardPage })))
 const SelfHostedAdminPage = lazy(() => import('./pages/SelfHostedAdminPage').then(module => ({ default: module.SelfHostedAdminPage })))
-const AdminLoginPage = lazy(() => import('./pages/AdminLoginPage').then(module => ({ default: module.AdminLoginPage })))
 const AppHomePage = lazy(() => import('./pages/AppHomePage').then(module => ({ default: module.AppHomePage })))
 const ClassroomKitPage = lazy(() => import('./pages/ClassroomKitPage').then(module => ({ default: module.ClassroomKitPage })))
 const ExplorePage = lazy(() => import('./pages/ExplorePage').then(module => ({ default: module.ExplorePage })))
@@ -123,7 +120,7 @@ export default function App() {
   const inAppSurface = location.pathname !== R.publicHome && (appSurface || location.pathname.startsWith('/app'))
 
   useEffect(() => {
-    if (!localAnalyticsEnabled && !selfHostedAnalyticsEnabled) return
+    if (!selfHostedAnalyticsEnabled) return
     trackPageView('page_view', 'router')
     const lessonId = /^(?:\/app)?\/learn\/([^/]+)\/?$/.exec(location.pathname)?.[1]
     if (!lessonId) return
@@ -204,9 +201,12 @@ export default function App() {
       <Route path={R.publicBasics} element={shell(<BeginnerLearningPage />)} />
       <Route path={R.publicCapstone} element={shell(<LocalCapstonePage />)} />
       <Route path="/learn/:lessonId" element={shell(<LessonPreflightPage />)} />
-      <Route path="/admin" element={selfHostedAnalyticsEnabled ? shell(<SelfHostedAdminPage />)
-        : isLocalAnalyticsAdmin() ? <AdminDashboardPage local /> : <AdminGate>{(access) => <AdminDashboardPage access={access} />}</AdminGate>} />
-      <Route path="/admin/login" element={selfHostedAnalyticsEnabled ? shell(<LoginPage />) : <AdminLoginPage />} />
+      <Route path="/admin" element={shell(selfHostedAnalyticsEnabled ? <SelfHostedAdminPage /> : <article className="route-placeholder">
+        <h1>Khu quản trị chưa mở</h1>
+        <p>Bản web này chưa kết nối báo cáo quản trị.</p>
+        <Link to="/">Về trang học</Link>
+      </article>)} />
+      <Route path="/admin/login" element={<Navigate to={selfHostedAnalyticsEnabled ? '/login?next=%2Fadmin' : '/admin'} replace />} />
       <Route path="*" element={shell(<RoutePlaceholder title="Không tìm thấy trang" />)} />
     </Routes>
     </RouteErrorBoundary>

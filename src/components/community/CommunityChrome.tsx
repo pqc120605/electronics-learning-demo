@@ -41,7 +41,7 @@ export type WriteAccess =
   | { canWrite: false; loginTo: string; note: string }
 
 /**
- * Quyền viết: có Supabase thì phải đăng nhập; chưa cấu hình thì cho viết nháp cục bộ dưới tên khách.
+ * Bài viết online cần phiên đăng nhập. Bản xem trước cho phép khách lưu nháp tại máy.
  */
 export function useWriteAccess(): WriteAccess | null {
   const auth = useAuth()
@@ -49,8 +49,8 @@ export function useWriteAccess(): WriteAccess | null {
   if (getCommunityRepository().mode === 'preview') return { canWrite: true, author: auth.status === 'signed-in' ? { id: auth.user.id, name: auth.user.displayName, avatarUrl: auth.user.avatarUrl } : GUEST_AUTHOR, note: auth.status === 'signed-in' ? 'Bản xem trước: chỉ lưu trên thiết bị, không gửi lên cộng đồng online.' : 'Bạn đang viết nháp dưới tên khách, chỉ lưu trên thiết bị này.' }
   if (auth.status === 'loading') return null
   if (auth.status === 'signed-in') return { canWrite: true, author: { id: auth.user.id, name: auth.user.displayName, avatarUrl: auth.user.avatarUrl }, note: `Đăng online với tên ${auth.user.displayName}.` }
-  if (auth.status === 'unconfigured') return { canWrite: true, author: GUEST_AUTHOR, note: 'Đăng nhập chưa được kết nối: bạn đang viết nháp dưới tên khách, chỉ lưu trên thiết bị này.' }
-  return { canWrite: false, loginTo: loginPath(pathname, `${pathname}${search}`), note: 'Cần đăng nhập để viết bài hoặc bình luận.' }
+  return { canWrite: false, loginTo: loginPath(pathname, `${pathname}${search}`),
+    note: auth.status === 'error' ? auth.message : 'Cần đăng nhập để viết bài hoặc bình luận.' }
 }
 
 export function LoginRequired({ access }: { access: Extract<WriteAccess, { canWrite: false }> }) {

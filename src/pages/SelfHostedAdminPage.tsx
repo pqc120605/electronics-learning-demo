@@ -116,6 +116,7 @@ export function SelfHostedAdminPage() {
   return <article className="s4-admin" aria-labelledby="s4-title">
     <h1 id="s4-title">Quản trị Mạch Mở</h1>
     {auth.status === 'loading' ? <p role="status">Đang kiểm tra quyền…</p>
+      : auth.status === 'error' ? <p role="alert">{auth.message}</p>
       : auth.status === 'signed-in' ? auth.user.role === 'admin' ? <Reports /> : <p role="alert">Tài khoản này chưa có quyền quản trị.</p>
       : <p><Link to="/login?next=%2Fadmin">Đăng nhập để kiểm tra quyền quản trị</Link></p>}
   </article>

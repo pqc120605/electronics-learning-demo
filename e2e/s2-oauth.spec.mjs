@@ -55,5 +55,23 @@ for (const provider of ['google', 'github']) for (const viewport of [{ width: 37
     await expect(page.getByRole('heading', { name: draft.title })).toBeVisible()
     await expect(page.getByRole('button', { name: 'Sửa bài viết' })).toBeVisible()
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(viewport.width + 1)
+    await page.goto('/login')
+    await page.getByRole('region', { name: 'Đăng nhập', exact: true }).getByRole('button', { name: 'Đăng xuất' }).click()
+    await expect(page.getByRole('button', { name: label })).toBeEnabled()
+    expect(user).toBeNull()
   })
 }
+
+test('unavailable API is visible and preview can still open local drafts', async ({ page }) => {
+  await page.addInitScript(value => localStorage.setItem('mach-mo-community-compose-v1', JSON.stringify(value)), draft)
+  await page.route('**/api/**', route => route.fulfill({ status: 503 }))
+  await page.goto('/login?next=/community/new')
+  await expect(page.getByRole('alert')).toContainText('Máy chủ Mạch Mở hiện chưa khả dụng')
+  await expect(page.getByRole('button', { name: /Đăng nhập bằng Google/ })).toBeDisabled()
+  await expect(page.getByRole('button', { name: 'Kiểm tra lại kết nối' })).toBeVisible()
+  await page.goto('/community/new')
+  await page.getByRole('button', { name: 'Xem bài trên thiết bị' }).click()
+  await expect(page.getByRole('note')).toContainText('Bản xem trước')
+  await expect(page.getByLabel('Tiêu đề')).toHaveValue(draft.title)
+  await expect(page.getByRole('textbox', { name: 'Nội dung' })).toHaveValue(draft.body)
+})

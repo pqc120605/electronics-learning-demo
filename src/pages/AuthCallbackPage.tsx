@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { UserAvatar } from '../components/UserAvatar'
-import { isAuthConfigured, readCurrentUser } from '../lib/auth'
+import { readCurrentUser } from '../lib/auth'
+import { isSupabaseConfigured } from '../lib/supabase'
 import { readOAuthError, safeNextPath, type AuthUser } from '../lib/authUser'
 import './Community.css'
 
@@ -16,10 +17,10 @@ export function AuthCallbackPage() {
   const [params] = useSearchParams()
   const navigate = useNavigate()
   const next = safeNextPath(params.get('next'))
-  const [state, setState] = useState<CallbackState>(() => (isAuthConfigured ? { status: 'working' } : { status: 'unconfigured' }))
+  const [state, setState] = useState<CallbackState>(() => (isSupabaseConfigured ? { status: 'working' } : { status: 'unconfigured' }))
 
   useEffect(() => {
-    if (!isAuthConfigured) return
+    if (!isSupabaseConfigured) return
     let active = true
     const oauthError = readOAuthError(window.location.search, window.location.hash)
     if (oauthError) {
@@ -44,7 +45,7 @@ export function AuthCallbackPage() {
         <p className="eyebrow">TÀI KHOẢN MẠCH MỞ</p>
         {state.status === 'unconfigured' && <>
           <h1 id="callback-title">Đăng nhập chưa được kết nối</h1>
-          <p className="auth-lead">Bản web này chưa cấu hình Supabase nên không có phiên đăng nhập để xử lý.</p>
+          <p className="auth-lead">Mở lại trang đăng nhập để sử dụng phương thức đang có trên Mạch Mở.</p>
           <Link className="button-primary" to="/login">Về trang đăng nhập</Link>
         </>}
         {state.status === 'working' && <>

@@ -1,7 +1,8 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
+import { legacySupabaseEnabled } from './backendMode'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL?.trim()
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY?.trim()
+const supabaseUrl = legacySupabaseEnabled ? import.meta.env.VITE_SUPABASE_URL?.trim() : undefined
+const supabaseAnonKey = legacySupabaseEnabled ? import.meta.env.VITE_SUPABASE_ANON_KEY?.trim() : undefined
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey)
 

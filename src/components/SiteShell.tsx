@@ -1,7 +1,7 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { getPageTitle, PRODUCT_ROUTES, publicCanonicalRoute } from '../data/productRoutes'
-import { analyticsConfigured, trackPageView } from '../lib/analytics'
+import { selfHostedAnalyticsEnabled, trackPageView } from '../lib/analytics'
 import { SiteNavigation } from './SiteNavigation'
 import { AppWorkspaceNavigation } from './AppWorkspaceNavigation'
 import { AuthMenu } from './AuthMenu'
@@ -61,7 +61,7 @@ export function SiteShell({ children, variant = 'public' }: SiteShellProps) {
             <p>Hiểu mạch điện bằng cách tự tay làm.</p>
           </div>
         </div>
-        <p className="privacy-note">{analyticsConfigured && "Một số lượt xem và thao tác được ghi nhận bằng mã phiên ngẫu nhiên trong tab để cải thiện bài học. Sự kiện không lưu tên hay email. "}<Link to="/privacy">Chính sách quyền riêng tư</Link> · <Link to={variant==='app'?'/app/feedback':'/feedback'} state={{from:pathname}}>Góp ý & báo lỗi</Link> · <Link to={`${variant==='app'?'/app/feedback':'/feedback'}#nguoi-phat-trien`}>Người phát triển</Link></p>
+        <p className="privacy-note">{selfHostedAnalyticsEnabled && "Một số lượt xem và thao tác được ghi nhận bằng mã phiên ngẫu nhiên trong tab để cải thiện bài học. Sự kiện không lưu tên hay email. "}<Link to="/privacy">Chính sách quyền riêng tư</Link> · <Link to={variant==='app'?'/app/feedback':'/feedback'} state={{from:pathname}}>Góp ý & báo lỗi</Link> · <Link to={`${variant==='app'?'/app/feedback':'/feedback'}#nguoi-phat-trien`}>Người phát triển</Link></p>
         {variant === 'public' && <Link className="admin-entry" to="/admin/login">Khu quản trị</Link>}
       </footer>
       </div>
