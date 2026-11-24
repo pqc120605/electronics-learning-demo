@@ -18,7 +18,7 @@ import {
   parseFreestyleWorkspace, pinDisplayName, placePart, placeableParts, removePartAndWires, rotatePart, sampleCode,
   type ControlState, type FreestyleLanguage, type FreestyleSampleId, type FreestyleWorkspace, type PinMap, type SignalPin,
 } from '../../lib/freestyle/freestyleCircuit'
-import { chooseEngine, detectLocalTools, startFreestyleRun, type LocalTools, type RuntimeController } from '../../lib/freestyle/freestyleRuntime'
+import { chooseEngine, detectHostedArduinoTools, detectLocalTools, startFreestyleRun, type LocalTools, type RuntimeController } from '../../lib/freestyle/freestyleRuntime'
 import { FreestyleDraftsDialog } from './FreestyleDraftsDialog'
 import { archiveFreestyleReplacement } from '../../lib/freestyle/freestyleDrafts'
 import { FreestyleToolsDrawer } from './FreestyleToolsDrawer'
@@ -138,6 +138,10 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   const latestFrame = useRef<{ pins: Record<number, LivePinState>; serial: string; simMs: number } | null>(null)
   const sentInputs = useRef('')
 
+  const [hostedTools, setHostedTools] = useState<LocalTools | null>(null)
+  const [checkingHosted, setCheckingHosted] = useState(false)
+  const [hostedMessage, setHostedMessage] = useState('')
+  const compilerRequest = useRef<AbortController | null>(null)
   const useLocalRuntime = !readOnly || language === 'micropython'
   useEffect(() => {
     if (!useLocalRuntime) return
@@ -145,7 +149,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     void detectLocalTools().then(result => { if (alive) { setTools(result); setToolsChecked(true) } })
     return () => { alive = false }
   }, [useLocalRuntime])
-  useEffect(() => () => {generation.current++;controllerRef.current?.stop()}, [])
+  useEffect(() => () => {generation.current++;compilerRequest.current?.abort();controllerRef.current?.stop()}, [])
   // Lưu ngay mỗi lần đổi để nút "Mở toàn màn hình" luôn mang theo mạch mới nhất.
   useEffect(() => {
     if(!saveAllowed.current)return
@@ -170,7 +174,19 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     return () => clearInterval(timer)
   }, [running])
 
-  const engine = chooseEngine(boardId, language, useLocalRuntime ? tools : null)
+  const canRequestHostedCompiler = !readOnly && Boolean(boardId) && board.realEngine === 'avr' && language === 'cpp'
+  const hostedActive = canRequestHostedCompiler && Boolean(hostedTools?.boards.includes(boardId))
+  const engine = chooseEngine(boardId, language, hostedActive ? hostedTools : useLocalRuntime ? tools : null)
+
+  async function toggleHostedCompiler(wanted: boolean) {
+    setHostedMessage('')
+    if (!wanted) { setHostedTools(null); return }
+    setCheckingHosted(true)
+    const available = await detectHostedArduinoTools()
+    setCheckingHosted(false)
+    if (available?.boards.includes(boardId)) setHostedTools(available)
+    else setHostedMessage('Máy chủ chưa biên dịch được board này. Bạn vẫn có thể chạy mô phỏng trong trình duyệt.')
+  }
   const evaluation = useMemo(() => evaluateFreestyleCircuit(doc, pinMap, running ? pins : undefined, controls), [doc, pinMap, pins, controls, running])
   const controlSpecs = useMemo(() => controlsFor(doc), [doc])
   const releaseMomentary = () => setControls(current=>{const pressed=controlSpecs.filter(spec=>spec.kind==='press' && current[spec.partId]);return pressed.length?{...current,...Object.fromEntries(pressed.map(spec=>[spec.partId,false]))}:current})
@@ -364,6 +380,8 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   function stop() {
     publishBufferedFrame()
     generation.current++;setPreparing(false)
+    compilerRequest.current?.abort()
+    compilerRequest.current = null
     controllerRef.current?.stop()
     controllerRef.current = null
     setRunning(false)
@@ -386,11 +404,13 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     latestFrame.current = { pins: {}, serial: '', simMs: 0 }
     setStatus('Đang chuẩn bị…')
     // Shared Arduino code stays in the browser's restricted interpreter until copied explicitly.
-    const checked = !useLocalRuntime ? null : toolsChecked ? tools : await detectLocalTools()
+    const checked = hostedActive ? hostedTools : !useLocalRuntime ? null : toolsChecked ? tools : await detectLocalTools()
     if(runId!==generation.current)return
     let active = true
+    const request = new AbortController()
+    compilerRequest.current = request
     const controller = await startFreestyleRun({
-      boardId, language, code, tools: checked,
+      boardId, language, code, tools: checked, signal: request.signal,
       inputs: evaluateFreestyleCircuit(doc, pinMap, undefined, controls).inputs.filter(input => input.source !== 'hở mạch'),
       onFrame: frame => {
         if(runId!==generation.current)return
@@ -404,6 +424,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       onStopped: reason => { if (!active || runId!==generation.current) return; publishBufferedFrame();active = false; setStatus(reason); setRunning(false) },
     })
     if(runId!==generation.current){controller?.stop();return}
+    compilerRequest.current = null
     setPreparing(false)
     if (!controller) { setRunning(false); return }
     controllerRef.current = controller
@@ -558,6 +579,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   const runBlockedReason = !boardId ? 'Chọn board trước khi chạy hoặc dựng mạch mẫu.'
     : activeSample?.mode === 'wiring' ? 'Mẫu này minh họa cách lắp. Máy mô phỏng chưa hỗ trợ chạy mẫu.'
     : !code.trim() ? 'Viết code hoặc dựng mạch mẫu để chạy.'
+    : checkingHosted && canRequestHostedCompiler ? 'Đang kiểm tra máy chủ biên dịch.'
     : language === 'micropython' && !pythonAvailable ? engine.note : ''
   const readyToRun = running || preparing || !runBlockedReason
 
@@ -702,9 +724,17 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
         {step === 'code' && <div className="freestyle-code-step">
           <div className="freestyle-code-toolbar">
             {!readOnly && board.languages.length > 1 && <label>Ngôn ngữ<select value={language} onChange={event => chooseLanguage(event.target.value as FreestyleLanguage)}>{board.languages.map(item => <option key={item} value={item} disabled={item === 'micropython' && !pythonAvailable}>{item === 'micropython' ? pythonAvailable ? 'MicroPython' : 'MicroPython · cần công cụ cục bộ' : 'Arduino C++'}</option>)}</select></label>}
+            {canRequestHostedCompiler && <label>
+              <input type="checkbox" checked={hostedActive || checkingHosted} disabled={checkingHosted || running || preparing}
+                onChange={event => void toggleHostedCompiler(event.currentTarget.checked)} />
+              Biên dịch trên máy chủ
+            </label>}
             <span className="freestyle-code-board">{boardId?board.short:'Chưa chọn board'} · {language === 'micropython' ? 'MicroPython' : 'Arduino C++'}</span>
             {!readOnly && isEsp32Target(boardId) && <button type="button" className="freestyle-button" onClick={() => setUsbOpen(true)}>Nạp mẫu qua USB</button>}
           </div>
+          {canRequestHostedCompiler && <p className="freestyle-note" aria-live="polite">
+            {checkingHosted ? 'Đang kiểm tra máy chủ…' : hostedMessage || 'Chọn biên dịch trên máy chủ để gửi sketch đến Mini PC khi bấm Chạy.'}
+          </p>}
           <div className="freestyle-editor">
             <pre className="freestyle-gutter" aria-hidden="true">{Array.from({ length: lineCount }, (_, index) => <span key={index} className={error?.line === index + 1 ? 'is-error' : undefined}>{index + 1}</span>)}</pre>
             <textarea readOnly={readOnly} value={code} spellCheck={false} wrap="off" rows={lineCount + 1} aria-label={language === 'micropython' ? 'Mã nguồn MicroPython' : 'Mã nguồn Arduino C++'} aria-invalid={error ? true : undefined} aria-describedby={error ? 'freestyle-error' : undefined} onChange={event => { update({ code: event.target.value, sampleId:undefined }); setError(undefined) }} />

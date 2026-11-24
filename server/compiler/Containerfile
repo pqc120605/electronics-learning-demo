@@ -1,0 +1,24 @@
+FROM docker.io/library/debian:bookworm-slim
+ARG CLI_VERSION=1.6.0
+ARG CLI_SHA256=321ee249f44c78053234fec0f36101092bc6021bf24939e15e0cc2449c5ed250
+ENV ARDUINO_DIRECTORIES_DATA=/opt/arduino/data \
+    ARDUINO_DIRECTORIES_DOWNLOADS=/tmp/arduino-downloads \
+    ARDUINO_DIRECTORIES_USER=/opt/arduino/user \
+    ARDUINO_BUILD_CACHE_PATH=/work/cache \
+    ARDUINO_METRICS_ENABLED=false
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends ca-certificates curl bzip2 xz-utils libstdc++6 \
+ && rm -rf /var/lib/apt/lists/* \
+ && curl -fsSL --retry 2 "https://github.com/arduino/arduino-cli/releases/download/v${CLI_VERSION}/arduino-cli_${CLI_VERSION}_Linux_64bit.tar.gz" -o /tmp/arduino-cli.tar.gz \
+ && echo "${CLI_SHA256}  /tmp/arduino-cli.tar.gz" | sha256sum -c - \
+ && tar -xzf /tmp/arduino-cli.tar.gz -C /usr/local/bin arduino-cli \
+ && rm /tmp/arduino-cli.tar.gz \
+ && mkdir -p /opt/arduino/data /opt/arduino/user /work \
+ && arduino-cli core update-index \
+ && arduino-cli core install arduino:avr@1.8.8 \
+ && rm -rf /tmp/arduino-downloads
+COPY compile-sketch.sh /usr/local/bin/machmo-compile
+RUN chmod 0555 /usr/local/bin/machmo-compile
+USER 65532:65532
+WORKDIR /work
+ENTRYPOINT ["/usr/local/bin/machmo-compile"]

@@ -10,7 +10,7 @@ import { apiRequest } from '../api'
  * - Pico + MicroPython + dịch vụ cục bộ: MicroPython chính thức chạy trên rp2040js.
  * - Còn lại hoặc bản web tĩnh: trình thông dịch Arduino C++ rút gọn (ghi rõ trên giao diện).
  */
-export type LocalTools = { arduinoCli: boolean; rp2040Bootrom: string; boards: string[] }
+export type LocalTools = { arduinoCli: boolean; rp2040Bootrom: string; boards: string[]; hosted?: true }
 export type RuntimeFrame = { pins: Record<number, LivePinState>; serial: string; simulatedMilliseconds: number; speed?: number }
 export type RuntimeCallbacks = {
   onFrame: (frame: RuntimeFrame) => void
@@ -21,6 +21,7 @@ export type RuntimeCallbacks = {
 export type RuntimeController = { engine: FreestyleEngine; setDigital(pin: number, level: boolean): void; setAnalog(pin: number, ratio: number): void; stop(): void }
 
 const API = '/api/local-tools'
+const hostedApi = '/api/tools/arduino'
 export const MICROPYTHON_FIRMWARE_PATH = 'firmware/micropython/RPI_PICO-20260824-v1.29.0.uf2'
 
 let toolsPromise: Promise<LocalTools | null> | undefined
@@ -41,6 +42,15 @@ export function detectLocalTools(force = false): Promise<LocalTools | null> {
   return toolsPromise
 }
 
+export async function detectHostedArduinoTools(): Promise<LocalTools | null> {
+  try {
+    const response = await apiRequest(hostedApi + '/status', { signal: AbortSignal.timeout(5000) })
+    const body = await response.json() as { ok?: boolean; boards?: unknown }
+    if (!body.ok || !Array.isArray(body.boards) || !body.boards.every(value => typeof value === 'string')) return null
+    return { arduinoCli: true, rp2040Bootrom: '', boards: body.boards, hosted: true }
+  } catch { return null }
+}
+
 export function chooseEngine(boardId: string, language: FreestyleLanguage, tools: LocalTools | null): { engine: FreestyleEngine; label: string; note: string } {
   const board = getFreestyleBoard(boardId)
   if (language === 'micropython') {
@@ -48,13 +58,18 @@ export function chooseEngine(boardId: string, language: FreestyleLanguage, tools
       ? { engine: 'micropython', label: 'MicroPython thật · rp2040js', note: 'MicroPython v1.29 chính thức chạy trên CPU RP2040 giả lập; mô phỏng, không phải đo trên board thật.' }
       : { engine: 'micropython', label: 'MicroPython chưa khả dụng', note: 'MicroPython cần công cụ chạy cục bộ. Để thử mạch trên web, chọn Arduino C++ và dựng lại mạch mẫu.' }
   }
-  if (board.realEngine === 'avr' && tools?.arduinoCli && tools.boards.includes(boardId)) return { engine: 'avr', label: 'arduino-cli + avr8js', note: 'Biên dịch thật bằng arduino-cli trên máy, firmware .hex chạy trên lõi ATmega giả lập (avr8js).' }
+  if (board.realEngine === 'avr' && tools?.arduinoCli && tools.boards.includes(boardId)) {
+    return tools.hosted
+      ? { engine: 'avr', label: 'Biên dịch trên máy chủ · avr8js', note: 'Sketch được gửi đến Mini PC khi bấm Chạy. Tệp HEX chạy trên lõi ATmega giả lập trong trình duyệt.' }
+      : { engine: 'avr', label: 'arduino-cli + avr8js', note: 'Biên dịch bằng arduino-cli trên máy này. Tệp HEX chạy trên lõi ATmega giả lập trong trình duyệt.' }
+  }
   return { engine: 'interpreter', label: 'Trình thông dịch rút gọn', note: `Chạy bằng trình thông dịch rút gọn: không biên dịch, chỉ một tập con Arduino C++. ${board.limitation}` }
 }
 
-export async function compileOnLocalService(boardId: string, source: string): Promise<{ ok: boolean; hex?: string; log: string }> {
-  const response = await apiRequest(API + '/compile', {
-    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ board: boardId, source }),
+async function compileArduinoSource(boardId: string, source: string, hosted: boolean, signal?: AbortSignal): Promise<{ ok: boolean; hex?: string; log: string }> {
+  const response = await apiRequest((hosted ? hostedApi : API) + '/compile', {
+    method: 'POST', signal, headers: { 'Content-Type': 'application/json', ...(hosted ? { 'X-Machmo-CSRF': '1' } : {}) },
+    body: JSON.stringify({ board: boardId, source }),
   }, [400, 403, 404, 413, 415, 422, 429, 500, 503])
   const body = await response.json().catch(() => ({})) as { ok?: boolean; hex?: string; log?: string; message?: string }
   return { ok: Boolean(body.ok && body.hex), ...(body.hex ? { hex: body.hex } : {}), log: body.log ?? body.message ?? `HTTP ${response.status}` }
@@ -97,7 +112,7 @@ function attachWorker(worker: Worker, runId: string, callbacks: RuntimeCallbacks
   }
 }
 
-export async function startFreestyleRun(options: { boardId: string; language: FreestyleLanguage; code: string; tools: LocalTools | null; inputs: readonly RuntimeInput[] } & RuntimeCallbacks): Promise<RuntimeController | null> {
+export async function startFreestyleRun(options: { boardId: string; language: FreestyleLanguage; code: string; tools: LocalTools | null; inputs: readonly RuntimeInput[]; signal?: AbortSignal } & RuntimeCallbacks): Promise<RuntimeController | null> {
   const choice = chooseEngine(options.boardId, options.language, options.tools)
   const runId = newRunId()
 
@@ -115,9 +130,11 @@ export async function startFreestyleRun(options: { boardId: string; language: Fr
   }
 
   if (choice.engine === 'avr') {
-    options.onStatus('Đang biên dịch bằng arduino-cli…')
+    options.onStatus(options.tools?.hosted ? 'Đang biên dịch trên máy chủ…' : 'Đang biên dịch bằng arduino-cli…')
     let result
-    try { result = await compileOnLocalService(options.boardId, options.code) } catch { result = { ok: false, log: 'Mất kết nối dịch vụ cục bộ.' } }
+    try { result = await compileArduinoSource(options.boardId, options.code, options.tools?.hosted === true, options.signal) }
+    catch { result = { ok: false, log: 'Mất kết nối dịch vụ biên dịch.' } }
+    if (options.signal?.aborted) return null
     if (!result.ok || !result.hex) { const error = firstCompileError(result.log); options.onError(`Lỗi biên dịch: ${error.message}`, error.line); return null }
     options.onStatus('Biên dịch xong. Firmware đang chạy trên avr8js.')
     const worker = new Worker(new URL('../../workers/avrLive.worker.ts', import.meta.url), { type: 'module' })

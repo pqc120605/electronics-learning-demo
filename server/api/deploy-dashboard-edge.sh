@@ -40,15 +40,30 @@ cleanup() {
 }
 trap cleanup EXIT
 
-edge_args=()
-if [[ ${2:-} == --enable-ai ]]; then edge_args+=(--enable-ai)
-elif [[ -n ${2:-} ]]; then fail 'Expected --enable-ai or no AI option.'
+shift
+edge_args=("$@")
+enable_ai=0
+enable_compiler=0
+for option in "${edge_args[@]}"; do
+  case "$option" in
+    --enable-ai) enable_ai=1 ;;
+    --enable-compiler) enable_compiler=1 ;;
+    *) fail 'Expected --enable-ai and/or --enable-compiler.' ;;
+  esac
+done
+compiler_ready() {
+  curl -fsS --max-time 5 -H 'Host: mach-mo.vercel.app' "$1" |
+    node -e 'const h=JSON.parse(require("node:fs").readFileSync(0,"utf8")); if(!h.ok||!h.boards?.includes("arduino-uno-r3"))process.exit(1)'
+}
+if (( enable_compiler )); then
+  compiler_ready http://127.0.0.1:8285/api/tools/arduino/status ||
+    fail 'Start and verify the rootless compiler service before enabling its public routes.'
 fi
 node "$checkout/server/api/production-edge.mjs" "${edge_args[@]}" > "$candidate"
 "$caddy" validate --config "$candidate" --adapter caddyfile >/dev/null
 bash "$checkout/server/api/backup-staging.sh" backup
 bash "$checkout/server/api/staging-ops.sh" deploy "$commit"
-if (( ${#edge_args[@]} )); then
+if (( enable_ai )); then
   curl -fsS --max-time 8 "$edge/health" |
     node -e 'const h=JSON.parse(require("node:fs").readFileSync(0,"utf8")); if(!["ollama","openai"].includes(h.ai))process.exit(1)' ||
     fail 'A real AI provider must be ready before enabling AI at the public edge.'
@@ -70,7 +85,8 @@ status=$(curl -sS --max-time 5 -o /dev/null -w '%{http_code}' -X POST \
 [[ $status == 400 ]] || fail "Expected invalid feedback to return 400, got $status."
 curl -fsS --max-time 5 "$edge/projects/gallery?limit=1" >/dev/null
 expected_ai=unavailable
-if (( ${#edge_args[@]} )); then expected_ai=signed-out; fi
+if (( enable_ai )); then expected_ai=signed-out; fi
 curl -fsS --max-time 5 "$edge/guide-ai/status" |
   node -e 'const h=JSON.parse(require("node:fs").readFileSync(0,"utf8")); if(h.state!==process.argv[1])process.exit(1)' "$expected_ai"
+if (( enable_compiler )); then compiler_ready "$edge/tools/arduino/status"; fi
 printf 'Dashboard backend ready. Previous Caddyfile saved at %s\n' "$backup"
