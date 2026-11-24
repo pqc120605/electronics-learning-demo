@@ -36,3 +36,24 @@ test('analytics stores only allowlisted dimensions and rejects IP, browser ident
   }
   assert.equal(eventRecord(input), null)
 })
+
+test('site reports enforce the same admin role and validate the requested website', async () => {
+  const origin = 'https://preview.example.test'
+  const headers = { host: 'preview.example.test', cookie: '__Host-mm_session=' + 'x'.repeat(43) }
+  let role = 'user'
+  let loaded = 0
+  const handler = createAdminHttp({
+    origin, reports: {}, authStore: { async read() { return { role } } }, dashboardSites: {
+      async list() { loaded++; return [{ id: 'mach-mo' }] },
+      async report(id) { loaded++; return id === 'web-a' ? { site: { id } } : null },
+    },
+  })
+  const params = new URLSearchParams()
+  assert.equal((await handler('sites', { headers }, params)).status, 403)
+  assert.equal((await handler('sites', { headers }, params, 'web-a')).status, 403)
+  assert.equal(loaded, 0)
+  role = 'admin'
+  assert.deepEqual((await handler('sites', { headers }, params)).body, [{ id: 'mach-mo' }])
+  assert.deepEqual((await handler('sites', { headers }, params, 'web-a')).body, { site: { id: 'web-a' } })
+  assert.equal((await handler('sites', { headers }, params, 'missing')).status, 404)
+})

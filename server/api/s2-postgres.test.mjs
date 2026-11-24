@@ -12,6 +12,7 @@ import { createAdminReports, vietnamRange } from './admin.mjs'
 import { createProjectHttp, createProjectStore, projectRoute } from './projects.mjs'
 import { createClassroomStore } from './classrooms.mjs'
 import { createSiteFeedbackStore } from './site-feedback.mjs'
+import { createDashboardSiteStore } from './dashboard-sites.mjs'
 
 const port = process.env.MACHMO_S2_TEST_PG_PORT
 
@@ -23,7 +24,7 @@ test('staging applies and repeats migrations on PostgreSQL and enforces data own
   const owner = createStagingPool(connection(STAGING_OWNER), STAGING_OWNER)
   const app = createStagingPool(connection(STAGING_APP), STAGING_APP)
   t.after(async () => Promise.all([owner.end(), app.end()]))
-  assert.deepEqual(await migrateStagingDatabase(owner), [1, 2, 3, 4, 5, 6, 7, 8])
+  assert.deepEqual(await migrateStagingDatabase(owner), [1, 2, 3, 4, 5, 6, 7, 8, 9])
   assert.deepEqual(await migrateStagingDatabase(owner), [])
   assert.equal(await verifyStagingDatabase(app), true)
 
@@ -87,6 +88,23 @@ test('staging applies and repeats migrations on PostgreSQL and enforces data own
   const { createdAt, ...savedFeedback } = inbox.items.find(item => item.id === feedback.id)
   assert.ok(Number.isFinite(Date.parse(createdAt)))
   assert.deepEqual(savedFeedback, feedback)
+  const dashboard = createDashboardSiteStore(app, siteFeedback)
+  const day = new Date(Date.now() + 25_200_000).toISOString().slice(0, 10)
+  const daily = { day, revision: 1, status: 'healthy', accounts: 17, newAccounts: 3, sessions: 10, pageViews: 15 }
+  await dashboard.saveSnapshot('website-a', daily)
+  await dashboard.saveSnapshot('website-a', { ...daily, revision: 2, accounts: 23 })
+  await dashboard.saveSnapshot('website-a', daily)
+  await dashboard.saveSnapshot('website-b', { ...daily, status: 'degraded', accounts: null })
+  assert.equal((await dashboard.daily('website-a', ...range))[0].accounts, 23)
+  assert.equal((await dashboard.daily('website-b', ...range))[0].accounts, null)
+  assert.equal((await dashboard.latest(['website-b']))[0].status, 'degraded')
+  await dashboard.saveFeedback('website-a', feedback)
+  await dashboard.saveFeedback('website-a', feedback)
+  await dashboard.saveFeedback('website-b', { ...feedback, rating: 2 })
+  assert.equal((await dashboard.feedback('website-a', ...range)).total, 1)
+  assert.equal((await dashboard.feedback('website-b', ...range)).average, 2)
+  assert.equal((await admin.feedback(...range)).total, 2)
+  await dashboard.expire()
   await assert.rejects(app.query('DELETE FROM machmo_community.site_feedback'), { code: '42501' })
   await owner.query("UPDATE machmo_community.site_feedback SET created_at=now()-interval '181 days' WHERE id=$1", [feedback.id])
   await siteFeedback.expire()

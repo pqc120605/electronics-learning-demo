@@ -23,23 +23,26 @@ export function siteFeedbackInput(value) {
 
 export function createSiteFeedbackStore(pool) {
   return {
-    async save(input) {
+    async save(input, site) {
+      const table = site ? 'dashboard_feedback' : 'site_feedback'
       await pool.query(
-        'INSERT INTO machmo_community.site_feedback (id,kind,title,details,page,steps,expected,actual,rating)' +
-        ' VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) ON CONFLICT (id) DO NOTHING',
-        [input.id, input.kind, input.title, input.details, input.page, input.steps, input.expected, input.actual, input.rating])
+        'INSERT INTO machmo_community.' + table + ' (id,kind,title,details,page,steps,expected,actual,rating' + (site ? ',site_id)' : ')') +
+        ' VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9' + (site ? ',$10) ON CONFLICT (site_id,id)' : ') ON CONFLICT (id)') + ' DO NOTHING',
+        [input.id, input.kind, input.title, input.details, input.page, input.steps, input.expected, input.actual, input.rating, ...(site ? [site] : [])])
     },
-    async report(start, end) {
+    async report(start, end, site) {
+      const table = site ? 'dashboard_feedback' : 'site_feedback'
+      const condition = 'created_at >= $1 AND created_at < $2' + (site ? ' AND site_id=$3' : '')
       const { rows } = await pool.query(`
         WITH recent AS (
           SELECT id,kind,title,details,page,steps,expected,actual,rating,created_at AS "createdAt"
-          FROM machmo_community.site_feedback WHERE created_at >= $1 AND created_at < $2
+          FROM machmo_community.${table} WHERE ${condition}
           ORDER BY created_at DESC,id DESC LIMIT 50
         )
         SELECT count(*)::int AS total, count(rating)::int AS rated, avg(rating)::float8 AS average,
           COALESCE((SELECT jsonb_agg(recent ORDER BY "createdAt" DESC,id DESC) FROM recent), '[]'::jsonb) AS items
-        FROM machmo_community.site_feedback WHERE created_at >= $1 AND created_at < $2
-      `, [start, end])
+        FROM machmo_community.${table} WHERE ${condition}
+      `, [start, end, ...(site ? [site] : [])])
       return rows[0]
     },
     async expire() {

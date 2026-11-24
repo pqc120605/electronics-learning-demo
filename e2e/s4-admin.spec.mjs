@@ -4,6 +4,7 @@ import AxeBuilder from '@axe-core/playwright'
 test.skip(process.env.MACHMO_S4_E2E !== '1', 'Build the staging admin with both flags first')
 
 const reports = {
+  sites: [{ id: 'mach-mo', name: 'Mạch Mở', origin: null, native: true, latest: null }],
   summary: { eventCount: 3, sessionCount: 1, daily: [{ day: '2026-11-21', events: 3, sessions: 1 }],
     byEvent: [], byPath: [{ path: '/build', events: 3 }], byLesson: [{ label: 'blink', count: 3 }],
     byBoard: [], byDevice: [{ label: 'mobile', count: 3 }], bySource: [], funnel: { opened: 1, ran: 1, completed: 1 } },
@@ -64,6 +65,34 @@ test('feedback submission is explicit and the admin inbox survives a report outa
   await expect(page.getByRole('alert')).toHaveCount(0)
 })
 const user = { id: 'fixture', displayName: 'Tester', avatarUrl: null, provider: 'github' }
+
+test('switching sites shows only the selected website data on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 })
+  const daily = { day: '2026-11-24', status: 'healthy', receivedAt: new Date().toISOString(), accounts: 172, newAccounts: null, sessions: 36, pageViews: 82 }
+  const list = [...reports.sites,
+    { id: 'web-a', name: 'Website A', origin: 'https://a.example.test', native: false, latest: daily },
+    { id: 'web-b', name: 'Website B', origin: 'https://b.example.test', native: false, latest: null },
+  ]
+  await page.route('**/api/session', route => route.fulfill({ json: { user: { ...user, role: 'admin' } } }))
+  await page.route('**/api/admin/**', route => {
+    const path = new URL(route.request().url()).pathname
+    if (path === '/api/admin/sites') return route.fulfill({ json: list })
+    if (path.startsWith('/api/admin/sites/')) return route.fulfill({ json: { daily: path.endsWith('/web-a') ? [daily] : [], feedback: reports.feedback } })
+    return route.fulfill({ json: reports[path.split('/').at(-1)] })
+  })
+  await page.goto('/admin')
+  await expect(page.getByText('Phiên trình duyệt', { exact: true })).toBeVisible()
+  await page.getByRole('button', { name: /Website A/ }).click()
+  await expect(page.getByRole('cell', { name: '172', exact: true })).toBeVisible()
+  await expect(page.getByRole('cell', { name: '—', exact: true })).toBeVisible()
+  await expect(page.getByText('Phiên trình duyệt', { exact: true })).toHaveCount(0)
+  await page.getByRole('button', { name: /Website B.*Chưa nhận dữ liệu/ }).click()
+  await expect(page.getByText('Website chưa gửi số liệu trong khoảng này.')).toBeVisible()
+  await expect(page.getByRole('cell', { name: '172', exact: true })).toHaveCount(0)
+  await page.getByRole('button', { name: /Mạch Mở.*Đọc dữ liệu trực tiếp/ }).click()
+  await expect(page.getByText('Phiên trình duyệt', { exact: true })).toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(376)
+})
 
 test('staging admin skips reports for guests and regular users', async ({ page }) => {
   let account = null

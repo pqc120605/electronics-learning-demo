@@ -86,7 +86,7 @@ cat > "$work/Caddyfile" <<CADDY
 http://:8284 {
 	bind 127.0.0.1
 	@api {
-		path /health /session /session/logout /auth/login/google /auth/login/github /auth/callback/google /auth/callback/github /account /community/* /feedback /analytics/events /admin/summary /admin/ai /admin/community /admin/system /admin/feedback
+		path /health /session /session/logout /auth/login/google /auth/login/github /auth/callback/google /auth/callback/github /account /community/* /feedback /analytics/events /admin/summary /admin/ai /admin/community /admin/system /admin/feedback /admin/sites /admin/sites/* /site-metrics/*
 		not path /community/moderation/*
 	}
 	handle @api {

@@ -96,6 +96,27 @@ test('public session and analytics keep their expected response shapes', async t
   assert.equal(events[0].path, '/')
 })
 
+test('website ingestion only accepts the configured methods without a browser origin', async t => {
+  const writes = []
+  const { base } = await start(t, { dashboardSites: {
+    async ingest(site, type, request, readBody) {
+      assert.equal(request.headers.authorization, 'Bearer fixture')
+      writes.push([site, type, await readBody()])
+      return 204
+    },
+  } })
+  const send = (suffix, method, origin) => fetch(base + '/api/site-metrics/web-a/' + suffix, {
+    method, headers: { authorization: 'Bearer fixture', 'content-type': 'application/json', ...(origin && { origin }) },
+    ...(method !== 'GET' && { body: '{}' }),
+  })
+  assert.equal((await send('daily', 'PUT', publicOrigin)).status, 403)
+  assert.equal((await send('daily', 'POST')).status, 405)
+  assert.equal((await send('feedback', 'GET')).status, 405)
+  assert.equal((await send('daily', 'PUT')).status, 204)
+  assert.equal((await send('feedback', 'POST')).status, 204)
+  assert.deepEqual(writes, [['web-a', 'daily', {}], ['web-a', 'feedback', {}]])
+})
+
 test('guide chat rejects oversized content-length and chunked requests before parsing', async t => {
   const { base } = await start(t)
   const url = base + '/api/guide-ai/chat'

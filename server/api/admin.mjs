@@ -8,7 +8,7 @@ import { checkGuideStatus } from '../guide-ai/handler.mjs'
 const ranges = new Set(['7', '30', '90'])
 const DAY = 86_400_000
 const vnOffset = 7 * 60 * 60 * 1000
-export const adminPath = /^\/api\/admin\/(summary|ai|community|system|feedback)$/
+export const adminPath = /^\/api\/admin\/(summary|ai|community|system|feedback|sites)(?:\/([a-z0-9-]{1,48}))?$/
 
 export function vietnamRange(days, now) {
   const today = Math.floor((now + vnOffset) / DAY) * DAY - vnOffset
@@ -82,9 +82,9 @@ export function createAdminReports({ pool, analytics, siteFeedback, databaseRead
   }
 }
 
-export function createAdminHttp({ reports, origin, authStore, now = Date.now }) {
+export function createAdminHttp({ reports, dashboardSites, origin, authStore, now = Date.now }) {
   const host = new URL(origin).host
-  return async (section, request, params) => {
+  return async (section, request, params, siteId) => {
     if (request.headers.host !== host || request.headers['sec-fetch-site'] === 'cross-site'
       || (request.headers.origin && request.headers.origin !== origin)) return { status: 403 }
     const token = sessionToken(request.headers.cookie)
@@ -93,6 +93,12 @@ export function createAdminHttp({ reports, origin, authStore, now = Date.now }) 
     if (actor.role !== 'admin') return { status: 403 }
     const days = params.get('days') ?? '7'
     if (!ranges.has(days)) return { status: 400 }
-    return { status: 200, body: await reports[section](...vietnamRange(days, now())) }
+    const range = vietnamRange(days, now())
+    if (section === 'sites' && dashboardSites) {
+      const body = siteId ? await dashboardSites.report(siteId, ...range) : await dashboardSites.list()
+      return body ? { status: 200, body } : { status: 404 }
+    }
+    if (siteId || !Object.hasOwn(reports, section)) return { status: 404 }
+    return { status: 200, body: await reports[section](...range) }
   }
 }

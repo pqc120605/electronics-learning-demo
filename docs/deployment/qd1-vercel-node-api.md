@@ -41,7 +41,7 @@ Founder xác nhận ngày 23/11/2026 rằng Supabase production không có dữ 
 
 ## Dashboard quản trị và góp ý
 
-- Sao lưu PostgreSQL rồi deploy API có migration 008 bằng quy trình Mini PC. Migration thêm bảng góp ý và giữ nguyên tài khoản, phiên và dữ liệu cộng đồng. Tác vụ backend dọn góp ý sau 180 ngày.
+- Sao lưu PostgreSQL rồi deploy API có migrations 008–009 bằng quy trình Mini PC. Migrations thêm bảng góp ý và số liệu của website kết nối. Tác vụ backend dọn góp ý sau 180 ngày. [Kết nối thêm website](dashboard-nhieu-website.md)
 - Trên Mini PC đã chuyển OAuth sang production, cập nhật matcher `@api` trong `~/.config/mach-mo/Caddyfile.oauth-production` giống script `server/api/promote-oauth-origin.sh`. Sao lưu Caddyfile, chạy `caddy validate` rồi khởi động lại `mach-mo-api-production-edge.service`. Các đường dẫn `/admin/summary`, `/admin/ai`, `/admin/community`, `/admin/system`, `/admin/feedback` đều kiểm vai trò ở API. `/feedback` nhận nội dung gửi chủ động. `/analytics/events` nhận sự kiện sử dụng.
 - Cấp quyền cho tài khoản quản trị qua danh sách `ADMIN_ACCOUNTS` trên Mini PC với định danh OAuth chính xác. Kiểm thực tế tài khoản khách nhận `401` và tài khoản thường nhận `403` trước khi bật giao diện.
 - Bật `VITE_MACHMO_SELF_HOSTED_ANALYTICS=true` và `VITE_MACHMO_SITE_FEEDBACK=true` cho bản Vercel đã có `VITE_MACHMO_SELF_HOSTED_OAUTH=true`. Mở trực tiếp `/admin` bằng tài khoản quản trị. Thử gửi một góp ý từ `/feedback` và xác nhận nó xuất hiện cùng điểm sao. Đối chiếu tổng tài khoản với tài khoản mới trong kỳ và phiên trình duyệt.

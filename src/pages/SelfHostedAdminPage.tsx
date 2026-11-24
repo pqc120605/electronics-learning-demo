@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getAdminReport, type AnalyticsSummary } from '../lib/admin'
+import { getAdminReport, getDashboardSiteReport, getDashboardSites, type AnalyticsSummary, type DashboardSite, type DashboardSnapshot } from '../lib/admin'
 import { useAuth } from '../lib/auth'
 import { siteFeedbackEnabled } from '../lib/backendMode'
 import { feedbackKinds, type FeedbackKind } from '../lib/feedbackDraft'
@@ -29,6 +29,10 @@ const reportLabels: Record<keyof Dashboard, string> = {
 const num = new Intl.NumberFormat('vi-VN')
 const score = new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 1 })
 const dateTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'short', timeStyle: 'short', timeZone: 'Asia/Ho_Chi_Minh' })
+const webStatus: Record<DashboardSnapshot['status'], string> = {
+  healthy: 'Hoạt động', degraded: 'Có gián đoạn', down: 'Ngừng hoạt động', unknown: 'Chưa rõ trạng thái',
+}
+const count = (value: number | null | undefined) => value == null ? '—' : num.format(value)
 const gib = (bytes: number | null) => bytes === null ? 'Chưa đo' : num.format(Math.round(bytes / 2 ** 27) / 8) + ' GiB'
 const readiness = (value: string) => value === 'ready' ? 'Sẵn sàng' : value === 'unavailable' ? 'Chưa sẵn sàng' : value
 
@@ -187,6 +191,97 @@ function Reports() {
   </>
 }
 
+function ConnectedSiteReport({ site }: { site: DashboardSite }) {
+  const [days, setDays] = useState<Range>(7)
+  const [refresh, setRefresh] = useState(0)
+  const [current, setCurrent] = useState<{
+    days: Range; refresh: number; data?: Awaited<ReturnType<typeof getDashboardSiteReport<Dashboard['feedback']>>>; error?: string
+  }>()
+  useEffect(() => {
+    const controller = new AbortController()
+    const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(8000)])
+    void getDashboardSiteReport<Dashboard['feedback']>(site.id, days, signal).then(data => {
+      if (!controller.signal.aborted) setCurrent({ days, refresh, data })
+    }).catch(error => {
+      if (!controller.signal.aborted) setCurrent({ days, refresh, error: error instanceof Error ? error.message : 'Không tải được báo cáo.' })
+    })
+    return () => controller.abort()
+  }, [site.id, days, refresh])
+  const loading = current?.days !== days || current.refresh !== refresh
+  const data = !loading && current.data
+  return <>
+    <div className="s4-toolbar">
+      <div className="s4-period" role="group" aria-label="Khoảng thời gian">
+        {([7, 30, 90] as const).map(period => <button key={period} type="button" aria-pressed={days === period} onClick={() => setDays(period)}>{period} ngày</button>)}
+      </div>
+      <button type="button" onClick={() => setRefresh(value => value + 1)} disabled={loading}>Làm mới báo cáo</button>
+    </div>
+    {loading && <p role="status">Đang tải báo cáo…</p>}
+    {!loading && current.error && <p className="s4-error" role="alert">{current.error}</p>}
+    {data && <div className="s4-panels">
+      <section className="s4-chart">
+        <h2>Hoạt động theo ngày</h2>
+        {data.daily.length > 0 ? <div className="s4-table-scroll" tabIndex={0} role="region" aria-label="Số liệu từng ngày">
+          <table>
+            <thead><tr><th scope="col">Ngày</th><th scope="col">Trạng thái</th><th scope="col">Tài khoản</th><th scope="col">Tài khoản mới</th><th scope="col">Phiên</th><th scope="col">Lượt xem</th></tr></thead>
+            <tbody>{data.daily.map(row => <tr key={row.day}>
+              <th scope="row">{row.day}</th><td>{webStatus[row.status]}</td>
+              <td>{count(row.accounts)}</td><td>{count(row.newAccounts)}</td><td>{count(row.sessions)}</td><td>{count(row.pageViews)}</td>
+            </tr>)}</tbody>
+          </table>
+        </div> : <p>Website chưa gửi số liệu trong khoảng này.</p>}
+      </section>
+      <FeedbackInbox data={data.feedback} />
+    </div>}
+  </>
+}
+
+function WebsiteReports() {
+  const [sites, setSites] = useState<DashboardSite[]>([])
+  const [selected, setSelected] = useState('mach-mo')
+  const [directoryError, setDirectoryError] = useState(false)
+  const [refresh, setRefresh] = useState(0)
+  useEffect(() => {
+    const controller = new AbortController()
+    const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(8000)])
+    void getDashboardSites(signal).then(list => {
+      if (controller.signal.aborted) return
+      setSites(list)
+      setSelected(id => list.some(site => site.id === id) ? id : 'mach-mo')
+      setDirectoryError(false)
+    }).catch(() => {
+      if (!controller.signal.aborted) setDirectoryError(true)
+    })
+    return () => controller.abort()
+  }, [refresh])
+  const site = sites.find(entry => entry.id === selected && !entry.native)
+  return <>
+    <section className="s4-sites" aria-labelledby="dashboard-sites-title">
+      <div className="s4-sites-head">
+        <h2 id="dashboard-sites-title">Website</h2>
+        <button type="button" onClick={() => setRefresh(value => value + 1)}>Cập nhật danh sách</button>
+      </div>
+      {directoryError && <p role="alert">Chưa tải được danh sách website.</p>}
+      <ul className="s4-site-list">
+        <li><button type="button" aria-pressed={selected === 'mach-mo'} onClick={() => setSelected('mach-mo')}>
+          <strong>Mạch Mở</strong><span>Đọc dữ liệu trực tiếp</span>
+        </button></li>
+        {sites.filter(entry => !entry.native).map(entry => <li key={entry.id}>
+          <button type="button" aria-pressed={selected === entry.id} onClick={() => setSelected(entry.id)}>
+            <strong>{entry.name}</strong><span>{entry.origin}</span>
+            <span>{!entry.latest ? 'Chưa nhận dữ liệu' : Date.now() - Date.parse(entry.latest.receivedAt) > 26 * 3_600_000
+              ? 'Dữ liệu chưa cập nhật' : webStatus[entry.latest.status]}</span>
+            {entry.latest && <time dateTime={entry.latest.receivedAt}>{dateTime.format(new Date(entry.latest.receivedAt))}</time>}
+          </button>
+        </li>)}
+      </ul>
+    </section>
+    <div aria-label={site?.name ?? 'Mạch Mở'}>
+      {site ? <ConnectedSiteReport key={site.id} site={site} /> : <Reports />}
+    </div>
+  </>
+}
+
 export function SelfHostedAdminPage() {
   const auth = useAuth()
   useEffect(() => {
@@ -197,12 +292,12 @@ export function SelfHostedAdminPage() {
     return () => meta.remove()
   }, [])
   return <article className="s4-admin" aria-labelledby="s4-title">
-    <header className="s4-heading"><h1 id="s4-title">Quản trị Mạch Mở</h1>
-      <p>Tình trạng hệ thống, hoạt động và phản hồi từ người dùng.</p>
+    <header className="s4-heading"><h1 id="s4-title">Quản trị website</h1>
+      <p>Tình trạng hệ thống, hoạt động và phản hồi theo từng website.</p>
     </header>
     {auth.status === 'loading' ? <p role="status">Đang kiểm tra quyền…</p>
       : auth.status === 'error' ? <p role="alert">{auth.message}</p>
-      : auth.status === 'signed-in' ? auth.user.role === 'admin' ? <Reports /> : <p role="alert">Tài khoản này chưa có quyền quản trị.</p>
+      : auth.status === 'signed-in' ? auth.user.role === 'admin' ? <WebsiteReports /> : <p role="alert">Tài khoản này chưa có quyền quản trị.</p>
       : <p><Link to="/login?next=%2Fadmin">Đăng nhập để kiểm tra quyền quản trị</Link></p>}
   </article>
 }

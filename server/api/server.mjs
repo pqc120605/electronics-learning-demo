@@ -9,6 +9,7 @@ import { adminPath } from './admin.mjs'
 import { projectRoute } from './projects.mjs'
 import { classroomRoute } from './classrooms.mjs'
 import { siteFeedbackInput } from './site-feedback.mjs'
+import { dashboardIngestPath } from './dashboard-sites.mjs'
 
 export const MAX_BODY_BYTES = 64 * 1024
 const MINUTE_MS = 60_000
@@ -25,6 +26,8 @@ const routes = new Map([
 const guideFeedback = { id: 'guide-feedback', method: 'POST', acceptsBody: true, csrf: true }
 const adminReport = { id: 'admin-report', method: 'GET' }
 const submitFeedback = { id: 'submit-feedback', method: 'POST', acceptsBody: true, csrf: true }
+const receiveDaily = { id: 'dashboard-daily', method: 'PUT', acceptsBody: true }
+const receiveFeedback = { id: 'dashboard-feedback', method: 'POST', acceptsBody: true }
 
 function json(response, status, payload) {
   response.statusCode = status
@@ -94,7 +97,7 @@ function createLimiter(requestsPerMinute, trustedProxies) {
 }
 
 export function createApiServer({
-  origins, commit, checkDatabase, sessionStore, analyticsStore, guideEnv = {}, s2, guide, admin, projects, classrooms, feedback,
+  origins, commit, checkDatabase, sessionStore, analyticsStore, guideEnv = {}, s2, guide, admin, projects, classrooms, feedback, dashboardSites,
   trustedProxyIps = [], requestsPerMinute = 120, log = entry => console.log(JSON.stringify(entry)),
 }) {
   if (!Array.isArray(origins) || !origins.length || origins.some(value => {
@@ -124,8 +127,9 @@ export function createApiServer({
     const project = projects && projectRoute(routeMethod, path)
     const classroom = classrooms && classroomRoute(routeMethod, path)
     const report = admin && adminPath.exec(path)
+    const ingestion = dashboardSites && dashboardIngestPath.exec(path)
     const feedbackAction = feedback && path === '/api/feedback'
-    const route = s2Action || project || classroom || (report ? adminReport : feedbackAction ? submitFeedback
+    const route = s2Action || project || classroom || (report ? adminReport : ingestion ? (ingestion[2] === 'daily' ? receiveDaily : receiveFeedback) : feedbackAction ? submitFeedback
       : guide && path === '/api/guide-ai/feedback' ? guideFeedback : routes.get(path))
     const s2Session = s2 && (route?.id === 'session' || route?.id === 'logout')
     const guideAction = guide && route?.id.startsWith('guide-')
@@ -139,6 +143,7 @@ export function createApiServer({
 
     if (!route) return json(response, 404)
     const origin = request.headers.origin
+    if (ingestion && (origin !== undefined || method === 'OPTIONS')) return json(response, 403)
     if (origin !== undefined && !allowedOrigins.has(origin)) return json(response, 403)
     if (origin) {
       response.setHeader('Access-Control-Allow-Origin', origin)
@@ -165,9 +170,12 @@ export function createApiServer({
     const length = Number(request.headers['content-length'] ?? 0)
     if (length > MAX_BODY_BYTES) return closeRequest(response, 413)
     if (!route.acceptsBody && (length > 0 || request.headers['transfer-encoding'])) return closeRequest(response, 400)
-    if ((method === 'POST' || csrf) && !origin) return json(response, 403)
+    if (!ingestion && (method === 'POST' || csrf) && !origin) return json(response, 403)
 
     try {
+      if (ingestion) {
+        return json(response, await dashboardSites.ingest(ingestion[1], ingestion[2], request, () => requireJson(request)))
+      }
       if (feedbackAction) {
         if (origin !== feedback.origin || request.headers['x-machmo-csrf'] !== '1'
           || request.headers['sec-fetch-site'] === 'cross-site') return json(response, 403)
@@ -189,7 +197,7 @@ export function createApiServer({
         return json(response, result.status, result.body)
       }
       if (report) {
-        const result = await admin(report[1], request, new URLSearchParams(request.url.split('?').slice(1).join('?')))
+        const result = await admin(report[1], request, new URLSearchParams(request.url.split('?').slice(1).join('?')), report[2])
         return json(response, result.status, result.body)
       }
       if (guideAction) {

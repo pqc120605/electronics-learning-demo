@@ -11,6 +11,7 @@ import { createAdminHttp, createAdminReports } from './admin.mjs'
 import { createProjectHttp, createProjectStore } from './projects.mjs'
 import { createClassroomHttp, createClassroomStore } from './classrooms.mjs'
 import { createSiteFeedbackStore } from './site-feedback.mjs'
+import { createDashboardSites, createDashboardSiteStore } from './dashboard-sites.mjs'
 
 const event = (name, fields = {}) => console.log(JSON.stringify({ event: name, ...fields }))
 let pool
@@ -41,6 +42,8 @@ try {
   const authStore = oauthOrigin && createOAuthStore(pool, process.env.ADMIN_ACCOUNTS)
   const analyticsStore = createPostgresStore(pool, Boolean(authStore))
   const siteFeedback = createSiteFeedbackStore(pool)
+  const dashboardStore = createDashboardSiteStore(pool, siteFeedback)
+  const dashboardSites = authStore && createDashboardSites(process.env.MACHMO_DASHBOARD_SITES, dashboardStore)
   const s2 = authStore && createS2({ origin: oauthOrigin, env: process.env, authStore, community: createCommunityStore(pool) })
   if (['openai', 'ollama'].includes(guideProvider) && !authStore) throw new Error('AI needs the signed-in origin')
   const guideEnv = guideProvider ? {
@@ -59,7 +62,7 @@ try {
   const price = guideEnv.OPENAI_MODEL && rates.every(value => value?.trim() && Number.isFinite(Number(value)) && Number(value) >= 0)
     ? { model: guideEnv.OPENAI_MODEL, input: Number(rates[0]), output: Number(rates[1]) } : null
   const admin = authStore && createAdminHttp({
-    origin: oauthOrigin, authStore, reports: createAdminReports({
+    origin: oauthOrigin, authStore, dashboardSites, reports: createAdminReports({
       pool, analytics: analyticsStore, siteFeedback, databaseReady, guideEnv, commit: process.env.MACHMO_API_COMMIT,
       dailyCap: guideStore ? dailyLimit : null, price,
     }),
@@ -69,6 +72,7 @@ try {
   server = createApiServer({
     origins, commit: process.env.MACHMO_API_COMMIT, trustedProxyIps, s2, guide, guideEnv, admin, projects, classrooms,
     feedback: oauthOrigin ? { origin: oauthOrigin, save: siteFeedback.save } : undefined,
+    dashboardSites,
     sessionStore, analyticsStore, checkDatabase: databaseReady,
   })
   await new Promise((resolve, reject) => {
@@ -76,7 +80,7 @@ try {
     server.listen(port, '127.0.0.1', resolve)
   })
   retention = setInterval(() => {
-    Promise.all([sessionStore.expire(), analyticsStore.expire(), siteFeedback.expire(), authStore && authStore.expire(), guideStore && guideStore.expire()])
+    Promise.all([sessionStore.expire(), analyticsStore.expire(), siteFeedback.expire(), dashboardStore.expire(), authStore && authStore.expire(), guideStore && guideStore.expire()])
       .catch(() => event('staging_retention_failed'))
   }, 60 * 60 * 1000)
   retention.unref()

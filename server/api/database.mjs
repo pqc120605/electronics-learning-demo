@@ -15,6 +15,7 @@ const migrationFiles = [
   [6, './migrations/006-projects.sql'],
   [7, './migrations/007-classrooms.sql'],
   [8, './migrations/008-site-feedback.sql'],
+  [9, './migrations/009-dashboard-sites.sql'],
 ]
 const requirePg = createRequire(new URL('../community/package.json', import.meta.url))
 
