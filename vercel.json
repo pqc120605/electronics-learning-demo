@@ -32,6 +32,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/api/:path*", "destination": "https://machmo.tail3b04e8.ts.net:10000/:path*" },
     { "source": "/admin/:path*", "destination": "/index.html" },
     { "source": "/s/:code", "destination": "/index.html" },
     { "source": "/:section(app|learn|build|tools|community|auth)/:path*", "destination": "/index.html" },
