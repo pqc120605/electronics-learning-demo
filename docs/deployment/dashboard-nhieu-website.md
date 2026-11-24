@@ -6,6 +6,8 @@ Mở `/admin` và xác minh bằng địa chỉ trong danh sách `MACHMO_DASHBOA
 
 Chạy `bash server/api/configure-dashboard-emails.sh` trên Mini PC và nhập địa chỉ phân cách bằng dấu phẩy. Script lưu `MACHMO_DASHBOARD_EMAILS` vào tệp môi trường riêng quyền `600` của Node API. Khi chỉnh danh sách trên bản đã chạy, dùng `systemctl --user daemon-reload` rồi `systemctl --user restart mach-mo-api-staging.service`. Đặt danh sách rỗng trong tệp cấu hình để khóa toàn bộ báo cáo dashboard. Quyền xem tách khỏi quyền kiểm duyệt cộng đồng `ADMIN_ACCOUNTS`.
 
+Có thể truyền danh sách qua đầu vào chuẩn bằng `printf '%s\n' 'owner@example.com' | bash server/api/configure-dashboard-emails.sh --stdin`.
+
 Mở `/admin` và đăng nhập từ đó. Nếu đã đăng nhập thông thường, chọn nút xác minh lại. Google phải xác minh email Gmail hoặc email Google Workspace thuộc miền quản lý. GitHub phải xác minh email chính. Quyền hết hạn sau 8 giờ. Gỡ một email khỏi cấu hình rồi khởi động lại API sẽ thu quyền cả các phiên đang mở. Backend kiểm danh sách ở mọi tuyến báo cáo và chỉ đưa cờ được cấp quyền về trình duyệt.
 
 ## Đăng ký website

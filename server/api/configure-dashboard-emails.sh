@@ -12,8 +12,19 @@ unit_config="$dropin/95-dashboard-access.conf"
 for target in "$env_file" "$unit_config"; do
   [[ ! -L $target && ( ! -e $target || -f $target ) ]] || { printf '%s\n' 'Expected regular dashboard configuration files.' >&2; exit 1; }
 done
-read -r -s -p 'Email được xem dashboard (phân cách bằng dấu phẩy): ' emails </dev/tty
-printf '\n' >/dev/tty
+case "$#:${1-}" in
+  0:)
+    IFS= read -r -s -p 'Email được xem dashboard (phân cách bằng dấu phẩy): ' emails </dev/tty
+    printf '\n' >/dev/tty
+    ;;
+  1:--stdin)
+    IFS= read -r emails || { printf '%s\n' 'Expected one newline-terminated email list on stdin.' >&2; exit 1; }
+    ;;
+  *)
+    printf '%s\n' 'Usage: configure-dashboard-emails.sh [--stdin]' >&2
+    exit 1
+    ;;
+esac
 normalized=$(printf '%s' "$emails" | node --input-type=module -e '
   import { readFileSync } from "node:fs"
   import { normalizeDashboardEmail } from "./server/api/dashboard-access.mjs"
