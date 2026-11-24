@@ -20,6 +20,7 @@ import { getDefaultBoardFeatureId } from '../lib/boardSelection'
 import { getCadViewerDownloadLabel } from '../lib/boardModelDownload'
 import { getDocumentedPinForNet } from '../lib/boardPadPinout'
 import { canExploreBoardPinout } from '../lib/boardPinoutPresentation'
+import { matchesCatalogSearch } from '../lib/catalogSearch'
 import { getBoardTopView } from '../lib/boardTopView'
 
 const BoardTopInspector = lazy(() => import('../components/board/BoardTopInspector'))
@@ -50,8 +51,8 @@ export function BoardCatalogPage() {
   const [loadedModel, setLoadedModel] = useState<{ boardId: string; manifest?: BoardModelManifest }>()
   const panelHeadingRef = useRef<HTMLHeadingElement>(null)
   const filtered = useMemo(() => boards.filter((board) => {
-    const text = `${board.id} ${board.name} ${board.mcu ?? ''} ${board.revision ?? ''}`.toLocaleLowerCase('vi')
-    return (family === 'Tất cả' || board.platform === family) && text.includes(query.trim().toLocaleLowerCase('vi'))
+    const text = `${board.id} ${board.name} ${board.mcu ?? ''} ${board.revision ?? ''} ${board.description}`
+    return (family === 'Tất cả' || board.platform === family) && matchesCatalogSearch(text, query)
   }), [family, query])
   const selected = boards.filter((board) => compare.includes(board.id))
   const link = resolveBoardLink(searchParams.get('board'), knownBoardIds, cadBoardIds, 'esp32-devkit')

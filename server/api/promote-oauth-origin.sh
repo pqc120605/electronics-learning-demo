@@ -78,28 +78,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-cat > "$work/Caddyfile" <<CADDY
-{
-	admin off
-	auto_https off
-}
-http://:8284 {
-	bind 127.0.0.1
-	@api {
-		path /health /session /session/logout /auth/login/google /auth/login/github /auth/callback/google /auth/callback/github /account /community/* /feedback /analytics/events /admin/summary /admin/ai /admin/community /admin/system /admin/feedback /admin/sites /admin/sites/* /site-metrics/*
-		not path /community/moderation/*
-	}
-	handle @api {
-		rewrite * /api{uri}
-		reverse_proxy 127.0.0.1:8281 {
-			header_up Host $host
-		}
-	}
-	handle {
-		respond 404
-	}
-}
-CADDY
+node "$(dirname -- "$0")/production-edge.mjs" > "$work/Caddyfile"
 "$caddy" validate --config "$work/Caddyfile" --adapter caddyfile
 if [[ $mode == check ]]; then
   printf '%s\n' 'Production edge configuration validated.'
@@ -116,7 +95,7 @@ printf 'PUBLIC_ORIGIN=%s\nMACHMO_S2_ORIGIN=%s\n' "$origin" "$origin" > "$origin_
 printf '[Service]\nEnvironmentFile=%%h/.config/mach-mo/Caddyfile.oauth-production.origin\n' > "$override"
 cat > "$unit" <<UNIT
 [Unit]
-Description=Mạch Mở production OAuth HTTPS upstream
+Description=Máº¡ch Má»Ÿ production OAuth HTTPS upstream
 
 [Service]
 ExecStart="$caddy" run --config "$config" --adapter caddyfile

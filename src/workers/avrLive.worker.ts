@@ -26,6 +26,10 @@ scope.onmessage = (event) => {
     }
     try {
       const machine = createAvrLiveMachine(message.hex, message.board)
+      for (const input of message.inputs) {
+        machine.setDigitalInput(input.pin, input.digital)
+        machine.setAnalogInput(input.pin, input.analog)
+      }
       const run = { runId: message.runId, machine, timer: undefined as ReturnType<typeof setTimeout> | undefined }
       active = run
       let last = performance.now()

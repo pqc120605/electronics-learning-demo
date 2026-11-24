@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Không tìm thấy trang | Mạch Mở</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: system-ui, sans-serif;
+        background: #f5eedf;
+        color: #1d2b49;
+        --panel: #fffaf0;
+        --line: #cbbda5;
+        --action: #b82f28;
+        --action-ink: #fff;
+      }
+      body { margin: 0; padding: clamp(1rem, 5vw, 2rem); }
+      main {
+        box-sizing: border-box;
+        max-width: 38rem;
+        margin: clamp(2rem, 12vh, 7rem) auto 0;
+        padding: clamp(1.25rem, 5vw, 2.5rem);
+        border: 1px solid var(--line);
+        border-radius: 1rem;
+        background: var(--panel);
+      }
+      h1 { margin: 0; font-size: clamp(1.65rem, 4vw, 2.4rem); }
+      p { margin: .75rem 0 1.5rem; line-height: 1.6; }
+      nav { display: flex; flex-wrap: wrap; gap: .75rem; }
+      a { padding: .75rem 1rem; border: 1px solid var(--line); border-radius: .5rem; color: inherit; }
+      a:first-child { border-color: var(--action); background: var(--action); color: var(--action-ink); }
+      a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          background: #171e2d;
+          color: #f5eedf;
+          --panel: #222b3d;
+          --line: #747c8a;
+          --action: #f1948b;
+          --action-ink: #211725;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Không tìm thấy trang</h1>
+      <p>Đường dẫn này có thể đã thay đổi. Bạn có thể về trang chủ hoặc tiếp tục trong không gian học.</p>
+      <nav aria-label="Tiếp tục trên Mạch Mở">
+        <a href="/">Về trang chủ Mạch Mở</a>
+        <a href="/app">Mở không gian học</a>
+      </nav>
+    </main>
+  </body>
+</html>

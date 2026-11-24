@@ -120,14 +120,14 @@ test('placing, moving and removing parts keeps the document consistent', () => {
 
 test('workspace storage round-trips and rejects damaged data', () => {
   const workspace = fs.defaultFreestyleWorkspace('raspberry-pi-pico', 'blink')
-  assert.equal(workspace.language, 'micropython')
+  assert.equal(workspace.language, 'cpp')
   const parsed = fs.parseFreestyleWorkspace(JSON.stringify(workspace))
   assert.equal(parsed.boardId, 'raspberry-pi-pico')
   assert.equal(parsed.doc.parts.length, workspace.doc.parts.length)
   assert.equal(fs.parseFreestyleWorkspace('{bad json'), null)
   assert.equal(fs.parseFreestyleWorkspace(JSON.stringify({ ...workspace, doc: { ...workspace.doc, parts: [{ id: 'x', type: 'nope' }] } })), null)
   assert.equal(fs.parseFreestyleWorkspace(JSON.stringify({ ...workspace, version: 2 })), null)
-  assert.equal(fs.parseFreestyleWorkspace(JSON.stringify({ ...workspace, language: 'rust' })).language, 'micropython')
+  assert.equal(fs.parseFreestyleWorkspace(JSON.stringify({ ...workspace, language: 'rust' })).language, 'cpp')
 })
 
 test('pin labels follow each board naming', () => {
@@ -137,4 +137,13 @@ test('pin labels follow each board naming', () => {
   assert.equal(fs.pinDisplayName('stm32-blue-pill-f103', 45), 'PC13')
   assert.equal(fs.pinCodeName('stm32-blue-pill-f103', 5), 'PA5')
   assert.equal(fs.pinDisplayName('esp32-devkit', 23), 'GPIO 23')
+})
+
+
+test('Pico samples run as Arduino C++ on the static web and existing Python drafts retain their code', () => {
+  const sample = fs.defaultFreestyleWorkspace('raspberry-pi-pico', 'blink')
+  assert.equal(sample.language, 'cpp')
+  assert.match(sample.code, /void setup/)
+  const savedPython = { ...sample, language: 'micropython', code: 'print("giữ bản nháp")' }
+  assert.deepEqual(fs.parseFreestyleWorkspace(JSON.stringify(savedPython)), savedPython)
 })

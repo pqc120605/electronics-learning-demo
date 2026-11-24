@@ -104,7 +104,7 @@ export function CommunityPage() {
             {posts === null ? 'Đang tải bài…' : `${posts.length} bài${category ? ` trong “${categoryLabel(category)}”` : ''}${tag ? ` có thẻ #${tag}` : ''}${search ? ` khớp “${search}”` : ''}`}
             {hasFilter && <button type="button" className="community-clear" onClick={() => { setDraft(''); update({ q: null, cat: null, tag: null }) }}>Bỏ lọc</button>}
           </p>
-          {posts && posts.length === 0 && <p className="community-empty">Chưa có bài phù hợp. Thử từ khoá khác hoặc <Link to={`${base}/new`}>viết câu hỏi đầu tiên</Link>.</p>}
+          {!error && posts && posts.length === 0 && <p className="community-empty">{hasFilter ? 'Chưa có bài phù hợp. Thử từ khoá khác hoặc ' : 'Cộng đồng chưa có bài. Bạn có thể '}<Link to={`${base}/new`}>viết câu hỏi đầu tiên</Link>.</p>}
           <ul className="community-post-list">
             {posts?.map(post => (
               <li key={post.id}>

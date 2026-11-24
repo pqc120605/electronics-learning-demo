@@ -53,6 +53,10 @@ scope.onmessage = (event) => {
     lastPhase = ''
     try {
       machine ??= createMicroPythonMachine({ bootrom: new Uint8Array(message.bootrom), firmware: new Uint8Array(message.firmware) })
+      for (const input of message.inputs) {
+        machine.setDigitalInput(input.pin, input.digital)
+        machine.setAnalogInput(input.pin, input.analog)
+      }
       machine.submit(message.code)
       loop(message.runId)
     } catch (error) {

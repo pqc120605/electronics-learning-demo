@@ -20,7 +20,7 @@ import {
 } from '../../lib/freestyle/freestyleCircuit'
 import { chooseEngine, detectLocalTools, startFreestyleRun, type LocalTools, type RuntimeController } from '../../lib/freestyle/freestyleRuntime'
 import { FreestyleDraftsDialog } from './FreestyleDraftsDialog'
-import { archiveFreestyle } from '../../lib/freestyle/freestyleDrafts'
+import { archiveFreestyleReplacement } from '../../lib/freestyle/freestyleDrafts'
 import { FreestyleToolsDrawer } from './FreestyleToolsDrawer'
 import './FreestyleBench.css'
 import { GuideContextBridge } from '../guide/GuideContext'
@@ -181,14 +181,16 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   useEffect(() => {
     const controller = controllerRef.current
     if (!controller || !running) return
-    const key = JSON.stringify(evaluation.inputs)
+    // A floating net can only be resolved after setup configures the pin mode.
+    const inputs = evaluation.inputs.filter(input => input.source !== 'hở mạch' || pins?.[input.pin])
+    const key = JSON.stringify(inputs)
     if (key === sentInputs.current) return
     sentInputs.current = key
-    for (const input of evaluation.inputs) {
+    for (const input of inputs) {
       controller.setDigital(input.pin, input.digital)
       controller.setAnalog(input.pin, input.analog)
     }
-  }, [evaluation.inputs, running])
+  }, [evaluation.inputs, pins, running])
 
   function update(patch: Partial<FreestyleWorkspace>, options: { wireAction?: boolean; renderOnly?: boolean; historyReplay?: boolean } = {}) {
     if (readOnly) return
@@ -213,7 +215,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       try {
         const storage=getBrowserStorage('localStorage'), old=storage.getItem(storageKey)
         if (old !== lastSavedRaw.current) throw Error('previous draft changed')
-        if(old&&!archiveFreestyle(storage,old).ok)throw Error('backup failed')
+        if(old&&!archiveFreestyleReplacement(storage,old).ok)throw Error('backup failed')
         saveAllowed.current=true
       }catch{setSessionOnly(true);setNotice('Chưa sao lưu được nháp cũ. Bàn mới chỉ dùng trong phiên; nháp cũ chưa bị ghi đè.')}
     }
@@ -355,7 +357,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   }
   function archiveBeforeReplace(): boolean {
     if(!workspace.doc.parts.length&&!workspace.doc.breadboards.length&&!workspace.code)return true
-    try { if(archiveFreestyle(getBrowserStorage('localStorage'),JSON.stringify(workspace)).ok)return true }catch{/* current work remains in memory */}
+    try { if(archiveFreestyleReplacement(getBrowserStorage('localStorage'),JSON.stringify(workspace)).ok)return true }catch{/* current work remains in memory */}
     setSessionOnly(true);setNotice('Chưa sao lưu được công việc hiện tại nên chưa thay mạch. Mở Bản nháp để tải file trước.')
     return false
   }
@@ -389,6 +391,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     let active = true
     const controller = await startFreestyleRun({
       boardId, language, code, tools: checked,
+      inputs: evaluateFreestyleCircuit(doc, pinMap, undefined, controls).inputs.filter(input => input.source !== 'hở mạch'),
       onFrame: frame => {
         if(runId!==generation.current)return
         traceRef.current=appendTrace(traceRef.current,frame)
@@ -551,7 +554,12 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   }
   const HeadingTag = variant === 'full' ? 'h1' : 'h2'
   const activeSample = findFreestyleSample(workspace.sampleId)
-  const readyToRun = Boolean(boardId && code.trim() && activeSample?.mode !== 'wiring')
+  const pythonAvailable = Boolean(useLocalRuntime && tools?.rp2040Bootrom)
+  const runBlockedReason = !boardId ? 'Chọn board trước khi chạy hoặc dựng mạch mẫu.'
+    : activeSample?.mode === 'wiring' ? 'Mẫu này minh họa cách lắp. Máy mô phỏng chưa hỗ trợ chạy mẫu.'
+    : !code.trim() ? 'Viết code hoặc dựng mạch mẫu để chạy.'
+    : language === 'micropython' && !pythonAvailable ? engine.note : ''
+  const readyToRun = running || preparing || !runBlockedReason
 
   const serialPlotVisible = panelOpen && step === 'observe' && serialPlotOpen
   const showTracePopout = tracePopout && view !== 'wave' && trace.length > 0 && !serialPlotVisible
@@ -570,11 +578,11 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
         <label className="freestyle-sample">Mạch mẫu
           <select value={sampleId} onChange={event => setSampleId(event.target.value as FreestyleSampleId)}>{[...new Set(freestyleSamples.map(sample=>sample.level))].map(level=><optgroup label={level} key={level}>{freestyleSamples.filter(sample=>sample.level===level).map(sample => <option key={sample.id} value={sample.id}>{sample.title}</option>)}</optgroup>)}</select>
         </label>
-        <button type="button" className="freestyle-button" disabled={!boardId} onClick={() => loadSample(sampleId)}>Dựng mạch mẫu</button>
+        <button type="button" className="freestyle-button" disabled={!boardId} title={!boardId ? runBlockedReason : undefined} onClick={() => loadSample(sampleId)}>Dựng mạch mẫu</button>
         <button type="button" className="freestyle-button" onClick={() => { if(!archiveBeforeReplace())return;setControls({});setSelectedPartId(null);setSelectedWireId(null);update(blankFreestyleWorkspace());setStep('board');setView('breadboard');setPanelOpen(true);setNotice('Bàn mới trống. Chọn board hoặc thêm breadboard để bắt đầu.') }}>Bàn trống</button>
         <button type="button" className="freestyle-button" onClick={() => setDraftsOpen(true)}>Bản nháp</button>
         <button type="button" className="freestyle-button" onClick={() => setToolsOpen(true)}>Công cụ</button>
-        <button type="button" className="freestyle-button" disabled={!boardId || shareBusy} onClick={() => void createShare()}>Chia sẻ mạch</button>
+        <button type="button" className="freestyle-button" disabled={!boardId || shareBusy} title={!boardId ? 'Chọn board trước khi chia sẻ mạch.' : undefined} onClick={() => void createShare()}>Chia sẻ mạch</button>
         {selfHostedOAuthEnabled && <button type="button" className="freestyle-button" disabled={!boardId}
           aria-expanded={shareOnline} onClick={() => setShareOnline(value => !value)}>Chia sẻ online</button>}
         </>}
@@ -613,7 +621,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     {draft && !started && <div className="freestyle-draft" role="status"><span>{draft.workspace?'Có một bản nháp đã lưu trên máy này. Bàn hiện tại bắt đầu trống.':'Bản lưu cũ chưa đọc được; dữ liệu gốc được giữ nguyên.'}</span>{draft.workspace&&<button className="freestyle-button" onClick={()=>{stop();setWorkspace(draft.workspace!);setStarted(true);setNotice('Đã mở bản nháp, giữ nguyên mạch và code.');setStep('parts');setView('breadboard');setPanelOpen(false)}}>Mở bản nháp đã lưu</button>}</div>}
     <div className="freestyle-workbar" ref={workbarRef}>
       <div className="freestyle-view-tabs" role="group" aria-label="Chế độ xem mạch">{([['breadboard','Lắp mạch 2D'],['schematic','Schematic'],['3d','Lắp mạch 3D'],['wave','Dạng sóng']] as const).map(([id,label])=><button key={id} aria-pressed={view===id} onClick={()=>{setTracePopout(false);setView(id);setPanelOpen(false)}}>{label}</button>)}</div>
-      <div className="freestyle-work-actions"><button className="freestyle-button" aria-expanded={panelOpen} onClick={()=>setPanelOpen(!panelOpen)}>{panelOpen?'Ẩn bảng thao tác':'Mở bảng thao tác'}</button><button ref={expandButton} className="freestyle-button" aria-pressed={expanded} onClick={()=>setExpanded(!expanded)}>{expanded?'Thu gọn bàn':'Mở rộng bàn'}</button><button type="button" disabled={!readyToRun} className={`freestyle-run-button ${running?'is-running':''}`} onClick={running||preparing?stop:run}>{running||preparing?'■ Dừng':'▶ Chạy'}</button></div>
+      <div className="freestyle-work-actions"><button className="freestyle-button" aria-expanded={panelOpen} onClick={()=>setPanelOpen(!panelOpen)}>{panelOpen?'Ẩn bảng thao tác':'Mở bảng thao tác'}</button><button ref={expandButton} className="freestyle-button" aria-pressed={expanded} onClick={()=>setExpanded(!expanded)}>{expanded?'Thu gọn bàn':'Mở rộng bàn'}</button><button type="button" disabled={!readyToRun} aria-describedby={runBlockedReason ? "freestyle-run-help" : undefined} className={`freestyle-run-button ${running?'is-running':''}`} onClick={running||preparing?stop:run}>{running||preparing?'■ Dừng':'▶ Chạy'}</button></div>
         {controlSpecs.length > 0 && <div className="freestyle-card freestyle-input-dock"><h3>Đầu vào</h3>{controlSpecs.map(spec => {
           if (spec.kind === 'slider') {
             const value = typeof controls[spec.partId] === 'number' ? Number(controls[spec.partId]) : 0.5
@@ -648,7 +656,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
                 boardPointer.current = false
                 chooseBoard(item.id, reveal)
               }} />
-              <span><strong>{item.name}</strong><small>{item.logic} · {item.realEngine === 'avr' ? 'biên dịch thật (arduino-cli)' : item.realEngine === 'micropython' ? 'MicroPython thật' : 'trình thông dịch'}</small></span>
+              <span><strong>{item.name}</strong><small>{item.logic} · {chooseEngine(item.id, 'cpp', useLocalRuntime ? tools : null).label}</small></span>
             </label>)}
           </fieldset>
           {boardId && <><div className="freestyle-pinmap">
@@ -693,7 +701,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
 
         {step === 'code' && <div className="freestyle-code-step">
           <div className="freestyle-code-toolbar">
-            {!readOnly && board.languages.length > 1 && <label>Ngôn ngữ<select value={language} onChange={event => chooseLanguage(event.target.value as FreestyleLanguage)}>{board.languages.map(item => <option key={item} value={item}>{item === 'micropython' ? 'MicroPython' : 'Arduino C++'}</option>)}</select></label>}
+            {!readOnly && board.languages.length > 1 && <label>Ngôn ngữ<select value={language} onChange={event => chooseLanguage(event.target.value as FreestyleLanguage)}>{board.languages.map(item => <option key={item} value={item} disabled={item === 'micropython' && !pythonAvailable}>{item === 'micropython' ? pythonAvailable ? 'MicroPython' : 'MicroPython · cần công cụ cục bộ' : 'Arduino C++'}</option>)}</select></label>}
             <span className="freestyle-code-board">{boardId?board.short:'Chưa chọn board'} · {language === 'micropython' ? 'MicroPython' : 'Arduino C++'}</span>
             {!readOnly && isEsp32Target(boardId) && <button type="button" className="freestyle-button" onClick={() => setUsbOpen(true)}>Nạp mẫu qua USB</button>}
           </div>
@@ -705,6 +713,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       </div>
 
       <div className="freestyle-stage" ref={stageRef} tabIndex={-1} aria-label="Mạch đang lắp" onDragOver={event => { if (!readOnly && event.dataTransfer.types.includes('application/x-machmo-part')) event.preventDefault() }} onDrop={readOnly ? undefined : dropPart}>
+        {runBlockedReason && <p id="freestyle-run-help" className="freestyle-note">{runBlockedReason}</p>}
         {activeSample && <details className="freestyle-note"><summary>{activeSample.title}{activeSample.mode==='wiring'?' · nối dây và đọc sketch':''}</summary><p>{activeSample.summary}</p><p>Thử {activeSample.challenge.charAt(0).toLocaleLowerCase('vi-VN')+activeSample.challenge.slice(1)}</p>{activeSample.mode==='wiring'&&<p>Máy mô phỏng hiện tại chưa chạy giao thức hoặc ngoại vi của mẫu này. Có thể tải sketch và đối chiếu tài liệu phần cứng.</p>}</details>}
         {workspace.sampleId === 'motor' && <p className="freestyle-note" role="note">{motorProtection.independentSupply && motorProtection.commonGround && motorProtection.flyback ? 'Mạch này có nguồn tải lý tưởng riêng, GND chung và diode mắc ngược song song motor.' : 'Bản nháp motor này chưa có đủ nguồn tải riêng, GND chung hoặc diode đúng chiều. Mạch đang được giữ nguyên. Hãy tải bản nháp trước khi chọn “Dựng mạch mẫu” để dùng mẫu mới.'} Hoạt cảnh chỉ minh họa đóng/ngắt; chưa tính dòng tải, sụt áp, xung ngược, nhiệt hoặc chọn định mức linh kiện thật.</p>}
         {!readOnly && !panelOpen && selectedPart && selectedPart.type !== 'board' && <button type="button" className="freestyle-button freestyle-reopen-selection" onClick={() => {

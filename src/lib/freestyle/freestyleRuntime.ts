@@ -1,6 +1,6 @@
 import { compileSketch, type SketchSnapshot } from '../sketchInterpreter'
 import type { LivePinState } from '../avrLiveMachine'
-import type { LiveWorkerRequest, LiveWorkerResponse } from '../../simulation/liveRuntimeProtocol'
+import type { LiveWorkerRequest, LiveWorkerResponse, RuntimeInput } from '../../simulation/liveRuntimeProtocol'
 import { getFreestyleBoard, sketchBoardFor, type FreestyleEngine, type FreestyleLanguage } from './freestyleCircuit'
 import { apiRequest } from '../api'
 
@@ -44,9 +44,9 @@ export function detectLocalTools(force = false): Promise<LocalTools | null> {
 export function chooseEngine(boardId: string, language: FreestyleLanguage, tools: LocalTools | null): { engine: FreestyleEngine; label: string; note: string } {
   const board = getFreestyleBoard(boardId)
   if (language === 'micropython') {
-    return tools
+    return tools?.rp2040Bootrom
       ? { engine: 'micropython', label: 'MicroPython thật · rp2040js', note: 'MicroPython v1.29 chính thức chạy trên CPU RP2040 giả lập; mô phỏng, không phải đo trên board thật.' }
-      : { engine: 'micropython', label: 'Cần dịch vụ cục bộ', note: 'MicroPython cần dịch vụ cục bộ (npm.cmd run dev) để lấy bootrom RP2040. Chuyển sang Arduino C++ để chạy bằng trình thông dịch rút gọn.' }
+      : { engine: 'micropython', label: 'MicroPython chưa khả dụng', note: 'MicroPython cần công cụ chạy cục bộ. Để thử mạch trên web, chọn Arduino C++ và dựng lại mạch mẫu.' }
   }
   if (board.realEngine === 'avr' && tools?.arduinoCli && tools.boards.includes(boardId)) return { engine: 'avr', label: 'arduino-cli + avr8js', note: 'Biên dịch thật bằng arduino-cli trên máy, firmware .hex chạy trên lõi ATmega giả lập (avr8js).' }
   return { engine: 'interpreter', label: 'Trình thông dịch rút gọn', note: `Chạy bằng trình thông dịch rút gọn: không biên dịch, chỉ một tập con Arduino C++. ${board.limitation}` }
@@ -97,12 +97,12 @@ function attachWorker(worker: Worker, runId: string, callbacks: RuntimeCallbacks
   }
 }
 
-export async function startFreestyleRun(options: { boardId: string; language: FreestyleLanguage; code: string; tools: LocalTools | null } & RuntimeCallbacks): Promise<RuntimeController | null> {
+export async function startFreestyleRun(options: { boardId: string; language: FreestyleLanguage; code: string; tools: LocalTools | null; inputs: readonly RuntimeInput[] } & RuntimeCallbacks): Promise<RuntimeController | null> {
   const choice = chooseEngine(options.boardId, options.language, options.tools)
   const runId = newRunId()
 
   if (choice.engine === 'micropython') {
-    if (!options.tools) { options.onError(choice.note); return null }
+    if (!options.tools?.rp2040Bootrom) { options.onError(choice.note); return null }
     options.onStatus('Đang tải MicroPython và bootrom RP2040…')
     let assets
     try { assets = await loadMicroPythonAssets() } catch (error) { options.onError(error instanceof Error ? error.message : 'Không tải được MicroPython.'); return null }
@@ -110,7 +110,7 @@ export async function startFreestyleRun(options: { boardId: string; language: Fr
     const worker = micropythonWorker
     const stop = attachWorker(worker, runId, options, true)
     // Sao chép buffer: worker giữ máy đã khởi động, lượt sau vẫn cần bản gốc.
-    worker.postMessage({ type: 'start', runId, engine: 'micropython', bootrom: assets.bootrom.slice(0), firmware: assets.firmware.slice(0), code: options.code } satisfies LiveWorkerRequest)
+    worker.postMessage({ type: 'start', runId, engine: 'micropython', bootrom: assets.bootrom.slice(0), firmware: assets.firmware.slice(0), code: options.code, inputs: options.inputs } satisfies LiveWorkerRequest)
     return { engine: 'micropython', stop, setDigital: (pin, level) => worker.postMessage({ type: 'digital', runId, pin, level } satisfies LiveWorkerRequest), setAnalog: (pin, ratio) => worker.postMessage({ type: 'analog', runId, pin, ratio } satisfies LiveWorkerRequest) }
   }
 
@@ -122,13 +122,17 @@ export async function startFreestyleRun(options: { boardId: string; language: Fr
     options.onStatus('Biên dịch xong. Firmware đang chạy trên avr8js.')
     const worker = new Worker(new URL('../../workers/avrLive.worker.ts', import.meta.url), { type: 'module' })
     const stop = attachWorker(worker, runId, options, false)
-    worker.postMessage({ type: 'start', runId, engine: 'avr', board: options.boardId, hex: result.hex } satisfies LiveWorkerRequest)
+    worker.postMessage({ type: 'start', runId, engine: 'avr', board: options.boardId, hex: result.hex, inputs: options.inputs } satisfies LiveWorkerRequest)
     return { engine: 'avr', stop, setDigital: (pin, level) => worker.postMessage({ type: 'digital', runId, pin, level } satisfies LiveWorkerRequest), setAnalog: (pin, ratio) => worker.postMessage({ type: 'analog', runId, pin, ratio } satisfies LiveWorkerRequest) }
   }
 
   const compiled = compileSketch(options.code, sketchBoardFor(options.boardId))
   if (!compiled.ok) { options.onError(compiled.error.message, compiled.error.line); return null }
   const run = compiled.run
+  for (const input of options.inputs) {
+    run.setDigitalInput(input.pin, input.digital)
+    run.setAnalogInput(input.pin, input.analog)
+  }
   options.onStatus('Đang chạy bằng trình thông dịch rút gọn (thời gian ảo).')
   let frameId: number | null = null
   let last = performance.now()

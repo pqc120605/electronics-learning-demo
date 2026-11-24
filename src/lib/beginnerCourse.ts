@@ -38,6 +38,7 @@ export type BeginnerSession = {
   boardId: string | null
   controls: BeginnerControls
   prediction: BeginnerPrediction | null
+  activityBoards?: Partial<Record<BeginnerActivityId, string | null>>
   observations: BeginnerObservation[]
   explanations: Partial<Record<BeginnerActivityId, string>>
   hintsUsed: Partial<Record<BeginnerActivityId, number>>
@@ -114,6 +115,29 @@ export function getBeginnerFoundationDoc(controls: BeginnerControls): CircuitDoc
   doc.expect.wireCount = doc.wires.length
   doc.expect.netCount = createNetIndexV2(doc).netsList().length
   return doc
+}
+
+export function isBeginnerBoardActivity(id: BeginnerActivityId) {
+  return id === 'button-logic' || id === 'sensor-threshold'
+}
+
+function boardForActivity(session: BeginnerSession, id: BeginnerActivityId) {
+  if (id === session.activityId) return session.boardId
+  const remembered = session.activityBoards?.[id]
+  if (remembered !== undefined) return remembered
+  return session.observations.findLast(item => item.activityId === id)?.boardId ?? session.boardId
+}
+
+export function selectBeginnerActivity(session: BeginnerSession, activityId: BeginnerActivityId): BeginnerSession {
+  const activityBoards = { ...session.activityBoards }
+  if (isBeginnerBoardActivity(session.activityId)) activityBoards[session.activityId] = session.boardId
+  return { ...session, activityId, activityBoards, boardId: boardForActivity(session, activityId), prediction: null }
+}
+
+export function selectBeginnerBoard(session: BeginnerSession, boardId: string | null): BeginnerSession {
+  return { ...session, boardId, prediction: null,
+    activityBoards: { ...session.activityBoards, [session.activityId]: boardId },
+  }
 }
 
 function selectedBoard(session: BeginnerSession): SimulationTarget | undefined {
@@ -238,7 +262,7 @@ export function getBeginnerCaseOptions(session: BeginnerSession): readonly { lab
 }
 
 export function getBeginnerAssessment(session: BeginnerSession, activityId: BeginnerActivityId) {
-  const activitySession = { ...session, activityId }
+  const activitySession = { ...session, activityId, boardId: boardForActivity(session, activityId) }
   const options = getBeginnerCaseOptions(activitySession)
   const required = options.map(option => getBeginnerResult({ ...activitySession, controls: { ...session.controls, ...option.controls } }))
   const observed = required.filter(result => session.observations.some(observation =>

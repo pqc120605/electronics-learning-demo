@@ -73,6 +73,15 @@ export function parseBeginnerSession(value: unknown): BeginnerSession | null {
     controls: { ...value.controls }, prediction: value.prediction,
     observations: [], explanations, hintsUsed,
   }
+  if (value.activityBoards !== undefined) {
+    if (!record(value.activityBoards)) return null
+    const choices: NonNullable<BeginnerSession['activityBoards']> = {}
+    for (const [id, choice] of Object.entries(value.activityBoards)) {
+      if ((id !== 'button-logic' && id !== 'sensor-threshold') || !boardId(choice)) return null
+      choices[id] = choice
+    }
+    session.activityBoards = choices
+  }
   if (value.repairs !== undefined) {
     const repairs = parseRepairs(value.repairs)
     if (!repairs) return null

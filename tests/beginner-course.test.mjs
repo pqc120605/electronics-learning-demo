@@ -104,3 +104,23 @@ test('invalid experiment bounds produce no observation and cannot satisfy a crit
     assert.notEqual(course.getBeginnerAssessment(session, 'sensor-threshold').status, 'met')
   }
 })
+
+
+test('choosing a different board for the sensor preserves completed button evidence through navigation', async () => {
+  const button = activities.find(item => item.id === 'button-logic')
+  let session = { ...course.createBeginnerSession(), activityId: button.id, boardId: 'arduino-mega-2560-r3' }
+  for (const { controls } of course.getBeginnerCaseOptions(session)) {
+    session = { ...session, controls: { ...session.controls, ...controls } }
+    session = course.observeBeginnerSession({ ...session, prediction: course.getBeginnerResult(session).outcome }).session
+  }
+  session.explanations[button.id] = button.correctExplanationId
+  assert.equal(course.getBeginnerAssessment(session, button.id).status, 'met')
+  session = course.selectBeginnerActivity(session, 'sensor-threshold')
+  session = course.selectBeginnerBoard(session, 'esp32-devkit')
+  assert.equal(course.getBeginnerAssessment(session, button.id).status, 'met')
+  const storage = await server.ssrLoadModule('/src/lib/beginnerCourseStorage.ts')
+  const parsed = storage.parseBeginnerSession(JSON.parse(JSON.stringify(session)))
+  assert.ok(parsed)
+  assert.equal(course.selectBeginnerActivity(parsed, button.id).boardId, 'arduino-mega-2560-r3')
+  assert.equal(course.selectBeginnerActivity(parsed, 'sensor-threshold').boardId, 'esp32-devkit')
+})

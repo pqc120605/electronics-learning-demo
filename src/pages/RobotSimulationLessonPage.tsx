@@ -3,10 +3,20 @@ import './RobotSimulationLessonPage.css'
 
 const steps = ['Quan sát hướng', 'Thử một lệnh', 'Gặp chướng ngại vật']
 
+const progressKey = 'machmo-robot-lesson-steps-v1'
+
+function readCompletedSteps(): string[] {
+  try {
+    const stored: unknown = JSON.parse(window.localStorage.getItem(progressKey) ?? '[]')
+    return Array.isArray(stored) ? steps.filter(step => stored.includes(step)) : []
+  } catch { return [] }
+}
+
 export function RobotSimulationLessonPage() {
   const [motion, setMotion] = useState('Đứng yên')
   const [obstacle, setObstacle] = useState(false)
-  const [completed, setCompleted] = useState<string[]>([])
+  const [completed, setCompleted] = useState(readCompletedSteps)
+  const [storageFailed, setStorageFailed] = useState(false)
   const move = (direction: string) => {
     setObstacle(false)
     setMotion(direction)
@@ -15,7 +25,14 @@ export function RobotSimulationLessonPage() {
     setObstacle(true)
     setMotion('Dừng trước chướng ngại vật')
   }
-  const toggleStep = (step: string) => setCompleted(current => current.includes(step) ? current.filter(item => item !== step) : [...current, step])
+  const toggleStep = (step: string) => {
+    const next = completed.includes(step) ? completed.filter(item => item !== step) : [...completed, step]
+    setCompleted(next)
+    try {
+      window.localStorage.setItem(progressKey, JSON.stringify(next))
+      setStorageFailed(false)
+    } catch { setStorageFailed(true) }
+  }
 
   return <div className="robot-lesson">
     <header className="robot-lesson-header">
@@ -46,7 +63,7 @@ export function RobotSimulationLessonPage() {
     <section className="robot-lesson-steps" aria-labelledby="robot-steps-title">
       <p className="robot-lesson-eyebrow">LÀM THEO TỪNG BƯỚC</p><h2 id="robot-steps-title">Quan sát, thử và suy nghĩ</h2>
       <ol>{steps.map((step, index) => <li key={step}><div><strong>{index + 1}. {step}</strong><p>{index === 0 ? 'Nhấn Tiến hoặc Lùi và quan sát trạng thái ảo.' : index === 1 ? 'Thử rẽ trái, rẽ phải rồi nhấn Dừng.' : 'Chọn tình huống vật cản và quan sát robot dừng lại.'}</p></div><button type="button" aria-pressed={completed.includes(step)} onClick={() => toggleStep(step)}>{completed.includes(step) ? `Đã hoàn thành: ${step}` : `Hoàn thành: ${step}`}</button></li>)}</ol>
-      <p className="robot-completion">Đã tự đánh dấu {completed.length}/{steps.length} bước. Đây không phải đánh giá năng lực.</p>
+      <p className="robot-completion">Đã tự đánh dấu {completed.length}/{steps.length} bước. {storageFailed ? 'Trình duyệt chỉ giữ tiến độ cho lần mở này.' : 'Tiến độ được lưu trên trình duyệt này.'}</p>
     </section>
   </div>
 }

@@ -101,3 +101,20 @@ test('Pico profile maps LED_BUILTIN to GP25 and A0 to GP26', () => {
   assert.equal(frame.pins[25].level, true)
   assert.equal(frame.serial, '26\r\n')
 })
+
+
+test('Serial distinguishes float precision from integer radix and models AVR int width', () => {
+  const source = `
+  void setup() {
+    int value = 32767;
+    value = value + 1;
+    Serial.println(value);
+    Serial.println(3.14159, 2);
+    Serial.println(3.14159, 8);
+    Serial.println(3, BIN);
+  }
+  void loop() { delay(1000); }`
+  for (const [id, printed] of [['arduino-uno-r3', '-32768'], ['arduino-nano', '-32768'], ['arduino-mega-2560', '-32768'], ['esp32-devkit', '32768']]) {
+    assert.equal(run(source, id).advance(10).serial, printed + '\r\n3.14\r\n3.14159000\r\n11\r\n', id)
+  }
+})

@@ -7,6 +7,7 @@ import { componentSourceLevels, getComponentReferences, getComponentSourceLevel 
 import { CapabilityBadge, CapabilityLegend } from '../components/CapabilityBadge'
 import { getCatalogModel, getLessonsUsingComponent, resolveComponentLink } from '../lib/componentCatalog'
 import { useProductRoute } from '../lib/useProductRoute'
+import { matchesCatalogSearch } from '../lib/catalogSearch'
 import { getFreestylePartId } from '../lib/catalogPracticeLinks'
 
 const componentIds = components.map((part) => part.id)
@@ -32,7 +33,7 @@ export function ComponentsPage() {
     const hasProductSource = getComponentSourceLevel(part.id) !== 'general'
     return (group === 'Tất cả' || part.category === group)
       && (referenceFilter === 'all' || (referenceFilter === 'product' ? hasProductSource : !hasProductSource))
-      && `${part.name} ${part.summary} ${part.tags.join(' ')}`.toLocaleLowerCase('vi').includes(query.trim().toLocaleLowerCase('vi'))
+      && matchesCatalogSearch(`${part.id} ${part.name} ${part.summary} ${part.use} ${part.tags.join(' ')}`, query)
   }), [group, query, referenceFilter])
   const current = components.find((part) => part.id === link.id)!
   const capability = getComponentCapability(current.id)

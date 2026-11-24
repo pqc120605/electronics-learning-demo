@@ -80,6 +80,7 @@ const PAGE_TITLES: Readonly<Record<string, string>> = {
   [PRODUCT_ROUTES.publicTopics]: 'Chủ đề học — Mạch Mở',
   [PRODUCT_ROUTES.publicProjects]: 'Dự án thực hành — Mạch Mở',
   [PRODUCT_ROUTES.appClassroomKit]: 'Lớp học & bộ kit — Mạch Mở',
+  '/admin': 'Quản trị website — Mạch Mở',
   '/app/robot-simulation': 'Khám phá robot · mô phỏng khái niệm — Mạch Mở',
   [PRODUCT_ROUTES.publicCommunity]: 'Cộng đồng — Mạch Mở',
   [PRODUCT_ROUTES.publicLogin]: 'Đăng nhập — Mạch Mở',
@@ -97,6 +98,7 @@ export function getPageTitle(pathname: string): string {
   const title = PAGE_TITLES[APP_TO_PUBLIC_ROUTE[pathname] ?? pathname]
   if (title) return title
   if (/^(?:\/app)?\/community\/new$/.test(pathname)) return 'Viết bài mới — Cộng đồng Mạch Mở'
+  if (/^\/s\/[^/]+$/.test(pathname)) return 'Mạch chia sẻ — Mạch Mở'
   // Trang chi tiết tự đặt tiêu đề theo tên bài sau khi tải.
   if (/^(?:\/app)?\/community\/[^/]+$/.test(pathname)) return 'Thảo luận — Cộng đồng Mạch Mở'
   const lessonRoute = /^(?:\/app)?\/learn\/([^/]+)$/.exec(pathname)

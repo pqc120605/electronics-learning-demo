@@ -19,3 +19,15 @@ test('quota failure is reported and does not overwrite any current or previous d
  assert.equal(drafts.archiveFreestyle(store,raw).ok,false)
  assert.equal(store.getItem(fs.FREESTYLE_STORAGE_KEY),raw)
 })
+
+test('switching repeatedly between identical samples reuses the first exact archive without deleting drafts', () => {
+  const store = storage()
+  const workspace = fs.defaultFreestyleWorkspace()
+  const original = JSON.stringify(workspace)
+  const first = drafts.archiveFreestyleReplacement(store, original)
+  const later = drafts.archiveFreestyleReplacement(store, JSON.stringify({ ...workspace, updatedAt: '2026-11-24T12:00:00.000Z' }))
+  assert.deepEqual(later, first)
+  assert.equal(store.getItem(first.key), original)
+  drafts.archiveFreestyleReplacement(store, JSON.stringify({ ...workspace, code: '// custom code' }))
+  assert.equal(drafts.listFreestyleDrafts(store).length, 2)
+})

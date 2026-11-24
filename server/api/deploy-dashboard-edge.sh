@@ -40,25 +40,19 @@ cleanup() {
 }
 trap cleanup EXIT
 
-node --input-type=module - "$config" "$candidate" <<'NODE'
-import { readFileSync, writeFileSync } from 'node:fs'
-const [input, output] = process.argv.slice(2)
-const config = readFileSync(input, 'utf8')
-const matcher = /^([ \t]+path )[^\r\n]*\/auth\/login\/google[^\r\n]*$/gm
-const matches = [...config.matchAll(matcher)]
-if (matches.length !== 1 || !/header_up Host mach-mo\.vercel\.app\b/.test(config)) {
-  throw new Error('The existing production edge matcher has an unexpected format.')
-}
-const paths = ['/feedback', '/analytics/events', '/admin/summary', '/admin/ai', '/admin/community',
-  '/admin/system', '/admin/feedback', '/admin/sites', '/admin/sites/*', '/site-metrics/*']
-writeFileSync(output, config.replace(matcher, (line, indent) => {
-  const previous = line.slice(indent.length).trim().split(/\s+/)
-  return indent + [...new Set([...previous, ...paths])].join(' ')
-}))
-NODE
+edge_args=()
+if [[ ${2:-} == --enable-ai ]]; then edge_args+=(--enable-ai)
+elif [[ -n ${2:-} ]]; then fail 'Expected --enable-ai or no AI option.'
+fi
+node "$checkout/server/api/production-edge.mjs" "${edge_args[@]}" > "$candidate"
 "$caddy" validate --config "$candidate" --adapter caddyfile >/dev/null
 bash "$checkout/server/api/backup-staging.sh" backup
 bash "$checkout/server/api/staging-ops.sh" deploy "$commit"
+if (( ${#edge_args[@]} )); then
+  curl -fsS --max-time 8 "$edge/health" |
+    node -e 'const h=JSON.parse(require("node:fs").readFileSync(0,"utf8")); if(!["ollama","openai"].includes(h.ai))process.exit(1)' ||
+    fail 'A real AI provider must be ready before enabling AI at the public edge.'
+fi
 
 backup=$(mktemp "$config.before-dashboard.XXXXXXXX")
 cp -p -- "$config" "$backup"
@@ -67,11 +61,16 @@ changed=1
 systemctl --user restart "$edge_unit"
 curl -fsS --retry 3 --retry-connrefused --retry-delay 1 --max-time 5 "$edge/health" |
   node -e 'const h=JSON.parse(require("node:fs").readFileSync(0,"utf8")); if(h.commit!==process.argv[1]||h.db!=="ready")process.exit(1); console.log(JSON.stringify(h))' "$commit"
-for path in /admin/summary /admin/feedback /admin/sites; do
+for path in /admin/summary /admin/feedback /admin/sites /projects /projects/shares /classes; do
   status=$(curl -sS --max-time 5 -o /dev/null -w '%{http_code}' "$edge$path")
   [[ $status == 401 ]] || fail "Expected guest access to $path to return 401, got $status."
 done
 status=$(curl -sS --max-time 5 -o /dev/null -w '%{http_code}' -X POST \
   -H "Origin: $origin" -H 'X-Machmo-CSRF: 1' -H 'Content-Type: application/json' -d '{}' "$edge/feedback")
 [[ $status == 400 ]] || fail "Expected invalid feedback to return 400, got $status."
+curl -fsS --max-time 5 "$edge/projects/gallery?limit=1" >/dev/null
+expected_ai=unavailable
+if (( ${#edge_args[@]} )); then expected_ai=signed-out; fi
+curl -fsS --max-time 5 "$edge/guide-ai/status" |
+  node -e 'const h=JSON.parse(require("node:fs").readFileSync(0,"utf8")); if(h.state!==process.argv[1])process.exit(1)' "$expected_ai"
 printf 'Dashboard backend ready. Previous Caddyfile saved at %s\n' "$backup"

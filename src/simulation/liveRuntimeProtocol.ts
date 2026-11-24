@@ -1,9 +1,11 @@
 import type { LivePinState } from '../lib/avrLiveMachine'
 
 /** Giao thức chung cho worker chạy firmware liên tục (AVR thật, MicroPython trên RP2040) — 2026-11-14. */
+export type RuntimeInput = { pin: number; digital: boolean; analog: number }
+
 export type LiveStartRequest =
-  | { type: 'start'; runId: string; engine: 'avr'; board: string; hex: string }
-  | { type: 'start'; runId: string; engine: 'micropython'; bootrom: ArrayBuffer; firmware: ArrayBuffer; code: string }
+  | { type: 'start'; runId: string; engine: 'avr'; board: string; hex: string; inputs: readonly RuntimeInput[] }
+  | { type: 'start'; runId: string; engine: 'micropython'; bootrom: ArrayBuffer; firmware: ArrayBuffer; code: string; inputs: readonly RuntimeInput[] }
 
 export type LiveWorkerRequest =
   | LiveStartRequest

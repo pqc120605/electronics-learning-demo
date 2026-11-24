@@ -2,12 +2,18 @@ import { readFile } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { getPublicReleaseBlockers } from './public-release-gate.mjs'
+import { getVercelRouteBlockers } from './vercel-route-gate.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const manifest = JSON.parse(await readFile(join(root, 'public/licenses/spice-engine-provenance.json'), 'utf8'))
 const artifactPath = join(root, 'public', manifest.redistribution?.publicPath ?? '')
 const artifact = await readFile(artifactPath).catch(() => null)
 const blockers = getPublicReleaseBlockers(manifest, artifact)
+const routes = JSON.parse(await readFile(join(root, 'vercel.json'), 'utf8'))
+for (const blocker of getVercelRouteBlockers(routes)) {
+  console.error(blocker)
+  process.exitCode = 1
+}
 
 if (blockers.length) {
   console.error('Public release blocked: the ngspice WASM redistribution gate is not cleared for this exact artifact.')

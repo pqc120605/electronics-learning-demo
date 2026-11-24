@@ -4,7 +4,7 @@ import { BEGINNER_ACTIVITIES, getBeginnerActivity, type BeginnerActivityId } fro
 import { PRODUCT_ROUTES } from '../data/productRoutes'
 import {
   getBeginnerAssessment, getBeginnerBoardOptions, getBeginnerCaseOptions,
-  getBeginnerCode, getBeginnerFoundationDoc,
+  getBeginnerCode, getBeginnerFoundationDoc, selectBeginnerActivity, selectBeginnerBoard, isBeginnerBoardActivity,
   type BeginnerControls, type BeginnerPrediction, type BeginnerResult,
 } from '../lib/beginnerCourse'
 import { GuideContextBridge } from '../components/guide/GuideContext'
@@ -207,7 +207,7 @@ export function BeginnerLearningPage() {
   const activityIndex = BEGINNER_ACTIVITIES.findIndex(item => item.id === activity.id)
   const nextActivity = BEGINNER_ACTIVITIES[activityIndex + 1]
   const completed = BEGINNER_ACTIVITIES.filter(item => getBeginnerAssessment(session, item.id).status === 'met').length
-  const boardRequired = activity.id === 'button-logic' || activity.id === 'sensor-threshold'
+  const boardRequired = isBeginnerBoardActivity(activity.id)
   const boardOptions = getBeginnerBoardOptions()
   const activeRepair = getBeginnerRepair(params.get('repair'))
   const nextRepair = BEGINNER_REPAIRS.find(repair => !session.repairs?.attempts[repair.id]?.after)
@@ -224,13 +224,13 @@ export function BeginnerLearningPage() {
     course.update(previous => ({ ...previous, controls: { ...previous.controls, ...controls }, prediction: null }))
   }
   function navigate(activityId: BeginnerActivityId) {
-    course.update(previous => ({ ...previous, activityId, prediction: null,
+    course.update(previous => ({ ...selectBeginnerActivity(previous, activityId),
       ...(previous.repairs && { repairs: { ...previous.repairs, active: null } }),
     }))
     requestAnimationFrame(() => activityHeading.current?.focus())
   }
   function selectBoard(boardId: string) {
-    course.update(previous => ({ ...previous, boardId: boardId || null, prediction: null }))
+    course.update(previous => selectBeginnerBoard(previous, boardId || null))
   }
   function predict(prediction: BeginnerPrediction) {
     course.update(previous => ({ ...previous, prediction }))

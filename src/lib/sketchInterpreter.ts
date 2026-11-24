@@ -14,6 +14,7 @@ export type SketchBoard = {
   mcu: string
   ledBuiltin?: number
   adcBits: number
+  intBits?: 16
   pwmBits: number
   /** Chân digital hợp lệ. */
   pins: readonly number[]
@@ -32,9 +33,9 @@ const aliases = (start: number, count: number) => Object.fromEntries(range(0, co
 export const sketchBoards: readonly SketchBoard[] = [
   { id: 'esp32-devkit', name: 'ESP32 DevKit V1 (30 chân)', mcu: 'ESP32 · Xtensa LX6', ledBuiltin: 2, adcBits: 12, pwmBits: 8, pins: [...range(0, 5), ...range(12, 19), 21, 22, 23, 25, 26, 27, 32, 33, 34, 35, 36, 39], analogAliases: {}, adcPins: [32, 33, 34, 35, 36, 39, 25, 26, 27, 14, 12, 13, 15, 2, 4], note: 'GPIO 34–39 chỉ là input; GPIO 6–11 nối flash nên không dùng.' },
   { id: 'esp32-s3-devkitc-1', name: 'ESP32-S3-DevKitC-1', mcu: 'ESP32-S3 · Xtensa LX7', adcBits: 12, pwmBits: 8, pins: [...range(0, 21), ...range(35, 48)], analogAliases: {}, adcPins: range(1, 20), note: 'LED trên board là RGB WS2812 (GPIO 48 hoặc 38 tùy revision), không có LED_BUILTIN đơn.' },
-  { id: 'arduino-uno-r3', name: 'Arduino Uno R3', mcu: 'ATmega328P · 16 MHz', ledBuiltin: 13, adcBits: 10, pwmBits: 8, pins: range(0, 19), analogAliases: aliases(14, 6), adcPins: range(14, 19), note: 'PWM trên D3, D5, D6, D9, D10, D11.' },
-  { id: 'arduino-nano', name: 'Arduino Nano classic', mcu: 'ATmega328P · 16 MHz', ledBuiltin: 13, adcBits: 10, pwmBits: 8, pins: range(0, 21), analogAliases: aliases(14, 8), adcPins: range(14, 21), note: 'A6, A7 chỉ đọc analog.' },
-  { id: 'arduino-mega-2560', name: 'Arduino Mega 2560 R3', mcu: 'ATmega2560 · 16 MHz', ledBuiltin: 13, adcBits: 10, pwmBits: 8, pins: range(0, 69), analogAliases: aliases(54, 16), adcPins: range(54, 69), note: 'PWM trên D2–D13, D44–D46.' },
+  { id: 'arduino-uno-r3', name: 'Arduino Uno R3', mcu: 'ATmega328P · 16 MHz', intBits: 16, ledBuiltin: 13, adcBits: 10, pwmBits: 8, pins: range(0, 19), analogAliases: aliases(14, 6), adcPins: range(14, 19), note: 'PWM trên D3, D5, D6, D9, D10, D11.' },
+  { id: 'arduino-nano', name: 'Arduino Nano classic', mcu: 'ATmega328P · 16 MHz', intBits: 16, ledBuiltin: 13, adcBits: 10, pwmBits: 8, pins: range(0, 21), analogAliases: aliases(14, 8), adcPins: range(14, 21), note: 'A6, A7 chỉ đọc analog.' },
+  { id: 'arduino-mega-2560', name: 'Arduino Mega 2560 R3', mcu: 'ATmega2560 · 16 MHz', intBits: 16, ledBuiltin: 13, adcBits: 10, pwmBits: 8, pins: range(0, 69), analogAliases: aliases(54, 16), adcPins: range(54, 69), note: 'PWM trên D2–D13, D44–D46.' },
   { id: 'raspberry-pi-pico', name: 'Raspberry Pi Pico (Arduino-Pico)', mcu: 'RP2040 · Cortex-M0+', ledBuiltin: 25, adcBits: 10, pwmBits: 8, pins: range(0, 29), analogAliases: aliases(26, 3), adcPins: [26, 27, 28], note: 'Mặc định analogRead 10 bit như core Arduino-Pico.' },
   // 2026-11-14: STM32 chỉ chạy bằng trình thông dịch (không có emulator Cortex-M3/M4 mở chạy trong trình duyệt).
   // Blue Pill: số chân nội bộ = cổng × 16 + chân (PA0 = 0, PB0 = 16, PC13 = 45); viết code bằng tên PA5, PC13…
@@ -301,21 +302,6 @@ const MAX_EVENTS_PER_PIN = 512
 const OP_MICROS = 0.25
 const BUSY_EVERY = 4_000
 
-function coerce(type: string, value: Value): Value {
-  if (typeof value !== 'number') return value
-  switch (type) {
-    case 'float': case 'double': case 'auto': return value
-    case 'bool': case 'boolean': return value ? 1 : 0
-    case 'byte': case 'uint8_t': return Math.trunc(value) & 0xff
-    case 'int8_t': case 'char': return ((Math.trunc(value) & 0xff) << 24) >> 24
-    case 'uint16_t': case 'word': return Math.trunc(value) & 0xffff
-    case 'int16_t': case 'short': return ((Math.trunc(value) & 0xffff) << 16) >> 16
-    case 'uint32_t': case 'size_t': return Math.trunc(value) >>> 0
-    case 'String': return String(value)
-    default: return Math.trunc(value)
-  }
-}
-
 export type SketchRun = {
   board: SketchBoard
   /** Chạy đến khi thời gian ảo tăng thêm `millis` hoặc hết ngân sách thao tác. */
@@ -373,12 +359,32 @@ function createRun(program: ReturnType<typeof parse>, board: SketchBoard): Sketc
     state.pwm = pwm
   }
   const print = (text: string) => { if (serial.length < MAX_SERIAL) serial += text; else serialTruncated = true }
+  function coerce(type: string, value: Value): Value {
+    if (typeof value !== 'number') return value
+    switch (type) {
+      case 'float': case 'double': case 'auto': return value
+      case 'bool': case 'boolean': return value ? 1 : 0
+      case 'byte': case 'uint8_t': return Math.trunc(value) & 0xff
+      case 'int8_t': case 'char': return ((Math.trunc(value) & 0xff) << 24) >> 24
+      case 'uint16_t': case 'word': return Math.trunc(value) & 0xffff
+      // Model the stored AVR width; signed overflow in C++ itself is undefined.
+      case 'int': return board.intBits === 16 ? (Math.trunc(value) << 16) >> 16 : Math.trunc(value)
+      case 'int16_t': case 'short': return ((Math.trunc(value) & 0xffff) << 16) >> 16
+      case 'uint32_t': case 'size_t': return Math.trunc(value) >>> 0
+      case 'String': return String(value)
+      default: return Math.trunc(value)
+    }
+  }
+
   const formatNumber = (value: Value, base?: number, isFloat = false) => {
     if (typeof value !== 'number') return String(value)
+    if (isFloat) {
+      const digits = Number.isFinite(base) ? Math.max(0, Math.min(20, Math.trunc(base!))) : 2
+      return value.toFixed(digits)
+    }
     if (base === 16) return (value >>> 0).toString(16).toUpperCase()
     if (base === 2) return (value >>> 0).toString(2)
     if (base === 8) return (value >>> 0).toString(8)
-    if (isFloat) return value.toFixed(base !== undefined && base < 8 ? base : 2)
     return String(value)
   }
 
