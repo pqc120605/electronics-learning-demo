@@ -18,6 +18,8 @@ test('Google OAuth verifies the ID token signature, audience and nonce and exclu
   const key = { ...publicKey.export({ format: 'jwk' }), kid: 'demo', alg: 'RS256', use: 'sig' }
   const now = 1_780_000_000_000
   let attempt, accepted, nonce, audience, signingKey
+  let email = 'private@example.test'
+  let verified = false
   const flow = createOAuth({
     origin, now: () => now, env: { SESSION_SECRET: 'g'.repeat(40), GOOGLE_CLIENT_ID: 'google-id', GOOGLE_CLIENT_SECRET: 'test-secret' },
     store: {
@@ -32,7 +34,7 @@ test('Google OAuth verifies the ID token signature, audience and nonce and exclu
         const data = json64({ alg: 'RS256', kid: 'demo' }) + '.' + json64({
           iss: 'https://accounts.google.com', aud: audience, sub: 'stable-google-id', nonce,
           iat: now / 1000, exp: now / 1000 + 3600, name: 'Google Tester',
-          email: 'private@example.test', picture: 'https://lh3.googleusercontent.com/avatar',
+          email, email_verified: verified, picture: 'https://lh3.googleusercontent.com/avatar',
         })
         const sig = sign('RSA-SHA256', Buffer.from(data), signingKey).toString('base64url')
         return Response.json({ id_token: data + '.' + sig })
@@ -41,8 +43,8 @@ test('Google OAuth verifies the ID token signature, audience and nonce and exclu
       return Response.json({ keys: [key] })
     },
   })
-  const begin = async () => {
-    const result = await flow.begin('google', '/community/new')
+  const begin = async (next = '/community/new') => {
+    const result = await flow.begin('google', next)
     const search = new URL(result.location).searchParams
     nonce = search.get('nonce')
     audience = 'google-id'
@@ -62,6 +64,50 @@ test('Google OAuth verifies the ID token signature, audience and nonce and exclu
   finish = await begin()
   assert.equal((await finish()).location, '/community/new')
   assert.deepEqual(accepted, { provider: 'google', providerUserId: 'stable-google-id', displayName: 'Google Tester', avatarUrl: 'https://lh3.googleusercontent.com/avatar' })
+  verified = true
+  finish = await begin('/admin')
+  assert.equal((await finish()).location, '/admin')
+  assert.equal(accepted.dashboardEmail, undefined)
+  email = 'Owner@gmail.com'
+  finish = await begin('/admin')
+  assert.equal((await finish()).location, '/admin')
+  assert.equal(accepted.dashboardEmail, 'owner@gmail.com')
+  verified = false
+  finish = await begin('/admin')
+  await finish()
+  assert.equal(accepted.dashboardEmail, undefined)
+})
+
+test('GitHub dashboard verification accepts only the verified primary email', async () => {
+  let attempt, accepted
+  let primaryVerified = false
+  const flow = createOAuth({
+    origin, env,
+    store: {
+      async saveAttempt(value) { attempt = value },
+      async consumeAttempt() { return attempt },
+      async startSession(identity) { accepted = identity },
+    },
+    fetchImpl: async url => {
+      if (url === 'https://github.com/login/oauth/access_token') return Response.json({ access_token: 'fixture' })
+      if (url === 'https://api.github.com/user') return Response.json({ id: 123, login: 'tester', email: 'ignored@example.test' })
+      assert.equal(url, 'https://api.github.com/user/emails?per_page=100')
+      return Response.json([
+        { email: 'secondary@example.test', primary: false, verified: true },
+        { email: 'primary@example.test', primary: true, verified: primaryVerified },
+      ])
+    },
+  })
+  async function login() {
+    const entry = await flow.begin('github', '/admin')
+    const params = new URLSearchParams({ code: 'fixture', state: new URL(entry.location).searchParams.get('state') })
+    assert.equal((await flow.finish('github', params, entry.cookies[0].split(';')[0])).location, '/admin')
+  }
+  await login()
+  assert.equal(accepted.dashboardEmail, undefined)
+  primaryVerified = true
+  await login()
+  assert.equal(accepted.dashboardEmail, 'primary@example.test')
 })
 
 test('GitHub OAuth binds state to browser and provider, expires and consumes it once, and uses PKCE', async () => {

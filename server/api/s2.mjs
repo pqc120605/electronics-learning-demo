@@ -125,7 +125,8 @@ export function createS2({ origin, env, authStore, community, now = Date.now, fe
           const session = newSession(now())
           if (await authStore.rotate(viewer.id, digest, session)) res.setHeader('Set-Cookie', sessionCookie(session.token))
         }
-        const user = viewer && { id: viewer.id, displayName: viewer.displayName, avatarUrl: viewer.avatarUrl, provider: viewer.provider, role: viewer.role }
+        const user = viewer && { id: viewer.id, displayName: viewer.displayName, avatarUrl: viewer.avatarUrl,
+          provider: viewer.provider, role: viewer.role, ...(viewer.dashboardAccess === true && { dashboardAccess: true }) }
         return send(res, 200, { user })
       }
       if ((route.csrf || id === 'queue') && !viewer) return send(res, 401)

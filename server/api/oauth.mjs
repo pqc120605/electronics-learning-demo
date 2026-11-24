@@ -1,5 +1,6 @@
 import { createHmac, createPublicKey, randomBytes, timingSafeEqual, verify } from 'node:crypto'
 import { sessionDigest } from '../community/session-http.mjs'
+import { normalizeDashboardEmail } from './dashboard-access.mjs'
 
 const cookieFlags = 'Path=/; HttpOnly; Secure; SameSite=Lax'
 const sessionName = '__Host-mm_session'
@@ -145,16 +146,27 @@ export function createOAuth({ origin, env, store, now = Date.now, fetchImpl = fe
           }),
         })
         let identity
+        const dashboardSignIn = next.split(/[?#]/, 1)[0] === '/admin'
         if (provider === 'google') {
           const claims = await googleClaims(grant.id_token, attempt.nonce, config.clientId, fetchImpl, now())
           identity = profile(provider, claims.sub, claims.name, claims.picture)
+          if (dashboardSignIn && claims.email_verified === true) {
+            const email = normalizeDashboardEmail(claims.email)
+            const domain = email?.split('@')[1]
+            if (domain && (domain === 'gmail.com' || claims.hd === domain)) identity.dashboardEmail = email
+          }
         } else {
           if (typeof grant.access_token !== 'string' || !/^[A-Za-z0-9_.~-]{1,2048}$/.test(grant.access_token)) return fail('retry', next, clear)
-          const user = await requestJson(fetchImpl, 'https://api.github.com/user', {
-            headers: { Authorization: 'Bearer ' + grant.access_token, Accept: 'application/vnd.github+json', 'User-Agent': 'Mach-Mo' },
-          })
+          const headers = { Authorization: 'Bearer ' + grant.access_token, Accept: 'application/vnd.github+json', 'User-Agent': 'Mach-Mo' }
+          const user = await requestJson(fetchImpl, 'https://api.github.com/user', { headers })
           if (!Number.isSafeInteger(user.id) || user.id <= 0) return fail('retry', next, clear)
           identity = profile(provider, String(user.id), user.name || user.login, user.avatar_url)
+          if (dashboardSignIn) {
+            const emails = await requestJson(fetchImpl, 'https://api.github.com/user/emails?per_page=100', { headers }).catch(() => null)
+            const primary = Array.isArray(emails) && emails.find(item => item?.primary === true && item.verified === true)
+            const email = normalizeDashboardEmail(primary?.email)
+            if (email) identity.dashboardEmail = email
+          }
         }
         const session = newSession(now())
         const previous = sessionToken(cookies)

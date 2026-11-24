@@ -39,7 +39,8 @@ try {
   const databaseReady = () => verifyStagingDatabase(pool)
   const oauthOrigin = process.env.MACHMO_S2_ORIGIN
   if (oauthOrigin && !origins.includes(oauthOrigin)) throw new Error('Unknown S2 origin')
-  const authStore = oauthOrigin && createOAuthStore(pool, process.env.ADMIN_ACCOUNTS)
+  const authStore = oauthOrigin && createOAuthStore(pool, process.env.ADMIN_ACCOUNTS,
+    process.env.MACHMO_DASHBOARD_EMAILS, process.env.SESSION_SECRET)
   const analyticsStore = createPostgresStore(pool, Boolean(authStore))
   const siteFeedback = createSiteFeedbackStore(pool)
   const dashboardStore = createDashboardSiteStore(pool, siteFeedback)

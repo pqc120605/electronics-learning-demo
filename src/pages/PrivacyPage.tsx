@@ -35,6 +35,7 @@ export function PrivacyPage() {
     <p>Workspace, bản nháp, project, bài vừa mở trong lộ trình và checklist tự xác nhận được lưu trong bộ nhớ trình duyệt trên thiết bị bạn đang dùng. Dữ liệu học này không được đồng bộ tài khoản và checklist không xác minh bạn đã chạy mạch thật. Xóa dữ liệu trang web của trình duyệt có thể xóa các mục này; hãy xuất project để giữ bản sao project.</p>
     <p>Sau lần mở có mạng, trình duyệt có thể dùng lại các phần đã tải như khung ứng dụng, mô hình 3D và bộ giải SPICE khi ngoại tuyến. Tính năng tài khoản, cộng đồng online và nhà cung cấp AI từ xa cần kết nối mạng.</p>
     {selfHostedOAuthEnabled && <AccountPrivacy />}
+    {selfHostedAnalyticsEnabled && <p>Khi bạn xác minh quyền xem dashboard, Mạch Mở dùng email đã xác minh từ Google hoặc email chính đã xác minh từ GitHub để đối chiếu danh sách được cấp quyền. Phiên quản trị chỉ lưu mã xác minh trong tối đa 8 giờ. Ứng dụng không lưu email gốc trong cơ sở dữ liệu tài khoản.</p>}
     {siteFeedbackEnabled && <>
       <h2>Góp ý cho Mạch Mở</h2>
       <p>Khi bạn chọn gửi, máy chủ lưu nội dung đã điền, đánh giá tự chọn, thời điểm và mã gửi ngẫu nhiên để tránh ghi trùng. Góp ý không gắn với tài khoản và chỉ quản trị viên xem được. Nội dung được xóa định kỳ sau 180 ngày. Bản sao lưu có thể giữ dữ liệu tới kỳ thay bản sao.</p>

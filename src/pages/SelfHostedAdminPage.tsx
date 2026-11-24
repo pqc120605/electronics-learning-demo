@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getAdminReport, getDashboardSiteReport, getDashboardSites, type AnalyticsSummary, type DashboardSite, type DashboardSnapshot } from '../lib/admin'
 import { useAuth } from '../lib/auth'
+import { OAUTH_PROVIDERS } from '../lib/authUser'
+import { startSelfHostedOAuth } from '../lib/selfHostedAuth'
 import { siteFeedbackEnabled } from '../lib/backendMode'
 import { feedbackKinds, type FeedbackKind } from '../lib/feedbackDraft'
 import './SelfHostedAdminPage.css'
@@ -297,7 +299,12 @@ export function SelfHostedAdminPage() {
     </header>
     {auth.status === 'loading' ? <p role="status">Đang kiểm tra quyền…</p>
       : auth.status === 'error' ? <p role="alert">{auth.message}</p>
-      : auth.status === 'signed-in' ? auth.user.role === 'admin' ? <WebsiteReports /> : <p role="alert">Tài khoản này chưa có quyền quản trị.</p>
+      : auth.status === 'signed-in' ? auth.user.dashboardAccess === true ? <WebsiteReports /> : <section>
+        <p role="alert">Tài khoản này chưa có quyền xem dashboard.</p>
+        <p>Nếu email của bạn đã được cấp quyền, hãy đăng nhập lại tại đây để xác minh.</p>
+        <div className="s4-period">{OAUTH_PROVIDERS.map(provider => <button key={provider.id} type="button"
+          onClick={() => startSelfHostedOAuth(provider.id, '/admin')}>Xác minh bằng {provider.label}</button>)}</div>
+      </section>
       : <p><Link to="/login?next=%2Fadmin">Đăng nhập để kiểm tra quyền quản trị</Link></p>}
   </article>
 }

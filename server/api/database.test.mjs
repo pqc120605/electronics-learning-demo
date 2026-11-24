@@ -38,7 +38,7 @@ function databaseFixture({ superuser = false, failure, mismatch = false } = {}) 
 
 test('the staging migration ledger locks concurrent writes and skips already recorded SQL', async () => {
   const { pool, calls } = databaseFixture()
-  assert.deepEqual(await migrateStagingDatabase(pool), [1, 2, 3, 4, 5, 6, 7, 8, 9])
+  assert.deepEqual(await migrateStagingDatabase(pool), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
   assert.deepEqual(await migrateStagingDatabase(pool), [])
   assert.equal(calls.filter(sql => sql.includes('CREATE TABLE machmo_analytics.events')).length, 1)
   assert.equal(calls.filter(sql => sql.includes('CREATE TABLE machmo_community.oauth_identities')).length, 1)

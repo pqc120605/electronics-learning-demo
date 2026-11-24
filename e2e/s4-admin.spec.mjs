@@ -42,7 +42,7 @@ test('feedback submission is explicit and the admin inbox survives a report outa
   expect(attempts[1]).toEqual(attempts[0])
   expect(attempts[1].rating).toBe(4)
 
-  userSession = { ...user, role: 'admin' }
+  userSession = { ...user, role: 'user', dashboardAccess: true }
   let aiUnavailable = true
   await page.route('**/api/admin/**', route => {
     const section = new URL(route.request().url()).pathname.split('/').at(-1)
@@ -73,7 +73,7 @@ test('switching sites shows only the selected website data on mobile', async ({ 
     { id: 'web-a', name: 'Website A', origin: 'https://a.example.test', native: false, latest: daily },
     { id: 'web-b', name: 'Website B', origin: 'https://b.example.test', native: false, latest: null },
   ]
-  await page.route('**/api/session', route => route.fulfill({ json: { user: { ...user, role: 'admin' } } }))
+  await page.route('**/api/session', route => route.fulfill({ json: { user: { ...user, role: 'user', dashboardAccess: true } } }))
   await page.route('**/api/admin/**', route => {
     const path = new URL(route.request().url()).pathname
     if (path === '/api/admin/sites') return route.fulfill({ json: list })
@@ -101,9 +101,10 @@ test('staging admin skips reports for guests and regular users', async ({ page }
   await page.route('**/api/admin/**', route => { loads++; return route.fulfill({ status: 403 }) })
   await page.goto('/admin')
   await expect(page.getByRole('link', { name: 'Đăng nhập để kiểm tra quyền quản trị' })).toBeVisible()
-  account = { ...user, role: 'user' }
+  account = { ...user, role: 'admin' }
   await page.reload()
-  await expect(page.getByRole('alert')).toHaveText('Tài khoản này chưa có quyền quản trị.')
+  await expect(page.getByRole('alert')).toHaveText('Tài khoản này chưa có quyền xem dashboard.')
+  await expect(page.getByRole('button', { name: 'Xác minh bằng GitHub', exact: true })).toBeVisible()
   expect(loads).toBe(0)
 })
 
@@ -111,7 +112,7 @@ for (const width of [375, 1440]) for (const colorScheme of ['light', 'dark']) {
   test('admin filters and chart at ' + width + ' ' + colorScheme, async ({ page }, testInfo) => {
     await page.setViewportSize({ width, height: 900 })
     await page.emulateMedia({ colorScheme })
-    await page.route('**/api/session', route => route.fulfill({ json: { user: { ...user, role: 'admin' } } }))
+    await page.route('**/api/session', route => route.fulfill({ json: { user: { ...user, role: 'user', dashboardAccess: true } } }))
     await page.route('**/api/admin/**', route => route.fulfill({ json: reports[new URL(route.request().url()).pathname.split('/').at(-1)] }))
     await page.route('**/api/analytics/events', route => route.fulfill({ status: 204 }))
     await page.goto('/admin')

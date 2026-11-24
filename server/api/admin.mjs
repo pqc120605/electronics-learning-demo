@@ -90,7 +90,7 @@ export function createAdminHttp({ reports, dashboardSites, origin, authStore, no
     const token = sessionToken(request.headers.cookie)
     const actor = token ? await authStore.read(sessionDigest(token)) : null
     if (!actor) return { status: 401 }
-    if (actor.role !== 'admin') return { status: 403 }
+    if (actor.dashboardAccess !== true) return { status: 403 }
     const days = params.get('days') ?? '7'
     if (!ranges.has(days)) return { status: 400 }
     const range = vietnamRange(days, now())

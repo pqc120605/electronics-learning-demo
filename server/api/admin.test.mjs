@@ -8,15 +8,19 @@ test('admin API checks host, account and role before touching aggregate data', a
   const now = Date.parse('2026-11-21T18:00:00Z')
   const request = { headers: { host: 'preview.example.test' } }
   let role = 'user'
+  let dashboardAccess = false
   let loads = 0
   const admin = createAdminHttp({
-    origin, now: () => now, authStore: { async read() { return { role } } },
+    origin, now: () => now, authStore: { async read() { return { role, dashboardAccess } } },
     reports: { async summary(start, end) { loads++; return { start, end } } },
   })
   assert.equal((await admin('summary', request, new URLSearchParams())).status, 401)
   request.headers.cookie = '__Host-mm_session=' + 'x'.repeat(43)
   assert.equal((await admin('summary', request, new URLSearchParams())).status, 403)
   role = 'admin'
+  assert.equal((await admin('summary', request, new URLSearchParams())).status, 403)
+  role = 'user'
+  dashboardAccess = true
   assert.equal((await admin('summary', { headers: { ...request.headers, origin: 'https://other.test' } }, new URLSearchParams())).status, 403)
   assert.equal((await admin('summary', request, new URLSearchParams('days=365'))).status, 400)
   assert.equal(loads, 0)
@@ -40,10 +44,10 @@ test('analytics stores only allowlisted dimensions and rejects IP, browser ident
 test('site reports enforce the same admin role and validate the requested website', async () => {
   const origin = 'https://preview.example.test'
   const headers = { host: 'preview.example.test', cookie: '__Host-mm_session=' + 'x'.repeat(43) }
-  let role = 'user'
+  let dashboardAccess = false
   let loaded = 0
   const handler = createAdminHttp({
-    origin, reports: {}, authStore: { async read() { return { role } } }, dashboardSites: {
+    origin, reports: {}, authStore: { async read() { return { role: 'user', dashboardAccess } } }, dashboardSites: {
       async list() { loaded++; return [{ id: 'mach-mo' }] },
       async report(id) { loaded++; return id === 'web-a' ? { site: { id } } : null },
     },
@@ -52,7 +56,7 @@ test('site reports enforce the same admin role and validate the requested websit
   assert.equal((await handler('sites', { headers }, params)).status, 403)
   assert.equal((await handler('sites', { headers }, params, 'web-a')).status, 403)
   assert.equal(loaded, 0)
-  role = 'admin'
+  dashboardAccess = true
   assert.deepEqual((await handler('sites', { headers }, params)).body, [{ id: 'mach-mo' }])
   assert.deepEqual((await handler('sites', { headers }, params, 'web-a')).body, { site: { id: 'web-a' } })
   assert.equal((await handler('sites', { headers }, params, 'missing')).status, 404)

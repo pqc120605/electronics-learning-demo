@@ -17,7 +17,7 @@ async function extractUser(response: Response): Promise<AuthUser | null> {
   }
   return { id: user.id, displayName: user.displayName, avatarUrl: safeAvatarUrl(user.avatarUrl),
     provider: ['google', 'github'].includes(user.provider) ? user.provider : 'other',
-    role: user.role === 'admin' ? 'admin' : 'user' }
+    role: user.role === 'admin' ? 'admin' : 'user', ...(user.dashboardAccess === true && { dashboardAccess: true }) }
 }
 
 let pendingRead: Promise<AuthUser | null> | undefined

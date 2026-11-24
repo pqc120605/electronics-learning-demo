@@ -1,6 +1,12 @@
 # Kết nối website vào dashboard quản trị
 
-Mở `/admin` bằng tài khoản trong `ADMIN_ACCOUNTS`. Mạch Mở đã là một mục cố định. Các web khác xuất hiện khi đăng ký trên Mini PC. Xem [quyết định kiến trúc](../adr/0002-dashboard-nhieu-website.md).
+Mở `/admin` và xác minh bằng địa chỉ trong danh sách `MACHMO_DASHBOARD_EMAILS` trên Mini PC. Mạch Mở đã là một mục cố định. Các web khác xuất hiện khi đăng ký trên Mini PC. Xem [quyết định kiến trúc](../adr/0002-dashboard-nhieu-website.md).
+
+## Quyền xem dashboard
+
+Chạy `bash server/api/configure-dashboard-emails.sh` trên Mini PC và nhập địa chỉ phân cách bằng dấu phẩy. Script lưu `MACHMO_DASHBOARD_EMAILS` vào tệp môi trường riêng quyền `600` của Node API. Khi chỉnh danh sách trên bản đã chạy, dùng `systemctl --user daemon-reload` rồi `systemctl --user restart mach-mo-api-staging.service`. Đặt danh sách rỗng trong tệp cấu hình để khóa toàn bộ báo cáo dashboard. Quyền xem tách khỏi quyền kiểm duyệt cộng đồng `ADMIN_ACCOUNTS`.
+
+Mở `/admin` và đăng nhập từ đó. Nếu đã đăng nhập thông thường, chọn nút xác minh lại. Google phải xác minh email Gmail hoặc email Google Workspace thuộc miền quản lý. GitHub phải xác minh email chính. Quyền hết hạn sau 8 giờ. Gỡ một email khỏi cấu hình rồi khởi động lại API sẽ thu quyền cả các phiên đang mở. Backend kiểm danh sách ở mọi tuyến báo cáo và chỉ đưa cờ được cấp quyền về trình duyệt.
 
 ## Đăng ký website
 
@@ -38,6 +44,6 @@ Gửi bản tổng hợp ít nhất mỗi ngày. Giữ nguyên revision khi gử
 
 ## Kiểm sau khi triển khai
 
-1. Từ checkout đã ghim SHA trên Mini PC, chạy `bash server/api/deploy-dashboard-edge.sh "$(git rev-parse HEAD)"`. Script kiểm PostgreSQL, sao lưu, áp migration 008–009, cập nhật các tuyến Caddy và thử quyền của khách. Bật dashboard theo [hướng dẫn Vercel](qd1-vercel-node-api.md#dashboard-quản-trị-và-góp-ý).
+1. Từ checkout đã ghim SHA trên Mini PC, chạy `bash server/api/deploy-dashboard-edge.sh "$(git rev-parse HEAD)"`. Script kiểm PostgreSQL, sao lưu, áp migration 008–010, cập nhật các tuyến Caddy và thử quyền của khách. Bật dashboard theo [hướng dẫn Vercel](qd1-vercel-node-api.md#dashboard-quản-trị-và-góp-ý).
 2. Đăng ký một website thử và gửi một bản tổng hợp. Chọn web đó tại `/admin` và đối chiếu ngày, trạng thái, số đếm. Gửi lại bản cũ và xác nhận số mới vẫn được giữ.
 3. Xác nhận phiên khách và tài khoản thường không đọc được báo cáo. Kiểm một khóa của web A gửi sang mã web B trả `403`. Khóa chỉ có quyền gửi.

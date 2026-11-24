@@ -1,5 +1,6 @@
 import { randomUUID } from 'node:crypto'
 import { sessionDigest } from '../community/session-http.mjs'
+import { createDashboardAccess } from './dashboard-access.mjs'
 
 export async function inTransaction(pool, work) {
   const client = await pool.connect()
@@ -17,9 +18,10 @@ export async function inTransaction(pool, work) {
   }
 }
 
-export function createOAuthStore(pool, adminAccounts = '') {
+export function createOAuthStore(pool, adminAccounts = '', dashboardEmails, sessionSecret) {
   const admins = new Set(adminAccounts.split(',').map(value => value.trim()).filter(Boolean))
   const roleFor = (provider, id) => admins.has(provider + ':' + id) ? 'admin' : 'user'
+  const dashboard = createDashboardAccess(dashboardEmails, sessionSecret)
   return {
     async saveAttempt({ key, provider, next, verifier, nonce, expiresAt }) {
       await pool.query('INSERT INTO machmo_community.oauth_attempts VALUES ($1,$2,$3,$4,$5,$6)',
@@ -35,6 +37,7 @@ export function createOAuthStore(pool, adminAccounts = '') {
       const { provider, providerUserId, displayName, avatarUrl } = identity
       const accountKey = provider + ':' + providerUserId
       const role = roleFor(provider, providerUserId)
+      const access = dashboard.issue(identity.dashboardEmail)
       await inTransaction(pool, async client => {
         await client.query('SELECT pg_advisory_xact_lock(hashtextextended($1, 0))', ['machmo-s2:' + accountKey])
         const { rows } = await client.query(
@@ -52,24 +55,29 @@ export function createOAuthStore(pool, adminAccounts = '') {
           await client.query('INSERT INTO machmo_community.oauth_identities VALUES ($1,$2,$3)', [provider, providerUserId, id])
         }
         if (previousDigest) await client.query('DELETE FROM machmo_community.sessions WHERE digest=$1', [previousDigest])
-        await client.query('INSERT INTO machmo_community.sessions VALUES ($1,$2,$3)', [session.digest, id, session.expiresAt])
+        await client.query('INSERT INTO machmo_community.sessions (digest,account_id,expires_at,dashboard_email_proof,dashboard_access_until)' +
+          ' VALUES ($1,$2,$3,$4,$5)', [session.digest, id, session.expiresAt, access.proof, access.expires])
       })
     },
     async read(digest) {
       const { rows } = await pool.query(
-        'SELECT a.id, a.display_name AS "displayName", a.avatar_url AS "avatarUrl", i.provider, i.provider_user_id, s.expires_at AS "expiresAt" ' +
+        'SELECT a.id, a.display_name AS "displayName", a.avatar_url AS "avatarUrl", i.provider, i.provider_user_id, s.expires_at AS "expiresAt", ' +
+        's.dashboard_email_proof, s.dashboard_access_until ' +
         'FROM machmo_community.sessions s JOIN machmo_community.accounts a ON a.id=s.account_id ' +
         'JOIN machmo_community.oauth_identities i ON i.account_id=a.id ' +
         'WHERE s.digest=$1 AND s.expires_at>now() AND a.revoked_at IS NULL', [digest])
       const account = rows[0]
       if (!account) return null
-      const { provider_user_id, ...session } = account
-      return { ...session, role: roleFor(account.provider, provider_user_id) }
+      const { provider_user_id, dashboard_email_proof, dashboard_access_until, ...session } = account
+      return { ...session, role: roleFor(account.provider, provider_user_id),
+        dashboardAccess: dashboard.allows(dashboard_email_proof, dashboard_access_until) }
     },
     async rotate(id, digest, session) {
       const result = await pool.query(
-        'WITH old AS (DELETE FROM machmo_community.sessions WHERE digest=$1 AND account_id=$2 AND expires_at>now() RETURNING account_id) ' +
-        'INSERT INTO machmo_community.sessions SELECT $3,account_id,$4 FROM old', [digest, id, session.digest, session.expiresAt])
+        'WITH old AS (DELETE FROM machmo_community.sessions WHERE digest=$1 AND account_id=$2 AND expires_at>now()' +
+        ' RETURNING account_id,dashboard_email_proof,dashboard_access_until) ' +
+        'INSERT INTO machmo_community.sessions (digest,account_id,expires_at,dashboard_email_proof,dashboard_access_until)' +
+        ' SELECT $3,account_id,$4,dashboard_email_proof,dashboard_access_until FROM old', [digest, id, session.digest, session.expiresAt])
       return result.rowCount === 1
     },
     async revoke(digest) {

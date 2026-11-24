@@ -10,6 +10,7 @@ export type AuthUser = {
   avatarUrl: string | null
   provider: OAuthProviderId | 'other'
   role?: 'user' | 'admin'
+  dashboardAccess?: boolean
 }
 
 export const OAUTH_PROVIDERS: ReadonlyArray<{ id: OAuthProviderId; label: string }> = [
