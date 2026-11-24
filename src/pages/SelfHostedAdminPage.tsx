@@ -2,21 +2,33 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getAdminReport, type AnalyticsSummary } from '../lib/admin'
 import { useAuth } from '../lib/auth'
+import { siteFeedbackEnabled } from '../lib/backendMode'
+import { feedbackKinds, type FeedbackKind } from '../lib/feedbackDraft'
 import './SelfHostedAdminPage.css'
 
 type Range = 7 | 30 | 90
 type Metric = { label: string; count: number }
+type FeedbackItem = {
+  id: string; kind: FeedbackKind; title: string; details: string; page: string; createdAt: string
+  rating: number | null; steps: string; expected: string; actual: string
+}
 type Dashboard = {
   summary: AnalyticsSummary & { byLesson: Metric[]; byBoard: Metric[]; byDevice: Metric[]; bySource: Metric[]; funnel: { opened: number; ran: number; completed: number } }
   ai: {
-    models: Array<{ model: string; provider: string; requests: number; insufficient: number; errors: number; cacheHits: number; p50Ms: number; p95Ms: number; inputTokens: number; outputTokens: number; estimatedUsd: number | null }>
+    models: Array<{ model: string; provider: string; requests: number; insufficient: number; errors: number; cacheHits: number; p50Ms: number; p95Ms: number; inputTokens: number; outputTokens: number; estimatedUsd: number | null; helpful: number; unhelpful: number }>
     used: number; limit: number | null; nearLimit: boolean
   }
-  community: { posts: number; comments: number; pendingReports: number; newAccounts: Array<{ provider: string; count: number }> }
+  community: { posts: number; comments: number; pendingReports: number; totalAccounts: number; newAccounts: Array<{ provider: string; count: number }> }
   system: { api: string; database: string; ai: string; ramFreeBytes: number; ramTotalBytes: number; diskFreeBytes: number | null; latestBackup: string | null; commit: string }
+  feedback: { total: number; rated: number; average: number | null; items: FeedbackItem[] }
 }
-const sections = ['summary', 'ai', 'community', 'system'] as const
+const sections: Array<keyof Dashboard> = ['summary', 'ai', 'community', 'system', ...(siteFeedbackEnabled ? ['feedback' as const] : [])]
+const reportLabels: Record<keyof Dashboard, string> = {
+  summary: 'Hoạt động', ai: 'Mở Bot', community: 'Cộng đồng', system: 'Hệ thống', feedback: 'Góp ý',
+}
 const num = new Intl.NumberFormat('vi-VN')
+const score = new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 1 })
+const dateTime = new Intl.DateTimeFormat('vi-VN', { dateStyle: 'short', timeStyle: 'short', timeZone: 'Asia/Ho_Chi_Minh' })
 const gib = (bytes: number | null) => bytes === null ? 'Chưa đo' : num.format(Math.round(bytes / 2 ** 27) / 8) + ' GiB'
 const readiness = (value: string) => value === 'ready' ? 'Sẵn sàng' : value === 'unavailable' ? 'Chưa sẵn sàng' : value
 
@@ -27,14 +39,21 @@ function MetricList({ title, rows }: { title: string; rows: Metric[] }) {
   </section>
 }
 
-function DailyChart({ data }: { data: AnalyticsSummary['daily'] }) {
+function DailyChart({ data, total }: { data: AnalyticsSummary['daily']; total: number }) {
   const peak = Math.max(1, ...data.map(item => item.events))
-  const points = data.map((item, i) => (12 + i * 576 / Math.max(1, data.length - 1)) + ',' + (112 - item.events * 100 / peak)).join(' ')
-  return <section className="s4-chart"><h2>Sự kiện theo ngày</h2>
+  const first = data.length ? Date.parse(data[0].day) : 0
+  const last = data.length ? Date.parse(data[data.length - 1].day) : 0
+  const byDate = new Map(data.map(item => [Date.parse(item.day), item.events]))
+  const points: string[] = []
+  for (let date = first; data.length && date <= last; date += 86_400_000) {
+    points.push((12 + (date - first) * 576 / Math.max(1, last - first)) + ',' + (112 - (byDate.get(date) ?? 0) * 100 / peak))
+  }
+  return <section className="s4-chart" id="hoat-dong"><h2>Sự kiện theo ngày</h2>
     {data.length ? <>
+      <p>{num.format(total)} sự kiện trong khoảng đang xem</p>
       <svg viewBox="0 0 600 124" role="img" aria-label={'Biểu đồ số sự kiện theo ngày. Cao nhất ' + peak}>
         <path d="M12 112H588 M12 62H588 M12 12H588" className="s4-gridline" />
-        <polyline points={points} className="s4-series" />
+        <polyline points={points.join(' ')} className="s4-series" />
         {data.length === 1 && <circle cx="12" cy={112 - data[0].events * 100 / peak} r="4" className="s4-dot" />}
       </svg>
       <details><summary>Xem bảng số liệu theo ngày</summary>
@@ -46,52 +65,116 @@ function DailyChart({ data }: { data: AnalyticsSummary['daily'] }) {
   </section>
 }
 
+function FeedbackInbox({ data }: { data: Dashboard['feedback'] }) {
+  const [kind, setKind] = useState<FeedbackKind | 'all'>('all')
+  const items = data.items.filter(item => kind === 'all' || item.kind === kind)
+  return <section className="s4-inbox" id="phan-hoi">
+    <div className="s4-inbox-head">
+      <div>
+        <h2>Góp ý và đánh giá</h2>
+        <p>{num.format(data.total)} góp ý · {num.format(data.rated)} có đánh giá
+          {data.average !== null && ' · Trung bình ' + score.format(data.average) + '/5 sao'}</p>
+      </div>
+      <label>Loại góp ý
+        <select value={kind} onChange={event => setKind(event.target.value as FeedbackKind | 'all')}>
+          <option value="all">Tất cả</option>
+          {feedbackKinds.map(item => <option value={item.id} key={item.id}>{item.label}</option>)}
+        </select>
+      </label>
+    </div>
+    {data.total > data.items.length && <p>Đang hiển thị {data.items.length} góp ý gần nhất trong khoảng này.</p>}
+    {items.length ? <ul className="s4-feedback-list">{items.map(item => <li key={item.id}>
+      <details>
+        <summary><strong>{item.title}</strong><span>
+          {feedbackKinds.find(entry => entry.id === item.kind)?.label} · <time dateTime={item.createdAt}>{dateTime.format(new Date(item.createdAt))}</time>
+          {item.rating && ' · ' + item.rating + '/5 sao'}
+        </span></summary>
+        <p>{item.details}</p>
+        {item.page && <p>Trang liên quan <code>{item.page}</code></p>}
+        {item.steps && <><h3>Các bước gặp lỗi</h3><p>{item.steps}</p></>}
+        {item.expected && <><h3>Mong đợi</h3><p>{item.expected}</p></>}
+        {item.actual && <><h3>Thực tế</h3><p>{item.actual}</p></>}
+      </details>
+    </li>)}</ul> : <p>{data.total ? 'Chưa có góp ý loại này trong danh sách gần nhất.' : 'Chưa có góp ý trong khoảng này.'}</p>}
+  </section>
+}
+
 function Reports() {
   const [days, setDays] = useState<Range>(7)
-  const [current, setCurrent] = useState<{ days: Range; data?: Dashboard; error?: string }>()
+  const [refresh, setRefresh] = useState(0)
+  const [current, setCurrent] = useState<{
+    days: Range; refresh: number; data: Partial<Dashboard>; failed: Array<keyof Dashboard>; at: number
+  }>()
   useEffect(() => {
     const controller = new AbortController()
     const signal = AbortSignal.any([controller.signal, AbortSignal.timeout(8000)])
-    void Promise.all(sections.map(async section => [section, await getAdminReport(section, days, signal)] as const)).then(entries => {
-      if (!controller.signal.aborted) setCurrent({ days, data: Object.fromEntries(entries) as Dashboard })
-    }).catch(error => {
-      if (!controller.signal.aborted) setCurrent({ days, error: error instanceof Error ? error.message : 'Không tải được báo cáo.' })
+    void Promise.allSettled(sections.map(async section => [section, await getAdminReport(section, days, signal)] as const)).then(results => {
+      if (controller.signal.aborted) return
+      const entries = results.flatMap(result => result.status === 'fulfilled' ? [result.value] : [])
+      setCurrent({ days, refresh, data: Object.fromEntries(entries) as Partial<Dashboard>,
+        failed: sections.filter((_, index) => results[index].status === 'rejected'), at: Date.now() })
     })
     return () => controller.abort()
-  }, [days])
+  }, [days, refresh])
   const data = current?.days === days ? current.data : undefined
-  const error = current?.days === days ? current.error : undefined
+  const loading = current?.days !== days || current.refresh !== refresh
+  const failed = current?.days === days ? current.failed : []
+  const accounts = data?.community
+  const newAccounts = accounts?.newAccounts.reduce((sum, item) => sum + item.count, 0)
+  const highlights = [
+    { label: 'Tài khoản hiện có', value: accounts?.totalAccounts, hint: 'Tài khoản đăng ký còn tồn tại' },
+    { label: 'Tài khoản mới', value: newAccounts, hint: 'Đăng ký trong khoảng đang xem' },
+    { label: 'Phiên trình duyệt', value: data?.summary?.sessionCount, hint: 'Một người có thể có nhiều phiên' },
+    ...(siteFeedbackEnabled ? [{ label: 'Góp ý đã nhận', value: data?.feedback?.total, hint: 'Góp ý gửi trong khoảng đang xem' }] : []),
+  ]
   return <>
-    <div className="s4-period" role="group" aria-label="Khoảng thời gian">
-      {([7, 30, 90] as const).map(period => <button key={period} type="button" aria-pressed={days === period} onClick={() => setDays(period)}>{period} ngày</button>)}
+    <div className="s4-toolbar">
+      <div className="s4-period" role="group" aria-label="Khoảng thời gian">
+        {([7, 30, 90] as const).map(period => <button key={period} type="button" aria-pressed={days === period} onClick={() => setDays(period)}>{period} ngày</button>)}
+      </div>
+      <div className="s4-sync">
+        <button type="button" onClick={() => setRefresh(value => value + 1)} disabled={loading}>Làm mới</button>
+        <p role="status">{loading ? 'Đang tải báo cáo…' : data && Object.keys(data).length ? 'Cập nhật ' + dateTime.format(current?.at) : 'Chưa tải được dữ liệu'}</p>
+      </div>
     </div>
-    {error && <p role="alert">{error}</p>}
-    {!data && !error && <p role="status">Đang tải báo cáo…</p>}
+    {failed.length > 0 && !loading && <p className="s4-error" role="alert">Không tải được {failed.map(key => reportLabels[key]).join(', ')}. Bạn có thể thử làm mới.</p>}
+    {(data?.summary || data?.feedback || data?.system) && <nav className="s4-jump" aria-label="Báo cáo quản trị">
+      {data.summary && <a href="#hoat-dong">Hoạt động</a>}
+      {data.feedback && <a href="#phan-hoi">Góp ý và đánh giá</a>}
+      {data.system && <a href="#he-thong">Tình trạng hệ thống</a>}
+    </nav>}
+    <dl className="s4-highlights">{highlights.map(item => <div key={item.label}>
+      <dt>{item.label}</dt><dd>{item.value == null ? '—' : num.format(item.value)}</dd><dd>{item.hint}</dd>
+    </div>)}</dl>
     {data && <div className="s4-panels">
-      <MetricList title="Tổng quan" rows={[{ label: 'Phiên trình duyệt', count: data.summary.sessionCount }, { label: 'Sự kiện', count: data.summary.eventCount }]} />
+      {data.summary && <>
+      <DailyChart data={data.summary.daily} total={data.summary.eventCount} />
       <MetricList title="Phễu học theo phiên" rows={[{ label: 'Mở bài', count: data.summary.funnel.opened }, { label: 'Sau đó chạy mô phỏng', count: data.summary.funnel.ran }, { label: 'Sau đó tự đánh dấu hoàn thành', count: data.summary.funnel.completed }]} />
-      <DailyChart data={data.summary.daily} />
-      <MetricList title="Trang được mở nhiều" rows={data.summary.byPath.map(row => ({ label: row.path, count: row.events }))} />
+      <MetricList title="Sự kiện theo trang" rows={data.summary.byPath.map(row => ({ label: row.path, count: row.events }))} />
       <MetricList title="Bài học" rows={data.summary.byLesson} />
       <MetricList title="Board" rows={data.summary.byBoard} />
       <MetricList title="Thiết bị" rows={data.summary.byDevice} />
       <MetricList title="Nguồn truy cập" rows={data.summary.bySource} />
-      <MetricList title="Cộng đồng và tài khoản mới" rows={[
+      </>}
+      {data.feedback && <FeedbackInbox data={data.feedback} />}
+      {data.community && <MetricList title="Cộng đồng và tài khoản mới" rows={[
         { label: 'Bài viết', count: data.community.posts }, { label: 'Bình luận', count: data.community.comments },
         { label: 'Báo cáo đang chờ', count: data.community.pendingReports },
-        ...data.community.newAccounts.map(item => ({ label: item.provider, count: item.count })),
-      ]} />
-      <section><h2>Mở Bot AI</h2>
+        ...data.community.newAccounts.map(item => ({ label: item.provider === 'github' ? 'GitHub' : 'Google', count: item.count })),
+      ]} />}
+      {data.ai && <section><h2>Mở Bot AI</h2>
         <p>{data.ai.limit === null ? 'Chưa đặt hạn mức.' : num.format(data.ai.used) + '/' + num.format(data.ai.limit) + ' lượt hôm nay'}</p>
         {data.ai.nearLimit && <p role="status">Đã dùng ít nhất 80% hạn mức hôm nay.</p>}
+        {!data.ai.models.length && <p>Chưa có yêu cầu AI trong khoảng này.</p>}
         {data.ai.models.map(model => <div key={model.provider + ':' + model.model}>
           <h3>{model.model}</h3>
           <p>{num.format(model.requests)} yêu cầu · {num.format(model.insufficient * 100 / Math.max(model.requests, 1))}% thiếu nguồn · {model.errors} lỗi</p>
           <p>p50 {model.p50Ms} ms · p95 {model.p95Ms} ms · {num.format(model.inputTokens + model.outputTokens)} token</p>
+          <p>Đánh giá câu trả lời · {num.format(model.helpful)} hữu ích · {num.format(model.unhelpful)} chưa hữu ích</p>
           <p>Chi phí ước tính {model.estimatedUsd === null ? 'chưa có đơn giá' : num.format(model.estimatedUsd) + ' USD'}</p>
         </div>)}
-      </section>
-      <section><h2>Mini PC</h2><dl>
+      </section>}
+      {data.system && <section id="he-thong"><h2>Mini PC</h2><dl>
         <div><dt>Commit</dt><dd><code>{data.system.commit.slice(0, 12)}</code></dd></div>
         <div><dt>API</dt><dd>{readiness(data.system.api)}</dd></div>
         <div><dt>Database</dt><dd>{readiness(data.system.database)}</dd></div>
@@ -99,7 +182,7 @@ function Reports() {
         <div><dt>RAM còn trống</dt><dd>{gib(data.system.ramFreeBytes)} / {gib(data.system.ramTotalBytes)}</dd></div>
         <div><dt>Đĩa còn trống</dt><dd>{gib(data.system.diskFreeBytes)}</dd></div>
         <div><dt>Sao lưu gần nhất (UTC)</dt><dd>{data.system.latestBackup ?? 'Chưa có dữ liệu'}</dd></div>
-      </dl></section>
+      </dl></section>}
     </div>}
   </>
 }
@@ -114,7 +197,9 @@ export function SelfHostedAdminPage() {
     return () => meta.remove()
   }, [])
   return <article className="s4-admin" aria-labelledby="s4-title">
-    <h1 id="s4-title">Quản trị Mạch Mở</h1>
+    <header className="s4-heading"><h1 id="s4-title">Quản trị Mạch Mở</h1>
+      <p>Tình trạng hệ thống, hoạt động và phản hồi từ người dùng.</p>
+    </header>
     {auth.status === 'loading' ? <p role="status">Đang kiểm tra quyền…</p>
       : auth.status === 'error' ? <p role="alert">{auth.message}</p>
       : auth.status === 'signed-in' ? auth.user.role === 'admin' ? <Reports /> : <p role="alert">Tài khoản này chưa có quyền quản trị.</p>

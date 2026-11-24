@@ -14,6 +14,7 @@ const migrationFiles = [
   [5, './migrations/005-admin-analytics.sql'],
   [6, './migrations/006-projects.sql'],
   [7, './migrations/007-classrooms.sql'],
+  [8, './migrations/008-site-feedback.sql'],
 ]
 const requirePg = createRequire(new URL('../community/package.json', import.meta.url))
 
@@ -107,5 +108,6 @@ export async function verifyStagingDatabase(pool) {
   if (!migrations.every(migration => installed.get(migration.version) === migration.sha256)) return false
   await pool.query('SELECT 1 FROM machmo_community.sessions LIMIT 0')
   await pool.query('SELECT 1 FROM machmo_analytics.events LIMIT 0')
+  await pool.query('SELECT 1 FROM machmo_community.site_feedback LIMIT 0')
   return true
 }

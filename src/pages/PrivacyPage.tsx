@@ -4,6 +4,7 @@ import { useProductRoute } from '../lib/useProductRoute'
 import { selfHostedAnalyticsEnabled } from '../lib/analytics'
 import { useAuth } from '../lib/auth'
 import { deleteSelfHostedAccount, selfHostedOAuthEnabled } from '../lib/selfHostedAuth'
+import { siteFeedbackEnabled } from '../lib/backendMode'
 
 function AccountPrivacy() {
   const auth = useAuth()
@@ -34,6 +35,10 @@ export function PrivacyPage() {
     <p>Workspace, bản nháp, project, bài vừa mở trong lộ trình và checklist tự xác nhận được lưu trong bộ nhớ trình duyệt trên thiết bị bạn đang dùng. Dữ liệu học này không được đồng bộ tài khoản và checklist không xác minh bạn đã chạy mạch thật. Xóa dữ liệu trang web của trình duyệt có thể xóa các mục này; hãy xuất project để giữ bản sao project.</p>
     <p>Sau lần mở có mạng, trình duyệt có thể dùng lại các phần đã tải như khung ứng dụng, mô hình 3D và bộ giải SPICE khi ngoại tuyến. Tính năng tài khoản, cộng đồng online và nhà cung cấp AI từ xa cần kết nối mạng.</p>
     {selfHostedOAuthEnabled && <AccountPrivacy />}
+    {siteFeedbackEnabled && <>
+      <h2>Góp ý cho Mạch Mở</h2>
+      <p>Khi bạn chọn gửi, máy chủ lưu nội dung đã điền, đánh giá tự chọn, thời điểm và mã gửi ngẫu nhiên để tránh ghi trùng. Góp ý không gắn với tài khoản và chỉ quản trị viên xem được. Nội dung được xóa định kỳ sau 180 ngày. Bản sao lưu có thể giữ dữ liệu tới kỳ thay bản sao.</p>
+    </>}
     <h2>Hỏi Mở</h2>
     <p>Tra cứu dùng nội dung sẵn trong ứng dụng. Khi chọn gửi ở mục Hỏi AI, dịch vụ đang cấu hình xử lý câu hỏi, tối đa hai lượt hỏi đáp gần nhất và trích đoạn tra cứu. Nếu dùng OpenAI, các dữ liệu đó được chuyển tới OpenAI để tạo câu trả lời. Tùy chọn ngữ cảnh chỉ thêm thông tin board, loại linh kiện và chân đang chọn. Mạch Mở không đính kèm tên tài khoản, email, tệp, code trong editor hoặc toàn bộ bản nháp. Hội thoại hiện tại được xóa khi thoát mục này hoặc đổi ngữ cảnh. Đánh giá hữu ích được lưu trên thiết bị.</p>
     <h2>Thống kê sử dụng</h2>

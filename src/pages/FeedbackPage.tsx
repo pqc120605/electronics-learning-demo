@@ -1,6 +1,8 @@
 import {useEffect,useMemo,useRef,useState,type FormEvent} from 'react'
 import {useLocation} from 'react-router-dom'
 import {developerProfile} from '../data/developerProfile'
+import {SiteFeedbackDelivery} from '../components/SiteFeedbackDelivery'
+import {siteFeedbackEnabled} from '../lib/backendMode'
 import {FEEDBACK_DRAFT_KEY,emptyFeedbackDraft,feedbackFilename,feedbackKinds,feedbackLimits,formatFeedback,parseFeedbackDraft,safeFeedbackPage,validateFeedback,type FeedbackDraft,type FeedbackErrors} from '../lib/feedbackDraft'
 import './FeedbackPage.css'
 
@@ -21,7 +23,7 @@ export function FeedbackPage(){
  const [storageState,setStorageState]=useState(stored.raw&&!stored.parsed?'unreadable':stored.available?'tab':'memory')
  const touched=useRef(false),previewTitle=useRef<HTMLHeadingElement>(null),preview=useRef<HTMLTextAreaElement>(null)
  const valid=Object.keys(validateFeedback(draft)).length===0
- const report=useMemo(()=>formatFeedback(draft),[draft])
+ const report=useMemo(()=>formatFeedback(draft,undefined,!siteFeedbackEnabled),[draft])
  useEffect(()=>{
   if(!touched.current||storageState==='unreadable')return
   try{const storage=window.sessionStorage,raw=JSON.stringify(draft);storage.setItem(FEEDBACK_DRAFT_KEY,raw);if(storage.getItem(FEEDBACK_DRAFT_KEY)!==raw)throw Error('write not retained');setStorageState('tab')}
@@ -32,8 +34,8 @@ export function FeedbackPage(){
  function update(patch:Partial<FeedbackDraft>){touched.current=true;setDraft(current=>({...current,...patch}));setNotice('')}
  function review(event:FormEvent){event.preventDefault();const next=validateFeedback(draft);setErrors(next);if(Object.keys(next).length){document.getElementById(`feedback-${Object.keys(next)[0]}`)?.focus();return}setView('preview')}
  async function copy(){
-  try{if(!navigator.clipboard?.writeText)throw Error('clipboard unavailable');await navigator.clipboard.writeText(report);setNotice('Đã sao chép nội dung. Góp ý chưa được gửi.')}
-  catch{preview.current?.focus();preview.current?.select();setNotice('Nội dung đã được chọn. Dùng lệnh Sao chép của trình duyệt hoặc tải file; góp ý chưa được gửi.')}
+  try{if(!navigator.clipboard?.writeText)throw Error('clipboard unavailable');await navigator.clipboard.writeText(report);setNotice(siteFeedbackEnabled?'Đã sao chép nội dung.':'Đã sao chép nội dung. Góp ý chưa được gửi.')}
+  catch{preview.current?.focus();preview.current?.select();setNotice(siteFeedbackEnabled?'Nội dung đã được chọn. Dùng lệnh Sao chép của trình duyệt hoặc tải file.':'Nội dung đã được chọn. Dùng lệnh Sao chép của trình duyệt hoặc tải file; góp ý chưa được gửi.')}
  }
  const field=(name:keyof typeof feedbackLimits,label:string,rows=3)=>{
   const required=name==='title'||name==='details'
@@ -56,7 +58,7 @@ export function FeedbackPage(){
   </div>
  }
  return <article className="feedback-page">
-  <header className="feedback-heading"><div><p className="feedback-kicker">Cùng xây dựng Mạch Mở</p><h1>Góp ý & báo lỗi</h1><p>Ghi lại điều khiến bạn vướng mắc, hoặc một ý tưởng giúp việc học và lắp mạch dễ hơn.</p></div><div className="feedback-local-badge"><span aria-hidden="true">●</span> Chưa gửi<p>Bạn có thể xem lại, sao chép và tải file. Form này chưa tự gửi nội dung tới người phát triển.</p></div></header>
+  <header className="feedback-heading"><div><p className="feedback-kicker">Cùng xây dựng Mạch Mở</p><h1>Góp ý & báo lỗi</h1><p>Ghi lại điều khiến bạn vướng mắc, hoặc một ý tưởng giúp việc học và lắp mạch dễ hơn.</p></div><div className="feedback-local-badge"><span aria-hidden="true">●</span> {siteFeedbackEnabled?'Bạn quyết định khi nào gửi':'Chưa gửi'}<p>{siteFeedbackEnabled?'Bạn có thể xem lại, gửi cho quản trị viên hoặc tải file để giữ riêng.':'Bạn có thể xem lại, sao chép và tải file. Form này chưa tự gửi nội dung tới người phát triển.'}</p></div></header>
   <div className="feedback-mobile-tabs" role="group" aria-label="Chế độ xem góp ý"><button type="button" aria-pressed={view==='form'} onClick={()=>setView('form')}>Viết góp ý</button><button type="button" aria-pressed={view==='preview'} onClick={()=>setView('preview')}>Xem bản góp ý</button></div>
   <div className="feedback-layout" data-view={view}>
    <form className="feedback-form" onSubmit={review} noValidate aria-label="Nội dung góp ý">
@@ -68,7 +70,9 @@ export function FeedbackPage(){
     <button type="submit" className="feedback-primary">Xem lại nội dung</button>
    </form>
    <div className="feedback-side">
-    <section className="feedback-preview" aria-labelledby="feedback-preview-title"><h2 ref={previewTitle} tabIndex={-1} id="feedback-preview-title">Bản góp ý của bạn</h2><p>{valid?'Bạn có thể giữ bản này dưới dạng file hoặc sao chép.':'Điền tiêu đề và mô tả để chuẩn bị file góp ý.'}</p><textarea ref={preview} readOnly value={report} aria-label="Bản góp ý xem trước" rows={12}/><div className="feedback-export-actions"><button type="button" className="feedback-primary" disabled={!valid} onClick={()=>{downloadText(report,feedbackFilename());setNotice('Đã chuẩn bị file tải xuống. Góp ý chưa được gửi.')}}>Tải file góp ý (.md)</button><button type="button" className="feedback-secondary" disabled={!valid} onClick={copy}>Sao chép</button></div><p className="feedback-result" role="status">{notice}</p></section>
+    <section className="feedback-preview" aria-labelledby="feedback-preview-title"><h2 ref={previewTitle} tabIndex={-1} id="feedback-preview-title">Bản góp ý của bạn</h2><p>{valid?'Bạn có thể giữ bản này dưới dạng file hoặc sao chép.':'Điền tiêu đề và mô tả để chuẩn bị file góp ý.'}</p><textarea ref={preview} readOnly value={report} aria-label="Bản góp ý xem trước" rows={12}/><div className="feedback-export-actions"><button type="button" className="feedback-primary" disabled={!valid} onClick={()=>{downloadText(report,feedbackFilename());setNotice(siteFeedbackEnabled?'Đã chuẩn bị file tải xuống.':'Đã chuẩn bị file tải xuống. Góp ý chưa được gửi.')}}>Tải file góp ý (.md)</button><button type="button" className="feedback-secondary" disabled={!valid} onClick={copy}>Sao chép</button></div><p className="feedback-result" role="status">{notice}</p>
+     {siteFeedbackEnabled&&<SiteFeedbackDelivery draft={draft} valid={valid}/>}
+    </section>
     <section id="nguoi-phat-trien" className="feedback-developer" aria-labelledby="feedback-developer-title"><div className="feedback-person"><span className="feedback-monogram" aria-hidden="true">CP</span><div><h2 tabIndex={-1} id="feedback-developer-title">Người phát triển</h2><h3>{developerProfile.name}</h3><p>Mạch Mở</p></div></div><p>Thông tin liên hệ của người phát triển, để bạn tìm hiểu thêm về người đang xây dựng Mạch Mở.</p><dl><div><dt>Gmail</dt><dd><a href={`mailto:${developerProfile.email}`}>{developerProfile.email}</a></dd></div><div><dt>Facebook</dt><dd><a href={developerProfile.facebook} target="_blank" rel="noreferrer noopener">Facebook của Chiến Phan</a></dd></div><div><dt>Portfolio</dt><dd><a href={developerProfile.portfolio} target="_blank" rel="noreferrer noopener">phanquocchien.vercel.app</a></dd></div></dl></section>
    </div>
   </div>

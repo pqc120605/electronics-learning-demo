@@ -78,6 +78,6 @@ export async function getLocalAnalyticsSummary(start: string, end: string): Prom
   return readApiJson<AnalyticsSummary>(await apiRequest('/api/analytics/admin/summary?' + query))
 }
 
-export async function getAdminReport<T>(section: 'summary' | 'ai' | 'community' | 'system', days: 7 | 30 | 90, signal: AbortSignal): Promise<T> {
+export async function getAdminReport<T>(section: 'summary' | 'ai' | 'community' | 'system' | 'feedback', days: 7 | 30 | 90, signal: AbortSignal): Promise<T> {
   return readApiJson<T>(await apiRequest('/api/admin/' + section + '?days=' + days, { signal }))
 }

@@ -8,6 +8,7 @@ import { s2Route } from './s2.mjs'
 import { adminPath } from './admin.mjs'
 import { projectRoute } from './projects.mjs'
 import { classroomRoute } from './classrooms.mjs'
+import { siteFeedbackInput } from './site-feedback.mjs'
 
 export const MAX_BODY_BYTES = 64 * 1024
 const MINUTE_MS = 60_000
@@ -23,6 +24,7 @@ const routes = new Map([
 ])
 const guideFeedback = { id: 'guide-feedback', method: 'POST', acceptsBody: true, csrf: true }
 const adminReport = { id: 'admin-report', method: 'GET' }
+const submitFeedback = { id: 'submit-feedback', method: 'POST', acceptsBody: true, csrf: true }
 
 function json(response, status, payload) {
   response.statusCode = status
@@ -92,7 +94,7 @@ function createLimiter(requestsPerMinute, trustedProxies) {
 }
 
 export function createApiServer({
-  origins, commit, checkDatabase, sessionStore, analyticsStore, guideEnv = {}, s2, guide, admin, projects, classrooms,
+  origins, commit, checkDatabase, sessionStore, analyticsStore, guideEnv = {}, s2, guide, admin, projects, classrooms, feedback,
   trustedProxyIps = [], requestsPerMinute = 120, log = entry => console.log(JSON.stringify(entry)),
 }) {
   if (!Array.isArray(origins) || !origins.length || origins.some(value => {
@@ -111,6 +113,7 @@ export function createApiServer({
     onFailure: () => log({ event: 'analytics_failed' }),
   })
   const limit = createLimiter(requestsPerMinute, new Set(trustedProxyIps))
+  const limitFeedback = createLimiter(30, new Set(trustedProxyIps))
 
   return createServer({ requestTimeout: 10_000, headersTimeout: 5_000, keepAliveTimeout: 4_000, maxHeaderSize: 8192 }, async (request, response) => {
     const started = Date.now()
@@ -121,7 +124,9 @@ export function createApiServer({
     const project = projects && projectRoute(routeMethod, path)
     const classroom = classrooms && classroomRoute(routeMethod, path)
     const report = admin && adminPath.exec(path)
-    const route = s2Action || project || classroom || (report ? adminReport : guide && path === '/api/guide-ai/feedback' ? guideFeedback : routes.get(path))
+    const feedbackAction = feedback && path === '/api/feedback'
+    const route = s2Action || project || classroom || (report ? adminReport : feedbackAction ? submitFeedback
+      : guide && path === '/api/guide-ai/feedback' ? guideFeedback : routes.get(path))
     const s2Session = s2 && (route?.id === 'session' || route?.id === 'logout')
     const guideAction = guide && route?.id.startsWith('guide-')
     const csrf = route?.csrf || (s2Session && route.id === 'logout') || (guideAction && route.method === 'POST')
@@ -163,6 +168,18 @@ export function createApiServer({
     if ((method === 'POST' || csrf) && !origin) return json(response, 403)
 
     try {
+      if (feedbackAction) {
+        if (origin !== feedback.origin || request.headers['x-machmo-csrf'] !== '1'
+          || request.headers['sec-fetch-site'] === 'cross-site') return json(response, 403)
+        if (!limitFeedback(request)) {
+          response.setHeader('Retry-After', '60')
+          return json(response, 429)
+        }
+        const input = siteFeedbackInput(await requireJson(request))
+        if (!input) return json(response, 400)
+        await feedback.save(input)
+        return json(response, 204)
+      }
       if (classroom) {
         const result = await classrooms(classroom, request, () => requireJson(request))
         return json(response, result.status, result.body)

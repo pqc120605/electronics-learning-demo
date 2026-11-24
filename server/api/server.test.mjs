@@ -54,6 +54,31 @@ test('CORS permits only configured origins and the analytics dashboard stays pri
   assert.equal((await fetch(base + '/api/session/redeem', { method: 'POST', headers: { origin: publicOrigin } })).status, 404)
 })
 
+test('feedback accepts only an explicit same-origin submission and keeps reports private', async t => {
+  const stored = []
+  const { base } = await start(t, { feedback: {
+    origin: publicOrigin,
+    async save(input) { stored.push(input) },
+  } })
+  const report = {
+    id: '89c6dd67-d568-4329-860d-b8fb91b51b45', kind: 'bug', title: 'Lỗi mạch LED',
+    details: 'LED không sáng khi chạy mô phỏng.', page: '/build', steps: '', expected: '', actual: '', rating: 4,
+  }
+  const send = (body, origin = publicOrigin, csrf = '1') => fetch(base + '/api/feedback', {
+    method: 'POST', headers: { origin, 'content-type': 'application/json', 'x-machmo-csrf': csrf },
+    body: JSON.stringify(body),
+  })
+  assert.equal((await send(report, stagingOrigin)).status, 403)
+  assert.equal((await send(report, publicOrigin, '')).status, 403)
+  assert.equal((await send({ ...report, rating: 6 })).status, 400)
+  assert.equal((await send({ ...report, page: '/build?token=123' })).status, 400)
+  assert.equal((await send({ ...report, email: 'oops@example.test' })).status, 400)
+  assert.equal((await send(report)).status, 204)
+  assert.deepEqual(stored, [report])
+  assert.equal((await fetch(base + '/api/feedback')).status, 405)
+  assert.equal((await fetch(base + '/api/admin/feedback')).status, 404)
+})
+
 test('public session and analytics keep their expected response shapes', async t => {
   const events = []
   const { base } = await start(t, { analyticsStore: { record: async event => { events.push(event); return true } } })

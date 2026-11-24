@@ -11,6 +11,7 @@ import { createPostgresStore } from '../analytics/store.mjs'
 import { createAdminReports, vietnamRange } from './admin.mjs'
 import { createProjectHttp, createProjectStore, projectRoute } from './projects.mjs'
 import { createClassroomStore } from './classrooms.mjs'
+import { createSiteFeedbackStore } from './site-feedback.mjs'
 
 const port = process.env.MACHMO_S2_TEST_PG_PORT
 
@@ -22,7 +23,7 @@ test('staging applies and repeats migrations on PostgreSQL and enforces data own
   const owner = createStagingPool(connection(STAGING_OWNER), STAGING_OWNER)
   const app = createStagingPool(connection(STAGING_APP), STAGING_APP)
   t.after(async () => Promise.all([owner.end(), app.end()]))
-  assert.deepEqual(await migrateStagingDatabase(owner), [1, 2, 3, 4, 5, 6, 7])
+  assert.deepEqual(await migrateStagingDatabase(owner), [1, 2, 3, 4, 5, 6, 7, 8])
   assert.deepEqual(await migrateStagingDatabase(owner), [])
   assert.equal(await verifyStagingDatabase(app), true)
 
@@ -60,7 +61,8 @@ test('staging applies and repeats migrations on PostgreSQL and enforces data own
   await analytics.expire()
   assert.equal((await app.query('SELECT count(*)::int AS count FROM machmo_analytics.events')).rows[0].count, 3)
   assert.equal((await app.query('SELECT count(*)::int AS count FROM machmo_analytics.daily_totals')).rows[0].count, 1)
-  const admin = createAdminReports({ pool: app, analytics, databaseReady: async () => true, guideEnv: { GUIDE_AI_PROVIDER: 'mock' }, commit: 'fixture', dailyCap: 3 })
+  const siteFeedback = createSiteFeedbackStore(app)
+  const admin = createAdminReports({ pool: app, analytics, siteFeedback, databaseReady: async () => true, guideEnv: { GUIDE_AI_PROVIDER: 'mock' }, commit: 'fixture', dailyCap: 3 })
   const range = vietnamRange('7', Date.now())
   const reportSummary = await admin.summary(...range)
   assert.deepEqual(reportSummary.funnel, { opened: 1, ran: 1, completed: 1 })
@@ -68,7 +70,27 @@ test('staging applies and repeats migrations on PostgreSQL and enforces data own
   const reportAi = await admin.ai(...range)
   assert.equal(reportAi.models[0].helpful, 1)
   assert.equal(reportAi.nearLimit, true)
-  assert.deepEqual((await admin.community(...range)).newAccounts, [{ provider: 'github', count: 1 }, { provider: 'google', count: 1 }])
+  const communityReport = await admin.community(...range)
+  assert.equal(communityReport.totalAccounts, 2)
+  assert.deepEqual(communityReport.newAccounts, [{ provider: 'github', count: 1 }, { provider: 'google', count: 1 }])
+
+  assert.deepEqual(await admin.feedback(...range), { total: 0, rated: 0, average: null, items: [] })
+  const feedback = { id: randomUUID(), kind: 'bug', title: 'Lỗi mạch LED', details: 'LED không sáng khi chạy mô phỏng.',
+    page: '/build', steps: 'Bấm Chạy', expected: 'LED sáng', actual: 'LED tắt', rating: 4 }
+  await siteFeedback.save(feedback)
+  await siteFeedback.save(feedback)
+  await siteFeedback.save({ ...feedback, id: randomUUID(), rating: null })
+  const inbox = await admin.feedback(...range)
+  assert.equal(inbox.total, 2)
+  assert.equal(inbox.rated, 1)
+  assert.equal(inbox.average, 4)
+  const { createdAt, ...savedFeedback } = inbox.items.find(item => item.id === feedback.id)
+  assert.ok(Number.isFinite(Date.parse(createdAt)))
+  assert.deepEqual(savedFeedback, feedback)
+  await assert.rejects(app.query('DELETE FROM machmo_community.site_feedback'), { code: '42501' })
+  await owner.query("UPDATE machmo_community.site_feedback SET created_at=now()-interval '181 days' WHERE id=$1", [feedback.id])
+  await siteFeedback.expire()
+  assert.equal((await app.query('SELECT count(*)::int AS count FROM machmo_community.site_feedback')).rows[0].count, 1)
 
   const body = 'Vì sao điện trở mắc nối tiếp với LED?'
   const input = { id: randomUUID(), title: 'Thử mạch LED cơ bản', body, category: 'co-ban', tags: ['led'] }

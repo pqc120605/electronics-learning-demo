@@ -8,7 +8,7 @@ import { checkGuideStatus } from '../guide-ai/handler.mjs'
 const ranges = new Set(['7', '30', '90'])
 const DAY = 86_400_000
 const vnOffset = 7 * 60 * 60 * 1000
-export const adminPath = /^\/api\/admin\/(summary|ai|community|system)$/
+export const adminPath = /^\/api\/admin\/(summary|ai|community|system|feedback)$/
 
 export function vietnamRange(days, now) {
   const today = Math.floor((now + vnOffset) / DAY) * DAY - vnOffset
@@ -19,7 +19,7 @@ export function vietnamRange(days, now) {
 const dimensions = { byLesson: 'lesson_id', byBoard: 'board_id', byDevice: 'device', bySource: 'referrer_host' }
 const floorTime = "created_at >= $1 AND created_at < $2"
 
-export function createAdminReports({ pool, analytics, databaseReady, guideEnv, commit, dailyCap, price, dataRoot = homedir() }) {
+export function createAdminReports({ pool, analytics, siteFeedback, databaseReady, guideEnv, commit, dailyCap, price, dataRoot = homedir() }) {
   return {
     async summary(start, end) {
       const totals = await analytics.summarize(start, end)
@@ -56,11 +56,15 @@ export function createAdminReports({ pool, analytics, databaseReady, guideEnv, c
       const { rows } = await pool.query('SELECT ' +
         '(SELECT count(*)::int FROM machmo_community.community_posts WHERE ' + floorTime + ') AS posts,' +
         '(SELECT count(*)::int FROM machmo_community.community_comments WHERE ' + floorTime + ') AS comments,' +
+        '(SELECT count(*)::int FROM machmo_community.accounts WHERE revoked_at IS NULL) AS "totalAccounts",' +
         '(SELECT count(*)::int FROM machmo_community.community_reports WHERE resolved_at IS NULL) AS "pendingReports",' +
         '(SELECT coalesce(jsonb_agg(row_to_json(x)),\'[]\'::jsonb) FROM (' +
         ' SELECT i.provider,count(*)::int AS count FROM machmo_community.accounts a JOIN machmo_community.oauth_identities i ON i.account_id=a.id ' +
-        ' WHERE a.created_at>=$1 AND a.created_at<$2 GROUP BY i.provider ORDER BY i.provider) x) AS "newAccounts"', [start, end])
+        ' WHERE a.revoked_at IS NULL AND a.created_at>=$1 AND a.created_at<$2 GROUP BY i.provider ORDER BY i.provider) x) AS "newAccounts"', [start, end])
       return rows[0]
+    },
+    async feedback(start, end) {
+      return siteFeedback.report(start, end)
     },
     async system() {
       const backupFolder = join(dataRoot, '.local', 'share', 'mach-mo', 'api-staging', 'backups')

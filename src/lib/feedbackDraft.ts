@@ -38,9 +38,10 @@ function textBlock(value:string):string {
   const runs=value.match(/`+/g)??[],fence='`'.repeat(Math.max(3,...runs.map(run=>run.length+1)))
   return `${fence}text\n${value.trim()||'(chưa điền)'}\n${fence}`
 }
-export function formatFeedback(draft:FeedbackDraft,createdAt=new Date().toISOString()):string {
+export function formatFeedback(draft:FeedbackDraft,createdAt=new Date().toISOString(),includeUnsentStatus=true):string {
   const kind=feedbackKinds.find(kind=>kind.id===draft.kind)?.label??'Góp ý'
-  return `# Góp ý Mạch Mở\n\nTrạng thái: Chưa gửi — file được tạo trên thiết bị.\nNgày tạo: ${createdAt}\nLoại: ${kind}\nTrang liên quan: ${safeFeedbackPage(draft.page)||'(chưa chọn)'}\n\n## Tiêu đề\n${textBlock(draft.title)}\n\n## Mô tả\n${textBlock(draft.details)}\n${draft.kind==='bug'?`\n## Các bước gặp lỗi\n${textBlock(draft.steps)}\n\n## Mong đợi\n${textBlock(draft.expected)}\n\n## Thực tế\n${textBlock(draft.actual)}\n`:''}`
+  const status=includeUnsentStatus?'Trạng thái: Chưa gửi — file được tạo trên thiết bị.\n':''
+  return `# Góp ý Mạch Mở\n\n${status}Ngày tạo: ${createdAt}\nLoại: ${kind}\nTrang liên quan: ${safeFeedbackPage(draft.page)||'(chưa chọn)'}\n\n## Tiêu đề\n${textBlock(draft.title)}\n\n## Mô tả\n${textBlock(draft.details)}\n${draft.kind==='bug'?`\n## Các bước gặp lỗi\n${textBlock(draft.steps)}\n\n## Mong đợi\n${textBlock(draft.expected)}\n\n## Thực tế\n${textBlock(draft.actual)}\n`:''}`
 }
 export function feedbackFilename(at=new Date().toISOString()):string {
   const date=new Date(at)
