@@ -33,6 +33,7 @@ export async function openAiAnswer(input, config, context = {}) {
   const start = performance.now()
   const body = JSON.stringify({
     model: config.model, instructions, input: JSON.stringify(input), store: false, max_output_tokens: 700,
+    ...(['none', 'low'].includes(config.effort) && { reasoning: { effort: config.effort } }),
     ...(context.safetyIdentifier && { safety_identifier: context.safetyIdentifier }),
     text: { format: { type: 'json_schema', name: 'mobot_answer', strict: true, schema: answerSchema } },
   })

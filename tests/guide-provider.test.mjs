@@ -20,10 +20,23 @@ test('OpenAI provider uses strict structured responses and returns only verified
       assert.equal(body.store, false)
       assert.equal(body.text.format.strict, true)
       assert.equal(body.text.format.type, 'json_schema')
+      assert.equal(Object.hasOwn(body, 'reasoning'), false)
       return result(answered)
     },
   })
   assert.deepEqual(response, { status: 200, body: { ...answered, model: 'gpt-test' } })
+})
+
+test('GPT-6 Luna can use the configured low-latency reasoning effort', async () => {
+  const config = { ...env, OPENAI_MODEL: 'gpt-6-luna', OPENAI_REASONING_EFFORT: 'none' }
+  const response = await handleChat(input, config, {
+    fetchImpl: async (_url, request) => {
+      assert.deepEqual(JSON.parse(request.body).reasoning, { effort: 'none' })
+      return result(answered)
+    },
+  })
+  assert.equal(response.body.status, 'answered')
+  assert.equal(response.body.model, 'gpt-6-luna')
 })
 
 test('server refuses high-risk requests, unknown sources and malformed output', async () => {

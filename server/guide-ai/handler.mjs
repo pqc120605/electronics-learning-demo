@@ -13,7 +13,8 @@ function setup(env) {
   }
   const askedForOpenAi = env.GUIDE_AI_PROVIDER === 'openai'
   const ready = askedForOpenAi && modelId.test(env.OPENAI_MODEL ?? '') && Boolean(env.OPENAI_API_KEY?.trim())
-  return ready ? { provider: 'openai', model: env.OPENAI_MODEL, key: env.OPENAI_API_KEY, state: 'ready' }
+  const effort = env.OPENAI_REASONING_EFFORT
+  return ready ? { provider: 'openai', model: env.OPENAI_MODEL, key: env.OPENAI_API_KEY, effort, state: 'ready' }
     : { provider: 'mock', model: 'mock', state: env.GUIDE_AI_PROVIDER === 'mock' ? 'ready' : 'unavailable' }
 }
 

@@ -49,6 +49,7 @@ try {
   if (['openai', 'ollama'].includes(guideProvider) && !authStore) throw new Error('AI needs the signed-in origin')
   const guideEnv = guideProvider ? {
     GUIDE_AI_PROVIDER: guideProvider, OPENAI_MODEL: process.env.OPENAI_MODEL, OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    OPENAI_REASONING_EFFORT: process.env.OPENAI_REASONING_EFFORT,
     OLLAMA_URL: process.env.OLLAMA_URL, OLLAMA_MODEL: process.env.OLLAMA_MODEL, OLLAMA_CONTEXT: process.env.OLLAMA_CONTEXT,
   } : {}
   const guideStore = authStore && guideProvider && createGuideStore(pool)

@@ -10,7 +10,7 @@ function machMoLocalTools(): Plugin {
   return {
     name: 'machmo-local-tools',
     configureServer(server) {
-      const env = loadEnv(server.config.mode, server.config.envDir, ['GUIDE_AI_PROVIDER', 'OPENAI_API_KEY', 'OPENAI_MODEL'])
+      const env = loadEnv(server.config.mode, server.config.envDir, ['GUIDE_AI_PROVIDER', 'OPENAI_API_KEY', 'OPENAI_MODEL', 'OPENAI_REASONING_EFFORT'])
       const providerEnv = env.GUIDE_AI_PROVIDER === 'ollama' ? undefined : env
       server.middlewares.use(createLocalToolsMiddleware({
         guideAi: { providerEnv, log: (event: object) => console.info('Mở Bot', event) },
