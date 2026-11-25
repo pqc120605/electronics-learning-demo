@@ -88,6 +88,11 @@ test('Pico: MicroPython runs for real on rp2040js and blinks the LED wired to GP
   await page.getByRole('radio', { name: /Raspberry Pi Pico/ }).check()
   await page.getByRole('button',{name:'Dựng mạch mẫu',exact:true}).click()
   await page.getByRole('tab', { name: /Viết code & Chạy/ }).click()
+  const language = page.getByLabel('Ngôn ngữ')
+  const health = await page.request.get('/api/local-tools/health')
+  const tools = health.ok() ? await health.json().catch(() => null) : null
+  test.skip(!tools?.rp2040Bootrom, 'The real MicroPython run requires the locally provided RP2040 boot ROM.')
+  await language.selectOption('micropython')
   await page.getByLabel('Mã nguồn MicroPython').fill('from machine import Pin\nimport time\nled = Pin(15, Pin.OUT)\nwhile True:\n    led.toggle()\n    print("GP15", led.value())\n    time.sleep(0.4)\n')
   await page.getByRole('tab',{name:/Quan sát/}).click()
   await expect(page.locator('.freestyle-engine strong')).toHaveText('MicroPython thật · rp2040js')

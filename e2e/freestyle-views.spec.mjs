@@ -9,7 +9,7 @@ async function start(page,width=1440){
  await page.evaluate(()=>{localStorage.removeItem('machmo-freestyle-v1');localStorage.setItem('mm-tour-seen',JSON.stringify({freestyle:1,home:1,lab:1}))})
  await page.reload()
 }
-async function sample(page){await page.getByRole('radio',{name:/Arduino Uno R3/}).check();await page.getByRole('button',{name:'Dựng mạch mẫu',exact:true}).click()}
+async function sample(page){await page.getByRole('radio',{name:/Arduino Uno R3/}).click();await page.getByRole('button',{name:'Dựng mạch mẫu',exact:true}).click()}
 test('fresh home and room have no implicit board, circuit, code, or saved replacement',async({page})=>{
  await start(page)
  for(const url of ['/','/build/freestyle']){

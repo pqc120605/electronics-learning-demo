@@ -74,6 +74,6 @@ test('V2 lessons without a registered trace contract stay explicitly unsupported
   const doc = { ...getLessonCircuitDoc('blink'), lessonId: 'analog-ldr' }
   const result = run(doc)
   assert.equal(result.supported, false)
-  assert.equal(result.reason, 'Bài học này chưa có hợp đồng trace CircuitDocV2.')
+  assert.equal(result.reason, 'Bài học này chưa hỗ trợ quan sát tín hiệu trên mạch.')
   assert.equal(result.wireIds.size, 0)
 })
