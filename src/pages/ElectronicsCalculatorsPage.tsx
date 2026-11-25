@@ -15,7 +15,8 @@ import { createCalculatorSpiceHandoff, serializeCalculatorSpiceHandoff, type Cal
 import './ElectronicsCalculatorsPage.css'
 
 const number = (value: number, digits = 3) => new Intl.NumberFormat('vi-VN', { maximumFractionDigits: digits }).format(value)
-const ohms = (value: number) => value >= 1_000_000 ? `${number(value / 1_000_000)} MΩ` : value >= 1_000 ? `${number(value / 1_000)} kΩ` : `${number(value)} Ω`
+const ohms = (value: number) => value >= 1_000_000 ? `${number(value / 1_000_000)} MΩ` : value >= 1_000 ? `${number(value / 1_000)} kΩ` : `${number(value, 1)} Ω`
+const power = (milliwatts: number) => milliwatts >= 1_000 ? `${number(milliwatts / 1_000, 2)} W` : `${number(milliwatts, 2)} mW`
 
 function Field({ id, label, value, unit, error, onChange, min = '0.001', step = 'any' }: { id: string; label: string; value: string; unit: string; error?: string; onChange: (value: string) => void; min?: string; step?: string }) {
   return <label className={`electronics-field${error ? ' electronics-field-invalid' : ''}`}><span>{label}</span><span className="electronics-field-control"><input id={id} type="number" min={min} step={step} value={value} aria-invalid={error ? true : undefined} aria-describedby={error ? `${id}-error` : undefined} onChange={event => onChange(event.target.value)} /><small>{unit}</small></span>{error && <small className="electronics-field-error" id={`${id}-error`}>{error}</small>}</label>
@@ -76,7 +77,9 @@ export function ElectronicsCalculatorsPage() {
             <Field id="calc-led-vf" label="Điện áp thuận LED (Vf)" value={led.vf} unit="V" error={ledErrors.vf} onChange={vf => setLed({ ...led, vf })} />
             <Field id="calc-led-current" label="Dòng mục tiêu" value={led.current} unit="mA" error={ledErrors.current} onChange={current => setLed({ ...led, current })} />
           </div>
-          {ledResult.value ? <div className="electronics-result" aria-live="polite" aria-atomic="true"><small>Điện trở E24 đề xuất</small><strong>{ohms(ledResult.value.standardOhms)}</strong><p>Dòng ước tính {number(ledResult.value.actualCurrentMilliAmps)} mA · Công suất trên R {number(ledResult.value.resistorPowerMilliwatts)} mW</p><button className="electronics-spice-action" type="button" onClick={() => openInSpice('led', { supplyVolts: Number(led.supply), forwardVolts: Number(led.vf), currentMilliAmps: Number(led.current) })}>Mô phỏng giá trị này trong SPICE</button></div> : <p className="electronics-error" role="alert">{Object.keys(ledErrors).length ? FIELD_ERROR_SUMMARY : ledResult.error}</p>}
+          {ledResult.value ? <div className="electronics-result" aria-live="polite" aria-atomic="true"><small>Điện trở E24 đề xuất</small><strong>{ohms(ledResult.value.standardOhms)}</strong><p>Dòng ước tính {number(ledResult.value.actualCurrentMilliAmps, 2)} mA · Công suất trên R {power(ledResult.value.resistorPowerMilliwatts)}</p><button className="electronics-spice-action" type="button" onClick={() => openInSpice('led', { supplyVolts: Number(led.supply), forwardVolts: Number(led.vf), currentMilliAmps: Number(led.current) })}>Mô phỏng giá trị này trong SPICE</button></div> : <p className="electronics-error" role="alert">{Object.keys(ledErrors).length ? FIELD_ERROR_SUMMARY : ledResult.error}</p>}
+          <p className="electronics-formula">Dùng cho mạch DC điện áp thấp. Điện lưới nằm ngoài phạm vi của công cụ. Kiểm tra dòng liên tục tối đa của LED và công suất cho phép của điện trở theo linh kiện thực tế.</p>
+          {Number(led.current) > 20 && <p className="electronics-error" role="status">Dòng mục tiêu vượt 20 mA. Kiểm tra datasheet của LED cụ thể trước khi lắp.</p>}
           <p className="electronics-formula">R = (V nguồn − Vf) / I · Chọn giá trị E24 bằng hoặc lớn hơn giá trị tính.</p>
         </section>
 

@@ -10,9 +10,21 @@ test('production edge explicitly routes project and classroom collections and ch
     assert.ok(paths?.includes(route), route)
   }
   assert.match(config, /not path \/community\/moderation\/\*/)
+  assert.match(config, /@moderationQueue\s*\{\s*method GET\s*path \/community\/moderation\/reports\s*\}/)
+  assert.match(config, /@moderationWrite\s*\{\s*method PATCH\s*path_regexp reportPath/)
   assert.match(config, /rewrite \* \/api\{uri\}/)
   assert.match(config, /header_up Host mach-mo\.vercel\.app/)
   assert.doesNotMatch(config, /path \/\*(?:\s|$)/)
+})
+
+test('bare deployments preserve compiler and AI routing independently', async () => {
+  const { readProductionEdgeFeatures, renderProductionEdge } = await import('../server/api/production-edge.mjs')
+  for (const aiEnabled of [false, true]) for (const compilerEnabled of [false, true]) {
+    const expected = { aiEnabled, compilerEnabled }
+    assert.deepEqual(readProductionEdgeFeatures(renderProductionEdge(expected)), expected)
+  }
+  assert.throws(() => readProductionEdgeFeatures('custom edge'), /indisponible|recognize|incomplete/i)
+  assert.throws(() => readProductionEdgeFeatures(renderProductionEdge({ compilerEnabled: true }).replace(' /tools/arduino/compile', '')), /incomplete/i)
 })
 
 test('the public status reports unavailable until AI can be enabled with a real provider', async () => {

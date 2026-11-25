@@ -19,6 +19,13 @@ const run = (source, boardId = 'esp32-devkit') => {
   return compiled.run
 }
 
+test('missing semicolon points to the preceding statement rather than the next line', () => {
+  const result = sk.compileSketch('void setup(){\nSerial.begin(9600)\nSerial.println(1);\n}\nvoid loop(){}', board('arduino-uno-r3'))
+  assert.equal(result.ok, false)
+  assert.equal(result.error.line, 2)
+  assert.match(result.error.message, /Thiếu ';'/)
+})
+
 test('ESP32 blink toggles LED_BUILTIN (GPIO 2) every 500 ms of virtual time and prints Serial', () => {
   const sketch = run(`
 #define LED LED_BUILTIN

@@ -76,7 +76,7 @@ export const TOURS: Readonly<Record<TourId, TourDefinition>> = {
   },
   freestyle: {
     id: 'freestyle', label: 'Bàn lắp mạch tự do', publicPath: '/build/freestyle', appPath: '/app/lab/freestyle',
-    invite: 'Năm bước ngắn: chọn board, thêm linh kiện, viết code và bấm Chạy.',
+    invite: 'Chọn board, thêm linh kiện, viết code rồi chạy thử và xem kết quả.',
     steps: [...freestyleSteps, helpStep],
   },
   lab: {

@@ -3,12 +3,22 @@ import { after, before, test } from 'node:test'
 import { createServer } from 'vite'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { createElement } from 'react'
-let server, plot
+let server, plot, events
 before(async () => {
   server = await createServer({ configFile: 'vite.config.ts', logLevel: 'silent', server: { middlewareMode: true } })
   plot = await server.ssrLoadModule('/src/lib/freestyle/serialPlot.ts')
+  events = await server.ssrLoadModule('/src/lib/freestyle/serialEvents.ts')
 })
 after(async () => server?.close())
+
+test('Serial event time follows the frame that completed the line and the log stays bounded', () => {
+  let state = events.appendSerialEvents(events.createSerialEvents(), 'first\r\nsecond', 12)
+  state = events.appendSerialEvents(state, '\r\nthird\n', 534)
+  assert.deepEqual(state.entries, [{text:'first',atMs:12},{text:'second',atMs:534},{text:'third',atMs:534}])
+  state = events.appendSerialEvents(state, 'data\n'.repeat(100), 900)
+  assert.equal(state.entries.length, 12)
+  assert.equal(state.entries[0].atMs, 900)
+})
 
 test('only complete finite numeric or explicit labelled lines become samples', () => {
   let state = plot.createSerialPlot()

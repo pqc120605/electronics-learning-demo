@@ -1,5 +1,4 @@
 .brand-logo{display:inline-block;position:relative;width:166px;height:42px;flex:none;overflow:hidden;vertical-align:middle;border-radius:8px;background:#f6eddc}
-.brand-logo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 52%;max-width:none}
+.brand-logo img{display:block;width:100%;height:100%;object-fit:contain}
 .brand-logo-compact{width:34px;height:34px;border-radius:8px}
-.brand-logo-compact img{position:absolute;width:118px;height:40px;left:-3px;top:-3px;object-fit:fill}
 @media(max-width:520px){.brand-logo:not(.brand-logo-compact){width:138px;height:36px}}

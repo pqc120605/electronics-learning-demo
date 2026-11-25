@@ -105,6 +105,11 @@ test('custom netlist selector and textarea retain an accessible description and 
   assert.match(source, /engine WASM khoảng 6,1 MB/)
 })
 
+test('supported components missing a value are reported by name and line', () => {
+  const report = spice.inspectSpiceNetlist('Missing value\nV1 A 0 DC 5\nR1 A 0\n.op\n.end\n')
+  assert.deepEqual(report.errors, ['R1 (dòng 3): thiếu trị số.'])
+})
+
 test('SPICE engineering suffixes convert to SI values', () => {
   assert.ok(Math.abs(spice.spiceNumberValue('10us') - 10e-6) < 1e-18)
   assert.equal(spice.spiceNumberValue('1Meg'), 1e6)

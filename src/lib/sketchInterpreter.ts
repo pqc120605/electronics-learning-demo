@@ -150,7 +150,15 @@ function parse(tokens: Token[]) {
   const peek = (offset = 0) => tokens[Math.min(position + offset, tokens.length - 1)]
   const next = () => tokens[position++]
   const is = (value: string, offset = 0) => { const token = peek(offset); return (token.t === 'op' || token.t === 'id') && token.v === value }
-  const expect = (value: string) => { const token = next(); if (token.v !== value || (token.t !== 'op' && token.t !== 'id')) throw new CompileError(token.line, `Thiếu '${value}' (gặp '${token.v || 'hết tệp'}').`); return token }
+  const expect = (value: string) => {
+    const previous = tokens[position - 1]
+    const token = next()
+    if (token.v !== value || (token.t !== 'op' && token.t !== 'id')) {
+      const line = value === ';' && previous && previous.line < token.line ? previous.line : token.line
+      throw new CompileError(line, `Thiếu '${value}' (gặp '${token.v || 'hết tệp'}').`)
+    }
+    return token
+  }
   const isTypeStart = () => peek().t === 'id' && TYPE_WORDS.has(peek().v)
 
   function parseType(): string {

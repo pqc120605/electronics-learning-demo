@@ -66,7 +66,7 @@ test('read-only lesson preview never renders wire mutation controls until a loca
   await expect(editor.getByRole('button', { name: /^Xóa dây/ })).toHaveCount(0)
 
   await migrationGate.getByRole('button', { name: 'Chấp nhận preview và tạo v5', exact: true }).click()
-  await expect(page.getByText('Đã tạo bản v5 sau khi kiểm tra preview. Bản schema 4 được giữ nguyên byte.')).toBeVisible()
+  await expect(page.getByText('Đã tạo bản nháp để chỉnh dây. Bản cũ vẫn có thể khôi phục.')).toBeVisible()
   const circuitGatePanel = page.locator('[aria-label="Kiểm tra mạch CircuitDocV2"]')
   await expect(circuitGatePanel).toBeAttached()
   const structureGate = circuitGatePanel.locator('.circuit-gate-list > li[data-status]').first()
@@ -84,7 +84,7 @@ test('CircuitDocV2 lesson trace is available and highlights the same circuit acr
   const run = page.getByRole('button', { name: '▶ Chạy mô phỏng', exact: true })
   await expect(run).toBeEnabled()
   await run.click()
-  await expect(page.locator('.builder-guidance-label')).toContainText('Trace bài học đang hoạt động')
+  await expect(page.locator('.builder-guidance-label')).toContainText('Mạch: Đang chạy')
 
   const breadboard = page.getByRole('button', { name: 'Lắp dây · breadboard', exact: true })
   await breadboard.click()

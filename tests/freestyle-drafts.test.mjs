@@ -31,3 +31,14 @@ test('switching repeatedly between identical samples reuses the first exact arch
   drafts.archiveFreestyleReplacement(store, JSON.stringify({ ...workspace, code: '// custom code' }))
   assert.equal(drafts.listFreestyleDrafts(store).length, 2)
 })
+
+test('automatic archives stop at the storage budget and leave every saved byte accessible', () => {
+  const store = storage()
+  const workspace = fs.defaultFreestyleWorkspace()
+  for (let i = 0; i < 30; i++) {
+    drafts.archiveFreestyleReplacement(store, JSON.stringify({...workspace, code: '//' + i}))
+  }
+  assert.equal(store.length, 24)
+  assert.deepEqual(drafts.archiveFreestyleReplacement(store, JSON.stringify({...workspace, code: '// new'})), {ok:false,reason:'archive-limit'})
+  assert.ok(drafts.listFreestyleDrafts(store).some(d => d.workspace.code === '//0'))
+})

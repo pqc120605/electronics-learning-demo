@@ -268,7 +268,7 @@ export function AssemblyStage(props: Props) {
     setMoveStatus(mount.kind === 'breadboard' ? `${nameFor(part)}: cột ${mount.column + 1}, hàng ${'abcdefghij'[mount.row]}.` : `${nameFor(part)} đã di chuyển trên bàn.`)
   }
 
-  if (graphics === 'unsupported' && circuitDocV2) return <p className="assembly-stage-note" role="status">Trình duyệt này chưa mở được WebGL 2. Mạch v5 vẫn giữ nguyên; hãy dùng breadboard 2D hoặc schematic. Không hiển thị topology schema 4 thay thế.</p>
+  if (graphics === 'unsupported' && circuitDocV2) return <p className="assembly-stage-note" role="status">Trình duyệt này chưa mở được cảnh 3D. Mạch vẫn được lưu và có thể xem ở breadboard 2D hoặc sơ đồ nguyên lý.</p>
   if (graphics === 'unsupported') return <><p className="assembly-stage-note" role="status">Trình duyệt này chưa mở được WebGL 2, nên đang dùng khối minh họa thay cho model 3D.</p><Assembly3DView parts={parts} wires={wires} definitions={definitions} nameFor={nameFor} pinPoint={props.pinPoint} colorWire={colorWire} onSelect={onSelect} onPinClick={props.onPinClick} onRemove={onRemove} onRotate={onRotate} onDrop={onDrop} pending={pending} active={active} activePart={activePart} /></>
 
   const selectedPart = sceneParts.find((part) => part.id === sceneSelectedPartId)

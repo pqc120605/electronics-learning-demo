@@ -1,0 +1,13 @@
+{
+  "revision": "ESP32-DEVKIT-V1-MAU-HOC-R1",
+  "board": "ESP32 DevKit V1 30 chân (boardId esp32-devkit)",
+  "scope": "Chỉ ba mẫu dựng mới trong bàn lắp mạch tự do",
+  "changes": {
+    "button-led": { "signal": "input", "from": 34, "to": 19, "mode": "INPUT_PULLUP", "contact": "GND" },
+    "keypad-five": { "signal": "input", "from": 34, "to": 19, "mode": "INPUT_PULLUP", "contact": "C2, R2 nối GND" },
+    "dht-demo": { "signal": "input", "from": 34, "to": 19, "mode": "DATA hai chiều", "pullUpOhm": 4700, "pullUpVolts": 3.3 }
+  },
+  "preserve": ["GPIO34 cho các mẫu ADC", "Các chân còn lại", "Định danh endpoint", "Code, dây và pin map của bản nháp đã lưu"],
+  "verification": "Kiểm sơ đồ và code sinh trên web bằng test; nghiệm thu board vật lý là bước riêng",
+  "source": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/peripherals/gpio.html"
+}

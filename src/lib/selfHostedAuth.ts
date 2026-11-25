@@ -21,9 +21,14 @@ async function extractUser(response: Response): Promise<AuthUser | null> {
 }
 
 let pendingRead: Promise<AuthUser | null> | undefined
+let cachedRead: { user: AuthUser | null; expiresAt: number } | undefined
 export function readSelfHostedUser() {
+  if (cachedRead && Date.now() < cachedRead.expiresAt) return Promise.resolve(cachedRead.user)
   if (!pendingRead) {
-    const request = apiRequest('/api/session', { signal: AbortSignal.timeout(8000) }).then(extractUser).catch(error => {
+    const request = apiRequest('/api/session', { signal: AbortSignal.timeout(8000) }).then(extractUser).then(user => {
+      if (pendingRead === request) cachedRead = { user, expiresAt: Date.now() + 15_000 }
+      return user
+    }).catch(error => {
       if (error instanceof ApiError && error.code === 'not-found') throw new ApiError('unavailable', error.status)
       throw error
     }).finally(() => {
@@ -36,6 +41,7 @@ export function readSelfHostedUser() {
 
 function notifyChange() {
   pendingRead = undefined
+  cachedRead = undefined
   window.dispatchEvent(new Event(selfHostedSessionChanged))
 }
 

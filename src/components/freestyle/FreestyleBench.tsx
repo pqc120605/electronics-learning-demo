@@ -29,6 +29,7 @@ import { appendTrace, type TraceSample } from '../../lib/freestyle/freestyleTrac
 import { FreestyleWaveform } from './FreestyleWaveform'
 import { SerialPlotter } from './SerialPlotter'
 import { appendSerialPlot, createSerialPlot } from '../../lib/freestyle/serialPlot'
+import { appendSerialEvents, createSerialEvents } from '../../lib/freestyle/serialEvents'
 import { CircuitSchematicV2 } from '../builder/CircuitSchematicV2'
 import { pushWireHistory, readWireLayout, type WireBend, type WireHistoryEntry } from '../../lib/freestyle/freestyleWireLayout'
 import { encodeFreestyleShare } from '../../lib/freestyle/freestyleShare'
@@ -110,6 +111,8 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   const [error, setError] = useState<{ message: string; line?: number }>()
   const [pins, setPins] = useState<Record<number, LivePinState>>()
   const [serial, setSerial] = useState('')
+  const serialEventsRef = useRef(createSerialEvents())
+  const [serialEntries, setSerialEntries] = useState<SerialEntry[]>([])
   const serialPlotRef = useRef(createSerialPlot())
   const [serialPlot, setSerialPlot] = useState(serialPlotRef.current)
   const [serialPlotOpen, setSerialPlotOpen] = useState(false)
@@ -225,6 +228,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       setTracePopout(false)
       stop();setPins(undefined);setSerial('');setSimMs(0);setError(undefined);setStatus('');traceRef.current=[];setTrace([]);latestFrame.current=null;setPendingEndpoint(null)
       serialPlotRef.current = createSerialPlot();setSerialPlot(serialPlotRef.current)
+      serialEventsRef.current = createSerialEvents();setSerialEntries([])
     }
     if(!saveAttempted.current){
       saveAttempted.current=true
@@ -369,11 +373,20 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     if(!frame)return
     setPins(frame.pins);setSimMs(frame.simMs);setTrace(traceRef.current)
     setSerialPlot(serialPlotRef.current)
+    setSerialEntries(serialEventsRef.current.entries)
     if(frame.serial){const chunk=frame.serial;frame.serial='';setSerial(current=>(current+chunk).slice(-MAX_SERIAL))}
   }
   function archiveBeforeReplace(): boolean {
     if(!workspace.doc.parts.length&&!workspace.doc.breadboards.length&&!workspace.code)return true
-    try { if(archiveFreestyleReplacement(getBrowserStorage('localStorage'),JSON.stringify(workspace)).ok)return true }catch{/* current work remains in memory */}
+    try {
+      const archived = archiveFreestyleReplacement(getBrowserStorage('localStorage'), JSON.stringify(workspace))
+      if (archived.ok) return true
+      if ('reason' in archived && archived.reason === 'archive-limit') {
+        setDraftsOpen(true)
+        setNotice('Đã tới giới hạn lưu bản cũ. Sao lưu rồi xóa một bản cũ để tiếp tục thay mạch.')
+        return false
+      }
+    } catch { /* current work remains in memory */ }
     setSessionOnly(true);setNotice('Chưa sao lưu được công việc hiện tại nên chưa thay mạch. Mở Bản nháp để tải file trước.')
     return false
   }
@@ -398,6 +411,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     setError(undefined)
     setSerial('')
     serialPlotRef.current = createSerialPlot();setSerialPlot(serialPlotRef.current)
+    serialEventsRef.current = createSerialEvents();setSerialEntries([])
     setSimMs(0)
     setPins(undefined)
     sentInputs.current = ''
@@ -416,6 +430,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
         if(runId!==generation.current)return
         traceRef.current=appendTrace(traceRef.current,frame)
         serialPlotRef.current = appendSerialPlot(serialPlotRef.current, frame.serial)
+        serialEventsRef.current = appendSerialEvents(serialEventsRef.current, frame.serial, frame.simulatedMilliseconds)
         const latest = latestFrame.current ?? { pins: {}, serial: '', simMs: 0 }
         latestFrame.current = { pins: frame.pins, serial: (latest.serial + frame.serial).slice(-MAX_SERIAL), simMs: frame.simulatedMilliseconds }
       },
@@ -510,7 +525,10 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     const result = placePart(mountingDoc, type, at)
     if (!result.partId) { setNotice(result.error ?? 'Không thêm được linh kiện.'); return false }
     setSelectedPartId(result.partId)
-    setNotice(`Đã thêm ${result.partId}. Nối dây: chọn chân/lỗ đầu rồi chọn điểm đích (hoặc kéo giữa hai điểm).`)
+    const label = placeableParts.find(part => part.id === type)?.label ?? type
+    setNotice(result.separate
+      ? `Đã đặt ${label} cạnh breadboard vì chưa có vị trí cắm phù hợp. Chọn chân để nối dây trực tiếp.`
+      : `Đã thêm ${label}. Chọn chân đầu rồi chọn điểm đích hoặc kéo dây giữa hai điểm.`)
     update({ doc: result.doc, sampleId: undefined })
     return true
   }
@@ -563,7 +581,6 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   }, [doc, evaluation.netLevels, running])
 
   const legend: FlowLegendEntry[] = useMemo(() => [...wireSignals.entries()].filter(([, label]) => label.tone === 'high' || label.tone === 'low').slice(0, 8).map(([wireId, label]) => ({ wireId, label: `${wireId} · ${label.text}`, signal: label.tone === 'high' ? 'high' : 'low', direction: 'none' })), [wireSignals])
-  const serialEntries: SerialEntry[] = useMemo(() => serial.split(/\r?\n/).filter(Boolean).slice(-12).map((text, index) => ({ atMs: index, text })), [serial])
   const outputPins = pins ? Object.entries(pins).filter(([, state]) => state.mode === 'output').map(([pin, state]) => ({ pin: Number(pin), ...state })).sort((a, b) => a.pin - b.pin) : []
   const lineCount = code.split('\n').length
   const motorProtection = useMemo(() => getMotorProtection(doc), [doc])
@@ -575,6 +592,8 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   }
   const HeadingTag = variant === 'full' ? 'h1' : 'h2'
   const activeSample = findFreestyleSample(workspace.sampleId)
+  const oldEsp32Sample = boardId === 'esp32-devkit' && pinMap.input >= 34
+    && (workspace.sampleId === 'button-led' || workspace.sampleId === 'keypad-five' || workspace.sampleId === 'dht-demo')
   const pythonAvailable = Boolean(useLocalRuntime && tools?.rp2040Bootrom)
   const runBlockedReason = !boardId ? 'Chọn board trước khi chạy hoặc dựng mạch mẫu.'
     : activeSample?.mode === 'wiring' ? 'Mẫu này minh họa cách lắp. Máy mô phỏng chưa hỗ trợ chạy mẫu.'
@@ -601,7 +620,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
           <select value={sampleId} onChange={event => setSampleId(event.target.value as FreestyleSampleId)}>{[...new Set(freestyleSamples.map(sample=>sample.level))].map(level=><optgroup label={level} key={level}>{freestyleSamples.filter(sample=>sample.level===level).map(sample => <option key={sample.id} value={sample.id}>{sample.title}</option>)}</optgroup>)}</select>
         </label>
         <button type="button" className="freestyle-button" disabled={!boardId} title={!boardId ? runBlockedReason : undefined} onClick={() => loadSample(sampleId)}>Dựng mạch mẫu</button>
-        <button type="button" className="freestyle-button" onClick={() => { if(!archiveBeforeReplace())return;setControls({});setSelectedPartId(null);setSelectedWireId(null);update(blankFreestyleWorkspace());setStep('board');setView('breadboard');setPanelOpen(true);setNotice('Bàn mới trống. Chọn board hoặc thêm breadboard để bắt đầu.') }}>Bàn trống</button>
+        <button type="button" className="freestyle-button" onClick={() => { if(!archiveBeforeReplace())return;setControls({});setSampleId('blink');setSelectedPartId(null);setSelectedWireId(null);update(blankFreestyleWorkspace());setStep('board');setView('breadboard');setPanelOpen(true);setNotice('Bàn mới trống. Chọn board hoặc thêm breadboard để bắt đầu.') }}>Bàn trống</button>
         <button type="button" className="freestyle-button" onClick={() => setDraftsOpen(true)}>Bản nháp</button>
         <button type="button" className="freestyle-button" onClick={() => setToolsOpen(true)}>Công cụ</button>
         <button type="button" className="freestyle-button" disabled={!boardId || shareBusy} title={!boardId ? 'Chọn board trước khi chia sẻ mạch.' : undefined} onClick={() => void createShare()}>Chia sẻ mạch</button>
@@ -681,12 +700,18 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
               <span><strong>{item.name}</strong><small>{item.logic} · {chooseEngine(item.id, 'cpp', useLocalRuntime ? tools : null).label}</small></span>
             </label>)}
           </fieldset>
-          {boardId && <><div className="freestyle-pinmap">
+          {boardId && <><button type="button" className="freestyle-button" onClick={() => setStep('parts')}>Tiếp theo: Thêm linh kiện</button><div className="freestyle-pinmap">
             <h3>Chân board dùng trong mạch</h3>
             <p>Dây nối vào chân “GPIO LED”, “GPIO IN”… của board. Chọn số chân thật tương ứng trong code.</p>
-            {wiredSignals.map(signal => <label key={signal}>{SIGNAL_PIN_LABELS[signal]}
-              <select value={pinMap[signal]} onChange={event => setPin(signal, Number(event.target.value))}>{availablePins(boardId).map(pin => <option key={pin} value={pin}>{pinDisplayName(boardId, pin)}</option>)}</select>
-            </label>)}
+            {wiredSignals.map(signal => {
+              const choices = availablePins(boardId, signal)
+              return <label key={signal}>{SIGNAL_PIN_LABELS[signal]}
+                <select value={pinMap[signal]} onChange={event => setPin(signal, Number(event.target.value))}>
+                  {!choices.includes(pinMap[signal]) && <option value={pinMap[signal]} disabled>{pinDisplayName(boardId, pinMap[signal])} · bản cũ, chọn chân khác</option>}
+                  {choices.map(pin => <option key={pin} value={pin}>{pinDisplayName(boardId, pin)}</option>)}
+                </select>
+              </label>
+            })}
           </div>
           <p className="freestyle-note">{board.limitation}</p></>}
         </div>}
@@ -743,6 +768,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       </div>
 
       <div className="freestyle-stage" ref={stageRef} tabIndex={-1} aria-label="Mạch đang lắp" onDragOver={event => { if (!readOnly && event.dataTransfer.types.includes('application/x-machmo-part')) event.preventDefault() }} onDrop={readOnly ? undefined : dropPart}>
+        {oldEsp32Sample && <p className="freestyle-note" role="note">Mẫu lưu cũ dùng chân từ GPIO34 trở lên. Các chân này không có kéo lên nội và chỉ nhận tín hiệu. Chọn lại đúng mạch mẫu rồi bấm “Dựng mạch mẫu” để dùng GPIO19.</p>}
         {runBlockedReason && <p id="freestyle-run-help" className="freestyle-note">{runBlockedReason}</p>}
         {activeSample && <details className="freestyle-note"><summary>{activeSample.title}{activeSample.mode==='wiring'?' · nối dây và đọc sketch':''}</summary><p>{activeSample.summary}</p><p>Thử {activeSample.challenge.charAt(0).toLocaleLowerCase('vi-VN')+activeSample.challenge.slice(1)}</p>{activeSample.mode==='wiring'&&<p>Máy mô phỏng hiện tại chưa chạy giao thức hoặc ngoại vi của mẫu này. Có thể tải sketch và đối chiếu tài liệu phần cứng.</p>}</details>}
         {workspace.sampleId === 'motor' && <p className="freestyle-note" role="note">{motorProtection.independentSupply && motorProtection.commonGround && motorProtection.flyback ? 'Mạch này có nguồn tải lý tưởng riêng, GND chung và diode mắc ngược song song motor.' : 'Bản nháp motor này chưa có đủ nguồn tải riêng, GND chung hoặc diode đúng chiều. Mạch đang được giữ nguyên. Hãy tải bản nháp trước khi chọn “Dựng mạch mẫu” để dùng mẫu mới.'} Hoạt cảnh chỉ minh họa đóng/ngắt; chưa tính dòng tải, sụt áp, xung ngược, nhiệt hoặc chọn định mức linh kiện thật.</p>}

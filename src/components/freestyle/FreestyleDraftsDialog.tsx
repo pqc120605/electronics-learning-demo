@@ -1,7 +1,7 @@
 import {useEffect,useRef,useState,type ChangeEvent} from 'react'
 import {getBrowserStorage} from '../../lib/workspaceStorage'
 import {getFreestyleBoard,type FreestyleWorkspace} from '../../lib/freestyle/freestyleCircuit'
-import {listFreestyleDrafts,type SavedFreestyleDraft} from '../../lib/freestyle/freestyleDrafts'
+import {freestyleArchiveLimit,listFreestyleDrafts,removeFreestyleArchive,type SavedFreestyleDraft} from '../../lib/freestyle/freestyleDrafts'
 import {arduinoSourceFile} from '../../lib/arduinoSketchExport'
 import {downloadBlob} from '../../lib/communityAttachments'
 import {backupFileLimit,freestyleBomCsv,restoreFreestyleBackup,serializeFreestyleBackup,serializeFreestyleProject} from '../../lib/freestyle/freestyleTransfer'
@@ -17,6 +17,16 @@ export function FreestyleDraftsDialog({open,onClose,onRestore,current,drawing}:D
  useEffect(()=>{if(open){setStatus('');try{setDrafts(listFreestyleDrafts(getBrowserStorage('localStorage')));setError('')}catch{setError('Không đọc được bộ nhớ trình duyệt. Không có bản nháp nào bị xóa.')}dialog.current?.showModal()}else dialog.current?.close()},[open])
  const save = (raw: string, name: string, type = 'application/json') => downloadBlob(new Blob([raw], {type}), name)
  const download = (raw: string) => save(raw, `machmo-draft-${Date.now()}.json`)
+ function removeArchive(draft: SavedFreestyleDraft) {
+   if (!window.confirm('Xóa bản lưu cũ này khỏi trình duyệt? Hãy tải file gốc trước nếu cần giữ lại.')) return
+   setStatus('');setError('')
+   try {
+     const storage = getBrowserStorage('localStorage')
+     if (!removeFreestyleArchive(storage, draft)) throw new Error('Bản lưu vừa thay đổi. Kiểm tra lại danh sách trước khi xóa.')
+     setStatus('Đã xóa bản lưu cũ đã chọn.')
+     setDrafts(listFreestyleDrafts(storage))
+   } catch (reason) { setError(reason instanceof Error ? reason.message : 'Chưa xóa được bản lưu cũ.') }
+ }
  async function restoreBackup(event: ChangeEvent<HTMLInputElement>) {
    const file = event.currentTarget.files?.[0]
    event.currentTarget.value = ''
@@ -52,13 +62,14 @@ export function FreestyleDraftsDialog({open,onClose,onRestore,current,drawing}:D
     {drawing && <p>Ảnh xuất lấy toàn khung {drawing.kind === 'breadboard' ? 'lắp mạch 2D' : 'sơ đồ nguyên lý'} đang mở.</p>}
    </section>
    <section aria-label="Sao lưu toàn bộ bàn tự do"><h3>Toàn bộ nháp bàn tự do</h3>
+    <p>Tự lưu tối đa {freestyleArchiveLimit} bản cũ trong ngân sách 1 MB. Khi đầy, tải các bản cần giữ rồi xóa từng bản cũ để tiếp tục thay mạch.</p>
     <div className="freestyle-transfer-actions">
      <button className="freestyle-button" onClick={()=>save(serializeFreestyleBackup(current,drafts),'mach-mo-nhap-ban-tu-do.json')}>Sao lưu tất cả nháp</button>
      <label className="freestyle-button freestyle-import-draft">Khôi phục từ tệp<input type="file" accept=".json,application/json" aria-label="Khôi phục tất cả nháp từ tệp" onChange={restoreBackup}/></label>
     </div>
    </section>
    {status&&<p role="status">{status}</p>}{error&&<p role="alert">{error}</p>}{!error&&!drafts.length&&<p>Chưa có bản nháp đã lưu.</p>}
-   <ol>{drafts.map((draft,i)=><li key={draft.key} data-draft-key={draft.key}><strong>{draft.key.includes(':previous:')?'Bản trước khi thay mạch':'Bản lưu hiện tại'} · {draft.workspace?.boardId?getFreestyleBoard(draft.workspace.boardId).name:'Chưa chọn board'}</strong><span>{draft.workspace?`${draft.workspace.doc.parts.length} linh kiện · ${draft.workspace.doc.wires.length} dây · ${draft.workspace.updatedAt}`:'File chưa đọc được; vẫn có thể tải nguyên bản.'}</span><div>{draft.workspace&&<button className="freestyle-button" onClick={()=>onRestore(draft.workspace!)} aria-label={`Khôi phục bản nháp ${i+1}`}>Khôi phục</button>}<button className="freestyle-button" onClick={()=>download(draft.raw)} aria-label={`Tải nguyên bản nháp ${i+1}`}>Tải file gốc</button></div></li>)}</ol>
+   <ol>{drafts.map((draft,i)=><li key={draft.key} data-draft-key={draft.key}><strong>{draft.key.includes(':previous:')?'Bản trước khi thay mạch':'Bản lưu hiện tại'} · {draft.workspace?.boardId?getFreestyleBoard(draft.workspace.boardId).name:'Chưa chọn board'}</strong><span>{draft.workspace?`${draft.workspace.doc.parts.length} linh kiện · ${draft.workspace.doc.wires.length} dây · ${draft.workspace.updatedAt}`:'File chưa đọc được; vẫn có thể tải nguyên bản.'}</span><div>{draft.workspace&&<button className="freestyle-button" onClick={()=>onRestore(draft.workspace!)} aria-label={`Khôi phục bản nháp ${i+1}`}>Khôi phục</button>}<button className="freestyle-button" onClick={()=>download(draft.raw)} aria-label={`Tải nguyên bản nháp ${i+1}`}>Tải file gốc</button>{draft.key.includes(':previous:')&&<button className="freestyle-button" onClick={()=>removeArchive(draft)} aria-label={`Xóa bản lưu cũ ${i+1}`}>Xóa bản cũ</button>}</div></li>)}</ol>
   </div>
  </dialog>
 }

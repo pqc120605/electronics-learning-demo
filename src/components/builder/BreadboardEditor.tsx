@@ -2,7 +2,7 @@ import type { BoardDiagramPresentation } from '../../lib/boardTopView'
 import { useId, useMemo, useRef, useState, type KeyboardEvent, type MouseEvent, type PointerEvent } from 'react'
 import { componentRegistry } from '../../data/componentRegistry'
 import { boardCapabilityRegistry } from '../../data/boardCapabilityRegistry'
-import { BREADBOARD_ELECTRICAL_SPEC, RAIL_IDS, holeNet, parseHole, type RailId } from '../../lib/breadboardGrid'
+import { BREADBOARD_ELECTRICAL_SPEC, RAIL_IDS, parseHole, type RailId } from '../../lib/breadboardGrid'
 import { occupancy } from '../../lib/mountResolve'
 import { createNetIndexV2 } from '../../lib/circuitNetsV2'
 import type { CircuitDocV2, CircuitEndpointV2 } from '../../lib/circuitDocV2'
@@ -236,6 +236,9 @@ export function BreadboardEditor(props: Props) {
     const use = occupied[id]
     const active = usedBySelected(endpoint)
     const pending = activePending?.kind === 'hole' && activePending.holeId === id
+    const label = hole.kind === 'grid'
+      ? `Lỗ ${hole.column}${hole.row} · dải ${hole.column}${hole.row <= 'e' ? 'a–e' : 'f–j'}`
+      : `Ray ${hole.rail.startsWith('T') ? 'trên' : 'dưới'} ${hole.rail.endsWith('+') ? '+' : '−'} · lỗ ${hole.hole}`
     return <button
       key={id}
       type="button"
@@ -243,10 +246,10 @@ export function BreadboardEditor(props: Props) {
       data-hole-id={id}
       data-breadboard-control-endpoint={id}
       data-occupied={use?.legs.length || use?.wireEndpoints.length ? 'true' : 'false'}
-      aria-label={`${kind === 'rail' ? 'Lỗ ray nguồn' : 'Lỗ breadboard'} ${id}. ${holeNet(hole) ?? 'không rõ dải'}${use?.legs.length ? `; chân ${use.legs.map(leg => `${leg.partId}:${leg.pinId}`).join(', ')}` : ''}${use?.wireEndpoints.length ? `; dây ${use.wireEndpoints.map(wire => wire.wireId).join(', ')}` : ''}`}
+      aria-label={`${label}${use?.legs.length ? `; ${use.legs.length} chân linh kiện` : ''}${use?.wireEndpoints.length ? `; ${use.wireEndpoints.length} dây nối` : ''}`}
       aria-pressed={lessonWiring ? pending || (!connecting && id === lessonWiring.selectedEndpointId) : pending || active}
       tabIndex={tabIndex}
-      title={`${id} · ${holeNet(hole) ?? 'không rõ dải'}`}
+      title={label}
       onClick={event => activateEndpoint(event, endpoint)}
       onPointerDown={event => startDrag(event, endpoint)}
       onPointerMove={moveDrag}

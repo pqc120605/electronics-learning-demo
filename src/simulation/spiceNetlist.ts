@@ -183,8 +183,15 @@ export function inspectSpiceNetlist(source: string): SpiceNetlistInspection {
         : prefix === 'Q' ? 5
           : prefix === 'M' ? 6
             : 0
-    if (!terminalCount || !/^[A-Za-z][\w$.-]*$/.test(name) || tokens.length < terminalCount) {
+    if (!terminalCount || !/^[A-Za-z][\w$.-]*$/.test(name)) {
       errors.push(`Chưa hỗ trợ linh kiện ở dòng ${index + 2}; dùng R, C, L, V, I, D, Q hoặc M.`)
+      continue
+    }
+    if (tokens.length < terminalCount) {
+      const missing = tokens.length === terminalCount - 1
+        ? ['D', 'Q', 'M'].includes(prefix!) ? 'thiếu tên model' : 'thiếu trị số'
+        : 'thiếu nút kết nối'
+      errors.push(`${name} (dòng ${index + 2}): ${missing}.`)
       continue
     }
 

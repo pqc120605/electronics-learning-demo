@@ -4,7 +4,7 @@ import { BEGINNER_ACTIVITIES, getBeginnerActivity, type BeginnerActivityId } fro
 import { PRODUCT_ROUTES } from '../data/productRoutes'
 import {
   getBeginnerAssessment, getBeginnerBoardOptions, getBeginnerCaseOptions,
-  getBeginnerCode, getBeginnerFoundationDoc, selectBeginnerActivity, selectBeginnerBoard, isBeginnerBoardActivity,
+  getBeginnerDisplayCode, getBeginnerFoundationDoc, selectBeginnerActivity, selectBeginnerBoard, isBeginnerBoardActivity,
   type BeginnerControls, type BeginnerPrediction, type BeginnerResult,
 } from '../lib/beginnerCourse'
 import { GuideContextBridge } from '../components/guide/GuideContext'
@@ -212,7 +212,8 @@ export function BeginnerLearningPage() {
   const activeRepair = getBeginnerRepair(params.get('repair'))
   const nextRepair = BEGINNER_REPAIRS.find(repair => !session.repairs?.attempts[repair.id]?.after)
   const repairsDone = BEGINNER_REPAIRS.length - BEGINNER_REPAIRS.filter(repair => !session.repairs?.attempts[repair.id]?.after).length
-  const code = getBeginnerCode(session)
+  const code = getBeginnerDisplayCode(session)
+  const observedThisActivity = session.observations.some(item => item.activityId === session.activityId)
   const choices: BeginnerPrediction[] = activity.id === 'breadboard'
     ? ['connected', 'separate']
     : activity.id === 'led-polarity' ? ['on', 'off', 'blocked'] : ['on', 'off']
@@ -314,7 +315,7 @@ export function BeginnerLearningPage() {
                 {boardOptions.map(board => <option value={board.boardId} key={board.boardId}>{board.name}</option>)}
               </select>
             </div>
-            <p>Chọn đúng board để tạo code và trace subset. Lựa chọn này không cấu hình hay điều khiển thiết bị thật.</p>
+            <p>Chương trình mẫu dùng tên chân của board bạn chọn. Bạn có thể thử ngay trên web.</p>
           </> : activity.id === 'breadboard'
             ? <BreadboardStrip value={session.controls.holePair} change={holePair => patchControls({ holePair })} />
             : <FoundationCircuit controls={session.controls} />}
@@ -372,8 +373,8 @@ export function BeginnerLearningPage() {
           <ObservationResult result={result} prediction={session.prediction} />
           <fieldset id="beginner-explanation" tabIndex={-1}>
             <legend>3. Giải thích điều vừa quan sát</legend>
-            <p>{activity.explanationQuestion}</p>
-            {activity.explanationChoices.map(choice => <label className="beginner-choice" key={choice.id}>
+            <p>{observedThisActivity ? activity.explanationQuestion : 'Chọn dự đoán và quan sát mô hình để mở câu hỏi.'}</p>
+            {observedThisActivity && activity.explanationChoices.map(choice => <label className="beginner-choice" key={choice.id}>
               <input
                 type="radio" name={`explanation-${activity.id}`}
                 checked={session.explanations[activity.id] === choice.id} onChange={() => explain(choice.id)}

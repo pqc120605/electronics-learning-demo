@@ -22,7 +22,7 @@ export const BEGINNER_ACTIVITIES: readonly BeginnerActivity[] = [
     title: 'Khép kín đường đi',
     goal: 'Tìm đường đi từ cực dương, qua điện trở và LED, về cực âm.',
     instruction: 'Dự đoán LED khi dây hồi đang hở. Quan sát, rồi nối lại dây hồi và dự đoán lần nữa.',
-    explanationQuestion: 'Vì sao LED tắt khi ngắt dây hồi?',
+    explanationQuestion: 'Đường về nguồn ảnh hưởng thế nào đến LED?',
     explanationChoices: [
       { id: 'loop-return', label: 'Đường đi qua LED về cực âm bị hở nên mạch chưa khép kín.' },
       { id: 'one-wire', label: 'Chỉ cần nối cực dương tới LED là đủ để LED sáng.' },
@@ -57,7 +57,7 @@ export const BEGINNER_ACTIVITIES: readonly BeginnerActivity[] = [
     id: 'led-polarity',
     title: 'Đặt LED đúng chiều',
     goal: 'Nhận biết anode, cathode và vai trò điện trở nối tiếp.',
-    instruction: 'Giữ đường hồi kín. Quan sát LED đúng chiều và đảo chiều. Thử bỏ điện trở để xem điều kiện còn thiếu.',
+    instruction: 'Bật “Nối đường về nguồn” để khép kín mạch. Thử LED đúng chiều, LED đảo chiều và thiếu điện trở.',
     explanationQuestion: 'Mạch LED mẫu cần điều kiện nào?',
     explanationChoices: [
       { id: 'series-polarity', label: 'LED có đúng chiều phân cực và điện trở hạn dòng nằm nối tiếp trên đường đi.' },

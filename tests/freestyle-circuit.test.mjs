@@ -13,6 +13,51 @@ after(async () => { await server?.close() })
 
 const out = (level, pwm) => ({ mode: 'output', level, ...(pwm === undefined ? {} : { pwm }) })
 
+test('ESP32 pin picker distinguishes output, input and system pins without changing saved drafts', () => {
+  const output = fs.availablePins('esp32-devkit', 'ledOut')
+  const input = fs.availablePins('esp32-devkit', 'input')
+  assert.ok(output.includes(23))
+  assert.ok(input.includes(34))
+  for (const pin of [0, 1, 3, 34, 35, 36, 39]) assert.ok(!output.includes(pin), String(pin))
+  const draft = fs.defaultFreestyleWorkspace('esp32-devkit')
+  draft.pinMap.ledOut = 34
+  assert.equal(fs.parseFreestyleWorkspace(JSON.stringify(draft)).pinMap.ledOut, 34)
+})
+
+test('ESP32 R1 digital presets use bidirectional GPIO19 while analog presets and old drafts preserve GPIO34', () => {
+  for (const sample of ['button-led', 'keypad-five', 'dht-demo']) {
+    const {pinMap} = fs.buildSampleCircuit(sample, 'esp32-devkit')
+    assert.equal(pinMap.input, 19, sample)
+  }
+  for (const sample of ['pot-dimmer', 'night-light']) assert.equal(fs.buildSampleCircuit(sample, 'esp32-devkit').pinMap.input, 34)
+  const draft = fs.defaultFreestyleWorkspace('esp32-devkit', 'button-led')
+  draft.pinMap.input = 34
+  draft.code = fs.sampleCode('button-led', draft.boardId, draft.language, draft.pinMap)
+  assert.deepEqual(fs.parseFreestyleWorkspace(JSON.stringify(draft)),draft)
+})
+
+test('automatic placement can use remaining columns and leaves each existing leg in place', () => {
+  const doc = fs.createEmptyFreestyleDoc()
+  for (let col = 3; col <= 29; col += 1) for (const row of [0, 5]) {
+    doc.parts.push({ id: `j${row}-${col}`, type: 'led', mount: {kind:'breadboard', board:'bb1', col, row, rotation:0} })
+  }
+  const placed = fs.placePart(doc, 'led')
+  assert.ok(placed.partId, placed.error)
+  assert.deepEqual(placed.doc.parts.slice(0,-1), doc.parts)
+})
+
+test('a crowded breadboard accepts the full parts library without silently seating incompatible shapes', () => {
+  let doc = fs.createEmptyFreestyleDoc()
+  for (const entry of fs.placeableParts) {
+    const placed = fs.placePart(doc, entry.id)
+    assert.ok(placed.partId, `${entry.id}: ${placed.error}`)
+    doc = placed.doc
+  }
+  assert.equal(doc.parts.find(part => part.type === 'tb6612').mount.kind, 'bench')
+  const errors = docV2.validateCircuitDoc(doc).filter(issue => ['G2','G4'].includes(issue.code) && issue.severity === 'error')
+  assert.deepEqual(errors, [])
+})
+
 test('fresh freestyle workspace has no default board, breadboard, circuit or code and round-trips', () => {
   const blank = fs.blankFreestyleWorkspace()
   assert.equal(blank.boardId, '')

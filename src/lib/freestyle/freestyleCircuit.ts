@@ -2,7 +2,7 @@ import { componentRegistry } from '../../data/componentRegistry'
 import { keypadContact } from '../../data/kitPartProfiles'
 import { createNetIndexV2 } from '../circuitNetsV2'
 import { canMount, footprintHoles, occupancy, resolvePartGeometry } from '../mountResolve'
-import { formatHole, holeNet, type GridHole } from '../breadboardGrid'
+import { BREADBOARD_ELECTRICAL_SPEC, formatHole, holeNet, type GridHole } from '../breadboardGrid'
 import { sketchBoards } from '../sketchInterpreter'
 import { validateCircuitDoc, type CircuitDocV2, type CircuitEndpointV2, type CircuitPartV2 } from '../circuitDocV2'
 import type { LivePinState } from '../avrLiveMachine'
@@ -42,8 +42,10 @@ export function pinCodeName(boardId: string, pin: number): string {
   return Object.entries(board.analogAliases).find(([, value]) => value === pin)?.[0] ?? String(pin)
 }
 
-export function availablePins(boardId: string): number[] {
-  return [...sketchBoardFor(boardId).pins]
+export function availablePins(boardId: string, signal?: SignalPin): number[] {
+  return sketchBoardFor(boardId).pins.filter(pin => boardId !== 'esp32-devkit'
+    || !signal || signal === 'input' || signal === 'echo'
+    || (pin < 34 && pin !== 0 && pin !== 1 && pin !== 3))
 }
 
 // ---------------- Tài liệu mạch ----------------
@@ -77,18 +79,29 @@ export function isBreadboardPart(type: string): boolean {
 export const placeableParts = componentRegistry.filter(part => part.id !== 'board' && part.id !== 'breadboard')
 
 /** Đặt linh kiện ở lỗ chỉ định (nếu có) hoặc tự tìm vị trí trống đầu tiên hợp lệ. */
-export function placePart(doc: CircuitDocV2, type: string, at?: { col: number; row: number }): { doc: CircuitDocV2; partId?: string; error?: string } {
+export function placePart(doc: CircuitDocV2, type: string, at?: { col: number; row: number }): { doc: CircuitDocV2; partId?: string; error?: string; separate?: boolean } {
   if (!componentRegistry.some(part => part.id === type)) return { doc, error: `Không có linh kiện “${type}”.` }
   if (isBreadboardPart(type) && !doc.breadboards.length) return { doc, error: 'Thêm breadboard trước để cắm linh kiện này.' }
   const id = nextId(doc, type.replace(/[^a-z0-9]/gi, '').slice(0, 10) || 'part')
-  if (!isBreadboardPart(type)) {
-    const order = doc.parts.filter(part => part.mount.kind === 'bench' && part.mount.lane === 'right').length
+  const placeOnBench = (separate = false) => {
+    const order = doc.parts.reduce((next, part) => part.mount.kind === 'bench' && part.mount.lane === 'right' ? Math.max(next, part.mount.order + 1) : next, 0)
     const part: CircuitPartV2 = { id, type, mount: { kind: 'bench', lane: 'right', order } }
-    return { doc: withExpect({ ...doc, parts: [...doc.parts, part] }), partId: id }
+    const result = canMount(part, part.mount, doc)
+    if (!result.ok) return { doc, error: result.reason }
+    return { doc: withExpect({ ...doc, parts: [...doc.parts, part] }), partId: id, separate }
   }
+  if (!isBreadboardPart(type)) return placeOnBench()
   const candidates: Array<{ col: number; row: number; rotation: 0 | 90 | 180 | 270 }> = []
   if (at) for (const rotation of [0, 90] as const) candidates.push({ col: at.col, row: at.row, rotation })
-  else for (const row of [2, 7, 0, 5]) for (let col = 3; col <= 28; col += 1) candidates.push({ col, row, rotation: 0 })
+  else {
+    const rows = [2, 7, 0, 5, 1, 3, 4, 6, 8, 9]
+    const columns = Array.from({ length: BREADBOARD_ELECTRICAL_SPEC.columns }, (_, index) => index + 1)
+    // Keep the familiar center-first layout and search the rest before reporting no fit.
+    const columnOrder = [...columns.slice(2, -2), ...columns.slice(0, 2), ...columns.slice(-2)]
+    for (const rotation of [0, 90, 180, 270] as const) {
+      for (const row of rows) for (const col of columnOrder) candidates.push({ col, row, rotation })
+    }
+  }
   for (const candidate of candidates) {
     const part: CircuitPartV2 = { id, type, mount: { kind: 'breadboard', board: 'bb1', ...candidate } }
     const result = canMount(part, part.mount, doc)
@@ -97,7 +110,8 @@ export function placePart(doc: CircuitDocV2, type: string, at?: { col: number; r
     }
     if (at && !result.ok && candidate.rotation === 90) return { doc, error: result.reason }
   }
-  return { doc, error: at ? 'Không cắm được ở lỗ này.' : 'Breadboard đã kín chỗ.' }
+  if (!at && doc.lessonId === 'freestyle') return placeOnBench(true)
+  return { doc, error: at ? 'Không cắm được ở lỗ này.' : 'Chưa tìm được chỗ cắm riêng cho linh kiện này. Thử dời một linh kiện hoặc kéo linh kiện đến vị trí muốn cắm.' }
 }
 
 /** Tránh tự động đặt linh kiện chung dải 5 lỗ với linh kiện khác (dễ chập ngoài ý muốn). */
@@ -207,6 +221,10 @@ function place(doc: CircuitDocV2, type: string, col: number, row: number): { doc
 export function buildSampleCircuit(sampleId: FreestyleSampleId, boardId: string): { doc: CircuitDocV2; pinMap: PinMap } {
   const board = getFreestyleBoard(boardId)
   const pinMap: PinMap = { ...board.defaultPins }
+  // Approved ESP32-DEVKIT-V1-MAU-HOC-R1. GPIO34 remains available for ADC.
+  if (board.id === 'esp32-devkit' && (sampleId === 'button-led' || sampleId === 'keypad-five' || sampleId === 'dht-demo')) {
+    pinMap.input = 19
+  }
   if (sampleId === 'pot-dimmer' || sampleId === 'night-light') Object.assign(pinMap, analogDimmerPins(boardId))
   let doc = createEmptyFreestyleDoc()
   doc = link(doc, { part: 'board', pin: 'gnd' }, { rail: 'B-' }, 'ground')

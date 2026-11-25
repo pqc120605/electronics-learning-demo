@@ -107,7 +107,7 @@ export function validateCircuitDoc(value: unknown, registry: readonly CircuitReg
     if (part.mount.kind === 'breadboard') {
       if (geometry.mount !== 'breadboard' || geometry.legsMm.length === 0) issues.push(makeIssue('G2', 'error', `G2a: “${part.type}” cần legsMm và mount breadboard đúng manifest.`, path))
       else if (geometry.legsMm.some(leg => !definition.pins.some(pin => pin.id === leg.pinId))) issues.push(makeIssue('G2', 'error', `G2a: legsMm của “${part.type}” có pinId không thuộc registry.`, path))
-    } else if (geometry.mount !== 'bench' || Object.keys(geometry.pinsMm).length === 0) {
+    } else if ((geometry.mount !== 'bench' && doc.lessonId !== 'freestyle') || Object.keys(geometry.pinsMm).length === 0) {
       issues.push(makeIssue('G2', 'error', `G2a: “${part.type}” cần pinsMm và mount bench đúng manifest.`, path))
     }
     if (geometry.geometrySource !== 'cad' || part.geometrySource === 'parametric' || part.geometrySource === 'unknown') {

@@ -58,3 +58,24 @@ test('robot checklist is restored on reload and admin has its own title',async({
   await page.goto('/admin')
   await expect(page).toHaveTitle('Quản trị website — Mạch Mở')
 })
+
+test('ESP32 rebuilt presets use the approved GPIO and a blank bench resets the sample selector', async ({page}) => {
+  await sample(page, /ESP32 DevKit V1/, 'button-led')
+  await page.getByRole('tab', {name:/Viết code & Chạy/}).click()
+  await expect(page.getByLabel('Mã nguồn Arduino C++')).toHaveValue(/const int NUT = 19;/)
+  await page.getByRole('button', {name:'Bàn trống', exact:true}).click()
+  await expect(page.getByLabel('Mạch mẫu')).toHaveValue('blink')
+  await expect(page.getByRole('heading',{name:'Bàn của bạn, bắt đầu từ trống'})).toBeVisible()
+})
+
+test('beginner explanations follow observation and Arduino Mega code uses the A0 label', async ({page}) => {
+  await page.goto('/learn/basics')
+  await expect(page.getByText('Đường về nguồn ảnh hưởng thế nào đến LED?')).toHaveCount(0)
+  await page.getByRole('radio', {name:'LED tắt', exact:true}).check()
+  await page.getByRole('button', {name:'Quan sát mô hình', exact:true}).click()
+  await expect(page.getByText('Đường về nguồn ảnh hưởng thế nào đến LED?')).toBeVisible()
+  await page.getByRole('navigation',{name:'Năm hoạt động'}).getByRole('button',{name:/Thử sát ngưỡng cảm biến/}).click()
+  await page.getByLabel('Board của thử nghiệm').selectOption({label:'Arduino Mega 2560 R3'})
+  await page.getByText('Code được tạo cho board đã chọn',{exact:true}).click()
+  await expect(page.getByLabel('Code thử nghiệm chỉ đọc')).toContainText('const int potPin = A0;')
+})

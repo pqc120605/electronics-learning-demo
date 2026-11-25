@@ -172,7 +172,7 @@ export function canMount(part: CircuitPartV2, mount: CircuitMountV2, doc: Circui
     return { ok: true }
   }
   if (mount.kind !== 'bench' || !['left', 'right', 'bottom'].includes(mount.lane) || !Number.isInteger(mount.order) || mount.order < 0) return mountFailure('G2', 'Vị trí bench phải có làn hợp lệ và thứ tự không âm.')
-  if (geometry.mount !== 'bench') return mountFailure('G2', `Linh kiện “${part.type}” được manifest dành cho breadboard.`)
+  if (geometry.mount !== 'bench' && doc.lessonId !== 'freestyle') return mountFailure('G2', `Linh kiện “${part.type}” được manifest dành cho breadboard.`)
   if (!Object.keys(geometry.pinsMm).length) return mountFailure('G2', `Linh kiện “${part.type}” thiếu pinsMm cho vị trí bench.`)
   return { ok: true }
 }

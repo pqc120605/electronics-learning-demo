@@ -163,6 +163,15 @@ function sameNet(index: ReturnType<typeof createNetIndexV2>, a: string, b: strin
   return Boolean(net && net === index.netOf(b))
 }
 
+export function getBeginnerDisplayCode(session: BeginnerSession): string | null {
+  const code = getBeginnerCode(session)
+  const board = simulationTargets.find(item => item.boardId === session.boardId)
+  if (!code || !board || session.activityId !== 'sensor-threshold' || !board.architecture.startsWith('AVR')) return code
+  // The visible Arduino alias is equivalent to the numeric pin used in saved observations.
+  const input = getInputAlias(board, 'analog-potentiometer')
+  return code.replace(`const int potPin = ${input.pin};`, `const int potPin = ${input.label.split(' · ')[0]};`)
+}
+
 function foundationResult(session: BeginnerSession): BeginnerResult {
   const { controls, activityId } = session
   const doc = getBeginnerFoundationDoc(controls)
@@ -179,11 +188,11 @@ function foundationResult(session: BeginnerSession): BeginnerResult {
     message: issue?.message ?? (!hasResistor
       ? 'Khôi phục điện trở nối tiếp trước khi chạy mạch LED mẫu.'
       : outcome === 'on' ? 'LED sáng theo mô hình đường nối và phân cực của bài.' : 'LED tắt theo mô hình. Kiểm tra đường hồi và chiều LED.'),
-    trace: [
+    trace: !hasResistor ? ['Thiếu điện trở nối tiếp giữa nguồn và LED.'] : [
       `Nguồn (+) → đầu a điện trở: ${positive ? 'đã nối' : 'chưa có đường qua điện trở'}.`,
       `Đầu b điện trở → anode LED: ${series ? 'đã nối' : 'chưa nối đúng chiều'}.`,
       `Cathode LED → nguồn (−): ${returning ? 'đã nối' : 'đường hồi hở hoặc LED đảo chiều'}.`,
-      'Đối chiếu topology của mạch mẫu; chưa tính điện áp hay dòng điện.',
+      'Kiểm tra các đường nối của mạch mẫu. Mô hình này chưa tính điện áp hay dòng điện.',
     ],
     code: null, caseKey, signature: JSON.stringify([1, activityId, caseKey]),
     evidenceKind: 'topology-check', doc,
@@ -201,8 +210,8 @@ export function getBeginnerResult(session: BeginnerSession): BeginnerResult {
     const connected = holeNet(parseHole(first)) === holeNet(parseHole(second))
     return {
       status: 'ready', outcome: connected ? 'connected' : 'separate',
-      message: `${first} và ${second} ${connected ? 'cùng dải nối' : 'khác dải nối'} trong mô hình.`,
-      trace: [`${first} → ${holeNet(parseHole(first))}`, `${second} → ${holeNet(parseHole(second))}`, 'Cách nối ray và số lỗ thuộc giả định breadboard 400 tie-point, chưa đối chiếu mẫu thật.'],
+      message: `Lỗ ${first.slice(4)} và ${second.slice(4)} ${connected ? 'cùng dải nối' : 'khác dải nối'} trong mô hình.`,
+      trace: [`Lỗ ${first.slice(4)} thuộc dải 10a–10e.`, `Lỗ ${second.slice(4)} thuộc dải ${connected ? '10a–10e' : '10f–10j'}.`, 'Mô hình giả định breadboard 400 lỗ. Kiểm tra dải nối trên breadboard bạn sử dụng.'],
       code: null, doc: null, caseKey: session.controls.holePair,
       signature: JSON.stringify([1, 'breadboard', session.controls.holePair]), evidenceKind: 'topology-check',
     }
@@ -219,7 +228,10 @@ export function getBeginnerResult(session: BeginnerSession): BeginnerResult {
   const parsed = parseEducationalProgram(code, lessonId, session.boardId)
   if (!parsed.ok) return { ...base, status: 'ungradable', outcome: null, message: parsed.message, trace: [] }
   const result = evaluateProgram(parsed.program, { pressed: session.controls.pressed, potPercent: session.controls.inputPercent })
-  return { ...base, status: 'ready', outcome: result.ledOn ? 'on' : 'off', message: `LED ${result.ledOn ? 'sáng' : 'tắt'} theo code mẫu của board đã chọn.`, trace: result.trace }
+  const board = simulationTargets.find(item => item.boardId === session.boardId)
+  const input = board ? getInputAlias(board, lessonId) : undefined
+  const trace = input ? result.trace.map(line => line.replace(new RegExp(`GPIO (?:analog )?${input.pin}\\b`, 'g'), input.label.split(' · ')[0])) : result.trace
+  return { ...base, status: 'ready', outcome: result.ledOn ? 'on' : 'off', message: `LED ${result.ledOn ? 'sáng' : 'tắt'} theo code mẫu của board đã chọn.`, trace }
 }
 
 export function observeBeginnerSession(session: BeginnerSession): { session: BeginnerSession; result: BeginnerResult } {
