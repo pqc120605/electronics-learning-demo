@@ -2,6 +2,7 @@ import { sessionDigest } from '../community/session-http.mjs'
 import { createOAuth, newSession, sessionCookie, sessionToken } from './oauth.mjs'
 import { foldCommunityText } from './community-store.mjs'
 import { shareCodePattern } from './projects.mjs'
+import { attachmentInput, MAX_FILES } from './community-attachments.mjs'
 
 const categories = new Set(['co-ban', 'nhung', 'iot', 'du-an', 'hoi-dap-loi'])
 const reasons = new Set(['spam', 'offensive', 'unsafe', 'off-topic', 'other'])
@@ -22,10 +23,14 @@ const itemRoutes = [
   [/^\/api\/auth\/(login|callback)\/(google|github)$/, { GET: 'oauth' }],
   [/^\/api\/community\/posts\/([^/]+)$/, { GET: 'get-post', PATCH: 'edit-post', DELETE: 'delete-post' }],
   [/^\/api\/community\/posts\/([^/]+)\/comments$/, { GET: 'list-comments', POST: 'add-comment' }],
+  [/^\/api\/community\/posts\/([^/]+)\/attachments\/([^/]+)\/([0-9])$/, { GET: 'download-attachment' }],
+  [/^\/api\/community\/uploads\/([^/]+)\/([0-4])$/, { PUT: 'init-attachment' }],
+  [/^\/api\/community\/uploads\/([^/]+)\/([0-4])\/([0-9])$/, { PUT: 'write-attachment' }],
   [/^\/api\/community\/comments\/([^/]+)$/, { PATCH: 'edit-comment', DELETE: 'delete-comment' }],
   [/^\/api\/community\/moderation\/reports\/([^/]+)$/, { PATCH: 'moderate' }],
 ]
-const bodyActions = new Set(['create-post', 'edit-post', 'add-comment', 'edit-comment', 'report', 'moderate'])
+const uploadActions = new Set(['init-attachment', 'write-attachment'])
+const bodyActions = new Set(['create-post', 'edit-post', 'add-comment', 'edit-comment', 'report', 'moderate', ...uploadActions])
 
 export function s2Route(method, path) {
   let id = fixedRoutes.get(method + ' ' + path)
@@ -39,7 +44,8 @@ export function s2Route(method, path) {
       break
     }
   }
-  return id && { id, args, method, acceptsBody: bodyActions.has(id), csrf: method !== 'GET' }
+  return id && { id, args, method, acceptsBody: bodyActions.has(id), csrf: method !== 'GET',
+    binary: id === 'write-attachment', attachmentTraffic: uploadActions.has(id) || id === 'download-attachment' }
 }
 
 function lengthBetween(value, min, max) {
@@ -50,11 +56,12 @@ function asPost(input, needsId) {
   if (!input || typeof input !== 'object') return null
   const title = typeof input.title === 'string' && input.title.trim()
   const body = typeof input.body === 'string' && input.body.trim()
-  const { id, category, tags } = input
+  const { id, category, tags, attachmentCount } = input
   if (!lengthBetween(title, 8, 120) || !lengthBetween(body, 20, 10000) || !categories.has(category)
     || !Array.isArray(tags) || tags.length > 5 || !tags.every(tag => typeof tag === 'string' && tagPattern.test(tag))
-    || (needsId && (typeof id !== 'string' || !uuid.test(id)))) return null
-  return { title, body, category, tags: [...new Set(tags)], ...(needsId && { id }) }
+    || (needsId && (typeof id !== 'string' || !uuid.test(id)))
+    || (attachmentCount !== undefined && (!needsId || !Number.isInteger(attachmentCount) || attachmentCount < 0 || attachmentCount > MAX_FILES))) return null
+  return { title, body, category, tags: [...new Set(tags)], ...(needsId && { id }), ...(attachmentCount && { attachmentCount }) }
 }
 
 function readListParams(params) {
@@ -81,18 +88,20 @@ function readListParams(params) {
   return { category: category || null, tag: tag || null, terms: foldCommunityText(query).split(/\s+/).filter(Boolean), limit, cursor }
 }
 
-export function createS2({ origin, env, authStore, community, now = Date.now, fetchImpl }) {
+export function createS2({ origin, env, authStore, community, attachments, now = Date.now, fetchImpl }) {
   const oauth = createOAuth({ origin, env, store: authStore, now, fetchImpl })
   const writeCounts = new Map()
+  const uploadCounts = new Map()
   let windowStart = now()
-  function writeAllowed(id) {
+  function writeAllowed(id, counts, limit) {
     if (now() - windowStart >= 60_000) {
       writeCounts.clear()
+      uploadCounts.clear()
       windowStart = now()
     }
-    const count = writeCounts.get(id) ?? 0
-    if (count >= 10 || (!count && writeCounts.size >= 10000)) return false
-    writeCounts.set(id, count + 1)
+    const count = counts.get(id) ?? 0
+    if (count >= limit || (!count && counts.size >= 10000)) return false
+    counts.set(id, count + 1)
     return true
   }
   const userFrom = digest => digest ? authStore.read(digest) : null
@@ -132,7 +141,8 @@ export function createS2({ origin, env, authStore, community, now = Date.now, fe
       if ((route.csrf || id === 'queue') && !viewer) return send(res, 401)
       if ((id === 'queue' || id === 'moderate') && viewer.role !== 'admin') return send(res, 403)
       if (args.length && !uuid.test(args[0])) return send(res, 404)
-      if (writes.has(id) && !writeAllowed(viewer.id)) {
+      if ((writes.has(id) && !writeAllowed(viewer.id, writeCounts, 10))
+          || (uploadActions.has(id) && !writeAllowed(viewer.id, uploadCounts, 60))) {
         res.setHeader('Retry-After', '60')
         return send(res, 429)
       }
@@ -153,9 +163,27 @@ export function createS2({ origin, env, authStore, community, now = Date.now, fe
           return item ? send(res, 200, item) : send(res, 404)
         }
         case 'list-comments': return send(res, 200, await community.listComments(target, viewer))
+        case 'init-attachment': {
+          if (!attachments) return send(res, 404)
+          const input = attachmentInput(body)
+          return send(res, input ? await attachments.init(target, Number(args[1]), input, viewer) : 400)
+        }
+        case 'write-attachment':
+          return send(res, attachments ? await attachments.write(target, Number(args[1]), Number(args[2]), body, viewer) : 404)
+        case 'download-attachment': {
+          if (!attachments || !uuid.test(args[1])) return send(res, 404)
+          const item = await attachments.read(target, args[1], Number(args[2]))
+          if (!item) return send(res, 404)
+          const filename = encodeURIComponent(item.name).replace(/['()]/g, char => '%' + char.charCodeAt(0).toString(16))
+          res.setHeader('Content-Type', 'application/octet-stream')
+          res.setHeader('Content-Disposition', "attachment; filename*=UTF-8''" + filename)
+          res.setHeader('Content-Length', item.data.length)
+          return res.end(item.data)
+        }
         case 'create-post': {
           const input = asPost(body, true)
           if (!input) return send(res, 400)
+          if (input.attachmentCount && !attachments) return send(res, 404)
           const item = await community.create(input, viewer)
           return item ? send(res, 201, item) : send(res, 409)
         }

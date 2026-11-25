@@ -1,5 +1,6 @@
 import { randomUUID } from 'node:crypto'
 import { inTransaction } from './oauth-store.mjs'
+import { lockUploads, publishedAttachments, publishUploads, readyUploads } from './community-attachments.mjs'
 
 const posts = 'machmo_community.community_posts'
 const comments = 'machmo_community.community_comments'
@@ -60,7 +61,7 @@ export function createCommunityStore(pool) {
     },
     async get(id, viewer) {
       const row = await readPost(pool, id)
-      return row ? post(row, viewer) : null
+      return row ? { ...post(row, viewer), attachments: await publishedAttachments(pool, id) } : null
     },
     async listComments(id, viewer) {
       const { rows } = await pool.query(
@@ -71,13 +72,21 @@ export function createCommunityStore(pool) {
     },
     async create(input, viewer) {
       return inTransaction(pool, async db => {
-        await db.query('INSERT INTO ' + posts +
-          ' (id,account_id,title,body,category,tags,search_text) VALUES ($1,$2,$3,$4,$5,$6,$7) ON CONFLICT (id) DO NOTHING',
-        [input.id, viewer.id, input.title, input.body, input.category, input.tags, searchText(input)])
-        const row = await readPost(db, input.id)
+        const count = input.attachmentCount ?? 0
+        if (count) await lockUploads(db, viewer.id)
+        let row = await readPost(db, input.id)
+        if (!row) {
+          if (count && !await readyUploads(db, viewer.id, input.id, count)) return null
+          const inserted = await db.query('INSERT INTO ' + posts +
+            ' (id,account_id,title,body,category,tags,search_text) VALUES ($1,$2,$3,$4,$5,$6,$7) ON CONFLICT (id) DO NOTHING',
+          [input.id, viewer.id, input.title, input.body, input.category, input.tags, searchText(input)])
+          if (count && inserted.rowCount) await publishUploads(db, viewer.id, input.id)
+          row = await readPost(db, input.id)
+        }
         if (!row || row.account_id !== viewer.id || row.title !== input.title || row.body !== input.body ||
           row.category !== input.category || JSON.stringify(row.tags) !== JSON.stringify(input.tags)) return null
-        return post(row, viewer)
+        const attachments = await publishedAttachments(db, input.id)
+        return attachments.length === count ? { ...post(row, viewer), attachments } : null
       })
     },
     async addComment(postId, body, viewer) {

@@ -6,12 +6,16 @@ function AttachmentItem({ attachment, load, remove }: { attachment: CommunityAtt
   const [url, setUrl] = useState('')
   const [blob, setBlob] = useState<Blob | null>(null)
   const [error, setError] = useState('')
+  const [downloading, setDownloading] = useState(false)
+  const online = Boolean(attachment.path?.startsWith('/api/'))
+  const onDemand = attachment.kind === 'file' && online
   useEffect(() => {
     let active = true
     let objectUrl = ''
     setBlob(null); setUrl(''); setError('')
+    if (onDemand) return
     load().then(async value => {
-      if (!value) throw new Error('Thiếu tệp trên thiết bị này (có thể kho tệp đã bị xoá).')
+      if (!value) throw new Error(online ? 'Tệp hiện không khả dụng trên máy chủ.' : 'Thiếu tệp trên thiết bị này (có thể kho tệp đã bị xoá).')
       if (value.size !== attachment.size) throw new Error('Dung lượng tệp không khớp.')
       const image = attachment.kind === 'image' && await decodeRaster(value)
       if (!active) return
@@ -22,11 +26,27 @@ function AttachmentItem({ attachment, load, remove }: { attachment: CommunityAtt
     return () => { active = false; if (objectUrl) URL.revokeObjectURL(objectUrl) }
     // Identity is the storage key; callers remount after file edits or post navigation.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [attachment.id, attachment.path])
+  }, [attachment.id, attachment.path, online, onDemand])
+  async function download() {
+    if (blob) { downloadBlob(blob, attachment.name); return }
+    setDownloading(true)
+    setError('')
+    try {
+      const value = await load()
+      if (!value || value.size !== attachment.size) throw new Error('Tệp hiện không khả dụng hoặc dung lượng không khớp.')
+      downloadBlob(value, attachment.name)
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : 'Không tải được tệp.')
+    } finally {
+      setDownloading(false)
+    }
+  }
   return <li className="community-attachment">
     {url && <img src={url} alt={`Xem trước ${attachment.name}`} />}
     <span>{attachment.name} · {(attachment.size / 1024).toFixed(1)} KiB</span>
-    <button type="button" disabled={!blob} onClick={() => { if (blob) downloadBlob(blob, attachment.name) }}>Tải {attachment.name}</button>
+    <button type="button" disabled={downloading || (!blob && !onDemand)} onClick={() => void download()}>
+      {downloading ? 'Đang tải…' : `Tải ${attachment.name}`}
+    </button>
     {remove && <button type="button" onClick={remove} aria-label={`Gỡ ${attachment.name}`}>Gỡ tệp</button>}
     {error && <span role="alert">{error}</span>}
   </li>

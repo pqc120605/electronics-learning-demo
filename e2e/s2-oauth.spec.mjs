@@ -75,3 +75,100 @@ test('unavailable API is visible and preview can still open local drafts', async
   await expect(page.getByLabel('Tiêu đề')).toHaveValue(draft.title)
   await expect(page.getByRole('textbox', { name: 'Nội dung' })).toHaveValue(draft.body)
 })
+
+test('online attachments keep the draft after an interrupted upload and reassemble the same file', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 })
+  const size = 1024 * 1024 + 3
+  const original = Buffer.alloc(size, 65)
+  const attachmentId = '71bebfb1-1ef3-4bf0-bdea-b47ee6194b00'
+  const photoId = '24ebaeb3-19a9-45d2-ac1b-ea34be721c00'
+  const user = { id: postId, displayName: 'Tester', avatarUrl: null, provider: 'google', role: 'user' }
+  const chunks = new Map()
+  let attempt = 0
+  let draftId
+  let published
+  let downloadRequests = 0
+  let photoRequests = 0
+  let photo
+  await page.route('**/api/**', async route => {
+    const request = route.request()
+    const { pathname } = new URL(request.url())
+    if (pathname === '/api/session') return route.fulfill({ json: { user } })
+    if (pathname.startsWith('/api/community/uploads/')) {
+      expect(request.method()).toBe('PUT')
+      expect(request.headers()['x-machmo-csrf']).toBe('1')
+      const [, , , , id, slot, part] = pathname.split('/')
+      expect(['0', '1']).toContain(slot)
+      if (part === undefined) {
+        expect(request.postDataJSON()).toEqual(slot === '0' ? { name: 'log.txt', size } : { name: 'circuit.png', size: photo.length })
+        if (draftId) expect(id).toBe(draftId)
+        draftId = id
+        if (slot === '0') attempt++
+        return route.fulfill({ status: 204 })
+      }
+      if (part === '1' && attempt === 1) return route.fulfill({ status: 503 })
+      chunks.set(slot + ':' + part, request.postDataBuffer())
+      return route.fulfill({ status: 204 })
+    }
+    const detail = '/api/community/posts/' + draftId
+    const path = detail + '/attachments/' + attachmentId
+    const photoPath = detail + '/attachments/' + photoId
+    if (pathname === '/api/community/posts' && request.method() === 'POST') {
+      const input = request.postDataJSON()
+      expect(input).toMatchObject({ id: draftId, attachmentCount: 2 })
+      expect(Buffer.concat([chunks.get('0:0'), chunks.get('0:1')])).toEqual(original)
+      expect(chunks.get('1:0')).toEqual(photo)
+      published = { ...input, author: { name: 'Tester', avatarUrl: null }, createdAt: '2026-11-25T00:00:00Z',
+        commentCount: 0, origin: 'remote', canEdit: true, attachments: [
+          { id: attachmentId, name: 'log.txt', kind: 'file', size, path },
+          { id: photoId, name: 'circuit.png', kind: 'image', size: photo.length, path: photoPath },
+        ] }
+      return route.fulfill({ status: 201, json: published })
+    }
+    if (pathname === detail && published) return route.fulfill({ json: published })
+    if (pathname.startsWith(path + '/')) {
+      downloadRequests++
+      return route.fulfill({ contentType: 'application/octet-stream', body: chunks.get('0:' + pathname.at(-1)) })
+    }
+    if (pathname === photoPath + '/0') {
+      photoRequests++
+      return route.fulfill({ contentType: 'application/octet-stream', body: chunks.get('1:0') })
+    }
+    if (pathname.endsWith('/comments')) return route.fulfill({ json: [] })
+    return route.fulfill({ status: 404 })
+  })
+  await page.goto('/community/new')
+  await page.getByLabel('Tiêu đề').fill(draft.title)
+  await page.getByLabel('Nhóm chủ đề').selectOption('iot')
+  await page.getByRole('textbox', { name: 'Nội dung' }).fill(draft.body)
+  photo = Buffer.from(await page.evaluate(() => {
+    const canvas = document.createElement('canvas')
+    canvas.width = canvas.height = 2
+    canvas.getContext('2d').fillRect(0, 0, 2, 2)
+    return canvas.toDataURL('image/png').split(',')[1]
+  }), 'base64')
+  await page.getByLabel('Ảnh / tệp đính kèm').setInputFiles([
+    { name: 'log.txt', mimeType: 'text/plain', buffer: original },
+    { name: 'circuit.png', mimeType: 'image/png', buffer: photo },
+  ])
+  const publish = page.getByRole('button', { name: 'Đăng bài online' })
+  await publish.click()
+  await expect(page.getByRole('alert')).toContainText('Máy chủ Mạch Mở hiện chưa khả dụng')
+  expect(published).toBeUndefined()
+  await expect(page.getByLabel('Tiêu đề')).toHaveValue(draft.title)
+  await expect(page.getByRole('button', { name: 'Gỡ log.txt' })).toBeVisible()
+  await publish.click()
+  await expect(page.getByRole('heading', { name: draft.title })).toBeVisible()
+  await expect(page.getByRole('img', { name: 'Xem trước circuit.png' })).toBeVisible()
+  expect(photoRequests).toBe(1)
+  expect(downloadRequests).toBe(0)
+  const downloadEvent = page.waitForEvent('download')
+  await page.getByRole('button', { name: 'Tải log.txt' }).click()
+  const downloaded = await downloadEvent
+  expect(downloaded.suggestedFilename()).toBe('log.txt')
+  const stream = await downloaded.createReadStream()
+  const pieces = []
+  for await (const bytes of stream) pieces.push(bytes)
+  expect(Buffer.concat(pieces)).toEqual(original)
+  expect(downloadRequests).toBe(2)
+})

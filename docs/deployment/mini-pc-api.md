@@ -14,7 +14,7 @@ curl qua SSH → 127.0.0.1:8281 → API Node
 
 - `GET /api/health` trả `version`, `commit`, `db` và `ai`. Trạng thái 503 khi database thiếu migration, mất kết nối hoặc dùng role sai.
 - API đọc session, đăng xuất, ghi analytics và Mở Bot mock. OAuth thuộc S2, provider thật thuộc S3. Dashboard analytics nằm trên origin quản trị riêng.
-- Giới hạn body 64 KiB. Thu sự kiện giữ cận 1 KiB. CORS theo danh sách HTTPS khai báo. Bộ đếm theo phút dùng HMAC trong RAM với khóa thay mới mỗi cửa sổ. Nhật ký ghi mã route, HTTP status và thời gian.
+- Giới hạn body JSON 64 KiB. Thu sự kiện giữ cận 1 KiB. Riêng tệp cộng đồng đi theo từng đoạn nhị phân tối đa 1 MiB trên tuyến có phiên và CSRF. CORS theo danh sách HTTPS khai báo. Bộ đếm theo phút dùng HMAC trong RAM với khóa thay mới mỗi cửa sổ. Tệp và analytics có bộ đếm riêng để lượt tải tệp hoặc gửi sự kiện không chiếm hạn mức phiên đăng nhập. Nhật ký ghi mã route, HTTP status và thời gian.
 - Để danh sách proxy tin cậy trống khi thử loopback. Trước khi nối proxy cần kiểm Caddy ghi đè `X-Forwarded-For` bằng đúng một IP từ đường truyền đã tin cậy. Kiểm `Origin`, `Host`, `Set-Cookie`, giới hạn body và tình trạng chặn dashboard.
 - Staging dùng user service của `volnexus`. Cần kiểm namespace để `ProtectSystem=strict` có hiệu lực cùng `PrivateUsers=true`. Production cần user riêng và quy trình chuyển đổi. [Tài liệu systemd](https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html#ProtectSystem=)
 

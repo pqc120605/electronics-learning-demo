@@ -2,6 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { randomUUID } from 'node:crypto'
 import { createCommunityStore } from './community-store.mjs'
+import { attachmentInput, CHUNK_BYTES, createCommunityAttachmentStore } from './community-attachments.mjs'
 import { createStagingPool, migrateStagingDatabase, STAGING_APP, STAGING_OWNER, verifyStagingDatabase } from './database.mjs'
 import { newSession } from './oauth.mjs'
 import { createOAuthStore } from './oauth-store.mjs'
@@ -24,7 +25,7 @@ test('staging applies and repeats migrations on PostgreSQL and enforces data own
   const owner = createStagingPool(connection(STAGING_OWNER), STAGING_OWNER)
   const app = createStagingPool(connection(STAGING_APP), STAGING_APP)
   t.after(async () => Promise.all([owner.end(), app.end()]))
-  assert.deepEqual(await migrateStagingDatabase(owner), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+  assert.deepEqual(await migrateStagingDatabase(owner), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
   assert.deepEqual(await migrateStagingDatabase(owner), [])
   assert.equal(await verifyStagingDatabase(app), true)
 
@@ -153,6 +154,41 @@ test('staging applies and repeats migrations on PostgreSQL and enforces data own
   assert.equal((await community.queue())[0].postId, post.id)
   assert.equal(await community.moderate(report.id, 'hide'), true)
   assert.equal((await community.listComments(post.id)).length, 0)
+
+  const files = createCommunityAttachmentStore(app)
+  const withFile = { ...input, id: randomUUID(), attachmentCount: 1 }
+  const firstPart = Buffer.alloc(CHUNK_BYTES, 65)
+  const lastPart = Buffer.from('abc')
+  const metadata = attachmentInput({ name: 'Ghi chú.ino', size: firstPart.length + lastPart.length })
+  assert.equal(await files.init(withFile.id, 0, metadata, author.user), 204)
+  assert.equal(await files.write(withFile.id, 0, 0, firstPart, other.user), 404)
+  assert.equal(await files.write(withFile.id, 0, 0, firstPart, author.user), 204)
+  assert.equal(await files.write(withFile.id, 0, 0, firstPart, author.user), 204)
+  assert.equal(await files.write(withFile.id, 0, 0, Buffer.alloc(CHUNK_BYTES), author.user), 409)
+  assert.equal(await files.write(withFile.id, 0, 1, Buffer.from('x'), author.user), 400)
+  assert.equal(await community.create(withFile, author.user), null)
+  assert.equal(await community.get(withFile.id), null)
+  assert.equal(await files.write(withFile.id, 0, 1, lastPart, author.user), 204)
+  const published = await community.create(withFile, author.user)
+  assert.deepEqual((await community.create(withFile, author.user)).attachments, published.attachments)
+  const [attachment] = (await community.get(published.id)).attachments
+  assert.equal(attachment.name, 'Ghi chú.ino')
+  assert.equal(attachment.kind, 'file')
+  assert.equal(attachment.size, metadata.size)
+  assert.deepEqual((await files.read(published.id, attachment.id, 0)).data, firstPart)
+  assert.deepEqual((await files.read(published.id, attachment.id, 1)).data, lastPart)
+  const fileReport = await community.report({ targetType: 'post', targetId: published.id, reason: 'off-topic', note: 'Fixture' }, other.user)
+  assert.equal(await community.moderate(fileReport.id, 'hide'), true)
+  assert.equal(await files.read(published.id, attachment.id, 0), undefined)
+
+  const draftId = randomUUID()
+  const largest = attachmentInput({ name: 'log.txt', size: 10 * CHUNK_BYTES })
+  assert.equal(await files.init(draftId, 0, largest, author.user), 204)
+  assert.equal(await files.init(draftId, 1, largest, author.user), 204)
+  assert.equal(await files.init(draftId, 2, largest, author.user), 413)
+  await owner.query("UPDATE machmo_community.post_attachments SET created_at=now()-interval '25 hours' WHERE draft_id=$1", [draftId])
+  await files.expire()
+  assert.equal((await app.query('SELECT count(*)::int AS total FROM machmo_community.post_attachments WHERE draft_id=$1', [draftId])).rows[0].total, 0)
   const projectStore = createProjectStore(app)
   const origin = 'https://preview.fixture.test'
   const projectApi = createProjectHttp({ origin, store: projectStore, authStore: auth })
@@ -216,6 +252,7 @@ test('staging applies and repeats migrations on PostgreSQL and enforces data own
   assert.equal((await rooms.review(room.id, assignment.id, author.user.id)).length, 1)
   assert.equal((await rooms.read(room.id, author.user.id)).assignments[0].submitted, 1)
   await auth.deleteAccount(author.user.id)
+  assert.equal((await app.query('SELECT count(*)::int AS total FROM machmo_community.post_attachment_chunks')).rows[0].total, 0)
   assert.equal(await auth.read(author.session.digest), null)
   assert.equal(await community.get(post.id), null)
   assert.equal((await call('GET', shared)).status, 404)

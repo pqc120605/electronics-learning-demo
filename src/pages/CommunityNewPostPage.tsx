@@ -16,7 +16,6 @@ export function CommunityNewPostPage() {
   const navigate = useNavigate()
   const [params] = useSearchParams()
   const access = useWriteAccess()
-  const attachmentsSupported = getCommunityRepository().supportsAttachments !== false
   const ids = { title: useId(), category: useId(), tags: useId() }
   const initialCategory = params.get('cat')
   const [savedDraft] = useState(readCommunityDraft)
@@ -72,7 +71,7 @@ export function CommunityNewPostPage() {
           <form className="community-form" onSubmit={submit} noValidate>
             <fieldset disabled={busy} className="community-compose-fields">
             <p className="community-form-note">{access.note}</p>
-            <p className="community-form-note">{attachmentsSupported ? 'Nháp chữ tự lưu trên thiết bị. Tệp đang chọn chỉ ở bộ nhớ; cần chọn lại khi tải lại trang.' : 'Nháp chữ tự lưu trên thiết bị. Máy chủ này hiện nhận bài viết dạng văn bản.'}</p>
+            <p className="community-form-note">Nháp chữ tự lưu trên thiết bị. Cần chọn lại tệp nếu tải lại trang.</p>
             {draftNotice && <p role="alert">{draftNotice}</p>}
             <div className="community-field">
               <label htmlFor={ids.title}>Tiêu đề</label>
@@ -95,7 +94,7 @@ export function CommunityNewPostPage() {
               </div>
             </div>
             <MarkdownEditor label="Nội dung" value={body} onChange={setBody} rows={10} maxLength={POST_LIMITS.bodyMax} error={errors.body} hint="Hỗ trợ **đậm**, *nghiêng*, `code`, khối ``` code ```, danh sách - và liên kết https." />
-            {attachmentsSupported && <CommunityAttachmentPicker files={files} onChange={setFiles} disabled={busy} />}
+            <CommunityAttachmentPicker files={files} onChange={setFiles} disabled={busy} />
             <div className="community-form-actions">
               <button type="submit" className="button-primary" disabled={busy}>{busy ? 'Đang lưu…' : getCommunityRepository().mode === 'remote' ? 'Đăng bài online' : 'Đăng bài (lưu trên thiết bị)'}</button>
               <Link to={base}>Huỷ</Link>

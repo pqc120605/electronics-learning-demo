@@ -22,7 +22,8 @@ Cập nhật 21/11/2026. Phân hệ M13 Classroom/community. Nhánh S2 bổ sung
 - Migration `003-oauth-community.sql` mở rộng tài khoản và thêm danh tính, giao dịch OAuth một lần, bài viết, bình luận và báo cáo. Giữ hợp đồng `GET /api/session`. Cookie OAuth `__Host-mm_session` dùng `SameSite=Lax` và hết hạn sau 30 ngày. Phiên được xoay khi còn dưới bảy ngày. Bản thử mã mời tiếp tục dùng nhánh xử lý và cookie riêng.
 - Tách `selfHostedAuth` và repository HTTP theo `CommunityRepository`. Dùng nguồn cục bộ cho nháp, lưu trước khi chuyển sang provider và khi quay lại khôi phục đúng nháp. Người dùng khách vẫn mở được bài học, lab và bài cộng đồng công khai. Thao tác ghi yêu cầu đăng nhập và quyền tương ứng. Payload công khai chỉ có tên hiển thị và avatar của người viết.
 - Ghi chính sách lưu giữ và xoá tài khoản trong `/privacy`. Thử `DELETE /api/account` trên dữ liệu riêng của tài khoản thử. Không lưu access token của provider trong database ứng dụng.
-- Adapter tự quản hỗ trợ cộng đồng văn bản và báo cáo có hàng chờ riêng theo quyền admin. Nguồn lưu trên thiết bị hỗ trợ tệp đính kèm. Tải tệp lên backend tự quản chưa thuộc bản này.
+- Adapter tự quản nhận ảnh và tệp đính kèm sau migration `011-community-attachments.sql`. Mỗi bài tối đa 5 tệp, 10 MiB/tệp và 25 MiB/bài. Kho dành cho mỗi tài khoản tối đa 100 MiB, gồm các lượt tải dở. Bài chỉ xuất hiện khi đủ mọi tệp, lượt tải dở quá 24 giờ được dọn định kỳ. Tuyến tải tệp theo quyền xem bài. Xóa bài hoặc tài khoản sẽ xóa tệp đi kèm. Bản cộng đồng trên thiết bị giữ kho tệp riêng.
+- Nghiệm thu local ngày 25/11/2026 đạt 34/34 ca API với PostgreSQL 17 và 18 ca Chrome cho luồng online mô phỏng, tệp cục bộ và các bước học/mạch đã sửa. Triển khai API cùng migration 011 trước frontend. Kiểm thử lại một tệp đi qua Vercel và Mini PC trước khi công bố.
 
 ## Bằng chứng cần trước khi mở production
 

@@ -81,7 +81,6 @@ export type CommunityRepository = {
   report(input: Omit<CommunityReport, 'id' | 'createdAt'>): Promise<CommunityReport>
   listTags(): Promise<Array<{ tag: string; count: number }>>
   getAttachment?(attachment: CommunityAttachment): Promise<Blob | null>
-  supportsAttachments?: false
   updatePost?(id: string, input: Omit<NewPostInput, 'files' | 'requestId'>): Promise<void>
   updateComment?(id: string, body: string): Promise<void>
   remove?(kind: 'post' | 'comment', id: string): Promise<void>

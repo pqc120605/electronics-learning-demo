@@ -12,7 +12,7 @@ function AccountPrivacy() {
   const [message, setMessage] = useState('')
   return <>
     <h2>Tài khoản và cộng đồng online</h2>
-    <p>Mạch Mở lưu định danh từ Google hoặc GitHub, tên hiển thị, ảnh đại diện và phiên đăng nhập. Tên và ảnh đại diện đi kèm bài viết. Bạn có thể xóa tài khoản, phiên và nội dung cộng đồng của tài khoản tại đây. Bản sao lưu máy chủ có thể còn giữ dữ liệu đến khi đến lượt thay.</p>
+    <p>Mạch Mở lưu định danh từ Google hoặc GitHub, tên hiển thị, ảnh đại diện và phiên đăng nhập. Tên, ảnh đại diện và tệp đính kèm đi cùng bài viết đã công bố. Khách có thể xem bài công khai và tải tệp. Khi xóa bài hoặc tài khoản, tệp liên quan cũng được xóa khỏi kho đang phục vụ. Bản sao lưu máy chủ có thể còn giữ dữ liệu đến khi đến lượt thay.</p>
     <p>Project lưu lên tài khoản và lớp online được giữ trên máy chủ khi bạn chọn lưu hoặc nộp bài. Giáo viên của lớp thấy tên hiển thị và tiến độ nộp bài trong lớp. Project chỉ xuất hiện trong thư viện chung khi bạn chọn đăng công khai. Những bản sao đã tải về thiết bị khác vẫn do người giữ thiết bị quản lý.</p>
     {auth.status === 'signed-in' && <button type="button" disabled={busy} onClick={async () => {
       if (!window.confirm('Xóa tài khoản cùng bài viết, bình luận và phiên đăng nhập trên máy chủ?')) return
@@ -41,7 +41,7 @@ export function PrivacyPage() {
       <p>Khi bạn chọn gửi, máy chủ lưu nội dung đã điền, đánh giá tự chọn, thời điểm và mã gửi ngẫu nhiên để tránh ghi trùng. Góp ý không gắn với tài khoản và chỉ quản trị viên xem được. Nội dung được xóa định kỳ sau 180 ngày. Bản sao lưu có thể giữ dữ liệu tới kỳ thay bản sao.</p>
     </>}
     <h2>Hỏi Mở</h2>
-    <p>Tra cứu dùng nội dung sẵn trong ứng dụng. Khi chọn gửi ở mục Hỏi AI, dịch vụ đang cấu hình xử lý câu hỏi, tối đa hai lượt hỏi đáp gần nhất và trích đoạn tra cứu. Nếu dùng OpenAI, các dữ liệu đó được chuyển tới OpenAI để tạo câu trả lời. Tùy chọn ngữ cảnh chỉ thêm thông tin board, loại linh kiện và chân đang chọn. Mạch Mở không đính kèm tên tài khoản, email, tệp, code trong editor hoặc toàn bộ bản nháp. Hội thoại hiện tại được xóa khi thoát mục này hoặc đổi ngữ cảnh. Đánh giá hữu ích được lưu trên thiết bị.</p>
+    <p>Tra cứu dùng nội dung sẵn trong ứng dụng. Khi chọn gửi ở mục Hỏi AI, dịch vụ đang cấu hình xử lý câu hỏi, tối đa hai lượt hỏi đáp gần nhất và trích đoạn tra cứu. Nếu dùng OpenAI, các dữ liệu đó được chuyển tới OpenAI để tạo câu trả lời. Tùy chọn ngữ cảnh chỉ thêm thông tin board, loại linh kiện và chân đang chọn. Mạch Mở không đính kèm tên tài khoản, email, tệp, code trong editor hoặc toàn bộ bản nháp. Hội thoại hiện tại được xóa khi thoát mục này hoặc đổi ngữ cảnh. Đánh giá ở chế độ cục bộ được lưu trên thiết bị.</p>
     <h2>Thống kê sử dụng</h2>
     <p>Nếu dịch vụ thống kê được cấu hình, Mạch Mở gửi lượt xem trang, mở bài, chọn linh kiện, sao chép code và bắt đầu chạy mô phỏng cùng mã phiên ngẫu nhiên trong tab. Mã code, tên, email và nội dung project không được gửi trong các sự kiện này. Khi chưa cấu hình dịch vụ, các sự kiện không được gửi.</p>
     <p>Bạn có thể đóng tab để kết thúc phiên.</p>

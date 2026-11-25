@@ -10,6 +10,7 @@ import { projectRoute } from './projects.mjs'
 import { classroomRoute } from './classrooms.mjs'
 import { siteFeedbackInput } from './site-feedback.mjs'
 import { dashboardIngestPath } from './dashboard-sites.mjs'
+import { CHUNK_BYTES } from './community-attachments.mjs'
 
 export const MAX_BODY_BYTES = 64 * 1024
 const MINUTE_MS = 60_000
@@ -44,18 +45,29 @@ function closeRequest(response, status) {
   json(response, status)
 }
 
-function requireJson(request) {
-  if (request.headers['content-type']?.split(';', 1)[0].trim().toLowerCase() !== 'application/json') throw 415
-  return readJson(request)
+async function requireJson(request) {
+  if (contentType(request) !== 'application/json') throw 415
+  const bytes = await readBytes(request, MAX_BODY_BYTES)
+  try { return JSON.parse(bytes.toString('utf8')) }
+  catch { throw 400 }
 }
 
-function readJson(request) {
+function contentType(request) {
+  return request.headers['content-type']?.split(';', 1)[0].trim().toLowerCase()
+}
+
+function requireBinary(request) {
+  if (contentType(request) !== 'application/octet-stream') throw 415
+  return readBytes(request, CHUNK_BYTES)
+}
+
+function readBytes(request, maximum) {
   return new Promise((resolve, reject) => {
     let total = 0
     const chunks = []
     request.on('data', chunk => {
       total += chunk.length
-      if (total > MAX_BODY_BYTES) {
+      if (total > maximum) {
         if (chunks.length) chunks.length = 0
         reject(413)
         return
@@ -65,9 +77,7 @@ function readJson(request) {
     request.once('error', () => reject(400))
     request.once('aborted', () => reject(400))
     request.once('end', () => {
-      if (total > MAX_BODY_BYTES) return
-      try { resolve(JSON.parse(Buffer.concat(chunks).toString('utf8'))) }
-      catch { reject(400) }
+      if (total <= maximum) resolve(Buffer.concat(chunks))
     })
   })
 }
@@ -118,6 +128,7 @@ export function createApiServer({
   const trustedProxies = new Set(trustedProxyIps)
   const limit = createLimiter(requestsPerMinute, trustedProxies)
   const limitAnalytics = createLimiter(requestsPerMinute, trustedProxies)
+  const limitAttachments = createLimiter(requestsPerMinute, trustedProxies)
   const limitFeedback = createLimiter(30, trustedProxies)
 
   return createServer({ requestTimeout: 10_000, headersTimeout: 5_000, keepAliveTimeout: 4_000, maxHeaderSize: 8192 }, async (request, response) => {
@@ -152,7 +163,8 @@ export function createApiServer({
       response.setHeader('Access-Control-Allow-Credentials', 'true')
     }
 
-    if (!(route.id === 'analytics' ? limitAnalytics : limit)(request)) {
+    const routeLimit = route.id === 'analytics' ? limitAnalytics : route.attachmentTraffic ? limitAttachments : limit
+    if (!routeLimit(request)) {
       response.setHeader('Retry-After', '60')
       return json(response, 429)
     }
@@ -170,7 +182,7 @@ export function createApiServer({
       return json(response, 405)
     }
     const length = Number(request.headers['content-length'] ?? 0)
-    if (length > MAX_BODY_BYTES) return closeRequest(response, 413)
+    if (length > (route.binary ? CHUNK_BYTES : MAX_BODY_BYTES)) return closeRequest(response, 413)
     if (!route.acceptsBody && (length > 0 || request.headers['transfer-encoding'])) return closeRequest(response, 400)
     if (!ingestion && (method === 'POST' || csrf) && !origin) return json(response, 403)
 
@@ -214,7 +226,8 @@ export function createApiServer({
       }
       if (s2Action || s2Session) {
         const params = new URLSearchParams(request.url.split('?').slice(1).join('?'))
-        return await s2.handle({ ...route, csrf }, request, response, json, params, () => requireJson(request))
+        return await s2.handle({ ...route, csrf }, request, response, json, params, () =>
+          route.binary ? requireBinary(request) : requireJson(request))
       }
       if (route.id === 'health') {
         const ready = await Promise.resolve().then(checkDatabase).catch(() => false)
@@ -235,9 +248,7 @@ export function createApiServer({
       if (route.id === 'guide-status') {
         return json(response, 200, handleStatus(guideEnv).body)
       }
-      const mediaType = request.headers['content-type']?.split(';', 1)[0].trim().toLowerCase()
-      if (mediaType !== 'application/json') return json(response, 415)
-      const body = await readJson(request)
+      const body = await requireJson(request)
       if (handleStatus(guideEnv).body.state !== 'ready') return json(response, 503, { error: 'unavailable' })
       const result = await handleChat(body, guideEnv)
       return json(response, result.status, result.body)

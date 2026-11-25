@@ -35,7 +35,7 @@ Ví dụ, `/api/session` trên Preview được Vercel chuyển thành `/session
 
 ## Hoàn tất chuyển backend
 
-Founder xác nhận ngày 23/11/2026 rằng Supabase production không có dữ liệu thật cần chuyển. Sau bản Node API đã phát hành, bước B6 gỡ SDK, adapter, migration và cờ legacy khỏi mã ứng dụng. Có thể xem cấu hình cũ trong lịch sử Git. Bản nháp cộng đồng trên thiết bị và tệp trong IndexedDB vẫn đọc được. API cộng đồng Node ở bản này hỗ trợ bài viết và bình luận dạng văn bản. [Cờ frontend](../../.env.example)
+Founder xác nhận ngày 23/11/2026 rằng Supabase production không có dữ liệu thật cần chuyển. Sau bản Node API đã phát hành, bước B6 gỡ SDK, adapter, migration và cờ legacy khỏi mã ứng dụng. Có thể xem cấu hình cũ trong lịch sử Git. Bản nháp cộng đồng trên thiết bị và tệp trong IndexedDB vẫn đọc được. Cấu hình đăng bài kèm tệp trên Node API cần migration 011. [OAuth và cộng đồng online](oauth-setup.md)
 
 ## Dashboard quản trị và góp ý
 

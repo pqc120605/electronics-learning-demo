@@ -3,7 +3,11 @@ export type CommunityAttachment = { id: string; name: string; size: number; kind
 const rasterExtensions = /\.(png|jpe?g|webp|gif)$/i
 const allowedExtensions = /\.(png|jpe?g|webp|gif|pdf|txt|md|csv|json|ino|c|h|cpp|hpp|py|hex|log)$/i
 export function safeDownloadName(name: string): string {
-  return name.replace(/[<>:"/\\|?*\x00-\x1f\x7f]/g, '_').replace(/^[. ]+/, '').slice(0, 120).trim() || 'attachment.bin'
+  const cleaned = name.replace(/[<>:"/\\|?*\x00-\x1f\x7f\uD800-\uDFFF]/gu, '_').trim()
+  const extension = allowedExtensions.exec(cleaned)?.[0] ?? ''
+  const stem = (extension ? cleaned.slice(0, -extension.length) : cleaned)
+    .replace(/^[. ]+/, '').slice(0, 120 - extension.length).replace(/[\uD800-\uDBFF]$/, '').trimEnd()
+  return (stem || (extension ? 'attachment' : 'attachment.bin')) + extension
 }
 export function validateAttachments(files: readonly Pick<File, 'name' | 'size'>[]): string | null {
   if (files.length > ATTACHMENT_LIMITS.count) return 'Tối đa 5 tệp mỗi bài.'

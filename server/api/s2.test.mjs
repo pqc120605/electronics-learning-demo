@@ -11,7 +11,7 @@ const token = 'x'.repeat(43)
 const cookie = '__Host-mm_session=' + token
 const viewer = { id, displayName: 'Tester', avatarUrl: null, provider: 'github', expiresAt: new Date(Date.now() + 4 * 86400_000), role: 'user', email: 'private@example.test' }
 
-async function start(t, overrides = {}) {
+async function start(t, overrides = {}, attachments) {
   const calls = []
   const store = {
     async read(digest) { return digest.equals(sessionDigest(token)) ? viewer : null },
@@ -26,12 +26,12 @@ async function start(t, overrides = {}) {
   const server = createApiServer({
     origins: [origin], commit: 'cf800c0', checkDatabase: async () => true,
     sessionStore: {}, analyticsStore: {}, log() {},
-    s2: createS2({ origin, env: {}, authStore: { ...store, ...overrides }, community }),
+    s2: createS2({ origin, env: {}, authStore: { ...store, ...overrides }, community, attachments }),
   })
   await new Promise((resolve, reject) => { server.once('error', reject); server.listen(0, '127.0.0.1', resolve) })
   t.after(() => new Promise(resolve => server.close(resolve)))
   const call = (path, options = {}) => new Promise((resolve, reject) => {
-    const body = options.body && JSON.stringify(options.body)
+    const body = options.binary ?? (options.body && JSON.stringify(options.body))
     const headers = { Host: new URL(origin).host, ...(body && { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }), ...options.headers }
     const req = request({ hostname: '127.0.0.1', port: server.address().port, path, method: options.method, headers }, res => {
       const chunks = []
@@ -54,6 +54,34 @@ test('S2 guests read without identity, search server-side and cannot write', asy
   assert.equal((await call('/api/community/posts', { method: 'POST', headers: { Origin: origin, 'X-Machmo-CSRF': '1' }, body: post })).status, 401)
   assert.equal((await call('/api/community/posts?cursor=invalid')).status, 400)
   assert.equal((await call('/api/community/moderation/reports')).status, 401)
+})
+
+test('community attachment routes authorize uploads and serve only inert binary chunks', async t => {
+  const data = Buffer.from('test file')
+  const calls = []
+  const { call } = await start(t, {}, {
+    async init(...args) { calls.push(args); return 204 },
+    async write(...args) { calls.push(args); return 204 },
+    async read() { return { name: 'Mạch mẫu.txt', data } },
+  })
+  const uploads = '/api/community/uploads/' + id + '/0'
+  const headers = { Origin: origin, 'X-Machmo-CSRF': '1', Cookie: cookie }
+  const body = { name: 'Mạch mẫu.txt', size: data.length }
+  assert.equal((await call(uploads, { method: 'PUT', headers: { ...headers, Cookie: '' }, body })).status, 401)
+  assert.equal((await call(uploads, { method: 'PUT', headers: { Origin: origin, Cookie: cookie }, body })).status, 403)
+  assert.equal((await call(uploads, { method: 'PUT', headers, body: { ...body, name: 'doc.svg' } })).status, 400)
+  assert.equal((await call(uploads, { method: 'PUT', headers, body })).status, 204)
+  assert.equal((await call(uploads + '/0', { method: 'PUT', headers, body })).status, 415)
+  const binary = { method: 'PUT', headers: { ...headers, 'Content-Type': 'application/octet-stream' } }
+  assert.equal((await call(uploads + '/0', { ...binary, binary: Buffer.alloc(1024 * 1024 + 1) })).status, 413)
+  assert.equal((await call(uploads + '/0', { ...binary, binary: data })).status, 204)
+  assert.deepEqual(calls[1].slice(0, 4), [id, 0, 0, data])
+  const download = await call('/api/community/posts/' + id + '/attachments/' + id + '/0')
+  assert.equal(download.status, 200)
+  assert.equal(download.text, data.toString())
+  assert.equal(download.headers['content-type'], 'application/octet-stream')
+  assert.match(download.headers['content-disposition'], /^attachment;/)
+  assert.equal(download.headers['x-content-type-options'], 'nosniff')
 })
 
 test('S2 scopes writes to matching origin, CSRF, ownership and admin role', async t => {

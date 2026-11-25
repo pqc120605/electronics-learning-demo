@@ -22,6 +22,9 @@ test('active formats are rejected even if a caller supplies an image MIME; downl
   }
   assert.equal(attachments.safeDownloadName('../../x\u0000.txt'), '_.._x_.txt')
   assert.equal(attachments.safeDownloadName(''), 'attachment.bin')
+  assert.equal(attachments.safeDownloadName('.txt'), 'attachment.txt')
+  const longName = attachments.safeDownloadName('Mạch '.repeat(35) + '.ino')
+  assert.ok(longName.length <= 120 && longName.endsWith('.ino'))
 })
 test('fake raster bytes cannot acquire preview status from filename or MIME alone', async () => {
   const file = new Blob(['<svg onload=alert(1)>'], { type: 'image/png' })

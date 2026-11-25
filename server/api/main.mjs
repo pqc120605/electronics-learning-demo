@@ -5,6 +5,7 @@ import { createApiServer } from './server.mjs'
 import { createS2 } from './s2.mjs'
 import { createOAuthStore } from './oauth-store.mjs'
 import { createCommunityStore } from './community-store.mjs'
+import { createCommunityAttachmentStore } from './community-attachments.mjs'
 import { createGuideStore } from './guide-store.mjs'
 import { createGuideHttp, createGuideService } from './guide-service.mjs'
 import { createAdminHttp, createAdminReports } from './admin.mjs'
@@ -45,7 +46,8 @@ try {
   const siteFeedback = createSiteFeedbackStore(pool)
   const dashboardStore = createDashboardSiteStore(pool, siteFeedback)
   const dashboardSites = authStore && createDashboardSites(process.env.MACHMO_DASHBOARD_SITES, dashboardStore)
-  const s2 = authStore && createS2({ origin: oauthOrigin, env: process.env, authStore, community: createCommunityStore(pool) })
+  const attachments = authStore && createCommunityAttachmentStore(pool)
+  const s2 = authStore && createS2({ origin: oauthOrigin, env: process.env, authStore, attachments, community: createCommunityStore(pool) })
   if (['openai', 'ollama'].includes(guideProvider) && !authStore) throw new Error('AI needs the signed-in origin')
   const guideEnv = guideProvider ? {
     GUIDE_AI_PROVIDER: guideProvider, OPENAI_MODEL: process.env.OPENAI_MODEL, OPENAI_API_KEY: process.env.OPENAI_API_KEY,
@@ -82,7 +84,8 @@ try {
     server.listen(port, '127.0.0.1', resolve)
   })
   retention = setInterval(() => {
-    Promise.all([sessionStore.expire(), analyticsStore.expire(), siteFeedback.expire(), dashboardStore.expire(), authStore && authStore.expire(), guideStore && guideStore.expire()])
+    Promise.all([sessionStore.expire(), analyticsStore.expire(), siteFeedback.expire(), dashboardStore.expire(),
+      authStore && authStore.expire(), attachments && attachments.expire(), guideStore && guideStore.expire()])
       .catch(() => event('staging_retention_failed'))
   }, 60 * 60 * 1000)
   retention.unref()
