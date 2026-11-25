@@ -13,12 +13,13 @@ import type { FlowLegendEntry, SerialEntry } from '../../lib/signalFlow'
 import type { LivePinState } from '../../lib/avrLiveMachine'
 import { getBrowserStorage } from '../../lib/workspaceStorage'
 import {
-  FREESTYLE_STORAGE_KEY, SIGNAL_PINS, SIGNAL_PIN_LABELS, addFreestyleWire, availablePins, buildSampleCircuit, controlsFor, createEmptyFreestyleDoc, blankFreestyleWorkspace, isBreadboardPart,
+  FREESTYLE_STORAGE_KEY, SIGNAL_PINS, SIGNAL_PIN_LABELS, addFreestyleWire, availablePins, buildSampleCircuit, controlsFor, peripheralTypes, peripheralControls, peripheralValue, createEmptyFreestyleDoc, blankFreestyleWorkspace, isBreadboardPart,
   workspaceWithFreestyleBoard, evaluateFreestyleCircuit, freestyleBoards, freestyleSamples, getFreestyleBoard, getMotorProtection, movePart,
   parseFreestyleWorkspace, pinDisplayName, placePart, placeableParts, removePartAndWires, rotatePart, sampleCode,
   type ControlState, type FreestyleLanguage, type FreestyleSampleId, type FreestyleWorkspace, type PinMap, type SignalPin,
 } from '../../lib/freestyle/freestyleCircuit'
 import { chooseEngine, detectHostedArduinoTools, detectLocalTools, startFreestyleRun, type LocalTools, type RuntimeController } from '../../lib/freestyle/freestyleRuntime'
+import { importRp2040Bootrom } from '../../lib/rp2040BootromImport'
 import { FreestyleDraftsDialog } from './FreestyleDraftsDialog'
 import { archiveFreestyleReplacement } from '../../lib/freestyle/freestyleDrafts'
 import { FreestyleToolsDrawer } from './FreestyleToolsDrawer'
@@ -119,6 +120,9 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   const [serialPlotOpen, setSerialPlotOpen] = useState(false)
   const [simMs, setSimMs] = useState(0)
   const [controls, setControls] = useState<ControlState>({})
+  const [importedBootrom, setImportedBootrom] = useState<ArrayBuffer>()
+  const [bootromMessage, setBootromMessage] = useState('')
+  const bootromRequest = useRef(0)
   const [notice, setNotice] = useState('')
   const [shareUrl, setShareUrl] = useState('')
   const [shareOnline, setShareOnline] = useState(false)
@@ -178,9 +182,10 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     return () => clearInterval(timer)
   }, [running])
 
-  const canRequestHostedCompiler = !readOnly && Boolean(boardId) && board.realEngine === 'avr' && language === 'cpp'
+  const usesPeripheralModel = language === 'cpp' && doc.parts.some(part => peripheralTypes.has(part.type))
+  const canRequestHostedCompiler = !usesPeripheralModel && !readOnly && Boolean(boardId) && board.realEngine === 'avr' && language === 'cpp'
   const hostedActive = canRequestHostedCompiler && Boolean(hostedTools?.boards.includes(boardId))
-  const engine = chooseEngine(boardId, language, hostedActive ? hostedTools : useLocalRuntime ? tools : null)
+  const engine = chooseEngine(boardId, language, usesPeripheralModel ? null : hostedActive ? hostedTools : useLocalRuntime ? tools : null, Boolean(importedBootrom))
 
   async function toggleHostedCompiler(wanted: boolean) {
     setHostedMessage('')
@@ -191,7 +196,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     if (available?.boards.includes(boardId)) setHostedTools(available)
     else setHostedMessage('Máy chủ chưa biên dịch được board này. Bạn vẫn có thể chạy mô phỏng trong trình duyệt.')
   }
-  const evaluation = useMemo(() => evaluateFreestyleCircuit(doc, pinMap, running ? pins : undefined, controls), [doc, pinMap, pins, controls, running])
+  const evaluation = useMemo(() => evaluateFreestyleCircuit(doc, pinMap, running ? pins : undefined, controls, boardId), [doc, pinMap, pins, controls, running, boardId])
   const controlSpecs = useMemo(() => controlsFor(doc), [doc])
   const releaseMomentary = () => setControls(current=>{const pressed=controlSpecs.filter(spec=>spec.kind==='press' && current[spec.partId]);return pressed.length?{...current,...Object.fromEntries(pressed.map(spec=>[spec.partId,false]))}:current})
   useEffect(()=>{window.addEventListener('blur',releaseMomentary);return()=>window.removeEventListener('blur',releaseMomentary)},[controlSpecs])
@@ -203,14 +208,15 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     if (!controller || !running) return
     // A floating net can only be resolved after setup configures the pin mode.
     const inputs = evaluation.inputs.filter(input => input.source !== 'hở mạch' || pins?.[input.pin])
-    const key = JSON.stringify(inputs)
+    const key = JSON.stringify([inputs, evaluation.peripherals])
     if (key === sentInputs.current) return
     sentInputs.current = key
+    controller.setPeripherals?.(evaluation.peripherals)
     for (const input of inputs) {
       controller.setDigital(input.pin, input.digital)
       controller.setAnalog(input.pin, input.analog)
     }
-  }, [evaluation.inputs, pins, running])
+  }, [evaluation.inputs, evaluation.peripherals, pins, running])
 
   function update(patch: Partial<FreestyleWorkspace>, options: { wireAction?: boolean; renderOnly?: boolean; historyReplay?: boolean } = {}) {
     if (readOnly) return
@@ -404,7 +410,6 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   async function run() {
     stop()
     if(!boardId || !code.trim())return
-    if(findFreestyleSample(workspace.sampleId)?.mode === 'wiring') { setNotice('Mẫu này dùng để xem cách lắp và đọc sketch. Runtime hiện tại chưa chạy được bài này.'); return }
     const runId=generation.current
     setTracePopout(view !== 'wave')
     traceCapture.current++
@@ -419,14 +424,17 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     latestFrame.current = { pins: {}, serial: '', simMs: 0 }
     setStatus('Đang chuẩn bị…')
     // Shared Arduino code stays in the browser's restricted interpreter until copied explicitly.
-    const checked = hostedActive ? hostedTools : !useLocalRuntime ? null : toolsChecked ? tools : await detectLocalTools()
+    const checked = usesPeripheralModel ? null : hostedActive ? hostedTools : !useLocalRuntime ? null : toolsChecked ? tools : await detectLocalTools()
     if(runId!==generation.current)return
     let active = true
     const request = new AbortController()
     compilerRequest.current = request
+    const startingCircuit = evaluateFreestyleCircuit(doc, pinMap, undefined, controls, boardId)
     const controller = await startFreestyleRun({
       boardId, language, code, tools: checked, signal: request.signal,
-      inputs: evaluateFreestyleCircuit(doc, pinMap, undefined, controls).inputs.filter(input => input.source !== 'hở mạch'),
+      inputs: startingCircuit.inputs.filter(input => input.source !== 'hở mạch'),
+      peripherals: startingCircuit.peripherals,
+      bootrom: importedBootrom,
       onFrame: frame => {
         if(runId!==generation.current)return
         traceRef.current=appendTrace(traceRef.current,frame)
@@ -512,7 +520,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     const nextLanguage=sampleLanguage(id,language)
     update({ doc: sampleDoc, wireLayout: undefined, pinMap: samplePins, sampleId: id, language:nextLanguage, code: sampleCode(id, boardId, nextLanguage, samplePins) })
     const sample=findFreestyleSample(id)
-    setNotice(`Đã dựng mạch mẫu “${sample?.title}”. ${sample?.mode==='wiring'?'Xem cách lắp và sketch tham khảo.':'Bấm ▶ Chạy để xem.'}`)
+    setNotice(`Đã dựng mạch mẫu “${sample?.title}”. Bấm ▶ Chạy để xem.`)
   }
 
   function chooseLanguage(next: FreestyleLanguage) {
@@ -598,9 +606,8 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   const activeSample = findFreestyleSample(workspace.sampleId)
   const oldEsp32Sample = boardId === 'esp32-devkit' && pinMap.input >= 34
     && (workspace.sampleId === 'button-led' || workspace.sampleId === 'keypad-five' || workspace.sampleId === 'dht-demo')
-  const pythonAvailable = Boolean(useLocalRuntime && tools?.rp2040Bootrom)
+  const pythonAvailable = Boolean(importedBootrom || useLocalRuntime && tools?.rp2040Bootrom)
   const runBlockedReason = !boardId ? 'Chọn board trước khi chạy hoặc dựng mạch mẫu.'
-    : activeSample?.mode === 'wiring' ? 'Mẫu này minh họa cách lắp. Máy mô phỏng chưa hỗ trợ chạy mẫu.'
     : !code.trim() ? 'Viết code hoặc dựng mạch mẫu để chạy.'
     : checkingHosted && canRequestHostedCompiler ? 'Đang kiểm tra máy chủ biên dịch.'
     : language === 'micropython' && !pythonAvailable ? engine.note : ''
@@ -670,6 +677,17 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     <div className="freestyle-workbar" ref={workbarRef}>
       <div className="freestyle-view-tabs" role="group" aria-label="Chế độ xem mạch">{([['breadboard','Lắp mạch 2D'],['schematic','Schematic'],['3d','Lắp mạch 3D'],['wave','Dạng sóng']] as const).map(([id,label])=><button key={id} aria-pressed={view===id} onClick={()=>{setTracePopout(false);setView(id);setPanelOpen(false)}}>{label}</button>)}</div>
       <div className="freestyle-work-actions"><button className="freestyle-button" aria-expanded={panelOpen} onClick={()=>setPanelOpen(!panelOpen)}>{panelOpen?'Ẩn bảng thao tác':'Mở bảng thao tác'}</button><button ref={expandButton} className="freestyle-button" aria-pressed={expanded} onClick={()=>setExpanded(!expanded)}>{expanded?'Thu gọn bàn':'Mở rộng bàn'}</button><button type="button" disabled={!readyToRun} aria-describedby={runBlockedReason ? "freestyle-run-help" : undefined} className={`freestyle-run-button ${running?'is-running':''}`} onClick={running||preparing?stop:run}>{running||preparing?'■ Dừng':'▶ Chạy'}</button></div>
+        {usesPeripheralModel && <p className="freestyle-note">Ngoại vi chạy với Arduino C++ trong trình thông dịch. Kết quả lấy từ mô hình giáo dục.</p>}
+        {doc.parts.filter(part => part.type === 'dht22-bare' || part.type === 'ultrasonic').map(part => {
+          const fields = part.type === 'dht22-bare' ? ['temperature', 'humidity'] as const : ['distance'] as const
+          return <div className="freestyle-card freestyle-input-dock" role="group" key={part.id} aria-label={part.type === 'dht22-bare' ? 'Đầu vào DHT22' : 'Đầu vào HC-SR04'}>
+            {fields.map(field => {
+              const { label, min, max, unit } = peripheralControls[field]
+              const value = peripheralValue(controls, part.id, field)
+              return <label key={field} className="freestyle-slider">{label} · {value} {unit}<input aria-label={label} type="range" min={min} max={max} value={value} onChange={event => setControls(current => ({ ...current, [part.id + ':' + field]: Number(event.target.value) }))} /></label>
+            })}
+          </div>
+        })}
         {controlSpecs.length > 0 && <div className="freestyle-card freestyle-input-dock"><h3>Đầu vào</h3>{controlSpecs.map(spec => {
           if (spec.kind === 'slider') {
             const value = typeof controls[spec.partId] === 'number' ? Number(controls[spec.partId]) : 0.5
@@ -755,7 +773,26 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
 
         {step === 'code' && <div className="freestyle-code-step">
           <div className="freestyle-code-toolbar">
-            {!readOnly && board.languages.length > 1 && <label>Ngôn ngữ<select value={language} onChange={event => chooseLanguage(event.target.value as FreestyleLanguage)}>{board.languages.map(item => <option key={item} value={item} disabled={item === 'micropython' && !pythonAvailable}>{item === 'micropython' ? pythonAvailable ? 'MicroPython' : 'MicroPython · cần công cụ cục bộ' : 'Arduino C++'}</option>)}</select></label>}
+            {!readOnly && board.languages.length > 1 && <label>Ngôn ngữ<select value={language} onChange={event => chooseLanguage(event.target.value as FreestyleLanguage)}>{board.languages.map(item => <option key={item} value={item} disabled={item === 'micropython' && !pythonAvailable}>{item === 'micropython' ? pythonAvailable ? 'MicroPython' : 'MicroPython · cần boot ROM' : 'Arduino C++'}</option>)}</select></label>}
+            {board.languages.includes('micropython') && !tools?.rp2040Bootrom && <div className="freestyle-card">
+              <label>Boot ROM RP2040 B2 <input type="file" accept=".elf,.bin" onChange={async event => {
+                const file = event.target.files?.[0]
+                event.target.value = ''
+                if (!file) return
+                const request = ++bootromRequest.current
+                setBootromMessage('Đang kiểm tra SHA-256…')
+                try {
+                  const rom = await importRp2040Bootrom(file)
+                  if (bootromRequest.current !== request) return
+                  setImportedBootrom(rom)
+                  setBootromMessage('Đã xác minh boot ROM B2. Bạn có thể chọn MicroPython.')
+                } catch (error) {
+                  if (bootromRequest.current === request) setBootromMessage(error instanceof Error ? error.message : 'Không đọc được boot ROM.')
+                }
+              }} /></label>
+              <p>Chọn bản boot ROM bạn có quyền chạy trên trình giả lập. Tệp chỉ nằm trong bộ nhớ của tab này.</p>
+              {bootromMessage && <p role="status">{bootromMessage}</p>}
+            </div>}
             {canRequestHostedCompiler && <label>
               <input type="checkbox" checked={hostedActive || checkingHosted} disabled={checkingHosted || running || preparing}
                 onChange={event => void toggleHostedCompiler(event.currentTarget.checked)} />
@@ -777,7 +814,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       <div className="freestyle-stage" ref={stageRef} tabIndex={-1} aria-label="Mạch đang lắp" onDragOver={event => { if (!readOnly && event.dataTransfer.types.includes('application/x-machmo-part')) event.preventDefault() }} onDrop={readOnly ? undefined : dropPart}>
         {oldEsp32Sample && <p className="freestyle-note" role="note">Mẫu lưu cũ dùng chân từ GPIO34 trở lên. Các chân này không có kéo lên nội và chỉ nhận tín hiệu. Chọn lại đúng mạch mẫu rồi bấm “Dựng mạch mẫu” để dùng GPIO19.</p>}
         {runBlockedReason && <p id="freestyle-run-help" className="freestyle-note">{runBlockedReason}</p>}
-        {activeSample && <details className="freestyle-note"><summary>{activeSample.title}{activeSample.mode==='wiring'?' · nối dây và đọc sketch':''}</summary><p>{activeSample.summary}</p><p>Thử {activeSample.challenge.charAt(0).toLocaleLowerCase('vi-VN')+activeSample.challenge.slice(1)}</p>{activeSample.mode==='wiring'&&<p>Máy mô phỏng hiện tại chưa chạy giao thức hoặc ngoại vi của mẫu này. Có thể tải sketch và đối chiếu tài liệu phần cứng.</p>}</details>}
+        {activeSample && <details className="freestyle-note"><summary>{activeSample.title}</summary><p>{activeSample.summary}</p><p>Thử {activeSample.challenge.charAt(0).toLocaleLowerCase('vi-VN')+activeSample.challenge.slice(1)}</p></details>}
         {workspace.sampleId === 'motor' && <p className="freestyle-note" role="note">{motorProtection.independentSupply && motorProtection.commonGround && motorProtection.flyback ? 'Mạch này có nguồn tải lý tưởng riêng, GND chung và diode mắc ngược song song motor.' : 'Bản nháp motor này chưa có đủ nguồn tải riêng, GND chung hoặc diode đúng chiều. Mạch đang được giữ nguyên. Hãy tải bản nháp trước khi chọn “Dựng mạch mẫu” để dùng mẫu mới.'} Hoạt cảnh chỉ minh họa đóng/ngắt; chưa tính dòng tải, sụt áp, xung ngược, nhiệt hoặc chọn định mức linh kiện thật.</p>}
         {!readOnly && !panelOpen && selectedPart && selectedPart.type !== 'board' && <button type="button" className="freestyle-button freestyle-reopen-selection" onClick={() => {
           setStep('parts')

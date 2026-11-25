@@ -26,6 +26,6 @@ bash server/api/deploy-dashboard-edge.sh "$rev" --enable-compiler
 | --- | --- |
 | SPICE, bộ tính, diễn giải Arduino C++ rút gọn, AVR HEX và hiện dạng sóng | Chạy trong trình duyệt, dùng luôn trên web. |
 | Kiểm UF2 và Pico Arduino C++ | Chạy trong trình duyệt. |
-| Pico MicroPython | Hiện cần RP2040 boot ROM từ luồng local. Quyền phân phối công khai phải được xác minh cho cả phần mufplib trước khi phục vụ boot ROM qua Mini PC. [Giấy phép boot ROM RP2040](https://github.com/raspberrypi/pico-bootrom-rp2040/blob/master/LICENSE.TXT) |
+| Pico MicroPython | Trên web, bước Viết code & Chạy nhận boot ROM B2 (.elf hoặc .bin) người dùng có quyền sử dụng trong trình giả lập. Tệp được kiểm SHA-256 và giữ trong bộ nhớ tab. Mini PC và Vercel chỉ phục vụ firmware MicroPython UF2 đã ghim. Điều khoản của mufplib nằm riêng trong [mã nguồn Raspberry Pi](https://github.com/raspberrypi/pico-bootrom-rp2040/blob/master/bootrom/mufplib.S). |
 | Mở Bot | Tra cứu trong trình duyệt dùng được. Provider thật triển khai riêng theo kiểm tra RAM và chất lượng tại [kế hoạch backend](server-stages.md#s6--đánh-giá-ollama-trên-máy-đích). |
 | Nạp qua USB | Trình duyệt mở cổng với board cắm trực tiếp ở máy người dùng. Máy chủ có thể cấp artifact đã duyệt. |

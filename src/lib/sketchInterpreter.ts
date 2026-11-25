@@ -46,7 +46,10 @@ export const sketchBoards: readonly SketchBoard[] = [
 ]
 
 export type SketchError = { line: number; message: string }
-export type PinState = { mode: 'unset' | 'output' | 'input' | 'input_pullup'; level: boolean; pwm?: number }
+export type PinState = { mode: 'unset' | 'output' | 'input' | 'input_pullup'; level: boolean; pwm?: number; servoPulseUs?: number }
+export type SketchPeripheral =
+  | { kind: 'dht22'; pin: number; temperature: number; humidity: number }
+  | { kind: 'ultrasonic'; pin: number; trigger: number; distanceCm: number }
 export type SketchSnapshot = {
   simulatedMilliseconds: number
   pins: Record<number, PinState>
@@ -144,6 +147,7 @@ function lex(source: string, firstLine: number): Token[] {
 // ---------- Parser ----------
 type Node = { k: string; line: number; [key: string]: any } // eslint-disable-line @typescript-eslint/no-explicit-any
 const TYPE_WORDS = new Set(['void', 'int', 'long', 'short', 'float', 'double', 'bool', 'boolean', 'byte', 'char', 'unsigned', 'signed', 'const', 'static', 'volatile', 'uint8_t', 'uint16_t', 'uint32_t', 'uint64_t', 'int8_t', 'int16_t', 'int32_t', 'int64_t', 'size_t', 'String', 'word', 'auto'])
+TYPE_WORDS.add('DHT')
 const FLOAT_TYPES = new Set(['float', 'double'])
 
 function parse(tokens: Token[]) {
@@ -178,7 +182,13 @@ function parse(tokens: Token[]) {
       let size: Node | undefined
       if (is('[')) { next(); size = is(']') ? undefined : parseExpression(); expect(']'); size ??= { k: 'num', line, value: -1 } }
       let init: Node | undefined
-      if (is('=')) {
+      if (type === 'DHT') {
+        expect('(')
+        init = parseAssignment()
+        expect(',')
+        expect('DHT22')
+        expect(')')
+      } else if (is('=')) {
         next()
         if (is('{')) { next(); const values: Node[] = []; while (!is('}')) { values.push(parseAssignment()); if (is(',')) next() } expect('}'); init = { k: 'list', line, values } }
         else init = parseAssignment()
@@ -311,7 +321,7 @@ function parse(tokens: Token[]) {
     const line = peek().line
     if (!isTypeStart()) throw new CompileError(line, `Mong đợi khai báo biến hoặc hàm, gặp '${peek().v}'.`)
     const type = parseType()
-    if (peek().t === 'id' && is('(', 1)) {
+    if (type !== 'DHT' && peek().t === 'id' && is('(', 1)) {
       const name = next().v
       expect('(')
       const params: Array<{ name: string; type: string }> = []
@@ -352,6 +362,7 @@ export type SketchRun = {
   advance(millis: number): SketchSnapshot
   setDigitalInput(pin: number, level: boolean): void
   setAnalogInput(pin: number, raw: number): void
+  setPeripherals(inputs: readonly SketchPeripheral[]): void
   stop(): void
   snapshot(): SketchSnapshot
 }
@@ -379,6 +390,10 @@ function createRun(program: ReturnType<typeof parse>, board: SketchBoard): Sketc
   const events: SketchSnapshot['events'] = {}
   const digitalInputs = new Map<number, boolean>()
   const analogInputs = new Map<number, number>()
+  let peripherals: readonly SketchPeripheral[] = []
+  const pulses = new Map<number, { rise: number; period: number; fall?: number; width?: number }>()
+  const usedTriggerFall = new Map<string, number>()
+  const dhtSamples = new WeakMap<Slot, { time: number; temperature: number; humidity: number }>()
   const analogReads = new Set<number>()
   const digitalReads = new Set<number>()
   const ledc = new Map<number, number>() // channel -> pin
@@ -395,7 +410,13 @@ function createRun(program: ReturnType<typeof parse>, board: SketchBoard): Sketc
   }
   const write = (pin: number, level: boolean, pwm?: number) => {
     const state = (pins[pin] ??= { mode: 'unset', level: false })
+    if (pwm !== undefined) pulses.delete(pin)
     if (state.level !== level) {
+      if (state.mode === 'output' && pwm === undefined && state.pwm === undefined) {
+        const pulse = pulses.get(pin)
+        if (level) pulses.set(pin, { rise: micros, period: pulse ? micros - pulse.rise : 0, fall: pulse?.fall, width: pulse?.width })
+        else if (pulse) { pulse.fall = micros; pulse.width = micros - pulse.rise }
+      }
       const list = (events[pin] ??= [])
       if (list.length < MAX_EVENTS_PER_PIN) list.push({ level, cycles: Math.round(micros), simulatedMilliseconds: micros / 1000 })
     }
@@ -441,6 +462,7 @@ function createRun(program: ReturnType<typeof parse>, board: SketchBoard): Sketc
       case 'cast': return FLOAT_TYPES.has(node.type)
       case 'ternary': return isFloatExpr(node.then, scopes) || isFloatExpr(node.otherwise, scopes)
       case 'call': return node.callee.k === 'id' && (['sqrt', 'pow', 'sin', 'cos', 'tan', 'atan2', 'log', 'exp', 'fabs', 'floor', 'ceil'].includes(node.callee.name) || FLOAT_TYPES.has(program.functions.get(node.callee.name)?.type ?? ''))
+        || node.callee.k === 'member' && ['readTemperature', 'readHumidity'].includes(node.callee.name)
       case 'index': return isFloatExpr(node.target, scopes)
       default: return false
     }
@@ -652,6 +674,24 @@ function createRun(program: ReturnType<typeof parse>, board: SketchBoard): Sketc
         default: return fail(node.line, `Serial.${callee.name} chưa được mô phỏng.`)
       }
     }
+    if (callee.k === 'member' && callee.object.k === 'id') {
+      const sensor = lookup(callee.object.name, scopes)
+      if (sensor?.type === 'DHT') {
+        const pin = pinOf(sensor.value, node.line)
+        if (callee.name === 'begin' && !args.length) { dhtSamples.delete(sensor); return 0 }
+        if (!['readTemperature', 'readHumidity'].includes(callee.name) || args.length) {
+          return fail(node.line, 'Mô hình DHT22 hỗ trợ begin(), readTemperature() và readHumidity() không có tham số.')
+        }
+        const input = peripherals.find(item => item.kind === 'dht22' && item.pin === pin)
+        if (!input || input.kind !== 'dht22') { dhtSamples.delete(sensor); return NaN }
+        let sample = dhtSamples.get(sensor)
+        if (!sample || micros - sample.time >= 2_000_000) {
+          sample = { time: micros, temperature: input.temperature, humidity: input.humidity }
+          dhtSamples.set(sensor, sample)
+        }
+        return callee.name === 'readTemperature' ? sample.temperature : sample.humidity
+      }
+    }
     if (callee.k === 'member' && callee.name === 'length' && args.length === 0) {
       const owner = yield* evaluate(callee.object, scopes)
       if (typeof owner === 'string') return new TextEncoder().encode(owner).byteLength
@@ -673,10 +713,31 @@ function createRun(program: ReturnType<typeof parse>, board: SketchBoard): Sketc
     }
     const n = (index: number) => Number(args[index] ?? 0)
     switch (name) {
+      case 'isnan': return Number.isNaN(n(0)) ? 1 : 0
+      case 'pulseIn': {
+        const pin = pinOf(args[0], node.line)
+        const timeout = Math.max(0, Math.min(1_000_000, n(2) || (args.length < 3 ? 1_000_000 : 0)))
+        const sonar = peripherals.find(item => item.kind === 'ultrasonic' && item.pin === pin)
+        const trigger = sonar?.kind === 'ultrasonic' ? pulses.get(sonar.trigger) : undefined
+        const sensorKey = sonar?.kind === 'ultrasonic' ? `${sonar.trigger}:${pin}` : ''
+        let width = 0
+        let wait = timeout
+        if (sonar?.kind === 'ultrasonic' && n(1) === 1 && pins[pin]?.mode !== 'output' &&
+            trigger?.fall !== undefined && trigger.width !== undefined && trigger.width >= 10 && trigger.width <= 1000 &&
+            micros - trigger.fall < 200 && usedTriggerFall.get(sensorKey) !== trigger.fall) {
+          usedTriggerFall.set(sensorKey, trigger.fall)
+          const echoWidth = Math.round(sonar.distanceCm * 58)
+          const duration = 200 - (micros - trigger.fall) + echoWidth
+          if (duration <= timeout) { width = echoWidth; wait = duration }
+        }
+        if (wait > 0) yield { kind: 'delay', micros: wait }
+        return width
+      }
       case 'pinMode': {
         const pin = pinOf(args[0], node.line)
         const mode = n(1)
         const state = (pins[pin] ??= { mode: 'unset', level: false })
+        if (mode !== 1 || state.mode !== 'output') pulses.delete(pin)
         state.mode = mode === 1 ? 'output' : mode === 2 ? 'input_pullup' : 'input'
         if (state.mode === 'output' && board.id === 'esp32-devkit' && pin >= 34) fail(node.line, `GPIO ${pin} của ESP32 chỉ là input.`)
         return 0
@@ -768,7 +829,13 @@ function createRun(program: ReturnType<typeof parse>, board: SketchBoard): Sketc
   function snapshot(): SketchSnapshot {
     return {
       simulatedMilliseconds: micros / 1000,
-      pins: Object.fromEntries(Object.entries(pins).map(([pin, state]) => [pin, { ...state }])),
+      pins: Object.fromEntries(Object.entries(pins).map(([pin, state]) => {
+        const pulse = pulses.get(Number(pin))
+        const width = state.mode === 'output' && state.pwm === undefined && pulse?.fall !== undefined && micros - pulse.fall < 60_000 &&
+          pulse.period >= 18_000 && pulse.period <= 22_000 && pulse.width !== undefined && pulse.width >= 995 && pulse.width <= 2010
+          ? pulse.width : undefined
+        return [pin, { ...state, ...(width === undefined ? {} : { servoPulseUs: width }) }]
+      })),
       serial,
       serialTruncated,
       events: Object.fromEntries(Object.entries(events).map(([pin, list]) => [pin, [...list]])),
@@ -806,6 +873,7 @@ function createRun(program: ReturnType<typeof parse>, board: SketchBoard): Sketc
     },
     setDigitalInput(pin, level) { digitalInputs.set(pin, level) },
     setAnalogInput(pin, raw) { analogInputs.set(pin, raw) },
+    setPeripherals(inputs) { peripherals = inputs },
     stop() { phase = 'stopped' },
     snapshot,
   }

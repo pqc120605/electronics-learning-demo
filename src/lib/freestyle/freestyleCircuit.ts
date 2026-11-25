@@ -431,6 +431,17 @@ export function sampleCode(sampleId: FreestyleSampleId, boardId: string, languag
 // ---------------- Đánh giá mạch (mô hình logic) ----------------
 
 export type ControlState = Record<string, number | boolean>
+export const peripheralTypes = new Set(['dht22-bare', 'ultrasonic', 'servo'])
+export const peripheralControls = {
+  temperature: { label: 'Nhiệt độ môi trường', min: -40, max: 80, initial: 24, unit: '°C' },
+  humidity: { label: 'Độ ẩm môi trường', min: 0, max: 100, initial: 55, unit: '%RH' },
+  distance: { label: 'Khoảng cách vật cản', min: 2, max: 400, initial: 100, unit: 'cm' },
+} as const
+export function peripheralValue(state: ControlState, partId: string, field: keyof typeof peripheralControls) {
+  const { min, max, initial } = peripheralControls[field]
+  const value = state[`${partId}:${field}`]
+  return typeof value === 'number' && Number.isFinite(value) ? Math.min(max, Math.max(min, value)) : initial
+}
 export type NetLevel = { level: 'high' | 'low' | 'float' | 'divider'; strong: boolean; pwm?: number; rail?: 'vcc' | 'gnd' }
 export type PartOutput =
   | { partId: string; kind: 'led'; on: boolean; brightness: number; missingResistor: boolean }
@@ -447,6 +458,7 @@ export type CircuitEvaluation = {
   litPartIds: Set<string>
   activeWireIds: Set<string>
   warnings: string[]
+  peripherals: import('../sketchInterpreter').SketchPeripheral[]
 }
 
 type Edge = { a: string; b: string; strong: boolean }
@@ -478,7 +490,7 @@ export function controlsFor(doc: CircuitDocV2): ControlSpec[] {
   })
 }
 
-export function evaluateFreestyleCircuit(doc: CircuitDocV2, pinMap: PinMap, pinStates: Readonly<Record<number, LivePinState>> | undefined, controls: ControlState): CircuitEvaluation {
+export function evaluateFreestyleCircuit(doc: CircuitDocV2, pinMap: PinMap, pinStates: Readonly<Record<number, LivePinState>> | undefined, controls: ControlState, boardId?: string): CircuitEvaluation {
   const index = createNetIndexV2(doc)
   const net = (partId: string, pinId: string) => index.netOf(`${partId}:${pinId}`)?.key ?? `${partId}:${pinId}`
   const warnings: string[] = []
@@ -534,9 +546,21 @@ export function evaluateFreestyleCircuit(doc: CircuitDocV2, pinMap: PinMap, pinS
   const level = (key: string): NetLevel => levels.get(key) ?? { level: 'float', strong: false }
 
   const outputs: PartOutput[] = []
+  const peripherals: CircuitEvaluation['peripherals'] = []
   const litPartIds = new Set<string>()
+  const pinOnNet = (key: string) => {
+    if (!board) return undefined
+    const roles = SIGNAL_PINS.filter(signal => net(board.id, signal) === key)
+    return roles.length === 1 ? pinMap[roles[0]] : undefined
+  }
+  const resistors = doc.parts.filter(part => part.type === 'resistor')
+  const resistance = (a: string, b: string) => resistors.find(part => {
+    const keys = [net(part.id, 'a'), net(part.id, 'b')]
+    return a !== b && keys.includes(a) && keys.includes(b)
+  })?.value?.ohm
   for (const part of doc.parts) {
     const n = (pin: string) => net(part.id, pin)
+    const powered = () => level(n('vcc')).rail === 'vcc' && level(n('gnd')).rail === 'gnd'
     if (part.type === 'led') {
       const anode = level(n('anode')), cathode = level(n('cathode'))
       const lit = anode.level === 'high' && cathode.level === 'low'
@@ -559,15 +583,39 @@ export function evaluateFreestyleCircuit(doc: CircuitDocV2, pinMap: PinMap, pinS
       const speed = direction === 0 ? 0 : (direction === 1 ? plus.pwm : minus.pwm) ?? 1
       outputs.push({ partId: part.id, kind: 'motor', direction, speed })
     } else if (part.type === 'servo') {
-      const signal = level(n('signal'))
-      // Xung servo 50 Hz: 1–2 ms trên chu kỳ 20 ms ⇒ duty 5–10 %.
-      const angle = signal.pwm !== undefined && signal.pwm >= 0.02 && signal.pwm <= 0.13 ? Math.round(Math.min(180, Math.max(0, (signal.pwm * 20 - 1) * 180))) : undefined
+      const pin = pinOnNet(n('signal'))
+      const pulse = pin === undefined ? undefined : pinStates?.[pin]?.servoPulseUs
+      const angle = powered() && pulse !== undefined ? Math.round(Math.min(180, Math.max(0, (pulse - 1000) * 0.18))) : undefined
       outputs.push({ partId: part.id, kind: 'servo', ...(angle === undefined ? {} : { angle }) })
+    } else if (part.type === 'dht22-bare') {
+      const pin = pinOnNet(n('data'))
+      const pullup = resistance(n('data'), n('vcc'))
+      if (powered() && pin !== undefined && pullup && pullup >= 1000 && pullup <= 10000 && !level(n('data')).rail) {
+        peripherals.push({ kind: 'dht22', pin, temperature: peripheralValue(controls, part.id, 'temperature'), humidity: peripheralValue(controls, part.id, 'humidity') })
+      } else warnings.push('DHT22 cần nguồn, GND và điện trở kéo lên ở DATA trước khi đọc.')
+    } else if (part.type === 'ultrasonic') {
+      const trigger = pinOnNet(n('trig'))
+      const fiveVoltBoard = boardId !== undefined && getFreestyleBoard(boardId).logic === '5 V'
+      const fiveVoltSupply = board && (n('vcc') === net(board.id, 'v5') || fiveVoltBoard && n('vcc') === net(board.id, 'vcc'))
+        || doc.parts.some(item => item.type === 'battery' && item.value?.label === 'Nguồn 5 V lý tưởng' && net(item.id, 'positive') === n('vcc'))
+      const echo = fiveVoltBoard ? pinOnNet(n('echo')) : SIGNAL_PINS.find(signal => {
+        if (!board) return false
+        const key = net(board.id, signal)
+        const top = resistance(n('echo'), key), bottom = resistance(key, n('gnd'))
+        if (!top || !bottom) return false
+        const volts = 5 * bottom / (top + bottom)
+        return volts >= 2.4 && volts <= 3.3 && !level(key).rail
+      })
+      const pin = typeof echo === 'string' ? pinMap[echo] : echo
+      if (powered() && fiveVoltSupply && trigger !== undefined && pin !== undefined && trigger !== pin &&
+          !level(n('trig')).rail && !level(n('echo')).rail) {
+        peripherals.push({ kind: 'ultrasonic', pin, trigger, distanceCm: peripheralValue(controls, part.id, 'distance') })
+      } else warnings.push('HC-SR04 cần nguồn 5 V, GND chung và dây TRIG/ECHO. Board 3,3 V cần chia áp ECHO.')
     } else if (part.type === 'seven-segment' || part.type === 'seven-segment-anode') {
       const anode = part.type === 'seven-segment-anode'
       const common = [level(n('com1')), level(n('com2'))].some(item => item.level === (anode ? 'high' : 'low'))
       outputs.push({ partId: part.id, kind: 'segments', lit: common ? ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'dp'].filter(seg => level(n(seg)).level === (anode ? 'low' : 'high')) : [] })
-    } else if (['ultrasonic', 'oled', 'tb6612', 'h-bridge'].includes(part.type)) {
+    } else if (['oled', 'tb6612', 'h-bridge'].includes(part.type)) {
       warnings.push(`${part.id}: ${componentRegistry.find(item => item.id === part.type)?.label ?? part.type} chưa được mô phỏng trên bàn tự do; chỉ hiển thị dây nối.`)
     }
   }
@@ -600,7 +648,7 @@ export function evaluateFreestyleCircuit(doc: CircuitDocV2, pinMap: PinMap, pinS
     const value = key ? levels.get(key) : undefined
     if (value?.level === 'high' && !value.rail) activeWireIds.add(wire.id)
   }
-  return { outputs, inputs, netLevels: levels, litPartIds, activeWireIds, warnings: [...new Set(warnings)] }
+  return { outputs, inputs, netLevels: levels, litPartIds, activeWireIds, warnings: [...new Set(warnings)], peripherals }
 }
 
 function propagate(edges: Edge[], sources: Source[]): Map<string, NetLevel> {

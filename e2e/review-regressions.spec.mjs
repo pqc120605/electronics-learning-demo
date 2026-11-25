@@ -27,6 +27,26 @@ test('Pico sample runs with the displayed browser engine',async({page})=>{
   await expect(page.locator('.freestyle-engine')).toContainText('Trình thông dịch rút gọn')
 })
 
+test('public Pico MicroPython boots with a locally imported ROM and no local tools', async ({ page }) => {
+  test.skip(!process.env.MACHMO_TEST_PICO_BOOTROM, 'This test needs an authorized local B2 file.')
+  test.setTimeout(100_000)
+  await page.route('**/api/local-tools/rp2040-bootrom', () => { throw new Error('An imported ROM must never use the local service.') })
+  await sample(page, /Raspberry Pi Pico/, 'blink')
+  await page.getByRole('tab', { name: /Viết code & Chạy/ }).click()
+  const importFile = page.getByLabel('Boot ROM RP2040 B2', { exact: true })
+  await importFile.setInputFiles({ name: 'invalid.bin', mimeType: 'application/octet-stream', buffer: Buffer.alloc(16384) })
+  await expect(page.getByText('SHA-256 không khớp bản boot ROM RP2040 B2 được hỗ trợ.')).toBeVisible()
+  await importFile.setInputFiles(process.env.MACHMO_TEST_PICO_BOOTROM)
+  await expect(page.getByText('Đã xác minh boot ROM B2. Bạn có thể chọn MicroPython.')).toBeVisible()
+  await page.getByLabel('Ngôn ngữ').selectOption('micropython')
+  await page.getByLabel('Mã nguồn MicroPython').fill('from machine import Pin\nimport time\nled = Pin(15, Pin.OUT)\nwhile True:\n    led.toggle()\n    print("GP15", led.value())\n    time.sleep(0.4)\n')
+  await page.locator('.freestyle-work-actions').getByRole('button', { name: '▶ Chạy' }).click()
+  await page.getByRole('tab', { name: /Quan sát/ }).click()
+  await expect(page.getByLabel('Đầu ra Serial')).toContainText('GP15 1', { timeout: 45000 })
+  await expect(page.locator('.freestyle-engine')).toContainText('rp2040js')
+  await page.locator('.freestyle-work-actions').getByRole('button', { name: '■ Dừng' }).click()
+})
+
 test('input levels are loaded before the first button and ADC reads',async({page})=>{
   await sample(page,/Arduino Uno R3/,'button-led')
   await page.locator('.freestyle-work-actions').getByRole('button',{name:'▶ Chạy'}).click()

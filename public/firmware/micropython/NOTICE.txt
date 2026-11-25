@@ -18,3 +18,6 @@ KHÔNG đóng gói: bootrom RP2040 (B2). Bootrom chứa mufplib chỉ được c
 RP2040 thật (hoặc GPLv2 từ tác giả), nên dịch vụ cục bộ scripts/arduino-compile-service.mjs
 tải bản phát hành chính thức https://github.com/raspberrypi/pico-bootrom-rp2040/releases/tag/b2
 về .tmp/firmware-cache/ trên máy người dùng và kiểm SHA-256 trước khi dùng.
+
+Bản web có thể đọc boot ROM B2 mà người dùng có quyền sử dụng trong trình giả lập.
+Trình duyệt kiểm SHA-256 của tệp B2 (.elf hoặc .bin) và chỉ dùng dữ liệu trong bộ nhớ tab.

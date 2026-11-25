@@ -89,13 +89,38 @@ test('every sample circuit builds a structurally valid CircuitDocV2 on every boa
         const code = fs.sampleCode(sample.id, board.id, language, pinMap)
         if (language === 'cpp' && sample.mode === 'run') {
           assert.equal(sketch.compileSketch(code, fs.sketchBoardFor(board.id)).ok, true, `${board.id}/${sample.id} C++ mẫu phải chạy được bằng trình thông dịch`)
-        } else if (language === 'cpp' && sample.id === 'dht-demo') {
-          assert.match(code, /#include <DHT\.h>/)
-          assert.equal(sketch.compileSketch(code, fs.sketchBoardFor(board.id)).ok, false, 'Trình thông dịch không chạy thư viện DHT của Arduino')
         } else if (language === 'micropython') assert.match(code, /from machine import/)
       }
     }
   }
+})
+
+test('DHT22, HC-SR04 and servo use input and output from their actual circuit connections', () => {
+  const board = 'esp32-devkit'
+  const load = id => {
+    const workspace = fs.defaultFreestyleWorkspace(board, id)
+    const result = sketch.compileSketch(workspace.code, fs.sketchBoardFor(board))
+    assert.equal(result.ok, true)
+    const evaluate = (pins, controls = {}, doc = workspace.doc) => fs.evaluateFreestyleCircuit(doc, workspace.pinMap, pins, controls, board)
+    return { workspace, run: result.run, evaluate }
+  }
+  const dht = load('dht-demo')
+  const dhtPart = dht.workspace.doc.parts.find(part => part.type === 'dht22-bare')
+  dht.run.setPeripherals(dht.evaluate(undefined, { [dhtPart.id + ':temperature']: -5, [dhtPart.id + ':humidity']: 73 }).peripherals)
+  assert.match(dht.run.advance(20).serial, /-5\.00 C, 73\.00 %RH/)
+  dht.run.setPeripherals(dht.evaluate(undefined, {}, { ...dht.workspace.doc, wires: [] }).peripherals)
+  assert.match(dht.run.advance(2550).serial, /nan/i)
+
+  const sonar = load('ultrasonic')
+  const sonarPart = sonar.workspace.doc.parts.find(part => part.type === 'ultrasonic')
+  sonar.run.setPeripherals(sonar.evaluate(undefined, { [sonarPart.id + ':distance']: 42 }).peripherals)
+  assert.match(sonar.run.advance(100).serial, /42\.00/)
+  assert.deepEqual(sonar.evaluate(undefined, {}, { ...sonar.workspace.doc, wires: [] }).peripherals, [])
+
+  const servo = load('servo-pulse')
+  const frame = servo.run.advance(70)
+  assert.equal(servo.evaluate(frame.pins).outputs.find(part => part.kind === 'servo').angle, 90)
+  assert.equal(servo.evaluate(frame.pins, {}, { ...servo.workspace.doc, wires: [] }).outputs.find(part => part.kind === 'servo').angle, undefined)
 })
 
 test('blink: LED lights only while the mapped GPIO is HIGH and the active wires follow', () => {

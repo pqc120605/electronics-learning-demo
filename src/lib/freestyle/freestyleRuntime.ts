@@ -1,4 +1,4 @@
-import { compileSketch, type SketchSnapshot } from '../sketchInterpreter'
+import { compileSketch, type SketchPeripheral, type SketchSnapshot } from '../sketchInterpreter'
 import type { LivePinState } from '../avrLiveMachine'
 import type { LiveWorkerRequest, LiveWorkerResponse, RuntimeInput } from '../../simulation/liveRuntimeProtocol'
 import { getFreestyleBoard, sketchBoardFor, type FreestyleEngine, type FreestyleLanguage } from './freestyleCircuit'
@@ -18,7 +18,7 @@ export type RuntimeCallbacks = {
   onError: (message: string, line?: number) => void
   onStopped: (reason: string) => void
 }
-export type RuntimeController = { engine: FreestyleEngine; setDigital(pin: number, level: boolean): void; setAnalog(pin: number, ratio: number): void; stop(): void }
+export type RuntimeController = { engine: FreestyleEngine; setDigital(pin: number, level: boolean): void; setAnalog(pin: number, ratio: number): void; setPeripherals?(inputs: readonly SketchPeripheral[]): void; stop(): void }
 
 const API = '/api/local-tools'
 const hostedApi = '/api/tools/arduino'
@@ -51,12 +51,12 @@ export async function detectHostedArduinoTools(): Promise<LocalTools | null> {
   } catch { return null }
 }
 
-export function chooseEngine(boardId: string, language: FreestyleLanguage, tools: LocalTools | null): { engine: FreestyleEngine; label: string; note: string } {
+export function chooseEngine(boardId: string, language: FreestyleLanguage, tools: LocalTools | null, importedBootrom = false): { engine: FreestyleEngine; label: string; note: string } {
   const board = getFreestyleBoard(boardId)
   if (language === 'micropython') {
-    return tools?.rp2040Bootrom
+    return tools?.rp2040Bootrom || importedBootrom
       ? { engine: 'micropython', label: 'MicroPython thật · rp2040js', note: 'MicroPython v1.29 chính thức chạy trên CPU RP2040 giả lập; mô phỏng, không phải đo trên board thật.' }
-      : { engine: 'micropython', label: 'MicroPython chưa khả dụng', note: 'MicroPython cần công cụ chạy cục bộ. Để thử mạch trên web, chọn Arduino C++ và dựng lại mạch mẫu.' }
+      : { engine: 'micropython', label: 'MicroPython cần boot ROM', note: 'Để chạy MicroPython, chọn boot ROM RP2040 B2 bạn có quyền dùng trong bước Viết code & Chạy.' }
   }
   if (board.realEngine === 'avr' && tools?.arduinoCli && tools.boards.includes(boardId)) {
     return tools.hosted
@@ -112,15 +112,22 @@ function attachWorker(worker: Worker, runId: string, callbacks: RuntimeCallbacks
   }
 }
 
-export async function startFreestyleRun(options: { boardId: string; language: FreestyleLanguage; code: string; tools: LocalTools | null; inputs: readonly RuntimeInput[]; signal?: AbortSignal } & RuntimeCallbacks): Promise<RuntimeController | null> {
-  const choice = chooseEngine(options.boardId, options.language, options.tools)
+export async function startFreestyleRun(options: { boardId: string; language: FreestyleLanguage; code: string; tools: LocalTools | null; inputs: readonly RuntimeInput[]; bootrom?: ArrayBuffer; peripherals?: readonly SketchPeripheral[]; signal?: AbortSignal } & RuntimeCallbacks): Promise<RuntimeController | null> {
+  const choice = chooseEngine(options.boardId, options.language, options.tools, Boolean(options.bootrom))
   const runId = newRunId()
 
   if (choice.engine === 'micropython') {
-    if (!options.tools?.rp2040Bootrom) { options.onError(choice.note); return null }
+    if (!options.tools?.rp2040Bootrom && !options.bootrom) { options.onError(choice.note); return null }
     options.onStatus('Đang tải MicroPython và bootrom RP2040…')
     let assets
-    try { assets = await loadMicroPythonAssets() } catch (error) { options.onError(error instanceof Error ? error.message : 'Không tải được MicroPython.'); return null }
+    try {
+      if (options.bootrom) {
+        const response = await fetch(`${import.meta.env.BASE_URL}${MICROPYTHON_FIRMWARE_PATH}`, { signal: options.signal })
+        if (!response.ok) throw new Error('Không tải được firmware MicroPython.')
+        assets = { bootrom: options.bootrom, firmware: await response.arrayBuffer() }
+      } else assets = await loadMicroPythonAssets()
+    } catch (error) { options.onError(error instanceof Error ? error.message : 'Không tải được MicroPython.'); return null }
+    if (options.signal?.aborted) return null
     micropythonWorker ??= new Worker(new URL('../../workers/micropython.worker.ts', import.meta.url), { type: 'module' })
     const worker = micropythonWorker
     const stop = attachWorker(worker, runId, options, true)
@@ -146,6 +153,7 @@ export async function startFreestyleRun(options: { boardId: string; language: Fr
   const compiled = compileSketch(options.code, sketchBoardFor(options.boardId))
   if (!compiled.ok) { options.onError(compiled.error.message, compiled.error.line); return null }
   const run = compiled.run
+  run.setPeripherals(options.peripherals ?? [])
   for (const input of options.inputs) {
     run.setDigitalInput(input.pin, input.digital)
     run.setAnalogInput(input.pin, input.analog)
@@ -156,7 +164,7 @@ export async function startFreestyleRun(options: { boardId: string; language: Fr
   let serialLength = 0
   const toFrame = (snapshot: SketchSnapshot): RuntimeFrame => {
     const pins: Record<number, LivePinState> = {}
-    for (const [pin, state] of Object.entries(snapshot.pins)) if (state.mode !== 'unset') pins[Number(pin)] = { mode: state.mode, level: state.level, ...(state.pwm === undefined ? {} : { pwm: state.pwm }) }
+    for (const [pin, state] of Object.entries(snapshot.pins)) if (state.mode !== 'unset') pins[Number(pin)] = { ...state, mode: state.mode }
     const serial = snapshot.serial.length >= serialLength ? snapshot.serial.slice(serialLength) : snapshot.serial
     serialLength = snapshot.serial.length
     return { pins, serial, simulatedMilliseconds: snapshot.simulatedMilliseconds }
@@ -176,5 +184,6 @@ export async function startFreestyleRun(options: { boardId: string; language: Fr
     stop() { if (frameId !== null) cancelAnimationFrame(frameId); frameId = null; run.stop(); options.onStopped('Người dùng dừng.') },
     setDigital: (pin, level) => run.setDigitalInput(pin, level),
     setAnalog: (pin, ratio) => run.setAnalogInput(pin, ratio),
+    setPeripherals: inputs => run.setPeripherals(inputs),
   }
 }

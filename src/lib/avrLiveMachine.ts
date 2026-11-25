@@ -14,7 +14,7 @@ import { inspectIntelHex } from './intelHex'
  * Đây là mô phỏng lõi CPU + ngoại vi số, không mô phỏng điện.
  */
 export type AvrLiveBoard = 'arduino-uno-r3' | 'arduino-nano' | 'arduino-mega-2560'
-export type LivePinState = { mode: 'output' | 'input' | 'input_pullup'; level: boolean; pwm?: number }
+export type LivePinState = { mode: 'output' | 'input' | 'input_pullup'; level: boolean; pwm?: number; servoPulseUs?: number }
 export type AvrLiveFrame = {
   pins: Record<number, LivePinState>
   serial: string
