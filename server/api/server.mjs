@@ -115,8 +115,10 @@ export function createApiServer({
     mode: 'public', origins, store: analyticsStore, extended: Boolean(admin),
     onFailure: () => log({ event: 'analytics_failed' }),
   })
-  const limit = createLimiter(requestsPerMinute, new Set(trustedProxyIps))
-  const limitFeedback = createLimiter(30, new Set(trustedProxyIps))
+  const trustedProxies = new Set(trustedProxyIps)
+  const limit = createLimiter(requestsPerMinute, trustedProxies)
+  const limitAnalytics = createLimiter(requestsPerMinute, trustedProxies)
+  const limitFeedback = createLimiter(30, trustedProxies)
 
   return createServer({ requestTimeout: 10_000, headersTimeout: 5_000, keepAliveTimeout: 4_000, maxHeaderSize: 8192 }, async (request, response) => {
     const started = Date.now()
@@ -150,7 +152,7 @@ export function createApiServer({
       response.setHeader('Access-Control-Allow-Credentials', 'true')
     }
 
-    if (!limit(request)) {
+    if (!(route.id === 'analytics' ? limitAnalytics : limit)(request)) {
       response.setHeader('Retry-After', '60')
       return json(response, 429)
     }

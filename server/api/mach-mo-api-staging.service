@@ -1,5 +1,7 @@
 [Unit]
 Description=Mạch Mở API staging on loopback
+Wants=machmo-analytics-pg.service
+After=machmo-analytics-pg.service
 
 [Service]
 Type=simple

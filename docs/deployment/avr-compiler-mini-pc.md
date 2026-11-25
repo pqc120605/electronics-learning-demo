@@ -18,7 +18,7 @@ bash server/api/deploy-dashboard-edge.sh "$rev" --enable-compiler
 
 `setup.sh` xác minh image ID, khởi động user service và gửi sketch cố ý sai cú pháp. Kết quả đạt phải là HTTP 422 với thông báo dòng lỗi từ Arduino CLI thật. Lệnh này không tạo firmware có thể nạp. Sau khi bật proxy, kiểm `/api/tools/arduino/status` từ Vercel cùng một ca chẩn đoán 422. Kiểm browser kết hợp fixture HEX đã có trong repo. Nghiệm thu dịch vụ với sketch người dùng và board thật thực hiện riêng theo cấu hình được duyệt.
 
-Để tắt đường công khai, chạy lại `deploy-dashboard-edge.sh` với commit hiện hành và bỏ `--enable-compiler`. Giữ `--enable-ai` nếu AI đã cấu hình thực và đang bật. Có thể dừng riêng `mach-mo-avr-compiler.service` sau khi gỡ đường proxy.
+Để tắt đường công khai, chạy lại `deploy-dashboard-edge.sh` với commit hiện hành và `--disable-compiler`. Khi không truyền cờ, script giữ tuyến AI và Arduino đang có. Có thể dừng riêng `mach-mo-avr-compiler.service` sau khi gỡ đường proxy.
 
 ## Các công cụ khác
 

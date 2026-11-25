@@ -1,8 +1,11 @@
 [Unit]
 Description=Mạch Mở PostgreSQL staging backup
+Wants=machmo-analytics-pg.service
+After=machmo-analytics-pg.service
 
 [Service]
 Type=oneshot
+ExecStartPre=/usr/bin/pg_isready -h 127.0.0.1 -p 55432
 ExecStart=/usr/bin/bash %h/.local/share/mach-mo/api-staging/current/server/api/backup-staging.sh
 UMask=0077
 NoNewPrivileges=true

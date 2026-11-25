@@ -96,6 +96,19 @@ test('public session and analytics keep their expected response shapes', async t
   assert.equal(events[0].path, '/')
 })
 
+test('analytics burst does not exhaust the session and readiness quota', async t => {
+  const { base } = await start(t, { requestsPerMinute: 2 })
+  const event = () => fetch(base + '/api/analytics/events', {
+    method: 'POST', headers: { origin: publicOrigin, 'content-type': 'application/json' },
+    body: JSON.stringify({ event_name: 'page_view', session_id: '89c6dd67-d568-4329-860d-b8fb91b51b45', path: '/' }),
+  })
+  assert.equal((await event()).status, 204)
+  assert.equal((await event()).status, 204)
+  assert.equal((await event()).status, 429)
+  assert.equal((await fetch(base + '/api/session', { headers: { origin: publicOrigin } })).status, 200)
+  assert.equal((await fetch(base + '/api/health')).status, 200)
+})
+
 test('website ingestion only accepts the configured methods without a browser origin', async t => {
   const writes = []
   const { base } = await start(t, { dashboardSites: {

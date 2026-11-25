@@ -41,16 +41,20 @@ cleanup() {
 trap cleanup EXIT
 
 shift
-edge_args=("$@")
-enable_ai=0
-enable_compiler=0
-for option in "${edge_args[@]}"; do
+features=$(node "$checkout/server/api/production-edge.mjs" --read "$config")
+read -r enable_ai enable_compiler <<< "$features"
+for option in "$@"; do
   case "$option" in
     --enable-ai) enable_ai=1 ;;
+    --disable-ai) enable_ai=0 ;;
     --enable-compiler) enable_compiler=1 ;;
-    *) fail 'Expected --enable-ai and/or --enable-compiler.' ;;
+    --disable-compiler) enable_compiler=0 ;;
+    *) fail 'Expected --enable-ai, --disable-ai, --enable-compiler or --disable-compiler.' ;;
   esac
 done
+edge_args=()
+if (( enable_ai )); then edge_args+=(--enable-ai); fi
+if (( enable_compiler )); then edge_args+=(--enable-compiler); fi
 compiler_ready() {
   curl -fsS --max-time 5 -H 'Host: mach-mo.vercel.app' "$1" |
     node -e 'const h=JSON.parse(require("node:fs").readFileSync(0,"utf8")); if(!h.ok||!h.boards?.includes("arduino-uno-r3"))process.exit(1)'
@@ -76,7 +80,7 @@ changed=1
 systemctl --user restart "$edge_unit"
 curl -fsS --retry 3 --retry-connrefused --retry-delay 1 --max-time 5 "$edge/health" |
   node -e 'const h=JSON.parse(require("node:fs").readFileSync(0,"utf8")); if(h.commit!==process.argv[1]||h.db!=="ready")process.exit(1); console.log(JSON.stringify(h))' "$commit"
-for path in /admin/summary /admin/feedback /admin/sites /projects /projects/shares /classes; do
+for path in /admin/summary /admin/feedback /admin/sites /projects /projects/shares /classes /community/moderation/reports; do
   status=$(curl -sS --max-time 5 -o /dev/null -w '%{http_code}' "$edge$path")
   [[ $status == 401 ]] || fail "Expected guest access to $path to return 401, got $status."
 done

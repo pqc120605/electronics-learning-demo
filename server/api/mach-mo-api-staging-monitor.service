@@ -1,5 +1,6 @@
 [Unit]
 Description=Mạch Mở staging health and AI quota check
+After=mach-mo-api-staging.service
 
 [Service]
 Type=oneshot

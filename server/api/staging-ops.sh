@@ -127,6 +127,20 @@ wait_for_health() {
 env -u DATABASE_OWNER_URL node --env-file="$migration_env" "$release/server/api/migrate.mjs"
 switch_release "$release"
 if activate "$release" && wait_for_health "$commit"; then
+  systemctl --user enable "$unit"
+  for job in backup monitor; do
+    for kind in service timer; do
+      file="mach-mo-api-staging-$job.$kind"
+      install -m 644 "$release/server/api/$file" "$units/$file"
+    done
+  done
+  systemctl --user daemon-reload
+  systemctl --user enable --now mach-mo-api-staging-monitor.timer
+  if systemctl --user is-enabled --quiet mach-mo-api-staging-backup.timer; then
+    systemctl --user start mach-mo-api-staging-backup.timer
+  else
+    printf '%s\n' 'Backup timer installed. Enable after a successful restore-check on the dedicated verification database.'
+  fi
   exit 0
 fi
 if [[ -n $previous ]]; then
