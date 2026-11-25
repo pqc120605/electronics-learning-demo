@@ -3,7 +3,8 @@
  * KHÔNG biên dịch và KHÔNG chạy firmware thật: đọc mã nguồn, dựng cây cú pháp và thực thi
  * theo ngữ nghĩa Arduino cơ bản trên thời gian ảo. Dùng cho ESP32, Arduino, Pico… với cùng API.
  * Hỗ trợ: biến (int/long/float/bool/byte/String, mảng 1 chiều), #define, hàm người dùng,
- * if/else, while, do…while, for, break/continue/return, toán tử C, Serial.print/println/printf,
+ * if/else, switch với nhãn số nguyên, while, do…while, for, break/continue/return,
+ * toán tử C, Serial.print/println/printf,
  * pinMode, digitalWrite/Read, analogRead/Write, ledcAttach/ledcWrite, delay, millis, micros,
  * map, constrain, min, max, abs, random, sqrt, pow.
  */
@@ -205,10 +206,45 @@ function parse(tokens: Token[]) {
     if (is('return')) { next(); const value = is(';') ? undefined : parseExpression(); expect(';'); return { k: 'return', line: token.line, value } }
     if (is('break')) { next(); expect(';'); return { k: 'break', line: token.line } }
     if (is('continue')) { next(); expect(';'); return { k: 'continue', line: token.line } }
-    if (is('switch')) throw new CompileError(token.line, 'switch/case chưa được hỗ trợ; dùng if/else.')
+    if (is('switch')) return parseSwitch()
     if (isTypeStart()) { const decl = parseDeclarators(parseType(), token.line); expect(';'); return decl }
     const expr = parseExpression(); expect(';')
     return { k: 'expr', line: token.line, expr }
+  }
+
+  function parseSwitch(): Node {
+    const line = expect('switch').line
+    expect('(')
+    const test = parseExpression()
+    expect(')')
+    expect('{')
+    const cases: Array<{ value: number | null; body: Node[] }> = []
+    const labels = new Set<number | null>()
+    while (!is('}')) {
+      const label = next()
+      let value: number | null = null
+      if (label.v === 'case' && label.t === 'id') {
+        const expression = parseAssignment()
+        const literal = expression.k === 'unary' && ['+', '-'].includes(expression.op) ? expression.arg : expression
+        if (literal.k !== 'num' || literal.float || !Number.isSafeInteger(literal.value)) {
+          throw new CompileError(label.line, 'Nhãn case cần một số nguyên hoặc ký tự. Dùng hằng trực tiếp hoặc biên dịch bằng Arduino CLI.')
+        }
+        value = expression.op === '-' ? -literal.value : literal.value
+      } else if (label.v !== 'default' || label.t !== 'id') {
+        throw new CompileError(label.line, "Mong đợi 'case', 'default' hoặc '}'.")
+      }
+      if (labels.has(value)) throw new CompileError(label.line, `Nhãn ${value === null ? 'default' : 'case'} bị trùng.`)
+      labels.add(value)
+      expect(':')
+      const body: Node[] = []
+      while (!is('case') && !is('default') && !is('}')) {
+        if (peek().t === 'eof') throw new CompileError(line, 'Khối switch chưa được đóng.')
+        body.push(parseStatement())
+      }
+      cases.push({ value, body })
+    }
+    expect('}')
+    return { k: 'switch', line, test, cases }
   }
 
   function parseBlock(): Node {
@@ -446,6 +482,23 @@ function createRun(program: ReturnType<typeof parse>, board: SketchBoard): Sketc
       case 'expr': yield* evaluate(node.expr, scopes); return
       case 'empty': return
       case 'if': if (truthy(yield* evaluate(node.test, scopes))) yield* execute(node.then, scopes); else if (node.otherwise) yield* execute(node.otherwise, scopes); return
+      case 'switch': {
+        const value = yield* evaluate(node.test, scopes)
+        if (typeof value !== 'number' || !Number.isInteger(value)) return fail(node.line, 'Biểu thức switch phải cho giá trị nguyên.')
+        const cases: Array<{ value: number | null; body: Node[] }> = node.cases
+        const match = cases.findIndex(branch => branch.value === value)
+        const start = match < 0 ? cases.findIndex(branch => branch.value === null) : match
+        if (start < 0) return
+        const inner = [...scopes, new Map<string, Slot>()]
+        try {
+          for (const branch of cases.slice(start)) {
+            for (const statement of branch.body) yield* execute(statement, inner)
+          }
+        } catch (signal) {
+          if (!(signal instanceof Signal && signal.type === 'break')) throw signal
+        }
+        return
+      }
       case 'while': while (truthy(yield* evaluate(node.test, scopes))) { const signal = yield* loopBody(node.body, scopes); if (signal === 'break') break } return
       case 'do': do { const signal = yield* loopBody(node.body, scopes); if (signal === 'break') break } while (truthy(yield* evaluate(node.test, scopes))); return
       case 'for': {
@@ -598,6 +651,11 @@ function createRun(program: ReturnType<typeof parse>, board: SketchBoard): Sketc
         }
         default: return fail(node.line, `Serial.${callee.name} chưa được mô phỏng.`)
       }
+    }
+    if (callee.k === 'member' && callee.name === 'length' && args.length === 0) {
+      const owner = yield* evaluate(callee.object, scopes)
+      if (typeof owner === 'string') return new TextEncoder().encode(owner).byteLength
+      return fail(node.line, 'length() chỉ dùng cho String.')
     }
     if (callee.k === 'member') return fail(node.line, `${callee.object.name ?? 'Đối tượng'}.${callee.name} chưa được mô phỏng (ví dụ WiFi, Wire, SPI cần thư viện ngoại vi).`)
     if (callee.k !== 'id') return fail(node.line, 'Lời gọi hàm không hợp lệ.')

@@ -113,7 +113,7 @@ test('without the local service the bench falls back to the interpreter and says
   await page.getByLabel('Mạch mẫu').selectOption('button-led')
   await bench(page).getByRole('button', { name: 'Dựng mạch mẫu' }).click()
   await page.locator('.freestyle-work-actions').getByRole('button', { name: '▶ Chạy' }).click()
-  const press = page.getByRole('button', { name: /Giữ để nhấn button1/ })
+  const press = page.getByRole('button', { name: /Giữ nút nhấn/ })
   await press.hover()
   await page.mouse.down()
   await expect(litLeds(page)).toHaveCount(1)

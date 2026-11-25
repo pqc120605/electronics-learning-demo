@@ -36,8 +36,8 @@ function empty(supported: boolean, reason?: string): LogicTraceV2Result {
  */
 export function traceCircuitDocV2(input: LogicTraceV2Input): LogicTraceV2Result {
   const { doc, lessonId, frame, active, hasCircuitErrors, inputs, tick } = input
-  if (!supportedLessons.has(doc.lessonId)) return empty(false, 'Bài học này chưa có hợp đồng trace CircuitDocV2.')
-  if (doc.lessonId !== lessonId) return empty(false, 'Bài đang chạy không khớp với topology CircuitDocV2.')
+  if (!supportedLessons.has(doc.lessonId)) return empty(false, 'Bài học này chưa hỗ trợ quan sát tín hiệu trên mạch.')
+  if (doc.lessonId !== lessonId) return empty(false, 'Mạch đang mở thuộc một bài học khác.')
   if (!active || !frame || hasCircuitErrors) return empty(true)
 
   const nets = createNetIndexV2(doc)

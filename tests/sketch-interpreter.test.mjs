@@ -26,6 +26,34 @@ test('missing semicolon points to the preceding statement rather than the next l
   assert.match(result.error.message, /Thiếu ';'/)
 })
 
+test('switch matches literals, falls through, and leaves continue to the surrounding loop', () => {
+  const sketch = run(`
+void setup() {
+  String label = "Điện";
+  Serial.println(label.length());
+  for (int i = -1; i < 3; i++) {
+    switch (i) {
+      default: Serial.print("D"); break;
+      case -1: Serial.print("A");
+      case 0: Serial.print("B"); continue;
+      case 1: Serial.print("C"); break;
+    }
+    Serial.print("!");
+  }
+}
+void loop() {}`)
+  const frame = sketch.advance(1)
+  assert.equal(frame.error, undefined)
+  assert.equal(frame.serial, '7\r\nABBC!D!')
+})
+
+test('duplicate switch labels point to the repeated line', () => {
+  const result = sk.compileSketch('void setup(){\nswitch (1) {\ncase 1: break;\ncase 1: break;\n}\n}\nvoid loop(){}', board('esp32-devkit'))
+  assert.equal(result.ok, false)
+  assert.equal(result.error.line, 4)
+  assert.match(result.error.message, /case.*trùng/)
+})
+
 test('ESP32 blink toggles LED_BUILTIN (GPIO 2) every 500 ms of virtual time and prints Serial', () => {
   const sketch = run(`
 #define LED LED_BUILTIN

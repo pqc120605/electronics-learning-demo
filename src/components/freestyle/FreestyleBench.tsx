@@ -78,6 +78,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   const [editorHistory, setEditorHistory] = useState(emptyCircuitHistory)
   const [selection, setSelection] = useState<string[]>([])
   const [shortcutHelp, setShortcutHelp] = useState(false)
+  const [extraActionsOpen, setExtraActionsOpen] = useState(false)
   const [draft] = useState(() => readOnly ? null : loadDraft(storageKey))
   const [workspace, setWorkspace] = useState<FreestyleWorkspace>(() => initialWorkspace ?? (variant==='full' && typeof window!=='undefined' && new URLSearchParams(window.location.search).get('resume')==='1' && draft?.workspace ? draft.workspace : blankFreestyleWorkspace()))
   const dedicatedDraft = storageKey !== FREESTYLE_STORAGE_KEY && Boolean(draft?.workspace)
@@ -493,7 +494,10 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     if(boardId && boardId!==nextId && !archiveBeforeReplace())return
     const next=workspaceWithFreestyleBoard(workspace,nextId)
     update(next)
-    if (reveal) revealMobileCircuit()
+    if (reveal) {
+      if (window.matchMedia('(max-width: 767px)').matches) setStep('parts')
+      revealMobileCircuit()
+    }
     if(!next.sampleId && code.trim())setNotice('Đã giữ nguyên code tự viết và dây nối. Kiểm tra lại ngôn ngữ, số chân và giới hạn của board mới trước khi chạy.')
   }
 
@@ -614,20 +618,23 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
         {!doc.parts.length&&notice&&<p className="freestyle-notice" role="status">{notice}</p>}
         {sessionOnly&&<p className="freestyle-save-status" role="status">Chưa lưu vào trình duyệt · công việc trong phiên vẫn được giữ. Hãy tải bản nháp để sao lưu.</p>}
       </div>
-      <div className="freestyle-head-actions">
+      <div className="freestyle-head-actions" data-extra-open={extraActionsOpen}>
         {readOnly ? <button type="button" className="freestyle-button" onClick={onCopy}>Mở bản sao để sửa</button> : <>
         <label className="freestyle-sample">Mạch mẫu
           <select value={sampleId} onChange={event => setSampleId(event.target.value as FreestyleSampleId)}>{[...new Set(freestyleSamples.map(sample=>sample.level))].map(level=><optgroup label={level} key={level}>{freestyleSamples.filter(sample=>sample.level===level).map(sample => <option key={sample.id} value={sample.id}>{sample.title}</option>)}</optgroup>)}</select>
         </label>
         <button type="button" className="freestyle-button" disabled={!boardId} title={!boardId ? runBlockedReason : undefined} onClick={() => loadSample(sampleId)}>Dựng mạch mẫu</button>
+        <button type="button" className="freestyle-button freestyle-extra-trigger" aria-expanded={extraActionsOpen} onClick={() => setExtraActionsOpen(open => !open)}>Thao tác</button>
+        <div className="freestyle-extra-actions" role="group" aria-label="Thao tác khác trên bàn mạch">
         <button type="button" className="freestyle-button" onClick={() => { if(!archiveBeforeReplace())return;setControls({});setSampleId('blink');setSelectedPartId(null);setSelectedWireId(null);update(blankFreestyleWorkspace());setStep('board');setView('breadboard');setPanelOpen(true);setNotice('Bàn mới trống. Chọn board hoặc thêm breadboard để bắt đầu.') }}>Bàn trống</button>
         <button type="button" className="freestyle-button" onClick={() => setDraftsOpen(true)}>Bản nháp</button>
         <button type="button" className="freestyle-button" onClick={() => setToolsOpen(true)}>Công cụ</button>
         <button type="button" className="freestyle-button" disabled={!boardId || shareBusy} title={!boardId ? 'Chọn board trước khi chia sẻ mạch.' : undefined} onClick={() => void createShare()}>Chia sẻ mạch</button>
         {selfHostedOAuthEnabled && <button type="button" className="freestyle-button" disabled={!boardId}
           aria-expanded={shareOnline} onClick={() => setShareOnline(value => !value)}>Chia sẻ online</button>}
+        </div>
         </>}
-        {variant === 'home' ? sessionOnly ? <button className="freestyle-button" onClick={()=>setExpanded(true)}>Mở toàn màn hình <span aria-hidden="true">↗</span></button> : <Link className="freestyle-button" to={started?'/build/freestyle?resume=1':'/build/freestyle'}>Mở toàn màn hình <span aria-hidden="true">↗</span></Link> : <Link className="freestyle-button" to="/">Về trang chủ</Link>}
+        {variant === 'home' ? sessionOnly ? <button className="freestyle-button freestyle-exit-action" onClick={()=>setExpanded(true)}>Mở toàn màn hình <span aria-hidden="true">↗</span></button> : <Link className="freestyle-button freestyle-exit-action" to={started?'/build/freestyle?resume=1':'/build/freestyle'}>Mở toàn màn hình <span aria-hidden="true">↗</span></Link> : <Link className="freestyle-button freestyle-exit-action" to="/">Về trang chủ</Link>}
       </div>
     </header>
     {!readOnly && shareOnline && <div className="freestyle-card freestyle-share-link">

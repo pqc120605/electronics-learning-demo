@@ -1,4 +1,4 @@
-.beginner-page{max-width:1220px;margin:0 auto;padding:24px 0 60px;color:var(--mm-ink);font-family:var(--mm-font-body)}
+.beginner-page{max-width:1220px;margin:0 auto;padding:24px clamp(16px,3vw,32px) 60px;color:var(--mm-ink);font-family:var(--mm-font-body)}
 .beginner-page h1,.beginner-page h2,.beginner-page h3{font-family:var(--mm-font-display);line-height:1.15}.beginner-page h1{font-size:clamp(2rem,5vw,3.5rem);margin:16px 0}.beginner-page h2{font-size:clamp(1.6rem,3vw,2.4rem)}
 .beginner-page p,.beginner-page li{max-width:80ch;line-height:1.55}.beginner-header{max-width:80ch}.beginner-evidence-note{border-left:3px solid var(--mm-signal);padding-left:12px;color:var(--mm-muted)}
 .beginner-storage{padding:16px 20px;background:var(--mm-bg-deep);border-radius:var(--mm-radius-md);margin:24px 0}.beginner-storage p{margin:6px 0;font-size:.9rem}.beginner-actions{display:flex;gap:10px;flex-wrap:wrap}

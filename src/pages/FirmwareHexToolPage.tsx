@@ -11,6 +11,8 @@ import type { AVR8jsWorkerResponse } from '../simulation/avr8jsProtocol'
 import { useProductRoute } from '../lib/useProductRoute'
 import './FirmwareHexToolPage.css'
 
+const simulatedTimeFormat = new Intl.NumberFormat('vi-VN', { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+
 function addressLabel(address: number) {
   return `0x${address.toString(16).toUpperCase().padStart(8, '0')}`
 }
@@ -263,7 +265,7 @@ export function FirmwareHexToolPage() {
             {avrFrame && (
               <div className="firmware-avr-frame" role="status" aria-live="polite">
                 <strong>{target?.d13Alias ?? 'D13'}: {avrFrame.led13 === 'on' ? 'HIGH · LED bật' : avrFrame.led13 === 'off' ? 'LOW · LED tắt' : 'INPUT · chưa cấu hình output'}</strong>
-                <span>{avrFrame.simulatedMilliseconds.toFixed(1)} ms mô phỏng · {avrFrame.cycles.toLocaleString('vi-VN')} chu kỳ</span>
+                <span>{simulatedTimeFormat.format(avrFrame.simulatedMilliseconds)} ms mô phỏng · {avrFrame.cycles.toLocaleString('vi-VN')} chu kỳ</span>
                 {avrFrame.traceTruncated && <small>Trace đã đạt giới hạn lưu 128 lần chuyển mức.</small>}
               </div>
             )}

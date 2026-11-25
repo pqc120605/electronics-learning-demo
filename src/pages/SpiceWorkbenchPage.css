@@ -1,4 +1,4 @@
-.spice-workbench-page { padding: 0 42px 72px; }
+.spice-workbench-page { padding: 0 clamp(18px, 4vw, 42px) 72px; container-type: inline-size; }
 .spice-workbench-hero { padding: 48px 0 28px; border-bottom: 1px solid var(--line); }
 .spice-workbench-hero .eyebrow { margin-bottom: 15px; }
 .spice-workbench-hero h1 { max-width: 780px; margin: 0; color:var(--ink); font-size: clamp(38px,5.2vw,60px); line-height: 1.02; letter-spacing: -.065em; }
@@ -72,7 +72,7 @@
 .spice-scope-note { display: grid; grid-template-columns: 155px minmax(0,1fr); gap: 12px; margin-top: 16px; padding: 14px; border: 1px solid var(--mm-text-warning-strong); border-radius: 6px; background:var(--mm-surface-sunken); color:var(--mm-muted); }
 .spice-scope-note strong { color:var(--mm-muted); font-size: var(--mm-text-sm); }
 .spice-scope-note p { margin: 0; font-size: var(--mm-text-sm); line-height: 1.65; }
-@media(max-width: 900px) { .spice-workbench-grid { grid-template-columns: 1fr; }.spice-output-card { min-height: 330px; }.spice-empty-results { min-height: 280px; } }
+@container (max-width: 760px) { .spice-workbench-grid { grid-template-columns: minmax(0, 1fr); }.spice-output-card { min-height: 330px; }.spice-empty-results { min-height: 280px; } }
 @media(max-width: 560px) { .spice-workbench-page { padding: 0 18px 48px; }.spice-workbench-hero { padding-top: 38px; }.spice-editor-card,.spice-output-card { padding: 14px; }.spice-editor-card textarea { min-height: 245px; }.spice-scope-note { grid-template-columns: 1fr; gap: 7px; }.spice-hero-actions { align-items: flex-start; flex-direction: column; gap: 9px; }.spice-calculator-handoff { flex-direction: column; } }
 .spice-kicad-import { display: grid; gap: 10px; margin: 14px 0 18px; padding: 15px; border: 1px solid var(--line-dark); border-radius: 8px; background:var(--mm-surface); }
 .spice-kicad-import h3 { margin: 4px 0 5px; color:var(--ink); font-size: 14px; }

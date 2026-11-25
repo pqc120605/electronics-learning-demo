@@ -79,3 +79,24 @@ test('beginner explanations follow observation and Arduino Mega code uses the A0
   await page.getByText('Code được tạo cho board đã chọn',{exact:true}).click()
   await expect(page.getByLabel('Code thử nghiệm chỉ đọc')).toContainText('const int potPin = A0;')
 })
+
+test('SPICE uses the available Workspace width and exposes one main landmark', async ({page}) => {
+  await page.setViewportSize({width: 1024, height: 900})
+  await page.goto('/app/tools/spice')
+  await expect(page.getByRole('main')).toHaveCount(1)
+  const result = page.locator('.spice-output-card')
+  await expect(result).toBeVisible()
+  expect((await result.boundingBox()).width).toBeGreaterThan(400)
+})
+
+test('the LED calculator clears its recommendation outside its low-voltage range', async ({page}) => {
+  await page.goto('/tools/electronics-calculators')
+  const suggestion = page.getByText('Điện trở E24 đề xuất', {exact: true})
+  await expect(suggestion).toBeVisible()
+  const supply = page.getByLabel('Điện áp nguồn', {exact: false}).first()
+  await supply.fill('48')
+  await expect(page.getByText('Phép tính này chỉ dùng cho nguồn DC đến 30 V.')).toBeVisible()
+  await expect(suggestion).toHaveCount(0)
+  await supply.fill('5')
+  await expect(suggestion).toBeVisible()
+})

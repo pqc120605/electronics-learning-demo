@@ -454,19 +454,27 @@ type Source = { net: string; high: boolean; pwm?: number; rail?: 'vcc' | 'gnd' }
 
 /** Linh kiện cảm biến/điều khiển cần thanh trượt hoặc nút trên bàn. */
 export type ControlSpec = { partId: string; kind: 'press' | 'toggle' | 'slider' | 'keypad'; label: string }
+const partControls: Partial<Record<CircuitDocV2['parts'][number]['type'], Omit<ControlSpec, 'partId'>>> = {
+  button: { kind: 'press', label: 'Giữ nút nhấn' },
+  'keypad-4x4': { kind: 'keypad', label: 'Phím bàn phím 4×4' },
+  'limit-switch': { kind: 'press', label: 'Ấn công tắc hành trình' },
+  'slide-switch': { kind: 'toggle', label: 'Gạt công tắc sang A' },
+  'ir-sensor': { kind: 'toggle', label: 'Có vật cản trước cảm biến hồng ngoại' },
+  potentiometer: { kind: 'slider', label: 'Vặn biến trở' },
+  ldr: { kind: 'slider', label: 'Ánh sáng chiếu vào quang trở' },
+  thermistor: { kind: 'slider', label: 'Nhiệt độ của nhiệt điện trở' },
+}
+
 export function controlsFor(doc: CircuitDocV2): ControlSpec[] {
-  return doc.parts.flatMap((part): ControlSpec[] => {
-    switch (part.type) {
-      case 'button': return [{ partId: part.id, kind: 'press', label: `Giữ để nhấn ${part.id}` }]
-      case 'keypad-4x4': return [{ partId: part.id, kind: 'keypad', label: `Phím của ${part.id}` }]
-      case 'limit-switch': return [{ partId: part.id, kind: 'press', label: `Tì công tắc ${part.id}` }]
-      case 'slide-switch': return [{ partId: part.id, kind: 'toggle', label: `Gạt ${part.id} sang A` }]
-      case 'ir-sensor': return [{ partId: part.id, kind: 'toggle', label: `Có vật cản trước ${part.id}` }]
-      case 'potentiometer': return [{ partId: part.id, kind: 'slider', label: `Vặn ${part.id}` }]
-      case 'ldr': return [{ partId: part.id, kind: 'slider', label: `Ánh sáng chiếu ${part.id}` }]
-      case 'thermistor': return [{ partId: part.id, kind: 'slider', label: `Nhiệt độ ${part.id}` }]
-      default: return []
-    }
+  const totals = new Map<string, number>()
+  const order = new Map<string, number>()
+  for (const part of doc.parts) totals.set(part.type, (totals.get(part.type) ?? 0) + 1)
+  return doc.parts.flatMap(part => {
+    const control = partControls[part.type]
+    if (!control) return []
+    const position = (order.get(part.type) ?? 0) + 1
+    order.set(part.type, position)
+    return [{ ...control, partId: part.id, label: totals.get(part.type) === 1 ? control.label : control.label + ' · ' + position }]
   })
 }
 

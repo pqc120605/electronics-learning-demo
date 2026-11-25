@@ -189,7 +189,7 @@ test('mobile virtual controls stay with the visible circuit and release on blur 
  await page.getByRole('button',{name:'Dựng mạch mẫu',exact:true}).click()
  await page.locator('.freestyle-work-actions').getByRole('button',{name:'▶ Chạy'}).click()
  await page.getByRole('button',{name:'Lắp mạch 2D',exact:true}).click()
- const press=page.locator('.freestyle-input-dock').getByRole('button',{name:/Giữ để nhấn button1/})
+ const press=page.locator('.freestyle-input-dock').getByRole('button',{name:/Giữ nút nhấn/})
  await expect(press).toBeVisible({timeout:2000})
  await expect(page.locator('.freestyle-stage')).toBeVisible()
  await press.focus();await page.keyboard.down('Space')

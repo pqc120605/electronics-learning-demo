@@ -117,6 +117,6 @@ export function LessonCircuitWorkspace({ doc: initialDoc, activeAction, selected
         <p className="lesson-circuit-persistence">Chỉnh sửa ở đây chỉ giữ trong phiên hiện tại; không ghi đè bản nháp của bạn.</p>
       </aside>
     </div>
-    <div className="lesson-circuit-check" role="status"><strong>{connected ? 'Đường mạch mẫu đang nối theo các net kỳ vọng' : 'Đường mạch chưa đủ kết nối theo các net kỳ vọng'}</strong><span>Kiểm tra topology theo pin, chân linh kiện và lỗ; đây không phải ERC.</span></div>
+    <div className="lesson-circuit-check" role="status"><strong>{connected ? 'Đường mạch mẫu đang nối theo các net kỳ vọng' : 'Đường mạch chưa đủ kết nối theo các net kỳ vọng'}</strong><span>Kiểm tra các chân và lỗ đã nối theo mạch mẫu.</span></div>
   </section>
 }

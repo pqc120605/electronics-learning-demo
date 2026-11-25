@@ -48,10 +48,8 @@ export function TourHost() {
   const tour = tourId ? TOURS[tourId] : null
 
   return <>
-    {invite && tour && !active && <aside className={`mm-tour-invite${tour.id === 'lab' ? ' mm-tour-invite-lab' : ''}`} aria-label="Hướng dẫn cho người mới">
-      <p className="mm-tour-invite-kicker"><span aria-hidden="true">✳</span> Lần đầu đến đây?</p>
+    {invite && tour && !active && <aside className="mm-tour-invite" aria-label="Hướng dẫn cho người mới">
       <p className="mm-tour-invite-title">{tour.label} · {tour.steps.length} bước</p>
-      <p className="mm-tour-invite-text">{tour.invite}</p>
       <div className="mm-tour-invite-actions">
         <button type="button" className="mm-tour-primary" onClick={() => { setInvite(false); setActive(tour.id) }}>Xem hướng dẫn</button>
         <button type="button" className="mm-tour-secondary" onClick={() => close(tour.id)}>Để sau</button>

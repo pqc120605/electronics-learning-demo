@@ -50,7 +50,7 @@ C1 OUT 0 10u
   {
     id: 'led',
     name: 'LED và điện trở · điểm làm việc',
-    description: 'Ước lượng dòng điện với model diode SPICE đơn giản.',
+    description: 'Ước lượng với mô hình diode đơn giản. SPICE tính điện áp thuận tại dòng đang chạy qua diode. Máy tính LED dùng điện áp thuận do bạn nhập.',
     netlist: `LED with series resistor · idealized model
 V1 VIN 0 DC 5
 R1 VIN ANODE 330
@@ -451,7 +451,7 @@ export function SpiceWorkbenchPage() {
     setWorkspaceResultMessage('Kết quả SPICE vẫn nằm ở trang này; đã tắt đường chuyển kết quả về workspace.')
   }
 
-  return <main className="spice-workbench-page">
+  return <article className="spice-workbench-page">
     <header className="spice-workbench-hero">
       <p className="eyebrow"><span className="eyebrow-line" /> CÔNG CỤ · MÔ PHỎNG ĐIỆN SPICE</p>
       <h1>Thử mạch analog <span>trên solver thật.</span></h1>
@@ -467,7 +467,7 @@ export function SpiceWorkbenchPage() {
           {examples.map(example => <option key={example.id} value={example.id}>{example.name}</option>)}
           <option value="custom">Netlist tùy chỉnh</option>
         </select>
-        <p className="spice-example-description">{examples.find(item => item.id === selectedExample)?.description ?? (handoff ? 'Netlist được tạo từ các trị số bạn vừa tính.' : workspaceHandoff ? 'Netlist tương đương được biên dịch từ topology dây workspace.' : 'Đang chỉnh netlist tùy chỉnh.')}</p>
+        <p className="spice-example-description">{examples.find(item => item.id === selectedExample)?.description ?? (handoff ? 'Netlist được tạo từ các trị số bạn vừa tính.' : workspaceHandoff ? 'Netlist tương đương được tạo từ các dây nối của mạch.' : 'Đang chỉnh netlist tùy chỉnh.')}</p>
         {selectedExample === 'divider' && netlist === examples[0].netlist && <DividerPractice result={result} running={runState === 'running'} prediction={dividerPrediction} run={runSimulation} />}
         <section className="spice-kicad-import" aria-labelledby="spice-kicad-title">
           <div><p className="spice-kicad-kicker">TỪ SCHEMATIC CAD</p><h3 id="spice-kicad-title">Nhập netlist XML từ KiCad Eeschema</h3><p>Trình nhập chỉ ánh xạ R, C, L và nguồn V DC có trị số cố định; IC, MCU, diode, mạch tích hợp và phần tử khác cần bị loại trừ rõ ràng hoặc được tự dựng model trong netlist.</p></div>
@@ -503,5 +503,5 @@ export function SpiceWorkbenchPage() {
       <strong id="spice-scope-title">Phạm vi và giới hạn</strong>
       <p>Đây là mô phỏng SPICE của mạch analog theo các model bạn khai báo, không thực thi firmware MCU và không tự chuyển board/breadboard thành netlist. Không hỗ trợ lệnh .include, .control, truy cập file hoặc mọi model/vendor. Kết quả phụ thuộc model, điều kiện đầu và hội tụ; đối chiếu datasheet và đo kiểm trước khi dùng phần cứng.</p>
     </section>
-  </main>
+  </article>
 }

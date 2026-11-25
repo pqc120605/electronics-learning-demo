@@ -15,6 +15,7 @@ export function getLedFieldErrors(values: { supply: string; vf: string; current:
     vf: positiveField(values.vf, 'Vf LED'),
     current: positiveField(values.current, 'Dòng LED'),
   }
+  if (!errors.supply && Number(values.supply) > 30) errors.supply = 'Phép tính này chỉ dùng cho nguồn DC đến 30 V.'
   if (!errors.supply && !errors.vf && Number(values.supply) <= Number(values.vf)) {
     errors.vf = 'V nguồn phải lớn hơn Vf LED để có thể giới hạn dòng bằng điện trở.'
   }
