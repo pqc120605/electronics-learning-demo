@@ -12,17 +12,17 @@ async function openGuide(page, path = '/app') {
   return page.getByRole('dialog', { name: 'Mở — bạn đồng hành học điện tử' })
 }
 
-test('mobile AI is explicit and carries source-bound conversation without private context', async ({ page }, info) => {
+test('mobile OpenAI is explicit and carries source-bound conversation without private context', async ({ page }, info) => {
   await page.setViewportSize({ width: 375, height: 812 })
   const requests = []
   let statusChecks = 0
   await page.route('**/api/guide-ai/status', route => {
     statusChecks++
-    return route.fulfill({ json: { state: 'ready', model } })
+    return route.fulfill({ json: { state: 'ready', model: 'gpt-6-luna', provider: 'openai' } })
   })
   await page.route('**/api/guide-ai/chat', async route => {
     requests.push(route.request().postDataJSON())
-    await route.fulfill({ json: { status: 'answered', model, answer, sourceIds: ['S1'] } })
+    await route.fulfill({ json: { status: 'answered', model: 'gpt-6-luna', answer: answer + ' [S1]', sourceIds: ['S1'] } })
   })
   const panel = await openGuide(page, '/app/boards?board=arduino-uno-r3')
   await panel.getByRole('button', { name: 'Hỏi đáp', exact: true }).click()
@@ -31,9 +31,10 @@ test('mobile AI is explicit and carries source-bound conversation without privat
   await expect(panel.locator('.guide-results article').first()).toBeVisible()
   expect(statusChecks).toBe(0)
   await panel.getByRole('button', { name: 'Hỏi AI', exact: true }).click()
-  await expect(panel.getByText('AI trên máy đã sẵn sàng.', { exact: false })).toBeVisible()
+  await expect(panel.getByText('Hướng dẫn, tra cứu và hỏi AI', { exact: true })).toBeVisible()
+  await expect(panel.getByText(/OpenAI xử lý câu hỏi/)).toBeVisible()
   const input = panel.getByRole('textbox', { name: 'Câu hỏi cho Mở AI' })
-  const send = panel.getByRole('button', { name: 'Gửi tới AI trên máy' })
+  const send = panel.getByRole('button', { name: 'Gửi câu hỏi tới AI' })
   await expect(panel.getByRole('checkbox', { name: 'Dùng ngữ cảnh bài đang mở' })).not.toBeChecked()
   await input.fill('Vì sao LED cần điện trở?')
   expect(requests).toHaveLength(0)
@@ -48,7 +49,7 @@ test('mobile AI is explicit and carries source-bound conversation without privat
   await send.click()
   await expect(conversation.locator('article')).toHaveCount(2)
   await expect(conversation.locator('.guide-ai-answer').last()).toBeInViewport({ ratio: 0.95 })
-  expect(requests[1].history).toEqual([{ question: 'Vì sao LED cần điện trở?', answer }])
+  expect(requests[1].history).toEqual([{ question: 'Vì sao LED cần điện trở?', answer: answer + ' [S1]' }])
   await input.fill('Arduino Uno R3 GPIO 999 nối như thế nào')
   await send.click()
   await expect(panel.getByText(/chưa xác minh yêu cầu chân cụ thể/)).toBeVisible()

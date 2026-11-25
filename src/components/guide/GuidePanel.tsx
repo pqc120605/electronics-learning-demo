@@ -95,7 +95,7 @@ export default function GuidePanel({ pathname, initialQuestion = '', motion, red
     }}
   >
     <header className="guide-header">
-      <div><h2 id={heading}>Mở — bạn đồng hành học điện tử</h2><p id={description}>Hướng dẫn, tra cứu và AI trên máy</p></div>
+      <div><h2 id={heading}>Mở — bạn đồng hành học điện tử</h2><p id={description}>Hướng dẫn, tra cứu và hỏi AI</p></div>
       <button type="button" className="guide-close" aria-label="Thu gọn Mở" onClick={onClose}>×</button>
     </header>
     <MascotAvatar mood={mood} motion={motion} />
