@@ -1,6 +1,11 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { request as httpRequest } from 'node:http'
+import { spawnSync } from 'node:child_process'
+import { mkdtemp, rm, symlink } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { createCompilerServer, podmanCompileArgs } from '../server/compiler/service.mjs'
 import { renderProductionEdge } from '../server/api/production-edge.mjs'
 
@@ -90,4 +95,17 @@ test('rootless job has bounded resources and the edge routes are separately enab
   assert.throws(() => podmanCompileArgs('latest', name, 'arduino:avr:uno'))
   assert.doesNotMatch(renderProductionEdge(), /\/tools\/arduino/)
   assert.match(renderProductionEdge({ compilerEnabled: true }), /\/tools\/arduino\/status \/tools\/arduino\/compile/)
+})
+
+
+test('the systemd release symlink selects the compiler entry point', async t => {
+  const directory = await mkdtemp(join(tmpdir(), 'machmo-compiler-entry-'))
+  t.after(() => rm(directory, { recursive: true, force: true }))
+  const current = join(directory, 'current')
+  await symlink(fileURLToPath(new URL('../server/compiler/', import.meta.url)), current, process.platform === 'win32' ? 'junction' : 'dir')
+  const result = spawnSync(process.execPath, [join(current, 'service.mjs')], {
+    env: { ...process.env, MACHMO_COMPILER_IMAGE: '' }, encoding: 'utf8', timeout: 3000,
+  })
+  assert.equal(result.status, 1, result.stderr)
+  assert.match(result.stderr, /Run compiler as a rootless Linux user|Compiler image must be an immutable/)
 })

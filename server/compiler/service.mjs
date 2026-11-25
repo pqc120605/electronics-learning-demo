@@ -2,7 +2,6 @@ import { createServer } from 'node:http'
 import { spawn } from 'node:child_process'
 import { randomUUID } from 'node:crypto'
 import { once } from 'node:events'
-import { pathToFileURL } from 'node:url'
 
 const origin = 'https://mach-mo.vercel.app'
 const host = new URL(origin).host
@@ -159,7 +158,7 @@ export function createCompilerServer({ compile, now = Date.now }) {
   })
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (import.meta.main) {
   if (process.platform !== 'linux' || process.getuid() === 0) throw new Error('Run compiler as a rootless Linux user')
   const compile = createPodmanCompiler({ image: process.env.MACHMO_COMPILER_IMAGE })
   createCompilerServer({ compile }).listen(8285, '127.0.0.1', () => console.log('Mạch Mở AVR compiler listening on loopback 8285'))
