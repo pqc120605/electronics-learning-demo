@@ -3,7 +3,13 @@ import { before, after, test } from 'node:test'
 import { createServer } from 'vite'
 let server, attachments, community
 before(async () => {
-  server = await createServer({ configFile: 'vite.config.ts', logLevel: 'silent', server: { middlewareMode: true } })
+  server = await createServer({
+    configFile: 'vite.config.ts',
+    logLevel: 'silent',
+    server: { middlewareMode: true },
+    // The persistence regressions cover the local community preview in every build environment.
+    define: { 'import.meta.env.VITE_MACHMO_SELF_HOSTED_OAUTH': JSON.stringify('false') },
+  })
   attachments = await server.ssrLoadModule('/src/lib/communityAttachments.ts')
   community = await server.ssrLoadModule('/src/lib/community.ts')
 })
@@ -98,6 +104,7 @@ test('denied native localStorage rejects community posting instead of accepting 
   try {
     Object.defineProperty(globalThis, 'window', { configurable: true, value: { get localStorage() { throw new DOMException('Access denied', 'SecurityError') } } })
     const store = await server.ssrLoadModule('/src/lib/communityStore.ts')
+    assert.equal(store.canUseOnlineCommunity, false)
     const repo = store.getCommunityRepository()
     const before = (await repo.listPosts()).length
     await assert.rejects(repo.createPost({ title: 'Denied native persistence', body: 'Must stay in compose rather than pretending to save.', category: 'iot', tags: [] }, { id: 'guest', name: 'Guest', avatarUrl: null }), /không cho lưu/)
