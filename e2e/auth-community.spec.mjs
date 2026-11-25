@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
 
-// Bản build test không có biến Supabase: đăng nhập phải ở trạng thái "chưa kết nối", cộng đồng là bản xem trước.
+// Bản build test ở chế độ khách. Đăng nhập chưa kết nối và cộng đồng dùng bản lưu trên thiết bị.
 
 test('login page shows a clear unconfigured state and never fakes a session', async ({ page }) => {
   await page.goto('/login?next=/community')

@@ -1,7 +1,5 @@
 import { communitySeed } from '../data/communitySeed'
 import { createPreviewRepository, type CommunityRepository } from './community'
-import { supabase } from './supabase'
-import { createRemoteRepository } from './communityRemoteRepository'
 import { createSelfHostedCommunityRepository } from './communitySelfHostedRepository'
 import { selfHostedOAuthEnabled } from './selfHostedAuth'
 
@@ -19,7 +17,6 @@ export function getCommunityRepository(): CommunityRepository {
     let localOnly = false
     try { localOnly = storage?.getItem('mach-mo-community-source') === 'preview' } catch { /* backend remains explicit */ }
     if (!localOnly && selfHostedOAuthEnabled) repository = createSelfHostedCommunityRepository()
-    else if (!localOnly && supabase) repository = createRemoteRepository(supabase)
     else repository = createPreviewRepository(communitySeed, storage)
   }
   return repository
@@ -31,7 +28,7 @@ export function setCommunitySource(mode: 'preview' | 'remote'): void {
   storage.setItem('mach-mo-community-source', mode)
   window.location.reload()
 }
-export const canUseOnlineCommunity = selfHostedOAuthEnabled || Boolean(supabase)
+export const canUseOnlineCommunity = selfHostedOAuthEnabled
 
 /** Gốc đường dẫn theo bề mặt: website công khai hay workspace /app. */
 export function communityBase(pathname: string): string {

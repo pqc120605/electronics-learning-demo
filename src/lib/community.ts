@@ -1,6 +1,6 @@
 /**
  * Tầng dữ liệu cộng đồng. UI chỉ nói chuyện với `CommunityRepository`.
- * Bản xem trước giữ dữ liệu cục bộ; adapter online nằm trong communityRemoteRepository.
+ * Bản xem trước giữ dữ liệu cục bộ. Adapter online nằm trong communitySelfHostedRepository.
  * Cấu hình/schema do founder thiết lập theo docs/software/community-online.
  */
 

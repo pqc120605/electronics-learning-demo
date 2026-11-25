@@ -28,16 +28,14 @@ Chỉ thêm mục dưới đây vào đầu mảng `rewrites` trong bản Previe
 
 Ví dụ, `/api/session` trên Preview được Vercel chuyển thành `/session` ở origin API. Caddy thêm lại tiền tố để Node nhận `/api/session`. Giữ rule đứng trước fallback SPA. Kiểm các phản hồi có phiên và dữ liệu người dùng dùng `Cache-Control: no-store`. [Rewrite ngoài origin trên Vercel](https://vercel.com/docs/routing/rewrites)
 
-- [ ] Với cờ Node và cờ Supabase đều tắt, kiểm Preview `/api/health` trả đúng SHA và trạng thái PostgreSQL. Kiểm `/api/session` trả `{"user":null}` cho khách và cổng quản trị từ chối phiên khách.
+- [ ] Với cờ OAuth Node đang tắt, kiểm Preview `/api/health` trả đúng SHA và trạng thái PostgreSQL. Kiểm `/api/session` trả `{"user":null}` cho khách và cổng quản trị từ chối phiên khách.
 - [ ] Bật `VITE_MACHMO_SELF_HOSTED_OAUTH=true` trên Preview. Xác nhận callback Google và GitHub thật đi về đúng origin Preview. Kiểm cookie `Secure`, `HttpOnly`, `SameSite=Lax`, đăng xuất và nháp cộng đồng sau chuyển hướng. Kiểm khách đọc được bài công khai, ghi cần tài khoản và nút chuyển về nguồn lưu trên thiết bị.
 - [ ] Nếu dùng thống kê và quản trị, bật thêm `VITE_MACHMO_SELF_HOSTED_ANALYTICS=true`. Xác nhận sự kiện được ghi vào PostgreSQL đích và quyền quản trị được kiểm trên API. Kiểm bài học và bàn lắp ở chế độ khách khi dịch vụ API gián đoạn.
 - [ ] Trước production, ghi lại bản Vercel hiện hành để quay lại khi lỗi. Chỉ thực hiện theo lượt phát hành sau khi A3, A4 có bằng chứng, origin production và callback đã được chốt. Sau khi chuyển, kiểm lại health, phiên, cộng đồng và dữ liệu ghi từ mạng ngoài. Secret OAuth, cơ sở dữ liệu và AI nằm trên backend.
 
-## Giữ đường quay lại trong một bản phát hành
+## Hoàn tất chuyển backend
 
-`VITE_MACHMO_LEGACY_SUPABASE` tắt mặc định. Cờ này chỉ dùng để quay lại đăng nhập và cộng đồng cũ nếu cần. Khi bật, nó chọn adapter cũ thay cho OAuth Node. Quản trị và thống kê trong bản tích hợp chỉ có đường đến Node API. Cờ và giá trị mẫu nằm trong [`.env.example`](../../.env.example).
-
-Founder xác nhận ngày 23/11/2026 rằng Supabase production không có dữ liệu thật cần chuyển. B6 gỡ SDK, adapter và migration Supabase sau khi có bằng chứng một bản phát hành Node API đã chạy ổn. Luồng tệp đính kèm cục bộ vẫn dùng IndexedDB. API cộng đồng Node ở bản này hỗ trợ bài viết và bình luận dạng văn bản.
+Founder xác nhận ngày 23/11/2026 rằng Supabase production không có dữ liệu thật cần chuyển. Sau bản Node API đã phát hành, bước B6 gỡ SDK, adapter, migration và cờ legacy khỏi mã ứng dụng. Có thể xem cấu hình cũ trong lịch sử Git. Bản nháp cộng đồng trên thiết bị và tệp trong IndexedDB vẫn đọc được. API cộng đồng Node ở bản này hỗ trợ bài viết và bình luận dạng văn bản. [Cờ frontend](../../.env.example)
 
 ## Dashboard quản trị và góp ý
 

@@ -40,23 +40,11 @@ Kiểm tra kiểu bằng `npm.cmd run typecheck`. Chạy smoke test trước khi
 
 Để rà model board, dùng `npm.cmd run audit:board-models` cho hotspot/anchor/scene bounds và `npm.cmd run audit:board-model-geometry` để so mesh thân PCB từ STEP đã ghim SHA-256 với node PCB tách riêng trong GLB (hiện có 8 cặp nguồn). Kết quả CAD-to-CAD không thay thế đo board thật. `npm.cmd run audit:spice-engine` kiểm tra hash/runtime và giải mạch DC mẫu; `npm.cmd run check:public-release` vẫn fail-closed nếu thiếu provenance, inventory hoặc review đúng hash ngspice WASM.
 
-## Cấu hình Supabase riêng
+## Kết nối Node API
 
-Website này cần một Supabase project riêng. Không dùng project, URL, key hoặc dữ liệu của ReTrack. Nội dung học vẫn chạy nếu chưa cấu hình Supabase; khi chưa cấu hình, admin hiển thị hướng dẫn thiết lập và thống kê chưa khả dụng.
+Nội dung học và bàn lắp mạch chạy với chế độ khách. Đăng nhập Google/GitHub, cộng đồng online, góp ý và báo cáo quản trị dùng Node API qua `/api`, với PostgreSQL trên Mini PC. [Nối Vercel với Mini PC](docs/deployment/qd1-vercel-node-api.md) · [Cấu hình OAuth](docs/deployment/oauth-setup.md)
 
-1. Tạo Supabase project dành riêng cho website.
-2. Chạy lần lượt `supabase/migrations/0001_analytics_and_admin.sql` và `supabase/migrations/0002_analytics_rate_limit.sql` trong SQL Editor. Migration thứ hai thêm sự kiện chạy bài và giới hạn tốc độ theo mã phiên.
-3. Trong Authentication → Settings, tắt đăng ký public. Trong Authentication → Users, tạo user founder với email và mật khẩu của bạn.
-4. Lấy UUID của user trong Authentication → Users. Trong SQL Editor, cấp role admin cho đúng UUID:
-
-   ```sql
-   insert into public.site_admins (user_id)
-   values ('DAN_UUID_USER_FOUNDER_VAO_DAY');
-   ```
-
-   Không thêm form đăng ký hoặc luồng tự cấp role vào website.
-5. Sao chép `.env.example` thành `.env.local`, điền URL project và publishable/anon key. Chỉ dùng key công khai trong trình duyệt; không đưa service-role key vào `VITE_*` hay mã nguồn.
-6. Khởi động lại dev server và mở `/admin` để đăng nhập.
+`.env.example` liệt kê các cờ bật giao diện cho từng môi trường. Sau khi API thông, bật các cờ tương ứng. Khóa OAuth và thông tin kết nối PostgreSQL cấu hình trên Mini PC. Quản trị cấp quyền theo email đã xác minh. [Cấu hình quyền xem dashboard](docs/deployment/dashboard-nhieu-website.md#quyền-xem-dashboard)
 
 Analytics chỉ ghi mã phiên ngẫu nhiên theo tab, loại sự kiện trong allowlist, đường dẫn, component tùy chọn và thời gian máy chủ. Số phiên là ước tính, không phải số người thật được xác minh. Nhà cung cấp backend có thể xử lý metadata kỹ thuật để vận hành.
 

@@ -60,7 +60,7 @@ curl -I http://127.0.0.1:8080/
 curl -I http://127.0.0.1:8080/vendor/eecircuit-engine/spice.wasm
 ```
 
-Verify WASM returns `application/wasm`, SPA direct links such as `/app/tools/spice` load, and all license/source URLs remain downloadable. Static hosting does not supply `/api/local-tools` Arduino compilation; do not expose the Vite development middleware to the Internet. Optional Supabase features retain their separately configured service; this does not self-host Supabase.
+Verify WASM returns `application/wasm`, SPA direct links such as `/app/tools/spice` load, and all license/source URLs remain downloadable. The hosted Arduino compiler and other Node API features use the [Mini PC API setup](mini-pc-api.md). Keep the Vite development middleware on localhost.
 
 ## Internet access without a domain
 

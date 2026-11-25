@@ -63,7 +63,10 @@ test('tool/calculator questions give substantive assumptions and community/feedb
     const result=guide.findGuideAnswers(q);assert.equal(result.kind,'matches',q)
     assert.ok(result.articles[0].paragraphs.join(' ').length>100)
   }
-  assert.match(guide.findGuideAnswers('cộng đồng online hoạt động chưa').articles[0].paragraphs.join(' '),/Supabase|cấu hình/)
+  const community = guide.findGuideAnswers('cộng đồng online hoạt động chưa').articles[0].paragraphs.join(' ')
+  assert.match(community, /Đăng nhập để đăng bài/)
+  assert.match(community, /Bản online hiện hỗ trợ nội dung văn bản/)
+  assert.doesNotMatch(community, /Supabase|founder/)
   assert.match(guide.findGuideAnswers('góp ý gửi cho ai').articles[0].paragraphs.join(' '),/chưa.*gửi|không tự.*gửi/)
 })
 

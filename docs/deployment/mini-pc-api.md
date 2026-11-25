@@ -46,5 +46,6 @@ Operator tạo database trống `machmo_api_restore_check`, owner `machmo_api_st
 
 ## Cổng còn mở
 
-- Chờ xác minh migration PostgreSQL thật, service trên Arch và backup/restore. Cần xem số liệu loopback và RAM trước khi bật timer.
+- Ngày 25/11/2026, bản `6e7105a` đạt 33/33 ca API trên Mini PC với PostgreSQL thử ở cổng riêng. Caddy loopback giữ chặn khách ở các tuyến quản trị, lớp học, dự án và kiểm duyệt.
+- Đã khôi phục `machmo_api_staging-20261125T015413Z.dump` trong cụm tạm chỉ nhận kết nối qua socket riêng. Kiểm số migration và đọc được bảng phiên, bảng thống kê. Dữ liệu khôi phục chỉ tồn tại trong môi trường thử. Lịch backup và bản sao ngoài máy được xác minh riêng tại đợt phát hành.
 - Trước khi sửa Caddyfile/Funnel hoặc mở cổng cần chốt route, sao lưu và chạy `caddy validate`. Vercel hỗ trợ rewrite tới backend ngoài với trần 120 giây. Sau khi duyệt mới nối rule API trước fallback SPA và kiểm qua Preview. [Hướng dẫn rewrite của Vercel](https://vercel.com/docs/routing/rewrites) · [Giới hạn proxy của Vercel](https://vercel.com/docs/limits#proxied-request-timeout)

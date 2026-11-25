@@ -22,7 +22,7 @@ Cập nhật 21/11/2026. Phân hệ M13 Classroom/community. Nhánh S2 bổ sung
 - Migration `003-oauth-community.sql` mở rộng tài khoản và thêm danh tính, giao dịch OAuth một lần, bài viết, bình luận và báo cáo. Giữ hợp đồng `GET /api/session`. Cookie OAuth `__Host-mm_session` dùng `SameSite=Lax` và hết hạn sau 30 ngày. Phiên được xoay khi còn dưới bảy ngày. Bản thử mã mời tiếp tục dùng nhánh xử lý và cookie riêng.
 - Tách `selfHostedAuth` và repository HTTP theo `CommunityRepository`. Dùng nguồn cục bộ cho nháp, lưu trước khi chuyển sang provider và khi quay lại khôi phục đúng nháp. Người dùng khách vẫn mở được bài học, lab và bài cộng đồng công khai. Thao tác ghi yêu cầu đăng nhập và quyền tương ứng. Payload công khai chỉ có tên hiển thị và avatar của người viết.
 - Ghi chính sách lưu giữ và xoá tài khoản trong `/privacy`. Thử `DELETE /api/account` trên dữ liệu riêng của tài khoản thử. Không lưu access token của provider trong database ứng dụng.
-- Adapter tự quản hỗ trợ cộng đồng văn bản và báo cáo có hàng chờ riêng theo quyền admin. Tệp đính kèm vẫn dùng được trong nguồn lưu trên thiết bị và adapter Supabase trước đây. Tải tệp lên backend tự quản chưa thuộc bản này.
+- Adapter tự quản hỗ trợ cộng đồng văn bản và báo cáo có hàng chờ riêng theo quyền admin. Nguồn lưu trên thiết bị hỗ trợ tệp đính kèm. Tải tệp lên backend tự quản chưa thuộc bản này.
 
 ## Bằng chứng cần trước khi mở production
 

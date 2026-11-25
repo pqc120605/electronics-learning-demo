@@ -107,16 +107,12 @@ test('community UI never injects raw HTML', async () => {
   for (const file of files) assert.doesNotMatch(await readFile(file, 'utf8'), /dangerouslySetInnerHTML|innerHTML/, file)
 })
 
-test('auth helpers map provider metadata and block open redirects', () => {
-  const user = authUser.toAuthUser({ id: 'x', email: 'an@example.com', app_metadata: { provider: 'github' }, user_metadata: { user_name: 'an-dev', avatar_url: 'https://avatars.example/u.png' } })
-  assert.deepEqual(user, { id: 'x', displayName: 'an-dev', avatarUrl: 'https://avatars.example/u.png', provider: 'github' })
-  assert.equal(authUser.toAuthUser({ id: 'y', email: 'binh@example.com', user_metadata: { avatar_url: 'javascript:alert(1)' } }).avatarUrl, null)
-  assert.equal(authUser.toAuthUser({ id: 'y', email: 'binh@example.com' }).displayName, 'binh')
+test('auth helpers accept HTTPS avatars and block open redirects', () => {
+  assert.equal(authUser.safeAvatarUrl('https://avatars.example/u.png'), 'https://avatars.example/u.png')
+  assert.equal(authUser.safeAvatarUrl('javascript:alert(1)'), null)
+  assert.equal(authUser.safeAvatarUrl('http://avatars.example/u.png'), null)
   assert.equal(authUser.safeNextPath('/community/abc'), '/community/abc')
   for (const bad of ['https://evil.example', '//evil.example', '/\\evil', 'javascript:alert(1)', '/login?next=/x', '']) assert.equal(authUser.safeNextPath(bad), '/community', bad)
-  assert.equal(authUser.readOAuthError('?error=access_denied&error_description=User+denied', ''), 'User denied')
-  assert.equal(authUser.readOAuthError('', '#error_description=Expired'), 'Expired')
-  assert.equal(authUser.readOAuthError('?code=abc', ''), null)
   assert.equal(authUser.initialsOf('Nguyễn Văn An'), 'NA')
   assert.equal(authUser.initialsOf('Chi (mẫu)'), 'C')
   assert.equal(markdown.markdownExcerpt('1. ESP32-C3 + **BME280**\n- RPI-RP2'), 'ESP32-C3 + BME280 RPI-RP2')
@@ -136,5 +132,15 @@ test('login and community routes are registered without removing existing ones',
   assert.match(nav, /F\.community\.publicRoute/)
   assert.match(workspaceNav, /<AuthMenu variant="app"/)
   assert.match(shell, /<AuthMenu variant="public"/)
-  assert.match(await readFile('src/lib/auth.ts', 'utf8'), /signInWithOAuth\(\{\s*provider/)
+  assert.match(await readFile('src/lib/auth.ts', 'utf8'), /return startSelfHostedOAuth\(provider, next\)/)
+})
+
+test('the website uses the Node backend and has no legacy database client dependency', async () => {
+  const manifest = JSON.parse(await readFile('package.json', 'utf8'))
+  assert.equal(manifest.dependencies['@supabase/supabase-js'], undefined)
+  const env = await readFile('.env.example', 'utf8')
+  assert.doesNotMatch(env, /VITE_(?:MACHMO_LEGACY_)?SUPABASE/i)
+  const repository = await readFile('src/lib/communityStore.ts', 'utf8')
+  assert.match(repository, /createSelfHostedCommunityRepository\(\)/)
+  assert.match(repository, /createPreviewRepository\(communitySeed, storage\)/)
 })

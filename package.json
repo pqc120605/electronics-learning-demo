@@ -26,7 +26,6 @@
   "dependencies": {
     "@astryxdesign/core": "0.7.16",
     "@stylexjs/stylex": "0.19.2",
-    "@supabase/supabase-js": "^2.118.0",
     "avr8js": "file:vendor/avr8js-0.21.1.tgz",
     "eecircuit-engine": "file:vendor/mach-mo-spice",
     "esptool-js": "0.7.1",

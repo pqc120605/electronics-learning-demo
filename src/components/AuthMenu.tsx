@@ -7,7 +7,7 @@ import './AuthMenu.css'
 
 /**
  * Nút đăng nhập/đăng xuất cho header công khai và topbar workspace.
- * Chưa cấu hình Supabase: vẫn hiện "Đăng nhập" dẫn tới trang giải thích trạng thái "chưa kết nối".
+ * Khi chưa kết nối backend, liên kết đăng nhập giải thích trạng thái và có lối vào chế độ khách.
  */
 export function AuthMenu({ variant }: { variant: 'public' | 'app' }) {
   const auth = useAuth()
