@@ -3,6 +3,7 @@ import { once } from 'node:events'
 import { request } from 'node:http'
 import test from 'node:test'
 import { createApiServer, MAX_BODY_BYTES } from './server.mjs'
+import { EDGE_CLIENT_HEADER, makeEdgeClientProof, readEdgeClientProof } from './edge-client-proof.mjs'
 
 const publicOrigin = 'https://mach-mo.example'
 const stagingOrigin = 'https://staging.mach-mo.example'
@@ -38,6 +39,38 @@ test('health returns a stable contract and fails readiness if the database probe
   const unavailable = await fetch(base + '/api/health')
   assert.equal(unavailable.status, 503)
   assert.equal((await unavailable.json()).db, 'unavailable')
+})
+
+test('edge proofs bind an anonymous IP identity to a method, path and short lifetime', () => {
+  const key = '24'.repeat(32)
+  const now = 1_800_000_000_000
+  const path = '/api/health'
+  const proof = makeEdgeClientProof(key, '192.0.2.7', 'GET', path, now)
+  assert.equal(makeEdgeClientProof(key, '::ffff:192.0.2.7', 'GET', path, now), proof)
+  assert.equal(makeEdgeClientProof(key, '192.0.2.7, 192.0.2.8', 'GET', path, now), null)
+  assert.equal(makeEdgeClientProof(key, '::1%lo0', 'GET', path, now), null)
+  assert.ok(readEdgeClientProof(key, proof, 'GET', path, now))
+  assert.equal(readEdgeClientProof(key, proof, 'GET', path, now + 61000), null)
+  assert.equal(readEdgeClientProof(key, proof, 'POST', path, now), null)
+  assert.equal(readEdgeClientProof(key, proof, 'GET', '/api/session', now), null)
+  assert.equal(readEdgeClientProof('21'.repeat(32), proof, 'GET', path, now), null)
+})
+
+test('signed proxy mode separates verified clients and ignores unsigned forwarding claims', async t => {
+  const edgeProxyKey = '42'.repeat(32)
+  const { base } = await start(t, { edgeProxyKey, requestsPerMinute: 1, trustedProxyIps: ['127.0.0.1'] })
+  const path = '/api/health'
+  const signed = address => fetch(base + path, { headers: { [EDGE_CLIENT_HEADER]: makeEdgeClientProof(edgeProxyKey, address, 'GET', path) } })
+  const first = await signed('192.0.2.11')
+  assert.equal(first.status, 200)
+  assert.equal(first.headers.get('x-machmo-ip-source'), 'verified-edge')
+  assert.equal((await signed('192.0.2.11')).status, 429)
+  assert.equal((await signed('192.0.2.12')).status, 200)
+  const unsigned = address => fetch(base + path, { headers: { 'x-forwarded-for': address, [EDGE_CLIENT_HEADER]: 'unverified' } })
+  const fromPeer = await unsigned('192.0.2.21')
+  assert.equal(fromPeer.status, 200)
+  assert.equal(fromPeer.headers.get('x-machmo-ip-source'), 'peer')
+  assert.equal((await unsigned('192.0.2.22')).status, 429)
 })
 
 test('CORS permits only configured origins and the analytics dashboard stays private', async t => {

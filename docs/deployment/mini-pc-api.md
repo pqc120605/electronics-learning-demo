@@ -48,4 +48,16 @@ Operator tạo database trống `machmo_api_restore_check`, owner `machmo_api_st
 
 - Ngày 25/11/2026, bản `6e7105a` đạt 33/33 ca API trên Mini PC với PostgreSQL thử ở cổng riêng. Caddy loopback giữ chặn khách ở các tuyến quản trị, lớp học, dự án và kiểm duyệt.
 - Đã khôi phục `machmo_api_staging-20261125T015413Z.dump` trong cụm tạm chỉ nhận kết nối qua socket riêng. Kiểm số migration và đọc được bảng phiên, bảng thống kê. Dữ liệu khôi phục chỉ tồn tại trong môi trường thử. Lịch backup và bản sao ngoài máy được xác minh riêng tại đợt phát hành.
+
+### Bản sao mã hóa ngoài máy
+
+- Bản sao trên laptop nằm trong `%LOCALAPPDATA%\MachMo\Backups`, ngoài Git. Trước khi nhận tệp qua SSH, kiểm mục lục bằng `pg_restore --list` trên Mini PC. So khớp SHA-256 với bản dump gốc sau khi giải mã thử.
+- Tệp `.dump.dpapi` dùng Windows DPAPI phạm vi `CurrentUser` và chuỗi entropy UTF-8 `MachMo-PostgreSQL-backup-v1`. Việc phục hồi cần đúng hồ sơ tài khoản Windows đã mã hóa tệp. Khi diễn tập, dùng `ProtectedData.Unprotect` trên chính tài khoản đó và cấp dump cho `pg_restore` trên cụm thử riêng. Chỉ tạo tệp rõ khi cần khôi phục có chủ đích trong thư mục được bảo vệ.
+- Lịch trên Mini PC vẫn giữ bảy bản gần nhất. Việc chép ngoài máy trong đợt này là một lần. Một lịch tự động cần laptop kết nối được Mini PC và danh tính SSH có cấu hình lâu dài.
+
+### Giới hạn theo IP qua Vercel
+
+- Cấu hình cùng một khóa ngẫu nhiên 32 byte dạng hex thường trong biến server-only `MACHMO_EDGE_PROXY_HMAC` ở Vercel Production và dịch vụ API Mini PC. Giữ tệp môi trường ở quyền 600 và cấp cho dịch vụ bằng `EnvironmentFile`.
+- Middleware dùng địa chỉ do Vercel cấp để ký mã định danh theo ngày. API kiểm chữ ký, phương thức, đường dẫn và tuổi tối đa 60 giây. Khi khóa đã cấu hình, yêu cầu thiếu chữ ký hoặc chữ ký sai dùng nhóm theo IP kết nối trực tiếp.
+- Sau khi phát hành, kiểm `GET /api/health` qua Vercel trả `X-Machmo-IP-Source: verified-edge`. Cùng endpoint qua Funnel trực tiếp phải trả `peer`. Đổi IP mạng, kiểm hai client được tính riêng và xác nhận không ghi IP thô vào log ứng dụng. [Header IP do Vercel cấp](https://vercel.com/docs/headers/request-headers#x-vercel-forwarded-for)
 - Trước khi sửa Caddyfile/Funnel hoặc mở cổng cần chốt route, sao lưu và chạy `caddy validate`. Vercel hỗ trợ rewrite tới backend ngoài với trần 120 giây. Sau khi duyệt mới nối rule API trước fallback SPA và kiểm qua Preview. [Hướng dẫn rewrite của Vercel](https://vercel.com/docs/routing/rewrites) · [Giới hạn proxy của Vercel](https://vercel.com/docs/limits#proxied-request-timeout)

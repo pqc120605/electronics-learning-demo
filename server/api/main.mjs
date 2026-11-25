@@ -74,7 +74,7 @@ try {
   const projects = authStore && createProjectHttp({ origin: oauthOrigin, authStore, store: createProjectStore(pool) })
   const classrooms = authStore && createClassroomHttp({ origin: oauthOrigin, authStore, store: createClassroomStore(pool) })
   server = createApiServer({
-    origins, commit: process.env.MACHMO_API_COMMIT, trustedProxyIps, s2, guide, guideEnv, admin, projects, classrooms,
+    origins, commit: process.env.MACHMO_API_COMMIT, trustedProxyIps, edgeProxyKey: process.env.MACHMO_EDGE_PROXY_HMAC, s2, guide, guideEnv, admin, projects, classrooms,
     feedback: oauthOrigin ? { origin: oauthOrigin, save: siteFeedback.save } : undefined,
     dashboardSites,
     sessionStore, analyticsStore, checkDatabase: databaseReady,

@@ -11,6 +11,7 @@ import { classroomRoute } from './classrooms.mjs'
 import { siteFeedbackInput } from './site-feedback.mjs'
 import { dashboardIngestPath } from './dashboard-sites.mjs'
 import { CHUNK_BYTES } from './community-attachments.mjs'
+import { EDGE_CLIENT_HEADER, readEdgeClientProof, validEdgeKey } from './edge-client-proof.mjs'
 
 export const MAX_BODY_BYTES = 64 * 1024
 const MINUTE_MS = 60_000
@@ -82,21 +83,17 @@ function readBytes(request, maximum) {
   })
 }
 
-function createLimiter(requestsPerMinute, trustedProxies) {
+function createLimiter(requestsPerMinute) {
   let windowStarted = Date.now()
   let key = randomBytes(32)
   const clients = new Map()
-  return request => {
+  return client => {
     const now = Date.now()
     if (now - windowStarted >= MINUTE_MS) {
       windowStarted = now
       key = randomBytes(32)
       clients.clear()
     }
-    const peer = request.socket.remoteAddress ?? ''
-    const forwarded = request.headers['x-forwarded-for']
-    // The configured proxy must overwrite this header with one verified IP.
-    const client = trustedProxies.has(peer) && typeof forwarded === 'string' && isIP(forwarded) ? forwarded : peer
     const id = createHmac('sha256', key).update(client).digest('base64url')
     const count = clients.get(id)
     if (count === undefined && clients.size >= MAX_CLIENTS_PER_WINDOW) return false
@@ -108,7 +105,7 @@ function createLimiter(requestsPerMinute, trustedProxies) {
 
 export function createApiServer({
   origins, commit, checkDatabase, sessionStore, analyticsStore, guideEnv = {}, s2, guide, admin, projects, classrooms, feedback, dashboardSites,
-  trustedProxyIps = [], requestsPerMinute = 120, log = entry => console.log(JSON.stringify(entry)),
+  trustedProxyIps = [], edgeProxyKey, requestsPerMinute = 120, log = entry => console.log(JSON.stringify(entry)),
 }) {
   if (!Array.isArray(origins) || !origins.length || origins.some(value => {
     const url = new URL(value)
@@ -118,6 +115,7 @@ export function createApiServer({
   if (!Number.isSafeInteger(requestsPerMinute) || requestsPerMinute < 1 || trustedProxyIps.some(ip => !isIP(ip))) {
     throw new TypeError('Invalid request limit or proxy address')
   }
+  if (edgeProxyKey && !validEdgeKey(edgeProxyKey)) throw new TypeError('Invalid edge proxy key')
   const allowedOrigins = new Set(origins)
   const sessions = new Map([...allowedOrigins].map(origin => [origin, createSessionHandler({ origin, store: sessionStore, validateHost: false })]))
   const sessionHosts = new Map([...allowedOrigins].map(origin => [new URL(origin).host, origin]))
@@ -126,10 +124,10 @@ export function createApiServer({
     onFailure: () => log({ event: 'analytics_failed' }),
   })
   const trustedProxies = new Set(trustedProxyIps)
-  const limit = createLimiter(requestsPerMinute, trustedProxies)
-  const limitAnalytics = createLimiter(requestsPerMinute, trustedProxies)
-  const limitAttachments = createLimiter(requestsPerMinute, trustedProxies)
-  const limitFeedback = createLimiter(30, trustedProxies)
+  const limit = createLimiter(requestsPerMinute)
+  const limitAnalytics = createLimiter(requestsPerMinute)
+  const limitAttachments = createLimiter(requestsPerMinute)
+  const limitFeedback = createLimiter(30)
 
   return createServer({ requestTimeout: 10_000, headersTimeout: 5_000, keepAliveTimeout: 4_000, maxHeaderSize: 8192 }, async (request, response) => {
     const started = Date.now()
@@ -164,7 +162,14 @@ export function createApiServer({
     }
 
     const routeLimit = route.id === 'analytics' ? limitAnalytics : route.attachmentTraffic ? limitAttachments : limit
-    if (!routeLimit(request)) {
+    const peer = request.socket.remoteAddress ?? ''
+    const forwarded = request.headers['x-forwarded-for']
+    const edgeClient = edgeProxyKey && readEdgeClientProof(edgeProxyKey, request.headers[EDGE_CLIENT_HEADER], method, path)
+    // Signed mode never uses a forwarding claim from an unsigned request.
+    const legacyClient = !edgeProxyKey && trustedProxies.has(peer) && typeof forwarded === 'string' && isIP(forwarded) ? forwarded : peer
+    const client = edgeClient ? 'edge:' + edgeClient : legacyClient
+    if (edgeProxyKey && route.id === 'health') response.setHeader('X-Machmo-IP-Source', edgeClient ? 'verified-edge' : 'peer')
+    if (!routeLimit(client)) {
       response.setHeader('Retry-After', '60')
       return json(response, 429)
     }
@@ -193,7 +198,7 @@ export function createApiServer({
       if (feedbackAction) {
         if (origin !== feedback.origin || request.headers['x-machmo-csrf'] !== '1'
           || request.headers['sec-fetch-site'] === 'cross-site') return json(response, 403)
-        if (!limitFeedback(request)) {
+        if (!limitFeedback(client)) {
           response.setHeader('Retry-After', '60')
           return json(response, 429)
         }

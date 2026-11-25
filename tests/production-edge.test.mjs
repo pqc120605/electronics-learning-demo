@@ -47,3 +47,26 @@ test('production rewrite is external HTTPS and takes precedence over app fallbac
   assert.notEqual(getVercelRouteBlockers({ rewrites: [...spa, proxy] }).length, 0)
   assert.notEqual(getVercelRouteBlockers({ rewrites: [{ ...proxy, destination: '/index.html' }, ...spa] }).length, 0)
 })
+
+test('Vercel middleware overwrites a caller claim and forwards an authenticated client identity', async t => {
+  const { default: middleware } = await import('../middleware.ts')
+  const { EDGE_CLIENT_HEADER, readEdgeClientProof } = await import('../server/api/edge-client-proof.mjs')
+  const key = '49'.repeat(32)
+  const previous = { env: process.env.VERCEL_ENV, key: process.env.MACHMO_EDGE_PROXY_HMAC }
+  t.after(() => {
+    if (previous.env === undefined) delete process.env.VERCEL_ENV
+    else process.env.VERCEL_ENV = previous.env
+    if (previous.key === undefined) delete process.env.MACHMO_EDGE_PROXY_HMAC
+    else process.env.MACHMO_EDGE_PROXY_HMAC = previous.key
+  })
+  process.env.VERCEL_ENV = 'production'
+  process.env.MACHMO_EDGE_PROXY_HMAC = key
+  const path = '/api/health'
+  const request = new Request('https://mach-mo.example' + path, { headers: {
+    [EDGE_CLIENT_HEADER]: 'caller claim', 'x-vercel-forwarded-for': '192.0.2.48',
+  } })
+  const response = middleware(request)
+  const proof = response.headers.get('x-middleware-request-' + EDGE_CLIENT_HEADER)
+  assert.ok(readEdgeClientProof(key, proof, 'GET', path))
+  assert.equal(response.headers.get(EDGE_CLIENT_HEADER), null)
+})
