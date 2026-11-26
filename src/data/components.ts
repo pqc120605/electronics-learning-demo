@@ -1,6 +1,7 @@
+import { expandedCatalog } from './expandedComponentCatalog'
 import { kitPartProfiles } from './kitPartProfiles'
 
-export type ComponentCategory = 'MCU' | 'Cảm biến' | 'Đầu vào' | 'Đầu ra' | 'Linh kiện cơ bản' | 'Hiển thị' | 'Kết nối' | 'Nguồn' | 'Cơ điện'
+export type ComponentCategory = 'MCU' | 'Cảm biến' | 'Đầu vào' | 'Đầu ra' | 'Linh kiện cơ bản' | 'Hiển thị' | 'Kết nối' | 'Nguồn' | 'Cơ điện' | 'Âm thanh' | 'IC logic' | 'Board & dây nối'
 export type ComponentRecord = { id: string; name: string; category: ComponentCategory; summary: string; pins: string; use: string; caution: string; tags: string[]; source?: string; boardViewerRoute?: string; boardProfileRoute?: string }
 
 // Catalogue records are learning references. Module revisions and breakout pinouts can differ.
@@ -71,4 +72,17 @@ export const components: ComponentRecord[] = [
   {id:'rfid',name:'RFID RC522 breakout',category:'Cảm biến',summary:'Đọc thẻ không tiếp xúc tần số 13,56 MHz.',pins:'SDA/SS, SCK, MOSI, MISO, IRQ, GND, RST, 3.3V.',use:'Hệ thống nhận diện thẻ và kiểm soát truy cập demo.',caution:'Module dùng 3,3 V; không cấp 5 V nếu tài liệu module không cho phép.',tags:['RC522','RFID','SPI']},
   {id:'mosfet-module',name:'Module MOSFET 1 kênh',category:'Đầu ra',summary:'Board công tắc MOSFET để điều khiển tải DC thấp áp.',pins:'SIG, VCC/logic, GND và cọc tải; khác nhau theo module.',use:'Đèn DC, bơm mini hoặc quạt nhỏ.',caution:'Đối chiếu cực tính, dòng tải và điện áp định mức trên module.',tags:['MOSFET module','driver','load']},
   {id:'seven-segment',name:'LED 7 đoạn 1 chữ số',category:'Hiển thị',summary:'Tám LED nhỏ tạo bảy đoạn A–G và dấu chấm để hiển thị ký tự số.',pins:'A, B, C, D, E, F, G, DP và một/vài chân COM; chân COM là anode chung hoặc cathode chung tùy linh kiện.',use:'Hiển thị số đếm, giá trị cảm biến hoặc trạng thái; bài mẫu trên web dùng loại cathode chung.',caution:'Cần điện trở hạn dòng cho từng đoạn. Xác định sơ đồ chân và common-anode/common-cathode theo datasheet.',tags:['7 đoạn','seven segment','display','LED','common cathode']},
+  { id: 'logic-74hc00', name: '74HC00 · Bốn cổng NAND', category: 'Linh kiện cơ bản',
+    summary: 'Mỗi cổng NAND có hai đầu vào và một đầu ra đảo của phép AND.', pins: 'A và B là đầu vào logic. Y là đầu ra của cổng.',
+    use: 'Thử bảng chân trị của một cổng trong phòng thực hành số.', caution: 'Bài thực hành dùng logic lý tưởng. Kiểm datasheet và đúng package trước khi nối IC vật lý.', tags: ['logic', 'NAND', '74HC00'] },
+  { id: 'logic-74hc4511', name: '74HC4511 · Giải mã LED 7 đoạn', category: 'Hiển thị',
+    summary: 'Chốt mã BCD bốn bit và điều khiển bảy đoạn bằng đầu ra tích cực mức cao.', pins: 'D3–D0 là mã BCD. LE chốt mã. BL và LT điều khiển tắt hiển thị và thử đèn.',
+    use: 'Thực hành giữ mã, thử đèn và nhận biết BCD không hợp lệ.', caution: 'Bài dùng LED cathode chung. Với linh kiện thật, tra package, định mức và điện trở giới hạn dòng.', tags: ['logic', 'BCD', '74HC4511', '7 đoạn'] },
+  { id: 'timer-ne555', name: 'NE555 · IC định thời', category: 'Linh kiện cơ bản',
+    summary: 'Có thể tạo xung lặp ở chế độ astable với hai điện trở và một tụ.', pins: 'Các tín hiệu chức năng gồm TRIG, THRES, DISCH, RESET và OUT.',
+    use: 'Đổi điện trở và tụ trong bài astable để so sánh chu kỳ và duty.', caution: 'Kết quả bài học dùng công thức thời gian lý tưởng. Ngưỡng và tải thực phụ thuộc cấu hình và loại 555.', tags: ['timer', 'NE555', 'xung', 'astable'] },
+  { id: 'display-max7219', name: 'MAX7219 · Driver LED matrix', category: 'Hiển thị',
+    summary: 'Nhận lệnh nối tiếp và lưu dữ liệu 8 hàng điều khiển, đủ cho một ma trận 8 × 8.', pins: 'Tín hiệu vào gồm DIN, CLK và LOAD. Các ngõ SEG và DIG điều khiển hiển thị.',
+    use: 'Thực hành ghi thanh ghi hàng, mức sáng, shutdown và display test.', caution: 'Vị trí pixel phụ thuộc cách ghép module. Bài học dùng một ma trận ảo theo hướng hàng và cột đã định.', tags: ['MAX7219', 'LED matrix', '8x8', 'thanh ghi'] },
+  ...expandedCatalog.map(({ part }) => part),
 ]

@@ -1,5 +1,5 @@
 import { componentRegistry } from '../data/componentRegistry'
-import { getComponentMesh } from '../data/componentModels'
+import { getBreadboardGrid } from '../data/componentModels'
 import { getSimulationTarget } from '../data/simulationTargets'
 import { compileSpiceConnections } from './compileSpiceConnections'
 import { validateCircuitDoc, type CircuitDocV2, type CircuitDocDiagnostic } from './circuitDocV2'
@@ -296,7 +296,8 @@ function evaluateG10(doc: CircuitDocV2): CircuitGateResult {
   const issues: string[] = []
   const target = getSimulationTarget('esp32-devkit')
   const diagram = buildBreadboardDiagram(doc)
-  const gridMm = getComponentMesh('breadboard')?.gridMm
+  const spec = doc.breadboards[0]?.spec
+  const gridMm = getBreadboardGrid(spec)
   if (!gridMm) return makeGate('G10', 'fail', ['Thiếu gridMm để kiểm parity.'])
   let threeD: ReturnType<typeof getAssemblyPlanV2>
   try {
@@ -306,7 +307,7 @@ function evaluateG10(doc: CircuitDocV2): CircuitGateResult {
   }
   for (const part of mountedParts) {
     const physical = threeD.placements.find(item => item.partId === part.id)
-    const holes = footprintHoles(part)
+    const holes = footprintHoles(part,undefined,spec)
     const geometry = resolvePartGeometry(part.type, doc.lessonId)
     const diagramPart = diagram.parts.find(item => item.id === part.id)
     if (!physical || !holes || !geometry || !threeD.grid || !diagramPart) {
@@ -316,7 +317,7 @@ function evaluateG10(doc: CircuitDocV2): CircuitGateResult {
     for (const [index, leg] of geometry.legsMm.entries()) {
       const hole = holes[index]
       const localHole = hole && holeToMm(hole, gridMm)
-      const holeId = hole && formatHole(hole)
+      const holeId = hole && formatHole(hole,spec)
       const marker = holeId && diagram.holes.find(item => item.id === holeId)
       const diagramPin = holeId && diagramPart.pins.find(item => item.pinId === leg.pinId && item.holeId === holeId)
       const mountedLeg = physical.legs?.[index]

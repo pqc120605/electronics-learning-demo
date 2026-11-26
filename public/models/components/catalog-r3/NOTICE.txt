@@ -1,0 +1,4 @@
+Mạch Mở R3 · KiCad 10.0.7 footprints and STEP meshes
+Source: https://gitlab.com/kicad/libraries
+License: CC BY-SA 4.0 with KiCad library exception (https://www.kicad.org/libraries/license/)
+Footprints are copied, STEP geometry is tessellated to GLB. DDA includes an added exposed plate matching the locked footprint. See the R3 proposal for source hashes.

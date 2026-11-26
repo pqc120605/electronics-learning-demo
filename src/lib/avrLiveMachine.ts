@@ -5,6 +5,9 @@ import {
   type AVRPortConfig,
 } from 'avr8js'
 import { inspectIntelHex } from './intelHex'
+import { attachR2bAvrBuses } from './avrR2bBuses'
+import { createCoupledDigital, type CoupledFrame } from '../simulation/coupledDigital'
+import type { CoupledCircuit, CircuitStimuli } from './freestyle/coupledCircuit'
 
 /**
  * Máy AVR chạy liên tục cho bàn lắp mạch (2026-11-14): chạy firmware .hex thật do arduino-cli biên dịch
@@ -20,6 +23,7 @@ export type AvrLiveFrame = {
   serial: string
   simulatedMilliseconds: number
   cycles: number
+  coupled?: CoupledFrame
 }
 
 type PortName = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'J' | 'K' | 'L'
@@ -64,7 +68,10 @@ const chips: Record<AvrLiveBoard, ChipProfile> = {
 export const avrLiveBoards = Object.keys(chips) as AvrLiveBoard[]
 export function isAvrLiveBoard(value: string): value is AvrLiveBoard { return Object.hasOwn(chips, value) }
 
-export function createAvrLiveMachine(hex: string, board: AvrLiveBoard) {
+export function createAvrLiveMachine(hex: string, board: AvrLiveBoard, circuit?: { graph: CoupledCircuit; stimuli: CircuitStimuli }) {
+  if (circuit && circuit.graph.board !== board) throw new Error('Board của mạch không khớp firmware AVR.')
+  const coupling = circuit ? createCoupledDigital(circuit.graph, circuit.stimuli) : undefined
+  let netDirty = Boolean(coupling)
   const chip = chips[board]
   const image = inspectIntelHex(hex, { maxBytes: chip.flashBytes })
   const flash = new Uint8Array(chip.flashBytes).fill(0xff)
@@ -102,6 +109,7 @@ export function createAvrLiveMachine(hex: string, board: AvrLiveBoard) {
     const port = ports[name]!
     const defs = chip.pins.filter(pin => pin.port === name)
     port.addListener(() => {
+      if (coupling) netDirty = true
       for (const def of defs) {
         const level = port.pinState(def.bit) === PinState.High
         const track = tracks.get(def.pin)
@@ -124,7 +132,7 @@ export function createAvrLiveMachine(hex: string, board: AvrLiveBoard) {
       const output = Boolean(cpu.data[config.DDR] & (1 << def.bit))
       const pullup = Boolean(cpu.data[config.PORT] & (1 << def.bit))
       const state = port.pinState(def.bit)
-      if (!output && !pullup && state === PinState.Input) continue
+      if (!output && !pullup && state === PinState.Input && !wiredByNumber.has(def.pin)) continue
       const track = tracks.get(def.pin)
       let pwm: number | undefined
       if (output && track && track.edges >= 4) {
@@ -138,19 +146,46 @@ export function createAvrLiveMachine(hex: string, board: AvrLiveBoard) {
     return result
   }
 
+  const wiredPins = circuit ? chip.pins.filter(def => circuit.graph.gpios.some(gpio => gpio.pin === def.pin)) : []
+  const wiredByNumber = new Map(wiredPins.map(def => [def.pin, def]))
+  function settleCircuit() {
+    if (!coupling || !netDirty) return
+    netDirty = false
+    const drives: Record<number, LivePinState> = {}
+    for (const def of wiredPins) {
+      const state = ports[def.port]!.pinState(def.bit)
+      drives[def.pin] = { mode: state === PinState.InputPullUp ? 'input_pullup' : state === PinState.Input ? 'input' : 'output', level: state === PinState.High }
+    }
+    for (const input of coupling.step(drives, cpu.cycles / (CLOCK_HZ / 1000))) {
+      const def = wiredByNumber.get(input.pin)!
+      ports[def.port]!.setPin(def.bit, input.digital)
+      if (def.adc !== undefined) adc.channelValues[def.adc] = input.analog * 5
+    }
+  }
+
+  if (coupling?.interfaces) {
+    attachR2bAvrBuses(cpu, coupling.interfaces, () => {
+      netDirty = true
+      settleCircuit()
+    }, () => { netDirty = true })
+  }
+
   return {
     board,
+    setCircuitStimuli(values: CircuitStimuli) { coupling?.update(values); netDirty = Boolean(coupling) },
     /** Chạy thêm `milliseconds` thời gian mô phỏng (tối đa 250 ms mỗi lần gọi) và trả khung trạng thái. */
     runFor(milliseconds: number): AvrLiveFrame {
       const budget = Math.round(Math.min(250, Math.max(0, milliseconds)) * (CLOCK_HZ / 1000))
       const target = cpu.cycles + budget
       while (cpu.cycles < target) {
+        if (netDirty) settleCircuit()
         avrInstruction(cpu)
         cpu.tick()
       }
+      if (netDirty) settleCircuit()
       const serial = serialBytes.length ? new TextDecoder('utf-8').decode(new Uint8Array(serialBytes)) : ''
       serialBytes = []
-      return { pins: pinStates(), serial, simulatedMilliseconds: cpu.cycles / (CLOCK_HZ / 1000), cycles: cpu.cycles }
+      return { pins: pinStates(), serial, simulatedMilliseconds: cpu.cycles / (CLOCK_HZ / 1000), cycles: cpu.cycles, ...(coupling ? { coupled: coupling.snapshot() } : {}) }
     },
     setDigitalInput(pin: number, level: boolean) {
       const def = chip.pins.find(item => item.pin === pin)

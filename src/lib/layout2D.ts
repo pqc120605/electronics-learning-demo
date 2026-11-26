@@ -1,6 +1,6 @@
 import { componentRegistry } from '../data/componentRegistry'
-import { getComponentMesh } from '../data/componentModels'
-import { footprintHoles, resolvePartGeometry } from './mountResolve'
+import { getBreadboardGrid, getBreadboardMesh, getComponentMesh } from '../data/componentModels'
+import { breadboardPartRotation, footprintHoles, resolvePartGeometry } from './mountResolve'
 import { holeToMm, type GridHole } from './breadboardGrid'
 import type { CircuitDocV2, CircuitPartV2 } from './circuitDocV2'
 
@@ -54,7 +54,9 @@ export function layout2D(doc: CircuitDocV2): Layout2DResult {
   const unplaced: string[] = []
   const boardPart = doc.parts.find(part => part.type === 'board')
   const breadboardPart = doc.parts.find(part => part.type === 'breadboard')
-  const breadboardSize = footprintSize('breadboard')
+  const spec = doc.breadboards[0]?.spec
+  const mesh = getBreadboardMesh(spec)
+  const breadboardSize = mesh ? [mesh.sizeMm[0],mesh.sizeMm[2]] : footprintSize('breadboard')
   const boardSize = boardPart ? footprintSize('board') : [0, 0]
   const centerGroupWidth = boardPart ? boardSize[0] + CORE_BOARD_GAP_MM + breadboardSize[0] : breadboardSize[0]
   const groupLeft = -centerGroupWidth / 2
@@ -64,8 +66,7 @@ export function layout2D(doc: CircuitDocV2): Layout2DResult {
   if (boardPart) placements.push(entry(boardPart, boardCenterX, 0, 'board'))
   if (breadboardPart) placements.push(entry(breadboardPart, breadboardCenterX, 0, 'breadboard'))
 
-  const breadMesh = getComponentMesh('breadboard')
-  const grid = breadMesh?.gridMm
+  const grid = getBreadboardGrid(spec)
   for (const part of doc.parts.filter(part => part.mount.kind === 'breadboard')) {
     if (part.type === 'breadboard') continue
     const mount = part.mount
@@ -78,9 +79,10 @@ export function layout2D(doc: CircuitDocV2): Layout2DResult {
     const localCenterX = mesh ? (mesh.boundsMm.min[0] + mesh.boundsMm.max[0]) / 2 : 0
     const localCenterY = mesh ? (mesh.boundsMm.min[2] + mesh.boundsMm.max[2]) / 2 : 0
     if (!anchorMm || !lead || !mesh) { unplaced.push(part.id); continue }
-    const offset = rotate(localCenterX - lead.x, localCenterY - lead.z, mount.rotation)
-    placements.push(entry(part, breadboardCenterX + anchorMm[0] + offset[0], anchorMm[2] + offset[1], 'mounted', mount.rotation))
-    if (!footprintHoles(part)) unplaced.push(part.id)
+    const rotation = breadboardPartRotation(part.type,mount.rotation,spec)
+    const offset = rotate(localCenterX - lead.x, localCenterY - lead.z, rotation)
+    placements.push(entry(part, breadboardCenterX + anchorMm[0] + offset[0], anchorMm[2] + offset[1], 'mounted', rotation))
+    if (!footprintHoles(part,undefined,spec)) unplaced.push(part.id)
   }
 
   const bench = doc.parts.filter(part => !placements.some(item => item.partId === part.id))

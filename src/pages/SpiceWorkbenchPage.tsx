@@ -11,6 +11,8 @@ import { createSimulationRunId, isCurrentSimulationRun } from '../lib/workspaceS
 import { inspectSpiceNetlist, type SpiceNetlistInspection } from '../simulation/spiceNetlist'
 import { KicadPcbSpiceImport } from '../components/spice/KicadPcbSpiceImport'
 import { AnalysisPicker } from '../components/spice/AnalysisPicker'
+import { SpiceGuidedPractice } from '../components/spice/SpiceGuidedPractice'
+import { findSpicePractice, spicePractices } from '../simulation/spicePractice'
 import { formatAxisDeltaSymbol, measureAnalogCursors } from '../lib/waveformMeasure'
 import { signalWindow } from '../lib/signalWindow'
 import './SpiceWorkbenchPage.css'
@@ -210,19 +212,23 @@ export function SpiceWorkbenchPage() {
   const navigate = useNavigate()
   const routeState = location.state as { calculatorSpice?: unknown } | null
   const initialHandoff = readCalculatorSpiceHandoff(routeState?.calculatorSpice, location.search)
-  const workspaceSpiceId = new URLSearchParams(location.search).get('workspaceSpice')
+  const params = new URLSearchParams(location.search)
+  const workspaceSpiceId = params.get('workspaceSpice')
+  const initialPractice = workspaceSpiceId ? undefined : findSpicePractice(params.get('lab'))
   const initialWorkspaceHandoff = readWorkspaceSpiceHandoff(getBrowserStorage('sessionStorage'), workspaceSpiceId)
   const [handoff, setHandoff] = useState<CalculatorSpiceHandoff | undefined>(initialHandoff)
   const [workspaceHandoff, setWorkspaceHandoff] = useState<WorkspaceSpiceHandoff | undefined>(initialWorkspaceHandoff)
-  const [netlist, setNetlist] = useState<string>(initialHandoff?.netlist ?? initialWorkspaceHandoff?.netlist ?? examples[1].netlist)
+  const [netlist, setNetlist] = useState<string>(initialHandoff?.netlist ?? initialWorkspaceHandoff?.netlist ?? initialPractice?.variants[0].netlist ?? examples[1].netlist)
   const [result, setResult] = useState<SpiceResult>()
   const [runState, setRunState] = useState<RunState>('idle')
   const [runProgress, setRunProgress] = useState('')
   const [error, setError] = useState('')
   const [workspaceResultSaved, setWorkspaceResultSaved] = useState(false)
   const [workspaceResultMessage, setWorkspaceResultMessage] = useState('')
-  const [selectedExample, setSelectedExample] = useState<string>(initialHandoff || initialWorkspaceHandoff ? 'custom' : examples[1].id)
-  const [dividerPrediction, setDividerPrediction] = useState<number | null>(null)
+  const [selectedExample, setSelectedExample] = useState<string>(initialHandoff || initialWorkspaceHandoff ? 'custom' : initialPractice?.id ?? examples[1].id)
+  const [practicePrediction, setPracticePrediction] = useState<number | null>(null)
+  const practice = findSpicePractice(selectedExample)
+  const variantIndex = practice?.variants.findIndex(variant => variant.netlist === netlist) ?? -1
   const [kicadFileName, setKicadFileName] = useState('')
   const [kicadSource, setKicadSource] = useState('')
   const [kicadExclusions, setKicadExclusions] = useState<string[]>([])
@@ -256,12 +262,13 @@ export function SpiceWorkbenchPage() {
     setError('')
     setWorkspaceResultSaved(false)
     setWorkspaceResultMessage('')
-    setDividerPrediction(null)
+    setPracticePrediction(null)
   }, [cancelWorker])
 
   useEffect(() => {
     const routeHandoff = readCalculatorSpiceHandoff((location.state as { calculatorSpice?: unknown } | null)?.calculatorSpice, location.search)
-    const id = new URLSearchParams(location.search).get('workspaceSpice')
+    const routeParams = new URLSearchParams(location.search)
+    const id = routeParams.get('workspaceSpice')
     const workspaceRouteHandoff = readWorkspaceSpiceHandoff(getBrowserStorage('sessionStorage'), id)
     if (!routeHandoff && !workspaceRouteHandoff) {
       setHandoff(undefined)
@@ -272,6 +279,13 @@ export function SpiceWorkbenchPage() {
         setRunState('error')
         setSelectedExample(examples[1].id)
         setNetlist(examples[1].netlist)
+      } else {
+        const nextPractice = findSpicePractice(routeParams.get('lab'))
+        if (nextPractice) {
+          resetSimulation()
+          setSelectedExample(nextPractice.id)
+          setNetlist(nextPractice.variants[0].netlist)
+        }
       }
       return
     }
@@ -302,6 +316,7 @@ export function SpiceWorkbenchPage() {
     setHandoff(undefined)
     const searchParams = new URLSearchParams(location.search)
     searchParams.delete('calculatorSpice')
+    searchParams.delete('lab')
     const search = searchParams.toString()
     navigate({ pathname: location.pathname, search: search ? `?${search}` : '', hash: location.hash }, { replace: true, state: null })
   }
@@ -313,6 +328,7 @@ export function SpiceWorkbenchPage() {
     setWorkspaceHandoff(undefined)
     const searchParams = new URLSearchParams(location.search)
     searchParams.delete('workspaceSpice')
+    searchParams.delete('lab')
     const search = searchParams.toString()
     navigate({ pathname: location.pathname, search: search ? `?${search}` : '', hash: location.hash }, { replace: true, state: null })
   }
@@ -327,7 +343,7 @@ export function SpiceWorkbenchPage() {
     }
     const runId = createSimulationRunId()
     currentRunIdRef.current = runId
-    setDividerPrediction(prediction)
+    setPracticePrediction(prediction)
     setResult(undefined)
     setError('')
     setWorkspaceResultSaved(false)
@@ -365,9 +381,9 @@ export function SpiceWorkbenchPage() {
       } else {
         setResult({ ...event.data, netlist })
         setRunState('complete')
-        if (workspaceHandoff && workspaceSpiceId) {
+        if (workspaceHandoff?.workspaceFingerprint && workspaceSpiceId) {
           const fingerprint = workspaceHandoff.workspaceFingerprint
-          const saved = Boolean(fingerprint && storeWorkspaceSpiceObservation(getBrowserStorage('sessionStorage'), {
+          const saved = storeWorkspaceSpiceObservation(getBrowserStorage('sessionStorage'), {
             handoffId: workspaceSpiceId,
             workspaceFingerprint: fingerprint,
             createdAt: Date.now(),
@@ -377,11 +393,11 @@ export function SpiceWorkbenchPage() {
             displayedPoints: event.data.displayedPoints,
             series: event.data.series,
             warnings: event.data.warnings,
-          }))
+          })
           setWorkspaceResultSaved(saved)
           setWorkspaceResultMessage(saved
             ? 'Kết quả đã lưu trong phiên tab, gắn với đúng revision workspace và sẽ hết hạn sau 30 phút.'
-            : 'Không thể chuyển kết quả sang workspace (bản handoff cũ, hết quota hoặc dữ liệu vượt 1 MiB). Kết quả vẫn còn ở trang SPICE; bạn có thể tải CSV.')
+            : 'Không thể chuyển kết quả sang workspace (hết quota hoặc dữ liệu vượt 1 MiB). Kết quả vẫn còn ở trang SPICE; bạn có thể tải CSV.')
         }
       }
     }
@@ -396,13 +412,13 @@ export function SpiceWorkbenchPage() {
   }
 
   function selectExample(id: string) {
-    const example = examples.find(item => item.id === id)
-    if (!example && id !== 'custom') return
+    const nextNetlist = examples.find(item => item.id === id)?.netlist ?? findSpicePractice(id)?.variants[0].netlist
+    if (!nextNetlist && id !== 'custom') return
     resetSimulation()
     clearCalculatorHandoff()
     clearWorkspaceHandoff()
     setSelectedExample(id)
-    if (example) setNetlist(example.netlist)
+    if (nextNetlist) setNetlist(nextNetlist)
   }
 
   async function readKicadFile(event: ChangeEvent<HTMLInputElement>) {
@@ -465,10 +481,20 @@ export function SpiceWorkbenchPage() {
         <label className="spice-example-label" htmlFor="spice-example">Bắt đầu từ ví dụ</label>
         <select id="spice-example" value={selectedExample} onChange={event => selectExample(event.target.value)}>
           {examples.map(example => <option key={example.id} value={example.id}>{example.name}</option>)}
+          <optgroup label="Bài thực hành analog">
+            {spicePractices.map(activity => <option key={activity.id} value={activity.id}>{activity.name}</option>)}
+          </optgroup>
           <option value="custom">Netlist tùy chỉnh</option>
         </select>
-        <p className="spice-example-description">{examples.find(item => item.id === selectedExample)?.description ?? (handoff ? 'Netlist được tạo từ các trị số bạn vừa tính.' : workspaceHandoff ? 'Netlist tương đương được tạo từ các dây nối của mạch.' : 'Đang chỉnh netlist tùy chỉnh.')}</p>
-        {selectedExample === 'divider' && netlist === examples[0].netlist && <DividerPractice result={result} running={runState === 'running'} prediction={dividerPrediction} run={runSimulation} />}
+        {variantIndex < 0 && <p className="spice-example-description">{examples.find(item => item.id === selectedExample)?.description ?? (handoff ? 'Netlist được tạo từ các trị số bạn vừa tính.' : workspaceHandoff ? 'Netlist tương đương được tạo từ các dây nối của mạch.' : 'Đang chỉnh netlist tùy chỉnh.')}</p>}
+        {selectedExample === 'divider' && netlist === examples[0].netlist && <DividerPractice result={result} running={runState === 'running'} prediction={practicePrediction} run={runSimulation} />}
+        {practice && variantIndex >= 0 && <SpiceGuidedPractice key={practice.id} practice={practice} variantIndex={variantIndex} prediction={practicePrediction}
+          result={result} running={runState === 'running'} run={runSimulation} changeVariant={index => {
+            const variant = practice.variants[index]
+            if (!variant) return
+            resetSimulation()
+            setNetlist(variant.netlist)
+          }} />}
         <section className="spice-kicad-import" aria-labelledby="spice-kicad-title">
           <div><p className="spice-kicad-kicker">TỪ SCHEMATIC CAD</p><h3 id="spice-kicad-title">Nhập netlist XML từ KiCad Eeschema</h3><p>Trình nhập chỉ ánh xạ R, C, L và nguồn V DC có trị số cố định; IC, MCU, diode, mạch tích hợp và phần tử khác cần bị loại trừ rõ ràng hoặc được tự dựng model trong netlist.</p></div>
           <label className="spice-kicad-file-label">Chọn netlist KiCad XML<input type="file" accept=".xml,application/xml,text/xml" onChange={event => void readKicadFile(event)} /></label>

@@ -1,9 +1,10 @@
 import { componentRegistry } from '../data/componentRegistry'
-import { getComponentMesh } from '../data/componentModels'
+import { getBreadboardGrid } from '../data/componentModels'
 import { getInputAlias, type BuilderLessonId } from '../data/builderLessons'
 import { getSimulationTarget } from '../data/simulationTargets'
 import type { CircuitDocV2, CircuitEndpointV2 } from './circuitDocV2'
-import { BREADBOARD_ELECTRICAL_SPEC, RAIL_IDS, formatHole, holeNet, holeToMm, parseHole, railX } from './breadboardGrid'
+import { getR2cBreadboard, LEGACY_BREADBOARD, type BreadboardSpec } from '../data/catalogR2cBoards'
+import { allBreadboardHoles, breadboardCounts, breadboardRowsInView, formatHole, holeNet, holeToMm, parseHole } from './breadboardGrid'
 import { footprintHoles, resolvePartGeometry } from './mountResolve'
 import { routeWires, type RouterWire } from './wireRouter'
 import {projectTopViewPoint,type BoardDiagramPresentation} from './boardTopView'
@@ -13,7 +14,7 @@ export type DiagramHole = DiagramPoint & { id: string; kind: 'grid' | 'rail'; ne
 export type DiagramPin = DiagramPoint & { partId: string; pinId: string; key: string; label: string; holeId?: string; side?: 'left' | 'right' | 'top' | 'bottom' }
 export type DiagramPart = { id: string; type: string; label: string; value: string; mount: 'breadboard' | 'bench'; pins: DiagramPin[]; center: DiagramPoint; rotation: number; width: number; height: number }
 export type DiagramWire = { id: string; role: 'signal' | 'power' | 'ground'; fromKey: string; toKey: string; from: DiagramPoint; to: DiagramPoint; points: DiagramPoint[]; path: string }
-export type BreadboardDiagram = { width: number; height: number; board: { x: number; y: number; width: number; height: number }; breadboard: { x: number; y: number; width: number; height: number }; holes: DiagramHole[]; boardPins: DiagramPin[]; parts: DiagramPart[]; wires: DiagramWire[]; diagnostics: string[]; railVerified: false }
+export type BreadboardDiagram = { width: number; height: number; board: { x: number; y: number; width: number; height: number }; breadboard: { x: number; y: number; width: number; height: number }; holes: DiagramHole[]; boardPins: DiagramPin[]; parts: DiagramPart[]; wires: DiagramWire[]; diagnostics: string[]; railVerified: boolean }
 
 const SCALE = 9.2
 const BREADBOARD_BOUNDS = { minX: -41.5, minZ: -27.5, width: 83, depth: 55 }
@@ -23,38 +24,35 @@ const endpointKey = (endpoint: CircuitEndpointV2) => endpoint.kind === 'hole' ? 
 const valueText = (part: CircuitDocV2['parts'][number]) => part.value?.label ?? (part.value?.ohm !== undefined ? `${part.value.ohm} Ω` : part.value?.farad !== undefined ? `${part.value.farad} F` : '')
 
 /** Returns the adjacent physical hole for arrow-key navigation; no wrapping across board edges. */
-export function adjacentBreadboardHole(holeId: string, key: string): string | null {
+export function adjacentBreadboardHole(holeId: string, key: string, spec: BreadboardSpec = LEGACY_BREADBOARD): string | null {
   if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(key)) return null
-  const hole = parseHole(holeId)
+  const hole = parseHole(holeId, spec)
   if (!hole) return null
   if (hole.kind === 'grid') {
-    const rows = 'abcdefghij'
+    const rows = breadboardRowsInView(spec)
     let column = hole.column
     let row = rows.indexOf(hole.row)
     if (key === 'ArrowLeft') column -= 1
     else if (key === 'ArrowRight') column += 1
     else if (key === 'ArrowUp') row -= 1
     else row += 1
-    if (column < 1 || column > BREADBOARD_ELECTRICAL_SPEC.columns || row < 0 || row >= rows.length) return null
-    return formatHole({ kind: 'grid', board: 'bb1', column, row: rows[row] })
+    if (column < 1 || column > breadboardCounts(spec).columns || row < 0 || row >= rows.length) return null
+    return formatHole({ kind: 'grid', board: 'bb1', column, row: rows[row] }, spec)
   }
   if (key === 'ArrowLeft' || key === 'ArrowRight') {
     const nextHole = hole.hole + (key === 'ArrowRight' ? 1 : -1)
-    return formatHole({ ...hole, hole: nextHole })
+    return formatHole({ ...hole, hole: nextHole }, spec)
+  }
+  if (spec !== LEGACY_BREADBOARD) {
+    const rails = ['T-', 'T+', 'B-', 'B+'] as const
+    const rail = rails[rails.indexOf(hole.rail) + (key === 'ArrowDown' ? 1 : -1)]
+    return rail ? formatHole({ ...hole, rail }, spec) : null
   }
   const railColumn = hole.rail.endsWith('+') ? 0 : 1
   const nextRow = (hole.rail.startsWith('T') ? 0 : 1) + (key === 'ArrowDown' ? 1 : -1)
   if (nextRow < 0 || nextRow > 1) return null
   const rail = `${nextRow === 0 ? 'T' : 'B'}${railColumn === 0 ? '+' : '-'}` as typeof hole.rail
-  return formatHole({ ...hole, rail })
-}
-
-function holePoint(id: string): DiagramPoint | null {
-  const hole = parseHole(id)
-  const grid = getComponentMesh('breadboard')?.gridMm
-  if (!hole || !grid) return null
-  const mm = holeToMm(hole, grid)
-  return mm ? { x: BREADBOARD_BOX.x + (mm[0] - BREADBOARD_BOUNDS.minX) * SCALE, y: BREADBOARD_BOX.y + (mm[2] - BREADBOARD_BOUNDS.minZ) * SCALE } : null
+  return formatHole({ ...hole, rail }, spec)
 }
 
 function wireColor(role: DiagramWire['role']) {
@@ -67,18 +65,22 @@ export function buildBreadboardDiagram(doc: CircuitDocV2, presentation?: BoardDi
   const art=presentation?.topView
   const boardBox=art?{x:30,y:34,width:(art.boundsMm.maxX-art.boundsMm.minX)*SCALE,height:(art.boundsMm.maxZ-art.boundsMm.minZ)*SCALE}:BOARD_BOX
   const offsetX=art?boardBox.x+boardBox.width+50-BREADBOARD_BOX.x:0
-  const breadboardBox={...BREADBOARD_BOX,x:BREADBOARD_BOX.x+offsetX}
-  const pointOf=(id:string)=>{const point=holePoint(id);return point?{x:point.x+offsetX,y:point.y}:null}
-  const rows = 'abcdefghij'
-  const holes: DiagramHole[] = []
-  for (const row of doc.breadboards.length ? rows : '') for (let column = 1; column <= BREADBOARD_ELECTRICAL_SPEC.columns; column += 1) {
-    const id = `bb1:${column}${row}`, point = pointOf(id), hole = parseHole(id)
-    if (point && hole) holes.push({ ...point, id, kind: 'grid', net: holeNet(hole) })
-  }
-  for (const rail of doc.breadboards.length ? RAIL_IDS : []) for (let hole = 1; hole <= BREADBOARD_ELECTRICAL_SPEC.railHoles; hole += 1) {
-    const id = `bb1:${rail}:${hole}`, point = pointOf(id), parsed = parseHole(id)
-    if (point && parsed) holes.push({ ...point, id, kind: 'rail', net: holeNet(parsed) })
-  }
+  const breadboard = doc.breadboards[0]
+  const spec = breadboard?.spec
+  const profile = getR2cBreadboard(spec)
+  const bounds = profile ? {
+    minX: -profile.sizeMm[0] / 2, minZ: -profile.sizeMm[2] / 2,
+    width: profile.sizeMm[0], depth: profile.sizeMm[2],
+  } : BREADBOARD_BOUNDS
+  const breadboardBox = { ...BREADBOARD_BOX, x: BREADBOARD_BOX.x + offsetX, width: bounds.width*SCALE, height: bounds.depth*SCALE }
+  const grid = getBreadboardGrid(spec)
+  const holes: DiagramHole[] = !breadboard || !grid ? [] : allBreadboardHoles(spec).map(hole => {
+    const [x,,z] = holeToMm(hole,grid)!
+    return { x: breadboardBox.x + (x-bounds.minX)*SCALE, y: breadboardBox.y + (z-bounds.minZ)*SCALE,
+      id:formatHole(hole,spec)!, kind:hole.kind, net:holeNet(hole,breadboard) }
+  })
+  const holePoints = new Map(holes.map(hole => [hole.id,hole]))
+  const pointOf = (id: string): DiagramPoint | null => holePoints.get(id) ?? null
 
   const boardPart = doc.parts.find(part => part.type === 'board')
   const boardDefinition = componentRegistry.find(item => item.id === 'board')
@@ -125,7 +127,7 @@ export function buildBreadboardDiagram(doc: CircuitDocV2, presentation?: BoardDi
     if (part.type === 'board' || part.type === 'breadboard' || part.mount.kind !== 'breadboard') continue
     const def = componentRegistry.find(item => item.id === part.type)
     const geometry = resolvePartGeometry(part.type, doc.lessonId)
-    const footprint = footprintHoles(part)
+    const footprint = footprintHoles(part, componentRegistry, spec)
     if (!def || !geometry?.legsMm.length || !footprint || footprint.length !== geometry.legsMm.length) {
       diagnostics.push(`${part.id}: chưa có hình học chân đủ để vẽ đúng vị trí trên breadboard.`)
       continue
@@ -232,12 +234,8 @@ export function buildBreadboardDiagram(doc: CircuitDocV2, presentation?: BoardDi
     return [{ id: wire.id, role: wire.role ?? 'signal', fromKey, toKey, from, to, points, path }]
   })
 
-  // Keep rail geometry visibly marked as an educational 400-tie-point assumption.
-  const railCenterX = railX(13, getComponentMesh('breadboard')?.gridMm ?? { pitch: 2.54, firstColumnX: -36.83, columns: 30 })
-  if (railCenterX === null) diagnostics.push('Không thể xác định vị trí lỗ ray; hình học ray giữ ở trạng thái chưa xác minh.')
-
   const height = Math.max(570,boardBox.y+boardBox.height+60)+(benchParts.length?Math.max(1,benchParts.length)*68:0)
-  return { width: doc.breadboards.length ? breadboardBox.x+breadboardBox.width+34 : Math.max(330,boardBox.x+boardBox.width+30), height, board:boardBox, breadboard:breadboardBox, holes, boardPins, parts: diagramParts, wires, diagnostics, railVerified: false }
+  return { width: doc.breadboards.length ? breadboardBox.x+breadboardBox.width+34 : Math.max(330,boardBox.x+boardBox.width+30), height, board:boardBox, breadboard:breadboardBox, holes, boardPins, parts: diagramParts, wires, diagnostics, railVerified: Boolean(profile?.railHoles) }
 }
 
 export { wireColor as breadboardDiagramWireColor }

@@ -1,6 +1,9 @@
 import { getKitPartProfile, kitPartProfiles } from './kitPartProfiles'
+import { catalogParts } from './catalogParts'
+import { r4ControllerSignals, r4ControllerType } from './catalogR4Parts'
+import { r5ControllerType, r5SignalPins } from './catalogR5Parts'
 
-export type ElectricalType = 'input' | 'output' | 'power' | 'ground' | 'passive'
+export type ElectricalType = 'input' | 'output' | 'power' | 'ground' | 'passive' | 'bidirectional'
 export type ComponentPin = { id: string; label: string; electricalType: ElectricalType; polarity?: 'positive' | 'negative' }
 export type ResistanceNominal = { value: number; unit: 'ohm' }
 type ResistorVariant = {
@@ -40,6 +43,8 @@ export const resistorVariants = [
 export type ComponentDefinition = {
   id: string
   catalogId?: string
+  virtualDc?: true
+  virtualSignal?: true
   label: string
   category: string
   emoji: string
@@ -105,7 +110,43 @@ const additionalKitParts: Omit<ComponentDefinition, 'visual'>[] = (['dht11', 'dh
   }
 })
 
-export const componentRegistry: ComponentDefinition[] = [...baseComponentRegistry, ...additionalKitParts].map((part): ComponentDefinition => ({
+const dcPracticeParts: Omit<ComponentDefinition, 'visual'>[] = [
+  { id: 'r3-inductor', virtualDc: true, label: 'Cuộn cảm lý tưởng · DC', category: 'Linh kiện cơ bản', emoji: '∿',
+    pins: [pin('a','Đầu 1','passive'), pin('b','Đầu 2','passive')], explanation: 'Cuộn cảm trong mạch nguồn trung bình R3.',
+    safetyNotes: 'Giá trị minh họa. Bỏ qua điện trở dây và bão hòa lõi.', simulation: 'visual-only', sourceRefs: [] },
+  { id: 'r3-current', virtualDc: true, label: 'Nguồn dòng lý tưởng · DC', category: 'Nguồn', emoji: '↑',
+    pins: [pin('in','Dòng vào','passive'), pin('out','Dòng ra','passive')], explanation: 'Dòng thử DC xác định cho ca bán dẫn R3.',
+    safetyNotes: 'Nguồn mô phỏng với giá trị đã ghi trong mạch thử.', simulation: 'visual-only', sourceRefs: [] },
+]
+
+const r4Controller: Omit<ComponentDefinition, 'visual'> = {
+  id: r4ControllerType, virtualSignal: true, label: 'Bộ điều khiển ảo R4', category: 'IC & linh kiện', emoji: '▣',
+  pins: [pin('vref','VREF','power'), pin('gnd','GND','ground'),
+    ...r4ControllerSignals.map(id=>pin(id,id.toUpperCase(), ['dq','sda'].includes(id)?'bidirectional':['feedback','alert'].includes(id)?'input':'output'))],
+  explanation: 'Tạo giao dịch I²C, 1-Wire và xung nối tiếp theo mức tham chiếu của mạch.',
+  safetyNotes: 'Dùng cho bài mô phỏng, là thiết bị ảo.', simulation: 'visual-only', sourceRefs: [],
+}
+
+const r5VirtualParts: Omit<ComponentDefinition, 'visual'>[] = [
+  { id: r5ControllerType, virtualSignal: true, label: 'Bộ điều khiển ảo R5', category: 'IC & linh kiện', emoji: '▣',
+    pins: [pin('vref', 'VREF', 'power'), pin('gnd', 'GND', 'ground'), ...r5SignalPins.map(id => pin(id, id.toUpperCase(), 'output'))],
+    explanation: 'Phát mức logic và tín hiệu định thời trên các dây đã nối.', safetyNotes: 'Nguồn tín hiệu ảo.', simulation: 'visual-only', sourceRefs: [] },
+  { id: 'r5-sine', virtualSignal: true, label: 'Nguồn sin 1 kHz', category: 'Nguồn', emoji: '∿',
+    pins: [pin('plus', 'OUT', 'output'), pin('minus', 'REF', 'passive')],
+    explanation: 'Nguồn âm thanh. Trị số ghi trên nguồn là biên độ đỉnh có dấu.', safetyNotes: 'Nguồn tín hiệu ảo.', simulation: 'visual-only', sourceRefs: [] },
+  { id: 'r5-load', virtualSignal: true, label: 'Tải ảo R/RL', category: 'Linh kiện cơ bản', emoji: '∿',
+    pins: [pin('a', 'A', 'passive'), pin('b', 'B', 'passive')],
+    explanation: 'Mô hình tải dùng R và L theo cấu hình bài đo.', safetyNotes: 'Tải ảo dùng trong bài R5.', simulation: 'visual-only', sourceRefs: [] },
+]
+
+const verifiedCatalogParts: Omit<ComponentDefinition, 'visual'>[] = catalogParts.map(part => ({
+  id: part.id, catalogId: part.catalogId, label: part.mpn, category: 'IC & linh kiện',
+  emoji: '▣', pins: part.pins, explanation: part.scope,
+  safetyNotes: 'Dùng đúng mã đặt hàng và package. Bài thử ghi rõ nguồn, tải và phạm vi mô phỏng.',
+  simulation: 'visual-only', sourceRefs: [part.source], voltageDomain: 'low-voltage',
+}))
+
+export const componentRegistry: ComponentDefinition[] = [...baseComponentRegistry, ...additionalKitParts, ...dcPracticeParts, r4Controller, ...r5VirtualParts, ...verifiedCatalogParts].map((part): ComponentDefinition => ({
   ...part,
   sourceRefs: [...new Set([...part.sourceRefs, ...[getKitPartProfile(part.id)?.url].filter((url): url is string => Boolean(url))])],
   visual: { ...(shapeById[part.id] ?? { shape3d: 'small-component', dimensionsMm: [8, 6, 4] as [number, number, number] }), modelStatus: 'parametric-illustration' },

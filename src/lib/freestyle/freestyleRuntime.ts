@@ -3,6 +3,8 @@ import type { LivePinState } from '../avrLiveMachine'
 import type { LiveWorkerRequest, LiveWorkerResponse, RuntimeInput } from '../../simulation/liveRuntimeProtocol'
 import { getFreestyleBoard, sketchBoardFor, type FreestyleEngine, type FreestyleLanguage } from './freestyleCircuit'
 import { apiRequest } from '../api'
+import type { CircuitStimuli, CoupledCircuit } from './coupledCircuit'
+import type { CoupledFrame } from '../../simulation/coupledDigital'
 
 /**
  * Chọn và điều khiển engine chạy code cho bàn lắp mạch tự do (2026-11-14):
@@ -11,14 +13,14 @@ import { apiRequest } from '../api'
  * - Còn lại hoặc bản web tĩnh: trình thông dịch Arduino C++ rút gọn (ghi rõ trên giao diện).
  */
 export type LocalTools = { arduinoCli: boolean; rp2040Bootrom: string; boards: string[]; hosted?: true }
-export type RuntimeFrame = { pins: Record<number, LivePinState>; serial: string; simulatedMilliseconds: number; speed?: number }
+export type RuntimeFrame = { pins: Record<number, LivePinState>; serial: string; simulatedMilliseconds: number; speed?: number; coupled?: CoupledFrame }
 export type RuntimeCallbacks = {
   onFrame: (frame: RuntimeFrame) => void
   onStatus: (text: string) => void
   onError: (message: string, line?: number) => void
   onStopped: (reason: string) => void
 }
-export type RuntimeController = { engine: FreestyleEngine; setDigital(pin: number, level: boolean): void; setAnalog(pin: number, ratio: number): void; setPeripherals?(inputs: readonly SketchPeripheral[]): void; stop(): void }
+export type RuntimeController = { engine: FreestyleEngine; setDigital(pin: number, level: boolean): void; setAnalog(pin: number, ratio: number): void; setPeripherals?(inputs: readonly SketchPeripheral[]): void; setCircuitStimuli?(values: CircuitStimuli): void; stop(): void }
 
 const API = '/api/local-tools'
 const hostedApi = '/api/tools/arduino'
@@ -112,9 +114,19 @@ function attachWorker(worker: Worker, runId: string, callbacks: RuntimeCallbacks
   }
 }
 
-export async function startFreestyleRun(options: { boardId: string; language: FreestyleLanguage; code: string; tools: LocalTools | null; inputs: readonly RuntimeInput[]; bootrom?: ArrayBuffer; peripherals?: readonly SketchPeripheral[]; signal?: AbortSignal } & RuntimeCallbacks): Promise<RuntimeController | null> {
+export async function startFreestyleRun(options: { boardId: string; language: FreestyleLanguage; code: string; tools: LocalTools | null; inputs: readonly RuntimeInput[]; bootrom?: ArrayBuffer; peripherals?: readonly SketchPeripheral[]; signal?: AbortSignal; wired?: { hex: string; graph: CoupledCircuit; stimuli: CircuitStimuli } } & RuntimeCallbacks): Promise<RuntimeController | null> {
   const choice = chooseEngine(options.boardId, options.language, options.tools, Boolean(options.bootrom))
   const runId = newRunId()
+
+  if (options.wired) {
+    const { graph, stimuli, hex } = options.wired
+    const worker = new Worker(new URL('../../workers/avrLive.worker.ts', import.meta.url), { type: 'module' })
+    const stop = attachWorker(worker, runId, options, false)
+    worker.postMessage({ type: 'start', runId, engine: 'avr', board: graph.board, hex, inputs: [], circuit: { graph, stimuli } } satisfies LiveWorkerRequest)
+    options.onStatus('AVR8js · Firmware HEX và mạch số dùng chung đồng hồ mô phỏng.')
+    return { engine: 'avr', stop, setDigital() {}, setAnalog() {},
+      setCircuitStimuli: values => worker.postMessage({ type: 'circuit-stimuli', runId, stimuli: values } satisfies LiveWorkerRequest) }
+  }
 
   if (choice.engine === 'micropython') {
     if (!options.tools?.rp2040Bootrom && !options.bootrom) { options.onError(choice.note); return null }

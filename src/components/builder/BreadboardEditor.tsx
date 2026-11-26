@@ -2,7 +2,8 @@ import type { BoardDiagramPresentation } from '../../lib/boardTopView'
 import { useId, useMemo, useRef, useState, type KeyboardEvent, type MouseEvent, type PointerEvent } from 'react'
 import { componentRegistry } from '../../data/componentRegistry'
 import { boardCapabilityRegistry } from '../../data/boardCapabilityRegistry'
-import { BREADBOARD_ELECTRICAL_SPEC, RAIL_IDS, parseHole, type RailId } from '../../lib/breadboardGrid'
+import { getR2cBreadboard } from '../../data/catalogR2cBoards'
+import { breadboardCounts, breadboardRowsInView, RAIL_IDS, parseHole, type RailId } from '../../lib/breadboardGrid'
 import { occupancy } from '../../lib/mountResolve'
 import { createNetIndexV2 } from '../../lib/circuitNetsV2'
 import type { CircuitDocV2, CircuitEndpointV2 } from '../../lib/circuitDocV2'
@@ -46,11 +47,8 @@ type Props = {
   onWireBendChange?: (wireId: string, bend: WireBend | null) => void
 }
 
-const rows = 'abcdefghij'.split('')
-const rails: RailId[] = [...RAIL_IDS]
 const toEndpoint = (id: string): CircuitEndpointV2 => ({ kind: 'hole', holeId: id })
 const endpointId = (endpoint: CircuitEndpointV2): string => endpoint.kind === 'pin' ? `${endpoint.partId}:${endpoint.pinId}` : endpoint.holeId
-const gridHoles = rows.flatMap(row => Array.from({ length: BREADBOARD_ELECTRICAL_SPEC.columns }, (_, index) => `bb1:${index + 1}${row}`))
 export const wireRoleLabels = { signal: 'Tín hiệu', power: 'Nguồn dương', ground: 'GND' } as const
 const lessonRoleOptions = Object.entries(wireRoleLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)
 const wireEndLabel = (end: WireEnd) => end === 'from' ? 'điểm bắt đầu' : 'điểm kết thúc'
@@ -70,6 +68,11 @@ function endpointLabel(endpoint: CircuitEndpointV2, doc: CircuitDocV2): string {
 
 export function BreadboardEditor(props: Props) {
   const { doc, selectedWireId, selectedPartId = null, traceLevel = null, litPartIds = new Set<string>(), wireSignals, selectedEndpointKey = null, highlightedNetKey = null, pendingEndpoint, onSelectEndpoint, onSelectPart, onSelectWire, onCommitWire, onEditWireEndpoint, onSetWireRole, onRemoveWire, notice, lessonWiring, activeWireIds = new Set<string>(), readOnly = false } = props
+  const spec = doc.breadboards[0]?.spec
+  const r2c = getR2cBreadboard(spec)
+  const { columns: gridColumns, railHoles: railCount } = breadboardCounts(spec)
+  const rails: readonly RailId[] = r2c ? ['T-', 'T+', 'B-', 'B+'] : RAIL_IDS
+  const gridHoles = useMemo(() => [...breadboardRowsInView(spec)].flatMap(row => Array.from({length:gridColumns}, (_,i)=>'bb1:'+(i+1)+row)),[spec,gridColumns])
   const [clickStart, setClickStart] = useState<CircuitEndpointV2 | null>(pendingEndpoint)
   const [editingEnd, setEditingEnd] = useState<WireEnd | null>(null)
   const [gesture, setGesture] = useState<LessonGesture>({ kind: 'select' })
@@ -230,7 +233,7 @@ export function BreadboardEditor(props: Props) {
   }
 
   const renderHole = (id: string, kind: 'grid' | 'rail', tabIndex?: number) => {
-    const hole = parseHole(id)
+    const hole = parseHole(id,spec)
     if (!hole) return null
     const endpoint = toEndpoint(id)
     const use = occupied[id]
@@ -291,7 +294,7 @@ export function BreadboardEditor(props: Props) {
     <div className="breadboard-workspace" onKeyDown={event => {
       if (event.key === 'Escape' && inspectedPart) { event.stopPropagation(); closeInspector() }
     }}>
-      <BreadboardDiagram wireLayout={props.wireLayout} onWireBendChange={readOnly ? undefined : props.onWireBendChange} doc={doc} presentation={props.presentation} selectedWireId={selectedWireId} selectedPartId={selectedPartId} selectedPartIds={props.selectedPartIds} onSelectParts={props.onSelectParts ? ids=>{setInspectedPartId(null);props.onSelectParts?.(ids)} : undefined} selectedEndpointId={lessonWiring?.selectedEndpointId ?? (pendingEndpoint ? endpointId(pendingEndpoint) : clickStart ? endpointId(clickStart) : selectedEndpointKey)} focusedHoleId={focusedDiagramHoleId} showHeading={Boolean(lessonWiring)} onFocusHole={setFocusedDiagramHoleId} activeWireIds={activeWireIds} traceLevel={traceLevel} litPartIds={litPartIds} wireSignals={wireSignals} highlightedWireIds={highlightedNetWireIds} onChooseEndpoint={choose} onActivateEndpoint={activateEndpoint} onStartEndpointDrag={startDrag} onMoveEndpointDrag={moveDrag} onFinishEndpointDrag={finishDrag} onCancelEndpointDrag={clearDrag} onSelectWire={id => { setInspectedPartId(null); onSelectWire(id) }} adjustWirePath={!readOnly && !editingEnd && !connecting && !lessonEdit} onSelectPart={(partId,extend) => {
+      <BreadboardDiagram wireLayout={props.wireLayout} onWireBendChange={readOnly ? undefined : props.onWireBendChange} doc={doc} presentation={props.presentation} selectedWireId={selectedWireId} selectedPartId={selectedPartId} selectedPartIds={props.selectedPartIds} onSelectParts={props.onSelectParts ? ids=>{setInspectedPartId(null);props.onSelectParts?.(ids)} : undefined} selectedEndpointId={lessonWiring?.selectedEndpointId ?? (pendingEndpoint ? endpointId(pendingEndpoint) : clickStart ? endpointId(clickStart) : selectedEndpointKey)} focusedHoleId={focusedDiagramHoleId} showHeading={Boolean(lessonWiring)} onFocusHole={setFocusedDiagramHoleId} activeWireIds={activeWireIds} traceLevel={traceLevel} litPartIds={litPartIds} wireSignals={wireSignals} highlightedHoleIds={r2c ? netIndex.netOf(selectedEndpointKey ?? '')?.holes : undefined} highlightedWireIds={highlightedNetWireIds} onChooseEndpoint={choose} onActivateEndpoint={activateEndpoint} onStartEndpointDrag={startDrag} onMoveEndpointDrag={moveDrag} onFinishEndpointDrag={finishDrag} onCancelEndpointDrag={clearDrag} onSelectWire={id => { setInspectedPartId(null); onSelectWire(id) }} adjustWirePath={!readOnly && !editingEnd && !connecting && !lessonEdit} onSelectPart={(partId,extend) => {
         const active = document.activeElement
         inspectorTrigger.current = active instanceof HTMLElement || active instanceof SVGElement ? active : null
         onSelectPart?.(partId,extend)
@@ -308,13 +311,13 @@ export function BreadboardEditor(props: Props) {
       <summary>Mở lưới lỗ chi tiết để kiểm tra vị trí endpoint</summary>
       <div className="breadboard-editor-scroll" aria-label="Lưới lỗ breadboard">
         <div className="breadboard-board">
-          <div className="breadboard-rail-block"><strong>RAIL +</strong>{renderHoleGroup(rails.slice(0, 2))}</div>
+          {railCount>0 && <div className="breadboard-rail-block"><strong>Rail trên</strong>{renderHoleGroup(rails.slice(0, 2))}</div>}
           <div className="breadboard-main-grid">
-            {renderHoleGroup(gridHoles.slice(0, BREADBOARD_ELECTRICAL_SPEC.columns * 5), 'grid', 'Nửa trên, mỗi dải nối 5 lỗ')}
+            {renderHoleGroup(gridHoles.slice(0, gridColumns * 5), 'grid', 'Nửa trên, mỗi dải nối 5 lỗ')}
             <div className="breadboard-center-trench" role="separator" aria-label="Rãnh giữa, hai nửa không nối điện"><span>RÃNH GIỮA</span></div>
-            {renderHoleGroup(gridHoles.slice(BREADBOARD_ELECTRICAL_SPEC.columns * 5), 'grid', 'Nửa dưới, mỗi dải nối 5 lỗ')}
+            {renderHoleGroup(gridHoles.slice(gridColumns * 5), 'grid', 'Nửa dưới, mỗi dải nối 5 lỗ')}
           </div>
-          <div className="breadboard-rail-block"><strong>RAIL −</strong>{renderHoleGroup(rails.slice(2))}</div>
+          {railCount>0 && <div className="breadboard-rail-block"><strong>Rail dưới</strong>{renderHoleGroup(rails.slice(2))}</div>}
         </div>
       </div>
     </details>
@@ -333,15 +336,19 @@ export function BreadboardEditor(props: Props) {
     </section>}
     <details className="breadboard-wire-list"><summary>{doc.wires.length} dây · danh sách endpoint</summary><ol>{doc.wires.map(wire => <li key={wire.id}><button type="button" className={`${activeWireIds.has(wire.id) ? 'breadboard-wire-flow-active' : ''} ${highlightedNetWireIds.has(wire.id) ? 'breadboard-wire-net-highlighted' : ''}`} aria-pressed={wire.id === selectedWireId} onClick={() => onSelectWire(wire.id)}>{wire.id}: {endpointLabel(wire.from, doc)} ↔ {endpointLabel(wire.to, doc)}{activeWireIds.has(wire.id) ? ' · đường lệnh đang xem' : highlightedNetWireIds.has(wire.id) ? ' · thuộc net đang xem' : ''}</button></li>)}</ol></details></>}
     {lessonWiring && renderModelNote()}
-    <p className="breadboard-editor-help" role="note">Mỗi dải 5 lỗ ở cùng một nửa được mô hình hóa là một net; hai nửa bị ngăn bởi rãnh giữa. Dải ray được ghi rõ là giả định cho đến khi có nguồn xác minh.</p>
+    <p className="breadboard-editor-help" role="note">Mỗi dải 5 lỗ là một net. Khe giữa tách hai nửa. {r2c
+      ? railCount ? 'Bốn rail tách riêng. Trong mỗi rail, 50 lỗ nối liên tục.' : 'Mẫu 170 điểm không có rail nguồn.'
+      : 'Sơ đồ rail của mẫu 400 điểm là giả định.'}</p>
   </section>
 
   function renderModelNote() {
-    return <p className="breadboard-model-note" role="note">Lưới 30 × 10 theo mô hình giáo dục. Số lỗ và cách nối ray nguồn là giả định 400 tie-point, chưa xác minh trên mẫu vật lý.</p>
+    return <p className="breadboard-model-note" role="note">{r2c
+      ? 'Lưới '+gridColumns+' × 10 của mẫu Adafruit '+r2c.pid+'. Tọa độ tham chiếu theo bản vẽ.'
+      : 'Lưới 30 × 10 theo mô hình giáo dục. Số lỗ và cách nối ray nguồn là giả định 400 tie-point, chưa xác minh trên mẫu vật lý.'}</p>
   }
 
   function renderHoleGroup(group: string[], kind: 'grid' | 'rail' = 'rail', label = group.join(' và ')) {
-    const columns = kind === 'grid' ? BREADBOARD_ELECTRICAL_SPEC.columns : BREADBOARD_ELECTRICAL_SPEC.railHoles
+    const columns = kind === 'grid' ? gridColumns : railCount
     const ids = kind === 'grid' ? group : group.flatMap(rail => Array.from({ length: columns }, (_, index) => `bb1:${rail}:${index + 1}`))
     const selectedHole = lessonWiring?.selectedEndpointId && ids.includes(lessonWiring.selectedEndpointId) ? lessonWiring.selectedEndpointId : undefined
     const tabbable = focusedHoles[label] ?? selectedHole ?? ids[0]

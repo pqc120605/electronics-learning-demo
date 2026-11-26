@@ -25,7 +25,7 @@ scope.onmessage = (event) => {
       return
     }
     try {
-      const machine = createAvrLiveMachine(message.hex, message.board)
+      const machine = createAvrLiveMachine(message.hex, message.board, message.circuit)
       for (const input of message.inputs) {
         machine.setDigitalInput(input.pin, input.digital)
         machine.setAnalogInput(input.pin, input.analog)
@@ -42,7 +42,7 @@ scope.onmessage = (event) => {
           const started = performance.now()
           const frame = machine.runFor(elapsed)
           const cost = performance.now() - started
-          scope.postMessage({ type: 'frame', runId: run.runId, frame: { pins: frame.pins, serial: frame.serial, simulatedMilliseconds: frame.simulatedMilliseconds, speed: Math.min(1, elapsed / Math.max(elapsed, cost)) } })
+          scope.postMessage({ type: 'frame', runId: run.runId, frame: { pins: frame.pins, serial: frame.serial, simulatedMilliseconds: frame.simulatedMilliseconds, coupled: frame.coupled, speed: Math.min(1, elapsed / Math.max(elapsed, cost)) } })
           if (frame.simulatedMilliseconds >= LIVE_MAX_SIMULATED_MS) { stop('Đã chạy 10 phút mô phỏng, tự dừng.'); return }
         } catch (error) {
           scope.postMessage({ type: 'error', runId: run.runId, message: error instanceof Error ? error.message : 'Lỗi khi chạy AVR.' })
@@ -59,6 +59,7 @@ scope.onmessage = (event) => {
   }
   if (!active || message.runId !== active.runId) return
   if (message.type === 'stop') stop('Người dùng dừng.')
+  else if (message.type === 'circuit-stimuli') active.machine.setCircuitStimuli(message.stimuli)
   else if (message.type === 'digital') active.machine.setDigitalInput(message.pin, message.level)
   else if (message.type === 'analog') active.machine.setAnalogInput(message.pin, message.ratio)
 }

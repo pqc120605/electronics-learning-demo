@@ -1,6 +1,42 @@
 import {expect,test} from '@playwright/test'
 
+const readDraft = page => page.evaluate(() => localStorage.getItem('machmo-freestyle-v1'))
+
 for(const width of [375,1440]) {
+  test(`finds a sample without replacing the draft at ${width}px`, async ({page}) => {
+    await page.setViewportSize({width, height: 850})
+    await page.addInitScript(() => localStorage.setItem('mm-tour-seen', JSON.stringify({freestyle: 1})))
+    await page.goto('/build/freestyle?board=esp32-devkit')
+    const build = page.getByRole('button', {name: 'Dựng mạch mẫu', exact: true})
+    await build.click()
+    const preset = page.getByRole('combobox', {name: 'Mạch mẫu', exact: true})
+    await expect.poll(async () => JSON.parse(await readDraft(page) || '{}').sampleId).toBe('blink')
+    const draft = await readDraft(page)
+
+    await page.getByRole('button', {name: 'Khám phá mạch mẫu'}).click()
+    const explorer = page.getByRole('dialog', {name: 'Khám phá mạch mẫu'})
+    await expect(explorer.getByRole('status')).toHaveText('12 mạch mẫu')
+    await explorer.getByRole('combobox', {name: 'Chủ đề'}).selectOption('GPIO cơ bản')
+    await expect(explorer.getByRole('status')).toHaveText('4 mạch mẫu')
+    const search = explorer.getByRole('searchbox', {name: 'Tìm mạch mẫu'})
+    await search.fill('sieu am')
+    await expect(explorer.getByRole('status')).toHaveText('0 mạch mẫu')
+    await explorer.getByRole('combobox', {name: 'Chủ đề'}).selectOption('')
+    await expect(explorer.getByRole('status')).toHaveText('1 mạch mẫu')
+    await search.fill('hc-sr04')
+    await explorer.getByRole('button', {name: 'Chọn mẫu Siêu âm đo khoảng cách'}).click()
+    await expect(explorer).toBeHidden()
+    await expect(preset).toHaveValue('ultrasonic')
+    expect(await readDraft(page)).toBe(draft)
+
+    await build.click()
+    await page.getByText('Siêu âm đo khoảng cách · Cách kiểm tra', {exact: true}).click()
+    await expect(page.getByText(/Kết quả Serial hiển thị khoảng 42 cm/)).toBeVisible()
+    await page.getByRole('button', {name: 'Mở Quan sát', exact: true}).click()
+    await expect(page.getByRole('tab', {name: /Quan sát/})).toHaveAttribute('aria-selected', 'true')
+    await expect.poll(async () => JSON.parse(await readDraft(page) || '{}').sampleId).toBe('ultrasonic')
+  })
+
   test(`sample library runs keypad, environmental inputs and servo at ${width}px`,async({page})=>{
     await page.setViewportSize({width,height:width===375?812:900})
     await page.addInitScript(()=>localStorage.setItem('mm-tour-seen',JSON.stringify({freestyle:1})))
@@ -39,3 +75,17 @@ for(const width of [375,1440]) {
     await expect(page.locator('.freestyle-outputs')).toContainText('90°')
   })
 }
+
+test('a component links to its sample and resumes the existing draft', async ({page}) => {
+  await page.addInitScript(() => localStorage.setItem('mm-tour-seen', JSON.stringify({freestyle: 1})))
+  await page.goto('/build/freestyle?board=arduino-uno-r3')
+  await page.getByRole('button', {name: 'Dựng mạch mẫu', exact: true}).click()
+  await expect.poll(async () => JSON.parse(await readDraft(page) || '{}').sampleId).toBe('blink')
+  const draft = await readDraft(page)
+
+  await page.goto('/components?component=dht22')
+  await page.getByRole('region', {name: 'Mạch mẫu dùng linh kiện này'}).getByRole('link', {name: 'Nhiệt độ và độ ẩm DHT22'}).click()
+  await expect(page.getByRole('combobox', {name: 'Mạch mẫu', exact: true})).toHaveValue('dht-demo')
+  await expect(page.getByText('Nháy LED · Cách kiểm tra', {exact: true})).toBeVisible()
+  expect(await readDraft(page)).toBe(draft)
+})

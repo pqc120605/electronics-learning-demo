@@ -1,0 +1,2402 @@
+{
+  "ds18b20R4": {
+    "file": "/models/components/catalog-r4/ds18b20R4.glb",
+    "bytes": 9392,
+    "sha256": "0a714fca78138bc3a347ff00870c813f3693693f8d4d5ffb14773ec7dab85e4b",
+    "sizeMm": [
+      4.8292,
+      9.8,
+      3.742
+    ],
+    "boundsMm": {
+      "min": [
+        -1.1446,
+        -2.5,
+        -2.412
+      ],
+      "max": [
+        3.6846,
+        7.3,
+        1.33
+      ]
+    },
+    "triangles": 220,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_TO_SOT_THT.3dshapes/TO-92_Inline.step",
+    "sourceSha256": "f0b61c32ecbf0067157adc5a3d4966ceadf5d6dafe93c51af35f76c41c71a54a",
+    "sourceFootprint": "Package_TO_SOT_THT.pretty/TO-92_Inline.kicad_mod",
+    "sourceFootprintSha256": "fc2e306a210a4f40c12f2af3cc09bf923761c9faadfeed9e6d331799a6bde77d",
+    "footprint": "TO-92_Inline.kicad_mod",
+    "footprintSha256": "fc2e306a210a4f40c12f2af3cc09bf923761c9faadfeed9e6d331799a6bde77d",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 1.05,
+        "height": 1.5,
+        "drill": 0.75
+      },
+      {
+        "pad": 2,
+        "shape": "oval",
+        "x": 1.27,
+        "z": 0,
+        "width": 1.05,
+        "height": 1.5,
+        "drill": 0.75
+      },
+      {
+        "pad": 3,
+        "shape": "oval",
+        "x": 2.54,
+        "z": 0,
+        "width": 1.05,
+        "height": 1.5,
+        "drill": 0.75
+      }
+    ],
+    "maxOffsetMm": 0
+  },
+  "tmp102R4": {
+    "file": "/models/components/catalog-r4/tmp102R4.glb",
+    "bytes": 15368,
+    "sha256": "3343d9049633697d29f421814597b2e1e3d7e38c10ba385c0fa6d4f3d017e4dc",
+    "sizeMm": [
+      1.6,
+      0.63,
+      1.6
+    ],
+    "boundsMm": {
+      "min": [
+        -0.8,
+        0,
+        -0.8
+      ],
+      "max": [
+        0.8,
+        0.63,
+        0.8
+      ]
+    },
+    "triangles": 356,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_TO_SOT_SMD.3dshapes/SOT-563.step",
+    "sourceSha256": "76c34aa4905777c0a8abe4718019904a3a9f8343cab7cc056f4516b7ef5165fc",
+    "sourceFootprint": "Package_TO_SOT_SMD.pretty/SOT-563.kicad_mod",
+    "sourceFootprintSha256": "5db336475df2eb434a83572346092efba42569eff34d06282fa8f90bf3b786a4",
+    "footprint": "SOT-563.kicad_mod",
+    "footprintSha256": "5db336475df2eb434a83572346092efba42569eff34d06282fa8f90bf3b786a4",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -0.7125,
+        "z": -0.5,
+        "width": 0.675,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -0.7125,
+        "z": 0,
+        "width": 0.675,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -0.7125,
+        "z": 0.5,
+        "width": 0.675,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": 0.7125,
+        "z": 0.5,
+        "width": 0.675,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": 0.7125,
+        "z": 0,
+        "width": 0.675,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": 0.7125,
+        "z": -0.5,
+        "width": 0.675,
+        "height": 0.35,
+        "drill": 0
+      }
+    ],
+    "maxOffsetMm": null
+  },
+  "tmp117R4": {
+    "file": "/models/components/catalog-r4/tmp117R4.glb",
+    "bytes": 15200,
+    "sha256": "85969b4182a38398526840c6ad422bc00238d95b9a3bdad22559a5340a4111e8",
+    "sizeMm": [
+      2,
+      0.82,
+      1.98
+    ],
+    "boundsMm": {
+      "min": [
+        -1,
+        0,
+        -0.99
+      ],
+      "max": [
+        1,
+        0.82,
+        0.99
+      ]
+    },
+    "triangles": 336,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_SON.3dshapes/WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm.step",
+    "sourceSha256": "a159a524ab16d3406353a16f8c20b59f5679eea26e2d41174628288b5b9da702",
+    "sourceFootprint": "Package_SON.pretty/WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm.kicad_mod",
+    "sourceFootprintSha256": "d1e2fc3516c96e3c858b32e79dc4d47fd9d15783c0320ed08aeec9ffbbae0937",
+    "footprint": "WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm.kicad_mod",
+    "footprintSha256": "d1e2fc3516c96e3c858b32e79dc4d47fd9d15783c0320ed08aeec9ffbbae0937",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -0.8875,
+        "z": -0.65,
+        "width": 0.375,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -0.8875,
+        "z": 0,
+        "width": 0.375,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -0.8875,
+        "z": 0.65,
+        "width": 0.375,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": 0.8875,
+        "z": 0.65,
+        "width": 0.375,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": 0.8875,
+        "z": 0,
+        "width": 0.375,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": 0.8875,
+        "z": -0.65,
+        "width": 0.375,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 1,
+        "height": 1.6,
+        "drill": 0
+      }
+    ],
+    "maxOffsetMm": null
+  },
+  "hdc1080R4": {
+    "file": "/models/components/catalog-r4/hdc1080R4.glb",
+    "bytes": 30568,
+    "sha256": "461c6f999fa3c564dd6b84b6726cddd635138d6bdf53186c6e631cda96b49f0a",
+    "sizeMm": [
+      3,
+      0.752,
+      2.975
+    ],
+    "boundsMm": {
+      "min": [
+        -1.5,
+        0,
+        -1.4875
+      ],
+      "max": [
+        1.5,
+        0.752,
+        1.4875
+      ]
+    },
+    "triangles": 820,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_SON.3dshapes/Texas_S-PWSON-N6.step",
+    "sourceSha256": "711ec8e54c848000ef32dbb5ed37c22e027eb9e7fa8a6a4614aa015d0bd8e543",
+    "sourceFootprint": "Package_SON.pretty/Texas_PWSON-N6.kicad_mod",
+    "sourceFootprintSha256": "c6b24e16db8365bad91978018510626ffa1198fefcce1bd8cc734c2e76450a4b",
+    "footprint": "Texas_PWSON-N6.kicad_mod",
+    "footprintSha256": "c6b24e16db8365bad91978018510626ffa1198fefcce1bd8cc734c2e76450a4b",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -1.4,
+        "z": -0.95,
+        "width": 0.6,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -1.4,
+        "z": 0,
+        "width": 0.6,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -1.4,
+        "z": 0.95,
+        "width": 0.6,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": 1.4,
+        "z": 0.95,
+        "width": 0.6,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": 1.4,
+        "z": 0,
+        "width": 0.6,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": 1.4,
+        "z": -0.95,
+        "width": 0.6,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 1.5,
+        "height": 2.4,
+        "drill": 0
+      }
+    ],
+    "maxOffsetMm": null
+  },
+  "opt3001R4": {
+    "file": "/models/components/catalog-r4/opt3001R4.glb",
+    "bytes": 17152,
+    "sha256": "69f0a2af1e1c0dafe5368429885e0737a86eef06547a479f10c80777c6142ed9",
+    "sizeMm": [
+      2.02,
+      0.631,
+      2
+    ],
+    "boundsMm": {
+      "min": [
+        -1.01,
+        0,
+        -1
+      ],
+      "max": [
+        1.01,
+        0.631,
+        1
+      ]
+    },
+    "triangles": 172,
+    "kind": "parametric-mesh",
+    "sourceFile": null,
+    "sourceSha256": null,
+    "sourceFootprint": null,
+    "sourceFootprintSha256": null,
+    "footprint": "opt3001.kicad_mod",
+    "footprintSha256": "9e5c560085789e9405aec06e87ead840c044cffb900b81d2b71c71de6cabd04d",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "rect",
+        "x": -0.95,
+        "z": -0.65,
+        "width": 0.5,
+        "height": 0.25,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "rect",
+        "x": -0.95,
+        "z": 0,
+        "width": 0.5,
+        "height": 0.25,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "rect",
+        "x": -0.95,
+        "z": 0.65,
+        "width": 0.5,
+        "height": 0.25,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "rect",
+        "x": 0.95,
+        "z": 0.65,
+        "width": 0.5,
+        "height": 0.25,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "rect",
+        "x": 0.95,
+        "z": 0,
+        "width": 0.5,
+        "height": 0.25,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "rect",
+        "x": 0.95,
+        "z": -0.65,
+        "width": 0.5,
+        "height": 0.25,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 0.65,
+        "height": 1.35,
+        "drill": 0
+      }
+    ],
+    "maxOffsetMm": null
+  },
+  "bme280R4": {
+    "file": "/models/components/catalog-r4/bme280R4.glb",
+    "bytes": 15524,
+    "sha256": "cc4c822cd77676f0d80217db00eb596517a142671d3996bccb97883feb34d6d9",
+    "sizeMm": [
+      2.5,
+      0.931,
+      2.5
+    ],
+    "boundsMm": {
+      "min": [
+        -1.25,
+        0,
+        -1.25
+      ],
+      "max": [
+        1.25,
+        0.931,
+        1.25
+      ]
+    },
+    "triangles": 332,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_LGA.3dshapes/Bosch_LGA-8_2.5x2.5mm_P0.65mm_ClockwisePinNumbering.step",
+    "sourceSha256": "52ce10ea1a6ad1544c3399c9b5fe10717df6e95598d13bdee97aa508af643ef0",
+    "sourceFootprint": "Package_LGA.pretty/Bosch_LGA-8_2.5x2.5mm_P0.65mm_ClockwisePinNumbering.kicad_mod",
+    "sourceFootprintSha256": "533735a1edf6b96a54dbfd1958c232b7f3800ce05295e6d783837ee24b74c5c8",
+    "footprint": "Bosch_LGA-8_2.5x2.5mm_P0.65mm_ClockwisePinNumbering.kicad_mod",
+    "footprintSha256": "533735a1edf6b96a54dbfd1958c232b7f3800ce05295e6d783837ee24b74c5c8",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "rect",
+        "x": -0.975,
+        "z": -1.025,
+        "width": 0.5,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "rect",
+        "x": -0.325,
+        "z": -1.025,
+        "width": 0.5,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "rect",
+        "x": 0.325,
+        "z": -1.025,
+        "width": 0.5,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "rect",
+        "x": 0.975,
+        "z": -1.025,
+        "width": 0.5,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "rect",
+        "x": 0.975,
+        "z": 1.025,
+        "width": 0.5,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "rect",
+        "x": 0.325,
+        "z": 1.025,
+        "width": 0.5,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "rect",
+        "x": -0.325,
+        "z": 1.025,
+        "width": 0.5,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "rect",
+        "x": -0.975,
+        "z": 1.025,
+        "width": 0.5,
+        "height": 0.35,
+        "drill": 0
+      }
+    ],
+    "maxOffsetMm": null
+  },
+  "ds3231R4": {
+    "file": "/models/components/catalog-r4/ds3231R4.glb",
+    "bytes": 107476,
+    "sha256": "10e73b4a6568b621738660af732657de0504ed18916d560c5aac464b0a8213d2",
+    "sizeMm": [
+      10.3,
+      2.65,
+      10.3
+    ],
+    "boundsMm": {
+      "min": [
+        -5.15,
+        0,
+        -5.15
+      ],
+      "max": [
+        5.15,
+        2.65,
+        5.15
+      ]
+    },
+    "triangles": 3080,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_SO.3dshapes/SOIC-16W_7.5x10.3mm_P1.27mm.step",
+    "sourceSha256": "159663ceb2b4996b1b89d3111e4a355fc27de3e24d3570f50e5ed9086e0d73af",
+    "sourceFootprint": "Package_SO.pretty/SOIC-16W_7.5x10.3mm_P1.27mm.kicad_mod",
+    "sourceFootprintSha256": "79b58eec6e410d8b5af88b6687f2d1148d1e1605b9aaa57f5b707ab29b853e34",
+    "footprint": "SOIC-16W_7.5x10.3mm_P1.27mm.kicad_mod",
+    "footprintSha256": "79b58eec6e410d8b5af88b6687f2d1148d1e1605b9aaa57f5b707ab29b853e34",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -4.65,
+        "z": -4.445,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -4.65,
+        "z": -3.175,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -4.65,
+        "z": -1.905,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": -4.65,
+        "z": -0.635,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": -4.65,
+        "z": 0.635,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": -4.65,
+        "z": 1.905,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "roundrect",
+        "x": -4.65,
+        "z": 3.175,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "roundrect",
+        "x": -4.65,
+        "z": 4.445,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 9,
+        "shape": "roundrect",
+        "x": 4.65,
+        "z": 4.445,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 10,
+        "shape": "roundrect",
+        "x": 4.65,
+        "z": 3.175,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 11,
+        "shape": "roundrect",
+        "x": 4.65,
+        "z": 1.905,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 12,
+        "shape": "roundrect",
+        "x": 4.65,
+        "z": 0.635,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 13,
+        "shape": "roundrect",
+        "x": 4.65,
+        "z": -0.635,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 14,
+        "shape": "roundrect",
+        "x": 4.65,
+        "z": -1.905,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 15,
+        "shape": "roundrect",
+        "x": 4.65,
+        "z": -3.175,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 16,
+        "shape": "roundrect",
+        "x": 4.65,
+        "z": -4.445,
+        "width": 2.05,
+        "height": 0.6,
+        "drill": 0
+      }
+    ],
+    "maxOffsetMm": null
+  },
+  "adxl345R4": {
+    "file": "/models/components/catalog-r4/adxl345R4.glb",
+    "bytes": 17712,
+    "sha256": "99f76ed767cf1be64f620a6afa8f5c1cde961fbca789485f953ed7c19dcf200d",
+    "sizeMm": [
+      3,
+      0.78,
+      5
+    ],
+    "boundsMm": {
+      "min": [
+        -1.5,
+        0,
+        -2.5
+      ],
+      "max": [
+        1.5,
+        0.78,
+        2.5
+      ]
+    },
+    "triangles": 396,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_LGA.3dshapes/LGA-14_3x5mm_P0.8mm_LayoutBorder1x6y.step",
+    "sourceSha256": "5dc3991aa9836ef8c4adbbd416d6b7120b072db0b1c3fb70a61b01c8794d014e",
+    "sourceFootprint": "Package_LGA.pretty/LGA-14_3x5mm_P0.8mm_LayoutBorder1x6y.kicad_mod",
+    "sourceFootprintSha256": "a9566ec0c09fec0c046016f388ca401c86654ce3c7bae4578936de43a831f119",
+    "footprint": "LGA-14_3x5mm_P0.8mm_LayoutBorder1x6y.kicad_mod",
+    "footprintSha256": "a9566ec0c09fec0c046016f388ca401c86654ce3c7bae4578936de43a831f119",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -1,
+        "z": -2,
+        "width": 0.95,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -1,
+        "z": -1.2,
+        "width": 0.95,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -1,
+        "z": -0.4,
+        "width": 0.95,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": -1,
+        "z": 0.4,
+        "width": 0.95,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": -1,
+        "z": 1.2,
+        "width": 0.95,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": -1,
+        "z": 2,
+        "width": 0.95,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 2,
+        "width": 0.6,
+        "height": 0.95,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "roundrect",
+        "x": 1,
+        "z": 2,
+        "width": 0.95,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 9,
+        "shape": "roundrect",
+        "x": 1,
+        "z": 1.2,
+        "width": 0.95,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 10,
+        "shape": "roundrect",
+        "x": 1,
+        "z": 0.4,
+        "width": 0.95,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 11,
+        "shape": "roundrect",
+        "x": 1,
+        "z": -0.4,
+        "width": 0.95,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 12,
+        "shape": "roundrect",
+        "x": 1,
+        "z": -1.2,
+        "width": 0.95,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 13,
+        "shape": "roundrect",
+        "x": 1,
+        "z": -2,
+        "width": 0.95,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 14,
+        "shape": "roundrect",
+        "x": 0,
+        "z": -2,
+        "width": 0.6,
+        "height": 0.95,
+        "drill": 0
+      }
+    ],
+    "maxOffsetMm": null
+  },
+  "vl53l0xR4": {
+    "file": "/models/components/catalog-r4/vl53l0xR4.glb",
+    "bytes": 24776,
+    "sha256": "fcd8b06af5cbf15da618789030bbc19e6a7d0313e33cd923e32f00eff3f62796",
+    "sizeMm": [
+      4.4,
+      1.002,
+      2.4
+    ],
+    "boundsMm": {
+      "min": [
+        -2.2,
+        0,
+        -1.2
+      ],
+      "max": [
+        2.2,
+        1.002,
+        1.2
+      ]
+    },
+    "triangles": 252,
+    "kind": "parametric-mesh",
+    "sourceFile": null,
+    "sourceSha256": null,
+    "sourceFootprint": "OptoDevice.pretty/ST_VL53L0X.kicad_mod",
+    "sourceFootprintSha256": "2d2dd46704ae9cd52794da70a51a2394bdd5eb3ef9c3c039714fe8d13650d533",
+    "footprint": "ST_VL53L0X.kicad_mod",
+    "footprintSha256": "2d2dd46704ae9cd52794da70a51a2394bdd5eb3ef9c3c039714fe8d13650d533",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "rect",
+        "x": -1.6,
+        "z": -0.8,
+        "width": 0.5,
+        "height": 0.5,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "rect",
+        "x": -0.8,
+        "z": -0.79,
+        "width": 0.5,
+        "height": 0.5,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "rect",
+        "x": 0,
+        "z": -0.8,
+        "width": 0.5,
+        "height": 0.5,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "rect",
+        "x": 0.8,
+        "z": -0.8,
+        "width": 0.5,
+        "height": 0.5,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "rect",
+        "x": 1.6,
+        "z": -0.8,
+        "width": 0.5,
+        "height": 0.5,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "rect",
+        "x": 1.6,
+        "z": 0,
+        "width": 0.5,
+        "height": 0.5,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "rect",
+        "x": 1.6,
+        "z": 0.8,
+        "width": 0.5,
+        "height": 0.5,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "rect",
+        "x": 0.8,
+        "z": 0.8,
+        "width": 0.5,
+        "height": 0.5,
+        "drill": 0
+      },
+      {
+        "pad": 9,
+        "shape": "rect",
+        "x": 0,
+        "z": 0.8,
+        "width": 0.5,
+        "height": 0.5,
+        "drill": 0
+      },
+      {
+        "pad": 10,
+        "shape": "rect",
+        "x": -0.8,
+        "z": 0.8,
+        "width": 0.5,
+        "height": 0.5,
+        "drill": 0
+      },
+      {
+        "pad": 11,
+        "shape": "rect",
+        "x": -1.6,
+        "z": 0.8,
+        "width": 0.5,
+        "height": 0.5,
+        "drill": 0
+      },
+      {
+        "pad": 12,
+        "shape": "rect",
+        "x": -1.6,
+        "z": 0,
+        "width": 0.5,
+        "height": 0.5,
+        "drill": 0
+      }
+    ],
+    "maxOffsetMm": null
+  },
+  "lis3dhR4": {
+    "file": "/models/components/catalog-r4/lis3dhR4.glb",
+    "bytes": 19048,
+    "sha256": "fae26257b65d1f0efe42c2fdefda99baadf67cfb8860474c5daeb24565f97311",
+    "sizeMm": [
+      3,
+      1.025,
+      3
+    ],
+    "boundsMm": {
+      "min": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "max": [
+        1.5,
+        1.025,
+        1.5
+      ]
+    },
+    "triangles": 428,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_LGA.3dshapes/LGA-16_3x3mm_P0.5mm_LayoutBorder3x5y.step",
+    "sourceSha256": "32ea0fdb39b966c900a2e690c3331e3a96381c7076fd4c4732355fea7c2d78e9",
+    "sourceFootprint": "Package_LGA.pretty/LGA-16_3x3mm_P0.5mm_LayoutBorder3x5y.kicad_mod",
+    "sourceFootprintSha256": "71e5922984be7146da3b677508650fd876ef302a0a324923d71afa30d546f00f",
+    "footprint": "LGA-16_3x3mm_P0.5mm_LayoutBorder3x5y.kicad_mod",
+    "footprintSha256": "71e5922984be7146da3b677508650fd876ef302a0a324923d71afa30d546f00f",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -1.225,
+        "z": -1,
+        "width": 0.55,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -1.225,
+        "z": -0.5,
+        "width": 0.55,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -1.225,
+        "z": 0,
+        "width": 0.55,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": -1.225,
+        "z": 0.5,
+        "width": 0.55,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": -1.225,
+        "z": 1,
+        "width": 0.55,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": -0.5,
+        "z": 1.225,
+        "width": 0.35,
+        "height": 0.55,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 1.225,
+        "width": 0.35,
+        "height": 0.55,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "roundrect",
+        "x": 0.5,
+        "z": 1.225,
+        "width": 0.35,
+        "height": 0.55,
+        "drill": 0
+      },
+      {
+        "pad": 9,
+        "shape": "roundrect",
+        "x": 1.225,
+        "z": 1,
+        "width": 0.55,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 10,
+        "shape": "roundrect",
+        "x": 1.225,
+        "z": 0.5,
+        "width": 0.55,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 11,
+        "shape": "roundrect",
+        "x": 1.225,
+        "z": 0,
+        "width": 0.55,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 12,
+        "shape": "roundrect",
+        "x": 1.225,
+        "z": -0.5,
+        "width": 0.55,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 13,
+        "shape": "roundrect",
+        "x": 1.225,
+        "z": -1,
+        "width": 0.55,
+        "height": 0.35,
+        "drill": 0
+      },
+      {
+        "pad": 14,
+        "shape": "roundrect",
+        "x": 0.5,
+        "z": -1.225,
+        "width": 0.35,
+        "height": 0.55,
+        "drill": 0
+      },
+      {
+        "pad": 15,
+        "shape": "roundrect",
+        "x": 0,
+        "z": -1.225,
+        "width": 0.35,
+        "height": 0.55,
+        "drill": 0
+      },
+      {
+        "pad": 16,
+        "shape": "roundrect",
+        "x": -0.5,
+        "z": -1.225,
+        "width": 0.35,
+        "height": 0.55,
+        "drill": 0
+      }
+    ],
+    "maxOffsetMm": null
+  },
+  "max6951R4": {
+    "file": "/models/components/catalog-r4/max6951R4.glb",
+    "bytes": 108348,
+    "sha256": "bae65efea58e033844096bbf7c1e1223bbe016d980d394b4e97288e866d01f89",
+    "sizeMm": [
+      6,
+      1.42,
+      4.9
+    ],
+    "boundsMm": {
+      "min": [
+        -3,
+        0,
+        -2.45
+      ],
+      "max": [
+        3,
+        1.42,
+        2.45
+      ]
+    },
+    "triangles": 3116,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_SO.3dshapes/QSOP-16_3.9x4.9mm_P0.635mm.step",
+    "sourceSha256": "14e9adcd9b6d1d5b282a866123ac59b68abf20b62a41cc9cecabd5c819d8f17d",
+    "sourceFootprint": "Package_SO.pretty/QSOP-16_3.9x4.9mm_P0.635mm.kicad_mod",
+    "sourceFootprintSha256": "bc8f86d29fb9865df0f4bcfc7b5674bb7ee5e76ade219deec97969ec597149cf",
+    "footprint": "max6951.kicad_mod",
+    "footprintSha256": "1ecd78d46185cf67b77bbb1ac0968fe8d643a04845b34376002ac067e7e1e875",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -2.6375,
+        "z": -2.2225,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -2.6375,
+        "z": -1.5875,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -2.6375,
+        "z": -0.9525,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": -2.6375,
+        "z": -0.3175,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": -2.6375,
+        "z": 0.3175,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": -2.6375,
+        "z": 0.9525,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "roundrect",
+        "x": -2.6375,
+        "z": 1.5875,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "roundrect",
+        "x": -2.6375,
+        "z": 2.2225,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 9,
+        "shape": "roundrect",
+        "x": 2.6375,
+        "z": 2.2225,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 10,
+        "shape": "roundrect",
+        "x": 2.6375,
+        "z": 1.5875,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 11,
+        "shape": "roundrect",
+        "x": 2.6375,
+        "z": 0.9525,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 12,
+        "shape": "roundrect",
+        "x": 2.6375,
+        "z": 0.3175,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 13,
+        "shape": "roundrect",
+        "x": 2.6375,
+        "z": -0.3175,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 14,
+        "shape": "roundrect",
+        "x": 2.6375,
+        "z": -0.9525,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 15,
+        "shape": "roundrect",
+        "x": 2.6375,
+        "z": -1.5875,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 16,
+        "shape": "roundrect",
+        "x": 2.6375,
+        "z": -2.2225,
+        "width": 1.625,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 17,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 2.29,
+        "height": 3.3,
+        "drill": 0
+      }
+    ],
+    "maxOffsetMm": null
+  },
+  "tlc5940R4": {
+    "file": "/models/components/catalog-r4/tlc5940R4.glb",
+    "bytes": 139284,
+    "sha256": "604ae85451dbae82c737125363a2096de012054dc35e25b869bfd1d8fb5577e2",
+    "sizeMm": [
+      7.874,
+      6.98,
+      35.56
+    ],
+    "boundsMm": {
+      "min": [
+        -0.127,
+        -3.3,
+        -1.27
+      ],
+      "max": [
+        7.747,
+        3.68,
+        34.29
+      ]
+    },
+    "triangles": 3798,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_DIP.3dshapes/DIP-28_W7.62mm.step",
+    "sourceSha256": "7bf4503e368ad9b7a3eddfa94bc8dee656da5d6921b677e17307b3d7f29177ab",
+    "sourceFootprint": "Package_DIP.pretty/DIP-28_W7.62mm.kicad_mod",
+    "sourceFootprintSha256": "554208c80f8bd504ce7a1dfcb1b5321c6cd89a465f2deb73d92bce1a1f5e9a8b",
+    "footprint": "DIP-28_W7.62mm.kicad_mod",
+    "footprintSha256": "554208c80f8bd504ce7a1dfcb1b5321c6cd89a465f2deb73d92bce1a1f5e9a8b",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 0,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 0,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 0,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 0,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 9,
+        "shape": "circle",
+        "x": 0,
+        "z": 20.32,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 10,
+        "shape": "circle",
+        "x": 0,
+        "z": 22.86,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 11,
+        "shape": "circle",
+        "x": 0,
+        "z": 25.4,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 12,
+        "shape": "circle",
+        "x": 0,
+        "z": 27.94,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 13,
+        "shape": "circle",
+        "x": 0,
+        "z": 30.48,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 14,
+        "shape": "circle",
+        "x": 0,
+        "z": 33.02,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 15,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 33.02,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 16,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 30.48,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 17,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 27.94,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 18,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 25.4,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 19,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 22.86,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 20,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 20.32,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 21,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 22,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 23,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 24,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 25,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 26,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 27,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 28,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ],
+    "maxOffsetMm": 0
+  },
+  "tlc5928R4": {
+    "file": "/models/components/catalog-r4/tlc5928R4.glb",
+    "bytes": 158104,
+    "sha256": "dba5daf9203b9e4b97e0add342e682dd2432e3798c6d655ad0495ab34d4f576a",
+    "sizeMm": [
+      6.4,
+      1.2,
+      7.8
+    ],
+    "boundsMm": {
+      "min": [
+        -3.2,
+        0,
+        -3.9
+      ],
+      "max": [
+        3.2,
+        1.2,
+        3.9
+      ]
+    },
+    "triangles": 4520,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_SO.3dshapes/HTSSOP-24-1EP_4.4x7.8mm_P0.65mm_EP3.4x7.8mm_Mask2.4x4.68mm.step",
+    "sourceSha256": "6526f32bf2be6ab3eec46705f8c6c88534ee1677ebeaf32903f98f1aa68a9e0c",
+    "sourceFootprint": "Package_SO.pretty/HTSSOP-24-1EP_4.4x7.8mm_P0.65mm_EP3.4x7.8mm_Mask2.4x4.68mm.kicad_mod",
+    "sourceFootprintSha256": "1ff92990b343e2144857cf59e43573fa1bfb467e881fe3735f6c08c59d149f7a",
+    "footprint": "tlc5928.kicad_mod",
+    "footprintSha256": "fad803f4afdc4c873fd12de19fac9e0f3d0fbec74e64281294b2c465a30ecf14",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -3.575,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -2.925,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -2.275,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -1.625,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -0.975,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -0.325,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 0.325,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 0.975,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 9,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 1.625,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 10,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 2.275,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 11,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 2.925,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 12,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 3.575,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 13,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 3.575,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 14,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 2.925,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 15,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 2.275,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 16,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 1.625,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 17,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 0.975,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 18,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 0.325,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 19,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -0.325,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 20,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -0.975,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 21,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -1.625,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 22,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -2.275,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 23,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -2.925,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 24,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -3.575,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 25,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 3.4,
+        "height": 7.8,
+        "drill": 0
+      }
+    ],
+    "maxOffsetMm": null
+  },
+  "tlc59116R4": {
+    "file": "/models/components/catalog-r4/tlc59116R4.glb",
+    "bytes": 180420,
+    "sha256": "7d1e9066cd02278255e84d60333c71b54715d51896060bc09be84547fd719ddd",
+    "sizeMm": [
+      6.4,
+      1.1,
+      9.7
+    ],
+    "boundsMm": {
+      "min": [
+        -3.2,
+        0,
+        -4.85
+      ],
+      "max": [
+        3.2,
+        1.1,
+        4.85
+      ]
+    },
+    "triangles": 5212,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_SO.3dshapes/TSSOP-28_4.4x9.7mm_P0.65mm.step",
+    "sourceSha256": "0da3bcc5863b5b295ec337129525942b8ff4242bfc7462229dc96d0b183b0508",
+    "sourceFootprint": "Package_SO.pretty/TSSOP-28_4.4x9.7mm_P0.65mm.kicad_mod",
+    "sourceFootprintSha256": "805b9129e23ca43c18b1964d8681a053e7c0917605b4ba4d33f8080d54dff4f9",
+    "footprint": "TSSOP-28_4.4x9.7mm_P0.65mm.kicad_mod",
+    "footprintSha256": "805b9129e23ca43c18b1964d8681a053e7c0917605b4ba4d33f8080d54dff4f9",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": -4.225,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": -3.575,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": -2.925,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": -2.275,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": -1.625,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": -0.975,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": -0.325,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": 0.325,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 9,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": 0.975,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 10,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": 1.625,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 11,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": 2.275,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 12,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": 2.925,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 13,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": 3.575,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 14,
+        "shape": "roundrect",
+        "x": -2.8625,
+        "z": 4.225,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 15,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": 4.225,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 16,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": 3.575,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 17,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": 2.925,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 18,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": 2.275,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 19,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": 1.625,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 20,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": 0.975,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 21,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": 0.325,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 22,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": -0.325,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 23,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": -0.975,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 24,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": -1.625,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 25,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": -2.275,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 26,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": -2.925,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 27,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": -3.575,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      },
+      {
+        "pad": 28,
+        "shape": "roundrect",
+        "x": 2.8625,
+        "z": -4.225,
+        "width": 1.475,
+        "height": 0.4,
+        "drill": 0
+      }
+    ],
+    "maxOffsetMm": null
+  },
+  "tlc5916R4": {
+    "file": "/models/components/catalog-r4/tlc5916R4.glb",
+    "bytes": 83984,
+    "sha256": "f144c63f2278c8a6d65ec5b61dfd6dec04f8a96c0b3c788840517bd14e96a391",
+    "sizeMm": [
+      7.874,
+      6.98,
+      19.177
+    ],
+    "boundsMm": {
+      "min": [
+        -0.127,
+        -3.3,
+        -0.6985
+      ],
+      "max": [
+        7.747,
+        3.68,
+        18.4785
+      ]
+    },
+    "triangles": 2326,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_DIP.3dshapes/DIP-16_W7.62mm.step",
+    "sourceSha256": "17a30b1f0ab3fd5384a1231e3c63c394888d5b952c542a8c189e023ed3467464",
+    "sourceFootprint": "Package_DIP.pretty/DIP-16_W7.62mm.kicad_mod",
+    "sourceFootprintSha256": "08cec2c2fafeffb19d0c6d17db37b67017e6518147516b0b75e6a4719b235465",
+    "footprint": "DIP-16_W7.62mm.kicad_mod",
+    "footprintSha256": "08cec2c2fafeffb19d0c6d17db37b67017e6518147516b0b75e6a4719b235465",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 0,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 0,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 0,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 0,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 9,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 10,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 11,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 12,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 13,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 14,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 15,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 16,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ],
+    "maxOffsetMm": 0
+  }
+}

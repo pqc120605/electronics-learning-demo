@@ -1,9 +1,10 @@
 import { componentRegistry } from '../data/componentRegistry'
+import { getCatalogPart } from '../data/catalogParts'
 import { getKitPartProfile } from '../data/kitPartProfiles'
 import { createNetIndexV2 } from './circuitNetsV2'
 import type { CircuitDocV2 } from './circuitDocV2'
 
-export type SchematicSymbolKind = 'board' | 'resistor' | 'potentiometer' | 'led' | 'diode' | 'button' | 'kit-module' | 'unsupported'
+export type SchematicSymbolKind = 'board' | 'resistor' | 'potentiometer' | 'led' | 'diode' | 'npn' | 'button' | 'kit-module' | 'unsupported'
 export type SchematicTerminalV2 = { key: string; label: string; x: number; y: number }
 export type SchematicPartV2 = { partId: string; type: string; label: string; value: string; x: number; y: number; width: number; height: number; rotation: number; symbolKind: SchematicSymbolKind; terminals: SchematicTerminalV2[] }
 export type SchematicSegmentV2 = { from: [number, number]; to: [number, number] }
@@ -26,29 +27,32 @@ export function layoutSchematicV2(doc: CircuitDocV2): SchematicLayoutV2 {
   const parts: SchematicPartV2[] = doc.parts.filter(p => p.type !== 'breadboard').map(part => {
     const definition = componentRegistry.find(item => item.id === part.type)
     const profile = getKitPartProfile(part.type)
-    const symbolKind = definition ? SYMBOLS[part.type] ?? (profile ? 'kit-module' : 'unsupported') : 'unsupported'
+    const variant = getCatalogPart(part.type)
+    const symbolKind: SchematicSymbolKind = definition ? SYMBOLS[part.type] ?? (variant?.catalogId === '1n4148' ? 'diode' : variant?.catalogId === '2n3904' ? 'npn' : profile || variant ? 'kit-module' : 'unsupported') : 'unsupported'
     if (symbolKind === 'unsupported') diagnostics.push({ code: 'UNSUPPORTED_SYMBOL', message: `${part.id} (${part.type}): chưa có symbol nguyên lý được hỗ trợ; khối này chỉ giữ nhãn linh kiện.`, partId: part.id })
-    const ordinalKey = symbolKind === 'unsupported' || symbolKind === 'kit-module' ? 'bench-symbols' : part.type
+    const ordinalKey = variant ? 'catalog-variant' : symbolKind === 'unsupported' || symbolKind === 'kit-module' ? 'bench-symbols' : part.type
     const ordinal = counts.get(ordinalKey) ?? 0
     counts.set(ordinalKey, ordinal + 1)
-    const x = part.type === 'board' ? 130 : symbolKind === 'potentiometer' ? 900 : symbolKind === 'kit-module' ? 780 : ['led', 'diode'].includes(part.type) ? 680 : 440
-    const y = (symbolKind === 'kit-module' || symbolKind === 'unsupported' ? 530 : symbolKind === 'potentiometer' ? 320 : part.type === 'button' ? 320 : part.type === 'board' ? 230 : 140) + ordinal * 210
+    const x = variant ? 960 : part.type === 'board' ? 130 : symbolKind === 'potentiometer' ? 900 : symbolKind === 'kit-module' ? 780 : ['led', 'diode'].includes(part.type) ? 680 : 440
+    const y = (symbolKind === 'kit-module' || symbolKind === 'unsupported' ? 530 : symbolKind === 'potentiometer' ? 320 : part.type === 'button' ? 320 : part.type === 'board' ? 230 : 140) + ordinal * (variant ? 356 : 210)
     // Show only connected board aliases, never inferred physical pin numbers.
-    const pins = (definition?.pins ?? []).filter(pin => part.type !== 'board' || connectedNets.some(net => net.endpoints.has(`${part.id}:${pin.id}`)))
+    const symbolPins = variant?.catalogId === '1n4148' ? [...(definition?.pins ?? [])].reverse() : definition?.pins ?? []
+    const pins = symbolPins.filter(pin => part.type !== 'board' || connectedNets.some(net => net.endpoints.has(`${part.id}:${pin.id}`)))
     const height = part.type === 'board' ? Math.max(260, pins.length * 90 + 20) : Math.max(100, Math.ceil(pins.length / 2) * 36)
     const width = part.type === 'board' ? 150 : symbolKind === 'kit-module' ? 178 : 112
     const terminals = pins.map((pin, i) => {
       const sideTerminal = symbolKind !== 'potentiometer' || pin.id === 'wiper'
-      const right = part.type === 'board' || (symbolKind === 'potentiometer' ? pin.id !== 'gnd' : i % 2 === 1)
+      const right = part.type === 'board' || (symbolKind === 'potentiometer' ? pin.id !== 'gnd' : symbolKind === 'npn' ? pin.id !== 'b' : i % 2 === 1)
       const tx = sideTerminal ? x + (right ? 1 : -1) * width / 2 : x
       const ty = part.type === 'board' ? y - (pins.length - 1) * 45 + i * 90
         : symbolKind === 'potentiometer' ? y + (pin.id === 'wiper' ? 0 : pin.id === 'vcc' ? -50 : 50)
+        : symbolKind === 'npn' ? y + (pin.id === 'c' ? -27 : pin.id === 'e' ? 27 : 0)
         : symbolKind === 'kit-module' ? y - (Math.ceil(pins.length / 2) - 1) * 18 + Math.floor(i / 2) * 36
         : y + Math.floor(i / 2) * 36
       const key = `${part.id}:${pin.id}`
       pinPositions.set(key, [tx, ty])
       escapeDirections.set(key, right ? 1 : -1)
-      return { key, label: pin.label, x: tx, y: ty }
+      return { key, label: variant ? `${variant.pins.find(item => item.id === pin.id)?.pad} · ${pin.label}` : pin.label, x: tx, y: ty }
     })
     return { partId: part.id, type: part.type, label: profile?.model ?? definition?.label ?? part.type, value: fmtValue(part), x, y, width, height, rotation: 0, symbolKind, terminals }
   })
@@ -90,5 +94,5 @@ export function layoutSchematicV2(doc: CircuitDocV2): SchematicLayoutV2 {
     }
   }
   // Reserve a clear sheet margin for the drawing frame and title block.
-  return { width: Math.max(1080, ...nets.flatMap(n => n.segments.flatMap(s => [s.from[0] + 320, s.to[0] + 320]))), height: Math.max(contentBottom + 155, ...nets.flatMap(n => n.segments.flatMap(s => [s.from[1] + 155, s.to[1] + 155]))), parts, nets, diagnostics }
+  return { width: Math.max(1080, ...parts.map(p => p.x + p.width / 2 + 35), ...nets.flatMap(n => n.segments.flatMap(s => [s.from[0] + 320, s.to[0] + 320]))), height: Math.max(contentBottom + 155, ...nets.flatMap(n => n.segments.flatMap(s => [s.from[1] + 155, s.to[1] + 155]))), parts, nets, diagnostics }
 }

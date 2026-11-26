@@ -7,6 +7,8 @@ export const PRODUCT_ROUTES = {
   appLearn: '/app/learn',
   appBasics: '/app/learn/basics',
   publicBasics: '/learn/basics',
+  appDigitalLab: '/app/learn/digital-lab',
+  publicDigitalLab: '/learn/digital-lab',
   appCapstone: '/app/learn/mini-project',
   publicCapstone: '/learn/mini-project',
   appLesson: '/app/learn/esp32-led',
@@ -44,6 +46,7 @@ export const PRODUCT_ROUTES = {
 /** Legacy URLs remain valid and resolve to their app-workspace destination. */
 export const PUBLIC_TO_APP_ROUTE: Readonly<Record<string, string>> = {
   [PRODUCT_ROUTES.publicBasics]: PRODUCT_ROUTES.appBasics,
+  [PRODUCT_ROUTES.publicDigitalLab]: PRODUCT_ROUTES.appDigitalLab,
   [PRODUCT_ROUTES.publicCapstone]: PRODUCT_ROUTES.appCapstone,
   [PRODUCT_ROUTES.publicFeedback]: PRODUCT_ROUTES.appFeedback,
   [PRODUCT_ROUTES.publicBoards]: PRODUCT_ROUTES.appBoards,
@@ -63,6 +66,7 @@ export const PUBLIC_TO_APP_ROUTE: Readonly<Record<string, string>> = {
 
 const PAGE_TITLES: Readonly<Record<string, string>> = {
   [PRODUCT_ROUTES.publicBasics]: 'Nền tảng điện tử — Mạch Mở',
+  [PRODUCT_ROUTES.publicDigitalLab]: 'IC và giao tiếp số — Mạch Mở',
   [PRODUCT_ROUTES.publicCapstone]: 'Đèn cảnh báo theo ngưỡng — Mạch Mở',
   [PRODUCT_ROUTES.publicHome]: 'Mạch Mở — Học Điện tử qua thực hành',
   [PRODUCT_ROUTES.appHome]: 'Không gian học — Mạch Mở',

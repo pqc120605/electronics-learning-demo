@@ -64,7 +64,7 @@ test('input levels are loaded before the first button and ADC reads',async({page
 test('library search matches function words and model names without diacritics',async({page})=>{
   await page.goto('/components')
   await page.getByRole('searchbox',{name:'Tìm linh kiện'}).fill('do khoang cach')
-  await expect(page.locator('.component-catalog-list').getByRole('button',{name:/Cảm biến siêu âm HC-SR04/})).toBeVisible()
+  await expect(page.locator('.component-catalog-list').getByRole('link',{name:/Cảm biến siêu âm HC-SR04/})).toBeVisible()
   await page.goto('/boards')
   await page.getByRole('searchbox',{name:'Tìm board hoặc vi điều khiển'}).fill('ESP32 S3')
   await expect(page.getByRole('heading',{name:/ESP32-S3-DevKitC-1/}).first()).toBeVisible()

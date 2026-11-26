@@ -1,6 +1,7 @@
-import { getAssemblyPlanV2, localToWorld, footprintBox, type AssemblyPlan, type Vec3 } from '../assemblyLayout'
+import { assemblyHolePoint, getAssemblyPlanV2, localToWorld, footprintBox, type AssemblyPlan, type Vec3 } from '../assemblyLayout'
 import { getSimulationTarget } from '../../data/simulationTargets'
-import { holeToMm, parseHole } from '../breadboardGrid'
+import { getR2cBreadboard } from '../../data/catalogR2cBoards'
+import { parseHole } from '../breadboardGrid'
 import type { CircuitDocV2, CircuitEndpointV2 } from '../circuitDocV2'
 import type { PinMap } from './freestyleCircuit'
 import { getComponentMesh } from '../../data/componentModels'
@@ -33,13 +34,11 @@ export function freestyleAssembly(doc: CircuitDocV2, boardId: string, pinMap: Pi
       if(placement.type!=='board' && !placement.legs?.some(leg=>leg.pinId===endpoint.pinId) && !getComponentMesh(placement.type)?.pinsMm?.[endpoint.pinId])return undefined
       return pinPoints[`${endpoint.partId}:${endpoint.pinId}`]
     }
-    const hole=parseHole(endpoint.holeId),grid=plan.grid
-    const point=hole&&grid?holeToMm(hole,grid):null
-    return point&&grid?[point[0]+grid.originX,point[1],point[2]+grid.originZ]:undefined
+    return assemblyHolePoint(endpoint.holeId,plan.grid)
   }
   const wireEnds:AssemblyPlan['wireEnds']={},wireEvidence:NonNullable<AssemblyPlan['wireEvidence']>={},diagnostics:NonNullable<AssemblyPlan['diagnostics']>=[]
   const evidence=(endpoint:CircuitEndpointV2):NonNullable<AssemblyPlan['wireEvidence']>[string]['from']=>{
-    if(endpoint.kind==='hole')return {kind:'hole',evidence:parseHole(endpoint.holeId)?.kind==='rail'?'unknown':'parametric',sourceKey:endpoint.holeId}
+    if(endpoint.kind==='hole')return {kind:'hole',evidence:!getR2cBreadboard(plan.grid?.spec)&&parseHole(endpoint.holeId)?.kind==='rail'?'unknown':'parametric',sourceKey:endpoint.holeId}
     const placement=plan.placements.find(p=>p.partId===endpoint.partId)
     return {kind:'pin',evidence:placement?.kind==='board-cad'||placement?.kind==='component-cad'?'cad':'parametric',sourceKey:`${endpoint.partId}:${endpoint.pinId}`}
   }

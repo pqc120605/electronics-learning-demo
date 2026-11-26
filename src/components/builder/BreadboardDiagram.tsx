@@ -2,6 +2,8 @@ import { FreestyleBoardArt } from '../freestyle/FreestyleBoardArt'
 import { isDhtPart, keypadKeys } from '../../data/kitPartProfiles'
 import type { BoardDiagramPresentation } from '../../lib/boardTopView'
 import { adjacentBreadboardHole, buildBreadboardDiagram, breadboardDiagramWireColor, type DiagramPart, type DiagramPin } from '../../lib/breadboardDiagram'
+import { getR2cBreadboard, type BreadboardSpec } from '../../data/catalogR2cBoards'
+import { RAIL_IDS, breadboardCounts } from '../../lib/breadboardGrid'
 import type { CircuitDocV2, CircuitEndpointV2 } from '../../lib/circuitDocV2'
 import type { FreestyleWireLayout, WireBend } from '../../lib/freestyle/freestyleWireLayout'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
@@ -20,6 +22,7 @@ type Props = {
   showHeading?: boolean
   activeWireIds?: ReadonlySet<string>
   highlightedWireIds?: ReadonlySet<string>
+  highlightedHoleIds?: ReadonlySet<string>
   /** Mức logic từ trace bài học/provider đang chạy; null = không chạy, không vẽ tín hiệu. */
   traceLevel?: 'HIGH' | 'LOW' | null
   /** LED đang sáng theo state mô phỏng (không phải phép đo). */
@@ -47,8 +50,8 @@ function selectByKeyboard(event: KeyboardEvent<SVGElement>, select: () => void) 
   select()
 }
 
-function navigateHoleByKeyboard(event: KeyboardEvent<SVGCircleElement>, holeId: string, select: () => void) {
-  const nextId = adjacentBreadboardHole(holeId, event.key)
+function navigateHoleByKeyboard(event: KeyboardEvent<SVGCircleElement>, holeId: string, select: () => void, spec?: BreadboardSpec) {
+  const nextId = adjacentBreadboardHole(holeId, event.key, spec)
   if (nextId) {
     const next = Array.from(event.currentTarget.ownerSVGElement?.querySelectorAll<SVGCircleElement>('.diagram-hole-hit-target') ?? [])
       .find(hole => hole.dataset.circuitEndpoint === nextId)
@@ -111,7 +114,7 @@ function WireLevelPill({ path, signal }: { path: string; signal: WireSignalLabel
   return <g className={`diagram-level-pill is-${signal.tone}`} transform={`translate(${x} ${y})`} aria-hidden="true"><rect x="-4" y="-11" width={width} height="18" rx="9" /><text x={width / 2 - 4} y="2" textAnchor="middle">{signal.text}</text></g>
 }
 
-export function BreadboardDiagram({ doc, presentation, selectedWireId = null, selectedPartId = null, selectedPartIds, selectedEndpointId = null, focusedHoleId = 'bb1:1a', showHeading = false, activeWireIds = new Set<string>(), highlightedWireIds = new Set<string>(), traceLevel = null, litPartIds = new Set<string>(), wireSignals, onChooseEndpoint, onActivateEndpoint, onStartEndpointDrag, onMoveEndpointDrag, onFinishEndpointDrag, onCancelEndpointDrag, onSelectWire, onSelectPart, onSelectParts, onFocusHole, adjustWirePath = false, wireLayout, onWireBendChange }: Props) {
+export function BreadboardDiagram({ doc, presentation, selectedWireId = null, selectedPartId = null, selectedPartIds, selectedEndpointId = null, focusedHoleId = 'bb1:1a', showHeading = false, activeWireIds = new Set<string>(), highlightedWireIds = new Set<string>(), highlightedHoleIds, traceLevel = null, litPartIds = new Set<string>(), wireSignals, onChooseEndpoint, onActivateEndpoint, onStartEndpointDrag, onMoveEndpointDrag, onFinishEndpointDrag, onCancelEndpointDrag, onSelectWire, onSelectPart, onSelectParts, onFocusHole, adjustWirePath = false, wireLayout, onWireBendChange }: Props) {
   const [zoom, setZoom] = useState(1)
   const [fit, setFit] = useState(false)
   const [explicitZoom, setExplicitZoom] = useState(false)
@@ -218,9 +221,15 @@ export function BreadboardDiagram({ doc, presentation, selectedWireId = null, se
     })
   }
 
+  const spec = doc.breadboards[0]?.spec
+  const profile = getR2cBreadboard(spec)
+  const railCount = breadboardCounts(spec).railHoles
+  const marks = diagram.holes.filter(hole=>hole.kind==='rail'&&hole.id.endsWith(':1'))
   return <section className="breadboard-diagram" aria-label="Mạch lắp thử nhìn từ trên xuống">
     {showHeading && <header className="breadboard-diagram-header"><div><p className="breadboard-editor-eyebrow">MẠCH LẮP · CÙNG CIRCUITDOC V2</p><h3>Breadboard và dây nối</h3></div><p>Lỗ cắm, chân linh kiện và từng dây lấy từ cùng sơ đồ mạch; chọn điểm để nối hoặc xem net.</p></header>}
-    <p className="breadboard-diagram-assumption" role="note">Lưới minh họa 400 tie-point. Số lỗ và cách nối dải ray là giả định của mô hình, chưa xác minh trên mẫu vật lý.</p>
+    {doc.breadboards.length > 0 && <p className="breadboard-diagram-assumption" role="note">{profile
+      ? 'Adafruit '+profile.pid+' · '+profile.pointCount+' điểm · '+(railCount ? '4 rail độc lập, mỗi rail 50 lỗ.' : 'Hai dải 5 lỗ mỗi cột, không có rail nguồn.')
+      : 'Lưới minh họa 400 tie-point. Số lỗ và cách nối dải ray là giả định của mô hình, chưa xác minh trên mẫu vật lý.'}</p>}
     <div className="freestyle-view-controls" aria-label="Thu phóng mạch 2D"><button type="button" onClick={() => { setFit(false); setExplicitZoom(true); setZoom(z => Math.max(.25, z / 1.25)) }} disabled={zoom<=.25&&!fit} aria-label="Thu nhỏ mạch 2D">−</button><span>{fit ? 'Tổng quan' : `${Math.round(zoom*100)}%`}</span><button type="button" onClick={() => { setFit(false); setExplicitZoom(true); setZoom(z => Math.min(4, z * 1.25)) }} disabled={zoom>=4&&!fit} aria-label="Phóng to mạch 2D">+</button><button type="button" onClick={() => { setZoom(1); setFit(true); setExplicitZoom(false) }}>Vừa khung 2D</button></div>
     <p className="diagram-navigation-hint">Cuộn trên mạch để thu phóng. Kéo thanh cuộn để di chuyển, hoặc chọn “Vừa khung 2D”.</p>
     <div ref={scrollRef} className="breadboard-diagram-scroll mm-keep-light" tabIndex={0} role="region" aria-label="Khung mạch 2D có thể cuộn và thu phóng">
@@ -247,10 +256,13 @@ export function BreadboardDiagram({ doc, presentation, selectedWireId = null, se
           <rect className="diagram-breadboard-core" x={diagram.breadboard.x + 12} y={diagram.breadboard.y + 12} width={diagram.breadboard.width - 24} height={diagram.breadboard.height - 24} rx="12" />
         </g>}
         {doc.breadboards.length > 0 && <g className="diagram-rail" aria-hidden="true">
-          <path className="diagram-rail-positive" d={`M${diagram.holes.find(hole => hole.id === 'bb1:T+:1')?.x ?? 0} ${diagram.holes.find(hole => hole.id === 'bb1:T+:1')?.y ?? 0}H${diagram.holes.find(hole => hole.id === 'bb1:T+:25')?.x ?? 0}`} />
-          <path className="diagram-rail-ground" d={`M${diagram.holes.find(hole => hole.id === 'bb1:T-:1')?.x ?? 0} ${diagram.holes.find(hole => hole.id === 'bb1:T-:1')?.y ?? 0}H${diagram.holes.find(hole => hole.id === 'bb1:T-:25')?.x ?? 0}`} />
-          <path className="diagram-rail-positive" d={`M${diagram.holes.find(hole => hole.id === 'bb1:B+:1')?.x ?? 0} ${diagram.holes.find(hole => hole.id === 'bb1:B+:1')?.y ?? 0}H${diagram.holes.find(hole => hole.id === 'bb1:B+:25')?.x ?? 0}`} />
-          <path className="diagram-rail-ground" d={`M${diagram.holes.find(hole => hole.id === 'bb1:B-:1')?.x ?? 0} ${diagram.holes.find(hole => hole.id === 'bb1:B-:1')?.y ?? 0}H${diagram.holes.find(hole => hole.id === 'bb1:B-:25')?.x ?? 0}`} />
+          {RAIL_IDS.map(rail=>{
+            const points = diagram.holes.filter(hole=>hole.id.startsWith('bb1:'+rail+':'))
+            if (!points.length) return null
+            const halves = doc.breadboards[0]?.railSplit ? [points.slice(0,Math.floor(railCount/2)),points.slice(Math.floor(railCount/2))] : [points]
+            return halves.map(([start,...rest])=><line key={start.id} className={rail.endsWith('+')?'diagram-rail-positive':'diagram-rail-ground'}
+              x1={start.x} y1={start.y} x2={rest.at(-1)?.x??start.x} y2={start.y} />)
+          })}
         </g>}
         <g className="diagram-wire-routes" aria-label="Dây jumper">
           {diagram.wires.map(wire => {
@@ -275,7 +287,7 @@ export function BreadboardDiagram({ doc, presentation, selectedWireId = null, se
           </g>)}
         </g>
         <g className="diagram-hole-layer" role="group" aria-label="Các lỗ cắm breadboard">
-          {diagram.holes.map(hole => <circle key={hole.id} className={`diagram-hole ${hole.kind === 'rail' ? 'is-rail' : ''} ${selectedEndpointId === hole.id ? 'is-selected' : ''}`} cx={hole.x} cy={hole.y} r={hole.kind === 'rail' ? 3.2 : 3.4} data-diagram-hole={hole.id} />)}
+          {diagram.holes.map(hole => <circle key={hole.id} className={`diagram-hole ${hole.kind === 'rail' ? 'is-rail' : ''} ${selectedEndpointId === hole.id ? 'is-selected' : highlightedHoleIds?.has(hole.id) ? 'is-same-net' : ''}`} cx={hole.x} cy={hole.y} r={hole.kind === 'rail' ? 3.2 : 3.4} data-diagram-hole={hole.id} />)}
         </g>
         {doc.breadboards.length > 0 && <g className="diagram-row-labels" aria-hidden="true">
           {'abcdefghij'.split('').map(row => <text key={row} x={diagram.breadboard.x + 28} y={diagram.holes.find(hole => hole.id === `bb1:1${row}`)?.y! + 4}>{row.toUpperCase()}</text>)}
@@ -289,14 +301,11 @@ export function BreadboardDiagram({ doc, presentation, selectedWireId = null, se
           {diagram.parts.map(part => <PartBody key={part.id} part={part} selected={selectedPartId === part.id || Boolean(selectedPartIds?.has(part.id))} lit={litPartIds.has(part.id)} selectedEndpointId={selectedEndpointId} onSelect={extend => onSelectPart(part.id,Boolean(onSelectParts)&&extend)} onChoosePin={choosePin} onActivateEndpoint={onActivateEndpoint} onStartEndpointDrag={onStartEndpointDrag} />)}
         </g>
         <g className="diagram-hole-hit-layer" role="group" aria-label="Điểm chọn lỗ breadboard">
-          {diagram.holes.map(hole => <circle key={hole.id} className={`diagram-hole-hit-target ${hole.kind === 'rail' ? 'is-rail' : ''} ${selectedEndpointId === hole.id ? 'is-selected' : ''}`} cx={hole.x} cy={hole.y} r={11} style={occupiedHoleIds.has(hole.id) ? { pointerEvents: 'none' } : undefined} data-occupied={occupiedHoleIds.has(hole.id)} data-diagram-endpoint={hole.id} data-circuit-endpoint={hole.id} role="button" tabIndex={hole.id === focusedHoleId ? 0 : -1} aria-label={`${hole.id} · net ${hole.net ?? 'chưa rõ'}${occupiedHoleIds.has(hole.id) ? ' · đang có chân linh kiện; dùng bàn phím hoặc lưới chi tiết để chọn lỗ' : ''}`} onFocus={() => onFocusHole?.(hole.id)} onClick={event => onActivateEndpoint(event, { kind: 'hole', holeId: hole.id })} onPointerDown={event => onStartEndpointDrag(event, { kind: 'hole', holeId: hole.id })} onKeyDown={event => navigateHoleByKeyboard(event, hole.id, () => rowHole(hole.id))} />)}
+          {diagram.holes.map(hole => <circle key={hole.id} className={`diagram-hole-hit-target ${hole.kind === 'rail' ? 'is-rail' : ''} ${selectedEndpointId === hole.id ? 'is-selected' : highlightedHoleIds?.has(hole.id) ? 'is-same-net' : ''}`} cx={hole.x} cy={hole.y} r={11} style={occupiedHoleIds.has(hole.id) ? { pointerEvents: 'none' } : undefined} data-occupied={occupiedHoleIds.has(hole.id)} data-diagram-endpoint={hole.id} data-circuit-endpoint={hole.id} role="button" tabIndex={hole.id === focusedHoleId ? 0 : -1} aria-label={`${hole.id} · net ${hole.net ?? 'chưa rõ'}${occupiedHoleIds.has(hole.id) ? ' · đang có chân linh kiện; dùng bàn phím hoặc lưới chi tiết để chọn lỗ' : ''}`} onFocus={() => onFocusHole?.(hole.id)} onClick={event => onActivateEndpoint(event, { kind: 'hole', holeId: hole.id })} onPointerDown={event => onStartEndpointDrag(event, { kind: 'hole', holeId: hole.id })} onKeyDown={event => navigateHoleByKeyboard(event, hole.id, () => rowHole(hole.id),spec)} />)}
         </g>
         {doc.breadboards.length > 0 && <g className="diagram-rail-labels" aria-hidden="true">
-          <text x={diagram.breadboard.x + 28} y={diagram.holes.find(hole => hole.id === 'bb1:T+:1')?.y! + 4}>+</text>
-          <text x={diagram.breadboard.x + 28} y={diagram.holes.find(hole => hole.id === 'bb1:T-:1')?.y! + 4}>−</text>
-          <text x={diagram.breadboard.x + 28} y={diagram.holes.find(hole => hole.id === 'bb1:B+:1')?.y! + 4}>+</text>
-          <text x={diagram.breadboard.x + 28} y={diagram.holes.find(hole => hole.id === 'bb1:B-:1')?.y! + 4}>−</text>
-          <text className="diagram-trench-label" x={diagram.breadboard.x + diagram.breadboard.width / 2} y={diagram.breadboard.y + 276} textAnchor="middle">RÃNH GIỮA · HAI NỬA KHÔNG NỐI</text>
+          {marks.map(mark=><text key={mark.id} x={diagram.breadboard.x+10} y={mark.y+4}>{mark.id.includes('+')?'+':'−'}</text>)}
+          <text className="diagram-trench-label" x={diagram.breadboard.x + diagram.breadboard.width / 2} y={profile ? diagram.breadboard.y + diagram.breadboard.height / 2 + 4 : diagram.breadboard.y + 276} textAnchor="middle">RÃNH GIỮA · HAI NỬA KHÔNG NỐI</text>
         </g>}
         {editableRoute && routeHandle && <circle className="diagram-wire-handle" cx={routeHandle.x} cy={routeHandle.y} r="10" tabIndex={0} role="button"
           aria-label={`Chỉnh đường đi dây ${editableRoute.id}. Dùng phím mũi tên để di chuyển, Enter để đặt lại.`}

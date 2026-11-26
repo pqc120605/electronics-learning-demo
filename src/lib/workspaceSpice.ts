@@ -343,7 +343,7 @@ const observationKey = (id: string) => `machmo-workspace-spice-result-${id}`
 const HANDOFF_TTL_MS = 30 * 60 * 1000
 const MAX_OBSERVATION_BYTES = 1024 * 1024
 const MAX_OBSERVATION_SERIES = 64
-const safeReturnTo = (path: string) => /^\/(?:build|app\/lab)(?:\?[^#]{0,200})?$/.test(path) && !path.startsWith('//')
+const safeReturnTo = (path: string) => /^\/(?:build|app\/lab)(?:\/freestyle)?(?:\?[^#]{0,200})?$/.test(path) && !path.startsWith('//')
 
 /** Store only a validated netlist in tab-scoped storage; URL contains an opaque short-lived id. */
 export function storeWorkspaceSpiceHandoff(

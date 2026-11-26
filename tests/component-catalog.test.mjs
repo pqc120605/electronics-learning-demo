@@ -295,7 +295,12 @@ test('workspace parts map to a catalog record of the same physical identity', ()
   assert.match(nameOf('rgb-led'), /RGB 4 chân/)
   assert.match(nameOf('battery'), /Nguồn DC/)
   assert.match(nameOf('slide-switch'), /Công tắc gạt/)
-  for (const part of registry.componentRegistry) assert.ok(part.catalogId, `${part.id} has a catalog record`)
+  for (const part of registry.componentRegistry) {
+    if (part.virtualDc || part.virtualSignal) {
+      assert.equal(part.catalogId, undefined, part.id)
+      assert.ok(!components.components.some(item => item.id === part.id), part.id)
+    } else assert.ok(part.catalogId, `${part.id} has a catalog record`)
+  }
 })
 
 test('catalog records do not borrow a model from a different component', () => {

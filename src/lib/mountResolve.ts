@@ -1,11 +1,13 @@
 import type { ComponentDefinition } from '../data/componentRegistry'
 import { componentRegistry } from '../data/componentRegistry'
-import { getComponentMesh, type ComponentLeg } from '../data/componentModels'
+import { getBreadboardGrid, getComponentMesh, type ComponentLeg } from '../data/componentModels'
+import { getCatalogPart } from '../data/catalogParts'
 import { getKitPartProfile } from '../data/kitPartProfiles'
 import { getInputAlias } from '../data/builderLessons'
 import { getSimulationTarget } from '../data/simulationTargets'
 import { esp32DevkitModel } from '../data/esp32DevkitModel'
-import { BREADBOARD_ELECTRICAL_SPEC, holeNet, holeToMm, parseHole, type BreadboardHole, type GridHole } from './breadboardGrid'
+import { LEGACY_BREADBOARD, type BreadboardSpec } from '../data/catalogR2cBoards'
+import { holeNet, holeToMm, parseHole, type BreadboardHole, type GridHole } from './breadboardGrid'
 import type { CircuitDocV2, CircuitPartV2, CircuitMountV2 } from './circuitDocV2'
 
 export type GeometrySource = 'cad' | 'parametric' | 'unknown'
@@ -67,6 +69,15 @@ export function resolvePartGeometry(type: string, lessonId = 'blink', registry: 
   const model = getComponentMesh(type)
   const override = registry.find(item => item.id === type)
   if (!model) {
+    if (override?.virtualDc) {
+      const pins = override.pins
+      return { legsMm: [], pinsMm: { [pins[0].id]: [-4, 0, 0], [pins[1].id]: [4, 0, 0] },
+        geometrySource: 'parametric', mount: 'bench' }
+    }
+    if (override?.virtualSignal) {
+      const pinsMm = Object.fromEntries(override.pins.map(({id},i)=>[id, [i < 6 ? -9 : 9, 0, (i%6-2.5)*3]]))
+      return { legsMm: [], pinsMm, geometrySource: 'parametric', mount: 'bench' }
+    }
     const profile = getKitPartProfile(type)
     if (!override || !profile) return null
     // Logical terminals for the bench's 2D illustration; there is no registered 3D mesh.
@@ -82,19 +93,26 @@ export function resolvePartGeometry(type: string, lessonId = 'blink', registry: 
   }
 }
 
-export function footprintHoles(part: CircuitPartV2, registry: readonly CircuitRegistryEntry[] = componentRegistry): GridHole[] | null {
+/** R2C measures DIP orientation along the board length. The KiCad mesh runs along its local Z axis. */
+export function breadboardPartRotation(type: string, rotation: number, spec?: BreadboardSpec): number {
+  if (spec && spec !== LEGACY_BREADBOARD && getCatalogPart(type)?.packageKey.startsWith('dip')) return (rotation+90)%360
+  return rotation
+}
+
+export function footprintHoles(part: CircuitPartV2, registry: readonly CircuitRegistryEntry[] = componentRegistry,
+  spec: BreadboardSpec = LEGACY_BREADBOARD): GridHole[] | null {
   if (!part || !part.mount || part.mount.kind !== 'breadboard') return []
   const geometry = resolvePartGeometry(part.type, 'blink', registry)
-  const grid = getComponentMesh('breadboard')?.gridMm
+  const grid = getBreadboardGrid(spec)
   const legs = geometry?.legsMm
   const mount = part.mount
   // A geometric projection alone must not make a bench-only model appear electrically seated.
   if (geometry?.mount !== 'breadboard') return null
   if (!grid || !legs?.length || !Number.isInteger(mount.col) || !Number.isInteger(mount.row)
-    || mount.col < 1 || mount.col > BREADBOARD_ELECTRICAL_SPEC.columns
+    || mount.col < 1 || mount.col > grid.columns
     || mount.row < 0 || mount.row >= grid.rows.length
     || !ROTATIONS.includes(mount.rotation)) return null
-  const radians = mount.rotation * Math.PI / 180
+  const radians = breadboardPartRotation(part.type,mount.rotation,spec) * Math.PI / 180
   const rotate = (x: number, z: number): [number, number] => [x * Math.cos(radians) + z * Math.sin(radians), -x * Math.sin(radians) + z * Math.cos(radians)]
   const offsets = legs.map(leg => rotate(leg.x, leg.z))
   const [firstX, firstZ] = offsets[0]
@@ -113,18 +131,27 @@ export function footprintHoles(part: CircuitPartV2, registry: readonly CircuitRe
   const shiftX = snapped.reduce((sum, leg) => sum + leg.dx, 0) / snapped.length
   const shiftZ = snapped.reduce((sum, leg) => sum + leg.dz, 0) / snapped.length
   if (!snapped.every(leg => Math.hypot(leg.dx - shiftX, leg.dz - shiftZ) <= MAX_SNAP_ERROR_MM)) return null
-  return snapped.map(({ column, row }) => ({ kind: 'grid', board: 'bb1', column, row: ROWS[row] }))
+  const holes: GridHole[] = snapped.map(({ column, row }) => ({ kind: 'grid', board: 'bb1', column, row: ROWS[row] }))
+  const verified = getCatalogPart(part.type)
+  if (verified) {
+    const padsAcrossGap = holes.every(hole => hole.row === 'e' || hole.row === 'f') &&
+      holes.filter(hole => hole.row === 'e').length === holes.length / 2
+    if (verified.packageKey.startsWith('dip') && !padsAcrossGap) return null
+    if (new Set(holes.map(hole => holeNet(hole, {spec}))).size !== holes.length) return null
+  }
+  return holes
 }
 
 function holeId(hole: BreadboardHole): string {
   return hole.kind === 'grid' ? `bb1:${hole.column}${hole.row}` : `bb1:${hole.rail}:${hole.hole}`
 }
 
-export function occupancy(doc: Pick<CircuitDocV2, 'parts' | 'wires'>, lessonId = 'blink', registry: readonly CircuitRegistryEntry[] = componentRegistry): Record<string, { legs: Array<{ partId: string; pinId: string }>; wireEndpoints: Array<{ wireId: string; end: 'from' | 'to' }> }> {
+export function occupancy(doc: Pick<CircuitDocV2, 'parts' | 'wires'> & Partial<Pick<CircuitDocV2, 'breadboards'>>, lessonId = 'blink', registry: readonly CircuitRegistryEntry[] = componentRegistry): Record<string, { legs: Array<{ partId: string; pinId: string }>; wireEndpoints: Array<{ wireId: string; end: 'from' | 'to' }> }> {
   const result: Record<string, { legs: Array<{ partId: string; pinId: string }>; wireEndpoints: Array<{ wireId: string; end: 'from' | 'to' }> }> = {}
   const entry = (key: string) => result[key] ??= { legs: [], wireEndpoints: [] }
+  const spec = doc.breadboards?.[0]?.spec
   for (const part of Array.isArray(doc?.parts) ? doc.parts : []) {
-    const holes = footprintHoles(part, registry)
+    const holes = footprintHoles(part, registry, spec)
     const legs = resolvePartGeometry(part.type, lessonId, registry)?.legsMm ?? []
     if (!holes) continue
     holes.forEach((hole, index) => entry(holeId(hole)).legs.push({ partId: part.id, pinId: legs[index]?.pinId ?? '' }))
@@ -133,7 +160,7 @@ export function occupancy(doc: Pick<CircuitDocV2, 'parts' | 'wires'>, lessonId =
     for (const end of ['from', 'to'] as const) {
       const endpoint = wire?.[end]
       if (endpoint?.kind !== 'hole') continue
-      const hole = parseHole(endpoint.holeId)
+      const hole = parseHole(endpoint.holeId, spec)
       if (hole) entry(holeId(hole)).wireEndpoints.push({ wireId: wire.id, end })
     }
   }
@@ -150,14 +177,15 @@ export function canMount(part: CircuitPartV2, mount: CircuitMountV2, doc: Circui
     if (geometry.mount !== 'breadboard') return mountFailure('G2', `Linh kiện “${part.type}” không được manifest cho phép cắm breadboard.`)
     if (!geometry.legsMm.length) return mountFailure('G2', `Linh kiện “${part.type}” thiếu legsMm để cắm vào lỗ.`)
     if (geometry.legsMm.some(leg => !definition.pins.some(pin => pin.id === leg.pinId))) return mountFailure('G2', `Linh kiện “${part.type}” có legsMm trỏ tới pin không tồn tại trong registry.`)
-    if (!doc.breadboards?.some(board => board.id === mount.board)) return mountFailure('G2', `Không tìm thấy breadboard “${mount.board}” trong tài liệu.`)
-    const candidate = footprintHoles({ ...part, mount }, registry)
+    const breadboard = doc.breadboards?.find(board => board.id === mount.board)
+    if (!breadboard) return mountFailure('G2', `Không tìm thấy breadboard “${mount.board}” trong tài liệu.`)
+    const candidate = footprintHoles({ ...part, mount }, registry, breadboard.spec)
     if (!candidate?.length) return mountFailure('G4', 'Chân linh kiện rơi ngoài lưới lỗ breadboard.')
     const keys = candidate.map(holeId)
     if (new Set(keys).size !== keys.length) return mountFailure('G4', 'Hai chân của cùng linh kiện chiếm cùng một lỗ.')
     const strips = new Map<string, Set<string>>()
     for (const [index, hole] of candidate.entries()) {
-      const net = holeNet(hole)
+      const net = holeNet(hole, breadboard)
       const pinId = geometry.legsMm[index]?.pinId
       if (!net || !pinId) return mountFailure('G2', 'Không thể xác định dải nối hoặc chân linh kiện.')
       const pins = strips.get(net) ?? new Set<string>()

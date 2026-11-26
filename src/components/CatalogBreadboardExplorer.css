@@ -1,0 +1,22 @@
+.r2c-map-scroll { overflow-x: auto; margin-block: 10px; background: var(--mm-signal-soft); border-radius: 8px; padding: 8px; }
+.r2c-map { display: block; width: 100%; overflow: visible; --board-shell: #fcf7e9; --socket-dark: #3a3933; }
+.r2c-map--239 { min-width: 680px; }
+.r2c-map--65 { min-width: 186px; max-width: 460px; }
+.r2c-map .r2c-body { fill: var(--board-shell); stroke: #927f62; stroke-width: .22; }
+.r2c-map .r2c-gap { fill: #dfd7c5; }
+.r2c-map rect:not(.r2c-body, .r2c-gap) { fill: var(--socket-dark); }
+.r2c-map rect.is-same-net:not(.r2c-body) { fill: #137a73; }
+.r2c-map rect.is-selected:not(.r2c-body) { fill: #ad2c21; stroke: #ad2c21; stroke-width: .4; }
+.r2c-map circle { fill: transparent; cursor: pointer; }
+.r2c-map circle:focus-visible { outline: none; stroke: #ad2c21; stroke-width: .27; }
+.r2c-map text { font-size: 2.15px; fill: var(--ink); }
+.r2c-map line { stroke-width: .32; }
+.r2c-rail-plus { stroke: #b52d26; }
+.r2c-rail-minus { stroke: #38414a; }
+.r2c-explorer select { margin-inline-start: 8px; }
+.r2c-hole-info, .r2c-jumper { display: block; margin-block: 8px; }
+.r2c-continuity { margin-block: 10px; }
+.r2c-continuity form { display: flex; align-items: end; flex-wrap: wrap; gap: 8px; padding-block: 8px; }
+.r2c-continuity label { display: grid; gap: 4px; }
+.r2c-continuity input { width: 8rem; max-width: 100%; }
+.r2c-continuity output { display: block; margin-block: 4px; }

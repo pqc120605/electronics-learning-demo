@@ -13,6 +13,7 @@ const AppHomePage = lazy(() => import('./pages/AppHomePage').then(module => ({ d
 const ClassroomKitPage = lazy(() => import('./pages/ClassroomKitPage').then(module => ({ default: module.ClassroomKitPage })))
 const ExplorePage = lazy(() => import('./pages/ExplorePage').then(module => ({ default: module.ExplorePage })))
 const BeginnerLearningPage = lazy(() => import('./pages/BeginnerLearningPage').then(module => ({ default: module.BeginnerLearningPage })))
+const DigitalLabPage = lazy(() => import('./pages/DigitalLabPage').then(module => ({ default: module.DigitalLabPage })))
 const LocalCapstonePage = lazy(() => import('./pages/LocalCapstonePage').then(module => ({ default: module.LocalCapstonePage })))
 const LessonPreflightPage = lazy(() => import('./pages/LessonPreflightPage').then(module => ({ default: module.LessonPreflightPage })))
 const LessonPage = lazy(() => import('./pages/LessonPage').then(module => ({ default: module.LessonPage })))
@@ -161,6 +162,7 @@ export default function App() {
       <Route path={R.appLesson} element={shell(<LessonPage />)} />
       <Route path="/app/robot-simulation" element={shell(<RobotSimulationLessonPage />)} />
       <Route path={R.appBasics} element={shell(<BeginnerLearningPage />)} />
+      <Route path={R.appDigitalLab} element={shell(<DigitalLabPage />)} />
       <Route path={R.appCapstone} element={shell(<LocalCapstonePage />)} />
       <Route path="/app/learn/:lessonId" element={shell(<LessonPreflightPage />)} />
       <Route path={R.appBoards} element={shell(<BoardCatalogPage />)} />
@@ -199,6 +201,7 @@ export default function App() {
       {selfHostedOAuthEnabled && <Route path="/s/:code" element={shell(<SharedProjectPage />)} />}
       <Route path={R.publicLesson} element={shell(<LessonPage />)} />
       <Route path={R.publicBasics} element={shell(<BeginnerLearningPage />)} />
+      <Route path={R.publicDigitalLab} element={shell(<DigitalLabPage />)} />
       <Route path={R.publicCapstone} element={shell(<LocalCapstonePage />)} />
       <Route path="/learn/:lessonId" element={shell(<LessonPreflightPage />)} />
       <Route path="/admin" element={shell(selfHostedAnalyticsEnabled ? <SelfHostedAdminPage /> : <article className="route-placeholder">

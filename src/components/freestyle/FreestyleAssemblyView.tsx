@@ -7,7 +7,10 @@ import type { PinMap } from '../../lib/freestyle/freestyleCircuit'
 import type { WireSignalLabel } from '../builder/BreadboardDiagram'
 import { getKitPartProfile } from '../../data/kitPartProfiles'
 import { getComponentMesh } from '../../data/componentModels'
-import type { Vec3 } from '../../lib/assemblyLayout'
+import { assemblyHolePoint, type Vec3 } from '../../lib/assemblyLayout'
+import { getR2cBreadboard } from '../../data/catalogR2cBoards'
+import { formatHole, holeToMm, snapNearest } from '../../lib/breadboardGrid'
+import { createNetIndexV2 } from '../../lib/circuitNetsV2'
 
 type Props = {
  doc:CircuitDocV2;boardId:string;pinMap:PinMap;selectedPartId:string|null;selectedEndpointKey:string
@@ -26,10 +29,12 @@ export function FreestyleAssemblyView({doc,boardId,pinMap,selectedPartId,selecte
  const presentation=useMemo(()=>boardId?freestylePresentation(boardId,pinMap):undefined,[boardId,pinMap])
  const boardPart=doc.parts.find(part=>part.type==='board')
  const only2D=doc.parts.filter(part=>getKitPartProfile(part.type)&&!getComponentMesh(part.type))
+ const profile=getR2cBreadboard(plan.grid?.spec)
+ const inspectedNet = useMemo(() => profile && selectedEndpointKey.startsWith('bb1:') ? createNetIndexV2(doc).netOf(selectedEndpointKey) : undefined,[profile,selectedEndpointKey,doc])
  const planRef=useRef(plan);planRef.current=plan
  const refreshMarker=useRef<()=>void>(()=>{})
  refreshMarker.current=()=>{
-   const point=plan.pinPoints[selectedEndpointKey]
+   const point=plan.pinPoints[selectedEndpointKey] ?? assemblyHolePoint(selectedEndpointKey,plan.grid)
    setMarker(point && scene.current ? scene.current.project(pointMetres(point)) : undefined)
  }
  useEffect(()=>{
@@ -66,6 +71,19 @@ export function FreestyleAssemblyView({doc,boardId,pinMap,selectedPartId,selecte
      }
    }
    const pick=renderer.pick(x,y)
+   const grid = plan.grid
+   if(profile && grid && !failed && (!pick || pick.partId==='bb1')) {
+     const hit=renderer.planePoint(x,y,grid.topY)
+     if(hit) {
+       const local: Vec3=[hit[0]-grid.originX,grid.topY,hit[1]-grid.originZ]
+       const hole=snapNearest(local,grid)
+       const point=hole && holeToMm(hole,grid)
+       const id=hole && formatHole(hole,grid.spec)
+       if(id && point && Math.hypot(point[0]-local[0],point[2]-local[2])<=1.1) {
+         onSelectPart('bb1');onInspectEndpoint(id);return
+       }
+     }
+   }
    if(pick){onSelectPart(pick.partId);onInspectEndpoint('')}
  }
  const selectedPinLabel=selectedEndpointKey.startsWith(`${boardPart?.id}:`)
@@ -77,11 +95,12 @@ export function FreestyleAssemblyView({doc,boardId,pinMap,selectedPartId,selecte
      <canvas ref={canvas} aria-label="Mô hình mạch 3D, kéo để xoay; dùng các nút bên dưới để điều khiển bằng bàn phím" onPointerDown={e=>{drag.current={x:e.clientX,y:e.clientY,moved:false};e.currentTarget.setPointerCapture(e.pointerId)}} onPointerMove={e=>{const p=drag.current;if(!p)return;const dx=e.clientX-p.x,dy=e.clientY-p.y;p.moved ||= Math.abs(dx)+Math.abs(dy)>3;scene.current?.rotate(dx*.006,dy*.006);p.x=e.clientX;p.y=e.clientY}} onPointerCancel={()=>{drag.current=null}} onPointerUp={e=>{if(drag.current&&!drag.current.moved)inspectAt(e.clientX,e.clientY);drag.current=null}} />
      {marker?.visible && !error && <span className="freestyle-assembly-pin" data-pin-key={selectedEndpointKey} style={{left:marker.x,top:marker.y}}>{selectedPinLabel}</span>}
    </div>
+   {inspectedNet && <p role="status">{selectedEndpointKey.slice(4)} · {inspectedNet.holes.size} lỗ trên cùng net.</p>}
    {error&&<p role="alert">{error}</p>}{failed&&<p role="status">Model lỗi không được thay bằng board khác. Bạn vẫn nối dây trong view 2D.</p>}
    {only2D.length>0&&<p role="note">{only2D.map(part=>part.id).join(', ')} chỉ có minh họa 2D và sơ đồ nguyên lý.</p>}
    <div className="freestyle-view-controls" aria-label="Điều khiển cảnh 3D">
     <button onClick={()=>scene.current?.rotate(-Math.PI/9,0)} aria-label="Xoay trái 3D">↶</button><button onClick={()=>scene.current?.rotate(Math.PI/9,0)} aria-label="Xoay phải 3D">↷</button><button onClick={()=>scene.current?.zoom(-1)} aria-label="Thu nhỏ 3D">−</button><button onClick={()=>scene.current?.zoom(1)} aria-label="Phóng to 3D">+</button><button onClick={()=>scene.current?.setPreset('top')}>Nhìn từ trên</button><button onClick={()=>scene.current?.resetView()}>Vừa mạch</button>
    </div>
-   <details><summary>Nguồn hình học và {plan.diagnostics?.length??0} dây chưa có tọa độ</summary><p>{boardId&&freestylePresentation(boardId,pinMap).revision}. Chân không có anchor từ đúng nguồn sẽ không có dây 3D.</p><p>LED và chân linh kiện theo footprint của model tham chiếu. Sáng/tắt là trạng thái trace giáo dục, không phải ánh sáng hay điện áp đo thật. Vị trí lỗ rail là giả định của breadboard 400 lỗ, chưa được đối chiếu từng lỗ trên mesh.</p>{plan.diagnostics?.map(d=><p key={d.wireId}>{d.message}</p>)}</details>
+   <details><summary>Nguồn hình học và {plan.diagnostics?.length??0} dây chưa có tọa độ</summary><p>{boardId&&freestylePresentation(boardId,pinMap).revision}. Chân không có anchor từ đúng nguồn sẽ không có dây 3D.</p><p>LED và chân linh kiện theo footprint của model tham chiếu. Sáng/tắt là trạng thái trace giáo dục, không phải ánh sáng hay điện áp đo thật. {profile ? 'Adafruit '+profile.pid+' · hình học tham chiếu từ bản vẽ.' : 'Vị trí lỗ rail là giả định của breadboard 400 lỗ.'}</p>{plan.diagnostics?.map(d=><p key={d.wireId}>{d.message}</p>)}</details>
  </section>
 }

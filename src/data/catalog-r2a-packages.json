@@ -1,0 +1,214 @@
+{
+  "dip20": {
+    "file": "/models/components/catalog-r2a/dip20.glb",
+    "bytes": 174520,
+    "sha256": "1338e35871ad83be976974f825b0e4c0fd4a95d065fafc88f1718b3a92cc96b6",
+    "sizeMm": [
+      7.874,
+      6.98,
+      26.162
+    ],
+    "boundsMm": {
+      "min": [
+        -0.127,
+        -3.3,
+        -1.651
+      ],
+      "max": [
+        7.747,
+        3.68,
+        24.511
+      ]
+    },
+    "triangles": 2574,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_DIP.3dshapes/DIP-20_W7.62mm.step",
+    "sourceSha256": "ca359c9b9e0ce94efcb6c96866513f659eef6517d629ace3c4a0a779f6fd57bb",
+    "footprint": "Package_DIP.pretty/DIP-20_W7.62mm.kicad_mod",
+    "footprintSha256": "cad70146d4309f902333a00f6a27a700edf6e27f0225fc25a716c05e3ba0a3f5",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 0,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 0,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 0,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 0,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 9,
+        "shape": "circle",
+        "x": 0,
+        "z": 20.32,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 10,
+        "shape": "circle",
+        "x": 0,
+        "z": 22.86,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 11,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 22.86,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 12,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 20.32,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 13,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 14,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 15,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 16,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 17,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 18,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 19,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 20,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ],
+    "maxOffsetMm": 0
+  }
+}

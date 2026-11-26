@@ -1,6 +1,7 @@
 import { componentRegistry } from '../data/componentRegistry'
 import { canMount, occupancy, resolvePartGeometry, type CircuitRegistryEntry, type GeometrySource } from './mountResolve'
-import { formatHole, parseHole } from './breadboardGrid'
+import { LEGACY_BREADBOARD, isBreadboardSpec, type BreadboardConfig, type BreadboardSpec } from '../data/catalogR2cBoards'
+import { breadboardCounts, formatHole, parseHole } from './breadboardGrid'
 
 export type CircuitMountV2 =
   | { kind: 'breadboard'; board: 'bb1'; col: number; row: number; rotation: 0 | 90 | 180 | 270 }
@@ -9,7 +10,7 @@ export type CircuitMountV2 =
 export type CircuitPartV2 = {
   id: string
   type: string
-  value?: { ohm?: number; farad?: number; label?: string }
+  value?: { ohm?: number; farad?: number; henry?: number; amp?: number; label?: string }
   mount: CircuitMountV2
   intentionalShort?: boolean
   geometrySource?: GeometrySource
@@ -22,7 +23,7 @@ export type CircuitEndpointV2 =
 export type CircuitDocV2 = {
   schema: 2
   lessonId: string
-  breadboards: Array<{ id: 'bb1'; spec: '400-30'; railSplit: boolean }>
+  breadboards: BreadboardConfig[]
   parts: CircuitPartV2[]
   wires: Array<{ id: string; from: CircuitEndpointV2; to: CircuitEndpointV2; role?: 'power' | 'ground' | 'signal' }>
   openPins?: Array<{ partId: string; pinId: string; reason: string }>
@@ -36,11 +37,11 @@ const isRecord = (value: unknown): value is Record<string, unknown> => Boolean(v
 const makeIssue = (code: CircuitDocGate, severity: CircuitDocDiagnostic['severity'], message: string, path?: string): CircuitDocDiagnostic => ({ code, severity, message, ...(path ? { path } : {}) })
 const validId = (value: unknown): value is string => typeof value === 'string' && value.trim().length > 0
 
-function validMount(mount: unknown): mount is CircuitMountV2 {
+function validMount(mount: unknown, spec: BreadboardSpec): mount is CircuitMountV2 {
   if (!isRecord(mount)) return false
   if (mount.kind === 'bench') return ['left', 'right', 'bottom'].includes(String(mount.lane)) && Number.isInteger(mount.order) && Number(mount.order) >= 0
   if (mount.kind === 'breadboard') return mount.board === 'bb1'
-    && Number.isInteger(mount.col) && Number(mount.col) >= 1 && Number(mount.col) <= 30
+    && Number.isInteger(mount.col) && Number(mount.col) >= 1 && Number(mount.col) <= breadboardCounts(spec).columns
     && Number.isInteger(mount.row) && Number(mount.row) >= 0 && Number(mount.row) < 10
     && [0, 90, 180, 270].includes(Number(mount.rotation))
   return false
@@ -60,8 +61,13 @@ export function validateCircuitDoc(value: unknown, registry: readonly CircuitReg
   if (!validId(doc.lessonId)) issues.push(makeIssue('G1', 'error', 'lessonId không được để trống.', 'lessonId'))
   if (!Array.isArray(doc.breadboards) || doc.breadboards.length > 1) issues.push(makeIssue('G1', 'error', 'breadboards phải là mảng có tối đa một bo ở slice này.', 'breadboards'))
   else for (const [index, board] of doc.breadboards.entries()) {
-    if (!isRecord(board) || board.id !== 'bb1' || board.spec !== '400-30' || typeof board.railSplit !== 'boolean') issues.push(makeIssue('G1', 'error', 'Mỗi breadboard phải có id bb1, spec 400-30 và railSplit boolean.', `breadboards[${index}]`))
+    if (!isRecord(board) || board.id !== 'bb1' || !isBreadboardSpec(board.spec) || typeof board.railSplit !== 'boolean' ||
+      (board.spec !== LEGACY_BREADBOARD && board.railSplit)) {
+      issues.push(makeIssue('G1', 'error', 'Breadboard cần id bb1, biến thể hỗ trợ và cấu hình rail đúng biến thể.', `breadboards[${index}]`))
+    }
   }
+  const activeBoard = Array.isArray(doc.breadboards) ? doc.breadboards[0] : undefined
+  const spec = isBreadboardSpec(activeBoard?.spec) ? activeBoard.spec : LEGACY_BREADBOARD
   if (!Array.isArray(doc.parts)) issues.push(makeIssue('G1', 'error', 'parts phải là mảng.', 'parts'))
   if (!Array.isArray(doc.wires)) issues.push(makeIssue('G1', 'error', 'wires phải là mảng.', 'wires'))
   if (doc.openPins !== undefined && !Array.isArray(doc.openPins)) issues.push(makeIssue('G1', 'error', 'openPins nếu có phải là mảng.', 'openPins'))
@@ -80,7 +86,7 @@ export function validateCircuitDoc(value: unknown, registry: readonly CircuitReg
   }
   for (const [index, part] of doc.parts.entries()) {
     const path = `parts[${index}]`
-    if (!isRecord(part) || !validId(part.id) || !validId(part.type) || !validMount(part.mount)) {
+    if (!isRecord(part) || !validId(part.id) || !validId(part.type) || !validMount(part.mount, spec)) {
       issues.push(makeIssue('G1', 'error', 'Part cần id, type và mount hợp lệ theo schema v2.', path))
       continue
     }
@@ -135,8 +141,8 @@ export function validateCircuitDoc(value: unknown, registry: readonly CircuitReg
         if (!part || !definition || !definition.pins.some(pin => pin.id === endpoint.pinId)) issues.push(makeIssue('G3', 'error', `Endpoint pin ${endpoint.partId}:${endpoint.pinId} không tồn tại trong part/registry.`, `${path}.${end}`))
         else if (!resolvePartGeometry(part.type, doc.lessonId, registry)?.pinsMm[endpoint.pinId]) issues.push(makeIssue('G2', 'error', `G2a: pin endpoint ${endpoint.partId}:${endpoint.pinId} thiếu tọa độ pinsMm.`, `${path}.${end}`))
       } else {
-        const hole = parseHole(endpoint.holeId)
-        if (!hole || !doc.breadboards.some(board => board.id === hole.board)) issues.push(makeIssue('G4', 'error', `Lỗ “${endpoint.holeId}” không hợp lệ hoặc không có breadboard tương ứng.`, `${path}.${end}`))
+        const hole = parseHole(endpoint.holeId, spec)
+        if (!hole || activeBoard?.id !== hole.board) issues.push(makeIssue('G4', 'error', `Lỗ “${endpoint.holeId}” không hợp lệ hoặc không có breadboard tương ứng.`, `${path}.${end}`))
       }
     }
   }
@@ -152,8 +158,8 @@ export function validateCircuitDoc(value: unknown, registry: readonly CircuitReg
   for (const [index, wire] of doc.wires.entries()) for (const end of ['from', 'to'] as const) {
     const endpoint = wire?.[end]
     if (endpoint?.kind !== 'hole') continue
-    const parsed = parseHole(endpoint.holeId)
-    const canonical = parsed && formatHole(parsed)
+    const parsed = parseHole(endpoint.holeId, spec)
+    const canonical = parsed && formatHole(parsed, spec)
     if (!canonical) continue
     if (wireHoleEnds.has(canonical)) issues.push(makeIssue('G4', 'error', `Lỗ “${canonical}” đã được dùng làm đầu dây bởi ${wireHoleEnds.get(canonical)}.`, `wires[${index}].${end}`))
     else wireHoleEnds.set(canonical, `${wire.id}.${end}`)

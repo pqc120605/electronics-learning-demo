@@ -1,0 +1,28 @@
+Mạch Mở — ảnh thẻ kho linh kiện
+
+Ảnh WebP được render, cắt viền và nén từ mô hình GLB đã có trong Mạch Mở.
+Ảnh minh họa hình dáng. Dùng tài liệu hãng để xác định mã, kích thước và chân.
+
+Mô hình linh kiện: /models/components/<id>.glb
+Nguồn KiCad, tác giả và giấy phép theo từng mô hình: /models/components/NOTICE.txt
+KiCad Packages3D: https://gitlab.com/kicad/libraries/kicad-packages3D
+CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
+Bản WebP dẫn xuất từ mô hình KiCad dùng giấy phép CC BY-SA 4.0.
+
+Tên ảnh board → tên GLB:
+seeed-xiao-esp32-s3 → seeed-xiao-esp32-s3
+esp32-devkit → esp32-devkit-v1-30pin
+adafruit-qtpy-esp32-c3-5405 → adafruit-qtpy-esp32-c3-5405
+adafruit-feather-esp32-s3-tft-5483 → adafruit-feather-esp32-s3-tft-5483
+adafruit-feather-esp32-s3-5323 → adafruit-feather-esp32-s3-5323
+arduino-uno → arduino-uno-r3
+arduino-nano → arduino-nano-classic
+arduino-mega → arduino-mega-2560-r3
+stm32-f401 → stm32-nucleo-f401re
+stm32-blue-pill → stm32-blue-pill-f103
+rp2040-pico → raspberry-pi-pico
+rp2350-pico-2-h → raspberry-pi-pico-2-h
+esp32-s3 → esp32-s3-devkitc-1-v1.1
+Nguồn và điều khoản theo từng model nằm trong hồ sơ board và các tệp NOTICE của thư mục /models.
+
+Ảnh r1-dip14, r1-dip16, r1-do35 và r1-to92 dựng từ GLB của KiCad 10.0.7. Nguồn: /models/components/catalog-r1/NOTICE.txt.

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "breadboard-adafruit-239",
+    "file": "/models/components/catalog-r2c/adafruit-239.glb",
+    "bytes": 566748,
+    "sha256": "575C0F2243D780E854AC81DD8D424A2303805D438CB0315B190A449EAD987F2F",
+    "sizeMm": [
+      165.2,
+      8,
+      54.6
+    ],
+    "boundsMm": {
+      "min": [
+        -82.6,
+        0,
+        -27.3
+      ],
+      "max": [
+        82.6,
+        8,
+        27.3
+      ]
+    },
+    "triangles": 10036,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "sourceFile": "adafruit-239-c49.pdf",
+    "sourceSha256": "77BD40293E7B0555B4612FC38FC4C34D94D914022BF978770C671B7BC2770E10",
+    "footprint": "Adafruit_239_R2C.kicad_mod",
+    "footprintSha256": "71FB8D24D60A113FB52FDFB01802B601F81C7EF8FC1F9AC44166C2FF66FE35F4"
+  },
+  {
+    "id": "breadboard-adafruit-65",
+    "file": "/models/components/catalog-r2c/adafruit-65.glb",
+    "bytes": 119240,
+    "sha256": "6B28205506D9108DC5E82F00BDC45BFFE2EDD40584543903386AFA0088A2F508",
+    "sizeMm": [
+      45.5,
+      8,
+      34.5
+    ],
+    "boundsMm": {
+      "min": [
+        -22.75,
+        0,
+        -17.25
+      ],
+      "max": [
+        22.75,
+        8,
+        17.25
+      ]
+    },
+    "triangles": 2092,
+    "kind": "parametric-mesh",
+    "mount": "bench",
+    "sourceFile": "adafruit-65-c212.pdf",
+    "sourceSha256": "E188DEBBB081A5296600A078087A1D34CF4C87A63949C3AD7A60B9F495CF0BB6",
+    "footprint": "Adafruit_65_R2C.kicad_mod",
+    "footprintSha256": "87AC8C0F1F9F5914C54D1FCED39B1B4E51F1F487A6FD81570096B5045ED80DC4"
+  }
+]

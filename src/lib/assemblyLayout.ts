@@ -1,13 +1,15 @@
 import anchorsJson from '../data/board-pin-anchors.json'
 import { getInputAlias, type BuilderLessonId } from '../data/builderLessons'
 import { getComponentDefinition } from '../data/componentRegistry'
-import { getComponentMesh, type BreadboardGrid, type ComponentLeg } from '../data/componentModels'
+import { getBreadboardGrid, getBreadboardMesh, getComponentMesh, type BreadboardGrid, type ComponentLeg } from '../data/componentModels'
+import { getR2cBreadboard, type BreadboardSpec } from '../data/catalogR2cBoards'
 import { esp32DevkitModel } from '../data/esp32DevkitModel'
 import type { SimulationTarget } from '../data/simulationTargets'
 import type { CircuitDocV2, CircuitEndpointV2 } from './circuitDocV2'
 import { holeToMm, parseHole } from './breadboardGrid'
 import type { AssemblyMount, CircuitConnection, CircuitPart } from '../types/circuitTopology'
 import { createNetIndex } from './circuitNets'
+import { breadboardPartRotation } from './mountResolve'
 
 export type Vec3 = [number, number, number]
 export type Bounds = { min: Vec3; max: Vec3 }
@@ -38,7 +40,7 @@ export type AssemblyPlan = {
   grid?: PlacedGrid
   notes: { boardPins: 'cad-pad' | 'illustrative'; partPinsIllustrative: boolean; unmounted: string[] }
 }
-export type AssemblyOptions = { boardId: string; target: SimulationTarget; lessonId: BuilderLessonId; failed?: ReadonlySet<string> }
+export type AssemblyOptions = { boardId: string; target: SimulationTarget; lessonId: BuilderLessonId; failed?: ReadonlySet<string>; breadboardSpec?: BreadboardSpec }
 export type CalloutCorner = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
 export type Callout = { id: string; x: number; y: number; corner: CalloutCorner }
 type Part = CircuitPart
@@ -204,25 +206,25 @@ function mountedPlacement(base: Omit<AssemblyPlacement, 'mount' | 'positionMm' |
 }
 
 /** Project files are user input, so a mount is only trusted after this check. */
-function isValidMount(mount: AssemblyMount) {
+function isValidMount(mount: AssemblyMount, columns = 30) {
   if (mount.kind === 'bench') return Number.isFinite(mount.x) && Number.isFinite(mount.z) && Math.abs(mount.x) <= BENCH_MM.width / 2 && Math.abs(mount.z) <= BENCH_MM.depth / 2
-  return mount.kind === 'breadboard' && Number.isInteger(mount.column) && Number.isInteger(mount.row) && mount.column >= 0 && mount.column < 30 && mount.row >= 0 && mount.row < 10 && Number.isFinite(mount.rotation)
+  return mount.kind === 'breadboard' && Number.isInteger(mount.column) && Number.isInteger(mount.row) && mount.column >= 0 && mount.column < columns && mount.row >= 0 && mount.row < 10 && Number.isFinite(mount.rotation)
 }
 
 const rotationOrder = (preferred: number) => [...new Set([preferred, preferred + 180, preferred + 90, preferred + 270].map(normalizeDeg))]
 
 /** Lays every part out from wires and pin data. 2D canvas positions are not used in 3D. */
 export function getAssemblyPlan(rawParts: Part[], wires: CircuitConnection[], options: AssemblyOptions, preserveDeclaredMounts = false): AssemblyPlan {
-  const { boardId, failed } = options
-  const parts = rawParts.map((part) => part.assembly && !isValidMount(part.assembly) ? { ...part, assembly: undefined } : part)
+  const { boardId, failed, breadboardSpec } = options
+  const gridData = getBreadboardGrid(breadboardSpec)
+  const parts = rawParts.map((part) => part.assembly && !isValidMount(part.assembly, gridData?.columns) ? { ...part, assembly: undefined } : part)
   const nets = createNetIndex(wires)
   const netOf = (key: string) => nets.netOf(key) ?? key
   const breadboardPart = parts.find((part) => part.type === 'breadboard')
   const boardPart = parts.find((part) => part.type === 'board')
-  const gridData = getComponentMesh('breadboard')?.gridMm
   const boardModel = boardPart ? modelFor('board', boardId, failed?.has(boardPart.id) ?? false) : undefined
   const boardWidth = boardModel ? boardModel.boundsMm.max[0] - boardModel.boundsMm.min[0] : 0
-  const breadboardBounds = getComponentMesh('breadboard')?.boundsMm as Bounds | undefined
+  const breadboardBounds = getBreadboardMesh(breadboardSpec)?.boundsMm as Bounds | undefined
   const breadWidth = breadboardBounds ? breadboardBounds.max[0] - breadboardBounds.min[0] : 83
   const hasBreadboard = Boolean(breadboardPart && gridData)
   const groupWidth = boardWidth + (hasBreadboard ? BOARD_GAP_MM + breadWidth : 0)
@@ -241,7 +243,7 @@ export function getAssemblyPlan(rawParts: Part[], wires: CircuitConnection[], op
   if (breadboardPart && gridData && breadboardBounds) {
     grid = { ...gridData, originX: breadCenter, originZ: 0 }
     state = { grid, holes: new Set(), strips: new Map(), boxes: [], netOf }
-    const { legs: _legs, ...model } = modelFor('breadboard', boardId, failed?.has(breadboardPart.id) ?? false)
+    const { legs: _legs, ...model } = modelFor(getR2cBreadboard(breadboardSpec)?.catalogId ?? 'breadboard', boardId, failed?.has(breadboardPart.id) ?? false)
     placements.set(breadboardPart.id, { partId: breadboardPart.id, type: 'breadboard', ...model, mount: 'bench', originMm: model.kind === 'fallback-box' ? [0, 0, 0] : baseOrigin(model.boundsMm), positionMm: [breadCenter, 0, 0], rotationDeg: 0, snapErrorMm: 0 })
   }
 
@@ -365,21 +367,33 @@ export function getAssemblyPlan(rawParts: Part[], wires: CircuitConnection[], op
   return { placements: ordered, pinPoints, wireEnds, grid, notes: { boardPins: boardHasPads && boardPinsFound && !failed?.has(boardPart?.id ?? '') ? 'cad-pad' : 'illustrative', partPinsIllustrative: illustrativeParts, unmounted } }
 }
 
+export function assemblyHolePoint(id: string, grid?: PlacedGrid): Vec3 | undefined {
+  if (!grid) return
+  const hole = parseHole(id,grid.spec)
+  const local = hole && holeToMm(hole,grid)
+  return local ? [grid.originX+local[0],local[1],grid.originZ+local[2]] : undefined
+}
+
 /** Projects CircuitDocV2 wires to the existing assembly. Exact hole IDs are kept; unresolved geometry is omitted, never guessed. */
 export function getAssemblyPlanV2(doc: CircuitDocV2, options: AssemblyOptions): AssemblyPlan {
+  const spec = doc.breadboards[0]?.spec
   const parts: CircuitPart[] = doc.parts.map((part, index) => {
+    const rotation = part.mount.kind === 'breadboard' ? breadboardPartRotation(part.type,part.mount.rotation,spec) : 0
     const mount: AssemblyMount | undefined = part.mount.kind === 'breadboard'
-      ? { kind: 'breadboard', column: part.mount.col - 1, row: part.mount.row, rotation: part.mount.rotation, partRotation: part.mount.rotation }
+      ? { kind: 'breadboard', column: part.mount.col - 1, row: part.mount.row, rotation, partRotation: rotation }
       : part.type === 'board' || part.type === 'breadboard'
         ? undefined
         : { kind: 'bench', x: part.mount.lane === 'left' ? -90 : part.mount.lane === 'right' ? 90 : 0, z: part.mount.lane === 'bottom' ? 82 + part.mount.order * 18 : part.mount.order * 18 }
     const value = part.value?.label ?? (part.value?.ohm !== undefined ? `${part.value.ohm} Ω` : part.value?.farad !== undefined ? `${part.value.farad} F` : undefined)
-    return { id: part.id, type: part.type, x: index * 10, y: 50, rotation: part.mount.kind === 'breadboard' ? part.mount.rotation : 0, ...(value ? { value } : {}), ...(mount ? { assembly: mount } : {}) }
+    return { id: part.id, type: part.type, x: index * 10, y: 50, rotation, ...(value ? { value } : {}), ...(mount ? { assembly: mount } : {}) }
   })
   const legacyWires: CircuitConnection[] = doc.wires.flatMap(wire => wire.from.kind === 'pin' && wire.to.kind === 'pin'
     ? [{ id: wire.id, from: { partId: wire.from.partId, pinId: wire.from.pinId }, to: { partId: wire.to.partId, pinId: wire.to.pinId } }]
     : [])
-  const plan = getAssemblyPlan(parts, legacyWires, options, true)
+  if (getR2cBreadboard(spec) && !parts.some(part => part.type === 'breadboard')) {
+    parts.push({ id:'bb1', type:'breadboard', x:0, y:0, rotation:0 })
+  }
+  const plan = getAssemblyPlan(parts, legacyWires, {...options,breadboardSpec:spec}, true)
   const wireEnds: AssemblyPlan['wireEnds'] = {}
   const wireEvidence: NonNullable<AssemblyPlan['wireEvidence']> = {}
   const diagnostics: NonNullable<AssemblyPlan['diagnostics']> = []
@@ -387,11 +401,9 @@ export function getAssemblyPlanV2(doc: CircuitDocV2, options: AssemblyOptions): 
   const meshByType = new Map(doc.parts.map(part => [part.type, getComponentMesh(part.type)]))
   const resolveEndpoint = (endpoint: CircuitEndpointV2): { point: Vec3; evidence: 'cad' | 'parametric' | 'unknown'; sourceKey: string } | undefined => {
     if (endpoint.kind === 'hole') {
-      const hole = parseHole(endpoint.holeId)
-      if (!hole || !plan.grid) return undefined
-      const local = holeToMm(hole, plan.grid)
-      if (!local) return undefined
-      return { point: [plan.grid.originX + local[0], local[1], plan.grid.originZ + local[2]], evidence: hole.kind === 'rail' ? 'unknown' : 'parametric', sourceKey: endpoint.holeId }
+      const point = assemblyHolePoint(endpoint.holeId, plan.grid)
+      if (!point) return undefined
+      return { point, evidence: !getR2cBreadboard(spec) && parseHole(endpoint.holeId)?.kind === 'rail' ? 'unknown' : 'parametric', sourceKey: endpoint.holeId }
     }
     const point = plan.pinPoints[`${endpoint.partId}:${endpoint.pinId}`]
     const part = docPartById.get(endpoint.partId)

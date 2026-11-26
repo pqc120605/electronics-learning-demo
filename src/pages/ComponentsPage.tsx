@@ -1,68 +1,207 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { components } from '../data/components'
+import { CatalogBreadboardExplorer } from '../components/CatalogBreadboardExplorer'
+import { CatalogPartExplorer } from '../components/CatalogPartExplorer'
 import { ComponentVisual } from '../components/ComponentVisual'
 import { ComponentReferencePhotoGallery } from '../components/ComponentReferencePhotoGallery'
 import { componentSourceLevels, getComponentReferences, getComponentSourceLevel } from '../data/componentReferences'
 import { CapabilityBadge, CapabilityLegend } from '../components/CapabilityBadge'
-import { getCatalogModel, getLessonsUsingComponent, resolveComponentLink } from '../lib/componentCatalog'
+import { getCatalogModel, getLessonsUsingComponent } from '../lib/componentCatalog'
 import { useProductRoute } from '../lib/useProductRoute'
 import { matchesCatalogSearch } from '../lib/catalogSearch'
 import { getFreestylePartId } from '../lib/catalogPracticeLinks'
+import { freestyleSamples } from '../lib/freestyle/freestyleSampleLibrary'
+import { spicePractices } from '../simulation/spicePractice'
+import { digitalLabLessons } from '../data/digitalLabLessons'
+import { GuideContextBridge } from '../components/guide/GuideContext'
+import { catalogGroups, groupLabel, partsGallery } from '../data/partsGallery'
+import './ComponentsPage.css'
 
-const componentIds = components.map((part) => part.id)
-const groups = ['Tất cả', ...Array.from(new Set(components.map((part) => part.category)))]
-function getComponentCapability(componentId: string) {
-  const model = getCatalogModel(componentId)
-  if (!model) return { model, capabilityId: 'catalog-only' as const }
-  if (model.simulation === 'supported') return { model, capabilityId: 'present-in-sample' as const }
-  return { model, capabilityId: 'visual-reference' as const }
+type Part = (typeof partsGallery)[number]
+
+function PartThumbnail({ item }: { item: Part }) {
+  if (item.preview) return <img className="parts-thumbnail-image" src={item.preview} alt="" loading="lazy" decoding="async" />
+  return <div className={'parts-package parts-package--' + (item.illustration?.family ?? 'chip')} aria-hidden="true">
+    <span className="parts-package-body">{item.illustration?.code}</span>
+  </div>
 }
 
-import { GuideContextBridge } from '../components/guide/GuideContext'
+function PartDetail({ item, backHref }: { item: Part; backHref: string }) {
+  const productRoute = useProductRoute()
+  const current = item.part
+  const { variant, breadboard } = item
+  const model = getCatalogModel(current.id)
+  const capabilityId = model?.simulation === 'supported' ? 'present-in-sample'
+    : model || current.boardViewerRoute ? 'visual-reference' : 'catalog-only'
+  const freestylePartId = getFreestylePartId(current.id)
+  const practiceSamples = freestyleSamples.filter(sample => sample.parts.some(id => id === current.id))
+  const analogPractices = spicePractices.filter(practice => practice.parts.includes(current.id))
+  const digitalPractices = digitalLabLessons.filter(lesson => lesson.parts.some(id => id === current.id))
+  const lessons = getLessonsUsingComponent(current.id)
+  const source = componentSourceLevels[getComponentSourceLevel(current.id)]
+  const references = getComponentReferences(current.id)
+  const referencePhotos = references.flatMap((reference) => reference.photos ?? [])
+  const detailHeadingRef = useRef<HTMLHeadingElement>(null)
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    detailHeadingRef.current?.focus({ preventScroll: true })
+  }, [current.id])
+  return <>
+    <GuideContextBridge snapshot={{ owner: 'component-library', priority: 60,
+      part: { id: current.id, type: current.id, name: current.name, summary: current.summary, pins: [current.pins], note: current.caution },
+      status: 'Hồ sơ tham khảo của linh kiện' }} />
+    <Link className="parts-back" to={backHref}>← Quay lại kho linh kiện</Link>
+    <article className="component-catalog-detail parts-detail">
+      <p className="eyebrow">{groupLabel(item.group)}</p>
+      <h1 ref={detailHeadingRef} tabIndex={-1}>{current.name}</h1>
+      <CapabilityBadge id={analogPractices.length ? 'electrical-simulation' : digitalPractices.length || breadboard || variant?.simulation === 'digital' ? 'present-in-sample' : capabilityId} />
+      <p className="component-summary">{current.summary}</p>
+      {(breadboard || freestylePartId) && <Link className="component-freestyle-link"
+        to={productRoute('/build/freestyle?' + new URLSearchParams(breadboard ? {breadboard:breadboard.catalogId,resume:'1'} : {part:freestylePartId!}))}>
+        Lắp thử trên bàn tự do <span aria-hidden="true">↗</span>
+      </Link>}
+      <div className="parts-detail-layout">
+        <div>
+          {breadboard ? <CatalogBreadboardExplorer key={breadboard.spec} profile={breadboard} /> : variant ? <CatalogPartExplorer key={variant.id} id={variant.id} /> : item.isNewReference ? <figure className="parts-detail-preview">
+            <div className="parts-thumbnail"><PartThumbnail item={item} /></div>
+            <figcaption>Minh họa dạng linh kiện. Xem dạng vỏ và chân trong tài liệu hãng.</figcaption>
+          </figure> : <ComponentVisual key={current.id} illustrationId={current.id} modelId={model?.id}
+            name={current.name} showModelStatus boardModelHref={current.boardViewerRoute ? productRoute(current.boardViewerRoute) : undefined} />}
+          <ComponentReferencePhotoGallery photos={referencePhotos} />
+        </div>
+        <div>
+          <dl>
+            <div><dt>Chân và kết nối</dt><dd>{breadboard ? (breadboard.railHoles ? 'Bốn rail độc lập, mỗi rail 50 lỗ. Hai dải 5 lỗ mỗi cột.' : 'Hai dải 5 lỗ mỗi cột, 17 cột.') : variant ? variant.pins.map(pin => pin.pad + ' · ' + pin.label).join(', ') : current.pins}</dd></div>
+            <div><dt>{item.isNewReference ? 'Điều kiện sử dụng' : 'Ứng dụng'}</dt><dd>{current.use}</dd></div>
+            {!item.isNewReference && <div className="component-safety"><dt>Lưu ý</dt><dd>{current.caution}</dd></div>}
+          </dl>
+          {model && <div className="component-capability">
+            <strong>Trong bàn lắp mạch</strong>
+            <p>{model.explanation}</p>
+            <p>Chân mô hình: {model.pins.map(({ label, id }) => label + ' (' + id + ')').join(' · ')}</p>
+          </div>}
+          {lessons.length > 0 && <section className="component-lessons" aria-labelledby="component-lessons-title">
+            <h2 id="component-lessons-title">Dùng trong bài</h2>
+            <ul>{lessons.map((lesson) => <li key={lesson.id}><Link to={productRoute(lesson.route)}>{lesson.title}</Link></li>)}</ul>
+          </section>}
+          {(practiceSamples.length + (variant ? 0 : analogPractices.length) + digitalPractices.length > 0) &&
+            <section className="component-lessons" aria-labelledby="component-practice-title">
+              <h2 id="component-practice-title">Mạch mẫu dùng linh kiện này</h2>
+              <ul>
+                {practiceSamples.map((sample) => <li key={sample.id}>
+                  <Link to={productRoute('/build/freestyle?' + new URLSearchParams({ resume: '1', sample: sample.id }))}>{sample.title}</Link>
+                </li>)}
+                {analogPractices.map((practice) => <li key={practice.id}>
+                  <Link to={productRoute('/tools/spice?' + new URLSearchParams({ lab: practice.id }))}>{practice.name} · SPICE</Link>
+                </li>)}
+                {digitalPractices.map((lesson) => <li key={lesson.id}>
+                  <Link to={productRoute('/learn/digital-lab?' + new URLSearchParams({ lab: lesson.id }))}>{lesson.name} · Thực hành</Link>
+                </li>)}
+              </ul>
+            </section>}
+          <section className="component-references" aria-labelledby="component-references-title">
+            <h2 id="component-references-title">Tài liệu tham khảo</h2>
+            <p><strong>{source.label}.</strong> {source.note}</p>
+            {references.length ? <ul>{references.map((reference) => <li key={reference.url}>
+              <a href={reference.url} target="_blank" rel="noreferrer">{reference.label} ↗</a>
+              <span>{reference.kind} · {reference.note}</span>
+            </li>)}</ul> : <p>Hãy tra datasheet của đúng mã linh kiện hoặc module trước khi đấu phần cứng.</p>}
+          </section>
+          {current.boardProfileRoute && <Link className="button-secondary" to={productRoute(current.boardProfileRoute)}>Xem hồ sơ board ↗</Link>}
+        </div>
+      </div>
+    </article>
+  </>
+}
 
 export function ComponentsPage() {
   const productRoute = useProductRoute()
   const [searchParams, setSearchParams] = useSearchParams()
-  const [query, setQuery] = useState('')
-  const [group, setGroup] = useState('Tất cả')
-  const [referenceFilter, setReferenceFilter] = useState<'all' | 'product' | 'general'>('all')
-  const hasActiveFilters = Boolean(query.trim()) || group !== 'Tất cả' || referenceFilter !== 'all'
-  const link = resolveComponentLink(searchParams.get('component'), componentIds)
-  const list = useMemo(() => components.filter((part) => {
-    const hasProductSource = getComponentSourceLevel(part.id) !== 'general'
-    return (group === 'Tất cả' || part.category === group)
-      && (referenceFilter === 'all' || (referenceFilter === 'product' ? hasProductSource : !hasProductSource))
-      && matchesCatalogSearch(`${part.id} ${part.name} ${part.summary} ${part.use} ${part.tags.join(' ')}`, query)
-  }), [group, query, referenceFilter])
-  const current = components.find((part) => part.id === link.id)!
-  const capability = getComponentCapability(current.id)
-  const freestylePartId = getFreestylePartId(current.id)
-  const references = getComponentReferences(current.id)
-  const referencePhotos = references.flatMap((reference) => reference.photos ?? [])
-  const detailHeadingRef = useRef<HTMLHeadingElement>(null)
-  /** In the one-column layout the detail sits below a long list, so it has to be brought into view. */
-  const revealDetail = () => {
-    if (!window.matchMedia('(max-width: 950px)').matches) return
-    detailHeadingRef.current?.closest('article')?.scrollIntoView({ block: 'start', behavior: 'instant' })
-    detailHeadingRef.current?.focus({ preventScroll: true })
-  }
-  useEffect(() => { if (link.status === 'found') revealDetail() }, [])
-  const selectComponent = (id: string) => {
-    const next = new URLSearchParams(searchParams)
-    next.set('component', id)
+  const query = searchParams.get('q') ?? ''
+  const group = catalogGroups.find((category) => category === searchParams.get('group')) ?? ''
+  const source = searchParams.get('source') ?? ''
+  const practice = searchParams.get('practice') === '1'
+  const componentId = searchParams.get('component')
+  const detail = partsGallery.find(({ part }) => part.id === componentId)
+  const filters = new URLSearchParams(searchParams)
+  filters.delete('component')
+  const galleryHref = productRoute('/components' + (filters.size ? '?' + filters : ''))
+  const update = (key: string, value: string) => {
+    const next = new URLSearchParams(filters)
+    if (value) next.set(key, value)
+    else next.delete(key)
     setSearchParams(next, { replace: true })
-    revealDetail()
   }
-  return <div className="catalog-page"><GuideContextBridge snapshot={{owner:"component-library",priority:60,part:{id:current.id,type:current.id,name:current.name,summary:current.summary,pins:[current.pins],note:current.caution},status:"Hồ sơ tham khảo của linh kiện"}} />
-    <section className="catalog-page-heading"><p className="eyebrow">THƯ VIỆN · LINH KIỆN</p><h1>Linh kiện để thử và hiểu</h1><p>Tìm theo tên hoặc chức năng. Mỗi thẻ giải thích vai trò, chân thường gặp và điều cần kiểm tra trước khi nối. Pinout module có thể thay đổi theo nhà sản xuất.</p><div className="catalog-actions"><Link className="button-primary" to={productRoute('/build')}>Thử trong phòng lắp mạch ↗</Link><Link to={productRoute('/boards')}>Chọn board →</Link></div><small className="catalog-reference-note">Thẻ linh kiện là tài liệu tham khảo; hành vi mô phỏng chỉ có ở một số bài mẫu.</small><CapabilityLegend ids={['present-in-sample', 'visual-reference']} title="Cách đọc mức hỗ trợ linh kiện" /></section>
-    <section className="content-section catalog-page-section">
-      <div className="catalog-controls"><label className="catalog-search"><span aria-hidden="true">⌕</span><input value={query} onChange={(e) => setQuery(e.target.value)} type="search" placeholder="Ví dụ: cảm biến, điện trở, I²C…" aria-label="Tìm linh kiện" /></label><div className="catalog-filters" role="group" aria-label="Lọc loại linh kiện">{groups.map((g) => <button key={g} type="button" aria-pressed={g === group} className={g === group ? 'catalog-filter-active' : ''} onClick={() => setGroup(g)}>{g}</button>)}</div>{hasActiveFilters && <button className="catalog-reset" type="button" onClick={() => { setQuery(''); setGroup('Tất cả'); setReferenceFilter('all') }}>Xóa bộ lọc</button>}</div>
-      <div className="component-reference-filters" role="group" aria-label="Lọc theo tài liệu nguồn">{([{ id: 'all', label: 'Mọi mức nguồn' }, { id: 'product', label: 'Có nguồn sản phẩm hoặc chip' }, { id: 'general', label: 'Chỉ có hướng dẫn chung' }] as const).map((option) => <button key={option.id} type="button" aria-pressed={referenceFilter === option.id} className={referenceFilter === option.id ? 'catalog-filter-active' : ''} onClick={() => setReferenceFilter(option.id)}>{option.label}</button>)}</div>
-      <p className="catalog-hint" aria-live="polite">{list.length} mục trong bộ lọc · {components.filter((part) => getComponentSourceLevel(part.id) !== 'general').length} mục có nguồn sản phẩm hoặc chip · Thông số module cụ thể vẫn cần đối chiếu đúng datasheet.{!list.some((part) => part.id === current.id) && ` “${current.name}” đang xem nằm ngoài bộ lọc này.`}</p>
-      {link.status === 'unknown' && <p className="board-reference-warning" role="status">Không tìm thấy linh kiện trong liên kết. Trang đang hiện {current.name}.</p>}
-      <div className="component-catalog-layout"><div className="component-catalog-list">{list.map((part) => <button type="button" aria-pressed={part.id === current.id} className={`component-catalog-item ${part.id === current.id ? 'component-catalog-item-active' : ''}`} key={part.id} onClick={() => selectComponent(part.id)}><span className="component-category-icon" aria-hidden="true">{part.category === 'MCU' ? 'µC' : part.category === 'Cảm biến' ? '↗' : part.category === 'Đầu vào' ? '⊙' : part.category === 'Linh kiện cơ bản' ? 'Ω' : part.category === 'Hiển thị' ? '▤' : part.category === 'Cơ điện' ? '⟳' : part.category === 'Nguồn' ? '⏚' : '◇'}</span><span><strong>{part.name}</strong><small>{part.category} · {part.tags.slice(0,3).join(' · ')}</small></span><span className={`component-source-state ${getComponentSourceLevel(part.id) !== 'general' ? 'has-reference' : ''}`}>{componentSourceLevels[getComponentSourceLevel(part.id)].label}</span></button>)}{!list.length && <p className="catalog-empty">Không có kết quả. Hãy thử từ khóa hoặc trạng thái nguồn khác.</p>}</div>
-      <article className="component-catalog-detail"><p className="eyebrow">{current.category.toUpperCase()}</p><ComponentVisual key={current.id} illustrationId={current.id} modelId={capability.model?.id} name={current.name} showModelStatus boardModelHref={current.boardViewerRoute ? productRoute(current.boardViewerRoute) : undefined}/><h2 ref={detailHeadingRef} tabIndex={-1}>{current.name}</h2><CapabilityBadge id={capability.capabilityId} /><p className="component-summary">{current.summary}</p>{freestylePartId && <Link className="component-freestyle-link" to={productRoute(`/build/freestyle?part=${encodeURIComponent(freestylePartId)}`)}>Lắp thử trên bàn tự do <span aria-hidden="true">↗</span></Link>}<ComponentReferencePhotoGallery photos={referencePhotos}/><dl><div><dt>Chân thường gặp</dt><dd>{current.pins}</dd></div><div><dt>Dùng để làm gì?</dt><dd>{current.use}</dd></div><div className="component-safety"><dt>Điểm cần lưu ý</dt><dd>{current.caution}</dd></div></dl><div className="component-capability"><strong>Trong workspace</strong><p>{capability.model?.explanation ?? 'Chưa có mô hình linh kiện tương ứng trong workspace.'}</p>{capability.model && <p>Chân mô hình: {capability.model.pins.map((item) => `${item.label} (${item.id})`).join(' · ')}</p>}</div><section className="component-lessons" aria-labelledby="component-lessons-title"><h3 id="component-lessons-title">Dùng trong bài</h3>{getLessonsUsingComponent(current.id).length ? <ul>{getLessonsUsingComponent(current.id).map((lesson) => <li key={lesson.id}><Link to={productRoute(lesson.route)}>{lesson.title}</Link></li>)}</ul> : <p>Chưa có bài nào dùng linh kiện này.</p>}</section><section className="component-references" aria-labelledby="component-references-title"><h3 id="component-references-title">Tài liệu tham khảo</h3><p><strong>{componentSourceLevels[getComponentSourceLevel(current.id)].label}.</strong> {componentSourceLevels[getComponentSourceLevel(current.id)].note}</p>{references.length ? <ul>{references.map((reference) => <li key={reference.url}><a href={reference.url} target="_blank" rel="noreferrer">{reference.label} ↗</a><span>{reference.kind} · {reference.note}</span></li>)}</ul> : <p>Chưa gắn tài liệu cho đúng mã linh kiện/module này. Hãy đối chiếu datasheet của nhà sản xuất trước khi đấu phần cứng.</p>}</section><div className="component-tags">{current.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{current.boardProfileRoute && <Link className="button-secondary" to={productRoute(current.boardProfileRoute)}>Xem hồ sơ board ↗</Link>}<Link className="button-secondary" to={productRoute('/build')}>Thử trong bàn lắp mạch ↗</Link></article></div>
+  const results = partsGallery.filter(({ part, variant, group: category, productSource, hasPractice }) =>
+    (!group || group === category)
+    && (source === 'product' ? productSource : source === 'general' ? !productSource : true)
+    && (!practice || hasPractice)
+    && matchesCatalogSearch([part.id, part.name, variant?.mpn, part.summary, part.use, ...part.tags].join(' '), query),
+  )
+
+  if (detail) return <div className="catalog-page parts-library"><PartDetail item={detail} backHref={galleryHref} /></div>
+  return <div className="catalog-page parts-library">
+    <header className="parts-header">
+      <div><h1>Kho linh kiện</h1><p>Tra mã linh kiện, mở tài liệu hãng và tìm bài thực hành liên quan.</p></div>
+      <Link className="button-primary" to={productRoute('/build')}>Mở bàn lắp mạch <span aria-hidden="true">↗</span></Link>
+    </header>
+    <section className="parts-controls" aria-label="Tìm và lọc linh kiện">
+      <label className="parts-search">
+        <input type="search" aria-label="Tìm linh kiện" placeholder="Tìm theo tên hoặc mã, ví dụ 74HC08…"
+          value={query} onChange={(event) => update('q', event.target.value)} />
+      </label>
+      <label className="parts-field">Nhóm
+        <select value={group} onChange={(event) => update('group', event.target.value)} aria-label="Nhóm linh kiện">
+          <option value="">Tất cả nhóm</option>
+          {catalogGroups.map((category) => <option key={category} value={category}>{groupLabel(category)}</option>)}
+        </select>
+      </label>
+      <label className="parts-field">Nguồn
+        <select value={source} onChange={(event) => update('source', event.target.value)} aria-label="Nguồn tài liệu">
+          <option value="">Tất cả nguồn</option>
+          <option value="product">Có tài liệu hãng</option>
+          <option value="general">Hướng dẫn tham khảo</option>
+        </select>
+      </label>
+      <div className="parts-results">
+        <output aria-live="polite">{results.length === partsGallery.length ? partsGallery.length : results.length + ' / ' + partsGallery.length} linh kiện</output>
+        {(query || group || source || practice) && <button type="button" onClick={() => setSearchParams({}, { replace: true })}>Xóa bộ lọc</button>}
+      </div>
+      <label className="parts-practice-filter">
+        <input type="checkbox" checked={practice} onChange={(event) => update('practice', event.target.checked ? '1' : '')} />
+        Có bài thực hành
+      </label>
     </section>
+    {componentId && <p className="board-reference-warning" role="status">Không tìm thấy linh kiện trong liên kết.</p>}
+    <div className="component-catalog-list parts-gallery">
+      {catalogGroups.map((category, index) => {
+        const items = results.filter((item) => item.group === category)
+        if (!items.length) return null
+        const titleId = 'parts-group-' + index
+        return <section key={category} className="parts-group" aria-labelledby={titleId}>
+          <h2 id={titleId}>{groupLabel(category)} <span>{items.length}</span></h2>
+          <ul>{items.map((item) => {
+            const next = new URLSearchParams(filters)
+            next.set('component', item.part.id)
+            const availability = item.canBuild ? 'Lắp mạch'
+              : item.hasPractice ? 'Có bài thực hành' : item.part.boardViewerRoute ? 'Xem board' : 'Tra cứu'
+            return <li key={item.part.id}>
+              <Link className="parts-card" to={productRoute('/components?' + next)}>
+                <div className="parts-thumbnail"><PartThumbnail item={item} /></div>
+                <div className="parts-card-body">
+                  <strong>{item.part.name}</strong>
+                  <span className="parts-card-status" data-active={item.canBuild || item.hasPractice}>{availability}</span>
+                </div>
+              </Link>
+            </li>
+          })}</ul>
+        </section>
+      })}
+      {!results.length && <p className="catalog-empty">Không tìm thấy linh kiện phù hợp. Thử mã khác hoặc xóa bộ lọc.</p>}
+    </div>
+    <footer className="parts-notes">
+      <p>Ảnh thẻ minh họa hình dáng linh kiện. Tra tài liệu hãng để xác định mã, phiên bản và chân khi lắp thật. <a href="/component-catalog/NOTICE.txt">Nguồn ảnh dựng</a>.</p>
+      <CapabilityLegend ids={['catalog-only', 'present-in-sample', 'visual-reference', 'electrical-simulation']} title="Cách đọc mức hỗ trợ linh kiện" />
+    </footer>
   </div>
 }

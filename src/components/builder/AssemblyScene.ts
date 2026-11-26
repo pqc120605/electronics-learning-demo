@@ -217,7 +217,7 @@ export class AssemblyScene {
       return asset ? [{ placement, asset, model: placementMatrix(placement) }] : []
     })
     this.rebuildWires(plan)
-    const key = plan.placements.map((item) => item.partId).join('|') + (plan.grid ? 'grid' : '')
+    const key = plan.placements.map(item => item.partId + ':' + (item.assetUrl ?? '')).join('|') + (plan.grid?.spec ?? '')
     if (key !== this.frameKey) { this.frameKey = key; this.frameParts(plan) }
     this.resize()
   }

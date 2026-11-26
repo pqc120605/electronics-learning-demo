@@ -46,6 +46,11 @@ export function TopicsPage() {
     </section>
     <LessonNavigation />
     <BeginnerResumeCard />
+    <section className="content-section topic-page-section" aria-labelledby="topic-digital-lab-title">
+      <h2 id="topic-digital-lab-title" className="topic-path-title">IC và giao tiếp số</h2>
+      <p>Thử logic, timer, LCD/OLED, LED matrix, firmware và một kịch bản gửi dữ liệu IoT.</p>
+      <Link className="button-secondary" to={productRoute('/learn/digital-lab')}>Mở phòng thực hành IC và giao tiếp số</Link>
+    </section>
     <section className="content-section topic-page-section" aria-labelledby="topic-path-title">
       <h2 id="topic-path-title" className="topic-path-title">Lộ trình bài thực hành</h2>
       <LearningPath lastLessonId={progress.lastLessonId} startedLessonIds={progress.startedLessonIds} completedLessonIds={progress.selfReportedCompletedLessonIds} headingLevel="h3" />

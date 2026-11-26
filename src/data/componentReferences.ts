@@ -1,3 +1,5 @@
+import { catalogParts } from './catalogParts'
+import { expandedCatalog } from './expandedComponentCatalog'
 import { getKitPartProfile } from './kitPartProfiles'
 
 export type ComponentReference = {
@@ -41,6 +43,13 @@ const referencePhotos = {
 
 /** Primary or clearly scoped references; these never certify an unspecified clone or breakout. */
 export const componentReferences: Record<string, ComponentReference[]> = {
+  ...Object.fromEntries(expandedCatalog.map(({ part, reference }) => [part.id, [reference]])),
+  ...Object.fromEntries(catalogParts.map(part => [part.catalogId, [{ label: part.manufacturer + ' · ' + part.mpn,
+    url: part.source, kind: 'Datasheet chip' as const, note: 'Bản vẽ package và bảng chức năng chân cho cấu hình R1.' }]])),
+  'logic-74hc00': [{ label: 'Texas Instruments · 74HC00', url: 'https://www.ti.com/lit/ds/symlink/sn74hc00.pdf', kind: 'Datasheet chip', note: 'Bảng chức năng cổng NAND và giới hạn theo package.' }],
+  'logic-74hc4511': [{ label: 'Texas Instruments · 74HC4511', url: 'https://www.ti.com/lit/ds/symlink/cd74hc4511.pdf', kind: 'Datasheet chip', note: 'Bảng chức năng BCD, latch, blanking và lamp test.' }],
+  'timer-ne555': [{ label: 'Texas Instruments · NE555', url: 'https://www.ti.com/lit/ds/symlink/ne555.pdf', kind: 'Datasheet chip', note: 'Phương trình chế độ astable và điều kiện hoạt động.' }],
+  'display-max7219': [{ label: 'Analog Devices · MAX7219', url: 'https://www.analog.com/media/en/technical-documentation/data-sheets/MAX7219-MAX7221.pdf', kind: 'Datasheet chip', note: 'Khung nối tiếp, địa chỉ thanh ghi và các chế độ hiển thị.' }],
   'seeed-xiao-esp32c3': [
     { label: 'Seeed XIAO ESP32-C3 · hướng dẫn, thông số và pinout', url: 'https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/', kind: 'Tài liệu board', note: 'Nguồn hãng cho XIAO ESP32-C3; đối chiếu đúng revision trước khi nối thật. GPIO là 3,3 V; GPIO2/GPIO8/GPIO9 là chân strapping; GPIO5/A3 dùng ADC2.' , photos: [
       { label: 'Sơ đồ chân hai mặt · XIAO ESP32-C3', src: '/board-reference/seeed-xiao-esp32c3-front.png', alt: 'Sơ đồ Seeed chỉ tên chân và linh kiện ở mặt trước XIAO ESP32-C3', creator: 'Seeed Studio', sourceUrl: 'https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/', license: 'CC BY-SA 4.0', licenseUrl: 'https://wiki.seeedstudio.com/License/', scopeNote: 'Hình pinout theo tài liệu Seeed; tên chân được xác nhận bởi tài liệu, nhưng chưa đo board vật lý hoặc revision clone.', changes: 'Sao chép PNG nguồn nguyên trạng.' },

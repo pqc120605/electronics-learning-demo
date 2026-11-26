@@ -122,6 +122,8 @@ export function inspectSpiceNetlist(source: string): SpiceNetlistInspection {
   const body = meaningful.slice(1)
   const analyses: Array<{ kind: 'op' | 'tran' | 'ac' | 'dc'; maxPoints: number }> = []
   let elementCount = 0
+  let boundedDc = false
+  let boundedAudio = false
   let endCount = 0
 
   for (const [index, line] of body.entries()) {
@@ -168,6 +170,9 @@ export function inspectSpiceNetlist(source: string): SpiceNetlistInspection {
         const points = mode === 'lin' ? pointsPer : mode === 'oct' ? pointsPer * Math.log2((stop ?? 0) / (start ?? 1)) : pointsPer * Math.log10((stop ?? 0) / (start ?? 1))
         if (!['lin', 'oct', 'dec'].includes(mode) || !Number.isInteger(pointsPer) || pointsPer < 1 || !start || !stop || stop <= start || !Number.isFinite(points) || points > MAX_ANALYSIS_POINTS || tokens.length !== 5) errors.push(`.ac cần dải tần hợp lệ và tối đa ${MAX_ANALYSIS_POINTS.toLocaleString('en-US')} điểm.`)
         else analyses.push({ kind: 'ac', maxPoints: Math.ceil(points) })
+      } else if (directive === 'temp') {
+        const celsius = Number(tokens[1])
+        if (tokens.length !== 2 || !/^[+-]?\d+(?:\.\d+)?$/.test(tokens[1]) || !Number.isFinite(celsius) || celsius < -40 || celsius > 125) errors.push('.temp cần một nhiệt độ từ −40 đến 125 °C.')
       } else if (directive === 'model') {
         if (!validModel(line)) errors.push('Model chỉ nhận các tham số số đã hỗ trợ cho diode, BJT hoặc MOSFET.')
       } else {
@@ -178,6 +183,27 @@ export function inspectSpiceNetlist(source: string): SpiceNetlistInspection {
 
     const name = tokens[0]
     const prefix = name[0]?.toUpperCase()
+
+    if (prefix === 'B') {
+      const amp = /^BMMAMP\d+\s+\w{1,32}\s+0\s+V=min\(max\(100000\*V\(\w{1,32},\w{1,32}\),0\),3\.3\)$/i
+      const cmp = /^BMMCMP\d+\s+(\w{1,32})\s+0\s+I=V\(\1\)\*u\(V\(\w{1,32},\w{1,32}\)\)\/10$/i
+      const input = /^BMMR3I(\d+)\s+\w{1,32}\s+0\s+I=max\(-I\(VMMR3S\1\),0\)$/i
+      const shunt = /^BMMR3C\d+\s+\w{1,32}\s+0\s+I=min\(([\d.e+-]+),max\(0,100\*\(V\(\w{1,32}\)-([\d.e+-]+)\)\)\)$/i.exec(line)
+      const power = /^BMMR3P(\d+)\s+\w{1,32}\s+0\s+I=max\(-I\(VMMR3S\1\),0\)\*V\(\w{1,32}\)\/([\d.e+-]+)$/i.exec(line)
+      const bounded = (value: string, min: number, max: number) =>
+        SPICE_NUMBER.test(value) && Number(value) >= min && Number(value) <= max
+      const pg = /^BMMR3G\d+\s+(\w{1,32})\s+0\s+I=V\(\1\)\*u\(([\d.e+-]+)-V\(\w{1,32}\)\)\/10$/i.exec(line)
+      const r3 = input.test(line) || pg && bounded(pg[2], 0.9, 5)
+        || shunt && bounded(shunt[1], 0.001, 0.1) && bounded(shunt[2], 2, 3)
+        || power && bounded(power[2], 1.4, 16)
+      const lm386 = /^BMMR5L1\s+lmcore\s+0\s+V=0\.5\*V\(n\d{1,3}\)\+min\(max\((?:20|200)\*V\(n\d{1,3},(?:0|n\d{1,3})\),-2\.2\),2\.2\)$/i
+      const ne5532Gain = /^BMMR5G([12])\s+nepole\1\s+0\s+I=-0\.001\*V\(n\d{1,3},n\d{1,3}\)$/i
+      const ne5532Output = /^BMMR5O([12])\s+necore\1\s+0\s+V=min\(max\(V\(nepole\1\),V\(n\d{1,3}\)\+2\),V\(n\d{1,3}\)-2\)$/i
+      if (amp.test(line) || cmp.test(line) || r3) { boundedDc = true; elementCount += 1 }
+      else if (lm386.test(line) || ne5532Gain.test(line) || ne5532Output.test(line)) { boundedAudio = true; elementCount += 1 }
+      else errors.push('Nguồn hành vi chỉ nhận các mẫu R2B, R3 và R5 đã định trước.')
+      continue
+    }
     const terminalCount = prefix === 'R' || prefix === 'C' || prefix === 'L' || prefix === 'D' ? 4
       : prefix === 'V' || prefix === 'I' ? 4
         : prefix === 'Q' ? 5
@@ -212,6 +238,8 @@ export function inspectSpiceNetlist(source: string): SpiceNetlistInspection {
 
   if (endCount !== 1 || body.at(-1)?.toLowerCase() !== '.end') errors.push('Netlist cần đúng một dòng .end ở cuối.')
   if (analyses.length !== 1) errors.push('Chọn đúng một phép phân tích: .op, .tran, .ac hoặc .dc.')
+  if (boundedDc && analyses.some(item => item.kind !== 'op')) errors.push('Model hành vi R2B/R3 dùng phân tích .op.')
+  if (boundedAudio && !/^(?:\.tran) 5u 12m 0 5u$/im.test(source)) errors.push('Mô hình audio R5 dùng .tran 5u 12m 0 5u.')
   if (!elementCount) errors.push('Netlist cần ít nhất một linh kiện được hỗ trợ.')
 
   return {

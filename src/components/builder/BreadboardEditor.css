@@ -192,3 +192,8 @@
 .circuit-part-calculator label { display: grid; gap: 3px; }
 .circuit-part-calculator input { min-width: 0; }
 @media (max-width: 520px) { .circuit-part-popup { position: relative; inset: auto; width: 100%; margin-top: 8px; } }
+.diagram-hole-hit-layer .diagram-hole-hit-target.is-same-net {
+  fill: rgba(19, 122, 115, .27);
+  stroke: #137a73;
+  stroke-width: 2;
+}

@@ -1,0 +1,445 @@
+{
+  "dip14": {
+    "file": "/models/components/catalog-r1/dip14.glb",
+    "bytes": 127968,
+    "sha256": "8187127b3a4ec2823960906bf34d4eef200bee081413ad24a8b3e2c9ac11d41f",
+    "sizeMm": [
+      7.874,
+      6.98,
+      19.05
+    ],
+    "boundsMm": {
+      "min": [
+        -0.127,
+        -3.3,
+        -1.905
+      ],
+      "max": [
+        7.747,
+        3.68,
+        17.145
+      ]
+    },
+    "triangles": 1944,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_DIP.3dshapes/DIP-14_W7.62mm.step",
+    "sourceSha256": "3dae072a95c64bee0d1e58be8e75383639f5017ab982de1749d05808a4eed058",
+    "footprint": "Package_DIP.pretty/DIP-14_W7.62mm.kicad_mod",
+    "footprintSha256": "6e9fc056d23e88e219b9e20d58ff74e1d351ca9a77a7b3e6b633f5475d6040f1",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 0,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 0,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 0,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 9,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 10,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 11,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 12,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 13,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 14,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ],
+    "maxOffsetMm": 0
+  },
+  "dip16": {
+    "file": "/models/components/catalog-r1/dip16.glb",
+    "bytes": 144564,
+    "sha256": "3c884eecaa2713ec92ad6cbe16491ca02fb8e529f32d6c77359e17cb60d949d0",
+    "sizeMm": [
+      7.874,
+      6.98,
+      19.177
+    ],
+    "boundsMm": {
+      "min": [
+        -0.127,
+        -3.3,
+        -0.699
+      ],
+      "max": [
+        7.747,
+        3.68,
+        18.478
+      ]
+    },
+    "triangles": 2190,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_DIP.3dshapes/DIP-16_W7.62mm.step",
+    "sourceSha256": "17a30b1f0ab3fd5384a1231e3c63c394888d5b952c542a8c189e023ed3467464",
+    "footprint": "Package_DIP.pretty/DIP-16_W7.62mm.kicad_mod",
+    "footprintSha256": "08cec2c2fafeffb19d0c6d17db37b67017e6518147516b0b75e6a4719b235465",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 0,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 0,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 0,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 0,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 9,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 10,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 11,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 12,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 13,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 14,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 15,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 16,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ],
+    "maxOffsetMm": 0
+  },
+  "do35": {
+    "file": "/models/components/catalog-r1/do35.glb",
+    "bytes": 132216,
+    "sha256": "f68868d670a79b70f3f6977e727d4f4907c8a221779b7646772a1f663b9a245f",
+    "sizeMm": [
+      8.12,
+      5.01,
+      2.02
+    ],
+    "boundsMm": {
+      "min": [
+        -0.25,
+        -2.5,
+        -1.01
+      ],
+      "max": [
+        7.87,
+        2.51,
+        1.01
+      ]
+    },
+    "triangles": 4168,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Diode_THT.3dshapes/D_DO-35_SOD27_P7.62mm_Horizontal.step",
+    "sourceSha256": "9704292191fcb13b3dfc88c1e572df18313ac20023bb230486c878d8dddfdb54",
+    "footprint": "Diode_THT.pretty/D_DO-35_SOD27_P7.62mm_Horizontal.kicad_mod",
+    "footprintSha256": "815fad98c36b0836240b8b93ae4ff4b6a6006c6f64b987f73e4faf078eedd8cd",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ],
+    "maxOffsetMm": 0
+  },
+  "to92": {
+    "file": "/models/components/catalog-r1/to92.glb",
+    "bytes": 15360,
+    "sha256": "4925624dac13db072dae2eac8b2826f802da04163dc22308f11c67329e2bfb7b",
+    "sizeMm": [
+      4.829,
+      9.8,
+      3.742
+    ],
+    "boundsMm": {
+      "min": [
+        -1.145,
+        -2.5,
+        -2.412
+      ],
+      "max": [
+        3.685,
+        7.3,
+        1.33
+      ]
+    },
+    "triangles": 220,
+    "kind": "source-cad-mesh",
+    "sourceFile": "Package_TO_SOT_THT.3dshapes/TO-92_Inline.step",
+    "sourceSha256": "f0b61c32ecbf0067157adc5a3d4966ceadf5d6dafe93c51af35f76c41c71a54a",
+    "footprint": "Package_TO_SOT_THT.pretty/TO-92_Inline.kicad_mod",
+    "footprintSha256": "fc2e306a210a4f40c12f2af3cc09bf923761c9faadfeed9e6d331799a6bde77d",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 1.05,
+        "height": 1.5,
+        "drill": 0.75
+      },
+      {
+        "pad": 2,
+        "shape": "oval",
+        "x": 1.27,
+        "z": 0,
+        "width": 1.05,
+        "height": 1.5,
+        "drill": 0.75
+      },
+      {
+        "pad": 3,
+        "shape": "oval",
+        "x": 2.54,
+        "z": 0,
+        "width": 1.05,
+        "height": 1.5,
+        "drill": 0.75
+      }
+    ],
+    "maxOffsetMm": 0
+  }
+}

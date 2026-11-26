@@ -53,7 +53,9 @@ test('mobile resume exposes the saved circuit immediately and stale wire edits s
   await page.setViewportSize({ width: 375, height: 812 })
   await context.addInitScript(() => localStorage.setItem('mm-tour-seen', JSON.stringify({ freestyle: 1 })))
   await page.goto('/build/freestyle')
-  await page.getByRole('radio', { name: /Arduino Uno R3/ }).check()
+  // Selecting a board closes the mobile panel, so verify the persisted selection.
+  await page.getByRole('radio', { name: /Arduino Uno R3/ }).click()
+  await expect.poll(() => page.evaluate(key => JSON.parse(localStorage.getItem(key) || '{}').boardId, store)).toBe('arduino-uno-r3')
   await page.getByRole('button', { name: 'Dựng mạch mẫu' }).click()
   const newer = await context.newPage()
   await newer.setViewportSize({ width: 375, height: 812 })

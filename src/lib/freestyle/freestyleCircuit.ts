@@ -1,8 +1,11 @@
 import { componentRegistry } from '../../data/componentRegistry'
 import { keypadContact } from '../../data/kitPartProfiles'
 import { createNetIndexV2 } from '../circuitNetsV2'
+import { getCatalogPart } from '../../data/catalogParts'
+import { getR4PartByType } from '../../data/catalogR4Parts'
 import { canMount, footprintHoles, occupancy, resolvePartGeometry } from '../mountResolve'
-import { BREADBOARD_ELECTRICAL_SPEC, formatHole, holeNet, type GridHole } from '../breadboardGrid'
+import { LEGACY_BREADBOARD, type BreadboardSpec } from '../../data/catalogR2cBoards'
+import { breadboardCounts, formatHole, holeNet, parseHole, type GridHole } from '../breadboardGrid'
 import { sketchBoards } from '../sketchInterpreter'
 import { validateCircuitDoc, type CircuitDocV2, type CircuitEndpointV2, type CircuitPartV2 } from '../circuitDocV2'
 import type { LivePinState } from '../avrLiveMachine'
@@ -66,6 +69,17 @@ function withExpect(doc: CircuitDocV2): CircuitDocV2 {
   return { ...doc, expect: { ...doc.expect, partCount: doc.parts.length, wireCount: doc.wires.length, netCount } }
 }
 
+/** Change the active map only when no existing connections or footprints depend on it. */
+export function canChangeFreestyleBreadboard(doc: CircuitDocV2): boolean {
+  return !doc.parts.some(part => part.type === 'breadboard' || part.mount.kind === 'breadboard') &&
+    !doc.wires.some(wire => wire.from.kind === 'hole' || wire.to.kind === 'hole')
+}
+
+export function withFreestyleBreadboard(doc: CircuitDocV2, spec: BreadboardSpec): CircuitDocV2 {
+  if (doc.breadboards[0]?.spec === spec || !canChangeFreestyleBreadboard(doc)) return doc
+  return withExpect({ ...doc, breadboards: [{ id:'bb1',spec,railSplit:false }] })
+}
+
 export function nextId(doc: CircuitDocV2, base: string): string {
   const used = new Set([...doc.parts.map(part => part.id), ...doc.wires.map(wire => wire.id)])
   for (let index = 1; ; index += 1) if (!used.has(`${base}${index}`)) return `${base}${index}`
@@ -91,11 +105,14 @@ export function placePart(doc: CircuitDocV2, type: string, at?: { col: number; r
     return { doc: withExpect({ ...doc, parts: [...doc.parts, part] }), partId: id, separate }
   }
   if (!isBreadboardPart(type)) return placeOnBench()
+  const spec = doc.breadboards[0]?.spec
   const candidates: Array<{ col: number; row: number; rotation: 0 | 90 | 180 | 270 }> = []
-  if (at) for (const rotation of [0, 90] as const) candidates.push({ col: at.col, row: at.row, rotation })
+  const exactVariant = getCatalogPart(type)
+  const dropRotations = exactVariant ? [0, 90, 180, 270] as const : [0, 90] as const
+  if (at) for (const rotation of dropRotations) candidates.push({ col: at.col, row: at.row, rotation })
   else {
     const rows = [2, 7, 0, 5, 1, 3, 4, 6, 8, 9]
-    const columns = Array.from({ length: BREADBOARD_ELECTRICAL_SPEC.columns }, (_, index) => index + 1)
+    const columns = Array.from({ length: breadboardCounts(spec).columns }, (_, index) => index + 1)
     // Keep the familiar center-first layout and search the rest before reporting no fit.
     const columnOrder = [...columns.slice(2, -2), ...columns.slice(0, 2), ...columns.slice(-2)]
     for (const rotation of [0, 90, 180, 270] as const) {
@@ -108,7 +125,7 @@ export function placePart(doc: CircuitDocV2, type: string, at?: { col: number; r
     if (result.ok && (at || (!touchesUsedStrip(doc, part) && !overlapsMountedFootprint(doc, part)))) {
       return { doc: withExpect({ ...doc, parts: [...doc.parts, part] }), partId: id }
     }
-    if (at && !result.ok && candidate.rotation === 90) return { doc, error: result.reason }
+    if (at && !result.ok && candidate.rotation === dropRotations.at(-1)) return { doc, error: result.reason }
   }
   if (!at && doc.lessonId === 'freestyle') return placeOnBench(true)
   return { doc, error: at ? 'Không cắm được ở lỗ này.' : 'Chưa tìm được chỗ cắm riêng cho linh kiện này. Thử dời một linh kiện hoặc kéo linh kiện đến vị trí muốn cắm.' }
@@ -116,12 +133,13 @@ export function placePart(doc: CircuitDocV2, type: string, at?: { col: number; r
 
 /** Tránh tự động đặt linh kiện chung dải 5 lỗ với linh kiện khác (dễ chập ngoài ý muốn). */
 function touchesUsedStrip(doc: CircuitDocV2, part: CircuitPartV2): boolean {
-  const used = new Set(doc.parts.flatMap(other => (footprintHoles(other) ?? []).map(hole => holeNet(hole))))
-  return (footprintHoles(part) ?? []).some(hole => used.has(holeNet(hole)))
+  const board = doc.breadboards[0]
+  const used = new Set(doc.parts.flatMap(other => (footprintHoles(other, componentRegistry, board?.spec) ?? []).map(hole => holeNet(hole, board))))
+  return (footprintHoles(part, componentRegistry, board?.spec) ?? []).some(hole => used.has(holeNet(hole, board)))
 }
 
-function footprintBounds(part: CircuitPartV2) {
-  const holes = footprintHoles(part)
+function footprintBounds(part: CircuitPartV2, spec?: BreadboardSpec) {
+  const holes = footprintHoles(part, componentRegistry, spec)
   if (!holes?.length) return
   const columns = holes.map(hole => hole.column)
   const rows = holes.map(hole => hole.row)
@@ -134,10 +152,11 @@ function footprintBounds(part: CircuitPartV2) {
 
 /** Leave the space between a mounted part's legs clear when automatically placing a new part. */
 function overlapsMountedFootprint(doc: CircuitDocV2, part: CircuitPartV2): boolean {
-  const candidate = footprintBounds(part)
+  const spec = doc.breadboards[0]?.spec
+  const candidate = footprintBounds(part, spec)
   if (!candidate) return false
   return doc.parts.some(other => {
-    const current = footprintBounds(other)
+    const current = footprintBounds(other, spec)
     return current !== undefined
       && candidate.minColumn <= current.maxColumn && current.minColumn <= candidate.maxColumn
       && candidate.minRow <= current.maxRow && current.minRow <= candidate.maxRow
@@ -159,7 +178,16 @@ export function rotatePart(doc: CircuitDocV2, partId: string): { doc: CircuitDoc
   if (!part || part.mount.kind !== 'breadboard') return { doc, error: 'Chỉ xoay được linh kiện cắm breadboard.' }
   const rest = { ...doc, parts: doc.parts.filter(item => item.id !== partId) }
   const rotation = ((part.mount.rotation + 180) % 360) as 0 | 180
-  const rotated: CircuitPartV2 = { ...part, mount: { ...part.mount, rotation } }
+  const spec = doc.breadboards[0]?.spec
+  const mount = { ...part.mount, rotation }
+  if (spec && spec !== LEGACY_BREADBOARD && getCatalogPart(part.type)?.packageKey.startsWith('dip')) {
+    const bounds = footprintBounds(part, spec)
+    if (bounds) {
+      mount.col = bounds.minColumn + bounds.maxColumn - part.mount.col
+      mount.row = part.mount.row === 4 ? 5 : 4
+    }
+  }
+  const rotated: CircuitPartV2 = { ...part, mount }
   const result = canMount(rotated, rotated.mount, rest)
   if (!result.ok) return { doc, error: result.reason }
   return { doc: { ...doc, parts: doc.parts.map(item => item.id === partId ? rotated : item) } }
@@ -175,13 +203,16 @@ export function removePartAndWires(doc: CircuitDocV2, partId: string): CircuitDo
 }
 
 export function addFreestyleWire(doc: CircuitDocV2, from: CircuitEndpointV2, to: CircuitEndpointV2, role: 'power' | 'ground' | 'signal' = 'signal'): CircuitDocV2 {
+  const board = doc.breadboards[0]
+  if ([from,to].some(endpoint => endpoint.kind === 'hole' && (!board || !parseHole(endpoint.holeId,board.spec)))) return doc
   return withExpect({ ...doc, wires: [...doc.wires, { id: nextId(doc, 'w'), from, to, role }] })
 }
 
 /** Lỗ trống khác cùng dải 5 lỗ với chân linh kiện (để cắm dây như trên breadboard thật). */
 function stripHoleFor(doc: CircuitDocV2, partId: string, pinId: string): CircuitEndpointV2 {
   const part = doc.parts.find(item => item.id === partId)
-  const holes = part ? footprintHoles(part) : null
+  const spec = doc.breadboards[0]?.spec
+  const holes = part ? footprintHoles(part, componentRegistry, spec) : null
   const legs = part ? resolvePartGeometry(part.type, 'freestyle')?.legsMm ?? [] : []
   const index = legs.findIndex(leg => leg.pinId === pinId)
   const hole = holes?.[index] as GridHole | undefined
@@ -189,7 +220,7 @@ function stripHoleFor(doc: CircuitDocV2, partId: string, pinId: string): Circuit
   const used = occupancy(doc, 'freestyle')
   const rows = 'abcde'.includes(hole.row) ? 'abcde' : 'fghij'
   for (const row of [...rows].reverse()) {
-    const id = formatHole({ ...hole, row })
+    const id = formatHole({ ...hole, row }, spec)
     if (id && !used[id]?.legs.length && !used[id]?.wireEndpoints.length) return { kind: 'hole', holeId: id }
   }
   return { kind: 'pin', partId, pinId }
@@ -735,6 +766,27 @@ export function workspaceWithFreestyleBoard(current: FreestyleWorkspace, nextId:
 }
 
 /** Đọc workspace đã lưu; dữ liệu hỏng thì trả null (nơi gọi sao lưu bản hỏng). */
+function normalizeR4Draft(doc: CircuitDocV2) {
+  const renamedWires = new Map<string,string>()
+  if (!doc.parts.some(part=>getR4PartByType(part.type))) return {doc,renamedWires}
+  const partIds=new Set(doc.parts.map(part=>part.id))
+  const taken=new Set([...partIds,...doc.wires.map(wire=>wire.id)])
+  const leds=new Set(doc.parts.filter(part=>part.type==='led').map(part=>part.id))
+  const normalize=(endpoint:CircuitEndpointV2):CircuitEndpointV2 => {
+    if (endpoint.kind!=='pin' || !leds.has(endpoint.partId)) return endpoint
+    if (endpoint.pinId==='a') return {...endpoint,pinId:'anode'}
+    if (endpoint.pinId==='k') return {...endpoint,pinId:'cathode'}
+    return endpoint
+  }
+  const wires=doc.wires.map(wire=>{
+    const id='wire-'+wire.id
+    const collided=partIds.has(wire.id)&&/^(ic|driver)-rext$/.test(wire.id)&&!taken.has(id)
+    if (collided) { renamedWires.set(wire.id,id);taken.add(id) }
+    return {...wire,id:collided?id:wire.id,from:normalize(wire.from),to:normalize(wire.to)}
+  })
+  return {doc:{...doc,wires},renamedWires}
+}
+
 export function parseFreestyleWorkspace(raw: string | null): FreestyleWorkspace | null {
   if (!raw) return null
   try {
@@ -745,13 +797,17 @@ export function parseFreestyleWorkspace(raw: string | null): FreestyleWorkspace 
     if (value.boardId && (!freestyleBoards.some(board => board.id === value.boardId) || !doc.parts.some(part => part?.type === 'board'))) return null
     if (!value.boardId && doc.parts.some(part => part?.type === 'board')) return null
     if (!doc.parts.every(part => typeof part?.id === 'string' && componentRegistry.some(item => item.id === part.type))) return null
-    if (validateCircuitDoc({ ...doc, lessonId: 'freestyle' }).some(issue => issue.severity === 'error')) return null
+    const {doc:restoredDoc,renamedWires}=normalizeR4Draft({...doc,lessonId:'freestyle'})
+    if (validateCircuitDoc(restoredDoc).some(issue => issue.severity === 'error')) return null
     const board = getFreestyleBoard(value.boardId)
     const pinMap = { ...board.defaultPins }
     for (const signal of SIGNAL_PINS) if (Number.isInteger(value.pinMap?.[signal])) pinMap[signal] = Number(value.pinMap![signal])
     const language = board.languages.includes(value.language as FreestyleLanguage) ? value.language as FreestyleLanguage : board.languages[0]
-    const wireLayout = readWireLayout(value.wireLayout, doc.wires)
+    const layout=value.wireLayout
+    const restoredLayout=renamedWires.size&&layout&&typeof layout==='object'&&!Array.isArray(layout)
+      ? Object.fromEntries(Object.entries(layout).map(([id,bend])=>[renamedWires.get(id)??id,bend])) : layout
+    const wireLayout = readWireLayout(restoredLayout, restoredDoc.wires)
     const sampleId = freestyleSamples.find(sample => sample.id === value.sampleId)?.id
-    return { version: 1, boardId: value.boardId, doc: { ...doc, lessonId: 'freestyle' }, pinMap, language, code: value.code, ...(wireLayout ? { wireLayout } : {}), ...(sampleId ? { sampleId } : {}), updatedAt: typeof value.updatedAt === 'string' ? value.updatedAt : new Date(0).toISOString() }
+    return { version: 1, boardId: value.boardId, doc: restoredDoc, pinMap, language, code: value.code, ...(wireLayout ? { wireLayout } : {}), ...(sampleId ? { sampleId } : {}), updatedAt: typeof value.updatedAt === 'string' ? value.updatedAt : new Date(0).toISOString() }
   } catch { return null }
 }

@@ -292,6 +292,8 @@ export function BeginnerLearningPage() {
       <Link to={route('/topics')}>Chủ đề học</Link>
       <h1>Nền tảng điện tử</h1>
       <p><strong>{completed}/{BEGINNER_ACTIVITIES.length} hoạt động đạt tiêu chí.</strong> <a href="#beginner-activities">Chọn hoạt động</a></p>
+      <p><Link to={route('/tools/spice?lab=rc-charge')}>Thực hành đo mạch analog với ngspice</Link></p>
+      <p><Link to={route('/learn/digital-lab')}>Thực hành IC và giao tiếp số</Link></p>
       <details className="beginner-scope"><summary>Phạm vi mô hình</summary>
         <p>Bằng chứng từ mô hình giáo dục và kiểm tra kết nối; không phải chạy firmware, giải mạch analog hay phép đo kit thật.</p>
       </details>

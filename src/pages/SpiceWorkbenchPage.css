@@ -25,6 +25,13 @@
 .spice-divider-actions input { width: 7ch; flex: 1 1 7ch; }
 .spice-divider-actions button { cursor: pointer; font-weight: 700; }
 .spice-divider-actions button:disabled { opacity: .6; cursor: default; }
+.spice-practice-case { display: grid; gap: 4px; margin-bottom: 12px; }
+.spice-practice-case select { width: 100%; min-width: 0; min-height: 44px; }
+.spice-guided-practice details { font-size: var(--mm-text-sm); }
+.spice-guided-practice details p { margin-top: 8px; }
+.spice-practice-comparison { margin: 10px 0; font-size: var(--mm-text-sm); }
+.spice-practice-comparison > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; padding: 6px 0; border-top: 1px solid var(--line-dark); }
+.spice-practice-comparison dd { margin: 0; font-weight: 700; }
 .spice-calculator-handoff { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-top: 10px; padding: 11px; border: 1px solid var(--mm-text-secondary); border-radius: 5px; background:var(--mm-surface); }
 .spice-calculator-handoff strong { color:var(--green); font-size: var(--mm-text-sm); }
 .spice-calculator-handoff p { margin: 6px 0; color:var(--ink-soft); font-size: var(--mm-text-sm); line-height: 1.6; }

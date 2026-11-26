@@ -1,7 +1,8 @@
 import { componentRegistry } from '../data/componentRegistry'
-import { getComponentMesh } from '../data/componentModels'
+import { getBreadboardGrid } from '../data/componentModels'
 import { footprintHoles, resolvePartGeometry, type CircuitRegistryEntry } from './mountResolve'
-import { formatHole, holeNet, parseHole, RAIL_IDS, snapNearest, type BreadboardHole } from './breadboardGrid'
+import { isBreadboardSpec, LEGACY_BREADBOARD } from '../data/catalogR2cBoards'
+import { allBreadboardHoles, formatHole, holeNet, parseHole, snapNearest } from './breadboardGrid'
 import type { CircuitDocV2, CircuitEndpointV2 } from './circuitDocV2'
 
 export type CircuitNetV2 = {
@@ -16,16 +17,6 @@ export type CircuitNetV2 = {
 export type CircuitNetIndexV2 = {
   netOf: (key: string) => CircuitNetV2 | undefined
   netsList: () => CircuitNetV2[]
-}
-
-function endpointKey(endpoint: CircuitEndpointV2): string | null {
-  if (endpoint.kind === 'pin') return `${endpoint.partId}:${endpoint.pinId}`
-  const hole = parseHole(endpoint.holeId)
-  return hole ? formatHole(hole) : null
-}
-
-function holeId(hole: BreadboardHole): string {
-  return formatHole(hole) ?? ''
 }
 
 /** Builds deterministic electrical connectivity for a CircuitDocV2 without inferring voltage or current. */
@@ -71,19 +62,17 @@ export function createNetIndexV2(doc: CircuitDocV2, registry: readonly CircuitRe
   }
 
   // Materialize the logical holes only when this document includes its breadboard.
-  const breadboard = boards.find(board => board.id === 'bb1')
+  const breadboard = boards.find(board => board?.id === 'bb1' && isBreadboardSpec(board.spec))
+  const spec = breadboard?.spec ?? LEGACY_BREADBOARD
+  const endpointKey = (endpoint: CircuitEndpointV2): string | null => endpoint.kind === 'pin'
+    ? endpoint.partId + ':' + endpoint.pinId
+    : holeKeys.has(endpoint.holeId) ? endpoint.holeId : null
   if (breadboard) {
-    const holes: BreadboardHole[] = []
-    for (let column = 1; column <= 30; column++) {
-      for (const row of 'abcdefghij') holes.push({ kind: 'grid', board: 'bb1', column, row })
-    }
-    for (const rail of RAIL_IDS) {
-      for (let hole = 1; hole <= 25; hole++) holes.push({ kind: 'rail', board: 'bb1', rail, hole })
-    }
+    const holes = allBreadboardHoles(spec)
     const byStrip = new Map<string, string>()
     for (const hole of holes) {
-      const key = holeId(hole)
-      const strip = holeNet(hole, { railSplit: breadboard.railSplit })
+      const key = formatHole(hole, spec)!
+      const strip = holeNet(hole, breadboard)
       add(key)
       holeKeys.add(key)
       if (strip) {
@@ -108,10 +97,10 @@ export function createNetIndexV2(doc: CircuitDocV2, registry: readonly CircuitRe
   for (const part of parts) {
     const geometry = resolvePartGeometry(part.type, doc.lessonId, registry)
     const legs = geometry?.legsMm ?? []
-    const holes = footprintHoles(part, registry) ?? []
+    const holes = footprintHoles(part, registry, spec) ?? []
     for (const [index, hole] of holes.entries()) {
       const pinId = legs[index]?.pinId
-      const key = holeId(hole)
+      const key = formatHole(hole, spec)!
       if (!pinId || !key || !parent.has(key)) continue
       const pinKey = `${part.id}:${pinId}`
       add(pinKey)
@@ -119,12 +108,12 @@ export function createNetIndexV2(doc: CircuitDocV2, registry: readonly CircuitRe
     }
 
     // Breadboard catalog pins are aliases for their represented rail/strip positions.
-    if (part.type === 'breadboard' && breadboard) {
-      const grid = getComponentMesh('breadboard')?.gridMm
+    if (part.type === 'breadboard' && breadboard && spec === LEGACY_BREADBOARD) {
+      const grid = getBreadboardGrid(spec)
       for (const [pinId, point] of Object.entries(geometry?.pinsMm ?? {})) {
         if (!grid) continue
         const hole = snapNearest(point, grid)
-        const key = hole && holeId(hole)
+        const key = hole && formatHole(hole, spec)
         if (!key || !parent.has(key)) continue
         const pinKey = `${part.id}:${pinId}`
         add(pinKey)
@@ -153,21 +142,21 @@ export function createNetIndexV2(doc: CircuitDocV2, registry: readonly CircuitRe
     }
     if (holeKeys.has(key)) net.holes.add(key)
     else net.endpoints.add(key)
-    net.key = [...net.endpoints, ...net.holes].sort((left, right) => left.localeCompare(right, 'en'))[0] ?? key
+    if (key.localeCompare(net.key, 'en') < 0) net.key = key
     netByKey.set(key, net)
   }
 
   for (const wire of wires) {
     const from = endpointKey(wire.from)
     const to = endpointKey(wire.to)
-    const net = (from ? netByKey.get(from) : undefined) ?? (to ? netByKey.get(to) : undefined)
+    const net = from && to ? netByKey.get(from) : undefined
     net?.wireIds.add(wire.id)
   }
 
   return {
     netOf: key => {
-      const hole = parseHole(key)
-      return netByKey.get(hole ? (formatHole(hole) ?? key) : key)
+      const hole = parseHole(key, spec)
+      return netByKey.get(hole ? (formatHole(hole, spec) ?? key) : key)
     },
     netsList: () => [...new Set(netByRoot.values())]
       .sort((left, right) => left.key.localeCompare(right.key, 'en')),

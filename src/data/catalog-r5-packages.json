@@ -1,0 +1,1783 @@
+{
+  "lm386R5": {
+    "file": "/models/components/catalog-r5/lm386R5.glb",
+    "sha256": "d115444d288285f61e5b075fdb55252d96837b6de6b627e50e49ecfaab6c382c",
+    "bytes": 46048,
+    "sizeMm": [
+      7.874,
+      6.98,
+      9.27
+    ],
+    "boundsMm": {
+      "min": [
+        -0.127,
+        -3.3,
+        -0.825
+      ],
+      "max": [
+        7.747,
+        3.68,
+        8.445
+      ]
+    },
+    "triangles": 1284,
+    "maxOffsetMm": 0,
+    "maxContactOffsetMm": 0,
+    "sourceFile": "Package_DIP.3dshapes/DIP-8_W7.62mm.step",
+    "sourceSha256": "4a377a56a8d9e9c0b86c095ef9ecc1869ac19e7f5069a3247b294250bf4f235d",
+    "sourceFootprint": "Package_DIP.pretty/DIP-8_W7.62mm.kicad_mod",
+    "sourceFootprintSha256": "44500fc2989169a1ea877ba89e69cd60d0a77414af60fd2d1997de5569f2dee5",
+    "drawing": "DIP-8_W7.62mm",
+    "footprint": "lm386-r5.kicad_mod",
+    "footprintSha256": "44500fc2989169a1ea877ba89e69cd60d0a77414af60fd2d1997de5569f2dee5",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ]
+  },
+  "ne5532R5": {
+    "file": "/models/components/catalog-r5/ne5532R5.glb",
+    "sha256": "e5e3a132fde4a0dc76a354f85c66b145a58ae9f8a234c076a9cb0d658d182bf8",
+    "bytes": 46048,
+    "sizeMm": [
+      7.874,
+      6.98,
+      9.27
+    ],
+    "boundsMm": {
+      "min": [
+        -0.127,
+        -3.3,
+        -0.825
+      ],
+      "max": [
+        7.747,
+        3.68,
+        8.445
+      ]
+    },
+    "triangles": 1284,
+    "maxOffsetMm": 0,
+    "maxContactOffsetMm": 0,
+    "sourceFile": "Package_DIP.3dshapes/DIP-8_W7.62mm.step",
+    "sourceSha256": "4a377a56a8d9e9c0b86c095ef9ecc1869ac19e7f5069a3247b294250bf4f235d",
+    "sourceFootprint": "Package_DIP.pretty/DIP-8_W7.62mm.kicad_mod",
+    "sourceFootprintSha256": "44500fc2989169a1ea877ba89e69cd60d0a77414af60fd2d1997de5569f2dee5",
+    "drawing": "DIP-8_W7.62mm",
+    "footprint": "ne5532-r5.kicad_mod",
+    "footprintSha256": "44500fc2989169a1ea877ba89e69cd60d0a77414af60fd2d1997de5569f2dee5",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ]
+  },
+  "l293dR5": {
+    "file": "/models/components/catalog-r5/l293dR5.glb",
+    "sha256": "9cf27fee4eb88c1e546a898dba9cf4e98a3295e1432394b73d967a179da62946",
+    "bytes": 84008,
+    "sizeMm": [
+      7.874,
+      6.98,
+      19.177
+    ],
+    "boundsMm": {
+      "min": [
+        -0.127,
+        -3.3,
+        -0.6985
+      ],
+      "max": [
+        7.747,
+        3.68,
+        18.4785
+      ]
+    },
+    "triangles": 2326,
+    "maxOffsetMm": 0,
+    "maxContactOffsetMm": 0,
+    "sourceFile": "Package_DIP.3dshapes/DIP-16_W7.62mm.step",
+    "sourceSha256": "17a30b1f0ab3fd5384a1231e3c63c394888d5b952c542a8c189e023ed3467464",
+    "sourceFootprint": "Package_DIP.pretty/DIP-16_W7.62mm.kicad_mod",
+    "sourceFootprintSha256": "08cec2c2fafeffb19d0c6d17db37b67017e6518147516b0b75e6a4719b235465",
+    "drawing": "DIP-16_W7.62mm",
+    "footprint": "l293d-r5.kicad_mod",
+    "footprintSha256": "08cec2c2fafeffb19d0c6d17db37b67017e6518147516b0b75e6a4719b235465",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 0,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 0,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 0,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 0,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 9,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 10,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 11,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 12,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 13,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 14,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 15,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 16,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ]
+  },
+  "uln2003aR5": {
+    "file": "/models/components/catalog-r5/uln2003aR5.glb",
+    "sha256": "eb0448c2dc30e7664c50d8e85bce1eb25ff4cd210847a66e27e7b31e0cee6811",
+    "bytes": 84012,
+    "sizeMm": [
+      7.874,
+      6.98,
+      19.177
+    ],
+    "boundsMm": {
+      "min": [
+        -0.127,
+        -3.3,
+        -0.6985
+      ],
+      "max": [
+        7.747,
+        3.68,
+        18.4785
+      ]
+    },
+    "triangles": 2326,
+    "maxOffsetMm": 0,
+    "maxContactOffsetMm": 0,
+    "sourceFile": "Package_DIP.3dshapes/DIP-16_W7.62mm.step",
+    "sourceSha256": "17a30b1f0ab3fd5384a1231e3c63c394888d5b952c542a8c189e023ed3467464",
+    "sourceFootprint": "Package_DIP.pretty/DIP-16_W7.62mm.kicad_mod",
+    "sourceFootprintSha256": "08cec2c2fafeffb19d0c6d17db37b67017e6518147516b0b75e6a4719b235465",
+    "drawing": "DIP-16_W7.62mm",
+    "footprint": "uln2003a-r5.kicad_mod",
+    "footprintSha256": "08cec2c2fafeffb19d0c6d17db37b67017e6518147516b0b75e6a4719b235465",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 0,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 0,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 0,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 0,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 9,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 10,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 11,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 12,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 13,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 14,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 15,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 16,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ]
+  },
+  "uln2803aR5": {
+    "file": "/models/components/catalog-r5/uln2803aR5.glb",
+    "sha256": "656210081a040964a7599c58ed7ce09f7df333c0c2018aff8f7152d7302b3b0b",
+    "bytes": 91724,
+    "sizeMm": [
+      7.874,
+      6.98,
+      22.86
+    ],
+    "boundsMm": {
+      "min": [
+        -0.127,
+        -3.3,
+        -1.27
+      ],
+      "max": [
+        7.747,
+        3.68,
+        21.59
+      ]
+    },
+    "triangles": 2488,
+    "maxOffsetMm": 0,
+    "maxContactOffsetMm": 0,
+    "sourceFile": "Package_DIP.3dshapes/DIP-18_W7.62mm.step",
+    "sourceSha256": "c9e1ad672f0603e5818e9d0329669eb09ec9fa91bae3fdad8cdfa245e05c3b5f",
+    "sourceFootprint": "Package_DIP.pretty/DIP-18_W7.62mm.kicad_mod",
+    "sourceFootprintSha256": "8f8ff730ff85d6df042df738363a0247801c7e1f2fa307ee5b37c89c378c5a0f",
+    "drawing": "DIP-18_W7.62mm",
+    "footprint": "uln2803a-r5.kicad_mod",
+    "footprintSha256": "8f8ff730ff85d6df042df738363a0247801c7e1f2fa307ee5b37c89c378c5a0f",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 0,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 0,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 0,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 0,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 9,
+        "shape": "circle",
+        "x": 0,
+        "z": 20.32,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 10,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 20.32,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 11,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 12,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 13,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 14,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 15,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 16,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 17,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 18,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ]
+  },
+  "max98357aR5": {
+    "file": "/models/components/catalog-r5/max98357aR5.glb",
+    "sha256": "518f0fba778e4bd35efe2569306e4b8d14d105740402780c70c451de67fe6758",
+    "bytes": 28612,
+    "sizeMm": [
+      3,
+      0.751,
+      3
+    ],
+    "boundsMm": {
+      "min": [
+        -1.5,
+        0,
+        -1.5
+      ],
+      "max": [
+        1.5,
+        0.751,
+        1.5
+      ]
+    },
+    "triangles": 246,
+    "maxOffsetMm": null,
+    "maxContactOffsetMm": 0.125,
+    "sourceFile": null,
+    "sourceSha256": null,
+    "sourceFootprint": "Package_DFN_QFN.pretty/VQFN-16-1EP_3x3mm_P0.5mm_EP1.8x1.8mm.kicad_mod",
+    "sourceFootprintSha256": "8df21d2751f407df996c9b5a9f6ebd345ac4d12356fc3b7c4c4dbfd725aa9bd8",
+    "drawing": "21-0136 V / 90-0031 C",
+    "footprint": "max98357a-r5.kicad_mod",
+    "footprintSha256": "39e89c15f7645d0722bd3d653877423581b91972af6b51d6ca97f74766db756b",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "rect",
+        "x": -1.425,
+        "z": -0.75,
+        "width": 0.8,
+        "height": 0.3,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "rect",
+        "x": -1.425,
+        "z": -0.25,
+        "width": 0.8,
+        "height": 0.3,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "rect",
+        "x": -1.425,
+        "z": 0.25,
+        "width": 0.8,
+        "height": 0.3,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "rect",
+        "x": -1.425,
+        "z": 0.75,
+        "width": 0.8,
+        "height": 0.3,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "rect",
+        "x": -0.75,
+        "z": 1.425,
+        "width": 0.3,
+        "height": 0.8,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "rect",
+        "x": -0.25,
+        "z": 1.425,
+        "width": 0.3,
+        "height": 0.8,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "rect",
+        "x": 0.25,
+        "z": 1.425,
+        "width": 0.3,
+        "height": 0.8,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "rect",
+        "x": 0.75,
+        "z": 1.425,
+        "width": 0.3,
+        "height": 0.8,
+        "drill": 0
+      },
+      {
+        "pad": 9,
+        "shape": "rect",
+        "x": 1.425,
+        "z": 0.75,
+        "width": 0.8,
+        "height": 0.3,
+        "drill": 0
+      },
+      {
+        "pad": 10,
+        "shape": "rect",
+        "x": 1.425,
+        "z": 0.25,
+        "width": 0.8,
+        "height": 0.3,
+        "drill": 0
+      },
+      {
+        "pad": 11,
+        "shape": "rect",
+        "x": 1.425,
+        "z": -0.25,
+        "width": 0.8,
+        "height": 0.3,
+        "drill": 0
+      },
+      {
+        "pad": 12,
+        "shape": "rect",
+        "x": 1.425,
+        "z": -0.75,
+        "width": 0.8,
+        "height": 0.3,
+        "drill": 0
+      },
+      {
+        "pad": 13,
+        "shape": "rect",
+        "x": 0.75,
+        "z": -1.425,
+        "width": 0.3,
+        "height": 0.8,
+        "drill": 0
+      },
+      {
+        "pad": 14,
+        "shape": "rect",
+        "x": 0.25,
+        "z": -1.425,
+        "width": 0.3,
+        "height": 0.8,
+        "drill": 0
+      },
+      {
+        "pad": 15,
+        "shape": "rect",
+        "x": -0.25,
+        "z": -1.425,
+        "width": 0.3,
+        "height": 0.8,
+        "drill": 0
+      },
+      {
+        "pad": 16,
+        "shape": "rect",
+        "x": -0.75,
+        "z": -1.425,
+        "width": 0.3,
+        "height": 0.8,
+        "drill": 0
+      },
+      {
+        "pad": 17,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 1.23,
+        "height": 1.23,
+        "drill": 0
+      }
+    ]
+  },
+  "tpa2012d2R5": {
+    "file": "/models/components/catalog-r5/tpa2012d2R5.glb",
+    "sha256": "0eb1917c75fec7710bbec55f5f752d36bbe4269f4b480a4001791a02df57b7e4",
+    "bytes": 34496,
+    "sizeMm": [
+      4,
+      0.801,
+      4
+    ],
+    "boundsMm": {
+      "min": [
+        -2,
+        0,
+        -2
+      ],
+      "max": [
+        2,
+        0.801,
+        2
+      ]
+    },
+    "triangles": 294,
+    "maxOffsetMm": null,
+    "maxContactOffsetMm": 0.1,
+    "sourceFile": null,
+    "sourceSha256": null,
+    "sourceFootprint": "Package_DFN_QFN.pretty/QFN-20-1EP_4x4mm_P0.5mm_EP2.6x2.6mm.kicad_mod",
+    "sourceFootprintSha256": "caeaaee9900e5b29a5bd4fce42627f2fc3175a2bfa2ce44d34fa1887823452d1",
+    "drawing": "RTJ0020D 4219125/A",
+    "footprint": "tpa2012d2-r5.kicad_mod",
+    "footprintSha256": "26f19a507cb454824eaf72f3ff303b2004d6a2e42a421d48ac13d2b5803b9a91",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -1.9,
+        "z": -1,
+        "width": 0.6,
+        "height": 0.24,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -1.9,
+        "z": -0.5,
+        "width": 0.6,
+        "height": 0.24,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -1.9,
+        "z": 0,
+        "width": 0.6,
+        "height": 0.24,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": -1.9,
+        "z": 0.5,
+        "width": 0.6,
+        "height": 0.24,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": -1.9,
+        "z": 1,
+        "width": 0.6,
+        "height": 0.24,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": -1,
+        "z": 1.9,
+        "width": 0.24,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "roundrect",
+        "x": -0.5,
+        "z": 1.9,
+        "width": 0.24,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 1.9,
+        "width": 0.24,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 9,
+        "shape": "roundrect",
+        "x": 0.5,
+        "z": 1.9,
+        "width": 0.24,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 10,
+        "shape": "roundrect",
+        "x": 1,
+        "z": 1.9,
+        "width": 0.24,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 11,
+        "shape": "roundrect",
+        "x": 1.9,
+        "z": 1,
+        "width": 0.6,
+        "height": 0.24,
+        "drill": 0
+      },
+      {
+        "pad": 12,
+        "shape": "roundrect",
+        "x": 1.9,
+        "z": 0.5,
+        "width": 0.6,
+        "height": 0.24,
+        "drill": 0
+      },
+      {
+        "pad": 13,
+        "shape": "roundrect",
+        "x": 1.9,
+        "z": 0,
+        "width": 0.6,
+        "height": 0.24,
+        "drill": 0
+      },
+      {
+        "pad": 14,
+        "shape": "roundrect",
+        "x": 1.9,
+        "z": -0.5,
+        "width": 0.6,
+        "height": 0.24,
+        "drill": 0
+      },
+      {
+        "pad": 15,
+        "shape": "roundrect",
+        "x": 1.9,
+        "z": -1,
+        "width": 0.6,
+        "height": 0.24,
+        "drill": 0
+      },
+      {
+        "pad": 16,
+        "shape": "roundrect",
+        "x": 1,
+        "z": -1.9,
+        "width": 0.24,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 17,
+        "shape": "roundrect",
+        "x": 0.5,
+        "z": -1.9,
+        "width": 0.24,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 18,
+        "shape": "roundrect",
+        "x": 0,
+        "z": -1.9,
+        "width": 0.24,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 19,
+        "shape": "roundrect",
+        "x": -0.5,
+        "z": -1.9,
+        "width": 0.24,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 20,
+        "shape": "roundrect",
+        "x": -1,
+        "z": -1.9,
+        "width": 0.24,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 21,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 2.7,
+        "height": 2.7,
+        "drill": 0
+      }
+    ]
+  },
+  "drv8833R5": {
+    "file": "/models/components/catalog-r5/drv8833R5.glb",
+    "sha256": "984a98dc157678d0e97e577269327c2902148991f13bf9df4b0ec77440450790",
+    "bytes": 39396,
+    "sizeMm": [
+      6.4,
+      1.201,
+      5
+    ],
+    "boundsMm": {
+      "min": [
+        -3.2,
+        0,
+        -2.5
+      ],
+      "max": [
+        3.2,
+        1.201,
+        2.5
+      ]
+    },
+    "triangles": 502,
+    "maxOffsetMm": null,
+    "maxContactOffsetMm": 0.0239,
+    "sourceFile": null,
+    "sourceSha256": null,
+    "sourceFootprint": "Package_SO.pretty/HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.66x2.46mm.kicad_mod",
+    "sourceFootprintSha256": "bc9d5aaa6f363b806857ca7a21969b2bb786bfc64a0b67e58eeca7c065789d0e",
+    "drawing": "PWP0016C 4224559/B",
+    "footprint": "drv8833-r5.kicad_mod",
+    "footprintSha256": "56e94b3c14454f304fd5005ca4482eb6b75f058a41722b5750d87e68ee76b36d",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -2.275,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -1.625,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -0.975,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -0.325,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 0.325,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 0.975,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 1.625,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 2.275,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 9,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 2.275,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 10,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 1.625,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 11,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 0.975,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 12,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 0.325,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 13,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -0.325,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 14,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -0.975,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 15,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -1.625,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 16,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -2.275,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 17,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 3.4,
+        "height": 5,
+        "drill": 0
+      }
+    ]
+  },
+  "drv8825R5": {
+    "file": "/models/components/catalog-r5/drv8825R5.glb",
+    "sha256": "20637c25096b2111de24cbebae6ddd046ddac378c54c05999aa434ec2846a20a",
+    "bytes": 65024,
+    "sizeMm": [
+      6.4,
+      1.201,
+      9.7
+    ],
+    "boundsMm": {
+      "min": [
+        -3.2,
+        0,
+        -4.85
+      ],
+      "max": [
+        3.2,
+        1.201,
+        4.85
+      ]
+    },
+    "triangles": 838,
+    "maxOffsetMm": null,
+    "maxContactOffsetMm": 0.0239,
+    "sourceFile": null,
+    "sourceSha256": null,
+    "sourceFootprint": "Package_SO.pretty/Texas_PWP0028V_TSSOP-28-1EP_4.4x9.7mm_P0.65mm_EP3.4x9.7mm_Mask2.94x5.62mm.kicad_mod",
+    "sourceFootprintSha256": "63c69c0c01c4e21f153be709e016a00bc4b560743b399b1cf721100f23e88dde",
+    "drawing": "PWP0028V 4230409/A",
+    "footprint": "drv8825-r5.kicad_mod",
+    "footprintSha256": "3820991477b6ce4c7a796d83c0527d4c510546ee679cce3ab5537db26b2687f1",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -4.225,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -3.575,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -2.925,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -2.275,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -1.625,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -0.975,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": -0.325,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 0.325,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 9,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 0.975,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 10,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 1.625,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 11,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 2.275,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 12,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 2.925,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 13,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 3.575,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 14,
+        "shape": "roundrect",
+        "x": -2.9,
+        "z": 4.225,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 15,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 4.225,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 16,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 3.575,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 17,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 2.925,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 18,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 2.275,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 19,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 1.625,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 20,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 0.975,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 21,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": 0.325,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 22,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -0.325,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 23,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -0.975,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 24,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -1.625,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 25,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -2.275,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 26,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -2.925,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 27,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -3.575,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 28,
+        "shape": "roundrect",
+        "x": 2.9,
+        "z": -4.225,
+        "width": 1.5,
+        "height": 0.45,
+        "drill": 0
+      },
+      {
+        "pad": 29,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 3.4,
+        "height": 9.7,
+        "drill": 0
+      }
+    ]
+  },
+  "drv8871R5": {
+    "file": "/models/components/catalog-r5/drv8871R5.glb",
+    "sha256": "54918c38e6f23390b9a014109872e7be73704127b25a89d4421ac1d2e2552c5d",
+    "bytes": 22300,
+    "sizeMm": [
+      6,
+      1.701,
+      4.9
+    ],
+    "boundsMm": {
+      "min": [
+        -3,
+        0,
+        -2.45
+      ],
+      "max": [
+        3,
+        1.701,
+        2.45
+      ]
+    },
+    "triangles": 278,
+    "maxOffsetMm": null,
+    "maxContactOffsetMm": 0.1249,
+    "sourceFile": null,
+    "sourceSha256": null,
+    "sourceFootprint": "Package_SO.pretty/TI_SO-PowerPAD-8.kicad_mod",
+    "sourceFootprintSha256": "9c8aa32351f3e80287fd4fcb02bc559cc23d3ab18494248a11da0d7ff8cc08a3",
+    "drawing": "DDA0008B 4214849/B",
+    "footprint": "drv8871-r5.kicad_mod",
+    "footprintSha256": "22b8880dcd5f1cd08dda10a8461ffe1fda5a0125c0ab398d733d0c964cf32ffa",
+    "mount": "bench",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": -2.7,
+        "z": -1.905,
+        "width": 1.55,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 2,
+        "shape": "roundrect",
+        "x": -2.7,
+        "z": -0.635,
+        "width": 1.55,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 3,
+        "shape": "roundrect",
+        "x": -2.7,
+        "z": 0.635,
+        "width": 1.55,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 4,
+        "shape": "roundrect",
+        "x": -2.7,
+        "z": 1.905,
+        "width": 1.55,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 5,
+        "shape": "roundrect",
+        "x": 2.7,
+        "z": 1.905,
+        "width": 1.55,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 6,
+        "shape": "roundrect",
+        "x": 2.7,
+        "z": 0.635,
+        "width": 1.55,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 7,
+        "shape": "roundrect",
+        "x": 2.7,
+        "z": -0.635,
+        "width": 1.55,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 8,
+        "shape": "roundrect",
+        "x": 2.7,
+        "z": -1.905,
+        "width": 1.55,
+        "height": 0.6,
+        "drill": 0
+      },
+      {
+        "pad": 9,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 2.95,
+        "height": 4.9,
+        "drill": 0
+      }
+    ]
+  }
+}
