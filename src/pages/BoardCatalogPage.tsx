@@ -88,6 +88,7 @@ export function BoardCatalogPage() {
     return () => { active = false }
   }, [link.boardId, loadModel])
   const topView = getBoardTopView(activeBoard.id)
+  const localFirmwareAvailable = typeof window !== 'undefined' && isA2LocalHost(window.location.hostname)
   const a9Board = getA9Board(activeBoard.id)
   const a10Board = getA10Board(activeBoard.id)
   const a11Board = getA11Board(activeBoard.id)
@@ -156,26 +157,26 @@ export function BoardCatalogPage() {
             <p>{activeBoard.description}</p>
           </div>
           <div className="board-cad-viewer-actions">
-            {a9Board && isA2LocalHost(window.location.hostname) && <Link className="board-freestyle-link"
+            {a9Board && localFirmwareAvailable && <Link className="board-freestyle-link"
               to={productRoute(`/build/freestyle?fixture=${a9Board.fixtureId}`)}>Mở mạch nút nhấn và LED A9 ↗</Link>}
-            {a10Board && isA2LocalHost(window.location.hostname) && <Link className="board-freestyle-link"
+            {a10Board && localFirmwareAvailable && <Link className="board-freestyle-link"
               to={productRoute(`/build/freestyle?fixture=${a10Board.fixtureId}`)}>Mở mạch nút nhấn và LED A10 ↗</Link>}
-            {a12Board && isA2LocalHost(window.location.hostname) && <Link className="board-freestyle-link"
+            {a12Board && localFirmwareAvailable && <Link className="board-freestyle-link"
               to={productRoute(`/build/freestyle?fixture=${a12Board.fixtureId}`)}>Mở mạch nút nhấn và LED A12 ↗</Link>}
-            {a11Board && isA2LocalHost(window.location.hostname) && <Link className="board-freestyle-link"
+            {a11Board && localFirmwareAvailable && <Link className="board-freestyle-link"
               to={productRoute(`/build/freestyle?fixture=${a11Board.fixtureId}`)}>Mở mạch nút nhấn và LED A11 ↗</Link>}
-            {a8Board && isA2LocalHost(window.location.hostname) && <Link className="board-freestyle-link"
+            {a8Board && localFirmwareAvailable && <Link className="board-freestyle-link"
               to={productRoute(`/build/freestyle?fixture=${a8Board.fixtureId}`)}>Mở mạch nút nhấn và LED A8 ↗</Link>}
-            {a7Board && isA2LocalHost(window.location.hostname) && <Link className="board-freestyle-link"
+            {a7Board && localFirmwareAvailable && <Link className="board-freestyle-link"
               to={productRoute(`/build/freestyle?fixture=${a7Board.fixtureId}`)}>Mở mạch nút nhấn và LED A7 ↗</Link>}
-            {a6Board && isA2LocalHost(window.location.hostname) && <Link className="board-freestyle-link"
+            {a6Board && localFirmwareAvailable && <Link className="board-freestyle-link"
               to={productRoute(`/build/freestyle?fixture=${a6Board.fixtureId}`)}>Mở mạch nút nhấn và LED A6 ↗</Link>}
-            {a5Board && isA2LocalHost(window.location.hostname) && <Link className="board-freestyle-link"
+            {a5Board && localFirmwareAvailable && <Link className="board-freestyle-link"
               to={productRoute(`/build/freestyle?fixture=${a5Board.fixtureId}`)}>Mở mạch nút nhấn và LED A5 ↗</Link>}
-            {a4Board && isA2LocalHost(window.location.hostname) && <Link className="board-freestyle-link"
+            {a4Board && localFirmwareAvailable && <Link className="board-freestyle-link"
               to={productRoute(`/build/freestyle?fixture=${a4Board.fixtureId}`)}>Mở mạch nút nhấn và LED A4 ↗</Link>}
-            {activeBoard.id === a2BoardId && isA2LocalHost(window.location.hostname) ? <Link className="board-freestyle-link"
-              to={productRoute(`/build/freestyle?fixture=${a2FixtureId}`)}>Mở mạch nút nhấn và LED A2 ↗</Link> : a3Board && isA2LocalHost(window.location.hostname) ? <Link className="board-freestyle-link"
+            {activeBoard.id === a2BoardId && localFirmwareAvailable ? <Link className="board-freestyle-link"
+              to={productRoute(`/build/freestyle?fixture=${a2FixtureId}`)}>Mở mạch nút nhấn và LED A2 ↗</Link> : a3Board && localFirmwareAvailable ? <Link className="board-freestyle-link"
               to={productRoute(`/build/freestyle?fixture=${a3Board.fixtureId}`)}>Mở mạch nút nhấn và LED A3 ↗</Link> : activeFreestyleBoardId && <Link className="board-freestyle-link"
               to={productRoute(`/build/freestyle?board=${encodeURIComponent(activeFreestyleBoardId)}`)}>Lắp thử {activeBoard.name} ↗</Link>}
             {labBoardIds.has(activeBoard.id) && <Link className="board-source-link" to={productRoute(`/build?board=${encodeURIComponent(activeBoard.id)}`)}>Mở phòng thử ↗</Link>}

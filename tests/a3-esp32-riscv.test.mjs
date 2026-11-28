@@ -17,6 +17,13 @@ before(async () => {
 after(async () => { await server?.close() })
 
 for (const board of config.boards) {
+  test(`${board.id} matches the approved source digest`, {
+    skip: board.source.path.startsWith('docs/research/downloads/') && !existsSync(board.source.path)
+      && process.env.MACHMO_REQUIRE_A3_ASSETS !== '1' && 'Manufacturer reference is available in the local research checkout.',
+  }, async () => {
+    assert.equal(sha256(await readFile(board.source.path)), board.source.sha256)
+  })
+
   test(`${board.id} resolves approved pads and rejects wrong wiring`, async () => {
     const { buildA3Fixture, getA3Board, validateA3Circuit } = await server.ssrLoadModule('/src/lib/freestyle/a3EspFixture.ts')
     const { getBoardHeaderPins } = await server.ssrLoadModule('/src/lib/boardCatalogModels.ts')
@@ -24,7 +31,6 @@ for (const board of config.boards) {
     const { parseFreestyleWorkspace } = await server.ssrLoadModule('/src/lib/freestyle/freestyleCircuit.ts')
     const { freestyleAssembly } = await server.ssrLoadModule('/src/lib/freestyle/freestyleAssembly.ts')
     assert.equal(sha256(configBytes), approval)
-    assert.equal(sha256(await readFile(board.source.path)), board.source.sha256)
     const fixture = buildA3Fixture(board.fixtureId)
     const { doc, pinMap, boardId } = fixture
     assert.equal(boardId, board.id)

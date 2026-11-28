@@ -21,6 +21,11 @@
 
 # Catalog approvals and exported footprints are verified byte for byte.
 /docs/research/*-proposal.json -text whitespace=cr-at-eol
+/src/data/arduino-header-pins.json text eol=crlf
+/src/data/stm32-blue-pill-f103.pads.json text eol=crlf
+"/assets/boards/vendor/adafruit-qtpy-esp32-c3/Adafruit QT Py ESP32-C3.sch" text eol=crlf
+"/assets/boards/vendor/adafruit-feather-esp32-s3-5323/Adafruit ESP32-S3 8MB No PSRAM.brd" text eol=crlf
+"/assets/boards/vendor/adafruit-feather-esp32-s3-tft-5483/Adafruit ESP32-S3 TFT Feather.brd" text eol=crlf
 /public/firmware/uno-peripherals-a1/* -text whitespace=cr-at-eol
 /scripts/a12-fw-r2/*.patch -text -whitespace
 /docs/research/*-catalog-fidelity-*-proposal.md -text whitespace=cr-at-eol,-blank-at-eof

@@ -12,9 +12,25 @@ const hash = bytes => createHash('sha256').update(bytes).digest('hex')
 const path = '.tmp/a11-local-assets'
 const staged = process.env.MACHMO_REQUIRE_A11_ASSETS === '1' || existsSync(`${path}/image/manifest.json`)
 
-test('A11 verifies the approved proposal and decodes all 32 bits of GPIO on LX6', async () => {
+test('A11 verifies the locally supplied manufacturer references', {
+  skip: !staged && !proposal.boards.some(board => board.assets.some(asset =>
+    asset.path.startsWith('docs/research/downloads/') && existsSync(asset.path)))
+    && 'Manufacturer references are available in the local research checkout.',
+}, async () => {
   const { readA11Proposal } = await import('../scripts/a11-esp32-assets.mjs')
   assert.deepEqual(await readA11Proposal(), proposal)
+})
+
+test('A11 verifies the approved proposal and decodes all 32 bits of GPIO on LX6', async () => {
+  const { a11Approval, readA11LockedFile } = await import('../scripts/a11-esp32-assets.mjs')
+  assert.equal(hash(bytes), a11Approval)
+  const { engine } = proposal.electrical
+  await readA11LockedFile(engine.path, engine.sha256)
+  for (const board of proposal.boards) {
+    for (const asset of board.assets) {
+      if (!asset.path.startsWith('docs/research/downloads/')) await readA11LockedFile(asset.path, asset.sha256)
+    }
+  }
   const vite = await createServer({ configFile: false, envFile: false, logLevel: 'silent',
     optimizeDeps: { noDiscovery: true, include: [] }, server: { middlewareMode: true, watch: null } })
   try {
