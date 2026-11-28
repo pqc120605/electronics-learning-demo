@@ -28,6 +28,7 @@ import { loadA10Hex, type A10Board } from '../../lib/freestyle/a10AvrRuntime'
 import { a11DcNetlist, buildA11Fixture, validateA11Circuit } from '../../lib/freestyle/a11EspFixture'
 import { a11Settings, loadA11Firmware, type A11Board, type A11WorkerMessage } from '../../lib/freestyle/a11EspRuntime'
 import type { LiveWorkerRequest, LiveWorkerResponse } from '../../simulation/liveRuntimeProtocol'
+import { isHostedFirmware } from '../../lib/freestyle/firmwareDelivery'
 
 type Props = { doc: CircuitDocV2; boardId: string; pinMap: PinMap; pressed: boolean; onSample: (sample?: A2Sample) => void; a3?: A3Board; a4?: A4Board; a5?: A5Board; a6?: A6Board; a7?: A7Board; a8?: A8Board; a9?: A9Board; a10?: A10Board; a11?: A11Board }
 type Run = { worker?: Worker; abort: AbortController; timeout?: number; repeat?: number; stopLocal?: () => void }
@@ -151,11 +152,19 @@ export default function A2C3Controls({ doc, boardId, pinMap, pressed, onSample, 
     setMeasurement('')
     onSample(undefined)
     const startupMs = renode ? renode.limits.startupWallMs : a11 ? 20_000 : a6 ? a6Limits.startupWallMs : 10_000
-    active.timeout = window.setTimeout(() => stop(`${title} chưa khởi động sau ${startupMs / 1000} giây.`, true), startupMs)
+    const separateDownload = isHostedFirmware() && !renode
+    function countBootTime() {
+      window.clearTimeout(active.timeout)
+      active.timeout = window.setTimeout(() => stop(`${title} chưa khởi động sau ${startupMs / 1000} giây.`, true), startupMs)
+    }
+    if (separateDownload) {
+      active.timeout = window.setTimeout(() => stop(`Chưa tải xong tài nguyên firmware ${title} sau 30 giây.`, true), 30_000)
+    } else countBootTime()
     try {
       if (a10 && avrCircuit?.graph) {
         const hex = await loadA10Hex(a10, JSON.stringify(buildA10Fixture(a10.fixtureId)), active.abort.signal)
         if (run.current !== active) return
+        if (separateDownload) countBootTime()
         const worker = active.worker = new Worker(new URL('../../workers/avrLive.worker.ts', import.meta.url), { type: 'module' })
         let uart = ''
         let ready = false
@@ -228,6 +237,10 @@ export default function A2C3Controls({ doc, boardId, pinMap, pressed, onSample, 
       worker.onmessage = ({ data }: MessageEvent<A2WorkerEvent>) => {
         if (run.current !== active) return
         if (data.type === 'error') return stop(data.message, true)
+        if (data.type === 'prepared') {
+          if (separateDownload) countBootTime()
+          return
+        }
         if (data.type === 'uart') {
           uart = (uart + data.text).slice(-8000)
           setSerial(uart)
@@ -244,18 +257,21 @@ export default function A2C3Controls({ doc, boardId, pinMap, pressed, onSample, 
       if (a11) {
         const assets = await loadA11Firmware(a11, JSON.stringify(buildA11Fixture(a11.fixtureId)), signal)
         if (run.current !== active) return
+        if (separateDownload) countBootTime()
         worker.postMessage({ type: 'boot', assets, pressed: input.current } satisfies A11WorkerMessage, Object.values(assets))
         return
       }
       if (a6) {
         const { elf, wrapper, wasm } = await loadA6Firmware(a6, signal)
         if (run.current !== active) return
+        if (separateDownload) countBootTime()
         worker.postMessage({ type: 'boot', elf, wrapper, wasm, pressed: input.current } satisfies A6WorkerMessage, [elf, wrapper, wasm])
         return
       }
       if (a5) {
         const { flash, bootrom } = await loadA5Firmware(a5, signal)
         if (run.current !== active) return
+        if (separateDownload) countBootTime()
         worker.postMessage({ type: 'boot', flash, bootrom, pressed: input.current, sdkBoard: a5.sdkBoard } satisfies A5WorkerMessage, [flash, bootrom])
         return
       }

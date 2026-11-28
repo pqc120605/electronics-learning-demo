@@ -59,6 +59,7 @@ globalThis.onmessage = async (event: MessageEvent<A2WorkerMessage>) => {
   try {
     const loaded = await runtime
     if ('error' in loaded) throw loaded.error
+    emit({ type: 'prepared' })
     const { engine, bridge } = loaded
     const machine: Emulator = new engine.WasmEmulator(gpio.chip)
     emu = machine
