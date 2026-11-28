@@ -1,0 +1,55 @@
+{
+  "revision": "MM-A12-MINI-PC-PILOT-R1",
+  "date": "2026-11-28",
+  "scope": "Xác minh hai mạch nút nhấn và LED A12 trên Mini PC, trước khi nối bất kỳ runner mới nào vào Vercel.",
+  "capabilities": [
+    "FW-04",
+    "FW-07",
+    "FW-08",
+    "SIM-02",
+    "SIM-03",
+    "SIM-04"
+  ],
+  "baseline": {
+    "revision": "MM-A12-FW-R2",
+    "sha256": "ef88a72e4dba5015a288d84ddccf9eda0b0a84dd05a8aaac3e77ad663da15960",
+    "webCommit": "af6c2b7ea497aefb838530ecf8aff3b4f1c529b1",
+    "boards": [
+      "esp32-s2-devkitc-1",
+      "arduino-nano-every"
+    ]
+  },
+  "execution": {
+    "host": "Mini PC Arch Linux, amd64, Podman rootless, cgroups v2",
+    "baseImageFullId": "sha256:c9cc630a6770413216cd5deeb7e6cda16eb5a1387bc070eaea7d5fa2933ef25c",
+    "baseImageUse": "Chuyển image nền Linux đã dùng trên laptop qua SSH. Chỉ sao chép image nền và đúng bảy tệp dưới đây sau khi đã kiểm SHA-256.",
+    "filesystem": "Gắn thư mục runner ở /r2/runtime, chỉ đọc. Dùng tmpfs riêng tối đa 64 MiB.",
+    "isolation": {
+      "network": "none",
+      "capabilities": "drop all",
+      "noNewPrivileges": true,
+      "readOnlyRoot": true,
+      "cpusPerSession": 1,
+      "memoryMiBPerSession": 384,
+      "pidsPerSession": 64,
+      "maxConcurrentSessions": 2
+    },
+    "protocol": "stdin/stdout qua podman run riêng mỗi phiên. Chỉ hai ID đã duyệt, start/reset nội bộ, đặt nút nhấn, bước 1–100 ms và stop. Hạn khởi động 30 giây, hạn phiên 90 giây. Giữ nguyên ngưỡng và phép đo DC của A12-FW-R2.",
+    "exposure": "Thử từ local qua SSH. Caddy, Tailscale Funnel, API production và Vercel không tham gia đợt thử này."
+  },
+  "artifacts": {
+    "s2.elf": "f87088aec949d5c9b835b7981b3dc25110213b85b294852059fb30417ca50748",
+    "s2rom.bin": "fa43239bcee7b97ca62f007cc68487560a39e19f74f3dde7486db3f98df8e471",
+    "run-s2.py": "d22561c1383634da30586be1a86c6583410ed2a9271b2131f80329ce87560479",
+    "qemu-system-xtensa": "fa016c3232129b6cbf1035d81d2a32994f86ec7d2d8a887d58a39583fff096ea",
+    "nano.elf": "c68120c65d0ecd84d34222e82497d6f8b667e5ec7acdc279561adcdba058205f",
+    "nano.hex": "28e9003c8ffd2cefef5111db236bdce935cdeb979b0c5971051a4258f8064a88",
+    "nano-runner": "ad899034c158a07751e677186019ab992d48a26bc4ae735ad9f29abdf76e6aa9"
+  },
+  "acceptance": [
+    "Hai board báo đúng marker UART; xung thử 20 ms bị bỏ qua; ba chu kỳ phải đúng cạnh GPIO và khoảng trễ đã duyệt.",
+    "Hai trạng thái DC mỗi board phải nằm trong sai số của A12-FW-R2. Kiểm hai phiên độc lập và dọn tiến trình khi dừng hoặc hết hạn.",
+    "API đang phục vụ Vercel tiếp tục báo PostgreSQL ready trước và sau ca thử."
+  ],
+  "next": "Chỉ sau khi đạt mới dùng kết quả trên Mini PC để chốt cấu hình phát hành runner qua origin Vercel, gồm giới hạn phiên và phương án quay lui."
+}

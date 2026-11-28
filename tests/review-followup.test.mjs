@@ -9,14 +9,17 @@ before(async () => {
   spice = await server.ssrLoadModule('/src/lib/workspaceSpice.ts')
 })
 after(async () => { await server?.close() })
-test('board summaries distinguish the exact supported AVR targets from lesson-only profiles', () => {
+test('board summaries distinguish the browser AVR HEX runner from board-specific local fixtures', () => {
   for (const id of ['arduino-uno-r3', 'arduino-nano-classic']) {
     const text = capability.getBoardSupportSummary(id).simulation
     assert.match(text, /HEX.*ATmega328P.*AVR8js/)
     assert.doesNotMatch(text, /không chạy firmware/)
   }
+  assert.match(capability.getBoardSupportSummary('esp32-devkit').simulation, /Bản local.*ESP-EMU.*A11/)
+  assert.match(capability.getBoardSupportSummary('arduino-mega-2560-r3').simulation, /Bản local.*AVR8js.*A10/)
+  assert.match(capability.getBoardSupportSummary('arduino-nano-every').simulation, /Mạch A12 trên local.*DC/)
   for (const id of ['esp32-devkit', 'raspberry-pi-pico', 'arduino-mega-2560-r3', 'arduino-nano-every']) {
-    assert.match(capability.getBoardSupportSummary(id).simulation, /chưa.*firmware/i)
+    assert.doesNotMatch(capability.getBoardSupportSummary(id).simulation, /HEX.*ATmega328P/)
   }
 })
 test('kit accessories use maximum simultaneous wiring plus two spare jumpers per station', () => {
