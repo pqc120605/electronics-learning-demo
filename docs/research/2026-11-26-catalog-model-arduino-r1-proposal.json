@@ -1,0 +1,93 @@
+{
+  "revision": "MM-CATALOG-MODELS-ARDUINO-1",
+  "status": "proposed",
+  "scope": "local model viewing",
+  "outputs": [
+    "source-backed GLB with part selection for identifiable components",
+    "orthographic 2D from the same GLB",
+    "pin selection keyed by stable board and pin IDs where verified",
+    "source and license notice"
+  ],
+  "electricalExecution": "unchanged",
+  "publicRelease": "requires verifying each source license, model fidelity and local behavior",
+  "variants": [
+    {
+      "boardId": "arduino-uno-r4-minima",
+      "sku": "ABX00080",
+      "manufacturer": "Arduino",
+      "documentation": "https://docs.arduino.cc/hardware/uno-r4-minima/",
+      "mechanicalSource": {
+        "url": "https://docs.arduino.cc/static/ae97aad5c05de6a565c7f93a28c04717/ABX00080-cad-files.zip",
+        "archiveSha256": "37d7bcab7a6048619abdecee6d41582b825c3a1d045bb26821c1e36dcbd9ce26",
+        "member": "ABX00080-cad-files/Additional files/PCB(ABX00080).step",
+        "sha256": "31401de9839d07b3f730f40b84925162a248c7bd50f585590d86168772f827e5"
+      },
+      "pcbLocationEvidence": {
+        "url": "https://docs.arduino.cc/static/ae97aad5c05de6a565c7f93a28c04717/ABX00080-cad-files.zip",
+        "archiveSha256": "37d7bcab7a6048619abdecee6d41582b825c3a1d045bb26821c1e36dcbd9ce26",
+        "member": "ABX00080-cad-files/Altium files/PCB.PcbDoc",
+        "sha256": "1cc9337cf9fe0dee0b1498afa3d76ae33742e00a2a7d698dcf01a8b261011d7f"
+      },
+      "hardwareLicense": {
+        "url": "https://docs.arduino.cc/static/ae97aad5c05de6a565c7f93a28c04717/ABX00080-cad-files.zip",
+        "archiveSha256": "37d7bcab7a6048619abdecee6d41582b825c3a1d045bb26821c1e36dcbd9ce26",
+        "member": "ABX00080-cad-files/License.txt",
+        "sha256": "0bccb1994c9dbd6c8fd50f51fd1c7b6c68b3463b823b37595884f36d89e096a5"
+      },
+      "distribution": "preserve Arduino attribution and CC BY-SA 4.0 per bundled hardware license",
+      "pinEvidence": "Use documented Arduino header names from the official SKU pinout and only expose selectable coordinates verified against the same SKU PCB source and orientation."
+    },
+    {
+      "boardId": "arduino-uno-r4-wifi",
+      "sku": "ABX00087",
+      "manufacturer": "Arduino",
+      "documentation": "https://docs.arduino.cc/hardware/uno-r4-wifi/",
+      "mechanicalSource": {
+        "url": "https://docs.arduino.cc/static/41d76ccb600d3cb1ec1e98a28d24f111/ABX00087-cad-files.zip",
+        "archiveSha256": "f1cbf8ff9c6b469b43abdb42467f4938ebc089be70a7e387869801806ac2df21",
+        "member": "ABX00087-cad-files/Additional files/PCB(ABX00087).step",
+        "sha256": "c729a4e24e6afae69f1dba712fcc4e7b6ed7cff39dad32f0faaf56306597e77e"
+      },
+      "pcbLocationEvidence": {
+        "url": "https://docs.arduino.cc/static/41d76ccb600d3cb1ec1e98a28d24f111/ABX00087-cad-files.zip",
+        "archiveSha256": "f1cbf8ff9c6b469b43abdb42467f4938ebc089be70a7e387869801806ac2df21",
+        "member": "ABX00087-cad-files/Altium files/PCB.PcbDoc",
+        "sha256": "719d59a891be3c5fc29b287c7b3f4187852b84c3cec300fb8bdefe4c14263da9"
+      },
+      "hardwareLicense": {
+        "url": "https://docs.arduino.cc/static/41d76ccb600d3cb1ec1e98a28d24f111/ABX00087-cad-files.zip",
+        "archiveSha256": "f1cbf8ff9c6b469b43abdb42467f4938ebc089be70a7e387869801806ac2df21",
+        "member": "ABX00087-cad-files/License.txt",
+        "sha256": "0bccb1994c9dbd6c8fd50f51fd1c7b6c68b3463b823b37595884f36d89e096a5"
+      },
+      "distribution": "preserve Arduino attribution and CC BY-SA 4.0 per bundled hardware license",
+      "pinEvidence": "Use documented Arduino header names from the official SKU pinout and only expose selectable coordinates verified against the same SKU PCB source and orientation."
+    },
+    {
+      "boardId": "arduino-nano-esp32",
+      "sku": "ABX00083",
+      "manufacturer": "Arduino",
+      "documentation": "https://docs.arduino.cc/hardware/nano-esp32/",
+      "mechanicalSource": {
+        "url": "https://docs.arduino.cc/resources/models/ABX00083-step.zip",
+        "archiveSha256": "c68c2e712e5de4fc8cdfd2d2534af460f7049efac187fd89bc2891c585839381",
+        "member": "NANO_ESP32.step",
+        "sha256": "b1fdadf95323994f7d7698962f2814ba3490cde1fb53701050067fbd5017ce98"
+      },
+      "pcbLocationEvidence": {
+        "url": "https://docs.arduino.cc/static/7ad906834db029723652f0e885968d73/ABX00083-cad-files.zip",
+        "archiveSha256": "99d89d826d59487b2ba9de6c886f3a4419bc79da25faa5cb3d40bd61979b5c5d",
+        "member": "ABX00083-cad-files/PCB.PcbDoc",
+        "sha256": "e0c66c3df14d6c60b5736368a36c3837b9cb7fc04e4c0a99dcb36e2931aa96d8"
+      },
+      "hardwareLicense": {
+        "url": "https://docs.arduino.cc/static/7ad906834db029723652f0e885968d73/ABX00083-cad-files.zip",
+        "archiveSha256": "99d89d826d59487b2ba9de6c886f3a4419bc79da25faa5cb3d40bd61979b5c5d",
+        "member": "ABX00083-cad-files/License.txt",
+        "sha256": "0bccb1994c9dbd6c8fd50f51fd1c7b6c68b3463b823b37595884f36d89e096a5"
+      },
+      "distribution": "verify the exact STEP licensing chain before publishing",
+      "pinEvidence": "Use documented Arduino header names from the official SKU pinout and only expose selectable coordinates verified against the same SKU PCB source and orientation."
+    }
+  ]
+}

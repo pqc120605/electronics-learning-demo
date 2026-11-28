@@ -1,0 +1,308 @@
+{
+  "revision": "MM-PINS-SIM-FW-A1",
+  "status": "proposal-for-approval",
+  "scope": "Local Mạch Mở. Rà đủ 28 board, chuẩn hoá pin theo dữ liệu đã đối chiếu, sửa hai trường hợp pinout nêu rõ và triển khai bốn fixture điện/firmware trên Uno R3.",
+  "referenceBaseline": "357e8fc427565c76acec8ecc78fcaa4206bdd7c1 + worktree .tmp/na với MM-CATALOG-MODELS-REMAINING-1",
+  "catalog": {
+    "boardIds": [
+      "seeed-xiao-esp32c3",
+      "seeed-xiao-esp32-s3",
+      "adafruit-qtpy-esp32-c3-5405",
+      "adafruit-feather-esp32-s3-tft-5483",
+      "adafruit-feather-esp32-s3-5323",
+      "esp32-devkit",
+      "arduino-uno-r3",
+      "arduino-nano-classic",
+      "arduino-mega-2560-r3",
+      "stm32-nucleo",
+      "esp32-c3-devkitm-1",
+      "esp32-devkitm-1",
+      "esp32-s3-devkitc-1",
+      "stm32-blue-pill-f103",
+      "raspberry-pi-pico",
+      "raspberry-pi-pico-w",
+      "raspberry-pi-pico-2",
+      "raspberry-pi-pico-2-h",
+      "esp32-c6-devkitc-1",
+      "stm32-nucleo-f411re",
+      "arduino-uno-r4-minima",
+      "arduino-uno-r4-wifi",
+      "arduino-nano-esp32",
+      "arduino-nano-every",
+      "esp32-s2-devkitc-1",
+      "esp32-h2-devkitm-1",
+      "stm32-nucleo-l476rg",
+      "stm32-nucleo-f446re"
+    ],
+    "identity": [
+      "boardId",
+      "pcbRevision",
+      "headerReference",
+      "padNumber"
+    ],
+    "electricalIdentity": "Giữ partId/pinId và schema bản lưu. Thêm bảng ánh xạ, giữ tên Arduino, GPIO MCU, nguồn, hướng, chức năng, NC và hạn chế có bằng chứng. Dữ liệu giáo dục giữ nhãn alias.",
+    "nucleoF401": {
+      "boardId": "stm32-nucleo",
+      "variant": "NUCLEO-F401RE · MB1136-F401RE-C04",
+      "manual": "UM1724 Rev 17, bảng 29 và 10 trạng thái bridge mặc định",
+      "labelsInPadOrder": {
+        "CN7": [
+          "PC10",
+          "PC11",
+          "PC12",
+          "PD2",
+          "VDD",
+          "E5V",
+          "BOOT0",
+          "GND",
+          "NC",
+          "NC",
+          "NC",
+          "IOREF",
+          "PA13",
+          "RESET",
+          "PA14",
+          "3V3",
+          "PA15",
+          "5V",
+          "GND",
+          "GND",
+          "PB7",
+          "GND",
+          "PC13",
+          "VIN",
+          "PC14",
+          "NC",
+          "PC15",
+          "PA0",
+          "PH0",
+          "PA1",
+          "PH1",
+          "PA4",
+          "VBAT",
+          "PB0",
+          "PC2",
+          "PC1",
+          "PC3",
+          "PC0"
+        ],
+        "CN10": [
+          "PC9",
+          "PC8",
+          "PB8",
+          "PC6",
+          "PB9",
+          "PC5",
+          "AVDD",
+          "U5V",
+          "GND",
+          "NC",
+          "PA5",
+          "PA12",
+          "PA6",
+          "PA11",
+          "PA7",
+          "PB12",
+          "PB6",
+          "NC",
+          "PC7",
+          "GND",
+          "PA9",
+          "PB2",
+          "PA8",
+          "PB1",
+          "PB10",
+          "PB15",
+          "PB4",
+          "PB14",
+          "PB5",
+          "PB13",
+          "PB3",
+          "AGND",
+          "PA10",
+          "PC4",
+          "PA2",
+          "NC",
+          "PA3",
+          "NC"
+        ]
+      },
+      "sources": {
+        "st-um1724.pdf": {
+          "path": "docs/research/downloads/2026-11-26-catalog-remaining/st-um1724.pdf",
+          "url": "https://www.st.com/resource/en/user_manual/DM00105823.pdf",
+          "retrievalDate": "2026-11-26",
+          "bytes": 3781926,
+          "sha256": "576d9bee3bc32c8ee70bf0d77cf9494cec06ea7c1d9ff98eebf2738cb9314a14",
+          "publisher": "STMicroelectronics"
+        },
+        "st-c04-schematic": {
+          "path": "assets/boards/vendor/nucleo-f401re/source/mb1136-default-c04_schematic.pdf",
+          "sha256": "401f40ca598b008050e7749b5847e93ca8aa83e9a0bae4cbcbe7a016159e57c1",
+          "bytes": 1314815,
+          "url": "https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf",
+          "revision": "MB1136-DEFAULT-C04",
+          "publisher": "STMicroelectronics",
+          "retrievalDate": "2026-10-29"
+        },
+        "st-mb1136-board-project": {
+          "path": "assets/boards/vendor/nucleo-f401re/source/mb1136_bdp.zip",
+          "sha256": "66e2aa6a1ca58e787ea1717c0736a1853777f93a20a95e4d2e0273dc234eb52d",
+          "bytes": 492338,
+          "url": "https://www.st.com/en/evaluation-tools/nucleo-f411re.html#cad-resources",
+          "revision": "1.1",
+          "use": "Nguồn đối chiếu chung MB1136 trong kho local",
+          "publisher": "STMicroelectronics",
+          "retrievalDate": "2026-10-29",
+          "memberChecks": [
+            {
+              "member": "MB1136C/Altium_Designer/MB1136.PcbDoc",
+              "sha256": "fdfa6424fbffa1bfc27863ed8dbf43429e9db81f2a39e10f18a8a18a5fb60e64",
+              "bytes": 1670656
+            },
+            {
+              "member": "readme.txt",
+              "sha256": "616572b24b50b008b14e5c8d38e488a473700bc3e850f571de6f73773b9d50d0",
+              "bytes": 1644
+            }
+          ]
+        }
+      },
+      "acceptance": "Thêm 76 tên pad CN7/CN10 và đối chiếu tọa độ PcbDoc cùng hệ trục viewer trước khi bật chọn. Kiểm cả 32 pad Arduino sẵn có. Hiển thị điều kiện SWD và bridge của chân bị chia sẻ."
+    },
+    "picoR3": {
+      "boardId": "raspberry-pi-pico",
+      "variant": "Pico R3 RP2040",
+      "reference": "https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf",
+      "scope": "Thay liên kết bằng nguồn Pico R3 và rà lại bảng 40 chân J0 theo đúng tài liệu. Giữ các pad SWD riêng ở trạng thái cần đối chiếu PCB cho đợt sau."
+    },
+    "unresolvedPolicy": "Chân ngoài vùng có bằng chứng cần nguồn và duyệt mapping cụ thể trước khi gán thêm. Xem biên bản 28 board."
+  },
+  "firmware": {
+    "boardId": "arduino-uno-r3",
+    "sku": "A000066 Uno Rev3 ATmega328P",
+    "reference": "https://docs.arduino.cc/resources/pinouts/A000066-full-pinout.pdf",
+    "fqbn": "arduino:avr:uno",
+    "clockHz": 16000000,
+    "logicV": 5,
+    "flashBytes": 32768,
+    "sramBytes": 2048,
+    "uartBaud": 9600,
+    "engine": "avr8js 0.21.1 via avrLive worker",
+    "artifact": "Intel HEX và log/hash. Chạy code C++ Arduino biên dịch cho đúng target từ toolchain đã cài; ghi version Arduino AVR Boards và binary compiler khi tạo, giữ trong worktree local. Tái dùng worker và bảng chân Uno hiện hành.",
+    "debugOutput": [
+      "Serial UART0",
+      "mức tín hiệu theo biến thiên thời gian",
+      "trạng thái quan sát của linh kiện",
+      "cảnh báo topology và nguồn"
+    ],
+    "limits": "Không phát hành firmware, không nạp thiết bị, không yêu cầu login hoặc server chạy mã. MCU và bộ giải ngspice xuất kết quả riêng."
+  },
+  "lockedComponentReference": {
+    "path": "docs/research/2026-11-26-catalog-model-remaining-13-proposal.json",
+    "sha256": "b4ffbe029a95931441999ba5385a5f05d3976c2e192c515d2d7a62bc071a2841"
+  },
+  "fixtures": [
+    {
+      "id": "dht11",
+      "mpn": "ASAIR DHT11 Dec 2022",
+      "model": "Sự kiện một dây, ký tự theo dạng dữ liệu DHT11",
+      "pins": {
+        "vcc": "5V",
+        "data": "D2",
+        "gnd": "GND",
+        "pad3": "NC"
+      },
+      "pullup": {
+        "ohm": 4700,
+        "from": "data",
+        "to": "5V"
+      },
+      "reading": {
+        "humidityPercent": 55,
+        "temperatureC": 23,
+        "intervalMs": 2500
+      },
+      "criteria": "Firmware báo đúng nhiệt độ/độ ẩm và checksum hợp lệ. Không dây DATA/pull-up hoặc mất nguồn dẫn tới timeout hoặc cảnh báo, không trả mẫu cũ."
+    },
+    {
+      "id": "dht22-bare",
+      "mpn": "ASAIR AM2302 V1.0",
+      "model": "Sự kiện một dây, dạng dữ liệu AM2302",
+      "pins": {
+        "vcc": "5V",
+        "data": "D2",
+        "gnd": "GND",
+        "pad3": "NC"
+      },
+      "pullup": {
+        "ohm": 4700,
+        "from": "data",
+        "to": "5V"
+      },
+      "reading": {
+        "humidityPercent": 55.5,
+        "temperatureC": -5.4,
+        "intervalMs": 2500
+      },
+      "criteria": "Xác minh bit dấu, độ phân giải 0,1 và checksum. Dây NC không thuộc net mô phỏng."
+    },
+    {
+      "id": "keypad-4x4",
+      "mpn": "Adafruit PID 3844",
+      "pins": {
+        "r1": "D2",
+        "r2": "D3",
+        "r3": "D4",
+        "r4": "D5",
+        "c1": "D6",
+        "c2": "D7",
+        "c3": "D8",
+        "c4": "D9"
+      },
+      "method": "Quét hàng active-low, các hàng còn lại high-impedance, cột input pull-up. Một phím tại một thời điểm. Kiểm đủ 16 phím, nhả và idle.",
+      "criteria": "Firmware trả đúng ký tự, không tạo ký tự khi mạch hở."
+    },
+    {
+      "id": "seven-segment-anode",
+      "mpn": "Kingbright SA56-11EWA",
+      "pins": {
+        "a": "D3",
+        "b": "D4",
+        "c": "D5",
+        "d": "D6",
+        "e": "D7",
+        "f": "D8",
+        "g": "D9",
+        "dp": "D10",
+        "com1": "5V",
+        "com2": "5V"
+      },
+      "seriesOhmEach": 1000,
+      "signal": "LOW bật, HIGH tắt",
+      "criteria": "Firmware hiển thị 0–9 và dấu chấm theo bảng đoạn. Sai cực tính và thiếu điện trở có cảnh báo. Hai chân COM nối nguồn 5 V."
+    }
+  ],
+  "electrical": {
+    "engine": "ngspice 45.2",
+    "wasmSha256": "3096ce2c499c3062472b9d7953f5141d75a019296e22b0142f4979e5894008ec",
+    "model": "Diode LED đỏ tương đương cho một kênh SA56, dòng bão hòa 1e-18 A, hệ số lý tưởng 2.2, điện trở nối tiếp 20 Ω ở 27 °C. Giá trị mô hình dùng trong bài thực hành.",
+    "fixture": {
+      "supplyV": 5,
+      "seriesOhm": 1000,
+      "activeLowSinkV": 0,
+      "inactiveSinkV": 5,
+      "expectedOnCurrentMa": [
+        2,
+        4
+      ],
+      "maxOffCurrentMa": 0.001
+    },
+    "criteria": "Đo dòng nhánh, V_LED và kiểm KVL. Báo nguồn kết quả và kiểu mô hình. Runner ngspice chỉ nhận netlist tương đương được khai báo; giữ gate phát hành."
+  },
+  "acceptance": [
+    "Test tự động kiểm 28 board, khóa định danh duy nhất theo đầu cắm/số pad, không đổi các wire endpoint đang lưu.",
+    "Mỗi fixture Uno dùng HEX thực thi trong worker, có kiểu báo cáo và bằng chứng serial, mức/timing. Kiểm chạy lại, dừng, timeout, file sai target, thiếu nguồn và trạng thái stale.",
+    "Kiểm trình duyệt local mỗi mẫu, regression các runner Uno, Nano, Mega và Pico đang có với các mẫu đã duyệt. Kiểm R1–R5 ở miền liên quan."
+  ]
+}

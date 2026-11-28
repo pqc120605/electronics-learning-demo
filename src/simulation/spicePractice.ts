@@ -1,6 +1,7 @@
 import { catalogR1Spice } from './catalogR1Spice'
 import { catalogR2bSpice } from './catalogR2bSpice'
 import { catalogR3Spice } from './catalogR3Spice'
+import { unoA1Spice } from './unoA1Spice'
 import { probeValue, type SpiceSeriesLike } from './spiceProbes'
 
 type PracticeMeasure = { signal: string; unit: 'V' | 'mA' | 'nA'; min: number; max: number }
@@ -69,6 +70,7 @@ export const spicePractices: readonly SpicePractice[] = [
   ...catalogR1Spice,
   ...catalogR2bSpice,
   ...catalogR3Spice,
+  unoA1Spice,
   {
     id: 'rc-charge', name: 'Tụ điện nạp qua điện trở',
     description: 'Đổi điện dung rồi đo điện áp trên tụ tại một hằng số thời gian τ.',

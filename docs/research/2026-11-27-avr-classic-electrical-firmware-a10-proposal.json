@@ -1,0 +1,138 @@
+{
+  "revision": "MM-AVR-CLASSIC-SIM-FW-A10",
+  "date": "2026-11-27",
+  "state": "PROPOSED",
+  "purpose": {
+    "scope": "Hoàn thiện mạch mẫu nút nhấn và LED cho Nano classic ATmega328P và Mega 2560 Rev3. Dùng hai target AVR đã có trong repo, mở từ Thư viện Board sang bàn lắp local.",
+    "capabilityIds": ["CAT-01", "CAT-02", "CAT-03", "FW-04", "FW-07", "FW-08", "SIM-02", "SIM-03", "SIM-04"],
+    "exitDepth": "D3 cho hai mạch mẫu: pinout chọn được theo revision, HEX biên dịch và chạy đúng target, phản hồi GPIO và UART theo thời gian mô phỏng, hai điểm làm việc ngspice có số đo cho từng board.",
+    "baseline": "Tiếp nối A9 trong worktree .tmp/na. Kiểm theo K-ID và K-CTX: dùng đúng revision, không đổi khóa các bản nháp. Triển khai và nghiệm thu trên Windows localhost."
+  },
+  "headerSource": {
+    "path": "src/data/arduino-header-pins.json",
+    "sha256": "4a70d5ace17d471953e5f5686fd39046e294bb780e20b3dede9d538d63756f92"
+  },
+  "boards": [
+    {
+      "id": "arduino-nano-classic",
+      "runnerId": "arduino-nano",
+      "fixtureId": "a10-nano-classic-button-led",
+      "name": "Arduino Nano classic",
+      "sku": "A000005",
+      "boardRevision": "Arduino Nano classic V3.3 theo CAD tham chiếu",
+      "mcu": "ATmega328P",
+      "flashBytes": 32768,
+      "sramBytes": 2048,
+      "fqbn": "arduino:avr:nano:cpu=atmega328",
+      "uartTargetMarker": "NANO328P",
+      "sources": [
+        "https://docs.arduino.cc/hardware/nano/",
+        "https://docs.arduino.cc/resources/pinouts/A000005-full-pinout.pdf",
+        "https://docs.arduino.cc/resources/schematics/A000005-schematics.pdf"
+      ],
+      "assets": [
+        {"path": "assets/boards/arduino-reference/arduino-nano-classic-official-import.kicad_pcb", "sha256": "4fb7eb838bc706df4bbc270a8bcfa5473e08ea86d3f6d581db6c4f408a49c216"},
+        {"path": "public/models/arduino-nano-classic.glb", "sha256": "43c1f8047b7f83c3b955f91097fc42dc24d8f147a68f9e844bbb6da710beff55"},
+        {"path": "public/models/optimized/arduino-nano-classic.meshopt.glb", "sha256": "2ebe2cdcff64c27e74137c79ca25d75a43ac42f5a56e4cf432e04a787d1a9dcf"},
+        {"path": "public/board-reference/topview/arduino-nano-classic.png", "sha256": "85aba2f11a708ba515e15b714943986e958edf83857dc1fd8c86c8076f66ac5d"}
+      ],
+      "padCount": 36,
+      "pins": {
+        "input": {"label": "D2", "arduino": 2, "portBit": "PD2", "id": "pin-3", "pad": "J1.5"},
+        "output": {"label": "D8", "arduino": 8, "portBit": "PB0", "id": "pin-9", "pad": "J1.11"},
+        "power": {"label": "5V", "id": "pin-23", "pad": "J2.4"},
+        "ground": {"label": "GND", "id": "pin-J2-2", "pad": "J2.2"},
+        "uartTx": {"label": "D1/TX", "arduino": 1, "portBit": "PD1", "id": "pin-2", "pad": "J1.1"}
+      },
+      "auxiliary": {"J4": "ICSP của ATmega328P, sáu pad theo CAD. Ghi rõ footprint chưa lắp đầu cắm trên mẫu tham chiếu."},
+      "pinoutAcceptance": "Xác nhận 30 pad J1/J2 và 6 pad J4. A6/A7 chỉ là đầu vào ADC. Giữ các pad GND vật lý riêng và cùng net trong dữ liệu tra cứu."
+    },
+    {
+      "id": "arduino-mega-2560-r3",
+      "runnerId": "arduino-mega-2560",
+      "fixtureId": "a10-mega-2560-r3-button-led",
+      "name": "Arduino Mega 2560 Rev3",
+      "sku": "A000067",
+      "boardRevision": "Arduino Mega 2560 Rev3 theo CAD tham chiếu",
+      "mcu": "ATmega2560",
+      "flashBytes": 262144,
+      "sramBytes": 8192,
+      "fqbn": "arduino:avr:mega:cpu=atmega2560",
+      "uartTargetMarker": "MEGA2560",
+      "sources": [
+        "https://docs.arduino.cc/hardware/mega-2560/",
+        "https://docs.arduino.cc/resources/pinouts/A000067-full-pinout.pdf",
+        "https://docs.arduino.cc/resources/schematics/A000067-schematics.pdf"
+      ],
+      "assets": [
+        {"path": "assets/boards/arduino-reference/arduino-mega-2560-r3-official-import.kicad_pcb", "sha256": "ea023dff4dd53aa2c331e7b853031e411c1524d663bd84d922b2b0b65f16b248"},
+        {"path": "public/models/arduino-mega-2560-r3.glb", "sha256": "adf1fcf07b4a6d9ae8cd0cede3570019b85ae57c0370d2305c3e5ccc4cd2d408"},
+        {"path": "public/models/optimized/arduino-mega-2560-r3.meshopt.glb", "sha256": "6d7297a0ff5e8607ce306344cef28a93efb7df1f745df53d8750552da4cb4714"},
+        {"path": "public/board-reference/topview/arduino-mega-2560-r3.png", "sha256": "bff155b79179dced5e9074119cdd970a8300ff625d49b8c8aa8b1a10bb7009e2"}
+      ],
+      "padCount": 98,
+      "pins": {
+        "input": {"label": "D22", "arduino": 22, "portBit": "PA0", "id": "pin-23", "pad": "XIO0.3"},
+        "output": {"label": "D23", "arduino": 23, "portBit": "PA1", "id": "pin-24", "pad": "XIO0.4"},
+        "power": {"label": "5V", "id": "pin-71", "pad": "POWER0.5"},
+        "ground": {"label": "GND", "id": "pin-POWER0-6", "pad": "POWER0.6"},
+        "uartTx": {"label": "D1/TX0", "arduino": 1, "portBit": "PE1", "id": "pin-2", "pad": "PWML0.2"}
+      },
+      "auxiliary": {
+        "ICSP0": "Sáu pad của ATmega2560.",
+        "ICSP1": "Sáu pad của cầu USB ATmega16U2.",
+        "JP6": "Header 10 pad, gồm SCL/SDA/AREF riêng theo CAD.",
+        "JP5": "Footprint tùy chọn 2x2, giá trị CAD 2x2M - NM. Chỉ tra cứu net CAD theo thứ tự 8PB4, 8PB6, 8PB5, 8PB7; ngoài 98 vị trí chọn chân hiện có và ngoài mạch mẫu."
+      },
+      "pinoutAcceptance": "Xác nhận 98 pad hiện có. Phân biệt hai ICSP và các pad lặp cùng net. Tra cứu A8–A15 theo pinout hãng và ghi giới hạn ADC của runner hiện tại."
+    }
+  ],
+  "firmware": {
+    "engine": "avr8js 0.21.1 theo package-lock.json, chạy HEX trong worker hiện có",
+    "engineIntegrity": "sha512-OD95OaKZuhWrE4w/5Ah4rIo/UZrHvfDeC8f3coiQNxcUStGlMZCzwHuEyMo0fPNoScKgYg5PIzd20LjI5GiUMg==",
+    "clockHz": 16000000,
+    "arduinoCli": {"version": "1.5.1", "sha256": "65daefba1423010575d0874275734cb4a917faf5293609f01e9db6ed1c1c7e79"},
+    "arduinoCore": {
+      "package": "arduino:avr",
+      "version": "1.8.8",
+      "source": "https://github.com/arduino/ArduinoCore-avr/releases/tag/1.8.8",
+      "boardsTxtSha256": "e49283dc7a276291e24e91d04b883ea4e884ea2375ed80ede0d69cbf25d40a5d",
+      "platformTxtSha256": "afc8745a57fcb6e88a818aebfdee241bf758c2f665cfd6541f00472809c5522a",
+      "nanoVariantSha256": "f781478ed9f9507b6553e44dc90873103ea84e654528dc0e34901a32bfee3149",
+      "megaVariantSha256": "d563f983b968f8859b667bf586a6bea48de49c1a80621d40f1c60181b28cc8a3"
+    },
+    "avrGccToolPackage": "7.3.0-atmel3.6.1-arduino7",
+    "avrGppSha256": "098f5708a5d70e3abb6b504145b46c9320ef4b6d43b6b8f1c09b431e611d543b",
+    "uart": {"port": "USART0", "baud": 9600, "format": "8N1", "bootMessagePrefix": "A10_READY", "edgeMessages": ["A10_LED 1", "A10_LED 0"]},
+    "samplePeriodMs": 1,
+    "debounceMs": 40,
+    "behavior": "GPIO input active-low với pull-up ngoài. LED ngoài active-high, tắt khi khởi động. Đọc input và thời gian của firmware đang thực thi; ghi nhận thay đổi output từ GPIO ảo. Tag boot riêng theo target.",
+    "delivery": "Biên dịch hai HEX từ mẫu cố định sau khi duyệt. Lưu HEX và manifest hash theo đúng board trong .tmp, chỉ nạp qua dev/preview localhost. Dùng worker AVR hiện có. Thêm cấu hình topology dành riêng cho mạch mẫu A10, ánh xạ pinId của thư viện qua đúng runnerId và giữ luồng HEX cùng mạch số của Uno R3. Phạm vi A10 gồm hai mạch mẫu và hai target khớp manifest.",
+    "limits": "Bằng chứng A10 bao gồm GPIO số, thời gian firmware và byte USART0. ICSP, USB bridge, ADC, PWM, I²C, SPI, UART1–3 và nạp board thật nằm ngoài phép thử A10. Giữ riêng trạng thái runner cũ và dữ liệu tra cứu."
+  },
+  "electrical": {
+    "engine": {"name": "ngspice 45.2 WASM", "path": "public/vendor/eecircuit-engine/spice.wasm", "sha256": "3096ce2c499c3062472b9d7953f5141d75a019296e22b0142f4979e5894008ec"},
+    "supplyVolts": 5,
+    "temperatureC": 27,
+    "nodes": [
+      ["5V", "đầu A điện trở kéo lên 10 kΩ"],
+      ["GPIO input", "đầu B điện trở kéo lên", "nút A"],
+      ["GND", "nút B", "cathode LED"],
+      ["GPIO output", "đầu A điện trở hạn dòng 1 kΩ"],
+      ["đầu B điện trở hạn dòng", "anode LED"]
+    ],
+    "pullupOhms": 10000,
+    "ledSeriesOhms": 1000,
+    "switchClosedOhms": 1,
+    "switchOpen": "Mạch hở",
+    "diode": {"saturationCurrentA": 1e-18, "ideality": 2.2, "seriesOhms": 20},
+    "method": "Kích nút theo net để quan sát GPIO trong worker. Dùng trạng thái ổn định nhả/giữ đã quan sát để giải hai điểm DC với GPIO là nguồn lý tưởng 0/5 V ở đầu ra, trở kháng cao ở đầu vào. Thời gian lấy từ firmware và worker, số đo điện lấy từ ngspice."
+  },
+  "acceptance": {
+    "startup": "Khóa input, CAD và toolchain. Dùng đúng FQBN, gắn SHA-256 cho source, HEX và fixture. Mỗi target phải có UART boot riêng và một lần đọc/đổi GPIO được kiểm độc lập trước khi mở mạch mẫu trong thư viện.",
+    "firmware": "Nhả nút ở boot cho LED tắt. Một xung 20 ms khi ổn định không đổi LED. Ba chu kỳ nhấn/nhả đủ dài cho sáu cạnh đúng thứ tự, mỗi cạnh trong 39–60 ms mô phỏng tính từ kích thích. UART USART0 xác nhận boot và sáu cạnh. Từ chối build hoặc asset trật target/hash, kể cả khi HEX có cú pháp hợp lệ.",
+    "dc": {"releasedInputVolts": [4.99, 5.01], "pressedInputMaxAbsVolts": 0.001, "litLedCurrentMilliAmps": [2.8, 3.05], "litLedAnodeVolts": [2.05, 2.12], "offLedMaxAbsMilliAmps": 0.001, "kvlMaxAbsVolts": 0.001},
+    "browser": "Kiểm từng board trên desktop và khổ 375 px. Chọn đúng pad trên 2D và 3D, mở mạch từ thư viện, chạy/dừng/chạy lại, thử lỗi asset và sai topology, giải DC. Dừng worker và xóa kết quả cũ khi sửa mạch hoặc rời trang. Giữ partId/pinId đã lưu, lưu bản nháp cũ trước khi thay bằng mạch mẫu. Dữ liệu ở storage của trình duyệt theo origin.",
+    "regression": "Chạy Node và Chrome A1–A9 trên Windows với mỗi lượt native/Chrome chạy lần lượt. Chạy typecheck, build:local, check:public-release và kiểm A10 HEX không nằm trong đầu ra tĩnh. Ghi kết quả và giới hạn thực tế theo board."
+  }
+}

@@ -55,7 +55,8 @@ const pinDefinitions: Record<number, PinDefinition> = {
   40: { label: 'VBUS', functions: ['USB 5 V'], description: 'Đường 5 V từ cổng USB.', role: 'Nguồn USB 5 V; không phải mức logic GPIO.', safety: 'Không nối VBUS vào GPIO. Tránh cấp ngược hoặc đấu song song nguồn ngoài với USB.' },
 }
 
-const picoPinoutPdf = 'https://datasheets.raspberrypi.com/pico/Pico-2-Pinout.pdf'
+const picoPinoutPdf = 'https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf'
+const pico2PinoutPdf = 'https://datasheets.raspberrypi.com/pico/Pico-2-Pinout.pdf'
 const picoWPinoutPdf = 'https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf'
 const productDocs = 'https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html'
 
@@ -100,8 +101,8 @@ export function getRaspberryPiPicoPinout(boardId: string): { pins: BoardPin[]; e
     pins,
     evidence: {
       summary,
-      sourceLabel: isPicoW ? 'Pinout hãng Pico W' : 'Pinout hãng Pico / Pico 2',
-      sourceUrl: isPicoW ? picoWPinoutPdf : picoPinoutPdf,
+      sourceLabel: 'Pinout hãng ' + boardName,
+      sourceUrl: isPicoW ? picoWPinoutPdf : inheritedLayout ? pico2PinoutPdf : picoPinoutPdf,
     },
   }
 }
@@ -109,5 +110,5 @@ export function getRaspberryPiPicoPinout(boardId: string): { pins: BoardPin[]; e
 export const raspberryPiPicoPinoutSource = {
   data: pinSource,
   productDocs,
-  pinoutPdfs: { pico: picoPinoutPdf, picoW: picoWPinoutPdf },
+  pinoutPdfs: { pico: picoPinoutPdf, picoW: picoWPinoutPdf, pico2: pico2PinoutPdf },
 }

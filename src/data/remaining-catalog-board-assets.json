@@ -1,0 +1,7106 @@
+[
+  {
+    "id": "esp32-c3-devkitm-1",
+    "assetUrl": "/models/board-catalog-remaining-1/esp32-c3-devkitm-1.glb?v=bffc24622fc3",
+    "assetVersion": "bffc24622fc3",
+    "sha256": "bffc24622fc3f69cae78b76553fcd8e05d6645b02eb93e4f40adf060de29c406",
+    "sizeMm": [
+      25.4,
+      38.91
+    ],
+    "orderCode": "ESP32-C3-DevKitM-1-N4X",
+    "revision": "PCB V1.0",
+    "features": {
+      "PCB": "Thân PCB",
+      "J1": "J1 · Header",
+      "J3": "J3 · Header",
+      "U4": "ESP32-C3-MINI-1",
+      "J2": "Cổng micro-USB",
+      "SW1": "Nút BOOT",
+      "SW2": "Nút RESET",
+      "U2": "Ổn áp 3,3 V",
+      "U3": "Cầu USB–UART",
+      "D1": "LED nguồn",
+      "D6": "LED RGB"
+    },
+    "pins": [
+      {
+        "id": "j1-1",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "GND",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -17.392
+        ]
+      },
+      {
+        "id": "j1-2",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "3V3",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -14.852
+        ]
+      },
+      {
+        "id": "j1-3",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "3V3",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -12.312
+        ]
+      },
+      {
+        "id": "j1-4",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "IO2",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -9.772
+        ]
+      },
+      {
+        "id": "j1-5",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "IO3",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -7.232
+        ]
+      },
+      {
+        "id": "j1-6",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "GND",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -4.692
+        ]
+      },
+      {
+        "id": "j1-7",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "7",
+        "position": 7,
+        "label": "RST",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -2.152
+        ]
+      },
+      {
+        "id": "j1-8",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "8",
+        "position": 8,
+        "label": "GND",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          0.388
+        ]
+      },
+      {
+        "id": "j1-9",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "9",
+        "position": 9,
+        "label": "IO0",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          2.928
+        ]
+      },
+      {
+        "id": "j1-10",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "10",
+        "position": 10,
+        "label": "IO1",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          5.468
+        ]
+      },
+      {
+        "id": "j1-11",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "11",
+        "position": 11,
+        "label": "IO10",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          8.008
+        ]
+      },
+      {
+        "id": "j1-12",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "12",
+        "position": 12,
+        "label": "GND",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          10.548
+        ]
+      },
+      {
+        "id": "j1-13",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "13",
+        "position": 13,
+        "label": "5V",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          13.088
+        ]
+      },
+      {
+        "id": "j1-14",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "14",
+        "position": 14,
+        "label": "5V",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          15.628
+        ]
+      },
+      {
+        "id": "j1-15",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "15",
+        "position": 15,
+        "label": "GND",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          18.168
+        ]
+      },
+      {
+        "id": "j3-1",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -17.392
+        ]
+      },
+      {
+        "id": "j3-2",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "TX / IO21",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -14.852
+        ]
+      },
+      {
+        "id": "j3-3",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "RX / IO20",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -12.312
+        ]
+      },
+      {
+        "id": "j3-4",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -9.772
+        ]
+      },
+      {
+        "id": "j3-5",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "IO9",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -7.232
+        ]
+      },
+      {
+        "id": "j3-6",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "IO8",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -4.692
+        ]
+      },
+      {
+        "id": "j3-7",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -2.152
+        ]
+      },
+      {
+        "id": "j3-8",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "IO7",
+        "anchorMm": [
+          11.43,
+          5.95,
+          0.388
+        ]
+      },
+      {
+        "id": "j3-9",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "9",
+        "position": 9,
+        "label": "IO6",
+        "anchorMm": [
+          11.43,
+          5.95,
+          2.928
+        ]
+      },
+      {
+        "id": "j3-10",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "10",
+        "position": 10,
+        "label": "IO5",
+        "anchorMm": [
+          11.43,
+          5.95,
+          5.468
+        ]
+      },
+      {
+        "id": "j3-11",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "11",
+        "position": 11,
+        "label": "IO4",
+        "anchorMm": [
+          11.43,
+          5.95,
+          8.008
+        ]
+      },
+      {
+        "id": "j3-12",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "12",
+        "position": 12,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          10.548
+        ]
+      },
+      {
+        "id": "j3-13",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "13",
+        "position": 13,
+        "label": "IO18",
+        "anchorMm": [
+          11.43,
+          5.95,
+          13.088
+        ]
+      },
+      {
+        "id": "j3-14",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "14",
+        "position": 14,
+        "label": "IO19",
+        "anchorMm": [
+          11.43,
+          5.95,
+          15.628
+        ]
+      },
+      {
+        "id": "j3-15",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "15",
+        "position": 15,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          18.168
+        ]
+      }
+    ],
+    "sourceGeometry": "PDF layout vector Espressif; bước chân 2,54 mm",
+    "unresolvedIssues": []
+  },
+  {
+    "id": "esp32-devkitm-1",
+    "assetUrl": "/models/board-catalog-remaining-1/esp32-devkitm-1.glb?v=b905a7deee63",
+    "assetVersion": "b905a7deee63",
+    "sha256": "b905a7deee63efa73780782784e77cfc64d7f39fa6ba5b45f2f6e029c9d3b0f3",
+    "sizeMm": [
+      25.4,
+      43.81
+    ],
+    "orderCode": "ESP32-DevKitM-1",
+    "revision": "PCB V1.0",
+    "features": {
+      "PCB": "Thân PCB",
+      "J1": "J1 · Header",
+      "J3": "J3 · Header",
+      "U4": "ESP32-MINI-1",
+      "J2": "Cổng micro-USB",
+      "SW1": "Nút BOOT",
+      "SW2": "Nút RESET",
+      "U2": "Ổn áp 3,3 V",
+      "U3": "Cầu USB–UART",
+      "D1": "LED nguồn"
+    },
+    "pins": [
+      {
+        "id": "j1-1",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "GND",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -20.33
+        ]
+      },
+      {
+        "id": "j1-2",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "3V3",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -17.79
+        ]
+      },
+      {
+        "id": "j1-3",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "I36",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -15.25
+        ]
+      },
+      {
+        "id": "j1-4",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "I37",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -12.71
+        ]
+      },
+      {
+        "id": "j1-5",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "I38",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -10.17
+        ]
+      },
+      {
+        "id": "j1-6",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "I39",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -7.63
+        ]
+      },
+      {
+        "id": "j1-7",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "7",
+        "position": 7,
+        "label": "RST",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -5.09
+        ]
+      },
+      {
+        "id": "j1-8",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "8",
+        "position": 8,
+        "label": "I34",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -2.55
+        ]
+      },
+      {
+        "id": "j1-9",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "9",
+        "position": 9,
+        "label": "I35",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -0.01
+        ]
+      },
+      {
+        "id": "j1-10",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "10",
+        "position": 10,
+        "label": "IO32",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          2.53
+        ]
+      },
+      {
+        "id": "j1-11",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "11",
+        "position": 11,
+        "label": "IO33",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          5.07
+        ]
+      },
+      {
+        "id": "j1-12",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "12",
+        "position": 12,
+        "label": "IO25",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          7.61
+        ]
+      },
+      {
+        "id": "j1-13",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "13",
+        "position": 13,
+        "label": "IO26",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          10.15
+        ]
+      },
+      {
+        "id": "j1-14",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "14",
+        "position": 14,
+        "label": "IO27",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          12.69
+        ]
+      },
+      {
+        "id": "j1-15",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "15",
+        "position": 15,
+        "label": "IO14",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          15.23
+        ]
+      },
+      {
+        "id": "j1-16",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "16",
+        "position": 16,
+        "label": "5V",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          17.77
+        ]
+      },
+      {
+        "id": "j1-17",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "17",
+        "position": 17,
+        "label": "GND",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          20.31
+        ]
+      },
+      {
+        "id": "j3-1",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -20.33
+        ]
+      },
+      {
+        "id": "j3-2",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "TXD0 / IO1",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -17.79
+        ]
+      },
+      {
+        "id": "j3-3",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "RXD0 / IO3",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -15.25
+        ]
+      },
+      {
+        "id": "j3-4",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "IO21",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -12.71
+        ]
+      },
+      {
+        "id": "j3-5",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "IO22",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -10.17
+        ]
+      },
+      {
+        "id": "j3-6",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "IO19",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -7.63
+        ]
+      },
+      {
+        "id": "j3-7",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "IO23",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -5.09
+        ]
+      },
+      {
+        "id": "j3-8",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "IO18",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -2.55
+        ]
+      },
+      {
+        "id": "j3-9",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "9",
+        "position": 9,
+        "label": "IO5",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -0.01
+        ]
+      },
+      {
+        "id": "j3-10",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "10",
+        "position": 10,
+        "label": "IO10",
+        "anchorMm": [
+          11.43,
+          5.95,
+          2.53
+        ]
+      },
+      {
+        "id": "j3-11",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "11",
+        "position": 11,
+        "label": "IO9",
+        "anchorMm": [
+          11.43,
+          5.95,
+          5.07
+        ]
+      },
+      {
+        "id": "j3-12",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "12",
+        "position": 12,
+        "label": "IO4",
+        "anchorMm": [
+          11.43,
+          5.95,
+          7.61
+        ]
+      },
+      {
+        "id": "j3-13",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "13",
+        "position": 13,
+        "label": "IO0",
+        "anchorMm": [
+          11.43,
+          5.95,
+          10.15
+        ]
+      },
+      {
+        "id": "j3-14",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "14",
+        "position": 14,
+        "label": "IO2",
+        "anchorMm": [
+          11.43,
+          5.95,
+          12.69
+        ]
+      },
+      {
+        "id": "j3-15",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "15",
+        "position": 15,
+        "label": "IO15",
+        "anchorMm": [
+          11.43,
+          5.95,
+          15.23
+        ]
+      },
+      {
+        "id": "j3-16",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "16",
+        "position": 16,
+        "label": "IO13",
+        "anchorMm": [
+          11.43,
+          5.95,
+          17.77
+        ]
+      },
+      {
+        "id": "j3-17",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "17",
+        "position": 17,
+        "label": "IO12",
+        "anchorMm": [
+          11.43,
+          5.95,
+          20.31
+        ]
+      }
+    ],
+    "sourceGeometry": "PDF layout vector Espressif; bước chân 2,54 mm",
+    "unresolvedIssues": []
+  },
+  {
+    "id": "esp32-c6-devkitc-1",
+    "assetUrl": "/models/board-catalog-remaining-1/esp32-c6-devkitc-1.glb?v=ea5bd7c66086",
+    "assetVersion": "ea5bd7c66086",
+    "sha256": "ea5bd7c660861e1ffb91ca7d6cee5733f65bde0e48dbcb796ce5ac6717ee2d68",
+    "sizeMm": [
+      25.4,
+      51.8
+    ],
+    "orderCode": "ESP32-C6-DevKitC-1-N8",
+    "revision": "PCB v1.2, schematic v1.4",
+    "features": {
+      "PCB": "Thân PCB",
+      "J1": "J1 · Header",
+      "J3": "J3 · Header",
+      "U4": "ESP32-C6-WROOM-1",
+      "J2": "Cổng USB-C 1",
+      "J4": "Cổng USB-C 2",
+      "SW1": "Nút BOOT",
+      "SW2": "Nút RESET",
+      "U2": "Ổn áp 3,3 V",
+      "U3": "Cầu USB–UART",
+      "D1": "LED nguồn",
+      "D6": "LED RGB"
+    },
+    "pins": [
+      {
+        "id": "j1-1",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "3V3",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -24.325
+        ]
+      },
+      {
+        "id": "j1-2",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "RST",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -21.785
+        ]
+      },
+      {
+        "id": "j1-3",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "IO4",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -19.245
+        ]
+      },
+      {
+        "id": "j1-4",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "IO5",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -16.705
+        ]
+      },
+      {
+        "id": "j1-5",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "IO6",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -14.165
+        ]
+      },
+      {
+        "id": "j1-6",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "IO7",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -11.625
+        ]
+      },
+      {
+        "id": "j1-7",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "7",
+        "position": 7,
+        "label": "IO0",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -9.085
+        ]
+      },
+      {
+        "id": "j1-8",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "8",
+        "position": 8,
+        "label": "IO1",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -6.545
+        ]
+      },
+      {
+        "id": "j1-9",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "9",
+        "position": 9,
+        "label": "IO8",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -4.005
+        ]
+      },
+      {
+        "id": "j1-10",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "10",
+        "position": 10,
+        "label": "IO10",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -1.465
+        ]
+      },
+      {
+        "id": "j1-11",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "11",
+        "position": 11,
+        "label": "IO11",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          1.075
+        ]
+      },
+      {
+        "id": "j1-12",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "12",
+        "position": 12,
+        "label": "IO2",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          3.615
+        ]
+      },
+      {
+        "id": "j1-13",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "13",
+        "position": 13,
+        "label": "IO3",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          6.155
+        ]
+      },
+      {
+        "id": "j1-14",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "14",
+        "position": 14,
+        "label": "5V",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          8.695
+        ]
+      },
+      {
+        "id": "j1-15",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "15",
+        "position": 15,
+        "label": "GND",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          11.235
+        ]
+      },
+      {
+        "id": "j1-16",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "16",
+        "position": 16,
+        "label": "NC",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          13.775
+        ]
+      },
+      {
+        "id": "j3-1",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -24.325
+        ]
+      },
+      {
+        "id": "j3-2",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "TX / IO16",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -21.785
+        ]
+      },
+      {
+        "id": "j3-3",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "RX / IO17",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -19.245
+        ]
+      },
+      {
+        "id": "j3-4",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "IO15",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -16.705
+        ]
+      },
+      {
+        "id": "j3-5",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "IO23",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -14.165
+        ]
+      },
+      {
+        "id": "j3-6",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "IO22",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -11.625
+        ]
+      },
+      {
+        "id": "j3-7",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "IO21",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -9.085
+        ]
+      },
+      {
+        "id": "j3-8",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "IO20",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -6.545
+        ]
+      },
+      {
+        "id": "j3-9",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "9",
+        "position": 9,
+        "label": "IO19",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -4.005
+        ]
+      },
+      {
+        "id": "j3-10",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "10",
+        "position": 10,
+        "label": "IO18",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -1.465
+        ]
+      },
+      {
+        "id": "j3-11",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "11",
+        "position": 11,
+        "label": "IO9",
+        "anchorMm": [
+          11.43,
+          5.95,
+          1.075
+        ]
+      },
+      {
+        "id": "j3-12",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "12",
+        "position": 12,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          3.615
+        ]
+      },
+      {
+        "id": "j3-13",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "13",
+        "position": 13,
+        "label": "IO13",
+        "anchorMm": [
+          11.43,
+          5.95,
+          6.155
+        ]
+      },
+      {
+        "id": "j3-14",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "14",
+        "position": 14,
+        "label": "IO12",
+        "anchorMm": [
+          11.43,
+          5.95,
+          8.695
+        ]
+      },
+      {
+        "id": "j3-15",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "15",
+        "position": 15,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          11.235
+        ]
+      },
+      {
+        "id": "j3-16",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "16",
+        "position": 16,
+        "label": "NC",
+        "anchorMm": [
+          11.43,
+          5.95,
+          13.775
+        ]
+      }
+    ],
+    "sourceGeometry": "PDF layout vector Espressif; bước chân 2,54 mm",
+    "unresolvedIssues": []
+  },
+  {
+    "id": "esp32-s2-devkitc-1",
+    "assetUrl": "/models/board-catalog-remaining-1/esp32-s2-devkitc-1.glb?v=66f531d8a643",
+    "assetVersion": "66f531d8a643",
+    "sha256": "66f531d8a643169865f29e98d70087f1a3bd0986139a40f01ac51c66cc03091f",
+    "sizeMm": [
+      25.4,
+      62.74
+    ],
+    "orderCode": "ESP32-S2-DevKitC-1-N8R2",
+    "revision": "PCB V1, schematic 2022-08-17",
+    "features": {
+      "PCB": "Thân PCB",
+      "J1": "J1 · Header",
+      "J3": "J3 · Header",
+      "U4": "ESP32-S2-SOLO-2",
+      "J2": "Cổng micro-USB 1",
+      "J4": "Cổng micro-USB 2",
+      "SW1": "Nút RESET",
+      "SW2": "Nút BOOT",
+      "U2": "Ổn áp 3,3 V",
+      "U3": "Cầu USB–UART",
+      "D1": "LED nguồn",
+      "D6": "LED RGB"
+    },
+    "pins": [
+      {
+        "id": "j1-1",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "3V3",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -29.795
+        ]
+      },
+      {
+        "id": "j1-2",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "3V3",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -27.255
+        ]
+      },
+      {
+        "id": "j1-3",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "RST",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -24.715
+        ]
+      },
+      {
+        "id": "j1-4",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "IO4",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -22.175
+        ]
+      },
+      {
+        "id": "j1-5",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "IO5",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -19.635
+        ]
+      },
+      {
+        "id": "j1-6",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "IO6",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -17.095
+        ]
+      },
+      {
+        "id": "j1-7",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "7",
+        "position": 7,
+        "label": "IO7",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -14.555
+        ]
+      },
+      {
+        "id": "j1-8",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "8",
+        "position": 8,
+        "label": "IO15",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -12.015
+        ]
+      },
+      {
+        "id": "j1-9",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "9",
+        "position": 9,
+        "label": "IO16",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -9.475
+        ]
+      },
+      {
+        "id": "j1-10",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "10",
+        "position": 10,
+        "label": "IO17",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -6.935
+        ]
+      },
+      {
+        "id": "j1-11",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "11",
+        "position": 11,
+        "label": "IO18",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -4.395
+        ]
+      },
+      {
+        "id": "j1-12",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "12",
+        "position": 12,
+        "label": "IO8",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -1.855
+        ]
+      },
+      {
+        "id": "j1-13",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "13",
+        "position": 13,
+        "label": "IO3",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          0.685
+        ]
+      },
+      {
+        "id": "j1-14",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "14",
+        "position": 14,
+        "label": "IO46",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          3.225
+        ]
+      },
+      {
+        "id": "j1-15",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "15",
+        "position": 15,
+        "label": "IO9",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          5.765
+        ]
+      },
+      {
+        "id": "j1-16",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "16",
+        "position": 16,
+        "label": "IO10",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          8.305
+        ]
+      },
+      {
+        "id": "j1-17",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "17",
+        "position": 17,
+        "label": "IO11",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          10.845
+        ]
+      },
+      {
+        "id": "j1-18",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "18",
+        "position": 18,
+        "label": "IO12",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          13.385
+        ]
+      },
+      {
+        "id": "j1-19",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "19",
+        "position": 19,
+        "label": "IO13",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          15.925
+        ]
+      },
+      {
+        "id": "j1-20",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "20",
+        "position": 20,
+        "label": "IO14",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          18.465
+        ]
+      },
+      {
+        "id": "j1-21",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "21",
+        "position": 21,
+        "label": "5V",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          21.005
+        ]
+      },
+      {
+        "id": "j1-22",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "22",
+        "position": 22,
+        "label": "GND",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          23.545
+        ]
+      },
+      {
+        "id": "j3-1",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -29.795
+        ]
+      },
+      {
+        "id": "j3-2",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "TX / IO43",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -27.255
+        ]
+      },
+      {
+        "id": "j3-3",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "RX / IO44",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -24.715
+        ]
+      },
+      {
+        "id": "j3-4",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "IO1",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -22.175
+        ]
+      },
+      {
+        "id": "j3-5",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "IO2",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -19.635
+        ]
+      },
+      {
+        "id": "j3-6",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "IO42",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -17.095
+        ]
+      },
+      {
+        "id": "j3-7",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "IO41",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -14.555
+        ]
+      },
+      {
+        "id": "j3-8",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "IO40",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -12.015
+        ]
+      },
+      {
+        "id": "j3-9",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "9",
+        "position": 9,
+        "label": "IO39",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -9.475
+        ]
+      },
+      {
+        "id": "j3-10",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "10",
+        "position": 10,
+        "label": "IO38",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -6.935
+        ]
+      },
+      {
+        "id": "j3-11",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "11",
+        "position": 11,
+        "label": "IO37",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -4.395
+        ]
+      },
+      {
+        "id": "j3-12",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "12",
+        "position": 12,
+        "label": "IO36",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -1.855
+        ]
+      },
+      {
+        "id": "j3-13",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "13",
+        "position": 13,
+        "label": "IO35",
+        "anchorMm": [
+          11.43,
+          5.95,
+          0.685
+        ]
+      },
+      {
+        "id": "j3-14",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "14",
+        "position": 14,
+        "label": "IO0",
+        "anchorMm": [
+          11.43,
+          5.95,
+          3.225
+        ]
+      },
+      {
+        "id": "j3-15",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "15",
+        "position": 15,
+        "label": "IO45",
+        "anchorMm": [
+          11.43,
+          5.95,
+          5.765
+        ]
+      },
+      {
+        "id": "j3-16",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "16",
+        "position": 16,
+        "label": "IO34",
+        "anchorMm": [
+          11.43,
+          5.95,
+          8.305
+        ]
+      },
+      {
+        "id": "j3-17",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "17",
+        "position": 17,
+        "label": "IO33",
+        "anchorMm": [
+          11.43,
+          5.95,
+          10.845
+        ]
+      },
+      {
+        "id": "j3-18",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "18",
+        "position": 18,
+        "label": "IO21",
+        "anchorMm": [
+          11.43,
+          5.95,
+          13.385
+        ]
+      },
+      {
+        "id": "j3-19",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "19",
+        "position": 19,
+        "label": "IO20",
+        "anchorMm": [
+          11.43,
+          5.95,
+          15.925
+        ]
+      },
+      {
+        "id": "j3-20",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "20",
+        "position": 20,
+        "label": "IO19",
+        "anchorMm": [
+          11.43,
+          5.95,
+          18.465
+        ]
+      },
+      {
+        "id": "j3-21",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "21",
+        "position": 21,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          21.005
+        ]
+      },
+      {
+        "id": "j3-22",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "22",
+        "position": 22,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          23.545
+        ]
+      }
+    ],
+    "sourceGeometry": "PDF layout vector Espressif; bước chân 2,54 mm",
+    "unresolvedIssues": []
+  },
+  {
+    "id": "esp32-h2-devkitm-1",
+    "assetUrl": "/models/board-catalog-remaining-1/esp32-h2-devkitm-1.glb?v=4915ce24eeab",
+    "assetVersion": "4915ce24eeab",
+    "sha256": "4915ce24eeab5c8e9ede9a1752b92581544f2ceda264b233018d33049f3b1707",
+    "sizeMm": [
+      25.4,
+      48.26
+    ],
+    "orderCode": "ESP32-H2-DevKitM-1-N4",
+    "revision": "PCB v1.2, schematic v1.3",
+    "features": {
+      "PCB": "Thân PCB",
+      "J1": "J1 · Header",
+      "J3": "J3 · Header",
+      "U4": "ESP32-H2-MINI-1",
+      "J2": "Cổng USB-C 1",
+      "J4": "Cổng USB-C 2",
+      "SW1": "Nút BOOT",
+      "SW2": "Nút RESET",
+      "U2": "Ổn áp 3,3 V",
+      "U3": "Cầu USB–UART",
+      "D1": "LED nguồn",
+      "D6": "LED RGB",
+      "X1": "Thạch anh 32,768 kHz · biến thể lô đã duyệt"
+    },
+    "pins": [
+      {
+        "id": "j1-1",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "3V3",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -22.555
+        ]
+      },
+      {
+        "id": "j1-2",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "RST",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -20.015
+        ]
+      },
+      {
+        "id": "j1-3",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "IO0",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -17.475
+        ]
+      },
+      {
+        "id": "j1-4",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "IO1",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -14.935
+        ]
+      },
+      {
+        "id": "j1-5",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "IO2",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -12.395
+        ]
+      },
+      {
+        "id": "j1-6",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "IO3",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -9.855
+        ]
+      },
+      {
+        "id": "j1-7",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "7",
+        "position": 7,
+        "label": "NC (XTAL / IO13)",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -7.315
+        ]
+      },
+      {
+        "id": "j1-8",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "8",
+        "position": 8,
+        "label": "NC (XTAL / IO14)",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -4.775
+        ]
+      },
+      {
+        "id": "j1-9",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "9",
+        "position": 9,
+        "label": "IO4",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          -2.235
+        ]
+      },
+      {
+        "id": "j1-10",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "10",
+        "position": 10,
+        "label": "IO5",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          0.305
+        ]
+      },
+      {
+        "id": "j1-11",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "11",
+        "position": 11,
+        "label": "NC",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          2.845
+        ]
+      },
+      {
+        "id": "j1-12",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "12",
+        "position": 12,
+        "label": "VBAT",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          5.385
+        ]
+      },
+      {
+        "id": "j1-13",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "13",
+        "position": 13,
+        "label": "GND",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          7.925
+        ]
+      },
+      {
+        "id": "j1-14",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "14",
+        "position": 14,
+        "label": "5V",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          10.465
+        ]
+      },
+      {
+        "id": "j1-15",
+        "headerReference": "J1",
+        "side": "left",
+        "padNumber": "15",
+        "position": 15,
+        "label": "GND",
+        "anchorMm": [
+          -11.43,
+          5.95,
+          13.005
+        ]
+      },
+      {
+        "id": "j3-1",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -22.555
+        ]
+      },
+      {
+        "id": "j3-2",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "TX / IO24",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -20.015
+        ]
+      },
+      {
+        "id": "j3-3",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "RX / IO23",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -17.475
+        ]
+      },
+      {
+        "id": "j3-4",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "IO10",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -14.935
+        ]
+      },
+      {
+        "id": "j3-5",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "IO11",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -12.395
+        ]
+      },
+      {
+        "id": "j3-6",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "IO25",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -9.855
+        ]
+      },
+      {
+        "id": "j3-7",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "IO12",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -7.315
+        ]
+      },
+      {
+        "id": "j3-8",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "IO8",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -4.775
+        ]
+      },
+      {
+        "id": "j3-9",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "9",
+        "position": 9,
+        "label": "IO22",
+        "anchorMm": [
+          11.43,
+          5.95,
+          -2.235
+        ]
+      },
+      {
+        "id": "j3-10",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "10",
+        "position": 10,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          0.305
+        ]
+      },
+      {
+        "id": "j3-11",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "11",
+        "position": 11,
+        "label": "IO9",
+        "anchorMm": [
+          11.43,
+          5.95,
+          2.845
+        ]
+      },
+      {
+        "id": "j3-12",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "12",
+        "position": 12,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          5.385
+        ]
+      },
+      {
+        "id": "j3-13",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "13",
+        "position": 13,
+        "label": "IO27",
+        "anchorMm": [
+          11.43,
+          5.95,
+          7.925
+        ]
+      },
+      {
+        "id": "j3-14",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "14",
+        "position": 14,
+        "label": "IO26",
+        "anchorMm": [
+          11.43,
+          5.95,
+          10.465
+        ]
+      },
+      {
+        "id": "j3-15",
+        "headerReference": "J3",
+        "side": "right",
+        "padNumber": "15",
+        "position": 15,
+        "label": "GND",
+        "anchorMm": [
+          11.43,
+          5.95,
+          13.005
+        ]
+      }
+    ],
+    "sourceGeometry": "PDF layout vector Espressif; bước chân 2,54 mm",
+    "unresolvedIssues": []
+  },
+  {
+    "id": "stm32-nucleo-f411re",
+    "assetUrl": "/models/board-catalog-remaining-1/stm32-nucleo-f411re.glb?v=de63773bd9b5",
+    "assetVersion": "de63773bd9b5",
+    "sha256": "de63773bd9b55f65c78b88902f3ed55c961f3f17c8add58afc23781278bff454",
+    "sizeMm": [
+      70,
+      83
+    ],
+    "orderCode": "NUCLEO-F411RE",
+    "revision": "MB1136-F411RE-C04",
+    "features": {
+      "PCB": "Thân PCB",
+      "CN5": "CN5 · Đầu cắm Arduino",
+      "CN6": "CN6 · Đầu cắm Arduino",
+      "CN7": "CN7 · Header",
+      "CN8": "CN8 · Đầu cắm Arduino",
+      "CN9": "CN9 · Đầu cắm Arduino",
+      "CN10": "CN10 · Header",
+      "CN1": "USB Mini-B · ST-LINK",
+      "U2": "STM32F103CBT6 · ST-LINK/V2-1",
+      "U5": "STM32F411RET6 · LQFP-64",
+      "B1": "Nút USER · PC13",
+      "B2": "Nút RESET",
+      "LD1": "LED trạng thái ST-LINK",
+      "LD2": "LED người dùng",
+      "LD3": "LED nguồn",
+      "U1": "Ổn áp 3,3 V · ST-LINK",
+      "CN2": "Jumper ST-LINK",
+      "CN4": "Đầu SWD",
+      "JP1": "Jumper nguồn USB",
+      "JP5": "Chọn nguồn",
+      "JP6": "Đo dòng MCU"
+    },
+    "pins": [
+      {
+        "id": "cn5-1",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "D8 / PA9",
+        "anchorMm": [
+          24.13,
+          10.9,
+          14.616
+        ]
+      },
+      {
+        "id": "cn5-2",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "D9 / PC7",
+        "anchorMm": [
+          24.13,
+          10.9,
+          12.076
+        ]
+      },
+      {
+        "id": "cn5-3",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "D10 / PB6",
+        "anchorMm": [
+          24.13,
+          10.9,
+          9.536
+        ]
+      },
+      {
+        "id": "cn5-4",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "D11 / PA7",
+        "anchorMm": [
+          24.13,
+          10.9,
+          6.996
+        ]
+      },
+      {
+        "id": "cn5-5",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "D12 / PA6",
+        "anchorMm": [
+          24.13,
+          10.9,
+          4.456
+        ]
+      },
+      {
+        "id": "cn5-6",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "D13 / PA5",
+        "anchorMm": [
+          24.13,
+          10.9,
+          1.916
+        ]
+      },
+      {
+        "id": "cn5-7",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "GND",
+        "anchorMm": [
+          24.13,
+          10.9,
+          -0.624
+        ]
+      },
+      {
+        "id": "cn5-8",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "AREF / AVDD",
+        "anchorMm": [
+          24.13,
+          10.9,
+          -3.164
+        ]
+      },
+      {
+        "id": "cn5-9",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "9",
+        "position": 9,
+        "label": "D14 / PB9",
+        "anchorMm": [
+          24.13,
+          10.9,
+          -5.704
+        ]
+      },
+      {
+        "id": "cn5-10",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "10",
+        "position": 10,
+        "label": "D15 / PB8",
+        "anchorMm": [
+          24.13,
+          10.9,
+          -8.244
+        ]
+      },
+      {
+        "id": "cn6-1",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "NC",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          0.9
+        ]
+      },
+      {
+        "id": "cn6-2",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "IOREF",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          3.44
+        ]
+      },
+      {
+        "id": "cn6-3",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "RESET / NRST",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          5.98
+        ]
+      },
+      {
+        "id": "cn6-4",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "3V3",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          8.52
+        ]
+      },
+      {
+        "id": "cn6-5",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "5V",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          11.06
+        ]
+      },
+      {
+        "id": "cn6-6",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "GND",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          13.6
+        ]
+      },
+      {
+        "id": "cn6-7",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "7",
+        "position": 7,
+        "label": "GND",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          16.14
+        ]
+      },
+      {
+        "id": "cn6-8",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "8",
+        "position": 8,
+        "label": "VIN",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          18.68
+        ]
+      },
+      {
+        "id": "cn7-1",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "PC10",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          -9.26
+        ]
+      },
+      {
+        "id": "cn7-2",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "PC11",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          -9.26
+        ]
+      },
+      {
+        "id": "cn7-3",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "PC12",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          -6.72
+        ]
+      },
+      {
+        "id": "cn7-4",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "PD2",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          -6.72
+        ]
+      },
+      {
+        "id": "cn7-5",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "VDD",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          -4.18
+        ]
+      },
+      {
+        "id": "cn7-6",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "E5V",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          -4.18
+        ]
+      },
+      {
+        "id": "cn7-7",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "7",
+        "position": 7,
+        "label": "BOOT0",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          -1.64
+        ]
+      },
+      {
+        "id": "cn7-8",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "8",
+        "position": 8,
+        "label": "GND",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          -1.64
+        ]
+      },
+      {
+        "id": "cn7-9",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "9",
+        "position": 9,
+        "label": "NC",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          0.9
+        ]
+      },
+      {
+        "id": "cn7-10",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "10",
+        "position": 10,
+        "label": "NC",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          0.9
+        ]
+      },
+      {
+        "id": "cn7-11",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "11",
+        "position": 11,
+        "label": "NC",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          3.44
+        ]
+      },
+      {
+        "id": "cn7-12",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "12",
+        "position": 12,
+        "label": "IOREF",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          3.44
+        ]
+      },
+      {
+        "id": "cn7-13",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "13",
+        "position": 13,
+        "label": "PA13",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          5.98
+        ]
+      },
+      {
+        "id": "cn7-14",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "14",
+        "position": 14,
+        "label": "RESET",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          5.98
+        ]
+      },
+      {
+        "id": "cn7-15",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "15",
+        "position": 15,
+        "label": "PA14",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          8.52
+        ]
+      },
+      {
+        "id": "cn7-16",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "16",
+        "position": 16,
+        "label": "3V3",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          8.52
+        ]
+      },
+      {
+        "id": "cn7-17",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "17",
+        "position": 17,
+        "label": "PA15",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          11.06
+        ]
+      },
+      {
+        "id": "cn7-18",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "18",
+        "position": 18,
+        "label": "5V",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          11.06
+        ]
+      },
+      {
+        "id": "cn7-19",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "19",
+        "position": 19,
+        "label": "GND",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          13.6
+        ]
+      },
+      {
+        "id": "cn7-20",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "20",
+        "position": 20,
+        "label": "GND",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          13.6
+        ]
+      },
+      {
+        "id": "cn7-21",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "21",
+        "position": 21,
+        "label": "PB7",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          16.14
+        ]
+      },
+      {
+        "id": "cn7-22",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "22",
+        "position": 22,
+        "label": "GND",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          16.14
+        ]
+      },
+      {
+        "id": "cn7-23",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "23",
+        "position": 23,
+        "label": "PC13",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          18.68
+        ]
+      },
+      {
+        "id": "cn7-24",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "24",
+        "position": 24,
+        "label": "VIN",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          18.68
+        ]
+      },
+      {
+        "id": "cn7-25",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "25",
+        "position": 25,
+        "label": "PC14",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          21.22
+        ]
+      },
+      {
+        "id": "cn7-26",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "26",
+        "position": 26,
+        "label": "NC",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          21.22
+        ]
+      },
+      {
+        "id": "cn7-27",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "27",
+        "position": 27,
+        "label": "PC15",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          23.76
+        ]
+      },
+      {
+        "id": "cn7-28",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "28",
+        "position": 28,
+        "label": "PA0",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          23.76
+        ]
+      },
+      {
+        "id": "cn7-29",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "29",
+        "position": 29,
+        "label": "PH0",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          26.3
+        ]
+      },
+      {
+        "id": "cn7-30",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "30",
+        "position": 30,
+        "label": "PA1",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          26.3
+        ]
+      },
+      {
+        "id": "cn7-31",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "31",
+        "position": 31,
+        "label": "PH1",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          28.84
+        ]
+      },
+      {
+        "id": "cn7-32",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "32",
+        "position": 32,
+        "label": "PA4",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          28.84
+        ]
+      },
+      {
+        "id": "cn7-33",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "33",
+        "position": 33,
+        "label": "VBAT",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          31.38
+        ]
+      },
+      {
+        "id": "cn7-34",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "34",
+        "position": 34,
+        "label": "PB0",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          31.38
+        ]
+      },
+      {
+        "id": "cn7-35",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "35",
+        "position": 35,
+        "label": "PC2",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          33.92
+        ]
+      },
+      {
+        "id": "cn7-36",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "36",
+        "position": 36,
+        "label": "PC1",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          33.92
+        ]
+      },
+      {
+        "id": "cn7-37",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "37",
+        "position": 37,
+        "label": "PC3",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          36.46
+        ]
+      },
+      {
+        "id": "cn7-38",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "38",
+        "position": 38,
+        "label": "PC0",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          36.46
+        ]
+      },
+      {
+        "id": "cn8-1",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "A0 / PA0",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          23.76
+        ]
+      },
+      {
+        "id": "cn8-2",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "A1 / PA1",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          26.3
+        ]
+      },
+      {
+        "id": "cn8-3",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "A2 / PA4",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          28.84
+        ]
+      },
+      {
+        "id": "cn8-4",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "A3 / PB0",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          31.38
+        ]
+      },
+      {
+        "id": "cn8-5",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "A4 / PC1",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          33.92
+        ]
+      },
+      {
+        "id": "cn8-6",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "A5 / PC0",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          36.46
+        ]
+      },
+      {
+        "id": "cn9-1",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "D0 / PA3",
+        "anchorMm": [
+          24.13,
+          10.9,
+          36.46
+        ]
+      },
+      {
+        "id": "cn9-2",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "D1 / PA2",
+        "anchorMm": [
+          24.13,
+          10.9,
+          33.92
+        ]
+      },
+      {
+        "id": "cn9-3",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "D2 / PA10",
+        "anchorMm": [
+          24.13,
+          10.9,
+          31.38
+        ]
+      },
+      {
+        "id": "cn9-4",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "D3 / PB3",
+        "anchorMm": [
+          24.13,
+          10.9,
+          28.84
+        ]
+      },
+      {
+        "id": "cn9-5",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "D4 / PB5",
+        "anchorMm": [
+          24.13,
+          10.9,
+          26.3
+        ]
+      },
+      {
+        "id": "cn9-6",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "D5 / PB4",
+        "anchorMm": [
+          24.13,
+          10.9,
+          23.76
+        ]
+      },
+      {
+        "id": "cn9-7",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "D6 / PB10",
+        "anchorMm": [
+          24.13,
+          10.9,
+          21.22
+        ]
+      },
+      {
+        "id": "cn9-8",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "D7 / PA8",
+        "anchorMm": [
+          24.13,
+          10.9,
+          18.68
+        ]
+      },
+      {
+        "id": "cn10-1",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "PC9",
+        "anchorMm": [
+          29.21,
+          5.95,
+          -9.26
+        ]
+      },
+      {
+        "id": "cn10-2",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "PC8",
+        "anchorMm": [
+          31.75,
+          5.95,
+          -9.26
+        ]
+      },
+      {
+        "id": "cn10-3",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "PB8",
+        "anchorMm": [
+          29.21,
+          5.95,
+          -6.72
+        ]
+      },
+      {
+        "id": "cn10-4",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "PC6",
+        "anchorMm": [
+          31.75,
+          5.95,
+          -6.72
+        ]
+      },
+      {
+        "id": "cn10-5",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "PB9",
+        "anchorMm": [
+          29.21,
+          5.95,
+          -4.18
+        ]
+      },
+      {
+        "id": "cn10-6",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "PC5",
+        "anchorMm": [
+          31.75,
+          5.95,
+          -4.18
+        ]
+      },
+      {
+        "id": "cn10-7",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "AVDD",
+        "anchorMm": [
+          29.21,
+          5.95,
+          -1.64
+        ]
+      },
+      {
+        "id": "cn10-8",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "U5V",
+        "anchorMm": [
+          31.75,
+          5.95,
+          -1.64
+        ]
+      },
+      {
+        "id": "cn10-9",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "9",
+        "position": 9,
+        "label": "GND",
+        "anchorMm": [
+          29.21,
+          5.95,
+          0.9
+        ]
+      },
+      {
+        "id": "cn10-10",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "10",
+        "position": 10,
+        "label": "NC",
+        "anchorMm": [
+          31.75,
+          5.95,
+          0.9
+        ]
+      },
+      {
+        "id": "cn10-11",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "11",
+        "position": 11,
+        "label": "PA5",
+        "anchorMm": [
+          29.21,
+          5.95,
+          3.44
+        ]
+      },
+      {
+        "id": "cn10-12",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "12",
+        "position": 12,
+        "label": "PA12",
+        "anchorMm": [
+          31.75,
+          5.95,
+          3.44
+        ]
+      },
+      {
+        "id": "cn10-13",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "13",
+        "position": 13,
+        "label": "PA6",
+        "anchorMm": [
+          29.21,
+          5.95,
+          5.98
+        ]
+      },
+      {
+        "id": "cn10-14",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "14",
+        "position": 14,
+        "label": "PA11",
+        "anchorMm": [
+          31.75,
+          5.95,
+          5.98
+        ]
+      },
+      {
+        "id": "cn10-15",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "15",
+        "position": 15,
+        "label": "PA7",
+        "anchorMm": [
+          29.21,
+          5.95,
+          8.52
+        ]
+      },
+      {
+        "id": "cn10-16",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "16",
+        "position": 16,
+        "label": "PB12",
+        "anchorMm": [
+          31.75,
+          5.95,
+          8.52
+        ]
+      },
+      {
+        "id": "cn10-17",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "17",
+        "position": 17,
+        "label": "PB6",
+        "anchorMm": [
+          29.21,
+          5.95,
+          11.06
+        ]
+      },
+      {
+        "id": "cn10-18",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "18",
+        "position": 18,
+        "label": "NC",
+        "anchorMm": [
+          31.75,
+          5.95,
+          11.06
+        ]
+      },
+      {
+        "id": "cn10-19",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "19",
+        "position": 19,
+        "label": "PC7",
+        "anchorMm": [
+          29.21,
+          5.95,
+          13.6
+        ]
+      },
+      {
+        "id": "cn10-20",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "20",
+        "position": 20,
+        "label": "GND",
+        "anchorMm": [
+          31.75,
+          5.95,
+          13.6
+        ]
+      },
+      {
+        "id": "cn10-21",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "21",
+        "position": 21,
+        "label": "PA9",
+        "anchorMm": [
+          29.21,
+          5.95,
+          16.14
+        ]
+      },
+      {
+        "id": "cn10-22",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "22",
+        "position": 22,
+        "label": "PB2",
+        "anchorMm": [
+          31.75,
+          5.95,
+          16.14
+        ]
+      },
+      {
+        "id": "cn10-23",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "23",
+        "position": 23,
+        "label": "PA8",
+        "anchorMm": [
+          29.21,
+          5.95,
+          18.68
+        ]
+      },
+      {
+        "id": "cn10-24",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "24",
+        "position": 24,
+        "label": "PB1",
+        "anchorMm": [
+          31.75,
+          5.95,
+          18.68
+        ]
+      },
+      {
+        "id": "cn10-25",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "25",
+        "position": 25,
+        "label": "PB10",
+        "anchorMm": [
+          29.21,
+          5.95,
+          21.22
+        ]
+      },
+      {
+        "id": "cn10-26",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "26",
+        "position": 26,
+        "label": "PB15",
+        "anchorMm": [
+          31.75,
+          5.95,
+          21.22
+        ]
+      },
+      {
+        "id": "cn10-27",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "27",
+        "position": 27,
+        "label": "PB4",
+        "anchorMm": [
+          29.21,
+          5.95,
+          23.76
+        ]
+      },
+      {
+        "id": "cn10-28",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "28",
+        "position": 28,
+        "label": "PB14",
+        "anchorMm": [
+          31.75,
+          5.95,
+          23.76
+        ]
+      },
+      {
+        "id": "cn10-29",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "29",
+        "position": 29,
+        "label": "PB5",
+        "anchorMm": [
+          29.21,
+          5.95,
+          26.3
+        ]
+      },
+      {
+        "id": "cn10-30",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "30",
+        "position": 30,
+        "label": "PB13",
+        "anchorMm": [
+          31.75,
+          5.95,
+          26.3
+        ]
+      },
+      {
+        "id": "cn10-31",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "31",
+        "position": 31,
+        "label": "PB3",
+        "anchorMm": [
+          29.21,
+          5.95,
+          28.84
+        ]
+      },
+      {
+        "id": "cn10-32",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "32",
+        "position": 32,
+        "label": "AGND",
+        "anchorMm": [
+          31.75,
+          5.95,
+          28.84
+        ]
+      },
+      {
+        "id": "cn10-33",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "33",
+        "position": 33,
+        "label": "PA10",
+        "anchorMm": [
+          29.21,
+          5.95,
+          31.38
+        ]
+      },
+      {
+        "id": "cn10-34",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "34",
+        "position": 34,
+        "label": "PC4",
+        "anchorMm": [
+          31.75,
+          5.95,
+          31.38
+        ]
+      },
+      {
+        "id": "cn10-35",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "35",
+        "position": 35,
+        "label": "PA2",
+        "anchorMm": [
+          29.21,
+          5.95,
+          33.92
+        ]
+      },
+      {
+        "id": "cn10-36",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "36",
+        "position": 36,
+        "label": "NC",
+        "anchorMm": [
+          31.75,
+          5.95,
+          33.92
+        ]
+      },
+      {
+        "id": "cn10-37",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "37",
+        "position": 37,
+        "label": "PA3",
+        "anchorMm": [
+          29.21,
+          5.95,
+          36.46
+        ]
+      },
+      {
+        "id": "cn10-38",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "38",
+        "position": 38,
+        "label": "NC",
+        "anchorMm": [
+          31.75,
+          5.95,
+          36.46
+        ]
+      }
+    ],
+    "sourceGeometry": "Edge.Cuts và pad từ Altium MB1136C nhập qua KiCad 10.0.7",
+    "unresolvedIssues": []
+  },
+  {
+    "id": "stm32-nucleo-l476rg",
+    "assetUrl": "/models/board-catalog-remaining-1/stm32-nucleo-l476rg.glb?v=9ac6fe7f6256",
+    "assetVersion": "9ac6fe7f6256",
+    "sha256": "9ac6fe7f6256c610bd93e5de6278f9ad9a3a7ea02554d70ab670d3b768a0701d",
+    "sizeMm": [
+      70,
+      83
+    ],
+    "orderCode": "NUCLEO-L476RG",
+    "revision": "MB1136-L476RG-C04",
+    "features": {
+      "PCB": "Thân PCB",
+      "CN5": "CN5 · Đầu cắm Arduino",
+      "CN6": "CN6 · Đầu cắm Arduino",
+      "CN7": "CN7 · Header",
+      "CN8": "CN8 · Đầu cắm Arduino",
+      "CN9": "CN9 · Đầu cắm Arduino",
+      "CN10": "CN10 · Header",
+      "CN1": "USB Mini-B · ST-LINK",
+      "U2": "STM32F103CBT6 · ST-LINK/V2-1",
+      "U5": "STM32L476RGT6 · LQFP-64",
+      "B1": "Nút USER · PC13",
+      "B2": "Nút RESET",
+      "LD1": "LED trạng thái ST-LINK",
+      "LD2": "LED người dùng",
+      "LD3": "LED nguồn",
+      "U1": "Ổn áp 3,3 V · ST-LINK",
+      "CN2": "Jumper ST-LINK",
+      "CN4": "Đầu SWD",
+      "JP1": "Jumper nguồn USB",
+      "JP5": "Chọn nguồn",
+      "JP6": "Đo dòng MCU"
+    },
+    "pins": [
+      {
+        "id": "cn5-1",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "D8 / PA9",
+        "anchorMm": [
+          24.13,
+          10.9,
+          14.616
+        ]
+      },
+      {
+        "id": "cn5-2",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "D9 / PC7",
+        "anchorMm": [
+          24.13,
+          10.9,
+          12.076
+        ]
+      },
+      {
+        "id": "cn5-3",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "D10 / PB6",
+        "anchorMm": [
+          24.13,
+          10.9,
+          9.536
+        ]
+      },
+      {
+        "id": "cn5-4",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "D11 / PA7",
+        "anchorMm": [
+          24.13,
+          10.9,
+          6.996
+        ]
+      },
+      {
+        "id": "cn5-5",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "D12 / PA6",
+        "anchorMm": [
+          24.13,
+          10.9,
+          4.456
+        ]
+      },
+      {
+        "id": "cn5-6",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "D13 / PA5",
+        "anchorMm": [
+          24.13,
+          10.9,
+          1.916
+        ]
+      },
+      {
+        "id": "cn5-7",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "GND",
+        "anchorMm": [
+          24.13,
+          10.9,
+          -0.624
+        ]
+      },
+      {
+        "id": "cn5-8",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "AREF / AVDD",
+        "anchorMm": [
+          24.13,
+          10.9,
+          -3.164
+        ]
+      },
+      {
+        "id": "cn5-9",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "9",
+        "position": 9,
+        "label": "D14 / PB9",
+        "anchorMm": [
+          24.13,
+          10.9,
+          -5.704
+        ]
+      },
+      {
+        "id": "cn5-10",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "10",
+        "position": 10,
+        "label": "D15 / PB8",
+        "anchorMm": [
+          24.13,
+          10.9,
+          -8.244
+        ]
+      },
+      {
+        "id": "cn6-1",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "NC",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          0.9
+        ]
+      },
+      {
+        "id": "cn6-2",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "IOREF",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          3.44
+        ]
+      },
+      {
+        "id": "cn6-3",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "RESET / NRST",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          5.98
+        ]
+      },
+      {
+        "id": "cn6-4",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "3V3",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          8.52
+        ]
+      },
+      {
+        "id": "cn6-5",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "5V",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          11.06
+        ]
+      },
+      {
+        "id": "cn6-6",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "GND",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          13.6
+        ]
+      },
+      {
+        "id": "cn6-7",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "7",
+        "position": 7,
+        "label": "GND",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          16.14
+        ]
+      },
+      {
+        "id": "cn6-8",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "8",
+        "position": 8,
+        "label": "VIN",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          18.68
+        ]
+      },
+      {
+        "id": "cn7-1",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "PC10",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          -9.26
+        ]
+      },
+      {
+        "id": "cn7-2",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "PC11",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          -9.26
+        ]
+      },
+      {
+        "id": "cn7-3",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "PC12",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          -6.72
+        ]
+      },
+      {
+        "id": "cn7-4",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "PD2",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          -6.72
+        ]
+      },
+      {
+        "id": "cn7-5",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "VDD",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          -4.18
+        ]
+      },
+      {
+        "id": "cn7-6",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "E5V",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          -4.18
+        ]
+      },
+      {
+        "id": "cn7-7",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "7",
+        "position": 7,
+        "label": "BOOT0",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          -1.64
+        ]
+      },
+      {
+        "id": "cn7-8",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "8",
+        "position": 8,
+        "label": "GND",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          -1.64
+        ]
+      },
+      {
+        "id": "cn7-9",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "9",
+        "position": 9,
+        "label": "NC",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          0.9
+        ]
+      },
+      {
+        "id": "cn7-10",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "10",
+        "position": 10,
+        "label": "NC",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          0.9
+        ]
+      },
+      {
+        "id": "cn7-11",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "11",
+        "position": 11,
+        "label": "NC",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          3.44
+        ]
+      },
+      {
+        "id": "cn7-12",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "12",
+        "position": 12,
+        "label": "IOREF",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          3.44
+        ]
+      },
+      {
+        "id": "cn7-13",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "13",
+        "position": 13,
+        "label": "PA13",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          5.98
+        ]
+      },
+      {
+        "id": "cn7-14",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "14",
+        "position": 14,
+        "label": "RESET",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          5.98
+        ]
+      },
+      {
+        "id": "cn7-15",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "15",
+        "position": 15,
+        "label": "PA14",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          8.52
+        ]
+      },
+      {
+        "id": "cn7-16",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "16",
+        "position": 16,
+        "label": "3V3",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          8.52
+        ]
+      },
+      {
+        "id": "cn7-17",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "17",
+        "position": 17,
+        "label": "PA15",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          11.06
+        ]
+      },
+      {
+        "id": "cn7-18",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "18",
+        "position": 18,
+        "label": "5V",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          11.06
+        ]
+      },
+      {
+        "id": "cn7-19",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "19",
+        "position": 19,
+        "label": "GND",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          13.6
+        ]
+      },
+      {
+        "id": "cn7-20",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "20",
+        "position": 20,
+        "label": "GND",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          13.6
+        ]
+      },
+      {
+        "id": "cn7-21",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "21",
+        "position": 21,
+        "label": "PB7",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          16.14
+        ]
+      },
+      {
+        "id": "cn7-22",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "22",
+        "position": 22,
+        "label": "GND",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          16.14
+        ]
+      },
+      {
+        "id": "cn7-23",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "23",
+        "position": 23,
+        "label": "PC13",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          18.68
+        ]
+      },
+      {
+        "id": "cn7-24",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "24",
+        "position": 24,
+        "label": "VIN",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          18.68
+        ]
+      },
+      {
+        "id": "cn7-25",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "25",
+        "position": 25,
+        "label": "PC14",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          21.22
+        ]
+      },
+      {
+        "id": "cn7-26",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "26",
+        "position": 26,
+        "label": "NC",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          21.22
+        ]
+      },
+      {
+        "id": "cn7-27",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "27",
+        "position": 27,
+        "label": "PC15",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          23.76
+        ]
+      },
+      {
+        "id": "cn7-28",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "28",
+        "position": 28,
+        "label": "PA0",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          23.76
+        ]
+      },
+      {
+        "id": "cn7-29",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "29",
+        "position": 29,
+        "label": "PH0",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          26.3
+        ]
+      },
+      {
+        "id": "cn7-30",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "30",
+        "position": 30,
+        "label": "PA1",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          26.3
+        ]
+      },
+      {
+        "id": "cn7-31",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "31",
+        "position": 31,
+        "label": "PH1",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          28.84
+        ]
+      },
+      {
+        "id": "cn7-32",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "32",
+        "position": 32,
+        "label": "PA4",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          28.84
+        ]
+      },
+      {
+        "id": "cn7-33",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "33",
+        "position": 33,
+        "label": "VBAT",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          31.38
+        ]
+      },
+      {
+        "id": "cn7-34",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "34",
+        "position": 34,
+        "label": "PB0",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          31.38
+        ]
+      },
+      {
+        "id": "cn7-35",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "35",
+        "position": 35,
+        "label": "PC2",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          33.92
+        ]
+      },
+      {
+        "id": "cn7-36",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "36",
+        "position": 36,
+        "label": "PC1",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          33.92
+        ]
+      },
+      {
+        "id": "cn7-37",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "37",
+        "position": 37,
+        "label": "PC3",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          36.46
+        ]
+      },
+      {
+        "id": "cn7-38",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "38",
+        "position": 38,
+        "label": "PC0",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          36.46
+        ]
+      },
+      {
+        "id": "cn8-1",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "A0 / PA0",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          23.76
+        ]
+      },
+      {
+        "id": "cn8-2",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "A1 / PA1",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          26.3
+        ]
+      },
+      {
+        "id": "cn8-3",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "A2 / PA4",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          28.84
+        ]
+      },
+      {
+        "id": "cn8-4",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "A3 / PB0",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          31.38
+        ]
+      },
+      {
+        "id": "cn8-5",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "A4 / PC1",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          33.92
+        ]
+      },
+      {
+        "id": "cn8-6",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "A5 / PC0",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          36.46
+        ]
+      },
+      {
+        "id": "cn9-1",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "D0 / PA3",
+        "anchorMm": [
+          24.13,
+          10.9,
+          36.46
+        ]
+      },
+      {
+        "id": "cn9-2",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "D1 / PA2",
+        "anchorMm": [
+          24.13,
+          10.9,
+          33.92
+        ]
+      },
+      {
+        "id": "cn9-3",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "D2 / PA10",
+        "anchorMm": [
+          24.13,
+          10.9,
+          31.38
+        ]
+      },
+      {
+        "id": "cn9-4",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "D3 / PB3",
+        "anchorMm": [
+          24.13,
+          10.9,
+          28.84
+        ]
+      },
+      {
+        "id": "cn9-5",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "D4 / PB5",
+        "anchorMm": [
+          24.13,
+          10.9,
+          26.3
+        ]
+      },
+      {
+        "id": "cn9-6",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "D5 / PB4",
+        "anchorMm": [
+          24.13,
+          10.9,
+          23.76
+        ]
+      },
+      {
+        "id": "cn9-7",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "D6 / PB10",
+        "anchorMm": [
+          24.13,
+          10.9,
+          21.22
+        ]
+      },
+      {
+        "id": "cn9-8",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "D7 / PA8",
+        "anchorMm": [
+          24.13,
+          10.9,
+          18.68
+        ]
+      },
+      {
+        "id": "cn10-1",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "PC9",
+        "anchorMm": [
+          29.21,
+          5.95,
+          -9.26
+        ]
+      },
+      {
+        "id": "cn10-2",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "PC8",
+        "anchorMm": [
+          31.75,
+          5.95,
+          -9.26
+        ]
+      },
+      {
+        "id": "cn10-3",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "PB8",
+        "anchorMm": [
+          29.21,
+          5.95,
+          -6.72
+        ]
+      },
+      {
+        "id": "cn10-4",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "PC6",
+        "anchorMm": [
+          31.75,
+          5.95,
+          -6.72
+        ]
+      },
+      {
+        "id": "cn10-5",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "PB9",
+        "anchorMm": [
+          29.21,
+          5.95,
+          -4.18
+        ]
+      },
+      {
+        "id": "cn10-6",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "PC5",
+        "anchorMm": [
+          31.75,
+          5.95,
+          -4.18
+        ]
+      },
+      {
+        "id": "cn10-7",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "AVDD",
+        "anchorMm": [
+          29.21,
+          5.95,
+          -1.64
+        ]
+      },
+      {
+        "id": "cn10-8",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "U5V",
+        "anchorMm": [
+          31.75,
+          5.95,
+          -1.64
+        ]
+      },
+      {
+        "id": "cn10-9",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "9",
+        "position": 9,
+        "label": "GND",
+        "anchorMm": [
+          29.21,
+          5.95,
+          0.9
+        ]
+      },
+      {
+        "id": "cn10-10",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "10",
+        "position": 10,
+        "label": "NC",
+        "anchorMm": [
+          31.75,
+          5.95,
+          0.9
+        ]
+      },
+      {
+        "id": "cn10-11",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "11",
+        "position": 11,
+        "label": "PA5",
+        "anchorMm": [
+          29.21,
+          5.95,
+          3.44
+        ]
+      },
+      {
+        "id": "cn10-12",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "12",
+        "position": 12,
+        "label": "PA12",
+        "anchorMm": [
+          31.75,
+          5.95,
+          3.44
+        ]
+      },
+      {
+        "id": "cn10-13",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "13",
+        "position": 13,
+        "label": "PA6",
+        "anchorMm": [
+          29.21,
+          5.95,
+          5.98
+        ]
+      },
+      {
+        "id": "cn10-14",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "14",
+        "position": 14,
+        "label": "PA11",
+        "anchorMm": [
+          31.75,
+          5.95,
+          5.98
+        ]
+      },
+      {
+        "id": "cn10-15",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "15",
+        "position": 15,
+        "label": "PA7",
+        "anchorMm": [
+          29.21,
+          5.95,
+          8.52
+        ]
+      },
+      {
+        "id": "cn10-16",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "16",
+        "position": 16,
+        "label": "PB12",
+        "anchorMm": [
+          31.75,
+          5.95,
+          8.52
+        ]
+      },
+      {
+        "id": "cn10-17",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "17",
+        "position": 17,
+        "label": "PB6",
+        "anchorMm": [
+          29.21,
+          5.95,
+          11.06
+        ]
+      },
+      {
+        "id": "cn10-18",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "18",
+        "position": 18,
+        "label": "PB11",
+        "anchorMm": [
+          31.75,
+          5.95,
+          11.06
+        ]
+      },
+      {
+        "id": "cn10-19",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "19",
+        "position": 19,
+        "label": "PC7",
+        "anchorMm": [
+          29.21,
+          5.95,
+          13.6
+        ]
+      },
+      {
+        "id": "cn10-20",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "20",
+        "position": 20,
+        "label": "GND",
+        "anchorMm": [
+          31.75,
+          5.95,
+          13.6
+        ]
+      },
+      {
+        "id": "cn10-21",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "21",
+        "position": 21,
+        "label": "PA9",
+        "anchorMm": [
+          29.21,
+          5.95,
+          16.14
+        ]
+      },
+      {
+        "id": "cn10-22",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "22",
+        "position": 22,
+        "label": "PB2",
+        "anchorMm": [
+          31.75,
+          5.95,
+          16.14
+        ]
+      },
+      {
+        "id": "cn10-23",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "23",
+        "position": 23,
+        "label": "PA8",
+        "anchorMm": [
+          29.21,
+          5.95,
+          18.68
+        ]
+      },
+      {
+        "id": "cn10-24",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "24",
+        "position": 24,
+        "label": "PB1",
+        "anchorMm": [
+          31.75,
+          5.95,
+          18.68
+        ]
+      },
+      {
+        "id": "cn10-25",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "25",
+        "position": 25,
+        "label": "PB10",
+        "anchorMm": [
+          29.21,
+          5.95,
+          21.22
+        ]
+      },
+      {
+        "id": "cn10-26",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "26",
+        "position": 26,
+        "label": "PB15",
+        "anchorMm": [
+          31.75,
+          5.95,
+          21.22
+        ]
+      },
+      {
+        "id": "cn10-27",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "27",
+        "position": 27,
+        "label": "PB4",
+        "anchorMm": [
+          29.21,
+          5.95,
+          23.76
+        ]
+      },
+      {
+        "id": "cn10-28",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "28",
+        "position": 28,
+        "label": "PB14",
+        "anchorMm": [
+          31.75,
+          5.95,
+          23.76
+        ]
+      },
+      {
+        "id": "cn10-29",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "29",
+        "position": 29,
+        "label": "PB5",
+        "anchorMm": [
+          29.21,
+          5.95,
+          26.3
+        ]
+      },
+      {
+        "id": "cn10-30",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "30",
+        "position": 30,
+        "label": "PB13",
+        "anchorMm": [
+          31.75,
+          5.95,
+          26.3
+        ]
+      },
+      {
+        "id": "cn10-31",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "31",
+        "position": 31,
+        "label": "PB3",
+        "anchorMm": [
+          29.21,
+          5.95,
+          28.84
+        ]
+      },
+      {
+        "id": "cn10-32",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "32",
+        "position": 32,
+        "label": "AGND",
+        "anchorMm": [
+          31.75,
+          5.95,
+          28.84
+        ]
+      },
+      {
+        "id": "cn10-33",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "33",
+        "position": 33,
+        "label": "PA10",
+        "anchorMm": [
+          29.21,
+          5.95,
+          31.38
+        ]
+      },
+      {
+        "id": "cn10-34",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "34",
+        "position": 34,
+        "label": "PC4",
+        "anchorMm": [
+          31.75,
+          5.95,
+          31.38
+        ]
+      },
+      {
+        "id": "cn10-35",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "35",
+        "position": 35,
+        "label": "PA2",
+        "anchorMm": [
+          29.21,
+          5.95,
+          33.92
+        ]
+      },
+      {
+        "id": "cn10-36",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "36",
+        "position": 36,
+        "label": "NC",
+        "anchorMm": [
+          31.75,
+          5.95,
+          33.92
+        ]
+      },
+      {
+        "id": "cn10-37",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "37",
+        "position": 37,
+        "label": "PA3",
+        "anchorMm": [
+          29.21,
+          5.95,
+          36.46
+        ]
+      },
+      {
+        "id": "cn10-38",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "38",
+        "position": 38,
+        "label": "NC",
+        "anchorMm": [
+          31.75,
+          5.95,
+          36.46
+        ]
+      }
+    ],
+    "sourceGeometry": "Edge.Cuts và pad từ Altium MB1136C nhập qua KiCad 10.0.7",
+    "unresolvedIssues": [
+      "Gói nguồn chưa có BOM riêng L476RG-C04. Các linh kiện lắp/DNP phụ chưa được tái dựng."
+    ]
+  },
+  {
+    "id": "stm32-nucleo-f446re",
+    "assetUrl": "/models/board-catalog-remaining-1/stm32-nucleo-f446re.glb?v=b803c7ad4c20",
+    "assetVersion": "b803c7ad4c20",
+    "sha256": "b803c7ad4c20f31d0bc4b38278af31ed2ad2023eebdc1235392b9000b5f05db2",
+    "sizeMm": [
+      70,
+      83
+    ],
+    "orderCode": "NUCLEO-F446RE",
+    "revision": "MB1136-F446RE-C04",
+    "features": {
+      "PCB": "Thân PCB",
+      "CN5": "CN5 · Đầu cắm Arduino",
+      "CN6": "CN6 · Đầu cắm Arduino",
+      "CN7": "CN7 · Header",
+      "CN8": "CN8 · Đầu cắm Arduino",
+      "CN9": "CN9 · Đầu cắm Arduino",
+      "CN10": "CN10 · Header",
+      "CN1": "USB Mini-B · ST-LINK",
+      "U2": "STM32F103CBT6 · ST-LINK/V2-1",
+      "U5": "STM32F446RET6 · LQFP-64",
+      "B1": "Nút USER · PC13",
+      "B2": "Nút RESET",
+      "LD1": "LED trạng thái ST-LINK",
+      "LD2": "LED người dùng",
+      "LD3": "LED nguồn",
+      "U1": "Ổn áp 3,3 V · ST-LINK",
+      "CN2": "Jumper ST-LINK",
+      "CN4": "Đầu SWD",
+      "JP1": "Jumper nguồn USB",
+      "JP5": "Chọn nguồn",
+      "JP6": "Đo dòng MCU"
+    },
+    "pins": [
+      {
+        "id": "cn5-1",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "D8 / PA9",
+        "anchorMm": [
+          24.13,
+          10.9,
+          14.616
+        ]
+      },
+      {
+        "id": "cn5-2",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "D9 / PC7",
+        "anchorMm": [
+          24.13,
+          10.9,
+          12.076
+        ]
+      },
+      {
+        "id": "cn5-3",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "D10 / PB6",
+        "anchorMm": [
+          24.13,
+          10.9,
+          9.536
+        ]
+      },
+      {
+        "id": "cn5-4",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "D11 / PA7",
+        "anchorMm": [
+          24.13,
+          10.9,
+          6.996
+        ]
+      },
+      {
+        "id": "cn5-5",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "D12 / PA6",
+        "anchorMm": [
+          24.13,
+          10.9,
+          4.456
+        ]
+      },
+      {
+        "id": "cn5-6",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "D13 / PA5",
+        "anchorMm": [
+          24.13,
+          10.9,
+          1.916
+        ]
+      },
+      {
+        "id": "cn5-7",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "GND",
+        "anchorMm": [
+          24.13,
+          10.9,
+          -0.624
+        ]
+      },
+      {
+        "id": "cn5-8",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "AREF / AVDD",
+        "anchorMm": [
+          24.13,
+          10.9,
+          -3.164
+        ]
+      },
+      {
+        "id": "cn5-9",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "9",
+        "position": 9,
+        "label": "D14 / PB9",
+        "anchorMm": [
+          24.13,
+          10.9,
+          -5.704
+        ]
+      },
+      {
+        "id": "cn5-10",
+        "headerReference": "CN5",
+        "side": "right",
+        "padNumber": "10",
+        "position": 10,
+        "label": "D15 / PB8",
+        "anchorMm": [
+          24.13,
+          10.9,
+          -8.244
+        ]
+      },
+      {
+        "id": "cn6-1",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "NC",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          0.9
+        ]
+      },
+      {
+        "id": "cn6-2",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "IOREF",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          3.44
+        ]
+      },
+      {
+        "id": "cn6-3",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "RESET / NRST",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          5.98
+        ]
+      },
+      {
+        "id": "cn6-4",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "3V3",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          8.52
+        ]
+      },
+      {
+        "id": "cn6-5",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "5V",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          11.06
+        ]
+      },
+      {
+        "id": "cn6-6",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "GND",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          13.6
+        ]
+      },
+      {
+        "id": "cn6-7",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "7",
+        "position": 7,
+        "label": "GND",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          16.14
+        ]
+      },
+      {
+        "id": "cn6-8",
+        "headerReference": "CN6",
+        "side": "left",
+        "padNumber": "8",
+        "position": 8,
+        "label": "VIN",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          18.68
+        ]
+      },
+      {
+        "id": "cn7-1",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "PC10",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          -9.26
+        ]
+      },
+      {
+        "id": "cn7-2",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "PC11",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          -9.26
+        ]
+      },
+      {
+        "id": "cn7-3",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "PC12",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          -6.72
+        ]
+      },
+      {
+        "id": "cn7-4",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "PD2",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          -6.72
+        ]
+      },
+      {
+        "id": "cn7-5",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "VDD",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          -4.18
+        ]
+      },
+      {
+        "id": "cn7-6",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "E5V",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          -4.18
+        ]
+      },
+      {
+        "id": "cn7-7",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "7",
+        "position": 7,
+        "label": "BOOT0",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          -1.64
+        ]
+      },
+      {
+        "id": "cn7-8",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "8",
+        "position": 8,
+        "label": "GND",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          -1.64
+        ]
+      },
+      {
+        "id": "cn7-9",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "9",
+        "position": 9,
+        "label": "NC",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          0.9
+        ]
+      },
+      {
+        "id": "cn7-10",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "10",
+        "position": 10,
+        "label": "NC",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          0.9
+        ]
+      },
+      {
+        "id": "cn7-11",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "11",
+        "position": 11,
+        "label": "NC",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          3.44
+        ]
+      },
+      {
+        "id": "cn7-12",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "12",
+        "position": 12,
+        "label": "IOREF",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          3.44
+        ]
+      },
+      {
+        "id": "cn7-13",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "13",
+        "position": 13,
+        "label": "PA13",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          5.98
+        ]
+      },
+      {
+        "id": "cn7-14",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "14",
+        "position": 14,
+        "label": "RESET",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          5.98
+        ]
+      },
+      {
+        "id": "cn7-15",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "15",
+        "position": 15,
+        "label": "PA14",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          8.52
+        ]
+      },
+      {
+        "id": "cn7-16",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "16",
+        "position": 16,
+        "label": "3V3",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          8.52
+        ]
+      },
+      {
+        "id": "cn7-17",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "17",
+        "position": 17,
+        "label": "PA15",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          11.06
+        ]
+      },
+      {
+        "id": "cn7-18",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "18",
+        "position": 18,
+        "label": "5V",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          11.06
+        ]
+      },
+      {
+        "id": "cn7-19",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "19",
+        "position": 19,
+        "label": "GND",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          13.6
+        ]
+      },
+      {
+        "id": "cn7-20",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "20",
+        "position": 20,
+        "label": "GND",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          13.6
+        ]
+      },
+      {
+        "id": "cn7-21",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "21",
+        "position": 21,
+        "label": "PB7",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          16.14
+        ]
+      },
+      {
+        "id": "cn7-22",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "22",
+        "position": 22,
+        "label": "GND",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          16.14
+        ]
+      },
+      {
+        "id": "cn7-23",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "23",
+        "position": 23,
+        "label": "PC13",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          18.68
+        ]
+      },
+      {
+        "id": "cn7-24",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "24",
+        "position": 24,
+        "label": "VIN",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          18.68
+        ]
+      },
+      {
+        "id": "cn7-25",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "25",
+        "position": 25,
+        "label": "PC14",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          21.22
+        ]
+      },
+      {
+        "id": "cn7-26",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "26",
+        "position": 26,
+        "label": "NC",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          21.22
+        ]
+      },
+      {
+        "id": "cn7-27",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "27",
+        "position": 27,
+        "label": "PC15",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          23.76
+        ]
+      },
+      {
+        "id": "cn7-28",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "28",
+        "position": 28,
+        "label": "PA0",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          23.76
+        ]
+      },
+      {
+        "id": "cn7-29",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "29",
+        "position": 29,
+        "label": "PH0",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          26.3
+        ]
+      },
+      {
+        "id": "cn7-30",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "30",
+        "position": 30,
+        "label": "PA1",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          26.3
+        ]
+      },
+      {
+        "id": "cn7-31",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "31",
+        "position": 31,
+        "label": "PH1",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          28.84
+        ]
+      },
+      {
+        "id": "cn7-32",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "32",
+        "position": 32,
+        "label": "PA4",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          28.84
+        ]
+      },
+      {
+        "id": "cn7-33",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "33",
+        "position": 33,
+        "label": "VBAT",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          31.38
+        ]
+      },
+      {
+        "id": "cn7-34",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "34",
+        "position": 34,
+        "label": "PB0",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          31.38
+        ]
+      },
+      {
+        "id": "cn7-35",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "35",
+        "position": 35,
+        "label": "PC2",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          33.92
+        ]
+      },
+      {
+        "id": "cn7-36",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "36",
+        "position": 36,
+        "label": "PC1",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          33.92
+        ]
+      },
+      {
+        "id": "cn7-37",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "37",
+        "position": 37,
+        "label": "PC3",
+        "anchorMm": [
+          -31.75,
+          5.95,
+          36.46
+        ]
+      },
+      {
+        "id": "cn7-38",
+        "headerReference": "CN7",
+        "side": "left",
+        "padNumber": "38",
+        "position": 38,
+        "label": "PC0",
+        "anchorMm": [
+          -29.21,
+          5.95,
+          36.46
+        ]
+      },
+      {
+        "id": "cn8-1",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "A0 / PA0",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          23.76
+        ]
+      },
+      {
+        "id": "cn8-2",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "A1 / PA1",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          26.3
+        ]
+      },
+      {
+        "id": "cn8-3",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "A2 / PA4",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          28.84
+        ]
+      },
+      {
+        "id": "cn8-4",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "A3 / PB0",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          31.38
+        ]
+      },
+      {
+        "id": "cn8-5",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "A4 / PC1",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          33.92
+        ]
+      },
+      {
+        "id": "cn8-6",
+        "headerReference": "CN8",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "A5 / PC0",
+        "anchorMm": [
+          -24.13,
+          10.9,
+          36.46
+        ]
+      },
+      {
+        "id": "cn9-1",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "D0 / PA3",
+        "anchorMm": [
+          24.13,
+          10.9,
+          36.46
+        ]
+      },
+      {
+        "id": "cn9-2",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "D1 / PA2",
+        "anchorMm": [
+          24.13,
+          10.9,
+          33.92
+        ]
+      },
+      {
+        "id": "cn9-3",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "D2 / PA10",
+        "anchorMm": [
+          24.13,
+          10.9,
+          31.38
+        ]
+      },
+      {
+        "id": "cn9-4",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "D3 / PB3",
+        "anchorMm": [
+          24.13,
+          10.9,
+          28.84
+        ]
+      },
+      {
+        "id": "cn9-5",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "D4 / PB5",
+        "anchorMm": [
+          24.13,
+          10.9,
+          26.3
+        ]
+      },
+      {
+        "id": "cn9-6",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "D5 / PB4",
+        "anchorMm": [
+          24.13,
+          10.9,
+          23.76
+        ]
+      },
+      {
+        "id": "cn9-7",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "D6 / PB10",
+        "anchorMm": [
+          24.13,
+          10.9,
+          21.22
+        ]
+      },
+      {
+        "id": "cn9-8",
+        "headerReference": "CN9",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "D7 / PA8",
+        "anchorMm": [
+          24.13,
+          10.9,
+          18.68
+        ]
+      },
+      {
+        "id": "cn10-1",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "PC9",
+        "anchorMm": [
+          29.21,
+          5.95,
+          -9.26
+        ]
+      },
+      {
+        "id": "cn10-2",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "PC8",
+        "anchorMm": [
+          31.75,
+          5.95,
+          -9.26
+        ]
+      },
+      {
+        "id": "cn10-3",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "PB8",
+        "anchorMm": [
+          29.21,
+          5.95,
+          -6.72
+        ]
+      },
+      {
+        "id": "cn10-4",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "PC6",
+        "anchorMm": [
+          31.75,
+          5.95,
+          -6.72
+        ]
+      },
+      {
+        "id": "cn10-5",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "PB9",
+        "anchorMm": [
+          29.21,
+          5.95,
+          -4.18
+        ]
+      },
+      {
+        "id": "cn10-6",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "PC5",
+        "anchorMm": [
+          31.75,
+          5.95,
+          -4.18
+        ]
+      },
+      {
+        "id": "cn10-7",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "AVDD",
+        "anchorMm": [
+          29.21,
+          5.95,
+          -1.64
+        ]
+      },
+      {
+        "id": "cn10-8",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "U5V",
+        "anchorMm": [
+          31.75,
+          5.95,
+          -1.64
+        ]
+      },
+      {
+        "id": "cn10-9",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "9",
+        "position": 9,
+        "label": "GND",
+        "anchorMm": [
+          29.21,
+          5.95,
+          0.9
+        ]
+      },
+      {
+        "id": "cn10-10",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "10",
+        "position": 10,
+        "label": "NC",
+        "anchorMm": [
+          31.75,
+          5.95,
+          0.9
+        ]
+      },
+      {
+        "id": "cn10-11",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "11",
+        "position": 11,
+        "label": "PA5",
+        "anchorMm": [
+          29.21,
+          5.95,
+          3.44
+        ]
+      },
+      {
+        "id": "cn10-12",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "12",
+        "position": 12,
+        "label": "PA12",
+        "anchorMm": [
+          31.75,
+          5.95,
+          3.44
+        ]
+      },
+      {
+        "id": "cn10-13",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "13",
+        "position": 13,
+        "label": "PA6",
+        "anchorMm": [
+          29.21,
+          5.95,
+          5.98
+        ]
+      },
+      {
+        "id": "cn10-14",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "14",
+        "position": 14,
+        "label": "PA11",
+        "anchorMm": [
+          31.75,
+          5.95,
+          5.98
+        ]
+      },
+      {
+        "id": "cn10-15",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "15",
+        "position": 15,
+        "label": "PA7",
+        "anchorMm": [
+          29.21,
+          5.95,
+          8.52
+        ]
+      },
+      {
+        "id": "cn10-16",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "16",
+        "position": 16,
+        "label": "PB12",
+        "anchorMm": [
+          31.75,
+          5.95,
+          8.52
+        ]
+      },
+      {
+        "id": "cn10-17",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "17",
+        "position": 17,
+        "label": "PB6",
+        "anchorMm": [
+          29.21,
+          5.95,
+          11.06
+        ]
+      },
+      {
+        "id": "cn10-18",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "18",
+        "position": 18,
+        "label": "NC",
+        "anchorMm": [
+          31.75,
+          5.95,
+          11.06
+        ]
+      },
+      {
+        "id": "cn10-19",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "19",
+        "position": 19,
+        "label": "PC7",
+        "anchorMm": [
+          29.21,
+          5.95,
+          13.6
+        ]
+      },
+      {
+        "id": "cn10-20",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "20",
+        "position": 20,
+        "label": "GND",
+        "anchorMm": [
+          31.75,
+          5.95,
+          13.6
+        ]
+      },
+      {
+        "id": "cn10-21",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "21",
+        "position": 21,
+        "label": "PA9",
+        "anchorMm": [
+          29.21,
+          5.95,
+          16.14
+        ]
+      },
+      {
+        "id": "cn10-22",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "22",
+        "position": 22,
+        "label": "PB2",
+        "anchorMm": [
+          31.75,
+          5.95,
+          16.14
+        ]
+      },
+      {
+        "id": "cn10-23",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "23",
+        "position": 23,
+        "label": "PA8",
+        "anchorMm": [
+          29.21,
+          5.95,
+          18.68
+        ]
+      },
+      {
+        "id": "cn10-24",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "24",
+        "position": 24,
+        "label": "PB1",
+        "anchorMm": [
+          31.75,
+          5.95,
+          18.68
+        ]
+      },
+      {
+        "id": "cn10-25",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "25",
+        "position": 25,
+        "label": "PB10",
+        "anchorMm": [
+          29.21,
+          5.95,
+          21.22
+        ]
+      },
+      {
+        "id": "cn10-26",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "26",
+        "position": 26,
+        "label": "PB15",
+        "anchorMm": [
+          31.75,
+          5.95,
+          21.22
+        ]
+      },
+      {
+        "id": "cn10-27",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "27",
+        "position": 27,
+        "label": "PB4",
+        "anchorMm": [
+          29.21,
+          5.95,
+          23.76
+        ]
+      },
+      {
+        "id": "cn10-28",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "28",
+        "position": 28,
+        "label": "PB14",
+        "anchorMm": [
+          31.75,
+          5.95,
+          23.76
+        ]
+      },
+      {
+        "id": "cn10-29",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "29",
+        "position": 29,
+        "label": "PB5",
+        "anchorMm": [
+          29.21,
+          5.95,
+          26.3
+        ]
+      },
+      {
+        "id": "cn10-30",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "30",
+        "position": 30,
+        "label": "PB13",
+        "anchorMm": [
+          31.75,
+          5.95,
+          26.3
+        ]
+      },
+      {
+        "id": "cn10-31",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "31",
+        "position": 31,
+        "label": "PB3",
+        "anchorMm": [
+          29.21,
+          5.95,
+          28.84
+        ]
+      },
+      {
+        "id": "cn10-32",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "32",
+        "position": 32,
+        "label": "AGND",
+        "anchorMm": [
+          31.75,
+          5.95,
+          28.84
+        ]
+      },
+      {
+        "id": "cn10-33",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "33",
+        "position": 33,
+        "label": "PA10",
+        "anchorMm": [
+          29.21,
+          5.95,
+          31.38
+        ]
+      },
+      {
+        "id": "cn10-34",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "34",
+        "position": 34,
+        "label": "PC4",
+        "anchorMm": [
+          31.75,
+          5.95,
+          31.38
+        ]
+      },
+      {
+        "id": "cn10-35",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "35",
+        "position": 35,
+        "label": "PA2",
+        "anchorMm": [
+          29.21,
+          5.95,
+          33.92
+        ]
+      },
+      {
+        "id": "cn10-36",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "36",
+        "position": 36,
+        "label": "NC",
+        "anchorMm": [
+          31.75,
+          5.95,
+          33.92
+        ]
+      },
+      {
+        "id": "cn10-37",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "37",
+        "position": 37,
+        "label": "PA3",
+        "anchorMm": [
+          29.21,
+          5.95,
+          36.46
+        ]
+      },
+      {
+        "id": "cn10-38",
+        "headerReference": "CN10",
+        "side": "right",
+        "padNumber": "38",
+        "position": 38,
+        "label": "NC",
+        "anchorMm": [
+          31.75,
+          5.95,
+          36.46
+        ]
+      }
+    ],
+    "sourceGeometry": "Edge.Cuts và pad từ Altium MB1136C nhập qua KiCad 10.0.7",
+    "unresolvedIssues": []
+  },
+  {
+    "id": "arduino-nano-every",
+    "assetUrl": "/models/board-catalog-remaining-1/arduino-nano-every.glb?v=b92ac3ce9546",
+    "assetVersion": "b92ac3ce9546",
+    "sha256": "b92ac3ce9546fb7eeaa8f14ad20803b9346b208ee3cbffd824b77d22f453151a",
+    "sizeMm": [
+      43.18,
+      17.78
+    ],
+    "orderCode": "ABX00028",
+    "revision": "NANOEveryV4.0",
+    "features": {
+      "PCB": "Thân PCB",
+      "JP2": "JP2 · Pad chưa hàn header",
+      "JP3": "JP3 · Pad chưa hàn header",
+      "U1": "ATmega4809 · TQFP-48",
+      "U3": "ATSAMD11D14A · USB",
+      "U2": "AP2112K · Bộ ổn áp",
+      "J1": "Cổng micro-USB"
+    },
+    "pins": [
+      {
+        "id": "jp2-1",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "1",
+        "position": 1,
+        "label": "D13 / SCK",
+        "anchorMm": [
+          -17.78,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-2",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "2",
+        "position": 2,
+        "label": "3V3",
+        "anchorMm": [
+          -15.24,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-3",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "3",
+        "position": 3,
+        "label": "AREF",
+        "anchorMm": [
+          -12.7,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-4",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "4",
+        "position": 4,
+        "label": "A0",
+        "anchorMm": [
+          -10.16,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-5",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "5",
+        "position": 5,
+        "label": "A1",
+        "anchorMm": [
+          -7.62,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-6",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "6",
+        "position": 6,
+        "label": "A2",
+        "anchorMm": [
+          -5.08,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-7",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "7",
+        "position": 7,
+        "label": "A3",
+        "anchorMm": [
+          -2.54,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-8",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "8",
+        "position": 8,
+        "label": "A4 / SDA",
+        "anchorMm": [
+          0,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-9",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "9",
+        "position": 9,
+        "label": "A5 / SCL",
+        "anchorMm": [
+          2.54,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-10",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "10",
+        "position": 10,
+        "label": "A6",
+        "anchorMm": [
+          5.08,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-11",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "11",
+        "position": 11,
+        "label": "A7",
+        "anchorMm": [
+          7.62,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-12",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "12",
+        "position": 12,
+        "label": "5V",
+        "anchorMm": [
+          10.16,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-13",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "13",
+        "position": 13,
+        "label": "RESET",
+        "anchorMm": [
+          12.7,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-14",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "14",
+        "position": 14,
+        "label": "GND",
+        "anchorMm": [
+          15.24,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp2-15",
+        "headerReference": "JP2",
+        "side": "left",
+        "padNumber": "15",
+        "position": 15,
+        "label": "VIN",
+        "anchorMm": [
+          17.78,
+          1.66,
+          7.62
+        ]
+      },
+      {
+        "id": "jp3-1",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "1",
+        "position": 1,
+        "label": "D1 / TX",
+        "anchorMm": [
+          17.78,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-2",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "2",
+        "position": 2,
+        "label": "D0 / RX",
+        "anchorMm": [
+          15.24,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-3",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "3",
+        "position": 3,
+        "label": "RESET",
+        "anchorMm": [
+          12.7,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-4",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "4",
+        "position": 4,
+        "label": "GND",
+        "anchorMm": [
+          10.16,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-5",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "5",
+        "position": 5,
+        "label": "D2",
+        "anchorMm": [
+          7.62,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-6",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "6",
+        "position": 6,
+        "label": "D3",
+        "anchorMm": [
+          5.08,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-7",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "7",
+        "position": 7,
+        "label": "D4",
+        "anchorMm": [
+          2.54,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-8",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "8",
+        "position": 8,
+        "label": "D5",
+        "anchorMm": [
+          0,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-9",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "9",
+        "position": 9,
+        "label": "D6",
+        "anchorMm": [
+          -2.54,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-10",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "10",
+        "position": 10,
+        "label": "D7",
+        "anchorMm": [
+          -5.08,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-11",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "11",
+        "position": 11,
+        "label": "D8",
+        "anchorMm": [
+          -7.62,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-12",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "12",
+        "position": 12,
+        "label": "D9",
+        "anchorMm": [
+          -10.16,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-13",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "13",
+        "position": 13,
+        "label": "D10",
+        "anchorMm": [
+          -12.7,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-14",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "14",
+        "position": 14,
+        "label": "D11 / MOSI",
+        "anchorMm": [
+          -15.24,
+          1.66,
+          -7.62
+        ]
+      },
+      {
+        "id": "jp3-15",
+        "headerReference": "JP3",
+        "side": "right",
+        "padNumber": "15",
+        "position": 15,
+        "label": "D12 / MISO",
+        "anchorMm": [
+          -17.78,
+          1.66,
+          -7.62
+        ]
+      }
+    ],
+    "sourceGeometry": "FAB, MNT và 30 tâm lỗ IPC-D-356 Arduino",
+    "unresolvedIssues": []
+  }
+]

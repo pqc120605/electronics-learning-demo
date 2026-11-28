@@ -1,6 +1,8 @@
 import { components, type ComponentCategory } from '../data/components'
 import { getR2cBreadboard } from './catalogR2cBoards'
 import { getCatalogPart } from './catalogParts'
+import { getApprovedCatalogIc } from './approvedCatalogIcs'
+import { getApprovedRemainingPart } from './approvedRemainingParts'
 import { expandedCatalog } from '../data/expandedComponentCatalog'
 import { getComponentMeshForCatalog } from '../data/componentModels'
 import { getComponentReferences, getComponentSourceLevel } from '../data/componentReferences'
@@ -9,6 +11,7 @@ import { getLessonsUsingComponent } from '../lib/componentCatalog'
 import { freestyleSamples } from '../lib/freestyle/freestyleSampleLibrary'
 import { digitalLabLessons } from '../data/digitalLabLessons'
 import { spicePractices } from '../simulation/spicePractice'
+import { getBoardForComponent } from '../lib/boardCatalogMedia'
 
 export const catalogGroups: readonly ComponentCategory[] = [
   'Nguồn', 'Board & dây nối', 'MCU', 'Linh kiện cơ bản', 'Đầu vào', 'Cảm biến',
@@ -32,31 +35,6 @@ const meshAliases: Record<string, string> = {
   'ir-obstacle': 'ir-sensor',
   ntc: 'thermistor',
 }
-const silhouettes: Record<string, { family: string; code: string }> = {
-  'dc-supply': { family: 'power', code: 'DC' },
-  'logic-74hc00': { family: 'logic', code: '74HC00' },
-  'logic-74hc4511': { family: 'logic', code: '74HC4511' },
-  'timer-ne555': { family: 'logic', code: 'NE555' },
-  'display-max7219': { family: 'display', code: 'MAX7219' },
-  'keypad-4x4': { family: 'keypad', code: '4×4' },
-  dht11: { family: 'sensor', code: 'DHT11' },
-  'dht22-bare': { family: 'sensor', code: 'DHT22' },
-  'seven-segment-anode': { family: 'display', code: '7 SEG' },
-}
-const stylizedPackages: Record<string, string> = {
-  lm7805: 'tabbed',
-  lm317: 'tabbed',
-  lm2596: 'tabbed',
-  lm2577: 'tabbed',
-  tip120: 'tabbed',
-  irlz44n: 'tabbed',
-  tl431: 'transistor',
-  lm1117: 'compact',
-  tps61023: 'compact',
-  tps62160: 'compact',
-}
-
-
 const expansion = new Map(expandedCatalog.map((item) => [item.part.id, item]))
 const sampleParts = new Set<string>(freestyleSamples.flatMap(({ parts }) => [...parts]))
 const analogParts = new Set<string>(spicePractices.flatMap(({ parts }) => [...parts]))
@@ -64,23 +42,20 @@ const digitalParts = new Set<string>(digitalLabLessons.flatMap(({ parts }) => [.
 
 export const partsGallery = components.map((part) => {
   const { id } = part
-  const illustration = expansion.get(id) ?? silhouettes[id]
   const meshId = meshAliases[id] ?? getComponentMeshForCatalog(id)?.id
   const photos = getComponentReferences(id).flatMap((reference) => reference.photos ?? [])
-  const variant = getCatalogPart(id)
+  const variant = getCatalogPart(id) ?? getApprovedCatalogIc(id) ?? getApprovedRemainingPart(id)
   const breadboard = getR2cBreadboard(id)
-  const preview = breadboard ? '/component-catalog/' + breadboard.catalogId + '.webp' : variant && (variant.revision === 'R5' || variant.revision === 'R4' || variant.revision === 'R3') ? '/component-catalog/' + variant.revision.toLowerCase() + '-' + variant.packageKey + '.webp' : variant ? '/component-catalog/' + (variant.packageKey === 'dip20' ? 'r2a-' : variant.revision === 'R2B' && variant.packageKey !== 'dip16' ? 'r2b-' : 'r1-') + variant.packageKey + '.webp'
-    : id === 'seeed-xiao-esp32c3' ? '/board-reference/seeed-xiao-esp32c3-front.png'
-    : part.category === 'MCU' ? '/component-catalog/' + id + '.webp'
-    : meshId && !expansion.has(id) ? '/component-catalog/' + meshId + '.webp' : photos[0]?.src
+  const board = part.category === 'MCU' ? getBoardForComponent(id) : undefined
+  const preview = variant?.simulation === 'reference' ? undefined : breadboard ? '/component-catalog/' + breadboard.catalogId + '.webp' : variant && (variant.revision === 'R5' || variant.revision === 'R4' || variant.revision === 'R3') ? '/component-catalog/' + variant.revision.toLowerCase() + '-' + variant.packageKey + '.webp' : variant ? '/component-catalog/' + (variant.packageKey === 'dip20' ? 'r2a-' : variant.revision === 'R2B' && variant.packageKey !== 'dip16' ? 'r2b-' : 'r1-') + variant.packageKey + '.webp'
+    : board ? undefined : meshId && !expansion.has(id) ? '/component-catalog/' + meshId + '.webp' : photos[0]?.src
   return {
-    part, variant, breadboard,
+    part, variant, breadboard, board,
     group: overrides[id] ?? part.category,
     preview,
-    illustration: illustration && { code: illustration.code, family: stylizedPackages[id] ?? illustration.family },
-    isNewReference: expansion.has(id) && !breadboard && variant?.revision !== 'R4' && variant?.revision !== 'R5',
+    isNewReference: expansion.has(id) && !breadboard && variant?.revision !== 'R4' && variant?.revision !== 'R5' && variant?.revision !== 'IC-1' && variant?.revision !== 'KIT-1',
     productSource: getComponentSourceLevel(id) !== 'general',
     canBuild: Boolean(breadboard || getFreestylePartId(id)),
-    hasPractice: Boolean(variant || breadboard) || sampleParts.has(id) || analogParts.has(id) || digitalParts.has(id) || getLessonsUsingComponent(id).length > 0,
+    hasPractice: Boolean(variant && variant.simulation !== 'reference' || breadboard) || sampleParts.has(id) || analogParts.has(id) || digitalParts.has(id) || getLessonsUsingComponent(id).length > 0,
   }
 })

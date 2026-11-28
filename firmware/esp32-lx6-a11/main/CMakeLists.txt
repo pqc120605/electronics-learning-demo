@@ -1,0 +1,5 @@
+idf_component_register(SRCS "button_led.c" INCLUDE_DIRS "." REQUIRES esp_driver_gpio)
+set(source "${CMAKE_CURRENT_SOURCE_DIR}/button_led.c")
+set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${source}")
+file(SHA256 "${source}" source_sha256)
+target_compile_definitions(${COMPONENT_LIB} PRIVATE A11_SOURCE_SHA256="${source_sha256}")

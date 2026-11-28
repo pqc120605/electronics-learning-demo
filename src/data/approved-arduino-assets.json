@@ -1,0 +1,2070 @@
+[
+  {
+    "id": "arduino-uno-r4-minima",
+    "sku": "ABX00080",
+    "assetUrl": "/models/arduino-catalog-1/arduino-uno-r4-minima.glb?v=e95cc50ab515",
+    "assetVersion": "e95cc50ab515",
+    "sha256": "e95cc50ab51524c6a699d5590065b6cd8772a7fd85ae73850fbb01cb1cecd15e",
+    "sourceSha256": "31401de9839d07b3f730f40b84925162a248c7bd50f585590d86168772f827e5",
+    "pcbSha256": "1cc9337cf9fe0dee0b1498afa3d76ae33742e00a2a7d698dcf01a8b261011d7f",
+    "sourceUrl": "https://docs.arduino.cc/hardware/uno-r4-minima/",
+    "stepSourceUrl": "https://docs.arduino.cc/static/ae97aad5c05de6a565c7f93a28c04717/ABX00080-cad-files.zip",
+    "pcbSourceUrl": "https://docs.arduino.cc/static/ae97aad5c05de6a565c7f93a28c04717/ABX00080-cad-files.zip",
+    "pinoutUrl": "https://docs.arduino.cc/resources/pinouts/ABX00080-full-pinout.pdf",
+    "features": {
+      "U1": "Vi điều khiển Renesas RA4M1",
+      "J3": "Cổng USB-C",
+      "J4": "Cổng nguồn DC",
+      "PB1": "Nút RESET",
+      "JDIGITAL": "Header số",
+      "JANALOG": "Header nguồn và analog"
+    },
+    "pins": [
+      {
+        "id": "jdigital-1",
+        "side": "left",
+        "position": 1,
+        "label": "D0/RX",
+        "headerReference": "JDIGITAL",
+        "padNumber": "1",
+        "netName": "P301_SCI2_RXD_1",
+        "anchorMm": [
+          29.17,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D0/RX trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 1 · net P301_SCI2_RXD_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D0/RX"
+        ]
+      },
+      {
+        "id": "jdigital-2",
+        "side": "left",
+        "position": 2,
+        "label": "D1/TX",
+        "headerReference": "JDIGITAL",
+        "padNumber": "2",
+        "netName": "P302_SCI2_TXD_1",
+        "anchorMm": [
+          26.63,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D1/TX trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 2 · net P302_SCI2_TXD_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D1/TX"
+        ]
+      },
+      {
+        "id": "jdigital-3",
+        "side": "left",
+        "position": 3,
+        "label": "D2",
+        "headerReference": "JDIGITAL",
+        "padNumber": "3",
+        "netName": "P105_IRQ00_GPT1_A_1",
+        "anchorMm": [
+          24.09,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D2 trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 3 · net P105_IRQ00_GPT1_A_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D2"
+        ]
+      },
+      {
+        "id": "jdigital-4",
+        "side": "left",
+        "position": 4,
+        "label": "D3",
+        "headerReference": "JDIGITAL",
+        "padNumber": "4",
+        "netName": "P104_IRQ01_GPT1_B_1",
+        "anchorMm": [
+          21.55,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D3 trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 4 · net P104_IRQ01_GPT1_B_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D3"
+        ]
+      },
+      {
+        "id": "jdigital-5",
+        "side": "left",
+        "position": 5,
+        "label": "D4",
+        "headerReference": "JDIGITAL",
+        "padNumber": "5",
+        "netName": "P103_SPI0_SSL_GPT2_A_CAN0_TX_1",
+        "anchorMm": [
+          19.01,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D4 trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 5 · net P103_SPI0_SSL_GPT2_A_CAN0_TX_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D4"
+        ]
+      },
+      {
+        "id": "jdigital-6",
+        "side": "left",
+        "position": 6,
+        "label": "D5",
+        "headerReference": "JDIGITAL",
+        "padNumber": "6",
+        "netName": "P102_SPI0_RSPCK_GPT2_B_CAN0_RX_1",
+        "anchorMm": [
+          16.47,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D5 trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 6 · net P102_SPI0_RSPCK_GPT2_B_CAN0_RX_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D5"
+        ]
+      },
+      {
+        "id": "jdigital-7",
+        "side": "left",
+        "position": 7,
+        "label": "D6",
+        "headerReference": "JDIGITAL",
+        "padNumber": "7",
+        "netName": "P106_GPT0_B_1",
+        "anchorMm": [
+          13.93,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D6 trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 7 · net P106_GPT0_B_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D6"
+        ]
+      },
+      {
+        "id": "jdigital-8",
+        "side": "left",
+        "position": 8,
+        "label": "D7",
+        "headerReference": "JDIGITAL",
+        "padNumber": "8",
+        "netName": "P107_GPT0_A_1",
+        "anchorMm": [
+          11.39,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D7 trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 8 · net P107_GPT0_A_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D7"
+        ]
+      },
+      {
+        "id": "jdigital-9",
+        "side": "left",
+        "position": 9,
+        "label": "D8",
+        "headerReference": "JDIGITAL",
+        "padNumber": "9",
+        "netName": "P304_GPT7_A_1",
+        "anchorMm": [
+          7.366,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D8 trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 9 · net P304_GPT7_A_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D8"
+        ]
+      },
+      {
+        "id": "jdigital-10",
+        "side": "left",
+        "position": 10,
+        "label": "D9",
+        "headerReference": "JDIGITAL",
+        "padNumber": "10",
+        "netName": "P303_GPT7_B_1",
+        "anchorMm": [
+          4.826,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D9 trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 10 · net P303_GPT7_B_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D9"
+        ]
+      },
+      {
+        "id": "jdigital-11",
+        "side": "left",
+        "position": 11,
+        "label": "D10",
+        "headerReference": "JDIGITAL",
+        "padNumber": "11",
+        "netName": "P112_GPT3_B_1",
+        "anchorMm": [
+          2.286,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D10 trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 11 · net P112_GPT3_B_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D10"
+        ]
+      },
+      {
+        "id": "jdigital-12",
+        "side": "left",
+        "position": 12,
+        "label": "D11",
+        "headerReference": "JDIGITAL",
+        "padNumber": "12",
+        "netName": "P109_SCI9_TXD_1",
+        "anchorMm": [
+          -0.254,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D11 trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 12 · net P109_SCI9_TXD_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D11"
+        ]
+      },
+      {
+        "id": "jdigital-13",
+        "side": "left",
+        "position": 13,
+        "label": "D12",
+        "headerReference": "JDIGITAL",
+        "padNumber": "13",
+        "netName": "P110_SCI9_RXD_1",
+        "anchorMm": [
+          -2.794,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D12 trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 13 · net P110_SCI9_RXD_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D12"
+        ]
+      },
+      {
+        "id": "jdigital-14",
+        "side": "left",
+        "position": 14,
+        "label": "D13",
+        "headerReference": "JDIGITAL",
+        "padNumber": "14",
+        "netName": "P111_GPT3_A_1",
+        "anchorMm": [
+          -5.334,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D13 trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 14 · net P111_GPT3_A_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D13"
+        ]
+      },
+      {
+        "id": "jdigital-15",
+        "side": "left",
+        "position": 15,
+        "label": "GND",
+        "headerReference": "JDIGITAL",
+        "padNumber": "15",
+        "netName": "GND",
+        "anchorMm": [
+          -7.874,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân GND trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Mass tham chiếu",
+        "connection": "JDIGITAL · pad 15 · net GND",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "GND"
+        ]
+      },
+      {
+        "id": "jdigital-16",
+        "side": "left",
+        "position": 16,
+        "label": "AREF",
+        "headerReference": "JDIGITAL",
+        "padNumber": "16",
+        "netName": "AREF_1",
+        "anchorMm": [
+          -10.414,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân AREF trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 16 · net AREF_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "AREF"
+        ]
+      },
+      {
+        "id": "jdigital-17",
+        "side": "left",
+        "position": 17,
+        "label": "D14/SDA",
+        "headerReference": "JDIGITAL",
+        "padNumber": "17",
+        "netName": "P101_AN21_SDA_1",
+        "anchorMm": [
+          -12.954,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D14/SDA trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 17 · net P101_AN21_SDA_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D14/SDA"
+        ]
+      },
+      {
+        "id": "jdigital-18",
+        "side": "left",
+        "position": 18,
+        "label": "D15/SCL",
+        "headerReference": "JDIGITAL",
+        "padNumber": "18",
+        "netName": "P100_AN22_SCL_1",
+        "anchorMm": [
+          -15.494,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D15/SCL trên JDIGITAL, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 18 · net P100_AN22_SCL_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "D15/SCL"
+        ]
+      },
+      {
+        "id": "janalog-1",
+        "side": "right",
+        "position": 1,
+        "label": "Dành riêng",
+        "headerReference": "JANALOG",
+        "padNumber": "1",
+        "netName": "MD_1",
+        "anchorMm": [
+          -6.36,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân Dành riêng trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân dành riêng",
+        "connection": "JANALOG · pad 1 · net MD_1",
+        "safetyNote": "Chừa chân này khi nối mạch mẫu.",
+        "functions": [
+          "Dành riêng"
+        ]
+      },
+      {
+        "id": "janalog-2",
+        "side": "right",
+        "position": 2,
+        "label": "IOREF",
+        "headerReference": "JANALOG",
+        "padNumber": "2",
+        "netName": "+5V",
+        "anchorMm": [
+          -3.82,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân IOREF trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 2 · net +5V",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "IOREF"
+        ]
+      },
+      {
+        "id": "janalog-3",
+        "side": "right",
+        "position": 3,
+        "label": "RESET",
+        "headerReference": "JANALOG",
+        "padNumber": "3",
+        "netName": "~{RESET}_1",
+        "anchorMm": [
+          -1.28,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân RESET trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 3 · net ~{RESET}_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "RESET"
+        ]
+      },
+      {
+        "id": "janalog-4",
+        "side": "right",
+        "position": 4,
+        "label": "3V3",
+        "headerReference": "JANALOG",
+        "padNumber": "4",
+        "netName": "+3V3",
+        "anchorMm": [
+          1.26,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân 3V3 trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 4 · net +3V3",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "3V3"
+        ]
+      },
+      {
+        "id": "janalog-5",
+        "side": "right",
+        "position": 5,
+        "label": "5V",
+        "headerReference": "JANALOG",
+        "padNumber": "5",
+        "netName": "+5V",
+        "anchorMm": [
+          3.8,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân 5V trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 5 · net +5V",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "5V"
+        ]
+      },
+      {
+        "id": "janalog-6",
+        "side": "right",
+        "position": 6,
+        "label": "GND",
+        "headerReference": "JANALOG",
+        "padNumber": "6",
+        "netName": "GND",
+        "anchorMm": [
+          6.34,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân GND trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Mass tham chiếu",
+        "connection": "JANALOG · pad 6 · net GND",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "GND"
+        ]
+      },
+      {
+        "id": "janalog-7",
+        "side": "right",
+        "position": 7,
+        "label": "GND",
+        "headerReference": "JANALOG",
+        "padNumber": "7",
+        "netName": "GND",
+        "anchorMm": [
+          8.88,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân GND trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Mass tham chiếu",
+        "connection": "JANALOG · pad 7 · net GND",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "GND"
+        ]
+      },
+      {
+        "id": "janalog-8",
+        "side": "right",
+        "position": 8,
+        "label": "VIN",
+        "headerReference": "JANALOG",
+        "padNumber": "8",
+        "netName": "VIN",
+        "anchorMm": [
+          11.42,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân VIN trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 8 · net VIN",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "VIN"
+        ]
+      },
+      {
+        "id": "janalog-9",
+        "side": "right",
+        "position": 9,
+        "label": "A0",
+        "headerReference": "JANALOG",
+        "padNumber": "9",
+        "netName": "P014_AN09_DAC_1",
+        "anchorMm": [
+          16.5,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân A0 trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 9 · net P014_AN09_DAC_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "A0"
+        ]
+      },
+      {
+        "id": "janalog-10",
+        "side": "right",
+        "position": 10,
+        "label": "A1",
+        "headerReference": "JANALOG",
+        "padNumber": "10",
+        "netName": "P000_AN00_AMP+_1",
+        "anchorMm": [
+          19.04,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân A1 trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 10 · net P000_AN00_AMP+_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "A1"
+        ]
+      },
+      {
+        "id": "janalog-11",
+        "side": "right",
+        "position": 11,
+        "label": "A2",
+        "headerReference": "JANALOG",
+        "padNumber": "11",
+        "netName": "P001_AN01_AMP-_1",
+        "anchorMm": [
+          21.58,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân A2 trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 11 · net P001_AN01_AMP-_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "A2"
+        ]
+      },
+      {
+        "id": "janalog-12",
+        "side": "right",
+        "position": 12,
+        "label": "A3",
+        "headerReference": "JANALOG",
+        "padNumber": "12",
+        "netName": "P002_AN02_AMPO_1",
+        "anchorMm": [
+          24.12,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân A3 trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 12 · net P002_AN02_AMPO_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "A3"
+        ]
+      },
+      {
+        "id": "janalog-13",
+        "side": "right",
+        "position": 13,
+        "label": "A4/SDA",
+        "headerReference": "JANALOG",
+        "padNumber": "13",
+        "netName": "P101_AN21_SDA_1",
+        "anchorMm": [
+          26.66,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân A4/SDA trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 13 · net P101_AN21_SDA_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "A4/SDA"
+        ]
+      },
+      {
+        "id": "janalog-14",
+        "side": "right",
+        "position": 14,
+        "label": "A5/SCL",
+        "headerReference": "JANALOG",
+        "padNumber": "14",
+        "netName": "P100_AN22_SCL_1",
+        "anchorMm": [
+          29.2,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân A5/SCL trên JANALOG, theo pinout Arduino ABX00080.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 14 · net P100_AN22_SCL_1",
+        "safetyNote": "Tín hiệu GPIO trên header UNO R4 dùng mức 5 V. Tra giới hạn dòng trong tài liệu Arduino.",
+        "functions": [
+          "A5/SCL"
+        ]
+      }
+    ],
+    "notice": "/models/arduino-catalog-1/ABX00080.NOTICE.txt",
+    "maxPadOffsetMm": 0.04,
+    "pcbSizeMm": [
+      68.58,
+      53.34
+    ],
+    "pcbThicknessMm": 1.686,
+    "meshCount": 151
+  },
+  {
+    "id": "arduino-uno-r4-wifi",
+    "sku": "ABX00087",
+    "assetUrl": "/models/arduino-catalog-1/arduino-uno-r4-wifi.glb?v=ec2299601bf4",
+    "assetVersion": "ec2299601bf4",
+    "sha256": "ec2299601bf417a4ac1d981e6a087785f54117819de6caded64cfe580e95a576",
+    "sourceSha256": "c729a4e24e6afae69f1dba712fcc4e7b6ed7cff39dad32f0faaf56306597e77e",
+    "pcbSha256": "719d59a891be3c5fc29b287c7b3f4187852b84c3cec300fb8bdefe4c14263da9",
+    "sourceUrl": "https://docs.arduino.cc/hardware/uno-r4-wifi/",
+    "stepSourceUrl": "https://docs.arduino.cc/static/41d76ccb600d3cb1ec1e98a28d24f111/ABX00087-cad-files.zip",
+    "pcbSourceUrl": "https://docs.arduino.cc/static/41d76ccb600d3cb1ec1e98a28d24f111/ABX00087-cad-files.zip",
+    "pinoutUrl": "https://docs.arduino.cc/resources/pinouts/ABX00087-full-pinout.pdf",
+    "features": {
+      "U1": "Vi điều khiển Renesas RA4M1",
+      "M1": "Module ESP32-S3-MINI-1-N8",
+      "J1": "Cổng USB-C",
+      "J5": "Cổng nguồn DC",
+      "J2": "Cổng Qwiic",
+      "PB1": "Nút RESET",
+      "JDIGITAL": "Header số",
+      "JANALOG": "Header nguồn và analog"
+    },
+    "pins": [
+      {
+        "id": "jdigital-1",
+        "side": "left",
+        "position": 1,
+        "label": "D0/RX",
+        "headerReference": "JDIGITAL",
+        "padNumber": "1",
+        "netName": "P301_SCI2_RXD_1",
+        "anchorMm": [
+          29.17,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D0/RX trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 1 · net P301_SCI2_RXD_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D0/RX"
+        ]
+      },
+      {
+        "id": "jdigital-2",
+        "side": "left",
+        "position": 2,
+        "label": "D1/TX",
+        "headerReference": "JDIGITAL",
+        "padNumber": "2",
+        "netName": "P302_SCI2_TXD_1",
+        "anchorMm": [
+          26.63,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D1/TX trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 2 · net P302_SCI2_TXD_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D1/TX"
+        ]
+      },
+      {
+        "id": "jdigital-3",
+        "side": "left",
+        "position": 3,
+        "label": "D2",
+        "headerReference": "JDIGITAL",
+        "padNumber": "3",
+        "netName": "P104_IRQ01_GPT1_B_1",
+        "anchorMm": [
+          24.09,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D2 trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 3 · net P104_IRQ01_GPT1_B_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D2"
+        ]
+      },
+      {
+        "id": "jdigital-4",
+        "side": "left",
+        "position": 4,
+        "label": "D3",
+        "headerReference": "JDIGITAL",
+        "padNumber": "4",
+        "netName": "P105_IRQ00_GPT1_A_1",
+        "anchorMm": [
+          21.55,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D3 trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 4 · net P105_IRQ00_GPT1_A_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D3"
+        ]
+      },
+      {
+        "id": "jdigital-5",
+        "side": "left",
+        "position": 5,
+        "label": "D4",
+        "headerReference": "JDIGITAL",
+        "padNumber": "5",
+        "netName": "P106_GPT0_B_1",
+        "anchorMm": [
+          19.01,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D4 trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 5 · net P106_GPT0_B_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D4"
+        ]
+      },
+      {
+        "id": "jdigital-6",
+        "side": "left",
+        "position": 6,
+        "label": "D5",
+        "headerReference": "JDIGITAL",
+        "padNumber": "6",
+        "netName": "P107_GPT0_A_1",
+        "anchorMm": [
+          16.47,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D5 trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 6 · net P107_GPT0_A_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D5"
+        ]
+      },
+      {
+        "id": "jdigital-7",
+        "side": "left",
+        "position": 7,
+        "label": "D6",
+        "headerReference": "JDIGITAL",
+        "padNumber": "7",
+        "netName": "P111_GPT3_A_1",
+        "anchorMm": [
+          13.93,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D6 trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 7 · net P111_GPT3_A_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D6"
+        ]
+      },
+      {
+        "id": "jdigital-8",
+        "side": "left",
+        "position": 8,
+        "label": "D7",
+        "headerReference": "JDIGITAL",
+        "padNumber": "8",
+        "netName": "P112_GPT3_B_1",
+        "anchorMm": [
+          11.39,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D7 trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 8 · net P112_GPT3_B_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D7"
+        ]
+      },
+      {
+        "id": "jdigital-9",
+        "side": "left",
+        "position": 9,
+        "label": "D8",
+        "headerReference": "JDIGITAL",
+        "padNumber": "9",
+        "netName": "P304_GPT7_A_1",
+        "anchorMm": [
+          7.366,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D8 trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 9 · net P304_GPT7_A_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D8"
+        ]
+      },
+      {
+        "id": "jdigital-10",
+        "side": "left",
+        "position": 10,
+        "label": "D9",
+        "headerReference": "JDIGITAL",
+        "padNumber": "10",
+        "netName": "P303_GPT7_B_1",
+        "anchorMm": [
+          4.826,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D9 trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 10 · net P303_GPT7_B_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D9"
+        ]
+      },
+      {
+        "id": "jdigital-11",
+        "side": "left",
+        "position": 11,
+        "label": "D10",
+        "headerReference": "JDIGITAL",
+        "padNumber": "11",
+        "netName": "P103_SPI0_SSL_GPT2_A_CAN0_TX_1",
+        "anchorMm": [
+          2.286,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D10 trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 11 · net P103_SPI0_SSL_GPT2_A_CAN0_TX_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D10"
+        ]
+      },
+      {
+        "id": "jdigital-12",
+        "side": "left",
+        "position": 12,
+        "label": "D11",
+        "headerReference": "JDIGITAL",
+        "padNumber": "12",
+        "netName": "P411_SPI0_MOSI_GPT6_A_1",
+        "anchorMm": [
+          -0.254,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D11 trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 12 · net P411_SPI0_MOSI_GPT6_A_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D11"
+        ]
+      },
+      {
+        "id": "jdigital-13",
+        "side": "left",
+        "position": 13,
+        "label": "D12",
+        "headerReference": "JDIGITAL",
+        "padNumber": "13",
+        "netName": "P410_SPI0_MISO_GPT6_B_1",
+        "anchorMm": [
+          -2.794,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D12 trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 13 · net P410_SPI0_MISO_GPT6_B_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D12"
+        ]
+      },
+      {
+        "id": "jdigital-14",
+        "side": "left",
+        "position": 14,
+        "label": "D13",
+        "headerReference": "JDIGITAL",
+        "padNumber": "14",
+        "netName": "P102_SPI0_RSPCK_GPT2_B_CAN0_RX_1",
+        "anchorMm": [
+          -5.334,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D13 trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 14 · net P102_SPI0_RSPCK_GPT2_B_CAN0_RX_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D13"
+        ]
+      },
+      {
+        "id": "jdigital-15",
+        "side": "left",
+        "position": 15,
+        "label": "GND",
+        "headerReference": "JDIGITAL",
+        "padNumber": "15",
+        "netName": "GND",
+        "anchorMm": [
+          -7.874,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân GND trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Mass tham chiếu",
+        "connection": "JDIGITAL · pad 15 · net GND",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "GND"
+        ]
+      },
+      {
+        "id": "jdigital-16",
+        "side": "left",
+        "position": 16,
+        "label": "AREF",
+        "headerReference": "JDIGITAL",
+        "padNumber": "16",
+        "netName": "AREF_1",
+        "anchorMm": [
+          -10.414,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân AREF trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 16 · net AREF_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "AREF"
+        ]
+      },
+      {
+        "id": "jdigital-17",
+        "side": "left",
+        "position": 17,
+        "label": "D18/SDA",
+        "headerReference": "JDIGITAL",
+        "padNumber": "17",
+        "netName": "P101_AN21_SDA_1",
+        "anchorMm": [
+          -12.954,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D18/SDA trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 17 · net P101_AN21_SDA_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D18/SDA"
+        ]
+      },
+      {
+        "id": "jdigital-18",
+        "side": "left",
+        "position": 18,
+        "label": "D19/SCL",
+        "headerReference": "JDIGITAL",
+        "padNumber": "18",
+        "netName": "P100_AN22_SCL_1",
+        "anchorMm": [
+          -15.494,
+          8.5,
+          -24.13
+        ],
+        "plainDescription": "Chân D19/SCL trên JDIGITAL, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JDIGITAL · pad 18 · net P100_AN22_SCL_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "D19/SCL"
+        ]
+      },
+      {
+        "id": "janalog-1",
+        "side": "right",
+        "position": 1,
+        "label": "Dành riêng",
+        "headerReference": "JANALOG",
+        "padNumber": "1",
+        "netName": "MD_1",
+        "anchorMm": [
+          -6.36,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân Dành riêng trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân dành riêng",
+        "connection": "JANALOG · pad 1 · net MD_1",
+        "safetyNote": "Chừa chân này khi nối mạch mẫu.",
+        "functions": [
+          "Dành riêng"
+        ]
+      },
+      {
+        "id": "janalog-2",
+        "side": "right",
+        "position": 2,
+        "label": "IOREF",
+        "headerReference": "JANALOG",
+        "padNumber": "2",
+        "netName": "+5V",
+        "anchorMm": [
+          -3.82,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân IOREF trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 2 · net +5V",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "IOREF"
+        ]
+      },
+      {
+        "id": "janalog-3",
+        "side": "right",
+        "position": 3,
+        "label": "RESET",
+        "headerReference": "JANALOG",
+        "padNumber": "3",
+        "netName": "~{RESET}_1",
+        "anchorMm": [
+          -1.28,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân RESET trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 3 · net ~{RESET}_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "RESET"
+        ]
+      },
+      {
+        "id": "janalog-4",
+        "side": "right",
+        "position": 4,
+        "label": "3V3",
+        "headerReference": "JANALOG",
+        "padNumber": "4",
+        "netName": "+3V3",
+        "anchorMm": [
+          1.26,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân 3V3 trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 4 · net +3V3",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "3V3"
+        ]
+      },
+      {
+        "id": "janalog-5",
+        "side": "right",
+        "position": 5,
+        "label": "5V",
+        "headerReference": "JANALOG",
+        "padNumber": "5",
+        "netName": "+5V",
+        "anchorMm": [
+          3.8,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân 5V trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 5 · net +5V",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "5V"
+        ]
+      },
+      {
+        "id": "janalog-6",
+        "side": "right",
+        "position": 6,
+        "label": "GND",
+        "headerReference": "JANALOG",
+        "padNumber": "6",
+        "netName": "GND",
+        "anchorMm": [
+          6.34,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân GND trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Mass tham chiếu",
+        "connection": "JANALOG · pad 6 · net GND",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "GND"
+        ]
+      },
+      {
+        "id": "janalog-7",
+        "side": "right",
+        "position": 7,
+        "label": "GND",
+        "headerReference": "JANALOG",
+        "padNumber": "7",
+        "netName": "GND",
+        "anchorMm": [
+          8.88,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân GND trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Mass tham chiếu",
+        "connection": "JANALOG · pad 7 · net GND",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "GND"
+        ]
+      },
+      {
+        "id": "janalog-8",
+        "side": "right",
+        "position": 8,
+        "label": "VIN",
+        "headerReference": "JANALOG",
+        "padNumber": "8",
+        "netName": "VIN",
+        "anchorMm": [
+          11.42,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân VIN trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 8 · net VIN",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "VIN"
+        ]
+      },
+      {
+        "id": "janalog-9",
+        "side": "right",
+        "position": 9,
+        "label": "A0",
+        "headerReference": "JANALOG",
+        "padNumber": "9",
+        "netName": "P014_AN09_DAC_1",
+        "anchorMm": [
+          16.5,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân A0 trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 9 · net P014_AN09_DAC_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "A0"
+        ]
+      },
+      {
+        "id": "janalog-10",
+        "side": "right",
+        "position": 10,
+        "label": "A1",
+        "headerReference": "JANALOG",
+        "padNumber": "10",
+        "netName": "P000_AN00_AMP+_1",
+        "anchorMm": [
+          19.04,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân A1 trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 10 · net P000_AN00_AMP+_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "A1"
+        ]
+      },
+      {
+        "id": "janalog-11",
+        "side": "right",
+        "position": 11,
+        "label": "A2",
+        "headerReference": "JANALOG",
+        "padNumber": "11",
+        "netName": "P001_AN01_AMP-_1",
+        "anchorMm": [
+          21.58,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân A2 trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 11 · net P001_AN01_AMP-_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "A2"
+        ]
+      },
+      {
+        "id": "janalog-12",
+        "side": "right",
+        "position": 12,
+        "label": "A3",
+        "headerReference": "JANALOG",
+        "padNumber": "12",
+        "netName": "P002_AN02_AMPO_1",
+        "anchorMm": [
+          24.12,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân A3 trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 12 · net P002_AN02_AMPO_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "A3"
+        ]
+      },
+      {
+        "id": "janalog-13",
+        "side": "right",
+        "position": 13,
+        "label": "A4/SDA",
+        "headerReference": "JANALOG",
+        "padNumber": "13",
+        "netName": "P101_AN21_SDA_1",
+        "anchorMm": [
+          26.66,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân A4/SDA trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 13 · net P101_AN21_SDA_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "A4/SDA"
+        ]
+      },
+      {
+        "id": "janalog-14",
+        "side": "right",
+        "position": 14,
+        "label": "A5/SCL",
+        "headerReference": "JANALOG",
+        "padNumber": "14",
+        "netName": "P100_AN22_SCL_1",
+        "anchorMm": [
+          29.2,
+          8.5,
+          24.13
+        ],
+        "plainDescription": "Chân A5/SCL trên JANALOG, theo pinout Arduino ABX00087.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JANALOG · pad 14 · net P100_AN22_SCL_1",
+        "safetyNote": "Header UNO dùng mức 5 V. Qwiic và header ESP32-S3 dùng tín hiệu 3,3 V.",
+        "functions": [
+          "A5/SCL"
+        ]
+      }
+    ],
+    "notice": "/models/arduino-catalog-1/ABX00087.NOTICE.txt",
+    "maxPadOffsetMm": 0.04,
+    "pcbSizeMm": [
+      68.58,
+      53.34
+    ],
+    "pcbThicknessMm": 1.6063,
+    "meshCount": 335
+  },
+  {
+    "id": "arduino-nano-esp32",
+    "sku": "ABX00083",
+    "assetUrl": "/models/arduino-catalog-1/arduino-nano-esp32.glb?v=aa402b945cb9",
+    "assetVersion": "aa402b945cb9",
+    "sha256": "aa402b945cb978ed1760d8fcc27367f61395f4c459cecf771e63fdaeadc92167",
+    "sourceSha256": "b1fdadf95323994f7d7698962f2814ba3490cde1fb53701050067fbd5017ce98",
+    "pcbSha256": "e0c66c3df14d6c60b5736368a36c3837b9cb7fc04e4c0a99dcb36e2931aa96d8",
+    "sourceUrl": "https://docs.arduino.cc/hardware/nano-esp32/",
+    "stepSourceUrl": "https://docs.arduino.cc/resources/models/ABX00083-step.zip",
+    "pcbSourceUrl": "https://docs.arduino.cc/static/7ad906834db029723652f0e885968d73/ABX00083-cad-files.zip",
+    "pinoutUrl": "https://docs.arduino.cc/resources/pinouts/ABX00083-full-pinout.pdf",
+    "features": {
+      "M1": "Module NORA-W106 (ESP32-S3)",
+      "J1": "Cổng USB-C",
+      "PB1": "Nút RESET",
+      "JP1": "Header analog và nguồn",
+      "JP2": "Header số"
+    },
+    "pins": [
+      {
+        "id": "jp1-1",
+        "side": "left",
+        "position": 1,
+        "label": "D13",
+        "headerReference": "JP1",
+        "padNumber": "1",
+        "netName": "GPIO48_1",
+        "anchorMm": [
+          -17.7911,
+          8.5,
+          7.6201
+        ],
+        "plainDescription": "Chân D13 trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 1 · net GPIO48_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D13"
+        ]
+      },
+      {
+        "id": "jp1-2",
+        "side": "left",
+        "position": 2,
+        "label": "3V3",
+        "headerReference": "JP1",
+        "padNumber": "2",
+        "netName": "+3V3",
+        "anchorMm": [
+          -15.2511,
+          8.5,
+          7.6201
+        ],
+        "plainDescription": "Chân 3V3 trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 2 · net +3V3",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "3V3"
+        ]
+      },
+      {
+        "id": "jp1-3",
+        "side": "left",
+        "position": 3,
+        "label": "B0",
+        "headerReference": "JP1",
+        "padNumber": "3",
+        "netName": "GPIO46_1",
+        "anchorMm": [
+          -12.7111,
+          8.5,
+          7.6201
+        ],
+        "plainDescription": "Chân B0 trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 3 · net GPIO46_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "B0"
+        ]
+      },
+      {
+        "id": "jp1-4",
+        "side": "left",
+        "position": 4,
+        "label": "A0",
+        "headerReference": "JP1",
+        "padNumber": "4",
+        "netName": "GPIO1_1",
+        "anchorMm": [
+          -10.1711,
+          8.5,
+          7.6201
+        ],
+        "plainDescription": "Chân A0 trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 4 · net GPIO1_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "A0"
+        ]
+      },
+      {
+        "id": "jp1-5",
+        "side": "left",
+        "position": 5,
+        "label": "A1",
+        "headerReference": "JP1",
+        "padNumber": "5",
+        "netName": "GPIO2_1",
+        "anchorMm": [
+          -7.6311,
+          8.5,
+          7.6201
+        ],
+        "plainDescription": "Chân A1 trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 5 · net GPIO2_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "A1"
+        ]
+      },
+      {
+        "id": "jp1-6",
+        "side": "left",
+        "position": 6,
+        "label": "A2",
+        "headerReference": "JP1",
+        "padNumber": "6",
+        "netName": "GPIO3_1",
+        "anchorMm": [
+          -5.0911,
+          8.5,
+          7.6201
+        ],
+        "plainDescription": "Chân A2 trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 6 · net GPIO3_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "A2"
+        ]
+      },
+      {
+        "id": "jp1-7",
+        "side": "left",
+        "position": 7,
+        "label": "A3",
+        "headerReference": "JP1",
+        "padNumber": "7",
+        "netName": "GPIO4_1",
+        "anchorMm": [
+          -2.5511,
+          8.5,
+          7.6201
+        ],
+        "plainDescription": "Chân A3 trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 7 · net GPIO4_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "A3"
+        ]
+      },
+      {
+        "id": "jp1-8",
+        "side": "left",
+        "position": 8,
+        "label": "A4/SDA",
+        "headerReference": "JP1",
+        "padNumber": "8",
+        "netName": "GPIO11_1",
+        "anchorMm": [
+          -0.0766,
+          8.5,
+          7.62
+        ],
+        "plainDescription": "Chân A4/SDA trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 8 · net GPIO11_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "A4/SDA"
+        ]
+      },
+      {
+        "id": "jp1-9",
+        "side": "left",
+        "position": 9,
+        "label": "A5/SCL",
+        "headerReference": "JP1",
+        "padNumber": "9",
+        "netName": "GPIO12_1",
+        "anchorMm": [
+          2.398,
+          8.5,
+          7.62
+        ],
+        "plainDescription": "Chân A5/SCL trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 9 · net GPIO12_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "A5/SCL"
+        ]
+      },
+      {
+        "id": "jp1-10",
+        "side": "left",
+        "position": 10,
+        "label": "A6",
+        "headerReference": "JP1",
+        "padNumber": "10",
+        "netName": "GPIO13_1",
+        "anchorMm": [
+          4.938,
+          8.5,
+          7.62
+        ],
+        "plainDescription": "Chân A6 trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 10 · net GPIO13_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "A6"
+        ]
+      },
+      {
+        "id": "jp1-11",
+        "side": "left",
+        "position": 11,
+        "label": "A7",
+        "headerReference": "JP1",
+        "padNumber": "11",
+        "netName": "GPIO14_1",
+        "anchorMm": [
+          7.478,
+          8.5,
+          7.62
+        ],
+        "plainDescription": "Chân A7 trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 11 · net GPIO14_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "A7"
+        ]
+      },
+      {
+        "id": "jp1-12",
+        "side": "left",
+        "position": 12,
+        "label": "VUSB",
+        "headerReference": "JP1",
+        "padNumber": "12",
+        "netName": "VUSB",
+        "anchorMm": [
+          10.018,
+          8.5,
+          7.62
+        ],
+        "plainDescription": "Chân VUSB trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 12 · net VUSB",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "VUSB"
+        ]
+      },
+      {
+        "id": "jp1-13",
+        "side": "left",
+        "position": 13,
+        "label": "B1",
+        "headerReference": "JP1",
+        "padNumber": "13",
+        "netName": "GPIO0_1",
+        "anchorMm": [
+          12.558,
+          8.5,
+          7.62
+        ],
+        "plainDescription": "Chân B1 trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 13 · net GPIO0_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "B1"
+        ]
+      },
+      {
+        "id": "jp1-14",
+        "side": "left",
+        "position": 14,
+        "label": "GND",
+        "headerReference": "JP1",
+        "padNumber": "14",
+        "netName": "GND",
+        "anchorMm": [
+          15.098,
+          8.5,
+          7.62
+        ],
+        "plainDescription": "Chân GND trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Mass tham chiếu",
+        "connection": "JP1 · pad 14 · net GND",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "GND"
+        ]
+      },
+      {
+        "id": "jp1-15",
+        "side": "left",
+        "position": 15,
+        "label": "VIN",
+        "headerReference": "JP1",
+        "padNumber": "15",
+        "netName": "VIN",
+        "anchorMm": [
+          17.638,
+          8.5,
+          7.62
+        ],
+        "plainDescription": "Chân VIN trên JP1, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP1 · pad 15 · net VIN",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "VIN"
+        ]
+      },
+      {
+        "id": "jp2-1",
+        "side": "right",
+        "position": 1,
+        "label": "D1/TX0",
+        "headerReference": "JP2",
+        "padNumber": "1",
+        "netName": "NetJP2_1",
+        "anchorMm": [
+          17.638,
+          8.5,
+          -7.62
+        ],
+        "plainDescription": "Chân D1/TX0 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 1 · net NetJP2_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D1/TX0"
+        ]
+      },
+      {
+        "id": "jp2-2",
+        "side": "right",
+        "position": 2,
+        "label": "D0/RX0",
+        "headerReference": "JP2",
+        "padNumber": "2",
+        "netName": "GPIO44_1",
+        "anchorMm": [
+          15.098,
+          8.5,
+          -7.62
+        ],
+        "plainDescription": "Chân D0/RX0 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 2 · net GPIO44_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D0/RX0"
+        ]
+      },
+      {
+        "id": "jp2-3",
+        "side": "right",
+        "position": 3,
+        "label": "RESET",
+        "headerReference": "JP2",
+        "padNumber": "3",
+        "netName": "~{RESET}_1",
+        "anchorMm": [
+          12.558,
+          8.5,
+          -7.62
+        ],
+        "plainDescription": "Chân RESET trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 3 · net ~{RESET}_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "RESET"
+        ]
+      },
+      {
+        "id": "jp2-4",
+        "side": "right",
+        "position": 4,
+        "label": "GND",
+        "headerReference": "JP2",
+        "padNumber": "4",
+        "netName": "GND",
+        "anchorMm": [
+          10.018,
+          8.5,
+          -7.62
+        ],
+        "plainDescription": "Chân GND trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Mass tham chiếu",
+        "connection": "JP2 · pad 4 · net GND",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "GND"
+        ]
+      },
+      {
+        "id": "jp2-5",
+        "side": "right",
+        "position": 5,
+        "label": "D2",
+        "headerReference": "JP2",
+        "padNumber": "5",
+        "netName": "GPIO5_1",
+        "anchorMm": [
+          7.478,
+          8.5,
+          -7.62
+        ],
+        "plainDescription": "Chân D2 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 5 · net GPIO5_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D2"
+        ]
+      },
+      {
+        "id": "jp2-6",
+        "side": "right",
+        "position": 6,
+        "label": "D3",
+        "headerReference": "JP2",
+        "padNumber": "6",
+        "netName": "GPIO6_1",
+        "anchorMm": [
+          4.938,
+          8.5,
+          -7.62
+        ],
+        "plainDescription": "Chân D3 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 6 · net GPIO6_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D3"
+        ]
+      },
+      {
+        "id": "jp2-7",
+        "side": "right",
+        "position": 7,
+        "label": "D4",
+        "headerReference": "JP2",
+        "padNumber": "7",
+        "netName": "GPIO7_1",
+        "anchorMm": [
+          2.398,
+          8.5,
+          -7.62
+        ],
+        "plainDescription": "Chân D4 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 7 · net GPIO7_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D4"
+        ]
+      },
+      {
+        "id": "jp2-8",
+        "side": "right",
+        "position": 8,
+        "label": "D5",
+        "headerReference": "JP2",
+        "padNumber": "8",
+        "netName": "GPIO8_1",
+        "anchorMm": [
+          -0.0766,
+          8.5,
+          -7.62
+        ],
+        "plainDescription": "Chân D5 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 8 · net GPIO8_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D5"
+        ]
+      },
+      {
+        "id": "jp2-9",
+        "side": "right",
+        "position": 9,
+        "label": "D6",
+        "headerReference": "JP2",
+        "padNumber": "9",
+        "netName": "GPIO9_1",
+        "anchorMm": [
+          -2.5511,
+          8.5,
+          -7.6199
+        ],
+        "plainDescription": "Chân D6 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 9 · net GPIO9_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D6"
+        ]
+      },
+      {
+        "id": "jp2-10",
+        "side": "right",
+        "position": 10,
+        "label": "D7",
+        "headerReference": "JP2",
+        "padNumber": "10",
+        "netName": "GPIO10_1",
+        "anchorMm": [
+          -5.0911,
+          8.5,
+          -7.6199
+        ],
+        "plainDescription": "Chân D7 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 10 · net GPIO10_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D7"
+        ]
+      },
+      {
+        "id": "jp2-11",
+        "side": "right",
+        "position": 11,
+        "label": "D8",
+        "headerReference": "JP2",
+        "padNumber": "11",
+        "netName": "GPIO17_1",
+        "anchorMm": [
+          -7.6311,
+          8.5,
+          -7.6199
+        ],
+        "plainDescription": "Chân D8 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 11 · net GPIO17_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D8"
+        ]
+      },
+      {
+        "id": "jp2-12",
+        "side": "right",
+        "position": 12,
+        "label": "D9",
+        "headerReference": "JP2",
+        "padNumber": "12",
+        "netName": "GPIO18_1",
+        "anchorMm": [
+          -10.1711,
+          8.5,
+          -7.6199
+        ],
+        "plainDescription": "Chân D9 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 12 · net GPIO18_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D9"
+        ]
+      },
+      {
+        "id": "jp2-13",
+        "side": "right",
+        "position": 13,
+        "label": "D10",
+        "headerReference": "JP2",
+        "padNumber": "13",
+        "netName": "GPIO21_1",
+        "anchorMm": [
+          -12.7111,
+          8.5,
+          -7.6199
+        ],
+        "plainDescription": "Chân D10 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 13 · net GPIO21_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D10"
+        ]
+      },
+      {
+        "id": "jp2-14",
+        "side": "right",
+        "position": 14,
+        "label": "D11",
+        "headerReference": "JP2",
+        "padNumber": "14",
+        "netName": "GPIO38_1",
+        "anchorMm": [
+          -15.2511,
+          8.5,
+          -7.6199
+        ],
+        "plainDescription": "Chân D11 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 14 · net GPIO38_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D11"
+        ]
+      },
+      {
+        "id": "jp2-15",
+        "side": "right",
+        "position": 15,
+        "label": "D12",
+        "headerReference": "JP2",
+        "padNumber": "15",
+        "netName": "GPIO47_1",
+        "anchorMm": [
+          -17.7911,
+          8.5,
+          -7.6199
+        ],
+        "plainDescription": "Chân D12 trên JP2, theo pinout Arduino ABX00083.",
+        "technicalRole": "Chân trên header Arduino",
+        "connection": "JP2 · pad 15 · net GPIO47_1",
+        "safetyNote": "GPIO Nano ESP32 dùng mức 3,3 V. Tra chức năng B0, B1 và RESET trước khi đấu.",
+        "functions": [
+          "D12"
+        ]
+      }
+    ],
+    "notice": "/models/arduino-catalog-1/ABX00083.NOTICE.txt",
+    "maxPadOffsetMm": 0.127,
+    "pcbSizeMm": [
+      43.18,
+      17.78
+    ],
+    "pcbThicknessMm": 1.606,
+    "meshCount": 261
+  }
+]

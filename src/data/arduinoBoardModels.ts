@@ -78,18 +78,25 @@ export const arduinoBoardModels: BoardModelManifest[] = definitions.map((d) => {
     const isExtraContact = !labelsById.has(pad.id)
     const isPower = ['5V','3V3','GND','VIN','RESET'].includes(label), analog = label.startsWith('A'), uart = label.includes('RX') || label.includes('TX') || label === 'D0' || label === 'D1'
     const isMega = d.id === 'arduino-mega-2560-r3'
+    const isNano = d.id === 'arduino-nano-classic'
     const functions = label.includes('PWM') ? ['Digital I/O','PWM'] : analog ? ['ADC analog input',...(!isMega && label.includes('A4')?['I²C SDA']:[]),...(!isMega && label.includes('A5')?['I²C SCL']:[])] : label.includes('SDA') ? ['Digital I/O','I²C SDA'] : label.includes('SCL') ? ['Digital I/O','I²C SCL'] : uart ? ['Digital I/O','UART',...(label.includes('/') ? [label.split('/')[1]] : [])] : !isPower ? ['Digital I/O'] : label === 'GND' ? ['Ground'] : ['Nguồn / điều khiển']
+    const a10Roles = (isNano || isMega) && /^A\d+$/.test(label) ?
+      isNano && (label === 'A6' || label === 'A7') ? ['Chỉ đầu vào ADC'] : [...functions, 'Digital I/O']
+      : (isNano || isMega) && /^(J4|ICSP[01])$/.test(pad.headerReference) && /^[CS](IPO|OPI|CK)$/.test(label)
+        ? ['SPI ' + label, pad.headerReference === 'ICSP1' ? 'ATmega16U2' : 'ICSP của MCU chính']
+        : isMega && pad.headerReference === 'JP6' && (label === 'SDA' || label === 'SCL') ? ['Digital I/O', 'I²C ' + label] : undefined
     const padRoles = isExtraContact && !isPower
       ? label === 'NC' ? ['Không nối'] : label === 'IOREF' || label === 'AREF' ? ['Điện áp tham chiếu'] : ['Tiếp điểm theo CAD']
       : functions
+    const roles = a10Roles ?? padRoles
     return {
       ...pad, label, side: 'reference',
       anchor: [pad.anchor[0], pad.anchor[1], pad.anchor[2]],
       plainDescription: `Chân ${label}, pad ${pad.padNumber} của ${pad.headerReference} trên ${d.name}.`,
-      technicalRole: padRoles.join(' · '),
+      technicalRole: roles.join(' · '),
       connection: pad.netName ? `Net ${pad.netName} trên PCB tham chiếu.` : 'Pad chưa nối net trong CAD.',
       safetyNote: `Mức logic GPIO tham chiếu ${d.logic}. Đối chiếu pinout và revision trước khi đấu.`,
-      functions: padRoles,
+      functions: roles,
     }
   })
   for (const feature of features) {

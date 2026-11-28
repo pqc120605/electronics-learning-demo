@@ -72,6 +72,7 @@ export function createAvrLiveMachine(hex: string, board: AvrLiveBoard, circuit?:
   if (circuit && circuit.graph.board !== board) throw new Error('Board của mạch không khớp firmware AVR.')
   const coupling = circuit ? createCoupledDigital(circuit.graph, circuit.stimuli) : undefined
   let netDirty = Boolean(coupling)
+  let netWakeCycles = Infinity
   const chip = chips[board]
   const image = inspectIntelHex(hex, { maxBytes: chip.flashBytes })
   const flash = new Uint8Array(chip.flashBytes).fill(0xff)
@@ -149,7 +150,7 @@ export function createAvrLiveMachine(hex: string, board: AvrLiveBoard, circuit?:
   const wiredPins = circuit ? chip.pins.filter(def => circuit.graph.gpios.some(gpio => gpio.pin === def.pin)) : []
   const wiredByNumber = new Map(wiredPins.map(def => [def.pin, def]))
   function settleCircuit() {
-    if (!coupling || !netDirty) return
+    if (!coupling || !netDirty && cpu.cycles < netWakeCycles) return
     netDirty = false
     const drives: Record<number, LivePinState> = {}
     for (const def of wiredPins) {
@@ -161,6 +162,7 @@ export function createAvrLiveMachine(hex: string, board: AvrLiveBoard, circuit?:
       ports[def.port]!.setPin(def.bit, input.digital)
       if (def.adc !== undefined) adc.channelValues[def.adc] = input.analog * 5
     }
+    netWakeCycles = Math.ceil(coupling.nextWakeMs() * (CLOCK_HZ / 1000))
   }
 
   if (coupling?.interfaces) {
@@ -178,11 +180,11 @@ export function createAvrLiveMachine(hex: string, board: AvrLiveBoard, circuit?:
       const budget = Math.round(Math.min(250, Math.max(0, milliseconds)) * (CLOCK_HZ / 1000))
       const target = cpu.cycles + budget
       while (cpu.cycles < target) {
-        if (netDirty) settleCircuit()
+        if (netDirty || cpu.cycles >= netWakeCycles) settleCircuit()
         avrInstruction(cpu)
         cpu.tick()
       }
-      if (netDirty) settleCircuit()
+      if (netDirty || cpu.cycles >= netWakeCycles) settleCircuit()
       const serial = serialBytes.length ? new TextDecoder('utf-8').decode(new Uint8Array(serialBytes)) : ''
       serialBytes = []
       return { pins: pinStates(), serial, simulatedMilliseconds: cpu.cycles / (CLOCK_HZ / 1000), cycles: cpu.cycles, ...(coupling ? { coupled: coupling.snapshot() } : {}) }

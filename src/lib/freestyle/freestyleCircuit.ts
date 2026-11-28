@@ -12,6 +12,9 @@ import type { LivePinState } from '../avrLiveMachine'
 import { readWireLayout, type FreestyleWireLayout } from './freestyleWireLayout'
 import { freestyleSamples, sampleLanguage, type FreestyleSampleId } from './freestyleSampleLibrary'
 import { SIGNAL_PINS, freestyleBoards, getFreestyleBoard, type FreestyleLanguage, type PinMap, type SignalPin } from './freestyleBoards'
+import { getA3Board } from './a3EspProfiles'
+import { getA11Board } from './a11EspRuntime'
+import { getA12Board } from './a12Profiles'
 export { freestyleSamples, type FreestyleSampleId } from './freestyleSampleLibrary'
 export { SIGNAL_PINS, SIGNAL_PIN_LABELS, freestyleBoards, getFreestyleBoard } from './freestyleBoards'
 export type { FreestyleBoard, FreestyleEngine, FreestyleLanguage, PinMap, SignalPin } from './freestyleBoards'
@@ -29,6 +32,9 @@ export function sketchBoardFor(boardId: string) {
 
 /** Nhãn chân như người dùng viết trong code: D13/A0 cho Arduino, GP15 cho Pico, PA5 cho Blue Pill, GPIO 23 cho ESP32. */
 export function pinDisplayName(boardId: string, pin: number): string {
+  const profile = getA3Board(boardId)
+  const pad = profile && [profile.button, profile.led].find(item => item.gpio === pin)
+  if (pad) return `${pad.label} · GPIO${pin}`
   const board = sketchBoardFor(boardId)
   const named = Object.entries(board.nameAliases ?? {}).find(([name, value]) => value === pin && /^P[A-C]\d+$/.test(name))?.[0]
   if (boardId === 'stm32-blue-pill-f103') return named ?? `#${pin}`
@@ -46,6 +52,14 @@ export function pinCodeName(boardId: string, pin: number): string {
 }
 
 export function availablePins(boardId: string, signal?: SignalPin): number[] {
+  const profile = getA3Board(boardId)
+  if (profile) return signal === 'input' ? [profile.button.gpio] : signal === 'ledOut' ? [profile.led.gpio] : signal ? [] : [profile.button.gpio, profile.led.gpio]
+  const fixedBoard = getA12Board(boardId) ?? (boardId === 'esp32-devkitm-1' ? getA11Board(boardId) : undefined)
+  if (fixedBoard) {
+    if (!signal) return [fixedBoard.button.gpio, fixedBoard.led.gpio]
+    return signal === 'input' ? [fixedBoard.button.gpio] : signal === 'ledOut' ? [fixedBoard.led.gpio] : []
+  }
+  if (boardId === 'esp32-c3-devkitm-1') return signal === 'input' ? [4] : signal === 'ledOut' ? [10] : signal ? [] : [4, 10]
   return sketchBoardFor(boardId).pins.filter(pin => boardId !== 'esp32-devkit'
     || !signal || signal === 'input' || signal === 'echo'
     || (pin < 34 && pin !== 0 && pin !== 1 && pin !== 3))
@@ -794,7 +808,7 @@ export function parseFreestyleWorkspace(raw: string | null): FreestyleWorkspace 
     if (value?.version !== 1 || typeof value.boardId !== 'string' || typeof value.code !== 'string' || value.code.length > 64 * 1024) return null
     const doc = value.doc
     if (!doc || doc.schema !== 2 || !Array.isArray(doc.parts) || !Array.isArray(doc.wires) || !Array.isArray(doc.breadboards)) return null
-    if (value.boardId && (!freestyleBoards.some(board => board.id === value.boardId) || !doc.parts.some(part => part?.type === 'board'))) return null
+    if (value.boardId && (getFreestyleBoard(value.boardId).id !== value.boardId || !doc.parts.some(part => part?.type === 'board'))) return null
     if (!value.boardId && doc.parts.some(part => part?.type === 'board')) return null
     if (!doc.parts.every(part => typeof part?.id === 'string' && componentRegistry.some(item => item.id === part.type))) return null
     const {doc:restoredDoc,renamedWires}=normalizeR4Draft({...doc,lessonId:'freestyle'})

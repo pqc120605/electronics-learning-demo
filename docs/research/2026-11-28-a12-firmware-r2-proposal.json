@@ -1,0 +1,120 @@
+{
+  "revision": "MM-A12-FW-R2",
+  "date": "2026-11-28",
+  "state": "PROPOSED",
+  "baseline": {
+    "path": "docs/research/2026-11-28-s2-nano-every-electrical-firmware-a12-proposal.json",
+    "sha256": "F558C56AB135BD4D4AD5912D7AE48C368B588D54A63F41542D567A3EC7674919",
+    "scope": "Thay đổi runner và cầu nối chạy firmware cho hai mạch mẫu A12. Áp dụng nguyên board revision, pad/net, mã firmware, toolchain, mô hình DC và sai số đã duyệt.",
+    "depth": "D3 cho đúng hai mạch mẫu nút nhấn và LED",
+    "capabilityIds": [
+      "FW-04",
+      "FW-07",
+      "FW-08",
+      "SIM-02",
+      "SIM-03",
+      "SIM-04"
+    ]
+  },
+  "runners": {
+    "esp32s2": {
+      "boardId": "esp32-s2-devkitc-1",
+      "device": "ESP32-S2-DevKitC-1-N8R2 PCB V1.0",
+      "upstream": {
+        "url": "https://github.com/Ebiroll/qemu-xtensa-esp32s2",
+        "commit": "a8c6e6bd8c4dc4f95aee87c30e3b3093512ae7b5",
+        "archiveSha256": "4F9D1BB403C56D5841163B3C65D9443366420056DF292F7E837608C9A0B01D64"
+      },
+      "host": "QEMU 5.2 machine esp32S2, Linux amd64 trong Podman/WSL2 trên laptop",
+      "firmware": {
+        "id": "firmware/esp32-s2-a12/button_led.c",
+        "format": "ELF32 Xtensa từ SRAM",
+        "entry": "0x40024064",
+        "sha256": "F87088AEC949D5C9B835B7981B3DC25110213B85B294852059FB30417CA50748"
+      },
+      "pins": {
+        "button": "GPIO4 · J1.4",
+        "led": "GPIO5 · J1.5",
+        "tx": "UART0 TX GPIO43 · J3.2",
+        "rx": "UART0 RX GPIO44 · J3.3",
+        "power": "J1.1 3V3 · J1.22 GND"
+      },
+      "patch": [
+        "Mở rộng model GPIO S2 cho bit 4 và 5 theo TRM. GPIO_IN đọc mức pad khi IO_MUX cho phép đầu vào. Theo dõi latch GPIO_OUT, hướng GPIO_ENABLE và semantics W1TS/W1TC. GPIO5 chỉ có mức ra khi bật output, chọn GPIO matrix đúng và latch có giá trị.",
+        "Kích mức pad GPIO4 và đọc pad GPIO5 qua adapter điều khiển máy đã định danh. Thu byte từ UART0 thực thi, giữ nguyên strapping và SRAM loader. Đo cạnh trên thời gian mô phỏng và đối chiếu tick Timer Group 0 Timer 0.",
+        "Phạm vi sửa bổ sung nếu cần gồm IO_MUX của hai pad, chọn GPIO matrix cho GPIO5 và Timer Group 0 Timer 0 ở cấu hình đếm lên của mẫu. Hiệu chuẩn bằng khoảng thời gian mô phỏng đã biết trước khi gắn vào web."
+      ],
+      "limits": "SRAM boot, đầu vào GPIO4, đầu ra GPIO5, byte UART0 và Timer Group 0 Timer 0 của bài mẫu. Không suy ra hỗ trợ ROM/flash, Wi-Fi, USB, PSRAM hay GPIO tổng quát.",
+      "sources": [
+        "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s2/esp32-s2-devkitc-1/user_guide.html#header-blocks",
+        "https://www.espressif.com/sites/default/files/documentation/esp32-s2_technical_reference_manual_en.pdf"
+      ]
+    },
+    "nanoEvery": {
+      "boardId": "arduino-nano-every",
+      "device": "Arduino Nano Every ABX00028 V4.0 · ATmega4809",
+      "upstream": {
+        "name": "avr-mcsim",
+        "url": "https://github.com/mwette/avr-mcsim",
+        "commit": "79bc71230444385f25c57526e1870494ccab0634",
+        "archive": "https://codeload.github.com/mwette/avr-mcsim/tar.gz/79bc71230444385f25c57526e1870494ccab0634",
+        "archiveSha256": "92C5326B926C7021FDB1AE1B571743720D0EDC9A55F3EB47C447B34C3F7ABC11",
+        "license": "LGPL-2.1 theo LICENSE upstream"
+      },
+      "host": "Runner C native trong Podman/WSL2 Linux amd64 trên laptop. Dùng đường build standalone của upstream làm cơ sở và giữ ngspice hiện có cho phần điện.",
+      "firmware": {
+        "id": "firmware/nano-every-a12/nano-every-a12.ino",
+        "format": "ELF ATmega4809, AVRxt, vector reset 0x0000",
+        "sha256": "C68120C65D0ECD84D34222E82497D6F8B667E5EC7ACDC279561ADCDBA058205F",
+        "fqbn": "arduino:megaavr:nona4809:mode=off",
+        "core": "1.8.8",
+        "clockHz": 16000000
+      },
+      "pins": {
+        "button": "D2 · PA0 · JP3.5",
+        "led": "D8 · PE3 · JP3.11",
+        "tx": "D1 · PC4 · JP3.1 · USART1 ALT1",
+        "rx": "D0 · PC5 · JP3.2 · USART1 ALT1",
+        "power": "JP2.12 5V · JP3.4 GND"
+      },
+      "patch": [
+        "Xác minh ELF gốc, rồi trích flash Intel HEX bằng avr-objcopy đúng bộ công cụ đã khóa cho loader upstream. Giữ nguyên byte chương trình, kiểm vector reset, giới hạn flash 48 KiB, SRAM 6 KiB và chứng minh PC thực thi mã từ vùng flash bằng trace hoặc breakpoint.",
+        "Kích PA0 qua model chân, đọc PE3 qua PORT/VPORT và hướng ra thực tế. Dùng TCB3 periodic interrupt để Arduino millis chạy. Xác minh CPU/peripheral clock 16 MHz theo Arduino core, clock divider, vector TCB3 và cờ ngắt.",
+        "Thu byte từ USART1 TX với route PORTMUX ALT1 đến PC4. Đối chiếu cấu hình 9600 8N1 và hành vi TX enable, TXDATAL, DRE/TXC cùng ngắt DRE cần cho HardwareSerial.",
+        "Upstream có model CPU, PORT, TCB và tệp USART nhưng một số khối chưa hoàn chỉnh. Nếu cần, chỉ bổ sung build glue và semantics được sketch chạm tới trong PORT/VPORT, CLKCTRL, CPUINT, TCB3, PORTMUX và đường truyền USART1. Giữ mã sketch, Arduino core, target và bài đo.",
+        "Runner dùng byte lệnh nạp từ ELF đã kiểm hash. Bằng chứng UART phải đến từ ghi thanh ghi phần cứng của firmware, mẫu thời gian phải đến từ clock guest và ngắt TCB3."
+      ],
+      "limits": "Mạch mẫu sử dụng PA0, PE3, TCB3 và byte USART1 TX. Xác nhận byte UART ở nhà phát, không nghiệm thu dạng sóng bit hoặc RX. SAMD11, USB, UPDI, SWD, ngoại vi khác và firmware tùy ý thuộc phạm vi riêng.",
+      "sources": [
+        "https://github.com/mwette/avr-mcsim",
+        "https://docs.arduino.cc/hardware/nano-every/",
+        "https://raw.githubusercontent.com/arduino/ArduinoCore-megaavr/1.8.8/boards.txt",
+        "https://raw.githubusercontent.com/arduino/ArduinoCore-megaavr/1.8.8/variants/nona4809/pins_arduino.h",
+        "https://ww1.microchip.com/downloads/en/DeviceDoc/ATmega4808-09-DataSheet-DS40002173C.pdf"
+      ]
+    }
+  },
+  "localIntegration": {
+    "host": "Chỉ laptop và loopback. Dùng dịch vụ phiên local của bàn lắp cùng adapter riêng cho từng runner.",
+    "sessions": "Mỗi tab một phiên và khởi chạy tiến trình riêng theo board/fixture đã khóa. Hai board được kiểm phiên đồng thời độc lập. Khởi động tối đa 30 giây, phiên tối đa 90 giây. Dừng và giải phóng tiến trình khi hủy, đổi mạch hoặc hết hạn.",
+    "paths": "Các binary, archive, ELF, ROM thử và runner chỉ phục vụ local, nằm ngoài build web tĩnh. Ghi hash upstream, bản vá, runner build và firmware đầu vào trong bằng chứng test.",
+    "coupling": "Kiểm topology và partId/pinId trước khi chạy. Nút trên board ảo điều khiển pad input. Chụp mức input/output từ runner và dùng mức output thực cho phép đo DC ngspice theo cấu hình A12. Xóa kết quả cũ khi đổi topology hoặc phiên.",
+    "failState": "Khi runner từng board chưa đáp ứng bằng chứng GPIO/UART/thời gian, giữ chế độ DC đặt bằng tay của board đó và ghi rõ lỗi."
+  },
+  "acceptance": {
+    "reset": "Trace CPU từ entry SRAM hoặc vector reset, marker đúng target, input HIGH khi nhả và output LOW khi sẵn sàng.",
+    "pulseToIgnoreMs": 20,
+    "cycles": 3,
+    "stableTimePerStateMs": 90,
+    "debounceMs": 40,
+    "pollMs": 10,
+    "observedEdgeDelayMs": [
+      39,
+      65
+    ],
+    "evidence": "Mỗi chu kỳ ghi timestamp clock mô phỏng của pad input, cạnh pad output và byte UART. Sáu cạnh xen kẽ đúng thứ tự A12_LED=1/0. Xung 20 ms không đổi output và không sinh marker LED.",
+    "dc": "Đo nhả/giữ bằng ngspice theo ngưỡng gốc. Kiểm đầu vào, anode, dòng LED và sai số KVL tuyệt đối dưới 1 mV. Đây là hai điểm DC lấy trạng thái từ runner.",
+    "chrome": "Chrome desktop và 375 px cho từng board, nút bằng chuột và phím, dừng/chạy lại, lỗi asset/hash/timeout, đổi mạch và khôi phục bản nháp.",
+    "regression": "Chạy Node và Chrome A1–A11 cùng ca A12, typecheck, build:local, check:public-release và rà build tĩnh. Báo riêng kết quả từng runner. Chỉ nâng trạng thái firmware board đạt đủ ca."
+  }
+}

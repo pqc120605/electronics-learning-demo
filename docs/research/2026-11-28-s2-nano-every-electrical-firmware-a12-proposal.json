@@ -1,0 +1,308 @@
+{
+  "revision": "MM-S2-NANO-EVERY-SIM-FW-A12",
+  "date": "2026-11-28",
+  "state": "PROPOSED",
+  "scope": {
+    "capabilityIds": [
+      "CAT-01",
+      "CAT-02",
+      "CAT-03",
+      "FW-04",
+      "FW-07",
+      "FW-08",
+      "SIM-02",
+      "SIM-03",
+      "SIM-04"
+    ],
+    "exitDepth": "D3 cho từng mạch mẫu nút nhấn và LED với firmware đúng kiến trúc, UART, chống dội, pad 2D/3D và hai điểm làm việc ngspice DC. Đánh giá từng board theo bằng chứng của runner riêng.",
+    "delivery": "Thư viện Board → mạch mẫu A12 trên bàn lắp localhost → khởi động firmware, quan sát GPIO và UART, đo DC theo trạng thái đã quan sát. Giữ partId/pinId và sao lưu bản nháp theo origin trước khi mở mạch mẫu."
+  },
+  "boards": [
+    {
+      "id": "esp32-s2-devkitc-1",
+      "fixtureId": "a12-esp32-s2-devkitc-1-button-led",
+      "name": "ESP32-S2-DevKitC-1",
+      "orderCode": "ESP32-S2-DevKitC-1-N8R2",
+      "revision": "PCB V1.0 · ESP32-S2-SOLO-2 · chip rev 1.0",
+      "padCount": 44,
+      "voltageV": 3.3,
+      "pins": {
+        "button": {
+          "pinId": "j1-4",
+          "pad": "J1.4",
+          "label": "IO4",
+          "gpio": 4
+        },
+        "led": {
+          "pinId": "j1-5",
+          "pad": "J1.5",
+          "label": "IO5",
+          "gpio": 5
+        },
+        "power": {
+          "pinId": "j1-1",
+          "pad": "J1.1",
+          "label": "3V3"
+        },
+        "ground": {
+          "pinId": "j1-22",
+          "pad": "J1.22",
+          "label": "GND"
+        },
+        "uartTx": {
+          "pinId": "j3-2",
+          "pad": "J3.2",
+          "label": "TX / IO43",
+          "gpio": 43
+        },
+        "uartRx": {
+          "pinId": "j3-3",
+          "pad": "J3.3",
+          "label": "RX / IO44",
+          "gpio": 44
+        }
+      },
+      "pinoutAcceptance": "Rà hai hàng 22 chân, ánh xạ GPIO từ tên IO và giữ nguyên ID pad. Ghi GPIO46 chỉ nhận đầu vào, GPIO0/45/46 strapping, GPIO39–42 JTAG, GPIO19/20 USB native, hai cổng Micro-USB, UART0 và RST. Trên SOLO-2 GPIO18 nối LED RGB và hãng ghi không có kéo lên như biến thể SOLO. Mạch mẫu dùng LED rời ở GPIO5.",
+      "assets": [
+        {
+          "path": "public/models/board-catalog-remaining-1/esp32-s2-devkitc-1.glb",
+          "sha256": "66f531d8a643169865f29e98d70087f1a3bd0986139a40f01ac51c66cc03091f"
+        },
+        {
+          "path": "public/board-reference/topview/esp32-s2-devkitc-1.png",
+          "sha256": "1e8b665caa98989bfa1a5c24a33cb11188277a0a657a041d6d34a8465aecdb59"
+        }
+      ],
+      "sources": [
+        "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s2/esp32-s2-devkitc-1/user_guide.html",
+        "https://dl.espressif.com/dl/schematics/esp-idf/SCH_ESP32-S2-DEVKITC-1_V1_20220817.pdf",
+        "https://documentation.espressif.com/esp32-s2-solo-2_esp32-s2-solo-2u_datasheet_en.html",
+        "https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32s2/schematic-checklist.html"
+      ],
+      "firmware": {
+        "target": "esp32s2",
+        "cpu": "Xtensa LX7 một lõi",
+        "format": "ELF Xtensa little-endian, mã bare-metal nạp vào SRAM nội và chạy từ entry của ELF",
+        "sdkHeaders": {
+          "version": "ESP-IDF 5.5.6",
+          "sha256": "d6c08f2bd7f0875c46c65cb5a34f83337bea092c9b0337405f62d1923ed73ddb"
+        },
+        "compiler": {
+          "name": "xtensa-esp32s2-elf GCC 14.2.0 esp-14.2.0_20260121 Win64",
+          "sha256": "82cbe0353c2e7c96acc8755c854aaa2d93d346c6a378fc692e60b3912c560108"
+        },
+        "uart": "UART0 GPIO43/44, 115200 8N1 danh định, xác nhận byte TX",
+        "readyLine": "A12_READY=esp32s2",
+        "runner": {
+          "name": "QEMU thử nghiệm Ebiroll · machine esp32s2",
+          "source": "https://github.com/Ebiroll/qemu-xtensa-esp32s2",
+          "commit": "a8c6e6bd8c4dc4f95aee87c30e3b3093512ae7b5",
+          "candidateNotes": "Tác giả ghi nhận S2 từng chạy được một phần và có hồi quy. Tài liệu ESP-EMU không liệt kê ESP32-S2. Bước thử chỉ dùng tập GPIO, UART0, SRAM và đồng hồ cần cho bài mẫu.",
+          "references": [
+            "https://github.com/Ebiroll/qemu_esp32#march-2021",
+            "https://github.com/espressif/esp-emulator#supported-chips"
+          ],
+          "gate": "Trên máy local, chứng minh machine esp32s2 nhận đúng ELF, thực thi entry từ SRAM, phát marker qua UART0, nhận mức trên GPIO4 và cho phép đọc trạng thái output GPIO5. Đồng hồ mô phỏng phải đo được xung và độ trễ firmware. Ghi cách nạp, dấu vết CPU và giới hạn register. Môi trường build và driver của QEMU là đầu vào cần xác minh trước khi tích hợp.",
+          "fallback": "Nếu runner không vượt gate, trình bày riêng hai điểm DC theo trạng thái đặt bằng tay. Giữ firmware S2 ở trạng thái chưa xác minh và ghi nguyên nhân. Chỉ nâng trạng thái khi thực thi được mã máy ESP32-S2."
+        },
+        "limits": "Phạm vi firmware là chạy ELF bài mẫu từ SRAM nội. Module vật lý có flash 8 MiB và PSRAM 2 MiB theo hãng. ROM, boot từ flash, FreeRTOS, PSRAM, USB bridge, USB native, Wi-Fi và LED RGB trên board thuộc phạm vi riêng."
+      },
+      "dcAcceptance": {
+        "releasedInputVolts": [
+          3.29,
+          3.31
+        ],
+        "pressedInputMaxAbsVolts": 0.001,
+        "ledOffMaxAbsMilliAmps": 0.001,
+        "ledOnAnodeVolts": [
+          1.99,
+          2.02
+        ],
+        "ledOnCurrentMilliAmps": [
+          1.28,
+          1.31
+        ]
+      }
+    },
+    {
+      "id": "arduino-nano-every",
+      "fixtureId": "a12-arduino-nano-every-button-led",
+      "name": "Arduino Nano Every",
+      "orderCode": "ABX00028",
+      "revision": "NANOEveryV4.0 · ATmega4809 · board chưa hàn header",
+      "padCount": 30,
+      "voltageV": 5,
+      "pins": {
+        "button": {
+          "pinId": "jp3-5",
+          "pad": "JP3.5",
+          "label": "D2",
+          "portBit": "PA0"
+        },
+        "led": {
+          "pinId": "jp3-11",
+          "pad": "JP3.11",
+          "label": "D8",
+          "portBit": "PE3"
+        },
+        "power": {
+          "pinId": "jp2-12",
+          "pad": "JP2.12",
+          "label": "5V"
+        },
+        "ground": {
+          "pinId": "jp3-4",
+          "pad": "JP3.4",
+          "label": "GND"
+        },
+        "uartTx": {
+          "pinId": "jp3-1",
+          "pad": "JP3.1",
+          "label": "D1 / TX",
+          "portBit": "PC4"
+        },
+        "uartRx": {
+          "pinId": "jp3-2",
+          "pad": "JP3.2",
+          "label": "D0 / RX",
+          "portBit": "PC5"
+        }
+      },
+      "pinoutAcceptance": "Rà đủ 30 pad IPC-D-356 theo PCB V4.0, ánh xạ D0–D21 đến port MCU, phân biệt alias analog/I²C kép A4 và A5, PWM theo core và rail VIN/5V/3V3 với vai trò riêng. Kiểm SWD mặt dưới thuộc SAMD11, vị trí 4 bỏ pad theo mục 6.3 datasheet và chú thích UPDI là đường lập trình nội bộ của ATmega4809. Đối chiếu mâu thuẫn với hình pinout cũ có chú thích UPDI tại vị trí 4. Ghi Serial1 trên D1/D0 khác Serial qua SAMD11.",
+      "assets": [
+        {
+          "path": "public/models/board-catalog-remaining-1/arduino-nano-every.glb",
+          "sha256": "b92ac3ce9546fb7eeaa8f14ad20803b9346b208ee3cbffd824b77d22f453151a"
+        },
+        {
+          "path": "public/board-reference/topview/arduino-nano-every.png",
+          "sha256": "eecf410c6212caed919225609f196a2f0f62b676ad388f569c30d1aed148f0d4"
+        }
+      ],
+      "sources": [
+        "https://docs.arduino.cc/resources/pinouts/ABX00028-full-pinout.pdf",
+        "https://docs.arduino.cc/resources/schematics/ABX00028-schematics.pdf",
+        "https://docs.arduino.cc/resources/datasheets/ABX00028-datasheet.pdf",
+        "https://raw.githubusercontent.com/arduino/ArduinoCore-megaavr/1.8.8/variants/nona4809/pins_arduino.h",
+        "https://ww1.microchip.com/downloads/en/DeviceDoc/ATmega4808-09-DataSheet-DS40002173C.pdf"
+      ],
+      "firmware": {
+        "target": "ATmega4809",
+        "cpu": "megaAVR 0-series AVRxt · 16 MHz theo Arduino core",
+        "format": "AVR ELF có symbol, chương trình từ vector reset của Nano Every",
+        "cliVersion": "1.5.1",
+        "fqbn": "arduino:megaavr:nona4809:mode=off",
+        "core": {
+          "version": "1.8.8",
+          "url": "https://downloads.arduino.cc/cores/core-ArduinoCore-megaavr-1.8.8.tar.bz2",
+          "sha256": "4ffba95eef2c217dfadbe545a81c898a184e8dc0ad3a963f15ef4f627de608de"
+        },
+        "compiler": {
+          "version": "7.3.0-atmel3.6.1-arduino5",
+          "url": "https://downloads.arduino.cc/tools/avr-gcc-7.3.0-atmel3.6.1-arduino5-i686-w64-mingw32.zip",
+          "sha256": "6d4a5d089a36e5b5252befc73da204555b49e376ce7577ee19ca7f028b295830"
+        },
+        "boardDefinition": "https://raw.githubusercontent.com/arduino/ArduinoCore-megaavr/1.8.8/boards.txt",
+        "uart": "Serial1, USART1 alternate PC4/PC5, 9600 8N1 danh định, xác nhận byte TX",
+        "readyLine": "A12_READY=atmega4809",
+        "runner": {
+          "name": "Microchip MPLAB X IDE / MDB Simulator",
+          "version": "6.35",
+          "device": "ATmega4809",
+          "tool": "SIM",
+          "host": "Windows x86-64",
+          "sources": [
+            "https://www.microchip.com/en-us/development-tool/mplab-x-ide",
+            "https://ww1.microchip.com/downloads/aemDocuments/documents/mplab-x-ide-documents/SimPeripheralSupport_v5.40.pdf",
+            "https://onlinedocs.microchip.com/oxy/GUID-EB8052B1-A215-4F5C-BAE4-F2871856E4B4-en-US-5/GUID-828ED340-A206-4322-B383-BD25A5BD40A5.html"
+          ],
+          "gate": "Trên tool SIM v6.35, xác nhận device ATmega4809, DFP thực tế và 16 MHz theo core. Nạp ELF vào simulator, kích chân PA0 bằng stimulus, đo PE3, thu byte USART1 và xác nhận tick TCB3 cho millis trong mô phỏng. Ghi phiên bản và mã băm của gói đã sử dụng trước khi tích hợp. Nếu tool không cho thực hiện mô phỏng trên localhost, giữ firmware của board ở trạng thái chưa xác minh."
+        },
+        "limits": "Phạm vi là chân số, byte USART1 và thời gian trong bài mẫu. UPDI, SWD và SAMD11 USB bridge là chức năng tra cứu."
+      },
+      "dcAcceptance": {
+        "releasedInputVolts": [
+          4.99,
+          5.01
+        ],
+        "pressedInputMaxAbsVolts": 0.001,
+        "ledOffMaxAbsMilliAmps": 0.001,
+        "ledOnAnodeVolts": [
+          2.06,
+          2.1
+        ],
+        "ledOnCurrentMilliAmps": [
+          2.89,
+          2.94
+        ]
+      }
+    }
+  ],
+  "electrical": {
+    "engine": {
+      "name": "ngspice 45.2 WASM",
+      "path": "public/vendor/eecircuit-engine/spice.wasm",
+      "sha256": "3096ce2c499c3062472b9d7953f5141d75a019296e22b0142f4979e5894008ec"
+    },
+    "nets": [
+      [
+        "VCC",
+        "pull.a"
+      ],
+      [
+        "input",
+        "pull.b",
+        "button.A"
+      ],
+      [
+        "GND",
+        "button.B",
+        "LED.cathode"
+      ],
+      [
+        "output",
+        "series.a"
+      ],
+      [
+        "series.b",
+        "LED.anode"
+      ]
+    ],
+    "temperatureC": 27,
+    "pullUpOhms": 10000,
+    "seriesOhms": 1000,
+    "closedSwitchOhms": 1,
+    "openSwitch": "mạch hở",
+    "diode": {
+      "saturationA": 1e-18,
+      "ideality": 2.2,
+      "seriesOhms": 20
+    },
+    "method": "Điểm làm việc DC ở trạng thái nhả và giữ. Nguồn GPIO lý tưởng 0/VCC, đầu vào trở kháng cao. Mức input và output để tính DC lấy từ runner đúng target nếu đã qua gate. Khi chạy điện riêng, giao diện ghi rõ trạng thái đặt bằng tay.",
+    "kvlMaxAbsVolts": 0.001
+  },
+  "acceptance": {
+    "behavior": {
+      "pollMs": 10,
+      "debounceMs": 40,
+      "pulseToIgnoreMs": 20,
+      "cycles": 3,
+      "observedEdgeDelayMs": [
+        39,
+        65
+      ],
+      "readyInput": "HIGH",
+      "readyOutput": "LOW",
+      "inputPressed": "LOW",
+      "ledOn": "HIGH",
+      "edges": [
+        "A12_LED=1",
+        "A12_LED=0"
+      ]
+    },
+    "perBoard": "Kiểm đúng profile ELF, nguồn, revision, pad và rail. Đọc GPIO input và output từ thanh ghi/chân simulator, kiểm marker và sáu cạnh UART. Đo DC hai trạng thái kèm KVL. Từ chối ảnh hỏng hoặc không đúng manifest, đảo LED, nhầm rail, bỏ GND, sai giá trị điện trở và trộn board hoặc firmware.",
+    "browser": "Chrome desktop và 375 px cho từng board. Đối chiếu pad 2D/3D theo revision, chạy/dừng/chạy lại, giữ nút bằng chuột hoặc phím, xác nhận UART và DC, kiểm tài sản thiếu/timeout, đổi board, khôi phục bản nháp, hủy phiên cũ và dọn kết quả khi sửa mạch hoặc đổi phép đo.",
+    "localService": "Bộ tài sản và tiến trình nằm trên laptop, chỉ loopback. Phiên theo fixture đã duyệt, đầu vào chỉ là thao tác nhấn/nhả, đo và dừng. Giới hạn một phiên mỗi tab, khởi động tối đa 30 giây, phiên tối đa 90 giây. Đầu ra tĩnh giữ tài sản của runner ngoài thư mục build.",
+    "regression": "Node và Chrome A1–A11 với đủ assets đã khóa, typecheck, build:local, check:public-release, kiểm asset ngoài build tĩnh và bảo toàn preset/draft đã lưu. Báo pass/skip/fail và ghi lại lần chạy riêng nếu có timeout. Phạm vi chạy local trên laptop."
+  }
+}

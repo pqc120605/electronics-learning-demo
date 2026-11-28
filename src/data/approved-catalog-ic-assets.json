@@ -1,0 +1,684 @@
+{
+  "logic-74hc00": {
+    "file": "/models/components/catalog-ic-1/logic-74hc00.glb",
+    "bytes": 134640,
+    "sha256": "5f6c741434b48cf3f9a3f7a08c09cee18d26a265e05ae4c2ab4557f6fbda99c6",
+    "sizeMm": [
+      7.874000089941546,
+      6.98000006377697,
+      19.05000035185367
+    ],
+    "boundsMm": {
+      "min": [
+        -0.12700000661425292,
+        -3.2999999821186066,
+        -1.9049999536946416
+      ],
+      "max": [
+        7.747000083327293,
+        3.6800000816583633,
+        17.145000398159027
+      ]
+    },
+    "triangles": 2064,
+    "sourceFile": "3dmodels/Package_DIP.3dshapes/DIP-14_W7.62mm.step",
+    "sourceSha256": "3dae072a95c64bee0d1e58be8e75383639f5017ab982de1749d05808a4eed058",
+    "footprint": "DIP-14_W7.62mm.kicad_mod",
+    "footprintSha256": "6e9fc056d23e88e219b9e20d58ff74e1d351ca9a77a7b3e6b633f5475d6040f1",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 0,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 0,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 0,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 9,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 10,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 11,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 12,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 13,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 14,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ],
+    "maxOffsetMm": 0
+  },
+  "logic-74hc4511": {
+    "file": "/models/components/catalog-ic-1/logic-74hc4511.glb",
+    "bytes": 152104,
+    "sha256": "0b1bfdb1e32fbee63bd71ee15904b2d8c110594571f5fdb437d9347959935c5e",
+    "sizeMm": [
+      7.874000089941546,
+      6.98000006377697,
+      19.176999747287482
+    ],
+    "boundsMm": {
+      "min": [
+        -0.12700000661425292,
+        -3.2999999821186066,
+        -0.6985000218264759
+      ],
+      "max": [
+        7.747000083327293,
+        3.6800000816583633,
+        18.478499725461006
+      ]
+    },
+    "triangles": 2326,
+    "sourceFile": "3dmodels/Package_DIP.3dshapes/DIP-16_W7.62mm.step",
+    "sourceSha256": "17a30b1f0ab3fd5384a1231e3c63c394888d5b952c542a8c189e023ed3467464",
+    "footprint": "DIP-16_W7.62mm.kicad_mod",
+    "footprintSha256": "08cec2c2fafeffb19d0c6d17db37b67017e6518147516b0b75e6a4719b235465",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 0,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 0,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 0,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 0,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 9,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 10,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 11,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 12,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 13,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 14,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 15,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 16,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ],
+    "maxOffsetMm": 0
+  },
+  "timer-ne555": {
+    "file": "/models/components/catalog-ic-1/timer-ne555.glb",
+    "bytes": 82432,
+    "sha256": "5a0c9e33915b99c9285127a1aa88ffcbdc504f31b6b74856429eec07a1e34fe2",
+    "sizeMm": [
+      7.874000089941546,
+      6.98000006377697,
+      9.270000271499157
+    ],
+    "boundsMm": {
+      "min": [
+        -0.12700000661425292,
+        -3.2999999821186066,
+        -0.8249999955296516
+      ],
+      "max": [
+        7.747000083327293,
+        3.6800000816583633,
+        8.445000275969505
+      ]
+    },
+    "triangles": 1284,
+    "sourceFile": "3dmodels/Package_DIP.3dshapes/DIP-8_W7.62mm.step",
+    "sourceSha256": "4a377a56a8d9e9c0b86c095ef9ecc1869ac19e7f5069a3247b294250bf4f235d",
+    "footprint": "DIP-8_W7.62mm.kicad_mod",
+    "footprintSha256": "44500fc2989169a1ea877ba89e69cd60d0a77414af60fd2d1997de5569f2dee5",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ],
+    "maxOffsetMm": 0
+  },
+  "display-max7219": {
+    "file": "/models/components/catalog-ic-1/display-max7219.glb",
+    "bytes": 218884,
+    "sha256": "4f24be681bc8ce0bf55ffd5d73c33525a8a0073050633f90c77714dccd475ddc",
+    "sizeMm": [
+      7.874000089941546,
+      6.98000006377697,
+      31.749999267049134
+    ],
+    "boundsMm": {
+      "min": [
+        -0.12700000661425292,
+        -3.2999999821186066,
+        -1.9049999536946416
+      ],
+      "max": [
+        7.747000083327293,
+        3.6800000816583633,
+        29.844999313354492
+      ]
+    },
+    "triangles": 3272,
+    "sourceFile": "3dmodels/Package_DIP.3dshapes/DIP-24_W7.62mm.step",
+    "sourceSha256": "305ecc33779421c4eaa38993d80432e50eb6e02cae0807055a4a07ffcb2f0d2b",
+    "footprint": "DIP-24_W7.62mm.kicad_mod",
+    "footprintSha256": "937c4c0eb95eeee3e9b5c3378d96acea5d96e59a605467b02a29994d42fdf7be",
+    "mount": "breadboard",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "roundrect",
+        "x": 0,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 0,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 0,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 0,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 0,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 0,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 9,
+        "shape": "circle",
+        "x": 0,
+        "z": 20.32,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 10,
+        "shape": "circle",
+        "x": 0,
+        "z": 22.86,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 11,
+        "shape": "circle",
+        "x": 0,
+        "z": 25.4,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 12,
+        "shape": "circle",
+        "x": 0,
+        "z": 27.94,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 13,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 27.94,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 14,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 25.4,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 15,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 22.86,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 16,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 20.32,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 17,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 17.78,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 18,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 15.24,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 19,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 12.7,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 20,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 10.16,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 21,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 7.62,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 22,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 5.08,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 23,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 2.54,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      },
+      {
+        "pad": 24,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.6,
+        "height": 1.6,
+        "drill": 0.8
+      }
+    ],
+    "maxOffsetMm": 0
+  }
+}

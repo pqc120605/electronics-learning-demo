@@ -40,6 +40,32 @@
 .parts-detail-preview figcaption { margin-top: 8px; color: var(--ink-soft); font-size: 13px; }
 .parts-detail h2 { font-size: 17px; }
 .parts-detail .button-secondary { margin-top: 12px; }
+.parts-thumbnail > .board-catalog-media { width: 100%; min-width: 0; }
+.parts-thumbnail > .board-catalog-media .board-catalog-picture { background: transparent; }
+.parts-artwork { width: min(100%, 260px); height: auto; max-height: 100%; }
+.parts-group-heading, .parts-board-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.parts-group-heading { justify-content: space-between; margin-bottom: 10px; }
+.parts-group-heading h2 { margin-bottom: 0; }
+.parts-group-heading a, .parts-board-links a { color: var(--mm-text-signal); }
+.component-visual-modes, .component-top-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.component-top-viewport { overflow: auto; border-radius: 8px; background: #f3f0e5; }
+.component-top-plane { position: relative; }
+.component-top-plane img { display: block; width: 100%; height: auto; }
+.component-top-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 2px solid #126466;
+  border-radius: 50%;
+  background: #fdf7e0ab;
+  cursor: pointer;
+}
+.component-top-pin[aria-pressed="true"] { border-color: #912525; background: #f0764fc2; }
+.component-top-actions { margin-top: 8px; }
+.component-visual-pins { display: grid; gap: 6px; margin-block: 8px; }
+.component-visual-pins label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 
 @media (max-width: 1100px) {
   .parts-group ul { grid-template-columns: repeat(5, minmax(0, 1fr)); }
@@ -57,73 +83,6 @@
 }
 @media (max-width: 440px) {
   .parts-group ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
-.parts-package {
-  --package-face: #485359;
-  --package-core: #29323a;
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 64%;
-  max-width: 155px;
-  height: 42%;
-  transform: rotate(-13deg);
-}
-.parts-package::before {
-  content: "";
-  position: absolute;
-  inset: 0 7%;
-  border-radius: 3px;
-  background: repeating-linear-gradient(90deg, #a89d88 0 5%, transparent 5% 12%);
-  filter: drop-shadow(1px 1px 1px #25323b52);
-}
-.parts-package-body {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 66%;
-  padding: 2px;
-  border: 1px solid #17212b;
-  border-radius: 5px;
-  background: linear-gradient(153deg, var(--package-face), var(--package-core) 75%);
-  color: #fffaf0;
-  box-shadow: 0 5px 0 #152127, 0 9px 13px #25221936;
-  text-align: center;
-  font: 700 clamp(8px, .9vw, 13px)/1.1 var(--mm-font-mono, monospace);
-}
-.parts-package--sensor { --package-face: #327d7a; --package-core: #23565e; width: 46%; }
-.parts-package--display { --package-face: #495c7c; --package-core: #283b58; }
-.parts-package--power, .parts-package--driver { --package-face: #3e5055; width: 55%; }
-.parts-package--audio { --package-face: #705551; --package-core: #4d3534; width: 53%; }
-.parts-package--transistor { width: 43%; }
-.parts-package--transistor::before { inset: 28% 15% -7%; background-size: 37% 100%; }
-.parts-package--transistor .parts-package-body { align-self: start; border-radius: 20% 20% 8% 8%; }
-.parts-package--diode { width: 73%; }
-.parts-package--diode::before { inset: 46% 0 38%; background: linear-gradient(#fcfbf1, #b6ab99); }
-.parts-package--diode .parts-package-body {
-  width: 69%;
-  height: 58%;
-  padding-right: 15%;
-  background: linear-gradient(90deg, transparent 77%, #d7cfc0 77% 88%, transparent 88%),
-    linear-gradient(#444f58, #202931 80%);
-  border-radius: 30px;
-  box-shadow: 0 5px 9px #25221936;
-}
-.parts-package--board { width: 77%; max-width: 215px; }
-.parts-package--board::before { display: none; }
-.parts-package--board .parts-package-body {
-  height: 100%;
-  border: 1px solid #c9c2b1;
-  background: radial-gradient(circle, #857b63 16%, transparent 20%) 0 0 / 8px 8px, #fcfaf2;
-  color: transparent;
-  box-shadow: 0 5px 0 #cbc0a9, 0 9px 13px #25221936;
-}
-.parts-package--keypad .parts-package-body {
-  height: 100%;
-  background: repeating-linear-gradient(90deg, transparent 0 17%, #101a21 17% 25%),
-    repeating-linear-gradient(0deg, #495f78 0 17%, #101a21 17% 25%);
 }
 
 .parts-search { position: relative; }
@@ -149,35 +108,7 @@
   transform: rotate(45deg);
 }
 .parts-search input { padding-left: 39px; }
-.parts-package--tabbed {
-  width: 46%;
-  height: 56%;
-  transform: rotate(-12deg);
-}
-.parts-package--tabbed::before {
-  inset: 40% 18% -4%;
-  background: repeating-linear-gradient(90deg, #a89d88 0 12%, transparent 12% 39%);
-}
-.parts-package--tabbed::after {
-  content: "";
-  position: absolute;
-  inset: -5% 3% 51%;
-  border: 1px solid #847f75;
-  border-radius: 6px 6px 2px 2px;
-  background: radial-gradient(circle at 50% 32%, #d4d1c4 0 12%, #7d7a73 15% 18%, transparent 21%),
-    linear-gradient(150deg, #eeebe1, #a7a299);
-}
-.parts-package--tabbed .parts-package-body {
-  z-index: 1;
-  height: 57%;
-  margin-top: 14%;
-  font-size: clamp(8px, .8vw, 12px);
-}
-.parts-package--compact {
-  width: 45%;
-  height: 31%;
-}
-.parts-package--compact .parts-package-body { border-radius: 3px; }
+
 
 @media (max-width: 870px) {
   .parts-practice-filter { align-self: center; }

@@ -1,0 +1,6 @@
+Mạch Mở board reference geometry. Approval SHA-256: 63d5b0db7a420da9fbda0dc7beda4f92c606fb922cfe9db2d99b371ca8b66826
+Espressif: reconstructive mesh from board vector drawings; see linked documents and sources in proposal.
+Arduino ABX00028: Nano Every V4.0 board files by Arduino, CC BY-SA 4.0. Position and pad data transformed from vendor FAB, MNT and IPC.
+STMicroelectronics: MB1136C PCB and UM1724 Rev 17 used under local review scope. Verify distribution rights before publication.
+LQFP-64 STEP by KiCad Libraries Contributors, CC BY-SA 4.0 with library exception (https://www.kicad.org/libraries/license/).
+Package shells are visual references. Physical hardware fit and circuit/firmware behaviour were not evaluated.

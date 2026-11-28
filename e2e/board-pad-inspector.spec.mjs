@@ -7,11 +7,25 @@ test('catalog loads the board-specific CAD evidence and pin groups after opening
   await expect(inspector).toContainText('V1.1')
   await expect(inspector).not.toContainText(/KiCad v1\.3|D0–D10|Seeed|manual ST/)
 
-  await page.goto('/app/boards?board=arduino-mega-2560-r3')
+  await page.goto('/app/boards?board=arduino-mega-2560-r3&view=3d')
   await expect(inspector).toContainText('bấm vào đúng vị trí trên mô hình 3D')
   await expect(inspector.getByRole('group', { name: 'Chọn nhóm chân POWER0' })).toBeAttached()
 })
 import { mkdir, readFile } from 'node:fs/promises'
+
+test('STM32 reference geometry zooms in 2D and provides a separate named pinout', async ({ page }) => {
+  await page.goto('/boards?board=stm32-nucleo&view=top')
+  const inspector = page.getByRole('region', { name: 'Mặt board 2D' })
+  const picture = inspector.getByRole('img', { name: 'Hình chiếu mặt board' })
+  await expect(picture).toBeVisible()
+  await expect(inspector.locator('[data-board-pad]')).toHaveCount(0)
+  const zoomOut = inspector.getByRole('button', { name: 'Thu nhỏ mặt board' })
+  await expect(zoomOut).toBeDisabled()
+  await inspector.getByRole('button', { name: 'Phóng to mặt board' }).click()
+  await expect(zoomOut).toBeEnabled()
+  await page.getByRole('button', { name: 'Tra tên và chức năng chân' }).click()
+  await expect(page.getByRole('heading', { name: 'Tra cứu pinout theo tên' })).toBeVisible()
+})
 
 const boards = [
   ['arduino-uno-r3', 44, 120], ['arduino-nano-classic', 36, 37],

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from 'react'
 import { projectTopViewPoint, type BoardTopView } from '../../lib/boardTopView'
 import type { BoardComponents, BoardPad } from '../../types/boardComponents'
-import type { BoardPin } from './boardSceneTypes'
+import type { BoardPin, BoardPinoutEvidence } from './boardSceneTypes'
 import { requestGuideOpen } from '../guide/GuideContext'
 import './BoardTopInspector.css'
 
@@ -36,12 +36,13 @@ type Props = {
   top: BoardTopView
   pins: BoardPin[]
   selectedPinId: string
+  evidence?: BoardPinoutEvidence
   featureRef?: string
   onSelectPin: (pinId: string) => void
   onSelectComponent: (ref: string) => void
 }
 
-export default function BoardTopInspector({ top, pins, selectedPinId, featureRef, onSelectPin, onSelectComponent }: Props) {
+export default function BoardTopInspector({ top, pins, selectedPinId, evidence, featureRef, onSelectPin, onSelectComponent }: Props) {
   const [boardData, setBoardData] = useState<BoardComponents>()
   const [loading, setLoading] = useState(Boolean(datasets[`../../data/board-components/${top.id}.json`]))
   const [visible, setVisible] = useState(readLayers)
@@ -50,6 +51,7 @@ export default function BoardTopInspector({ top, pins, selectedPinId, featureRef
   const [focusedPin, setFocusedPin] = useState('')
   const [typeFilter, setTypeFilter] = useState<BoardPad['electricalType'] | ''>('')
   const viewport = useRef<HTMLDivElement>(null)
+  const showBack = Boolean(boardData && visible.back)
 
   useEffect(() => {
     let cancelled = false
@@ -69,7 +71,7 @@ export default function BoardTopInspector({ top, pins, selectedPinId, featureRef
   const bounds = { x: 0, y: 0, width: top.width, height: top.height }
   const project = (point: readonly number[]) => {
     const projected = projectTopViewPoint(top.boundsMm, bounds, point)
-    return projected && { x: visible.back ? top.width - projected.x : projected.x, y: projected.y }
+    return projected && { x: showBack ? top.width - projected.x : projected.x, y: projected.y }
   }
   const projectPcb = (x: number, y: number) => boardData
     && project([x + boardData.modelOffsetMm.x, 0, y + boardData.modelOffsetMm.z])
@@ -77,7 +79,8 @@ export default function BoardTopInspector({ top, pins, selectedPinId, featureRef
     const point = pin.anchor && project(pin.anchor.map(value => value * 1000))
     return point ? [{ pin, ...point }] : []
   })
-  const parts = boardData?.components.filter(item => item.side === (visible.back ? 'back' : 'front')) ?? []
+  const parts = boardData?.components.filter(item => item.side === (showBack ? 'back' : 'front')) ?? []
+  const availableLayers = layers.filter(([id]) => id === 'pins' || id === 'labels' ? padPoints.length > 0 : Boolean(boardData))
   const selected = pins.find(pin => pin.id === selectedPinId)
   const selectedPad = selected && boardData?.components.find(part => part.ref === selected.headerReference)
     ?.pads.find(pad => pad.pinId === selected.id)
@@ -123,9 +126,9 @@ export default function BoardTopInspector({ top, pins, selectedPinId, featureRef
   }
   return <section className="top-board" aria-label="Mặt board 2D">
     <div className="top-board-tools">
-      <div role="group" aria-label="Lớp hiển thị">{layers.map(([id, label]) =>
+      {availableLayers.length > 0 && <div role="group" aria-label="Lớp hiển thị">{availableLayers.map(([id, label]) =>
         <button type="button" key={id} aria-pressed={visible[id]} onClick={() => setLayer(id)}>{label}</button>
-      )}</div>
+      )}</div>}
       <div role="group" aria-label="Thu phóng mặt board">
         <button type="button" aria-label="Thu nhỏ mặt board" disabled={zoom === 1} onClick={() => changeZoom(zoom - 0.5)}>−</button>
         <button type="button" aria-label="Phóng to mặt board" disabled={zoom === 4} onClick={() => changeZoom(zoom + 0.5)}>+</button>
@@ -136,9 +139,9 @@ export default function BoardTopInspector({ top, pins, selectedPinId, featureRef
       <div className="top-board-display">
         <div className="top-board-viewport" ref={viewport}>
           <svg width={top.width} height={top.height} viewBox={`0 0 ${top.width} ${top.height}`}
-            style={{ width: `${zoom * 100}%` }} role="img" aria-label="Vị trí pad trên board" tabIndex={0}
-            onKeyDown={keyPin} onPointerUp={tapPad}>
-            {!visible.back && <image href={top.image} width={top.width} height={top.height} />}
+            style={{ width: `${zoom * 100}%` }} role="img" aria-label={padPoints.length ? 'Vị trí pad trên board' : 'Hình chiếu mặt board'}
+            tabIndex={padPoints.length ? 0 : undefined} onKeyDown={padPoints.length ? keyPin : undefined} onPointerUp={tapPad}>
+            {!showBack && <image href={top.image} width={top.width} height={top.height} />}
             {visible.parts && parts.map(part => {
               if (!part.bboxMm) return null
               const { x, y, w, h } = part.bboxMm
@@ -162,7 +165,8 @@ export default function BoardTopInspector({ top, pins, selectedPinId, featureRef
           </svg>
         </div>
         <p className="top-board-hint" aria-live="polite">
-          {focusedPin ? padName(pins.find(pin => pin.id === focusedPin) ?? pins[0]) : 'Phím mũi tên chọn chân, Enter xác nhận.'}
+          {focusedPin ? padName(pins.find(pin => pin.id === focusedPin) ?? pins[0])
+            : padPoints.length ? 'Phím mũi tên chọn chân, Enter xác nhận.' : 'Mặt board 2D theo hình học nguồn.'}
         </p>
         {nearby.length > 1 && <div className="top-board-nearby" role="group" aria-label="Các chân gần điểm chạm">
           {nearby.map(pin => <button type="button" key={pin.id} onClick={() => markPin(pin.id)}>{padName(pin)}</button>)}
@@ -175,6 +179,7 @@ export default function BoardTopInspector({ top, pins, selectedPinId, featureRef
             <dt>Net CAD</dt><dd>{selectedPad?.net ?? selected.netName ?? 'Chưa gán'}</dd><dt>Chức năng</dt><dd>{selected.technicalRole}</dd>
             <dt>Loại điện</dt><dd>{electricalNames[selectedPad?.electricalType ?? 'unspecified']} ({selectedPad?.electricalType ?? 'unspecified'})</dd>
             {selected.functions.length > 0 && <><dt>Chức năng phụ</dt><dd>{selected.functions.join(' · ')}</dd></>}</dl>
+          {selected.safetyNote && <p className="board-pin-safety-note">{selected.safetyNote}</p>}
           <button type="button" onClick={() => requestGuideOpen(`Chân ${selected.label} trên ${top.revision} làm gì?`)}>Hỏi Mở về chân này</button>
         </> : inspected ? <>
           <h3>{inspected.ref} · {inspected.value || inspected.footprint}</h3>
@@ -191,8 +196,13 @@ export default function BoardTopInspector({ top, pins, selectedPinId, featureRef
               <td>{(pad.pinId && padFunctions.get(pad.pinId)) || '—'}</td>
             </tr>)}</tbody>
           </table></div></>}
-        </> : <p>Chọn chân hoặc linh kiện để xem thuộc tính CAD.</p>}
-        {loading ? <p role="status">Đang tải dữ liệu linh kiện…</p> : !boardData && <p>Chưa có dữ liệu linh kiện cho board này.</p>}
+        </> : padPoints.length > 0 && <p>{boardData ? 'Chọn chân hoặc linh kiện để xem thuộc tính CAD.' : 'Chọn chân trên hình hoặc theo tên ở danh sách.'}</p>}
+        {loading ? <p role="status">Đang tải dữ liệu linh kiện…</p> : !boardData && <>
+          <p>Lớp linh kiện trên hình 2D chưa có dữ liệu vị trí. Xem các linh kiện đã đối chiếu trong mục Chân và linh kiện.</p>
+          {evidence && <p>{evidence.summary} {evidence.sourceUrl && <a href={evidence.sourceUrl} target="_blank" rel="noreferrer">
+            {evidence.sourceLabel ?? 'Tài liệu nguồn'}
+          </a>}</p>}
+        </>}
         {parts.length > 0 && <label>Linh kiện trên board
           <select value={inspected?.ref ?? ''} onChange={event => { setTypeFilter(''); onSelectComponent(event.target.value) }}>
             <option value="">Chọn linh kiện</option>
@@ -207,5 +217,6 @@ export default function BoardTopInspector({ top, pins, selectedPinId, featureRef
         </label>}
       </div>
     </div>
+    <p className="top-board-hint">{top.revision} · <a href="/board-reference/topview/NOTICE.md">Nguồn hình chiếu</a></p>
   </section>
 }

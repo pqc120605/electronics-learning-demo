@@ -1,0 +1,815 @@
+{
+  "revision": "MM-CATALOG-MODELS-REMAINING-1",
+  "status": "proposed",
+  "date": "2026-11-26",
+  "releaseScope": "local",
+  "capabilities": [
+    "CAT-01",
+    "CAT-02",
+    "CAT-04",
+    "CAT-05",
+    "EDA-03"
+  ],
+  "outputs": {
+    "boards": "9 mặt trên 2D và 9 GLB 3D tương tác. Tên chân và linh kiện hiển thị theo đúng phiên bản nguồn.",
+    "components": "4 bộ gồm sơ đồ chân, mặt 2D, GLB tương tác và footprint KiCad tải được.",
+    "notes": "Nguồn, giấy phép, biến thể, độ khớp hình học và các tọa độ chưa đối chiếu xuất hiện trong hồ sơ mẫu."
+  },
+  "implementationLimits": [
+    "Mô hình phục vụ tra cứu và kiểm thử trên localhost.",
+    "Giữ catalogId và libraryPinId hiện có để bảo toàn dây nối và bản nháp.",
+    "Tên chân từ tài liệu và vị trí pin trong hình học phải khớp riêng. Vị trí chưa khớp dùng tra cứu tên theo nguồn.",
+    "Mặt 2D bắt nguồn từ đúng GLB. Tọa độ được đối chiếu với PCB và footprint nguồn theo đơn vị mm, chuyển sang mét ở trình xem.",
+    "Dữ liệu mô phỏng hiện có giữ nguyên. Hình học và footprint mang trạng thái tham chiếu.",
+    "Xác minh quyền phân phối và phạm vi giấy phép của tài liệu hãng trước một đợt phát hành công khai."
+  ],
+  "sourceLocks": {
+    "c3-outline.dxf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/c3-outline.dxf",
+      "url": "https://dl.espressif.com/dl/schematics/DIMENSION_ESP32-C3-DEVKITM-1_V1_20200915AA.dxf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 685102,
+      "sha256": "eddd901305ce78b661658f726059ed0655ea51fc65281f750d5b40ad592ab312",
+      "publisher": "Espressif Systems"
+    },
+    "c3-layout.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/c3-layout.pdf",
+      "url": "https://dl.espressif.com/dl/schematics/PCB_ESP32-C3-DEVKITM-1_V1_20200915AA.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 1201154,
+      "sha256": "cdaaa9257a5b98e897954cf980f089c23b57af69363101f1d8df10ffc52d4d43",
+      "publisher": "Espressif Systems"
+    },
+    "c3-schematic.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/c3-schematic.pdf",
+      "url": "https://dl.espressif.com/dl/schematics/SCH_ESP32-C3-DEVKITM-1_V1_20200915A.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 376132,
+      "sha256": "d2ac6d649cbea3ce4b2295a261f78823bf61e536f69fe4bee2b6e4142bd86542",
+      "publisher": "Espressif Systems"
+    },
+    "esp32-layout.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/esp32-layout.pdf",
+      "url": "https://dl.espressif.com/dl/schematics/PCB_ESP32-DevKitM-1_V1_20200910AE.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 1160643,
+      "sha256": "285fb63140fc6bf3306e55aa96236aed699edcd0f7c45c1027695b9a3f7c7f59",
+      "publisher": "Espressif Systems"
+    },
+    "esp32-schematic.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/esp32-schematic.pdf",
+      "url": "https://dl.espressif.com/dl/schematics/SCH_ESP32-DEVKITM-1_V1_20200910A.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 360251,
+      "sha256": "b063fb9a26a6bab602783c33962cff177109933d436cc57b86894b742aab4395",
+      "publisher": "Espressif Systems"
+    },
+    "c6-outline.dxf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/c6-outline.dxf",
+      "url": "https://dl.espressif.com/dl/schematics/esp32-c6-devkitc-1-dimensions_v1.2.dxf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 3983012,
+      "sha256": "8bfd7e5ed84bf3e4a1fc56498595cb1d5ffdc48c7cd8e8ff5544588fd14e9a63",
+      "publisher": "Espressif Systems"
+    },
+    "c6-layout.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/c6-layout.pdf",
+      "url": "https://dl.espressif.com/dl/schematics/esp32-c6-devkitc-1-pcb-layout_v1.2.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 1451081,
+      "sha256": "de37074086fb6d80111fc27bb63c2732015ee59d12074a9952d9c7c84f956266",
+      "publisher": "Espressif Systems"
+    },
+    "c6-schematic.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/c6-schematic.pdf",
+      "url": "https://dl.espressif.com/dl/schematics/esp32-c6-devkitc-1-schematics_v1.4.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 517253,
+      "sha256": "ac01136198f286f11a3628e1ca39d22714aa6ce059cba85bd0c39e641c415a8a",
+      "publisher": "Espressif Systems"
+    },
+    "s2-outline.dxf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/s2-outline.dxf",
+      "url": "https://dl.espressif.com/dl/schematics/DXF_ESP32-S2-DevKitC-1_V1_20210511.dxf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 839734,
+      "sha256": "4ad5bbacecba0ac5aec8bdf9eec81ddeff1c1c1cf123435982531870465cb81d",
+      "publisher": "Espressif Systems"
+    },
+    "s2-layout.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/s2-layout.pdf",
+      "url": "https://dl.espressif.com/dl/schematics/PCB_ESP32-S2-DevKitC-1_V1_20210508.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 1344168,
+      "sha256": "f54b06980ed68e7c79de8181ab5878eb813d87e53bbe15af581f3d036a6375f6",
+      "publisher": "Espressif Systems"
+    },
+    "s2-schematic.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/s2-schematic.pdf",
+      "url": "https://dl.espressif.com/dl/schematics/esp-idf/SCH_ESP32-S2-DEVKITC-1_V1_20220817.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 426368,
+      "sha256": "eea5e87c8420d1bc8ca2eb4f9b6842125978e7ea3344d2495d9505ad322c769c",
+      "publisher": "Espressif Systems"
+    },
+    "h2-outline.dxf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/h2-outline.dxf",
+      "url": "https://dl.espressif.com/dl/schematics/esp32-h2-devkitm-1_v1.2_dimension.dxf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 3868883,
+      "sha256": "5f1b7447896f923e538a42eb383ed46f966f198212813e147b506c5867ebe47a",
+      "publisher": "Espressif Systems"
+    },
+    "h2-layout.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/h2-layout.pdf",
+      "url": "https://dl.espressif.com/dl/schematics/esp32-h2-devkitm-1_v1.2_pcb_layout.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 1485723,
+      "sha256": "6e5c7b7d60b8a8fa7ecaa66bd6c7520b941d9c3d1fa35d1fae093e279f5b0a13",
+      "publisher": "Espressif Systems"
+    },
+    "h2-schematic.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/h2-schematic.pdf",
+      "url": "https://dl.espressif.com/dl/schematics/esp32-h2-devkitm-1_v1.3_schematics.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 96920,
+      "sha256": "92c2c27462d4f669746966ad572548c98f6e2581e9e113eabedc16861cf7e811",
+      "publisher": "Espressif Systems"
+    },
+    "st-um1724.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/st-um1724.pdf",
+      "url": "https://www.st.com/resource/en/user_manual/DM00105823.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 3781926,
+      "sha256": "576d9bee3bc32c8ee70bf0d77cf9494cec06ea7c1d9ff98eebf2738cb9314a14",
+      "publisher": "STMicroelectronics"
+    },
+    "st-opla.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/st-opla.pdf",
+      "url": "https://www.st.com/resource/en/license_agreement/open_platform_license_agreement.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 43549,
+      "sha256": "0809c990f7a3b971bc9517e20d93c3da880b46d30505409c47f61b371703d2a0",
+      "publisher": "STMicroelectronics"
+    },
+    "nano-every-cad.zip": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/nano-every-cad.zip",
+      "url": "https://docs.arduino.cc/static/b6cae0194b509dca4ae8a20b1f40d979/ABX00028-cad-files.zip",
+      "retrievalDate": "2026-11-26",
+      "sha256": "677b2a708410b5ba54c226dd5ab043b4333cf5f634ef4e0362fbfbabeb76b222",
+      "bytes": 960017,
+      "publisher": "Arduino"
+    },
+    "nano-every-pinout.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/nano-every-pinout.pdf",
+      "url": "https://docs.arduino.cc/resources/pinouts/ABX00028-full-pinout.pdf",
+      "retrievalDate": "2026-11-26",
+      "sha256": "028f44dd75001dcdfe181e581ea8a51385af2ccc65e68012f87dc9cc1252f2bb",
+      "bytes": 237946,
+      "publisher": "Arduino"
+    },
+    "asair-dht11-2022-12.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/asair-dht11-2022-12.pdf",
+      "url": "https://www.aosong.com/userfiles/files/media/DHT11%E6%B8%A9%E6%B9%BF%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%E8%AF%B4%E6%98%8E%E4%B9%A6%EF%BC%88%E4%B8%AD%EF%BC%89%20A0-1208.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 1798932,
+      "sha256": "ea43d2dac433805fcad511709d33a92e43367f4dd1d00b5818a77053ba651409",
+      "publisher": "ASAIR / Guangzhou Aosong"
+    },
+    "asair-am2302-v1.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/asair-am2302-v1.pdf",
+      "url": "https://www.aosong.com/uploadfiles/2025/04/20250417105409216.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 1155708,
+      "sha256": "a8f321e5f91420d78c6282e17c8913a85c89f265991a20c5d8e6111b10f600fd",
+      "publisher": "ASAIR / Guangzhou Aosong"
+    },
+    "adafruit-3844-diagram.jpg": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/adafruit-3844-diagram.jpg",
+      "url": "https://cdn-shop.adafruit.com/product-files/3844/3844_diagram.jpg",
+      "retrievalDate": "2026-11-26",
+      "bytes": 12175,
+      "sha256": "aa0e4ba1e2acde94ca18bc476d05339f3562ae4bb6b315b400764bd0140a27e4",
+      "publisher": "Adafruit"
+    },
+    "adafruit-3844-pinout.jpg": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/adafruit-3844-pinout.jpg",
+      "url": "https://cdn-learn.adafruit.com/assets/assets/000/089/966/medium800/raspberry_pi_PID3844_pinout.jpg?1585338630",
+      "retrievalDate": "2026-11-26",
+      "sha256": "af5bed0006ba53e60f87d7faf5e45b23f0389e10a675566fc4e351dbbd3e0651",
+      "bytes": 53423,
+      "publisher": "Adafruit"
+    },
+    "kingbright-sa56-11ewa.pdf": {
+      "path": "docs/research/downloads/2026-11-26-catalog-remaining/kingbright-sa56-11ewa.pdf",
+      "url": "https://www.kingbrightusa.com/images/catalog/SPEC/SA56-11EWA.pdf",
+      "retrievalDate": "2026-11-26",
+      "bytes": 555739,
+      "sha256": "2124a2db390813569f9818ff92b275f8b0e13cbd4d4ad6a957dd3448d54d6919",
+      "publisher": "Kingbright"
+    },
+    "st-c04-schematic": {
+      "path": "assets/boards/vendor/nucleo-f401re/source/mb1136-default-c04_schematic.pdf",
+      "sha256": "401f40ca598b008050e7749b5847e93ca8aa83e9a0bae4cbcbe7a016159e57c1",
+      "bytes": 1314815,
+      "url": "https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf",
+      "revision": "MB1136-DEFAULT-C04",
+      "publisher": "STMicroelectronics",
+      "retrievalDate": "2026-10-29"
+    },
+    "st-mb1136-board-project": {
+      "path": "assets/boards/vendor/nucleo-f401re/source/mb1136_bdp.zip",
+      "sha256": "66e2aa6a1ca58e787ea1717c0736a1853777f93a20a95e4d2e0273dc234eb52d",
+      "bytes": 492338,
+      "url": "https://www.st.com/en/evaluation-tools/nucleo-f411re.html#cad-resources",
+      "revision": "1.1",
+      "use": "Nguồn đối chiếu chung MB1136 trong kho local",
+      "publisher": "STMicroelectronics",
+      "retrievalDate": "2026-10-29",
+      "memberChecks": [
+        {
+          "member": "MB1136C/Altium_Designer/MB1136.PcbDoc",
+          "sha256": "fdfa6424fbffa1bfc27863ed8dbf43429e9db81f2a39e10f18a8a18a5fb60e64",
+          "bytes": 1670656
+        },
+        {
+          "member": "readme.txt",
+          "sha256": "616572b24b50b008b14e5c8d38e488a473700bc3e850f571de6f73773b9d50d0",
+          "bytes": 1644
+        }
+      ]
+    },
+    "st-mb1136-bom": {
+      "path": "assets/boards/vendor/nucleo-f401re/source/mb1136_bom.zip",
+      "sha256": "e6eef6d643a4adba3d751f0501ef9691feb109b82a5d8aac354f7df2049627da",
+      "bytes": 756790,
+      "url": "https://www.st.com/en/evaluation-tools/nucleo-f411re.html#cad-resources",
+      "revision": "3.1",
+      "publisher": "STMicroelectronics",
+      "retrievalDate": "2026-10-29"
+    },
+    "kicad-lqfp64-step": {
+      "path": "3dmodels/Package_QFP.3dshapes/LQFP-64_10x10mm_P0.5mm.step",
+      "sha256": "b0c827bc5c05552175d28affe44a5bd2ab45c9c36efff6ff07a74cc449b13db4",
+      "bytes": 867325,
+      "library": "KiCad 10.0.7",
+      "licenseUrl": "https://www.kicad.org/libraries/license/",
+      "publisher": "KiCad Libraries Contributors"
+    },
+    "kicad-dht11-pad-reference": {
+      "path": "footprints/Sensor.pretty/Aosong_DHT11_5.5x12.0_P2.54mm.kicad_mod",
+      "sha256": "c80d7070c703ed908af382b422452dec4da1c9e8c36362b4b226b0218c6ff768",
+      "bytes": 4953,
+      "library": "KiCad 10.0.7",
+      "licenseUrl": "https://www.kicad.org/libraries/license/",
+      "publisher": "KiCad Libraries Contributors"
+    },
+    "kicad-am2302-pad-reference": {
+      "path": "footprints/Sensor.pretty/ASAIR_AM2302_P2.54mm_Vertical.kicad_mod",
+      "sha256": "a8d5a842be01dd17e8d894c1b1809c47bb7aa2c3a11278599828f368afb56f3c",
+      "bytes": 4992,
+      "library": "KiCad 10.0.7",
+      "licenseUrl": "https://www.kicad.org/libraries/license/",
+      "publisher": "KiCad Libraries Contributors"
+    },
+    "kicad-socket-1x8": {
+      "path": "footprints/Connector_PinSocket_2.54mm.pretty/PinSocket_1x08_P2.54mm_Vertical.kicad_mod",
+      "sha256": "063882d49721ea89894fbed3131d3263fcc950275a0f581666f7651593aebce3",
+      "bytes": 4227,
+      "library": "KiCad 10.0.7",
+      "licenseUrl": "https://www.kicad.org/libraries/license/",
+      "publisher": "KiCad Libraries Contributors"
+    },
+    "kicad-socket-1x8-step": {
+      "path": "3dmodels/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x08_P2.54mm_Vertical.step",
+      "sha256": "ea08834e672b1f96115f4d51e8db44b9d653dd2798afb956a0277425663d5832",
+      "bytes": 170058,
+      "library": "KiCad 10.0.7",
+      "licenseUrl": "https://www.kicad.org/libraries/license/",
+      "publisher": "KiCad Libraries Contributors"
+    },
+    "esp32-c3-devkitm-1-pinout": {
+      "path": "docs/research/downloads/2026-11-26-board-visuals/esp32-c3-devkitm-1-pinout.png",
+      "sha256": "fc7af279350219e235de68524038271ce9dc4cfa28c908b7315eee2676c997c7",
+      "bytes": 353343,
+      "use": "Hình pinout Espressif. Truy xuất từ hướng dẫn chính hãng của board.",
+      "publisher": "Espressif Systems",
+      "url": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c3/esp32-c3-devkitm-1/user_guide.html"
+    },
+    "esp32-devkitm-1-pinout": {
+      "path": "docs/research/downloads/2026-11-26-board-visuals/esp32-devkitm-1-pinout.png",
+      "sha256": "4649db57f817cbd79c4cd4288824186b0303e666dc310cf76d76c97c27a9a7c6",
+      "bytes": 410187,
+      "use": "Hình pinout Espressif. Truy xuất từ hướng dẫn chính hãng của board.",
+      "publisher": "Espressif Systems",
+      "url": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/esp32-devkitm-1/user_guide.html"
+    },
+    "esp32-c6-devkitc-1-pinout": {
+      "path": "docs/research/downloads/2026-11-26-board-visuals/esp32-c6-devkitc-1-pinout.png",
+      "sha256": "fe44a432672e82328852fedde18eec76740e99935f48d237ccdd29a0af464074",
+      "bytes": 367399,
+      "use": "Hình pinout Espressif. Truy xuất từ hướng dẫn chính hãng của board.",
+      "publisher": "Espressif Systems",
+      "url": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c6/esp32-c6-devkitc-1/user_guide.html"
+    },
+    "esp32-s2-devkitc-1-pinout": {
+      "path": "docs/research/downloads/2026-11-26-board-visuals/esp32-s2-devkitc-1-pinout.png",
+      "sha256": "f3b8dc8a02407f47dd928c2f8050b48b5d5e4e95ab6da63be64d8a6e4ed3054d",
+      "bytes": 505345,
+      "use": "Hình pinout Espressif. Truy xuất từ hướng dẫn chính hãng của board.",
+      "publisher": "Espressif Systems",
+      "url": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s2/esp32-s2-devkitc-1/user_guide.html"
+    },
+    "esp32-h2-devkitm-1-pinout": {
+      "path": "docs/research/downloads/2026-11-26-board-visuals/esp32-h2-devkitm-1-pinout.png",
+      "sha256": "0e861d6e64595de19c34b561a7d6e2b2db313767417a0213de3c99041da3d031",
+      "bytes": 328480,
+      "use": "Hình pinout Espressif. Truy xuất từ hướng dẫn chính hãng của board.",
+      "publisher": "Espressif Systems",
+      "url": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32h2/esp32-h2-devkitm-1/user_guide.html"
+    }
+  },
+  "boards": [
+    {
+      "catalogId": "esp32-c3-devkitm-1",
+      "orderCode": "ESP32-C3-DevKitM-1-N4X",
+      "pcbRevision": "PCB V1.0",
+      "module": "ESP32-C3-MINI-1",
+      "reference": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c3/esp32-c3-devkitm-1/user_guide.html",
+      "sourceIds": [
+        "c3-outline.dxf",
+        "c3-layout.pdf",
+        "c3-schematic.pdf",
+        "esp32-c3-devkitm-1-pinout"
+      ],
+      "geometry": "Tái dựng hình học trên nền PCB và vị trí header theo hồ sơ Espressif. Mô hình hóa module, cổng USB, nút và nhóm linh kiện xác định được theo tài liệu.",
+      "pinEvidence": "Đánh số và tên theo bảng Header Block riêng của thiết kế. Neo chọn chân đối chiếu vị trí trước khi bật.",
+      "revisionDetail": "Anten PCB, flash 4 MB, micro-USB. Nguồn hình học V1.0 ngày 2020-09-15."
+    },
+    {
+      "catalogId": "esp32-devkitm-1",
+      "orderCode": "ESP32-DevKitM-1",
+      "pcbRevision": "PCB V1.0",
+      "module": "ESP32-MINI-1",
+      "reference": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/esp32-devkitm-1/user_guide.html",
+      "sourceIds": [
+        "esp32-layout.pdf",
+        "esp32-schematic.pdf",
+        "esp32-devkitm-1-pinout"
+      ],
+      "geometry": "Tái dựng hình học trên nền PCB và vị trí header theo hồ sơ Espressif. Mô hình hóa module, cổng USB, nút và nhóm linh kiện xác định được theo tài liệu.",
+      "pinEvidence": "Đánh số và tên theo bảng Header Block riêng của thiết kế. Neo chọn chân đối chiếu vị trí trước khi bật.",
+      "revisionDetail": "Anten PCB, flash 4 MB, micro-USB. Dùng bản vẽ PCB vector có kích thước 43,81 × 25,40 mm, hai hàng cách 22,86 mm và bước chân 2,54 mm."
+    },
+    {
+      "catalogId": "esp32-c6-devkitc-1",
+      "orderCode": "ESP32-C6-DevKitC-1-N8",
+      "pcbRevision": "PCB v1.2, schematic v1.4",
+      "module": "ESP32-C6-WROOM-1",
+      "reference": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c6/esp32-c6-devkitc-1/user_guide.html",
+      "sourceIds": [
+        "c6-outline.dxf",
+        "c6-layout.pdf",
+        "c6-schematic.pdf",
+        "esp32-c6-devkitc-1-pinout"
+      ],
+      "geometry": "Tái dựng hình học trên nền PCB và vị trí header theo hồ sơ Espressif. Mô hình hóa module, cổng USB, nút và nhóm linh kiện xác định được theo tài liệu.",
+      "pinEvidence": "Đánh số và tên theo bảng Header Block riêng của thiết kế. Neo chọn chân đối chiếu vị trí trước khi bật.",
+      "revisionDetail": "Mẫu anten PCB flash 8 MB, hai USB-C. Áp dụng điều kiện lô PW-2024-03-0595 hoặc PW-2024-03-0921 trở đi theo tài liệu hãng."
+    },
+    {
+      "catalogId": "esp32-s2-devkitc-1",
+      "orderCode": "ESP32-S2-DevKitC-1-N8R2",
+      "pcbRevision": "PCB V1, schematic 2022-08-17",
+      "module": "ESP32-S2-SOLO-2",
+      "reference": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s2/esp32-s2-devkitc-1/user_guide.html",
+      "sourceIds": [
+        "s2-outline.dxf",
+        "s2-layout.pdf",
+        "s2-schematic.pdf",
+        "esp32-s2-devkitc-1-pinout"
+      ],
+      "geometry": "Tái dựng hình học trên nền PCB và vị trí header theo hồ sơ Espressif. Mô hình hóa module, cổng USB, nút và nhóm linh kiện xác định được theo tài liệu.",
+      "pinEvidence": "Đánh số và tên theo bảng Header Block riêng của thiết kế. Neo chọn chân đối chiếu vị trí trước khi bật.",
+      "revisionDetail": "Anten PCB, 8 MB flash và 2 MB PSRAM, hai hàng 22 chân. Áp dụng ghi chú GPIO18 của đúng module SOLO-2."
+    },
+    {
+      "catalogId": "esp32-h2-devkitm-1",
+      "orderCode": "ESP32-H2-DevKitM-1-N4",
+      "pcbRevision": "PCB v1.2, schematic v1.3",
+      "module": "ESP32-H2-MINI-1",
+      "reference": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32h2/esp32-h2-devkitm-1/user_guide.html",
+      "sourceIds": [
+        "h2-outline.dxf",
+        "h2-layout.pdf",
+        "h2-schematic.pdf",
+        "esp32-h2-devkitm-1-pinout"
+      ],
+      "geometry": "Tái dựng hình học trên nền PCB và vị trí header theo hồ sơ Espressif. Mô hình hóa module, cổng USB, nút và nhóm linh kiện xác định được theo tài liệu.",
+      "pinEvidence": "Đánh số và tên theo bảng Header Block riêng của thiết kế. Neo chọn chân đối chiếu vị trí trước khi bật.",
+      "revisionDetail": "Anten PCB, flash 4 MB, lô từ PW-2024-02-0362, giữ biến thể có thạch anh 32,768 kHz theo tài liệu hãng."
+    },
+    {
+      "catalogId": "stm32-nucleo-f411re",
+      "orderCode": "NUCLEO-F411RE",
+      "pcbRevision": "MB1136-F411RE-C04",
+      "mcu": "STM32F411RET6",
+      "reference": "https://www.st.com/en/evaluation-tools/nucleo-f411re.html",
+      "sourceIds": [
+        "st-um1724.pdf",
+        "st-c04-schematic",
+        "st-mb1136-board-project",
+        "st-opla.pdf",
+        "kicad-lqfp64-step",
+        "st-mb1136-bom"
+      ],
+      "geometry": "Mô hình tham chiếu dựng riêng cho C04, gồm thân PCB Nucleo-64, ST-LINK/V2-1, USB Mini-B, các đầu Arduino và Morpho, nút và MCU LQFP-64 đúng mã. Các package ngoài nhóm đã đối chiếu chỉ hiển thị nếu có căn cứ.",
+      "pinEvidence": "Bảng chân riêng của NUCLEO-F411RE trong UM1724 Rev 17. Đối chiếu đầu Arduino CN5/CN6/CN8/CN9 và Morpho CN7/CN10. Solder bridge giữ theo mặc định C04 được xác định trong tài liệu.",
+      "licenseScope": "Kiểm local phục vụ tra cứu thiết kế và kiểm thử. Mốc công khai phụ thuộc điều khoản ST và quyền với từng nguồn.",
+      "bom": {
+        "member": "MB1136-F411RE-C04_BOM.xlsx",
+        "sha256": "3528394dcbc59ab069b7f473578e6bbe28d877ef2c6b1bf25ea8dc2e72e0d583",
+        "bytes": 28108
+      }
+    },
+    {
+      "catalogId": "stm32-nucleo-l476rg",
+      "orderCode": "NUCLEO-L476RG",
+      "pcbRevision": "MB1136-L476RG-C04",
+      "mcu": "STM32L476RGT6",
+      "reference": "https://www.st.com/en/evaluation-tools/nucleo-l476rg.html",
+      "sourceIds": [
+        "st-um1724.pdf",
+        "st-c04-schematic",
+        "st-mb1136-board-project",
+        "st-opla.pdf",
+        "kicad-lqfp64-step"
+      ],
+      "geometry": "Mô hình tham chiếu dựng riêng cho C04, gồm thân PCB Nucleo-64, ST-LINK/V2-1, USB Mini-B, các đầu Arduino và Morpho, nút và MCU LQFP-64 đúng mã. Các package ngoài nhóm đã đối chiếu chỉ hiển thị nếu có căn cứ.",
+      "pinEvidence": "Bảng chân riêng của NUCLEO-L476RG trong UM1724 Rev 17. Đối chiếu đầu Arduino CN5/CN6/CN8/CN9 và Morpho CN7/CN10. Solder bridge giữ theo mặc định C04 được xác định trong tài liệu.",
+      "licenseScope": "Kiểm local phục vụ tra cứu thiết kế và kiểm thử. Mốc công khai phụ thuộc điều khoản ST và quyền với từng nguồn.",
+      "revisionDetail": "UM1724 xác nhận L476RG-C04. Gói BOM 3.1 đang lưu thiếu BOM riêng L476RG-C04. Chi tiết lắp/DNP chưa xác định giữ mức tham chiếu."
+    },
+    {
+      "catalogId": "stm32-nucleo-f446re",
+      "orderCode": "NUCLEO-F446RE",
+      "pcbRevision": "MB1136-F446RE-C04",
+      "mcu": "STM32F446RET6",
+      "reference": "https://www.st.com/en/evaluation-tools/nucleo-f446re.html",
+      "sourceIds": [
+        "st-um1724.pdf",
+        "st-c04-schematic",
+        "st-mb1136-board-project",
+        "st-opla.pdf",
+        "kicad-lqfp64-step",
+        "st-mb1136-bom"
+      ],
+      "geometry": "Mô hình tham chiếu dựng riêng cho C04, gồm thân PCB Nucleo-64, ST-LINK/V2-1, USB Mini-B, các đầu Arduino và Morpho, nút và MCU LQFP-64 đúng mã. Các package ngoài nhóm đã đối chiếu chỉ hiển thị nếu có căn cứ.",
+      "pinEvidence": "Bảng chân riêng của NUCLEO-F446RE trong UM1724 Rev 17. Đối chiếu đầu Arduino CN5/CN6/CN8/CN9 và Morpho CN7/CN10. Solder bridge giữ theo mặc định C04 được xác định trong tài liệu.",
+      "licenseScope": "Kiểm local phục vụ tra cứu thiết kế và kiểm thử. Mốc công khai phụ thuộc điều khoản ST và quyền với từng nguồn.",
+      "bom": {
+        "member": "MB1136-F446RE-C04_BOM.xlsx",
+        "sha256": "756b759370503662615ab84c418b8039f1e54a80b110640afeb83ddb04c70b88",
+        "bytes": 28132
+      }
+    },
+    {
+      "catalogId": "arduino-nano-every",
+      "orderCode": "ABX00028",
+      "pcbRevision": "NANOEveryV4.0",
+      "mcu": "ATmega4809",
+      "reference": "https://docs.arduino.cc/hardware/nano-every/",
+      "sourceIds": [
+        "nano-every-cad.zip",
+        "nano-every-pinout.pdf"
+      ],
+      "geometry": "Dựng từ contour, dữ liệu vị trí và pad gốc của Arduino V4.0. Contour theo FAB 1700 × 700 mil tương đương 43,18 × 17,78 mm. Phiên bản chưa hàn header.",
+      "pinEvidence": "30 vị trí dọc hai hàng. Tra tên và thứ tự chân từ pinout ABX00028 rồi ghép pad/net IPC-D-356 theo cùng hệ tọa độ sau khi kiểm đối chiếu.",
+      "archiveMembers": [
+        {
+          "member": "NANOEveryV4.0_Documentation/NANOEveryV4.0.fab",
+          "sha256": "d7afd081603e00b9fc460e274a78d1a772dbcf2ed07eed2fdb000349459281e6",
+          "bytes": 104699
+        },
+        {
+          "member": "NANOEveryV4.0_Documentation/NANOEveryV4.0.dxf",
+          "sha256": "5ec06d57466ee63a84d987ca4093507d56c1ebba1d6a7dee75de3bc76c0279a5",
+          "bytes": 2083973
+        },
+        {
+          "member": "NANOEveryV4.0_Documentation/NANOEveryV4.0.mnt",
+          "sha256": "3015518a3fa8a87bfebb7a5a724f041a145264d3ed8e80160cd9a8d40c776596",
+          "bytes": 1990
+        },
+        {
+          "member": "NANOEveryV4.0_Documentation/NANOEveryV4.0.mnb",
+          "sha256": "4f47786373ea0b6f98230568de1bdd5da348efe80d86bdd7347a39a4cb0aa2c2",
+          "bytes": 97
+        },
+        {
+          "member": "NANOEveryV4.0_Documentation/NANOEveryV4.0.ipc",
+          "sha256": "cb365ac11f61af48855a2958f5fecd68cdacae4af62d6256a6141452ac7fb812",
+          "bytes": 31776
+        },
+        {
+          "member": "NANOEveryV4.0_Documentation/NANOEveryV4.0_placement.pdf",
+          "sha256": "86b090180dedb738b1424026816606f7dbebe600b7afb7fa04656336c4be7a89",
+          "bytes": 19049
+        },
+        {
+          "member": "NANOEveryV4.0_Documentation/NANOEveryV4.0_sch.pdf",
+          "sha256": "da12881468f55c0ab5544a36fdb7bcdf8e1bd2f4b8a6780899785e31e368e2f7",
+          "bytes": 61341
+        },
+        {
+          "member": "NANOEveryV4.0_Documentation/License.txt",
+          "sha256": "0bccb1994c9dbd6c8fd50f51fd1c7b6c68b3463b823b37595884f36d89e096a5",
+          "bytes": 211
+        }
+      ],
+      "licenseScope": "Dùng gói Arduino CC BY-SA 4.0, lưu nguồn và thông tin chuyển đổi."
+    }
+  ],
+  "components": [
+    {
+      "catalogId": "dht11",
+      "manufacturer": "ASAIR",
+      "mpn": "DHT11",
+      "revision": "Datasheet 2022-12, hình 3 và mục 4",
+      "sourceIds": [
+        "asair-dht11-2022-12.pdf",
+        "kicad-dht11-pad-reference"
+      ],
+      "geometry": {
+        "method": "Dựng theo kích thước bản ASAIR 2022-12",
+        "bodyWidthMm": 12.5,
+        "bodyHeightMm": 16.0,
+        "bodyDepthMm": 6.0,
+        "leadPitchMm": 2.54,
+        "leadLengthMm": 7.2,
+        "leadLengthToleranceMm": 0.5,
+        "bodyToleranceMm": 0.3
+      },
+      "footprint": {
+        "name": "ASAIR_DHT11_2022-12_THT_P2.54",
+        "layout": "4 lỗ xuyên theo hàng ngang. Tâm pad 1 tại gốc, pad 2–4 theo +X.",
+        "pitchMm": 2.54,
+        "drillMm": 0.8,
+        "padSizeMm": [
+          1.5,
+          1.5
+        ],
+        "outline": "F.Fab và courtyard theo thân 12,5 × 6,0 mm của bản 2022-12"
+      },
+      "pins": [
+        {
+          "pad": 1,
+          "label": "VCC",
+          "libraryPinId": "vcc"
+        },
+        {
+          "pad": 2,
+          "label": "DATA / SDA",
+          "libraryPinId": "data"
+        },
+        {
+          "pad": 3,
+          "label": "NC",
+          "libraryPinId": null
+        },
+        {
+          "pad": 4,
+          "label": "GND",
+          "libraryPinId": "gnd"
+        }
+      ],
+      "detail": "Vỏ KiCad có tên 5,5 × 12,0 mm thuộc hình học khác. Chỉ dùng làm tham chiếu pad. Giữ chân NC trong footprint và sơ đồ chân."
+    },
+    {
+      "catalogId": "dht22-bare",
+      "manufacturer": "ASAIR",
+      "mpn": "AM2302 / DHT22 rời",
+      "revision": "V1.0, 2019-03, hình 1 và bảng 4",
+      "sourceIds": [
+        "asair-am2302-v1.pdf",
+        "kicad-am2302-pad-reference"
+      ],
+      "geometry": {
+        "method": "Dựng theo hình học ASAIR có tai bắt vít",
+        "bodyWidthMm": 15.4,
+        "bodyHeightWithTabMm": 25.3,
+        "bodyHeightWithoutTabMm": 20.1,
+        "bodyDepthMm": 7.8,
+        "tabThicknessMm": 1.4,
+        "leadPitchMm": 2.54,
+        "leadLengthMm": 7.5,
+        "leadLengthToleranceMm": 0.5,
+        "detail": "Kích thước lỗ tai bắt vít chỉ hiển thị ở mức tham chiếu khi bản vẽ chưa ghi trị số."
+      },
+      "footprint": {
+        "name": "ASAIR_AM2302_V1_THT_P2.54",
+        "layout": "Bốn lỗ theo hàng ngang và tâm pad 1 tại gốc.",
+        "pitchMm": 2.54,
+        "drillMm": 0.8,
+        "padSizeMm": [
+          1.5,
+          1.5
+        ],
+        "outline": "Kiểm F.Fab và courtyard theo kích thước thân bản V1.0"
+      },
+      "pins": [
+        {
+          "pad": 1,
+          "label": "VDD",
+          "libraryPinId": "vcc"
+        },
+        {
+          "pad": 2,
+          "label": "DATA / SDA",
+          "libraryPinId": "data"
+        },
+        {
+          "pad": 3,
+          "label": "NC",
+          "libraryPinId": null
+        },
+        {
+          "pad": 4,
+          "label": "GND",
+          "libraryPinId": "gnd"
+        }
+      ],
+      "detail": "Chân 2 là SDA của giao thức một dây ASAIR. Chân 3 NC giữ ở mô hình cơ khí, schematic pinout và footprint."
+    },
+    {
+      "catalogId": "keypad-4x4",
+      "manufacturer": "Adafruit",
+      "mpn": "PID 3844",
+      "revision": "Pinouts riêng PID 3844, 2024-03-08",
+      "reference": "https://learn.adafruit.com/matrix-keypad/pinouts",
+      "productReference": "https://www.adafruit.com/product/3844",
+      "sourceIds": [
+        "adafruit-3844-diagram.jpg",
+        "adafruit-3844-pinout.jpg",
+        "kicad-socket-1x8",
+        "kicad-socket-1x8-step"
+      ],
+      "geometry": {
+        "method": "Dựng hình keypad cứng 4 × 4 theo kích thước ngoài và hình pinout mặt phím",
+        "envelopeMm": [
+          69.0,
+          65.5,
+          9.7
+        ],
+        "orientation": "Nhìn từ mặt phím với hàng sao, 0, thăng, D nằm dưới. Hàng đầu nối theo NC, C1–C4, R1–R4, NC từ trái sang phải.",
+        "unpopulatedOuterPositions": 2
+      },
+      "footprint": {
+        "name": "Adafruit_3844_MatingSocket_1x08_P2.54",
+        "layout": "Socket gắn trên PCB nhận tám chân giữa. Pad 1 ứng với C1 theo ảnh pinout.",
+        "pitchMm": 2.54,
+        "pitchEvidence": "Chuẩn socket breadboard đề xuất theo header đi kèm sản phẩm. Cần kiểm mẫu khi dùng để gia công hoặc kiểm độ khít.",
+        "sourceId": "kicad-socket-1x8"
+      },
+      "pins": [
+        {
+          "pad": 1,
+          "label": "C1",
+          "libraryPinId": "c1"
+        },
+        {
+          "pad": 2,
+          "label": "C2",
+          "libraryPinId": "c2"
+        },
+        {
+          "pad": 3,
+          "label": "C3",
+          "libraryPinId": "c3"
+        },
+        {
+          "pad": 4,
+          "label": "C4",
+          "libraryPinId": "c4"
+        },
+        {
+          "pad": 5,
+          "label": "R1",
+          "libraryPinId": "r1"
+        },
+        {
+          "pad": 6,
+          "label": "R2",
+          "libraryPinId": "r2"
+        },
+        {
+          "pad": 7,
+          "label": "R3",
+          "libraryPinId": "r3"
+        },
+        {
+          "pad": 8,
+          "label": "R4",
+          "libraryPinId": "r4"
+        }
+      ],
+      "detail": "Dùng hướng nhìn và cột/hàng theo ảnh đánh số riêng của PID 3844. Mô tả trái/phải trên trang bán hàng không xác định hướng nhìn."
+    },
+    {
+      "catalogId": "seven-segment-anode",
+      "manufacturer": "Kingbright",
+      "mpn": "SA56-11EWA",
+      "revision": "DSAP8372 V.1A, trang 1",
+      "sourceIds": [
+        "kingbright-sa56-11ewa.pdf"
+      ],
+      "geometry": {
+        "method": "Dựng từ bản vẽ Kingbright",
+        "faceWidthMm": 12.7,
+        "faceHeightMm": 19.05,
+        "bodyDepthMm": 8.0,
+        "digitHeightMm": 14.22,
+        "decimalPoint": "bên phải",
+        "common": "anode",
+        "leadLengthMm": 4.0,
+        "leadLengthToleranceMm": 0.5
+      },
+      "footprint": {
+        "name": "Kingbright_SA56-11EWA_THT_15.24x2.54",
+        "layout": "Nhìn mặt hiển thị với DP ở dưới bên phải. Trên trái sang phải 10–6. Dưới trái sang phải 1–5.",
+        "pitchMm": 2.54,
+        "rowSpacingMm": 15.24,
+        "drillMm": 1.0,
+        "padDiameterMm": 1.8,
+        "pad1Shape": "rect",
+        "origin": "Tâm mặt hiển thị",
+        "topRowYmm": -7.62,
+        "bottomRowYmm": 7.62
+      },
+      "pins": [
+        {
+          "pad": 1,
+          "label": "E",
+          "libraryPinId": "e"
+        },
+        {
+          "pad": 2,
+          "label": "D",
+          "libraryPinId": "d"
+        },
+        {
+          "pad": 3,
+          "label": "COM1 (+)",
+          "libraryPinId": "com1"
+        },
+        {
+          "pad": 4,
+          "label": "C",
+          "libraryPinId": "c"
+        },
+        {
+          "pad": 5,
+          "label": "DP",
+          "libraryPinId": "dp"
+        },
+        {
+          "pad": 6,
+          "label": "B",
+          "libraryPinId": "b"
+        },
+        {
+          "pad": 7,
+          "label": "A",
+          "libraryPinId": "a"
+        },
+        {
+          "pad": 8,
+          "label": "COM2 (+)",
+          "libraryPinId": "com2"
+        },
+        {
+          "pad": 9,
+          "label": "F",
+          "libraryPinId": "f"
+        },
+        {
+          "pad": 10,
+          "label": "G",
+          "libraryPinId": "g"
+        }
+      ]
+    }
+  ],
+  "localAcceptance": [
+    "Đối chiếu đủ 9 board theo SKU/revision, hình học, ảnh chiếu, góc nhìn và sơ đồ chân. Khóa hai chiều tên chân và tọa độ giữa 2D/3D.",
+    "Kiểm định đầy đủ pad và đường kính khoan của 4 footprint. Mở bằng KiCad 10.0.7. So khớp pin 1, NC, cực tính, khoảng cách và góc nhìn đúng.",
+    "Kiểm luồng chọn chân từ 2D sang footprint và 3D. Kiểm chế độ phòng hờ khi WebGL mất và bố cục màn hình hẹp.",
+    "Chạy build, hồi quy kho linh kiện và board, R1–R5 và bộ 7 mẫu đã duyệt trước. Ghi log và trạng thái theo từng mẫu."
+  ],
+  "licenseReferences": {
+    "espressifReferenceDesigns": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c3/disclaimer-and-copyright.html",
+    "stReferenceMaterial": "st-opla.pdf",
+    "arduinoDesignFiles": "nano-every-cad.zip#NANOEveryV4.0_Documentation/License.txt",
+    "kicadLibraries": "https://www.kicad.org/libraries/license/"
+  }
+}

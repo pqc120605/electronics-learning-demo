@@ -1,0 +1,384 @@
+{
+  "dht11": {
+    "file": "/models/components/catalog-kit-1/dht11.glb",
+    "bytes": 24752,
+    "sha256": "0c5a1b527b5c5392d50e382dd65f504d97d1fbca184675922b5605d23e1299fd",
+    "boundsMm": {
+      "min": [
+        -2.44,
+        -7.2,
+        -2.55
+      ],
+      "max": [
+        10.06,
+        16,
+        3.45
+      ]
+    },
+    "sizeMm": [
+      12.5,
+      23.2,
+      6
+    ],
+    "triangles": 204,
+    "sourceFile": "docs/research/downloads/2026-11-26-catalog-remaining/asair-dht11-2022-12.pdf",
+    "sourceSha256": "ea43d2dac433805fcad511709d33a92e43367f4dd1d00b5818a77053ba651409",
+    "footprint": "ASAIR_DHT11_2022-12_THT_P2.54.kicad_mod",
+    "footprintSha256": "63f9d79f5594a2665ab542362b353b7c8a63e548ede2e9eeca475c306e4f9eb5",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 1.5,
+        "height": 1.5,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 2.54,
+        "z": 0,
+        "width": 1.5,
+        "height": 1.5,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 5.08,
+        "z": 0,
+        "width": 1.5,
+        "height": 1.5,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.5,
+        "height": 1.5,
+        "drill": 0.8
+      }
+    ],
+    "maxOffsetMm": 0,
+    "mount": "bench",
+    "footprintBoxMm": [
+      -2.44,
+      -2.55,
+      10.06,
+      3.45
+    ]
+  },
+  "dht22-bare": {
+    "file": "/models/components/catalog-kit-1/dht22-bare.glb",
+    "bytes": 37728,
+    "sha256": "94702c234bf488165a4ced1e68077d9a238cd07a6fe6ffaf26d5e6424ec5d952",
+    "boundsMm": {
+      "min": [
+        -3.89,
+        -7.5,
+        -3.9
+      ],
+      "max": [
+        11.51,
+        25.3,
+        3.9
+      ]
+    },
+    "sizeMm": [
+      15.4,
+      32.8,
+      7.8
+    ],
+    "triangles": 496,
+    "sourceFile": "docs/research/downloads/2026-11-26-catalog-remaining/asair-am2302-v1.pdf",
+    "sourceSha256": "a8f321e5f91420d78c6282e17c8913a85c89f265991a20c5d8e6111b10f600fd",
+    "footprint": "ASAIR_AM2302_V1_THT_P2.54.kicad_mod",
+    "footprintSha256": "66cea07d9579fcdd034916ede9306e525edb418ed3352bce4c2bedcb54b58f8d",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 1.5,
+        "height": 1.5,
+        "drill": 0.8
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 2.54,
+        "z": 0,
+        "width": 1.5,
+        "height": 1.5,
+        "drill": 0.8
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 5.08,
+        "z": 0,
+        "width": 1.5,
+        "height": 1.5,
+        "drill": 0.8
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.5,
+        "height": 1.5,
+        "drill": 0.8
+      }
+    ],
+    "maxOffsetMm": 0,
+    "mount": "bench",
+    "footprintBoxMm": [
+      -3.89,
+      -3.9,
+      11.51,
+      3.9
+    ]
+  },
+  "keypad-4x4": {
+    "file": "/models/components/catalog-kit-1/keypad-4x4.glb",
+    "bytes": 282728,
+    "sha256": "adec4f29b43531f11a8b06bef0151acd52ca6b799172bb21f304c98123798d85",
+    "boundsMm": {
+      "min": [
+        -25.61,
+        -2.575,
+        -63.3
+      ],
+      "max": [
+        43.39,
+        9.7,
+        2.2
+      ]
+    },
+    "sizeMm": [
+      69,
+      12.275,
+      65.5
+    ],
+    "triangles": 3456,
+    "sourceFile": "docs/research/downloads/2026-11-26-catalog-remaining/adafruit-3844-diagram.jpg",
+    "sourceSha256": "aa0e4ba1e2acde94ca18bc476d05339f3562ae4bb6b315b400764bd0140a27e4",
+    "footprint": "Adafruit_3844_MatingSocket_1x08_P2.54.kicad_mod",
+    "footprintSha256": "7b603e19b790a074f585ee0c753f595a35224b560eff5a29040bc5a57cfbad6a",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "rect",
+        "x": 0,
+        "z": 0,
+        "width": 1.7,
+        "height": 1.7,
+        "drill": 1
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": 2.54,
+        "z": 0,
+        "width": 1.7,
+        "height": 1.7,
+        "drill": 1
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 5.08,
+        "z": 0,
+        "width": 1.7,
+        "height": 1.7,
+        "drill": 1
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 7.62,
+        "z": 0,
+        "width": 1.7,
+        "height": 1.7,
+        "drill": 1
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 10.16,
+        "z": 0,
+        "width": 1.7,
+        "height": 1.7,
+        "drill": 1
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 12.7,
+        "z": 0,
+        "width": 1.7,
+        "height": 1.7,
+        "drill": 1
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 15.24,
+        "z": 0,
+        "width": 1.7,
+        "height": 1.7,
+        "drill": 1
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 17.78,
+        "z": 0,
+        "width": 1.7,
+        "height": 1.7,
+        "drill": 1
+      }
+    ],
+    "maxOffsetMm": 0,
+    "mount": "bench",
+    "footprintBoxMm": [
+      -1.27,
+      -1.27,
+      19.05,
+      1.27
+    ]
+  },
+  "seven-segment-anode": {
+    "file": "/models/components/catalog-kit-1/seven-segment-anode.glb",
+    "bytes": 64936,
+    "sha256": "d8b165f4f3b9279ac23dee7167d0e79c686c9167745352762bdf7cf99213d479",
+    "boundsMm": {
+      "min": [
+        -6.35,
+        -4,
+        -9.525
+      ],
+      "max": [
+        6.35,
+        8,
+        9.525
+      ]
+    },
+    "sizeMm": [
+      12.7,
+      12,
+      19.05
+    ],
+    "triangles": 1504,
+    "sourceFile": "docs/research/downloads/2026-11-26-catalog-remaining/kingbright-sa56-11ewa.pdf",
+    "sourceSha256": "2124a2db390813569f9818ff92b275f8b0e13cbd4d4ad6a957dd3448d54d6919",
+    "footprint": "Kingbright_SA56-11EWA_THT_15.24x2.54.kicad_mod",
+    "footprintSha256": "d95226ca24a3c57785c08af82294688cf052d7c8d44854b1baf9cdd12671728a",
+    "pads": [
+      {
+        "pad": 1,
+        "shape": "rect",
+        "x": -5.08,
+        "z": 7.62,
+        "width": 1.8,
+        "height": 1.8,
+        "drill": 1
+      },
+      {
+        "pad": 2,
+        "shape": "circle",
+        "x": -2.54,
+        "z": 7.62,
+        "width": 1.8,
+        "height": 1.8,
+        "drill": 1
+      },
+      {
+        "pad": 3,
+        "shape": "circle",
+        "x": 0,
+        "z": 7.62,
+        "width": 1.8,
+        "height": 1.8,
+        "drill": 1
+      },
+      {
+        "pad": 4,
+        "shape": "circle",
+        "x": 2.54,
+        "z": 7.62,
+        "width": 1.8,
+        "height": 1.8,
+        "drill": 1
+      },
+      {
+        "pad": 5,
+        "shape": "circle",
+        "x": 5.08,
+        "z": 7.62,
+        "width": 1.8,
+        "height": 1.8,
+        "drill": 1
+      },
+      {
+        "pad": 6,
+        "shape": "circle",
+        "x": 5.08,
+        "z": -7.62,
+        "width": 1.8,
+        "height": 1.8,
+        "drill": 1
+      },
+      {
+        "pad": 7,
+        "shape": "circle",
+        "x": 2.54,
+        "z": -7.62,
+        "width": 1.8,
+        "height": 1.8,
+        "drill": 1
+      },
+      {
+        "pad": 8,
+        "shape": "circle",
+        "x": 0,
+        "z": -7.62,
+        "width": 1.8,
+        "height": 1.8,
+        "drill": 1
+      },
+      {
+        "pad": 9,
+        "shape": "circle",
+        "x": -2.54,
+        "z": -7.62,
+        "width": 1.8,
+        "height": 1.8,
+        "drill": 1
+      },
+      {
+        "pad": 10,
+        "shape": "circle",
+        "x": -5.08,
+        "z": -7.62,
+        "width": 1.8,
+        "height": 1.8,
+        "drill": 1
+      }
+    ],
+    "maxOffsetMm": 0,
+    "mount": "bench",
+    "footprintBoxMm": [
+      -6.35,
+      -9.525,
+      6.35,
+      9.525
+    ]
+  }
+}

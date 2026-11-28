@@ -1,0 +1,93 @@
+{
+  "revision": "MM-ESP32-C3-SIM-FW-A2",
+  "date": "2026-11-27",
+  "status": "proposal-for-approval",
+  "scope": "Một mạch nút nhấn và LED ESP32-C3 chạy firmware RISC-V thật, một phép giải DC trên cùng topology và rà đầu cắm còn thiếu của 28 board. Kiểm thử local trên Mạch Mở.",
+  "capabilities": {
+    "ids": ["CAT-01", "CAT-02", "CAT-03", "FW-04", "FW-07", "FW-08", "SIM-02", "SIM-03", "SIM-04"],
+    "exitDepth": "D3 cho đúng target, mạch mẫu và các đầu cắm đã có chứng cứ. Không nâng trạng thái chung của các MCU, ngoại vi hay mạch chưa kiểm.",
+    "contracts": ["K-ID", "K-CTX", "K-RUN", "K-TIME", "K-STORE"]
+  },
+  "baseline": {
+    "worktree": ".tmp/na",
+    "head": "357e8fc427565c76acec8ecc78fcaa4206bdd7c1",
+    "a1Config": "docs/research/2026-11-26-board-pin-electrical-firmware-a-proposal.json",
+    "a1Sha256": "63d5b0db7a420da9fbda0dc7beda4f92c606fb922cfe9db2d99b371ca8b66826",
+    "existingHeaderLocations": 1276
+  },
+  "board": {
+    "id": "esp32-c3-devkitm-1",
+    "revision": "ESP32-C3-DevKitM-1-N4X · PCB V1.0",
+    "module": "ESP32-C3-MINI-1",
+    "target": "esp32c3",
+    "logicV": 3.3,
+    "guide": "https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c3/esp32-c3-devkitm-1/user_guide.html",
+    "schematic": "https://dl.espressif.com/dl/schematics/SCH_ESP32-C3-DEVKITM-1_V1_20200915A.pdf",
+    "schematicSha256": "d2ac6d649cbea3ce4b2295a261f78823bf61e536f69fe4bee2b6e4142bd86542",
+    "pinNotes": {
+      "bootStraps": [2, 8, 9],
+      "padJtag": { "J3:11": "GPIO4 / MTMS", "J3:10": "GPIO5 / MTDI", "J3:9": "GPIO6 / MTCK", "J3:8": "GPIO7 / MTDO" },
+      "nativeUsb": { "J3:13": "GPIO18 / USB_D−", "J3:14": "GPIO19 / USB_D+" },
+      "uart0": { "J3:2": "GPIO21 / U0TXD", "J3:3": "GPIO20 / U0RXD" },
+      "explanation": "Micro-USB trên DevKitM-1 nối cầu USB–UART. Hai chân USB native và các chân JTAG là chức năng trên header hiện có. Mẫu đặt GPIO4 ở chế độ GPIO, không gắn JTAG ngoài và không dùng các chân strap."
+    }
+  },
+  "runtime": {
+    "engine": "Espressif ESP-EMU v1.2.0, WebAssembly",
+    "engineAsset": "https://github.com/espressif/esp-emulator/releases/download/v1.2.0/esp-emu-1.2.0-wasm.tar.gz",
+    "engineAssetSha256": "29cd94f779a7618d2646960dfb8897849e78a5e023de1da3ca831f658534a655",
+    "engineDocs": "https://github.com/espressif/esp-emulator/blob/v1.2.0/docs/guides/BROWSER.md",
+    "gpioBridgeDocs": "https://github.com/espressif/esp-emulator/blob/v1.2.0/docs/guides/PARTS.md",
+    "license": "https://github.com/espressif/esp-emulator/blob/v1.2.0/LICENSE",
+    "rom": "ROM ESP32-C3 rev3 nhúng trong bản WASM của hãng",
+    "sdk": "ESP-IDF v5.5.6, target esp32c3, esp_driver_gpio và FreeRTOS tích hợp, không có thư viện app ngoài",
+    "sdkRelease": "https://github.com/espressif/esp-idf/releases/tag/v5.5.6",
+    "sdkArchiveSha256": "d6c08f2bd7f0875c46c65cb5a34f83337bea092c9b0337405f62d1923ed73ddb",
+    "compiler": "riscv32-esp-elf esp-14.2.0_20260121 theo tools.json của ESP-IDF v5.5.6",
+    "compilerWin64Sha256": "c2734714e59f684b74d1cb278f75b4ae9ec546aa1e55d73786ef039410e4a8f7",
+    "gpioBridge": "Giao diện virtual parts của ESP-EMU v1.2.0. Dùng WasmEmulator và giao thức CosimPump với quantum mặc định 1.000 µs mô phỏng. Bridge chỉ đưa mức vào GPIO4 và chỉ theo dõi GPIO4, GPIO10 trong mạch này.",
+    "flash": { "bytes": 4194304, "mode": "DIO", "frequencyMHz": 40, "partitionTableOffset": "0x8000", "factoryAppOffset": "0x10000", "bootloaderOffset": "0x0000", "partitionScheme": "single factory app / no OTA" },
+    "console": "UART0 115200. Mốc A2_READY, A2_BUTTON=0/1 từ firmware. Hiển thị mức LED từ GPIO10 của emulator.",
+    "inputs": "Chỉ cung cấp ảnh flash mẫu biên dịch từ nguồn Mạch Mở. Kiểm target trong header, SHA-256 và kích thước của ảnh đã đóng gói trước khi chạy. Lưu compiler, sdkconfig và flasher_args kèm log biên dịch.",
+    "integration": "Worker tải theo yêu cầu từ cùng origin. Từ CircuitDocV2 kiểm pad, rail, pull-up, chiều LED và net, đưa mức nút nhấn đã giải vào GPIO4 qua bridge. Đọc chuyển mức GPIO10 từ emulator để cập nhật LED và trace theo thời gian mô phỏng. Dừng hoặc thay mạch huỷ worker và bỏ frame cũ. Trình duyệt chạy guest/local, không upload firmware, không nối relay mạng, không nạp board thật.",
+    "limits": "Tối đa 10 giây wall-clock chờ boot, 60 giây mỗi lần chạy và một phiên mỗi tab. Wi-Fi, BLE, flash/debug vật lý, ADC, PWM và bus ngoài phạm vi mẫu. Tài sản WASM, ROM và giấy phép đi kèm được kiểm riêng trước mọi phát hành công khai."
+  },
+  "fixture": {
+    "id": "a2-c3-button-led",
+    "gpio": { "button": { "gpio": 4, "pad": "J3:11", "mode": "input", "internalPull": "off", "active": "LOW" }, "led": { "gpio": 10, "pad": "J1:11", "mode": "push-pull output", "active": "HIGH" } },
+    "nets": ["J1:2 (3V3) — Rpull 10 kΩ — GPIO4 — nút nhấn thường hở — J1:1 (GND)", "GPIO10 — Rled 1 kΩ — anode LED đỏ mô hình A2 — cathode LED — J1:1 (GND)"],
+    "controls": "Nhả lúc boot. Quét mỗi 10 ms, xác nhận sau 40 ms ổn định. Nhấn: GPIO4 LOW, GPIO10 HIGH. Nhả: GPIO4 HIGH, GPIO10 LOW. Thử lặp nhấn/nhả và mất dây.",
+    "spice": {
+      "engine": "ngspice 45.2 WASM",
+      "wasmSha256": "3096ce2c499c3062472b9d7953f5141d75a019296e22b0142f4979e5894008ec",
+      "analysis": "Điểm làm việc DC ở 27 °C. Nguồn 3,3 V. GPIO4 có trở kháng vào lý tưởng. GPIO10 thay bằng nguồn lý tưởng 0 hoặc 3,3 V lấy từ trạng thái số đã quan sát. Nút nhả hở mạch, nút nhấn 1 Ω.",
+      "redLedModel": { "isA": 1e-18, "n": 2.2, "rsOhm": 20, "type": "mô hình diode đỏ giáo dục kế thừa A1" },
+      "passCriteria": { "ledOnMa": [1.1, 1.5], "maxLedOffAbsoluteMa": 0.001, "releasedInputV": [3.29, 3.31], "maxPressedInputV": 0.001, "maxLedBranchKvlResidualV": 0.001 },
+      "limits": "Mức logic và thời gian từ firmware tách với kết quả V/I từ ngspice. Phân tích lại từng trạng thái được hỗ trợ khi topology hợp lệ. Không mô hình điện của chip, công suất toàn board, tín hiệu radio hay phản hồi analog liên tục."
+    }
+  },
+  "connectorAudit": {
+    "coverage": "Rà toàn bộ 28 board ở baseline A1 theo đúng revision. Mỗi đầu cắm hoặc test pad có kết luận đã đủ, đủ bằng chứng bổ sung, chỉ tra cứu vì chưa có neo, hoặc mở vì chưa xác định. Kiểm cả đầu debug, bus mở rộng, jumper nguồn và test pad được tài liệu hóa. Không coi một net MCU nội bộ là chân vật lý đã đưa ra ngoài.",
+    "identity": "Giữ 1.276 khóa A1 và partId/pinId trong bản nháp. Neo bổ sung dùng boardId/revision/header/pad; pad phụ cần đồng thời có ký hiệu, thứ tự và vị trí từ đúng nguồn. Mục chỉ biết tên tín hiệu hiển thị tra cứu theo tên, không gán số pad, không tạo điểm bắt dây ảo. NC, terminal khóa cơ, jumper và tín hiệu nguồn debug có trạng thái riêng.",
+    "additions": [
+      { "boards": ["stm32-nucleo", "stm32-nucleo-f411re", "stm32-nucleo-l476rg", "stm32-nucleo-f446re"], "revisions": ["MB1136-F401RE-C04", "MB1136-F411RE-C04", "MB1136-L476RG-C04", "MB1136-F446RE-C04"], "connector": "CN4", "pads": { "1": "VDD_TARGET từ mạch đích", "2": "SWCLK", "3": "GND", "4": "SWDIO", "5": "NRST", "6": "SWO / reserved ở chế độ CN4 ngoài" }, "conditions": "CN2 ON mặc định để ST-LINK dùng MCU trên board. CN2 OFF khi dùng CN4 cho target ngoài. SB12 phải OFF khi pin 5 dùng với target ngoài. Ghi trạng thái SB15/SWO theo từng mẫu C04. Đối chiếu CN2, JP1, JP5, JP6 theo bảng jumper, không biến thành GPIO.", "source": "https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf", "evidence": "UM1724 Rev 17, mục 7.4–7.6, bảng 4–10", "sourceSha256": "576d9bee3bc32c8ee70bf0d77cf9494cec06ea7c1d9ff98eebf2738cb9314a14" },
+      { "boards": ["raspberry-pi-pico", "raspberry-pi-pico-w", "raspberry-pi-pico-2", "raspberry-pi-pico-2-h"], "connector": "SWD riêng ngoài J0", "signalKeys": ["SWCLK", "GND", "SWDIO"], "pico2hJstPads": { "1": "SWCLK", "2": "GND", "3": "SWDIO" }, "conditions": "Ba tín hiệu giống nhau, không có chân nguồn. Pico/Pico 2 dùng 3 pad ở mép dưới. Pico W dùng 3 pad ngay dưới vi điều khiển. Pico 2 H SC1632 dùng JST 3 chân có khóa ở mép dưới. Xác minh neo theo bản vẽ/STEP riêng của biến thể, giữ tên tín hiệu làm khóa tra cứu khi tài liệu không ghi số chân hãng.", "source": "https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#debug-connector-swd", "jstSource": "https://pip.raspberrypi.com/documents/RP-008189-DS" },
+      { "boards": ["arduino-uno-r4-minima"], "revision": "ABX00080", "connector": "SWD 10 chân và ICSP 6 chân", "swdPads": { "1": "+5V OUT", "2": "SWDIO / P108", "3": "GND", "4": "SWCLK / P300", "5": "GND", "6": "NC", "7": "SCI_RXD1 / P502", "8": "SCI_TXD1 / P501", "9": "GND", "10": "RESET" }, "icspPads": { "1": "CIPOB / P110", "2": "+5V OUT", "3": "RSPCKB / P111", "4": "COPIB / P109", "5": "RESET", "6": "GND" }, "source": "https://docs.arduino.cc/resources/pinouts/ABX00080-full-pinout.pdf" },
+      { "boards": ["arduino-uno-r4-wifi"], "revision": "ABX00087", "connector": "J2 Qwiic, J6 ESP Header, J3 ICSP, nhóm pad nguồn/RTC và debug có trong sơ đồ", "signalKeys": { "qwiic": ["GND", "3V3", "SDA / P401", "SCL / P400"] }, "espHeaderPads": { "1": "GPIO42 / MTMS", "2": "GPIO41 / MTDI", "3": "GPIO43 / TXD0", "4": "GPIO0 / DOWNLOAD", "5": "GPIO44 / RXD0", "6": "GND" }, "icspPads": { "1": "CIPO / P410", "2": "+5V", "3": "RSPCKA / P102", "4": "COPI / P411", "5": "RESET", "6": "GND" }, "conditions": "Qwiic và ESP Header dùng 3,3 V. Gắn chức năng ESP Header cho ESP32-S3 phụ và ICSP cho RA4M1. Chỉ cấp neo khi pinout và schematic cùng khớp board.", "source": "https://docs.arduino.cc/resources/pinouts/ABX00087-full-pinout.pdf", "datasheet": "https://docs.arduino.cc/resources/datasheets/ABX00087-datasheet.pdf", "schematic": "https://docs.arduino.cc/resources/schematics/ABX00087-schematics.pdf" },
+      { "boards": ["arduino-nano-every"], "revision": "ABX00028 · NANOEveryV4.0", "connector": "Pad debug mặt dưới", "pads": { "1": "+3V3 reference output", "2": "SWDIO", "3": "SWCLK", "4": "vị trí bỏ pad", "5": "GND", "6": "RST" }, "conditions": "Nhóm SWD thuộc SAMD11 USB bridge. UPDI là tín hiệu lập trình ATmega4809 trên mạch. Tên và tọa độ pad dựa theo schematic và datasheet mục 6.3.", "source": "https://docs.arduino.cc/resources/datasheets/ABX00028-datasheet.pdf" },
+      { "boards": ["adafruit-qtpy-esp32-c3-5405", "adafruit-feather-esp32-s3-tft-5483", "adafruit-feather-esp32-s3-5323"], "connector": "STEMMA QT", "signalKeys": ["GND", "3V3", "SDA", "SCL"], "conditions": "#5405 Rev B chia sẻ SDA GPIO5, SCL GPIO6 với header. Feather PID #5483 và #5323 lấy net, thứ tự và điều kiện bật nguồn I²C từ schematic đúng PID, không dùng chéo dữ liệu hai phiên bản. Rà thêm đầu BAT trên từng bản Feather trong báo cáo.", "sources": ["https://learn.adafruit.com/adafruit-qt-py-esp32-c3-wifi-dev-board/pinouts", "https://learn.adafruit.com/adafruit-esp32-s3-tft-feather/power-management", "https://learn.adafruit.com/adafruit-esp32-s3-feather/downloads"] }
+    ],
+    "reviewOnly": [
+      { "boards": ["stm32-blue-pill-f103"], "scope": "J5/SWD của mẫu clone. Ghi nhóm SWDIO, SWCLK, GND, nguồn theo bằng chứng hiện có. Khoá số chân và neo khi xác định được nhà sản xuất hoặc revision PCB khớp mẫu." },
+      { "boards": ["seeed-xiao-esp32c3", "seeed-xiao-esp32-s3"], "scope": "Pad dưới và pin debug của đúng XIAO. Phân biệt JTAG là alternate function với pad riêng. Loại Sense/Plus khỏi target XIAO S3 thường.", "sources": ["https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/", "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"] },
+      { "scope": "Các board còn lại trong danh sách A1. Ghi nhóm ICSP đã có trên Uno/Nano/Mega, USB/UART/JTAG theo từng DevKit, jumper đo dòng và đầu cắm khác nếu có nguồn. Ghi thêm mọi thiếu sót ngoài danh mục thay đổi đã khoá để duyệt sau." }
+    ]
+  },
+  "acceptance": {
+    "firmware": "ESP-IDF biên dịch nguồn của mạch mẫu thành ảnh flash esp32c3 có SHA-256. Worker boot đúng ROM, in A2_READY. Nhấn/nhả ít nhất ba vòng cho đúng UART, mức ở cả GPIO4/GPIO10 và LED, có thời điểm mô phỏng. Đổi trạng thái nút qua bàn mạch, không điều khiển LED bằng chính event giao diện. Kiểm file sai chip, sai hash, tải lỗi, timeout, chạy lại, dừng và nội dung cũ từ worker đã huỷ.",
+    "electrical": "Đo hai trạng thái bằng ngspice, so với ngưỡng trong fixture. Test mất GND, thiếu đường pull-up, thiếu điện trở nối tiếp, đảo LED, ngắn mạch và sai cấu hình. Với topology không hỗ trợ, trả lỗi có chẩn đoán và bỏ kết quả cũ.",
+    "catalog": "Bảng kiểm đủ 28 board, liệt kê nhóm mở còn thiếu nguồn. Kiểm đầy đủ chân đã khoá, quyền/chế độ nguồn của đầu debug, pin/pad NC hoặc vắng, chọn bằng bàn phím, nhất quán giữa bảng và 2D/3D tại mọi điểm đủ neo. Kiểm 1.276 khóa cũ và round-trip bản nháp A1.",
+    "browser": "Playwright Chrome local qua luồng /boards tới mạch A2, nhấn/nhả và trace trên desktop và viewport 375 px. Kiểm load asset lazy và không gửi firmware hay mở kết nối relay. Kiểm lần lượt luồng F401/Pico/Minima/đầu cắm phụ và bài ngspice.",
+    "a1Regression": "Chạy lại ba nhóm Node của A1 (131 + 132 + 9 ở baseline), gồm R1–R5, bốn mạch HEX, GPIO/UART của Uno/Nano/Mega và RP2040/MicroPython. Chạy lại 6 Playwright A1 rồi npm.cmd run build:local. Báo rõ ca skip hoặc blocked. Giữ gate phân phối ngspice và tài sản hãng."
+  }
+}

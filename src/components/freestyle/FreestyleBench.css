@@ -163,9 +163,9 @@
 .freestyle-drafts li span { color:var(--mm-muted);font-size:12px; }
 .freestyle-drafts li > div { display:flex;flex-wrap:wrap;gap:8px; }
 .freestyle-stage .circuit-schematic-svg { min-width:0;width:100%;height:auto; }
-.freestyle-code-step,.freestyle-editor { height:100%; }
-.freestyle-code-step { grid-template-rows:auto minmax(240px,1fr); }
-.freestyle-editor { max-height:none; }
+.freestyle-code-step { display:flex; flex-direction:column; min-height:100%; }
+.freestyle-code-step > :not(.freestyle-editor) { flex-shrink:0; }
+.freestyle-editor { flex:1 0 282px; max-height:none; }
 .freestyle-editor textarea { overflow:auto;min-height:280px; }
 .freestyle-trace-dock { margin-top:8px;padding:10px;border:1px solid var(--mm-line);border-radius:8px; }
 .freestyle-trace-dock summary { cursor:pointer;font-weight:700; }

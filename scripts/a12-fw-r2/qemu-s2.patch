@@ -1,0 +1,345 @@
+diff --git a/hw/char/esp32s2_uart.c b/hw/char/esp32s2_uart.c
+index 8645116..b85cba1 100644
+--- a/hw/char/esp32s2_uart.c
++++ b/hw/char/esp32s2_uart.c
+@@ -22,6 +22,7 @@
+ #include "hw/irq.h"
+ #include "hw/qdev-properties.h"
+ #include "hw/char/esp32s2_uart.h"
++#include "qapi/visitor.h"
+ #include "trace.h"
+ 
+ 
+@@ -166,6 +167,7 @@ static gboolean uart_transmit(GIOChannel *chan, GIOCondition cond, void *opaque)
+         int r = qemu_chr_fe_write(&s->chr, &b, 1);
+         if (r == 1) {
+             fifo8_pop(&s->tx_fifo);
++            s->a12_tx_us = qemu_clock_get_us(QEMU_CLOCK_VIRTUAL);
+         } else {
+             s->tx_watch_handle = qemu_chr_fe_add_watch(&s->chr, G_IO_OUT | G_IO_HUP,
+                                                        uart_transmit, s);
+@@ -240,6 +242,7 @@ static void esp32_uart_reset(DeviceState *dev)
+     s->reg[R_UART_INT_RAW] = 0;
+     s->reg[R_UART_INT_ENA] = 0;
+     s->reg[R_UART_AUTOBAUD] = 0;
++    s->a12_tx_us = 0;
+     fifo8_reset(&s->tx_fifo);
+     fifo8_reset(&s->rx_fifo);
+     if (s->tx_watch_handle) {
+@@ -267,6 +270,13 @@ static const MemoryRegionOps uart_ops = {
+     .endianness = DEVICE_LITTLE_ENDIAN,
+ };
+ 
++static void a12_tx_time(Object *obj, Visitor *v, const char *name,
++                        void *opaque, Error **errp)
++{
++    int64_t us = ESP32S2_UART(obj)->a12_tx_us;
++    visit_type_int64(v, name, &us, errp);
++}
++
+ static void esp32_uart_init(Object *obj)
+ {
+     ESP32S2UARTState *s = ESP32S2_UART(obj);
+@@ -279,6 +289,7 @@ static void esp32_uart_init(Object *obj)
+     fifo8_create(&s->tx_fifo, UART_FIFO_LENGTH);
+     fifo8_create(&s->rx_fifo, UART_FIFO_LENGTH);
+     timer_init_ns(&s->throttle_timer, QEMU_CLOCK_VIRTUAL, uart_throttle_timer_cb, s);
++    object_property_add(obj, "a12-tx-us", "int", a12_tx_time, NULL, NULL, NULL);
+ }
+ 
+ 
+diff --git a/hw/gpio/esp32s2_gpio.c b/hw/gpio/esp32s2_gpio.c
+index 840f8f3..e4b9b16 100644
+--- a/hw/gpio/esp32s2_gpio.c
++++ b/hw/gpio/esp32s2_gpio.c
+@@ -18,14 +18,106 @@
+ #include "hw/irq.h"
+ #include "hw/qdev-properties.h"
+ #include "hw/gpio/esp32s2_gpio.h"
++#include "qapi/visitor.h"
++#include "sysemu/runstate.h"
+ 
++enum {
++    GPIO_OUT = 0x04, GPIO_OUT_SET = 0x08, GPIO_OUT_CLEAR = 0x0c,
++    GPIO_ENABLE = 0x20, GPIO_ENABLE_SET = 0x24, GPIO_ENABLE_CLEAR = 0x28,
++    GPIO_IN = 0x3c, GPIO5_FUNC = 0x568,
++    MUX_GPIO4 = 0x14, MUX_GPIO5 = 0x18,
++    MUX_FUNC_SHIFT = 12, MUX_INPUT_EN = 1 << 9,
++    GPIO4 = 1 << 4, GPIO5 = 1 << 5, GPIO_MASK = GPIO4 | GPIO5,
++};
++
++static bool mux_gpio(uint32_t mux)
++{
++    return ((mux >> MUX_FUNC_SHIFT) & 7) == 1;
++}
++
++static bool gpio5_driven(Object *obj, Error **errp)
++{
++    Esp32s2GpioState *s = ESP32_GPIO(obj);
++    return (s->enable & GPIO5) && mux_gpio(s->mux[1])
++        && (s->gpio5_func & 0x1ff) == 256
++        && !(s->gpio5_func & ((1 << 9) | (1 << 11)));
++}
++
++static bool gpio5_high(Object *obj, Error **errp)
++{
++    return gpio5_driven(obj, errp) && (ESP32_GPIO(obj)->out & GPIO5);
++}
++
++static bool gpio4_input(Object *obj, Error **errp)
++{
++    Esp32s2GpioState *s = ESP32_GPIO(obj);
++    return !(s->enable & GPIO4) && mux_gpio(s->mux[0])
++        && (s->mux[0] & MUX_INPUT_EN) && s->gpio4_high;
++}
++
++static bool gpio4_level(Object *obj, Error **errp)
++{
++    return ESP32_GPIO(obj)->gpio4_high;
++}
++
++static void gpio4_stimulus(Object *obj, bool high, Error **errp)
++{
++    ESP32_GPIO(obj)->gpio4_high = high;
++}
++
++static void record_output(Esp32s2GpioState *s, bool before)
++{
++    if (before != gpio5_high(OBJECT(s), NULL)) {
++        s->a12_edge_us = qemu_clock_get_us(QEMU_CLOCK_VIRTUAL);
++        s->a12_edges++;
++    }
++}
++
++static void a12_pause(void *opaque)
++{
++    qemu_system_vmstop_request_prepare();
++    qemu_system_vmstop_request(RUN_STATE_PAUSED);
++}
+ 
++static void a12_set_window(Object *obj, Visitor *v, const char *name,
++                          void *opaque, Error **errp)
++{
++    int64_t window;
++
++    if (!visit_type_int64(v, name, &window, errp)) {
++        return;
++    }
++    if (runstate_is_running() || window < 1000 || window > 100000) {
++        error_setg(errp, "A12 window requires a paused machine and 1..100 ms");
++        return;
++    }
++    timer_mod_ns(ESP32_GPIO(obj)->a12_stop,
++                 qemu_clock_get_ns(QEMU_CLOCK_VIRTUAL) + window * 1000);
++}
++
++static void a12_read_counter(Object *obj, Visitor *v, const char *name,
++                             void *opaque, Error **errp)
++{
++    int64_t value = *(int64_t *)opaque;
++    visit_type_int64(v, name, &value, errp);
++}
++
++static void a12_read_clock(Object *obj, Visitor *v, const char *name,
++                           void *opaque, Error **errp)
++{
++    int64_t value = qemu_clock_get_us(QEMU_CLOCK_VIRTUAL);
++    visit_type_int64(v, name, &value, errp);
++}
+ 
+ static uint64_t esp32s2_gpio_read(void *opaque, hwaddr addr, unsigned int size)
+ {
+     Esp32s2GpioState *s = ESP32_GPIO(opaque);
+     uint64_t r = 0;
+     switch (addr) {
++    case GPIO_OUT: return s->out;
++    case GPIO_ENABLE: return s->enable;
++    case GPIO_IN: return gpio4_input(OBJECT(s), NULL) ? GPIO4 : 0;
++    case GPIO5_FUNC: return s->gpio5_func;
+     case A_GPIO_STRAP:
+         r = s->strap_mode;
+         break;
+@@ -39,8 +131,53 @@ static uint64_t esp32s2_gpio_read(void *opaque, hwaddr addr, unsigned int size)
+ static void esp32s2_gpio_write(void *opaque, hwaddr addr,
+                        uint64_t value, unsigned int size)
+ {
++    Esp32s2GpioState *s = ESP32_GPIO(opaque);
++    bool before = gpio5_high(OBJECT(s), NULL);
++    uint32_t pins = value & GPIO_MASK;
++
++    switch (addr) {
++    case GPIO_OUT: s->out = pins; break;
++    case GPIO_OUT_SET: s->out |= pins; break;
++    case GPIO_OUT_CLEAR: s->out &= ~pins; break;
++    case GPIO_ENABLE: s->enable = pins; break;
++    case GPIO_ENABLE_SET: s->enable |= pins; break;
++    case GPIO_ENABLE_CLEAR: s->enable &= ~pins; break;
++    case GPIO5_FUNC: s->gpio5_func = value; break;
++    default: return;
++    }
++    record_output(s, before);
+ }
+ 
++static uint64_t a12_mux_read(void *opaque, hwaddr addr, unsigned int size)
++{
++    Esp32s2GpioState *s = ESP32_GPIO(opaque);
++    switch (addr) {
++    case MUX_GPIO4: return s->mux[0];
++    case MUX_GPIO5: return s->mux[1];
++    default: return 0;
++    }
++}
++
++static void a12_mux_write(void *opaque, hwaddr addr, uint64_t value,
++                          unsigned int size)
++{
++    Esp32s2GpioState *s = ESP32_GPIO(opaque);
++    bool before = gpio5_high(OBJECT(s), NULL);
++
++    switch (addr) {
++    case MUX_GPIO4: s->mux[0] = value; break;
++    case MUX_GPIO5: s->mux[1] = value; break;
++    default: return;
++    }
++    record_output(s, before);
++}
++
++static const MemoryRegionOps iomux_ops = {
++    .read = a12_mux_read,
++    .write = a12_mux_write,
++    .endianness = DEVICE_LITTLE_ENDIAN,
++};
++
+ static const MemoryRegionOps uart_ops = {
+     .read =  esp32s2_gpio_read,
+     .write = esp32s2_gpio_write,
+@@ -49,6 +186,20 @@ static const MemoryRegionOps uart_ops = {
+ 
+ static void esp32s2_gpio_reset(DeviceState *dev)
+ {
++    Esp32s2GpioState *s = ESP32_GPIO(dev);
++    s->out = 0;
++    s->enable = 0;
++    s->gpio5_func = 0;
++    s->mux[0] = s->mux[1] = 0;
++    s->gpio4_high = true;
++    s->a12_edge_us = 0;
++    s->a12_edges = 0;
++    timer_del(s->a12_stop);
++}
++
++static void esp32s2_gpio_finalize(Object *obj)
++{
++    timer_free(ESP32_GPIO(obj)->a12_stop);
+ }
+ 
+ static void esp32s2_gpio_realize(DeviceState *dev, Error **errp)
+@@ -64,6 +215,17 @@ static void esp32s2_gpio_init(Object *obj)
+                           TYPE_ESP32S2_GPIO, 0x1000);
+     sysbus_init_mmio(sbd, &s->iomem);
+     sysbus_init_irq(sbd, &s->irq);
++
++    memory_region_init_io(&s->iomux, obj, &iomux_ops, s, "esp32s2.iomux", 0x2000);
++    s->a12_stop = timer_new_ns(QEMU_CLOCK_VIRTUAL, a12_pause, s);
++    object_property_add_bool(obj, "a12-stimulus-high", gpio4_level, gpio4_stimulus);
++    object_property_add_bool(obj, "a12-input-high", gpio4_input, NULL);
++    object_property_add_bool(obj, "a12-output-driven", gpio5_driven, NULL);
++    object_property_add_bool(obj, "a12-output-high", gpio5_high, NULL);
++    object_property_add(obj, "a12-edge-us", "int", a12_read_counter, NULL, NULL, &s->a12_edge_us);
++    object_property_add(obj, "a12-edges", "int", a12_read_counter, NULL, NULL, &s->a12_edges);
++    object_property_add(obj, "a12-clock-us", "int", a12_read_clock, NULL, NULL, NULL);
++    object_property_add(obj, "a12-window-us", "int", NULL, a12_set_window, NULL, NULL);
+ }
+ 
+ static Property esp32s2_gpio_properties[] = {
+@@ -85,6 +247,7 @@ static const TypeInfo esp32s2_gpio_info = {
+     .parent = TYPE_SYS_BUS_DEVICE,
+     .instance_size = sizeof(Esp32s2GpioState),
+     .instance_init = esp32s2_gpio_init,
++    .instance_finalize = esp32s2_gpio_finalize,
+     .class_init = esp32s2_gpio_class_init
+ };
+ 
+diff --git a/hw/timer/esp32_timg.c b/hw/timer/esp32_timg.c
+index feee37e..d3f9abf 100644
+--- a/hw/timer/esp32_timg.c
++++ b/hw/timer/esp32_timg.c
+@@ -604,6 +604,15 @@ static void esp32_timg_timer_init(Esp32TimgState *s, Esp32TimgTimerState *ts, Es
+     ts->int_type = int_type;
+ }
+ 
++static void a12_t0_count(Object *obj, Visitor *v, const char *name,
++                         void *opaque, Error **errp)
++{
++    Esp32TimgState *s = ESP32_TIMG(obj);
++    int64_t ticks = esp32_timg_timer_get_count(&s->t0,
++                                              qemu_clock_get_ns(QEMU_CLOCK_VIRTUAL));
++    visit_type_int64(v, name, &ticks, errp);
++}
++
+ static void esp32_timg_init(Object *obj)
+ {
+     Esp32TimgState *s = ESP32_TIMG(obj);
+@@ -620,6 +629,9 @@ static void esp32_timg_init(Object *obj)
+                         NULL,
+                         obj);
+ 
++    object_property_add(obj, "a12-t0-count", "int", a12_t0_count,
++                        NULL, NULL, NULL);
++
+     s->rtc_slow_freq_hz = 150000;
+     s->xtal_freq_hz = 40000000;
+     s->apb_freq_hz = 40000000;
+diff --git a/hw/xtensa/esp32s2.c b/hw/xtensa/esp32s2.c
+index a14be43..27eae71 100644
+--- a/hw/xtensa/esp32s2.c
++++ b/hw/xtensa/esp32s2.c
+@@ -530,7 +530,8 @@ static void ESP32S2_soc_realize(DeviceState *dev, Error **errp)
+     ESP32S2_soc_add_unimp_device(sys_mem, "esp32s2.analog", 0x6000E000, 0x1000);
+     ESP32S2_soc_add_unimp_device(sys_mem, "esp32s2.rtcio", S2_DR_REG_RTCIO_BASE, 0x400);
+     ESP32S2_soc_add_unimp_device(sys_mem, "esp32s2.rtcio", S2_DR_REG_SENS_BASE, 0x400);
+-    ESP32S2_soc_add_unimp_device(sys_mem, "esp32s2.iomux", S2_DR_REG_IO_MUX_BASE, 0x2000);
++    memory_region_add_subregion_overlap(sys_mem, S2_DR_REG_IO_MUX_BASE,
++                                        &s->gpio.iomux, 0);
+     ESP32S2_soc_add_unimp_device(sys_mem, "esp32s2.hinf", S2_DR_REG_HINF_BASE, 0x1000);
+     ESP32S2_soc_add_unimp_device(sys_mem, "esp32s2.slc", S2_DR_REG_SLC_BASE, 0x1000);
+     ESP32S2_soc_add_unimp_device(sys_mem, "esp32s2.slchost", S2_DR_REG_SLCHOST_BASE, 0x1000);
+diff --git a/include/hw/char/esp32s2_uart.h b/include/hw/char/esp32s2_uart.h
+index 199d793..edc1a9b 100644
+--- a/include/hw/char/esp32s2_uart.h
++++ b/include/hw/char/esp32s2_uart.h
+@@ -86,6 +86,7 @@ typedef struct ESP32S2UARTState {
+     Fifo8 rx_fifo;
+     Fifo8 tx_fifo;
+     guint tx_watch_handle;
++    int64_t a12_tx_us;
+ 
+     uint32_t reg[UART_REG_CNT];
+     bool autobaud_en;
+diff --git a/include/hw/gpio/esp32s2_gpio.h b/include/hw/gpio/esp32s2_gpio.h
+index 3765365..0206898 100644
+--- a/include/hw/gpio/esp32s2_gpio.h
++++ b/include/hw/gpio/esp32s2_gpio.h
+@@ -3,6 +3,7 @@
+ #include "hw/sysbus.h"
+ #include "hw/hw.h"
+ #include "hw/registerfields.h"
++#include "qemu/timer.h"
+ 
+ #define TYPE_ESP32S2_GPIO "esp32s2.gpio"
+ #define ESP32_GPIO(obj) OBJECT_CHECK(Esp32s2GpioState, (obj), TYPE_ESP32S2_GPIO)
+@@ -18,5 +19,14 @@ typedef struct Esp32s2GpioState {
+     MemoryRegion iomem;
+     qemu_irq irq;
+     uint32_t strap_mode;
++    uint32_t out;
++    uint32_t enable;
++    uint32_t gpio5_func;
++    uint32_t mux[2];
++    bool gpio4_high;
++    QEMUTimer *a12_stop;
++    int64_t a12_edge_us;
++    int64_t a12_edges;
++    MemoryRegion iomux;
+ } Esp32s2GpioState;
+ 

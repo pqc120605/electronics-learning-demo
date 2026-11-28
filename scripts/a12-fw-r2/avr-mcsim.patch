@@ -1,0 +1,210 @@
+diff --git a/avr0per/clkctrl.c b/avr0per/clkctrl.c
+--- a/avr0per/clkctrl.c
++++ b/avr0per/clkctrl.c
+@@ -190,6 +190,7 @@
+       case CLKCTRL_PDIV_48X_gc: cpu->clk_cpu.div = 48; break;
+       default: abort(); break;
+       }
++      if (!(val & 1)) cpu->clk_cpu.div = 1;
+       mcu->clk_per.div = cpu->clk_cpu.div;
+       reg->MCLKCTRLB = val;
+       reg->MCLKSTATUS = 0x01;
+diff --git a/avr0per/port.c b/avr0per/port.c
+--- a/avr0per/port.c
++++ b/avr0per/port.c
+@@ -216,7 +216,7 @@
+ 	port->pin[i].dir = 1;
+       }
+     }
+-    reg->OUT |= val;
++    reg->DIR |= val;
+     break;
+   case PORT_DIRCLR_OFFSET:		/* Data Direction Clear */
+     for (int i = 0; i < 8; i++) {
+diff --git a/avr0per/tcb.c b/avr0per/tcb.c
+--- a/avr0per/tcb.c
++++ b/avr0per/tcb.c
+@@ -15,6 +15,7 @@
+  * TCB1.INTCTRL = TCB_CAPT_bm;			   // and interrupt
+  * TCB1.CTRLA = TCB_CLKSEL_CLKDIV1_gc | TCB_ENABLE_bm;
+  */
++#include <assert.h>
+ #include <stdint.h>
+ #include <stdlib.h>
+ #include "octbx.h"
+@@ -77,46 +78,13 @@
+ #define TCB_CCMPL_OFFSET (0xC+0)	/* Compare or Capture */
+ #define TCB_CCMPH_OFFSET (0xC+1)	/* Compare or Capture */
+ 
+-static void tcb_bot_act(void *arg, tkclk_t *clk);
+-static void tcb_cmp_act(void *arg, tkclk_t *clk);
+-
+-static void tcb_bot_act(void *arg, tkclk_t *clk) {
+-  tcb_t *tcb = arg;
+-  tcb_reg_t *reg = tcb->reg;
+-  osctick_t tick;
+-  int fact;
+-
+-  //printf("%d.%06d tcb_bot\n", 0, sch->time.nsec/1000);
+-  switch (reg->CTRLA & TCB_CLKSEL_gm) {
+-  case TCB_CLKSEL_CLKDIV1_gc: fact = 1; break;
+-  case TCB_CLKSEL_CLKDIV2_gc: fact = 2; break;
+-  case TCB_CLKSEL_CLKTCA_gc: abort(); break;
+-  default: abort(); break;
+-  }
+-  
+-  if (tcb->pin_out) iopin_wrD(tcb->pin_out, 1);
+-  tcb->bot_at = clk->osc->tick/clk->div;
+-
+-  switch (reg->CTRLB & TCB_CNTMODE_gm) {
+-
+-  case TCB_CNTMODE_INT_gc:
+-    tcb->cmp_act = tkclk_sched(clk, REG16U(reg->CCMP)*fact,
+-			       -1, tcb_cmp_act, tcb);
+-    tcb->cmp_act->name = "tcb_cmp_act";
+-    break;
+-
+-  case TCB_CNTMODE_PWM8_gc:
+-    tcb->cmp_act = tkclk_sched(clk, reg->CCMPL*fact, -1, tcb_cmp_act, tcb);
+-    tcb->cmp_act->name = "tcb_cmp_act";
+-    tcb->bot_act = tkclk_sched(clk, reg->CCMPH*fact, -1, tcb_bot_act, tcb);
+-    tcb->bot_act->name = "tcb_bot_act";
+-    break;
+-
+-  default:
+-    abort();
+-    break;
+-  }
+-  
++/* ATmega4809 CLKTCA uses the TCA0 prescaled input clock. */
++static int tca_clock_divisor(const tcb_t *tcb)
++{
++  static const int divider[] = { 1, 2, 4, 8, 16, 64, 256, 1024 };
++  uint8_t ctrla = tcb->mcu->cpu.data[0x0a00];
++  assert(ctrla & 1);
++  return divider[(ctrla >> 1) & 7];
+ }
+ 
+ static void tcb_cmp_act(void *arg, tkclk_t *clk) {
+@@ -129,7 +97,7 @@
+   switch (reg->CTRLA & TCB_CLKSEL_gm) {
+   case TCB_CLKSEL_CLKDIV1_gc: fact = 1; break;
+   case TCB_CLKSEL_CLKDIV2_gc: fact = 2; break;
+-  case TCB_CLKSEL_CLKTCA_gc: abort(); break;
++  case TCB_CLKSEL_CLKTCA_gc: fact = tca_clock_divisor(tcb); break;
+   default: abort(); break;
+   }
+ 
+@@ -137,15 +105,20 @@
+ 
+   case TCB_CNTMODE_INT_gc: // FIXME read doc's
+     tcb->cmp_act = tkclk_sched(clk, (REG16U(reg->CCMP) + 1)*fact,
+-			       -1, tcb_cmp_act, tcb);
++			       NEPS_TICKPOST, tcb_cmp_act, tcb);
+     tcb->cmp_act->name = "tcb_cmp_act";
+-    if (reg->INTCTRL & TCB_ENABLE_bm) mcu_ir(mcu, tcb->int_vn);
++    reg->INTFLAGS |= TCB_CAPT_bm;
++    if (reg->INTCTRL & TCB_CAPT_bm) mcu_ir(mcu, tcb->int_vn);
+     break;
+ 
+   case TCB_CNTMODE_PWM8_gc:
+-    if (tcb->pin_out) iopin_wrD(tcb->pin_out, 0);
+-    tcb->cmp_act = 0;
+-    if (reg->INTCTRL & TCB_ENABLE_bm) mcu_ir(mcu, tcb->int_vn);
++    /* CCMPL is TOP and CAPT fires at TOP even with the output disabled.
++     * CCMPH sets duty cycle, so it does not affect the interrupt period. */
++    tcb->cmp_act = tkclk_sched(clk, (reg->CCMPL + 1) * fact,
++                               NEPS_TICKPOST, tcb_cmp_act, tcb);
++    tcb->cmp_act->name = "tcb_pwm_top_act";
++    reg->INTFLAGS |= TCB_CAPT_bm;
++    if (reg->INTCTRL & TCB_CAPT_bm) mcu_ir(mcu, tcb->int_vn);
+     break;
+ 
+   default:
+@@ -190,7 +163,7 @@
+     switch (reg->CTRLA & TCB_CLKSEL_gm) {
+     case TCB_CLKSEL_CLKDIV1_gc: fact = 1; break;
+     case TCB_CLKSEL_CLKDIV2_gc: fact = 2; break;
+-    case TCB_CLKSEL_CLKTCA_gc: abort(); break;
++    case TCB_CLKSEL_CLKTCA_gc: fact = tca_clock_divisor(tcb); break;
+     }
+     tick = (clk->osc->tick/clk->div - tcb->bot_at)/fact;
+     reg->CNTL = tick%256;
+@@ -239,20 +212,22 @@
+       switch (val & TCB_CLKSEL_gm) {
+       case TCB_CLKSEL_CLKDIV1_gc: fact = 1; break;
+       case TCB_CLKSEL_CLKDIV2_gc: fact = 2; break;
+-      case TCB_CLKSEL_CLKTCA_gc: abort(); break; // todo
++      case TCB_CLKSEL_CLKTCA_gc: fact = tca_clock_divisor(tcb); break;
+       default: abort(); break;
+       }
+       switch (reg->CTRLB & TCB_CNTMODE_gm) {
+       case TCB_CNTMODE_INT_gc:
+-	tcb->cmp_act = tkclk_sched(clk, REG16U(reg->CCMP)*fact, -1,
++	tcb->cmp_act = tkclk_sched(clk, (REG16U(reg->CCMP) + 1)*fact, NEPS_TICKPOST,
+ 				   tcb_cmp_act, tcb);
+ 	tcb->cmp_act->name = "tcb_cmp_act";
+ 	break;
+       case TCB_CNTMODE_PWM8_gc:
+-	/* TODO: check if ccnt or what is used here */
+-	tcb->bot_act = tkclk_sched(clk, reg->CCMPH*fact, -1, tcb_bot_act, tcb);
+-	tcb->bot_act->name = "tcb_bot_act";
+-	break;
++        /* The A12 fixture uses only the PWM8 timebase. */
++        if (reg->CTRLB & 0x10) abort(); /* CCMPEN */
++        tcb->cmp_act = tkclk_sched(clk, (reg->CCMPL ? reg->CCMPL : 1) * fact,
++                                   NEPS_TICKPOST, tcb_cmp_act, tcb);
++        tcb->cmp_act->name = "tcb_pwm_top_act";
++        break;
+       default:
+ 	abort();
+ 	break;
+diff --git a/octbx/avr_pin.c b/octbx/avr_pin.c
+--- a/octbx/avr_pin.c
++++ b/octbx/avr_pin.c
+@@ -43,7 +43,7 @@
+ 
+ void iopin_pullup(iopin_t *pin, int ena) {
+   pin->pullup = ena? 1: 0;
+-  (pin->hey_bus)(pin->bus, pin, PIN_BOP_PUL, ena? 1: 0);
++  if (pin->bus && pin->hey_bus) pin->hey_bus(pin->bus, pin, PIN_BOP_PUL, ena ? 1 : 0);
+ }
+ 
+ void iopin_notify_bus(iopin_t *pin, int op, int arg) {
+diff --git a/octbx/sched.c b/octbx/sched.c
+--- a/octbx/sched.c
++++ b/octbx/sched.c
+@@ -426,7 +426,8 @@
+   tkosc_t *tkosc = arg;
+   tkevt_t *tkevt;
+   tkevt_rout_t *rout;
+-  float tick_per, drift, dt;
++  double tick_per, dt;
++  float drift;
+   simtime_t time;
+ 
+   while (1) {
+@@ -455,7 +456,11 @@
+     tkosc->drift = drift;
+   }
+ 
+-  time = tm_add(tkosc->time, tm_from_float(dt));
++  /* Keep sub-ns time across instructions, e.g. 62.5 ns at 16 MHz. */
++  double exact_ns = dt * 1000000000.0 + tkosc->remainder_ns;
++  long delta_ns = (long)exact_ns;
++  tkosc->remainder_ns = exact_ns - delta_ns;
++  time = tm_add_ns(tkosc->time, delta_ns);
+   tkosc->tmevt = tmsch_sched(tmsch, time, tkosc->neps, tkosc_evt, arg);
+   tkosc->tmevt->name = __func__;
+   next_tick_hook(tkosc);
+diff --git a/octbx/sched.h b/octbx/sched.h
+--- a/octbx/sched.h
++++ b/octbx/sched.h
+@@ -138,6 +138,7 @@
+   tkevt_t *tkevt;			/* tick event */
+ 
+   /* params */
++  double remainder_ns;
+   float tick_per;			/* nominal tick dur (s) */
+   float allan_dev;			/* allan deviation (ppm) */
+   float drift_dev;			/* drift deviation (ppm) */

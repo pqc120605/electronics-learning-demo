@@ -5,13 +5,14 @@ import { componentRegistry } from '../../data/componentRegistry'
 import { createNetIndexV2 } from '../circuitNetsV2'
 import type { CircuitDocV2 } from '../circuitDocV2'
 import { SIGNAL_PINS, type PinMap } from './freestyleBoards'
+import type { AvrLiveBoard } from '../avrLiveMachine'
 
-type Kind = 'and' | 'schmitt' | 'flip' | 'shift' | 'adc' | 'led' | 'resistor' | 'button' | 'pot'
+type Kind = 'and' | 'schmitt' | 'flip' | 'shift' | 'adc' | 'led' | 'resistor' | 'button' | 'pot' | 'dht11' | 'dht22' | 'keypad' | 'anode-display'
 export type CoupledPart = { id: string; pins: Record<string, string>; resistanceOhm?: number } & (
   { kind: Kind } | { kind: 'r2a'; model: R2aModel } | { kind: 'r2b'; model: R2bModel }
 )
 export type CoupledCircuit = {
-  board: 'arduino-uno-r3'
+  board: AvrLiveBoard
   gpios: { pin: number; net: string }[]
   rail5: string[]
   ground: string
@@ -22,6 +23,15 @@ const supported: Readonly<Record<string, Kind>> = {
   'sn74hc08-r1': 'and', 'sn74hc14-r1': 'schmitt', 'sn74hc74-r1': 'flip',
   'sn74hc595-r1': 'shift', 'mcp3008-r1': 'adc',
   led: 'led', resistor: 'resistor', button: 'button', potentiometer: 'pot',
+  dht11: 'dht11', 'dht22-bare': 'dht22', 'keypad-4x4': 'keypad', 'seven-segment-anode': 'anode-display',
+}
+
+export const coupledSegments = ['a','b','c','d','e','f','g','dp'] as const
+
+/** Find only a direct resistor between two known nets. */
+function hasResistor(parts: readonly CoupledPart[], a: string, b: string, minimum: number, maximum: number) {
+  return a !== b && parts.some(part => part.kind === 'resistor' && (part.resistanceOhm ?? 0) >= minimum && (part.resistanceOhm ?? 0) <= maximum
+    && (part.pins.a === a && part.pins.b === b || part.pins.a === b && part.pins.b === a))
 }
 
 export function compileCoupledCircuit(doc: CircuitDocV2, boardId: string, pinMap: PinMap):
@@ -79,10 +89,28 @@ export function compileCoupledCircuit(doc: CircuitDocV2, boardId: string, pinMap
     else if (!previous) gpios.push({ pin, net: key })
   }
   if (!gpios.length) issues.push('Nối ít nhất một chân tín hiệu của Uno để chạy firmware cùng mạch.')
-  if (!parts.some(part => ['and','schmitt','flip','shift','adc','r2a','r2b'].includes(part.kind))) {
-    issues.push('Nối ít nhất một IC có mô hình chạy cùng Uno vào mạch.')
+  const rail5 = [net(board.id,'vcc'), net(board.id,'v5')]
+  const ground = net(board.id,'gnd')
+  if (rail5.includes(ground)) issues.push('Nguồn 5 V đang nối trực tiếp với GND.')
+  for (const part of parts) {
+    const p = part.pins
+    if ((part.kind === 'dht11' || part.kind === 'dht22') &&
+        (!rail5.includes(p.vcc) || p.gnd !== ground || !gpios.some(gpio => gpio.net === p.data)
+          || !hasResistor(parts,p.data,p.vcc,1000,10000) || rail5.includes(p.data) || p.data === ground)) {
+      issues.push(part.id + ' · DHT cần nguồn 5 V, GND, DATA nối GPIO và điện trở kéo lên 1–10 kΩ.')
+    }
+    if (part.kind === 'anode-display' && (
+      !rail5.includes(p.com1) || !rail5.includes(p.com2) ||
+      coupledSegments.some(segment => wired(p[segment]) &&
+        (rail5.includes(p[segment]) || p[segment] === ground || gpios.some(gpio => gpio.net === p[segment])
+          || !gpios.some(gpio => hasResistor(parts,p[segment],gpio.net,220,10000)))))) {
+      issues.push(part.id + ' · Nối COM1/COM2 đến 5 V và mỗi đoạn qua điện trở hạn dòng riêng.')
+    }
+  }
+  if (!parts.some(part => !['led','resistor','button','pot'].includes(part.kind))) {
+    issues.push('Nối ít nhất một IC hoặc ngoại vi có mô hình chạy cùng Uno vào mạch.')
   }
   return issues.length ? { ok: false, issues } : { ok: true, graph: {
-    board: 'arduino-uno-r3', gpios, parts, rail5: [net(board.id,'vcc'), net(board.id,'v5')], ground: net(board.id,'gnd'),
+    board: 'arduino-uno-r3', gpios, parts, rail5, ground,
   } }
 }

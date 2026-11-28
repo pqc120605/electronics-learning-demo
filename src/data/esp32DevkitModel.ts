@@ -54,7 +54,7 @@ export const esp32DevkitModel: BoardModelManifest = {
     {
       id: 'boot-button',
       name: 'Nút BOOT',
-      plainDescription: 'Nút BOOT kéo tín hiệu Boot xuống GND. ESP32 đọc trạng thái này khi reset để vào bootloader nạp firmware.',
+      plainDescription: 'Nút BOOT kéo GPIO0 xuống GND. Đây là chân strapping. ESP32 đọc trạng thái này khi reset để vào bootloader nạp firmware.',
       technicalRole: 'SW1 nối net /Boot với GND; điện trở R2 kéo Boot lên 3,3 V khi không nhấn.',
       connection: 'Giữ BOOT rồi nhấn RESET/EN khi cần vào bootloader thủ công; thiết kế này còn có auto-reset qua CP2102.',
       safetyNote: 'Tên, vị trí và thao tác nút có thể khác trên board clone.',
@@ -170,6 +170,7 @@ export const esp32DevkitModel: BoardModelManifest = {
     return [...left.map((entry, index) => ({ side: 'left' as const, entry, index })), ...right.map((entry, index) => ({ side: 'right' as const, entry, index }))].map(({ side, entry, index }) => {
       const [label, gpio] = entry
       const functions = label === '5V' ? ['Nguồn USB 5 V trên rail board'] : label === '3V3' ? ['Nguồn 3,3 V'] : label === 'GND' ? ['Mass / đường hồi dòng'] : label === 'EN' ? ['Enable', 'Reset mức thấp'] : gpio === 21 ? ['GPIO', 'I²C SDA mặc định'] : gpio === 22 ? ['GPIO', 'I²C SCL mặc định'] : gpio === 1 ? ['GPIO', 'UART0 TX'] : gpio === 3 ? ['GPIO', 'UART0 RX'] : [34, 35, 36, 39].includes(gpio ?? -1) ? ['GPIO input-only', 'ADC1'] : [25, 26].includes(gpio ?? -1) ? ['GPIO', 'ADC', 'DAC'] : [23, 19, 18, 5].includes(gpio ?? -1) ? ['GPIO', 'VSPI thường dùng'] : ['GPIO digital', ...(gpio !== undefined && gpio >= 32 ? ['ADC1'] : [])]
+      if ([2, 5, 12, 15].includes(gpio ?? -1)) functions.push('Chân cấu hình lúc khởi động (strapping)')
       const plainDescription = label === '5V' ? 'Chân +5 V trên header J3, cùng net nguồn USB trước nhánh ổn áp.' : label === '3V3' ? 'Đường nguồn 3,3 V do U2 AMS1117 tạo ra.' : label === 'GND' ? 'Mốc điện áp chung và đường dòng điện quay về nguồn.' : label === 'EN' ? 'Cho phép ESP32 chạy; kéo thấp sẽ giữ chip ở trạng thái reset.' : `Chân GPIO${gpio} có thể được cấu hình bằng phần mềm cho những chức năng phù hợp.`
       const technicalRole = label === '5V' ? 'Rail +5 V lấy từ USB qua D1 ở nhánh nguồn.' : label === '3V3' ? 'Đầu ra rail 3,3 V của U2.' : label === 'GND' ? 'Ground reference.' : label === 'EN' ? 'Chip enable, active-low reset.' : functions.join(' · ')
       const connection = gpio === 23 ? 'J2 pad 15; bài LED có thể nối GPIO23 → điện trở nối tiếp → LED → GND.' : gpio === 21 ? 'J2 pad 11; thường dùng SDA trong ví dụ I²C, nhưng ESP32 có thể ánh xạ ngoại vi sang chân khác.' : gpio === 22 ? 'J2 pad 14; thường dùng SCL trong ví dụ I²C, nhưng ESP32 có thể ánh xạ ngoại vi sang chân khác.' : gpio === 1 || gpio === 3 ? 'J2 pad 13/12; UART0 nối với cầu USB–UART trong schematic này, nên có thể dùng khi nạp code và xem log.' : label === 'GND' ? 'Nối chung GND giữa board và module/cảm biến; J2/J3 pad 2 là GND trong thiết kế này.' : label === '5V' || label === '3V3' ? 'Đối chiếu điện áp định mức của thiết bị trước khi nối.' : 'Chọn chức năng trong firmware; kiểm tra xung đột chân với board và thiết bị đang nối.'

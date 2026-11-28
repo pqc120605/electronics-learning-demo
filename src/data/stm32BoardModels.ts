@@ -6,8 +6,7 @@ import nucleoPads from './stm32-nucleo-f401re.pads.json'
 /**
  * STM32 boards rebuilt by scripts/build-stm32-education-boards.py from KiCad library footprints and
  * 3D models (2026-11-14). Not vendor CAD: board size, header pitch and pin order follow public
- * documentation, positions of secondary parts are approximate. No STM32 code simulator exists in
- * this project, so these boards are reference views only ("chưa chạy code").
+ * documentation, positions of secondary parts are approximate. These manifests describe geometry and pinout.
  */
 type PadFootprint = { footprint: string; value: string; side: string; x: number; y: number; rotation: number; pads: Array<{ number: string; x: number; y: number }> }
 type PadData = Record<string, PadFootprint>
@@ -137,8 +136,8 @@ function makeManifest(source: BoardSource): BoardModelManifest {
   return {
     id: source.id, assetUrl, assetVersion, features, hotspots, pins, signalFlows: [], pinPicking: true,
     pinoutEvidence: source.pinSource,
-    audit: { status: 'educational-reconstruction', revision: source.revision, sourceRefs: source.sourceRefs, unverifiedReferences: [], auditNotes: ['Chưa chạy code: dự án chưa có trình giả lập STM32; board chỉ dùng để tra cứu cấu tạo và chân.', 'Package 3D lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0), không phải model riêng của hãng.'] },
-    scenes: [{ id: 'pcb', label: 'PCB · tái dựng giáo dục', assetUrl, assetVersion, hotspots, note: `${source.title}: tái dựng giáo dục từ footprint và model thư viện KiCad. Kích thước và thứ tự chân theo tài liệu công khai; vị trí linh kiện phụ là ước lượng. Chưa chạy code STM32.` }],
+    audit: { status: 'educational-reconstruction', revision: source.revision, sourceRefs: source.sourceRefs, unverifiedReferences: [], auditNotes: ['Mô hình này mô tả hình học và chân của phiên bản tham chiếu.', 'Package 3D lấy từ thư viện KiCad 10.0.7 (CC BY-SA 4.0), không phải model riêng của hãng.'] },
+    scenes: [{ id: 'pcb', label: 'PCB · tái dựng giáo dục', assetUrl, assetVersion, hotspots, note: `${source.title}: tái dựng giáo dục từ footprint và model thư viện KiCad. Kích thước và thứ tự chân theo tài liệu công khai; vị trí linh kiện phụ là ước lượng.` }],
   }
 }
 

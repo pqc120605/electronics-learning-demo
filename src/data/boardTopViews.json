@@ -121,18 +121,358 @@
   "stm32-nucleo": {
     "id": "stm32-nucleo",
     "image": "/board-reference/topview/stm32-nucleo.png",
-    "width": 1332,
+    "width": 1343,
     "height": 1600,
     "boundsMm": {
-      "minX": -1.5,
-      "maxX": 71.50000029802322,
-      "minZ": -3.6999999262392524,
-      "maxZ": 84.00000327825546
+      "minX": -36.50000014901161,
+      "maxX": 36.50000014901161,
+      "minZ": -44.000000447034836,
+      "maxZ": 42.99999842047691
     },
     "projection": "orthographic-xz",
-    "asset": "/models/stm32-nucleo-f401re.glb?v=9124a49017a5",
-    "assetSha256": "9124a49017a50e7627f3d7c6e3100b3778c3f603ec4e8d883881d1ec3019ddbd",
-    "imageSha256": "dcda51a44f0bf350907dbc1bd55810549beeea7308a4249ccd5fc17804c41829",
-    "revision": "Tái dựng giáo dục · Nucleo-64 70 × 82,5 mm (không dùng CAD của ST)"
+    "asset": "/models/board-catalog-a1/stm32-nucleo.glb?v=d6b48bdaa9a3",
+    "assetSha256": "d6b48bdaa9a396921ff68e7e640ab1ae90e1c90f5e3d247638ca93cb57b5e8c6",
+    "imageSha256": "ec36d13a06a74e907233c2bcd413b5d70a93663527c17b09ddbfa1327d114b31",
+    "revision": "NUCLEO-F401RE · MB1136-F401RE-C04"
+  },
+  "raspberry-pi-pico-w": {
+    "id": "raspberry-pi-pico-w",
+    "image": "/board-reference/topview/raspberry-pi-pico-w.png",
+    "width": 694,
+    "height": 1601,
+    "boundsMm": {
+      "minX": -1.5,
+      "maxX": 22.499999716877937,
+      "minZ": -53.8499995470047,
+      "maxZ": 1.5
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/raspberry-pi-pico-w.glb?v=28757a63380a",
+    "assetSha256": "28757a63380a94c2a9492f8c12fb9a2663d2d0db3b8d441403c2aafc477f7acb",
+    "imageSha256": "b911497bbb618cc054f3cbd58b55c687bad7c9dd6ed444cdffff278f0c87632c",
+    "revision": "Pico W · CAD tham chiếu chính hãng"
+  },
+  "raspberry-pi-pico-2": {
+    "id": "raspberry-pi-pico-2",
+    "image": "/board-reference/topview/raspberry-pi-pico-2.png",
+    "width": 695,
+    "height": 1601,
+    "boundsMm": {
+      "minX": -11.999999858438969,
+      "maxX": 11.999999858438969,
+      "minZ": -28.299999177455902,
+      "maxZ": 26.999999523162842
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/raspberry-pi-pico-2.glb?v=38ba3e6ddefb",
+    "assetSha256": "38ba3e6ddefb82bc71a5cf7d610f799876bfc866022ee02e8a0ee44788992846",
+    "imageSha256": "b973292d2ab88a2a888fb766f505a46bcc9a75a6be59e4b7c098a9be10cd6766",
+    "revision": "Pico 2 · CAD tham chiếu chính hãng"
+  },
+  "raspberry-pi-pico-2-h": {
+    "id": "raspberry-pi-pico-2-h",
+    "image": "/board-reference/topview/raspberry-pi-pico-2-h.png",
+    "width": 695,
+    "height": 1601,
+    "boundsMm": {
+      "minX": -11.999999858438969,
+      "maxX": 11.999999858438969,
+      "minZ": -28.299999177455902,
+      "maxZ": 26.999999523162842
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/raspberry-pi-pico-2-h.glb?v=b3ce57f26b52",
+    "assetSha256": "b3ce57f26b5267be6d64ff899846b8c6db2bccb4c5186434317870e48e94395a",
+    "imageSha256": "4913d5c3fa524822005874f4d65b5a30aac726a1f6f30d19e433639a49c1a6b8",
+    "revision": "Pico 2 H · SC1632 · with headers"
+  },
+  "adafruit-qtpy-esp32-c3-5405": {
+    "id": "adafruit-qtpy-esp32-c3-5405",
+    "image": "/board-reference/topview/adafruit-qtpy-esp32-c3-5405.png",
+    "width": 1344,
+    "height": 1600,
+    "boundsMm": {
+      "minX": -10.3900001719594,
+      "maxX": 10.3900001719594,
+      "minZ": -12.8978311419487,
+      "maxZ": 11.850500233471394
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/adafruit-qtpy-esp32-c3-5405.glb?v=75030f7cdca3",
+    "assetSha256": "75030f7cdca39c06a58baed253b8b23e146a20f6797f224e45d2ab0107ced974",
+    "imageSha256": "04d15b2951013c5dcf393f3fa842aaaf55bec8e88712a6dbbd68069d72806405",
+    "revision": "Adafruit QT Py ESP32-C3 Rev B · #5405"
+  },
+  "adafruit-feather-esp32-s3-5323": {
+    "id": "adafruit-feather-esp32-s3-5323",
+    "image": "/board-reference/topview/adafruit-feather-esp32-s3-5323.png",
+    "width": 1601,
+    "height": 750,
+    "boundsMm": {
+      "minX": -27.982999324798584,
+      "maxX": 27.2399994879961,
+      "minZ": -12.929999954998493,
+      "maxZ": 12.929999954998493
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/adafruit-feather-esp32-s3-5323.glb?v=b655f774699e",
+    "assetSha256": "b655f774699e598c7f9102ecb8832b73eb503a0ea5ed0b6e118ac1f9102dda36",
+    "imageSha256": "e4820ee5d433434d3e26a9377fc729390a8e595f6b483d4237c21fde9d7a9dfa",
+    "revision": "Adafruit Feather ESP32-S3 #5323 · 8 MB flash · no PSRAM"
+  },
+  "adafruit-feather-esp32-s3-tft-5483": {
+    "id": "adafruit-feather-esp32-s3-tft-5483",
+    "image": "/board-reference/topview/adafruit-feather-esp32-s3-tft-5483.png",
+    "width": 1601,
+    "height": 754,
+    "boundsMm": {
+      "minX": -26.89999969303608,
+      "maxX": 27.982999324798584,
+      "minZ": -12.929999954998493,
+      "maxZ": 12.929999954998493
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/adafruit-feather-esp32-s3-tft-5483.glb?v=f4136a50fb56",
+    "assetSha256": "f4136a50fb5621bbc5546fbc1c32adaf65f6de24acb23dea68db6b461200184b",
+    "imageSha256": "d4975025f1f8e757594b6dc8b40ac99ad5ac97f9b907fc5cf250945728906783",
+    "revision": "Adafruit Feather ESP32-S3 TFT #5483 · 4 MB flash · 2 MB PSRAM"
+  },
+  "seeed-xiao-esp32c3": {
+    "id": "seeed-xiao-esp32c3",
+    "image": "/board-reference/topview/seeed-xiao-esp32c3.png",
+    "width": 1600,
+    "height": 1464,
+    "boundsMm": {
+      "minX": 136.3705999554828,
+      "maxX": 160.47859632968903,
+      "minZ": 93.9786017537117,
+      "maxZ": 116.0285964012146
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/seeed-xiao-esp32-c3.glb?v=1c9ddcc5d43a",
+    "assetSha256": "1c9ddcc5d43ab72af3bf44808cde942365c5e863a3c63c566e6df0c3ac42e9ab",
+    "imageSha256": "7f2abe90c14be3bdfcd4108cbb313f0d86a5123ac6f2b6f07296e9af1aee9d71",
+    "revision": "Seeed Studio XIAO ESP32-C3 · KiCad v1.3"
+  },
+  "seeed-xiao-esp32-s3": {
+    "id": "seeed-xiao-esp32-s3",
+    "image": "/board-reference/topview/seeed-xiao-esp32-s3.png",
+    "width": 1600,
+    "height": 1305,
+    "boundsMm": {
+      "minX": -11.977500036358833,
+      "maxX": 13.504480697214603,
+      "minZ": -10.3900001719594,
+      "maxZ": 10.3900001719594
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/seeed-xiao-esp32-s3.glb?v=866adb2f4068",
+    "assetSha256": "866adb2f4068574976bd1b5f7763a07e1d800bbc2e489a3efdfe473dbf5424d2",
+    "imageSha256": "7874f096ffa1b0af876d0b59cd7ceb6554af9722cc495f87aed0291366ffd368",
+    "revision": "Seeed Studio XIAO ESP32-S3 · STEP chính hãng v2 · bản thường (không phải Sense/Plus)"
+  },
+  "arduino-uno-r4-minima": {
+    "id": "arduino-uno-r4-minima",
+    "image": "/board-reference/topview/arduino-uno-r4-minima.png",
+    "width": 1600,
+    "height": 1226,
+    "boundsMm": {
+      "minX": -37.750039935112,
+      "maxX": 35.790000796318054,
+      "minZ": -28.169999584555626,
+      "maxZ": 28.169999584555626
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/arduino-catalog-1/arduino-uno-r4-minima.glb?v=e95cc50ab515",
+    "assetSha256": "e95cc50ab51524c6a699d5590065b6cd8772a7fd85ae73850fbb01cb1cecd15e",
+    "imageSha256": "0151419bda44da8a4bf38cbb0b41a4c08b8dc5dfc3495b16d38b2b6138c3c33b",
+    "revision": "ABX00080 · STEP và PCB Arduino chính hãng"
+  },
+  "arduino-uno-r4-wifi": {
+    "id": "arduino-uno-r4-wifi",
+    "image": "/board-reference/topview/arduino-uno-r4-wifi.png",
+    "width": 1600,
+    "height": 1226,
+    "boundsMm": {
+      "minX": -37.750039935112,
+      "maxX": 35.790000796318054,
+      "minZ": -28.169999584555626,
+      "maxZ": 28.169999584555626
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/arduino-catalog-1/arduino-uno-r4-wifi.glb?v=ec2299601bf4",
+    "assetSha256": "ec2299601bf417a4ac1d981e6a087785f54117819de6caded64cfe580e95a576",
+    "imageSha256": "5760f60cc8a01cb1c21e71b51986eede3c3ba7388b07aa94ac216ef8c4bdec5b",
+    "revision": "ABX00087 · STEP và PCB Arduino chính hãng"
+  },
+  "arduino-nano-esp32": {
+    "id": "arduino-nano-esp32",
+    "image": "/board-reference/topview/arduino-nano-esp32.png",
+    "width": 1601,
+    "height": 704,
+    "boundsMm": {
+      "minX": -24.20195446908474,
+      "maxX": 23.09000001847744,
+      "minZ": -10.3900001719594,
+      "maxZ": 10.390075609087944
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/arduino-catalog-1/arduino-nano-esp32.glb?v=aa402b945cb9",
+    "assetSha256": "aa402b945cb978ed1760d8fcc27367f61395f4c459cecf771e63fdaeadc92167",
+    "imageSha256": "dd6ef0219139960ef88c1574fddaa209b888dce14561f75f055e520bdede6d82",
+    "revision": "ABX00083 · STEP và PCB Arduino chính hãng"
+  },
+  "esp32-c3-devkitm-1": {
+    "id": "esp32-c3-devkitm-1",
+    "image": "/board-reference/topview/esp32-c3-devkitm-1.png",
+    "width": 1073,
+    "height": 1601,
+    "boundsMm": {
+      "minX": -14.19999984651804,
+      "maxX": 14.19999984651804,
+      "minZ": -20.95500075817108,
+      "maxZ": 21.405000925064087
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/board-catalog-remaining-1/esp32-c3-devkitm-1.glb?v=bffc24622fc3",
+    "assetSha256": "bffc24622fc3f69cae78b76553fcd8e05d6645b02eb93e4f40adf060de29c406",
+    "imageSha256": "11d548d7f6e015ca5fba9844b331f0e9f6fa648a00020f473aa7bd34a0c45c7d",
+    "revision": "ESP32-C3-DevKitM-1-N4X · PCB V1.0"
+  },
+  "esp32-devkitm-1": {
+    "id": "esp32-devkitm-1",
+    "image": "/board-reference/topview/esp32-devkitm-1.png",
+    "width": 962,
+    "height": 1601,
+    "boundsMm": {
+      "minX": -14.19999984651804,
+      "maxX": 14.19999984651804,
+      "minZ": -23.404999390244484,
+      "maxZ": 23.85499955713749
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/board-catalog-remaining-1/esp32-devkitm-1.glb?v=b905a7deee63",
+    "assetSha256": "b905a7deee63efa73780782784e77cfc64d7f39fa6ba5b45f2f6e029c9d3b0f3",
+    "imageSha256": "ba47a7ffa6b82685bc7ead363784f4638b43547e4420810e82d730c5df79191d",
+    "revision": "ESP32-DevKitM-1 · PCB V1.0"
+  },
+  "esp32-c6-devkitc-1": {
+    "id": "esp32-c6-devkitc-1",
+    "image": "/board-reference/topview/esp32-c6-devkitc-1.png",
+    "width": 738,
+    "height": 1601,
+    "boundsMm": {
+      "minX": -14.19999984651804,
+      "maxX": 14.19999984651804,
+      "minZ": -33.79999914765358,
+      "maxZ": 27.850000873208046
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/board-catalog-remaining-1/esp32-c6-devkitc-1.glb?v=ea5bd7c66086",
+    "assetSha256": "ea5bd7c660861e1ffb91ca7d6cee5733f65bde0e48dbcb796ce5ac6717ee2d68",
+    "imageSha256": "2cee9a10b619808713ee647e2110f75def86f343e158bc5cccf465b71696283c",
+    "revision": "ESP32-C6-DevKitC-1-N8 · PCB v1.2, schematic v1.4"
+  },
+  "esp32-s2-devkitc-1": {
+    "id": "esp32-s2-devkitc-1",
+    "image": "/board-reference/topview/esp32-s2-devkitc-1.png",
+    "width": 626,
+    "height": 1600,
+    "boundsMm": {
+      "minX": -14.19999984651804,
+      "maxX": 14.19999984651804,
+      "minZ": -39.26999935507774,
+      "maxZ": 33.31999921798706
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/board-catalog-remaining-1/esp32-s2-devkitc-1.glb?v=66f531d8a643",
+    "assetSha256": "66f531d8a643169865f29e98d70087f1a3bd0986139a40f01ac51c66cc03091f",
+    "imageSha256": "1e8b665caa98989bfa1a5c24a33cb11188277a0a657a041d6d34a8465aecdb59",
+    "revision": "ESP32-S2-DevKitC-1-N8R2 · PCB V1, schematic 2022-08-17"
+  },
+  "esp32-h2-devkitm-1": {
+    "id": "esp32-h2-devkitm-1",
+    "image": "/board-reference/topview/esp32-h2-devkitm-1.png",
+    "width": 782,
+    "height": 1601,
+    "boundsMm": {
+      "minX": -14.19999984651804,
+      "maxX": 14.19999984651804,
+      "minZ": -32.03000010550022,
+      "maxZ": 26.07999996840954
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/board-catalog-remaining-1/esp32-h2-devkitm-1.glb?v=4915ce24eeab",
+    "assetSha256": "4915ce24eeab5c8e9ede9a1752b92581544f2ceda264b233018d33049f3b1707",
+    "imageSha256": "b6912dd4d477ef4393e2a9a55a7516da50d9609e742d77f9f7bda1909b4a1128",
+    "revision": "ESP32-H2-DevKitM-1-N4 · PCB v1.2, schematic v1.3"
+  },
+  "stm32-nucleo-f411re": {
+    "id": "stm32-nucleo-f411re",
+    "image": "/board-reference/topview/stm32-nucleo-f411re.png",
+    "width": 1343,
+    "height": 1600,
+    "boundsMm": {
+      "minX": -36.50000014901161,
+      "maxX": 36.50000014901161,
+      "minZ": -44.000000447034836,
+      "maxZ": 42.99999842047691
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/board-catalog-remaining-1/stm32-nucleo-f411re.glb?v=de63773bd9b5",
+    "assetSha256": "de63773bd9b55f65c78b88902f3ed55c961f3f17c8add58afc23781278bff454",
+    "imageSha256": "ec36d13a06a74e907233c2bcd413b5d70a93663527c17b09ddbfa1327d114b31",
+    "revision": "NUCLEO-F411RE · MB1136-F411RE-C04"
+  },
+  "stm32-nucleo-l476rg": {
+    "id": "stm32-nucleo-l476rg",
+    "image": "/board-reference/topview/stm32-nucleo-l476rg.png",
+    "width": 1343,
+    "height": 1600,
+    "boundsMm": {
+      "minX": -36.50000014901161,
+      "maxX": 36.50000014901161,
+      "minZ": -44.000000447034836,
+      "maxZ": 42.99999842047691
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/board-catalog-remaining-1/stm32-nucleo-l476rg.glb?v=9ac6fe7f6256",
+    "assetSha256": "9ac6fe7f6256c610bd93e5de6278f9ad9a3a7ea02554d70ab670d3b768a0701d",
+    "imageSha256": "ec36d13a06a74e907233c2bcd413b5d70a93663527c17b09ddbfa1327d114b31",
+    "revision": "NUCLEO-L476RG · MB1136-L476RG-C04"
+  },
+  "stm32-nucleo-f446re": {
+    "id": "stm32-nucleo-f446re",
+    "image": "/board-reference/topview/stm32-nucleo-f446re.png",
+    "width": 1343,
+    "height": 1600,
+    "boundsMm": {
+      "minX": -36.50000014901161,
+      "maxX": 36.50000014901161,
+      "minZ": -44.000000447034836,
+      "maxZ": 42.99999842047691
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/board-catalog-remaining-1/stm32-nucleo-f446re.glb?v=b803c7ad4c20",
+    "assetSha256": "b803c7ad4c20f31d0bc4b38278af31ed2ad2023eebdc1235392b9000b5f05db2",
+    "imageSha256": "ec36d13a06a74e907233c2bcd413b5d70a93663527c17b09ddbfa1327d114b31",
+    "revision": "NUCLEO-F446RE · MB1136-F446RE-C04"
+  },
+  "arduino-nano-every": {
+    "id": "arduino-nano-every",
+    "image": "/board-reference/topview/arduino-nano-every.png",
+    "width": 1601,
+    "height": 720,
+    "boundsMm": {
+      "minX": -23.09000001847744,
+      "maxX": 23.09000001847744,
+      "minZ": -10.3900001719594,
+      "maxZ": 10.3900001719594
+    },
+    "projection": "orthographic-xz",
+    "asset": "/models/board-catalog-remaining-1/arduino-nano-every.glb?v=b92ac3ce9546",
+    "assetSha256": "b92ac3ce9546fb7eeaa8f14ad20803b9346b208ee3cbffd824b77d22f453151a",
+    "imageSha256": "eecf410c6212caed919225609f196a2f0f62b676ad388f569c30d1aed148f0d4",
+    "revision": "ABX00028 · NANOEveryV4.0"
   }
 }

@@ -54,11 +54,12 @@ test('board support summary states each capability from its own evidence', () =>
   assert.match(viewer.model, /CAD/)
   assert.match(viewer.pinout, /28 pad JP1\/JP3 chọn được theo CAD Eagle #5483/)
   assert.match(viewer.simulation, /Chưa/)
-  const lookup = data.getBoardSupportSummary('esp32-devkitm-1')
-  assert.match(lookup.model, /Chưa có/)
-  assert.match(lookup.simulation, /Chưa/)
+  const reference = data.getBoardSupportSummary('esp32-devkitm-1')
+  assert.match(reference.model, /2D và mô hình 3D tham chiếu/)
+  assert.match(reference.pinout, /34 chân header chọn được/)
+  assert.match(reference.simulation, /Bản local chạy ảnh ESP-IDF bằng ESP-EMU cho mạch mẫu A11/)
   const alias = data.getBoardSupportSummary('esp32-c6-devkitc-1')
-  assert.match(alias.pinout, /alias/)
+  assert.match(alias.pinout, /32 chân header chọn được/)
   assert.match(alias.simulation, /hành vi/)
   assert.doesNotMatch(alias.simulation, /firmware thật/i)
   assert.match(data.getBoardSupportSummary('stm32-nucleo').pinout, /UM1724/)
@@ -103,11 +104,12 @@ test('catalog notes repeat the inventory counts and official hosts', () => {
   assert.equal(urls.filter((url) => url.includes('pip.raspberry.com')).length, 0)
 })
 
-test('Espressif KiCad library is linked as footprint evidence without claiming a complete board model', () => {
+test('Espressif library links are preserved alongside revision-specific reconstructed models', () => {
   for (const id of ['esp32-c3-devkitm-1', 'esp32-devkitm-1', 'esp32-s3-devkitc-1']) {
     const board = catalog.boards.find((item) => item.id === id)
     assert.ok(board.referenceDocs?.some((doc) => /KiCad.*Espressif|Espressif.*KiCad/i.test(doc.label)), id)
-    assert.match(board.modelNote, /không.*(assembly|board|DevKit)|chưa có.*assembly/i)
+    if (id === 'esp32-s3-devkitc-1') assert.match(board.modelNote, /không.*(assembly|board|DevKit)|chưa có.*assembly/i)
+    else assert.match(board.modelNote, /2D, PCB 3D/)
   }
 })
 

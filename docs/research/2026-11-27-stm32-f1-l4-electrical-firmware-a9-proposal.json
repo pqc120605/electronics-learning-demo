@@ -1,0 +1,517 @@
+{
+  "revision": "MM-STM32-F1-L4-SIM-FW-A9",
+  "date": "2026-11-27",
+  "state": "PROPOSED",
+  "purpose": {
+    "why": "Hai board STM32 còn lại trong danh mục sau A7. Mỗi board có mạch nút nhấn và LED, nền tảng Renode tối thiểu và ELF nhận dạng riêng.",
+    "capabilityIds": [
+      "CAT-01",
+      "CAT-02",
+      "CAT-03",
+      "FW-04",
+      "FW-07",
+      "FW-08",
+      "SIM-02",
+      "SIM-03",
+      "SIM-04"
+    ],
+    "exitDepth": "D3 cho từng mạch mẫu sau khi có bằng chứng chọn chân đúng revision, ELF boot, GPIO hai chiều của mạch, thời gian SysTick, byte UART và hai điểm làm việc ngspice.",
+    "delivery": "Thư viện Board → mạch mẫu A9 trong bàn lắp tự do. Dev và preview trên Windows localhost. Giữ bản nháp theo origin, partId/pinId, và tạo bản lưu trước đó khi người dùng thay mạch."
+  },
+  "boards": [
+    {
+      "id": "stm32-blue-pill-f103",
+      "name": "STM32F103C8T6 Blue Pill",
+      "fixtureId": "a9-blue-pill-f103-button-led",
+      "boardRevision": "Mô hình giáo dục Blue Pill 53,34 × 22,86 mm đang có trong danh mục",
+      "mcu": "STM32F103C8T6 (LQFP48)",
+      "boardEvidence": {
+        "provenance": "Bố cục tham chiếu được chốt theo mô hình Mạch Mở và tài liệu STM32-base. J1/J2 và số pad là ID của mô hình tái dựng, với pin 1 ở phía USB. Bảng STM32-base có thể liệt kê theo chiều ngược lại.",
+        "sources": [
+          "https://stm32-base.org/boards/STM32F103C8T6-Blue-Pill.html",
+          "https://www.st.com/resource/en/datasheet/stm32f103c8.pdf"
+        ],
+        "model": {
+          "path": "public/models/stm32-blue-pill-f103.glb",
+          "sha256": "a520c6f436e242e3c4b9032e3efcf90e180c1d41c09a8adf86f849c1c0932ec2"
+        },
+        "optimizedModel": {
+          "path": "public/models/optimized/stm32-blue-pill-f103.meshopt.glb",
+          "sha256": "1fa6d4866562e5e66407d0da8f3b8a43dbad458fbb34fd37062d86357ff284e6"
+        },
+        "topView": {
+          "path": "public/board-reference/topview/stm32-blue-pill-f103.png",
+          "sha256": "70ffed0f8ca2f83168fbb5d1dc7988798b86f73795daec210941bffde98fcaf3"
+        },
+        "padSource": {
+          "path": "src/data/stm32-blue-pill-f103.pads.json",
+          "sha256": "feb8dbeb349bdca7493b1a956ec80ee7a240d4cb852c6cb46f010cf7d1ed5ff1"
+        },
+        "mainPadCount": 40,
+        "auxiliaryLookup": [
+          {
+            "id": "J5",
+            "signals": [
+              "3V3",
+              "PA13 / SWDIO",
+              "PA14 / SWCLK",
+              "GND"
+            ],
+            "level": "Chỉ tra cứu tên tín hiệu theo đầu SWD của mẫu tham chiếu. Gán số và neo J5 cho clone vật lý cần xác minh riêng."
+          }
+        ]
+      },
+      "pins": {
+        "input": {
+          "gpio": "PA10",
+          "alias": 10,
+          "pinId": "j2-7",
+          "pad": "J2.7"
+        },
+        "output": {
+          "gpio": "PB5",
+          "alias": 5,
+          "pinId": "j2-13",
+          "pad": "J2.13"
+        },
+        "power": {
+          "signal": "3V3",
+          "pinId": "j2-20",
+          "pad": "J2.20"
+        },
+        "ground": {
+          "signal": "GND",
+          "pinId": "j2-19",
+          "pad": "J2.19"
+        },
+        "serialTx": {
+          "gpio": "PA9",
+          "signal": "USART1_TX",
+          "pinId": "j2-6",
+          "pad": "J2.6"
+        }
+      },
+      "firmware": {
+        "target": "stm32f103c8t6",
+        "cpu": "cortex-m3",
+        "elfArmArchitecture": "v7-M",
+        "flash": {
+          "base": "0x08000000",
+          "bytes": 65536
+        },
+        "sram": {
+          "base": "0x20000000",
+          "bytes": 20480
+        },
+        "clock": {
+          "source": "HSI reset",
+          "hz": 8000000,
+          "renodePerformanceMips": 8,
+          "coreDivider": 1,
+          "apbDivider": 1,
+          "systickReload": 7999
+        },
+        "readyLine": "A9_READY=stm32f103c8t6",
+        "clocksEnabled": [
+          {
+            "register": "RCC_APB2ENR",
+            "address": "0x40021018",
+            "bits": [
+              2,
+              3,
+              14
+            ]
+          }
+        ],
+        "gpioConfiguration": {
+          "input": "PA10 floating input, CRH[11:8]=0x4; điện trở kéo lên ngoài.",
+          "output": "PB5 push-pull 2 MHz, CRL[23:20]=0x2, xuất LOW ban đầu.",
+          "serialTx": "PA9 alternate-function push-pull 2 MHz, CRH[7:4]=0xA, USART1 mặc định không remap."
+        },
+        "uart": {
+          "device": "usart1",
+          "class": "UART.STM32_UART",
+          "base": "0x40013800",
+          "nvicIrq": 37,
+          "brr": "0x0341",
+          "format": "9600 8N1 danh nghĩa",
+          "control": {
+            "ueBit": 13,
+            "teBit": 3
+          },
+          "pollAt": {
+            "name": "SR.TXE",
+            "offset": "0x00",
+            "bit": 7
+          },
+          "writeAt": {
+            "name": "DR",
+            "offset": "0x04"
+          }
+        },
+        "observation": {
+          "gpioClass": "GPIOPort.STM32F1GPIOPort",
+          "inputPort": {
+            "name": "gpioPortA",
+            "base": "0x40010800",
+            "pin": 10,
+            "idr": "0x40010808"
+          },
+          "outputPort": {
+            "name": "gpioPortB",
+            "base": "0x40010C00",
+            "pin": 5,
+            "mode": "0x40010C00",
+            "idr": "0x40010C08",
+            "odr": "0x40010C0C"
+          }
+        },
+        "scope": "Đúng STM32F103C8T6 64 KiB flash và bố cục tham chiếu; regulator, USB và linh kiện phụ của các clone chỉ tra cứu."
+      }
+    },
+    {
+      "id": "stm32-nucleo-l476rg",
+      "name": "STM32 NUCLEO-L476RG",
+      "fixtureId": "a9-nucleo-l476rg-button-led",
+      "boardRevision": "NUCLEO-L476RG · MB1136-L476RG-C04",
+      "mcu": "STM32L476RGT6 (LQFP64)",
+      "boardEvidence": {
+        "provenance": "Bảng 23 và 32 của UM1724 Rev 17, sơ đồ MB1136 DEFAULT C04 và dữ liệu pad được nhập từ Altium MB1136C. BOM riêng L476RG-C04 chưa có trong gói cục bộ; trạng thái bridge, lắp/DNP ngoài đường mạch mẫu cần đối chiếu riêng.",
+        "sources": [
+          "https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf",
+          "https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf",
+          "https://www.st.com/resource/en/datasheet/stm32l476rg.pdf"
+        ],
+        "model": {
+          "path": "public/models/board-catalog-remaining-1/stm32-nucleo-l476rg.glb",
+          "sha256": "9ac6fe7f6256c610bd93e5de6278f9ad9a3a7ea02554d70ab670d3b768a0701d"
+        },
+        "topView": {
+          "path": "public/board-reference/topview/stm32-nucleo-l476rg.png",
+          "sha256": "ec36d13a06a74e907233c2bcd413b5d70a93663527c17b09ddbfa1327d114b31"
+        },
+        "padSource": {
+          "path": "src/data/remaining-catalog-board-assets.json",
+          "sha256": "f9d14256148ce567cc5f84c83d23bcc2e982df32fef9a119aeae0647dbf43874",
+          "entry": "stm32-nucleo-l476rg"
+        },
+        "mainPadCount": 108,
+        "auxiliaryLookup": [
+          {
+            "id": "CN4",
+            "padCount": 6,
+            "level": "Tra cứu đầu SWD của ST-LINK theo UM1724; UART quan sát từ USART2 của MCU, độc lập với đường ST-LINK/VCP và trạng thái bridge."
+          }
+        ]
+      },
+      "pins": {
+        "input": {
+          "gpio": "PA10",
+          "alias": 10,
+          "pinId": "cn9-3",
+          "pad": "CN9.3 / D2"
+        },
+        "output": {
+          "gpio": "PB5",
+          "alias": 5,
+          "pinId": "cn9-5",
+          "pad": "CN9.5 / D4"
+        },
+        "power": {
+          "signal": "3V3",
+          "pinId": "cn6-4",
+          "pad": "CN6.4"
+        },
+        "ground": {
+          "signal": "GND",
+          "pinId": "cn6-6",
+          "pad": "CN6.6"
+        },
+        "serialTx": {
+          "gpio": "PA2",
+          "signal": "USART2_TX",
+          "pinId": "cn9-2",
+          "pad": "CN9.2 / D1"
+        }
+      },
+      "firmware": {
+        "target": "stm32l476rgt6",
+        "cpu": "cortex-m4",
+        "elfArmArchitecture": "v7E-M",
+        "flash": {
+          "base": "0x08000000",
+          "bytes": 1048576
+        },
+        "sram": {
+          "bank": "SRAM1",
+          "base": "0x20000000",
+          "bytes": 98304
+        },
+        "clock": {
+          "source": "MSI reset range 6",
+          "hz": 4000000,
+          "renodePerformanceMips": 4,
+          "coreDivider": 1,
+          "apbDivider": 1,
+          "systickReload": 3999
+        },
+        "readyLine": "A9_READY=stm32l476rgt6",
+        "clocksEnabled": [
+          {
+            "register": "RCC_AHB2ENR",
+            "address": "0x4002104C",
+            "bits": [
+              0,
+              1
+            ]
+          },
+          {
+            "register": "RCC_APB1ENR1",
+            "address": "0x40021058",
+            "bits": [
+              17
+            ]
+          }
+        ],
+        "gpioConfiguration": {
+          "input": "PA10 MODER=input, PUPDR=none; điện trở kéo lên ngoài.",
+          "output": "PB5 MODER=output, OTYPER=push-pull, PUPDR=none, xuất LOW ban đầu.",
+          "serialTx": "PA2 MODER=alternate function, AFRL=AF7, push-pull, USART2 chọn PCLK1 theo reset."
+        },
+        "uart": {
+          "device": "usart2",
+          "class": "UART.STM32F7_USART",
+          "base": "0x40004400",
+          "nvicIrq": 38,
+          "brr": "0x01A1",
+          "format": "9600 8N1 danh nghĩa",
+          "control": {
+            "ueBit": 0,
+            "teBit": 3
+          },
+          "pollAt": {
+            "name": "ISR.TXE",
+            "offset": "0x1C",
+            "bit": 7
+          },
+          "writeAt": {
+            "name": "TDR",
+            "offset": "0x28"
+          }
+        },
+        "observation": {
+          "gpioClass": "GPIOPort.STM32_GPIOPort",
+          "inputPort": {
+            "name": "gpioPortA",
+            "base": "0x48000000",
+            "pin": 10,
+            "idr": "0x48000010"
+          },
+          "outputPort": {
+            "name": "gpioPortB",
+            "base": "0x48000400",
+            "pin": 5,
+            "mode": "0x48000400",
+            "idr": "0x48000410",
+            "odr": "0x48000414"
+          }
+        },
+        "scope": "ELF chỉ dùng SRAM1. SRAM2, ST-LINK/VCP, power mode và ngoại vi ngoài mạch mẫu thuộc phạm vi tài liệu."
+      }
+    }
+  ],
+  "electrical": {
+    "engine": {
+      "name": "ngspice 45.2 WASM",
+      "path": "public/vendor/eecircuit-engine/spice.wasm",
+      "sha256": "3096ce2c499c3062472b9d7953f5141d75a019296e22b0142f4979e5894008ec"
+    },
+    "voltage": 3.3,
+    "temperatureC": 27,
+    "nodes": [
+      [
+        "3V3 của board",
+        "điện trở kéo lên 10 kΩ đầu A"
+      ],
+      [
+        "PA10",
+        "điện trở kéo lên đầu B",
+        "nút chân A"
+      ],
+      [
+        "GND của board",
+        "nút chân B",
+        "cathode LED"
+      ],
+      [
+        "PB5",
+        "điện trở hạn dòng 1 kΩ đầu A"
+      ],
+      [
+        "điện trở hạn dòng đầu B",
+        "anode LED"
+      ]
+    ],
+    "pullupOhms": 10000,
+    "ledSeriesOhms": 1000,
+    "switchClosedOhms": 1,
+    "switchOpen": "Mạch hở",
+    "diode": {
+      "saturationCurrentA": 1e-18,
+      "ideality": 2.2,
+      "seriesOhms": 20
+    },
+    "mode": "Đọc logic công tắc qua net hợp lệ để bơm vào input PA10 của máy ảo; lấy hai trạng thái ổn định đã quan sát tại PA10/PB5 để giải hai điểm làm việc DC với GPIO là nguồn lý tưởng 0/3,3 V. Thời gian đến từ firmware và runner.",
+    "expected": {
+      "releasedInputV": 3.3,
+      "heldInputV": 0.000329967,
+      "heldLedCurrentMilliA": 1.294082,
+      "heldAnodeV": 2.005918
+    },
+    "acceptance": {
+      "releasedInputV": [
+        3.29,
+        3.31
+      ],
+      "heldInputAbsMaxV": 0.001,
+      "heldLedCurrentMilliA": [
+        1.28,
+        1.31
+      ],
+      "heldAnodeV": [
+        1.99,
+        2.02
+      ],
+      "releasedLedCurrentAbsMaxMilliA": 0.001,
+      "kvlAbsMaxV": 0.001
+    }
+  },
+  "firmwareShared": {
+    "toolchain": {
+      "name": "Arm GNU Toolchain 14.2.Rel1 (arm-none-eabi)",
+      "archive": {
+        "path": ".tmp/a5-vendor/arm-gnu-toolchain-14.2.rel1-mingw-w64-i686-arm-none-eabi.zip",
+        "sha256": "6facb152ce431ba9a4517e939ea46f057380f8f1e56b62e8712b3f3b87d994e1",
+        "bytes": 305393359
+      }
+    },
+    "flags": [
+      "-mcpu=<cpu hợp đồng board>",
+      "-mthumb",
+      "-mfloat-abi=soft",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-nostdlib",
+      "-Wl,--build-id=none"
+    ],
+    "image": "ELF32 ARM little-endian, đúng CPU và nhận dạng target. Reset vector Thumb và mọi LOAD nằm đúng flash/SRAM của board. Bảng vector và VTOR tại 0x08000000. Tạo hai ELF sau duyệt, lưu SHA-256 ELF, nền tảng Renode, source và asset trong manifest.",
+    "timing": {
+      "systickMs": 1,
+      "sampleMs": 10,
+      "debounceMs": 40,
+      "rejectPulseMs": 20,
+      "cycles": 3,
+      "expectedEdgeDelayMs": [
+        39,
+        60
+      ],
+      "maxSysTickDriftTicks": 1
+    },
+    "serial": [
+      "A9_READY=<target>",
+      "A9_BUTTON=0",
+      "A9_BUTTON=1 khi chuyển sang nhấn",
+      "A9_BUTTON=0 khi chuyển sang nhả"
+    ],
+    "sources": [
+      {
+        "url": "https://www.st.com/resource/en/reference_manual/rm0008-stm32f101xx-stm32f102xx-stm32f103xx-stm32f105xx-and-stm32f107xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+        "role": "STM32F103 clock, GPIO/USART và memory map"
+      },
+      {
+        "url": "https://github.com/STMicroelectronics/cmsis-device-f1/blob/master/Include/stm32f103xb.h",
+        "role": "Địa chỉ và bit STM32F103x8/xB"
+      },
+      {
+        "url": "https://www.st.com/resource/en/reference_manual/rm0351-stm32l47xxx-stm32l48xxx-stm32l49xxx-and-stm32l4axxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+        "role": "STM32L476 clock, GPIO/USART và memory map"
+      },
+      {
+        "url": "https://github.com/STMicroelectronics/cmsis-device-l4/blob/master/Include/stm32l476xx.h",
+        "role": "Địa chỉ và bit STM32L476"
+      },
+      {
+        "url": "https://github.com/STMicroelectronics/cmsis-device-l4/blob/master/Source/Templates/system_stm32l4xx.c",
+        "role": "Clock MSI mặc định 4 MHz"
+      }
+    ]
+  },
+  "runtime": {
+    "name": "Renode Windows portable",
+    "version": "1.17.0+20260906gitf1dd1b4af",
+    "archive": {
+      "path": ".tmp/a7-local-assets/renode-1.17.0.windows-portable.zip",
+      "sha256": "18bcf145422039e8702c3e5f9864c7787561bfd5deb7a3ee6e168ecf19e2b9db",
+      "bytes": 106735414
+    },
+    "launcher": {
+      "path": ".tmp/a7-local-assets/renode_1.17.0-portable/Renode.exe",
+      "sha256": "67c2c21eb977181a50a19acbf582c4204d8177d2b4ae0bac4c3d3d51da7a7b4e"
+    },
+    "evidence": [
+      {
+        "path": ".tmp/a7-local-assets/renode_1.17.0-portable/Infrastructure.dll",
+        "sha256": "d292e87a787fc6047037ce9b667cd1d345181b6182d71b5b431653aea1b8b52e"
+      },
+      {
+        "path": ".tmp/a7-local-assets/renode_1.17.0-portable/platforms/cpus/stm32f103.repl",
+        "sha256": "63c4a3f5ec1d349a2dfa9e219c0952f78fcc887d31b6669bff217816bb750c31",
+        "role": "Tham chiếu model GPIO F1 và UART legacy. Tạo platform nhỏ với memory map đúng STM32F103C8."
+      },
+      {
+        "path": ".tmp/a7-local-assets/renode_1.17.0-portable/platforms/cpus/stm32l552.repl",
+        "sha256": "d7caaa5cec5c20f12e3fc336af48665b4a929b0b88f769703e18bb6062f47738",
+        "role": "Tham chiếu cú pháp và lớp UART có ISR/TDR; địa chỉ platform L476 buộc đối chiếu CMSIS L476."
+      }
+    ],
+    "profile": {
+      "packages": "CPU.CortexM và IRQControllers.NVIC 0xE000E000 với priorityMask 0xF0, SysTick và UART clock bằng clock đã chốt của từng board. Đọc thanh ghi GPIO trực tiếp và đếm tick từ biến firmware. Baud nominal đặt qua BRR, tiêu chí UART là chuỗi byte UART backend.",
+      "clocks": "Clock được cố định ở giá trị đã duyệt. Vùng RCC fixture 0x40021000 kích thước 0x400 chỉ nhận/đọc lại bit enable cần cho chương trình, clock-gating và PLL nằm ngoài mô hình.",
+      "scope": "Mỗi board cần Renode boot đúng ELF, quan sát PA10 do mạch điều khiển và PB5 thực thi từ firmware. L4 dùng model lớp USART chung theo thanh ghi tương thích, phải chứng minh bằng I/O backend; nếu bất kỳ class hay hành vi nào không đạt thì giữ target ở trạng thái chưa hỗ trợ và báo kết quả."
+    },
+    "transport": {
+      "route": "/api/local-tools/a9-stm32/",
+      "runnerArguments": [
+        "--disable-gui",
+        "--console",
+        "--plain",
+        "--port",
+        "-1"
+      ],
+      "perSessionConfig": "Cầu nối dùng --config với INI riêng chứa general.history-path của phiên.",
+      "limits": {
+        "startupWallMs": 30000,
+        "runWallMs": 60000,
+        "maxStepMs": 10,
+        "activeSessions": 1,
+        "serialTailBytes": 8000
+      },
+      "semantics": "Tái dùng cầu nối Renode A7/A8, stdin/stdout, lịch sử lệnh và backend UART trong thư mục phiên riêng. Trình duyệt cùng origin localhost chỉ chọn board trong allowlist và gửi nút boolean bằng POST; đường truyền dùng ID phiên. Khởi động lại sau khi phiên cũ dừng; đổi board, sửa mạch, rời trang hoặc hết hạn thì hủy phiên và kết quả. ELF, REPL và runner nằm trong .tmp/a9-local-assets hoặc gói Renode A7 đã ghim; build tĩnh chỉ chứa UI và dữ liệu board."
+    }
+  },
+  "acceptance": {
+    "perBoard": [
+      "Kiểm toàn bộ pad chính trên mặt trên 2D và 3D, năm điểm đúng pad và nhóm tra cứu phụ. Khi lưu rồi mở lại mạch, endpoint và revision được giữ nguyên; bản nháp cũ mở lại được.",
+      "ELF đúng target và hash, boot UART báo đúng board. Bác ELF khác họ/SKU, hình ảnh lỗi hoặc sai revision. Kiểm 20 ms không đổi PB5 và ba chu kỳ GPIO với timestamp SysTick trên mỗi board.",
+      "Đo đủ hai điểm ngspice; ngắt dây, đổi rail, đảo LED, sai pin hoặc sai trị số thì khóa pipeline và hủy kết quả cũ.",
+      "Chrome desktop và 375 px cho từng board; kiểm lưu nháp, mất kết nối, stop rồi mở lại, hai phiên độc lập, từ chối origin hoặc tham số sai."
+    ],
+    "regression": "Node A1–A9; Chrome A1–A9 một worker và bốn luồng Pico cũ. npm.cmd run typecheck, build:local, check:public-release. Kiểm đầu ra tĩnh không có ELF/REPL/Renode A9.",
+    "excluded": [
+      "Nạp board thật, debug SWD/ST-LINK, kiểm USB hay các bus ngoài mạch mẫu",
+      "Mạch 5 V, tải cảm, waveform điện và đồng mô phỏng analog liên tục",
+      "Xuất bản Vercel hoặc triển khai Mini PC"
+    ]
+  }
+}

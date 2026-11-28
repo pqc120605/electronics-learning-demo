@@ -1,0 +1,195 @@
+{
+  "revision": "MM-RP2040-SIM-FW-A5",
+  "date": "2026-11-27",
+  "status": "proposal-for-approval",
+  "scope": "Mạch nút nhấn và LED ngoài 3,3 V chạy firmware C biên dịch cho Raspberry Pi Pico R3 và Pico W. Đo điểm làm việc DC bằng ngspice tại trạng thái GPIO quan sát được. Bản thử loopback.",
+  "capabilities": {
+    "ids": [
+      "CAT-01",
+      "CAT-02",
+      "CAT-03",
+      "FW-04",
+      "FW-07",
+      "FW-08",
+      "SIM-02",
+      "SIM-03",
+      "SIM-04"
+    ],
+    "contracts": [
+      "K-ID",
+      "K-CTX",
+      "K-RUN",
+      "K-TIME",
+      "K-STORE"
+    ],
+    "exitDepth": "D3 cho fixture hai board, nhận diện revision, chạy ảnh mẫu, quan sát GPIO/UART/clock và đo DC."
+  },
+  "baseline": {
+    "worktree": ".tmp/na",
+    "head": "357e8fc427565c76acec8ecc78fcaa4206bdd7c1",
+    "a4ApprovalSha256": "87ecccdc51aea68b8c75b0a8aa07623d146e5bea4b520827e86e77cff8066475",
+    "regression": {
+      "node": 307,
+      "chrome": 40
+    }
+  },
+  "boardEvidenceUrl": "https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html",
+  "boards": [
+    {
+      "id": "raspberry-pi-pico",
+      "revision": "Pico R3 · thiết kế tham chiếu chính hãng",
+      "pcbRevision": "R3a · RPI-PICO-R3a-PUBLIC.brd",
+      "fixtureId": "a5-pico-r3-button-led",
+      "sdkBoard": "pico",
+      "flashBytes": 2097152,
+      "headerLocations": 40,
+      "pinout": "https://datasheets.raspberrypi.com/pico/Pico-R3-A4-Pinout.pdf",
+      "pcb": {
+        "path": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+        "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd"
+      },
+      "step": {
+        "path": "public/cad/raspberry-pi-pico-r3.step",
+        "sha256": "ea5c693afee3de73e9fcaab1892a5ed44bf789438b9b1e5906e9c4f9859cab8b"
+      },
+      "constraints": "LED onboard ở GP25 ngoài fixture. Giữ nguyên đường UF2, MicroPython, mặc định chân và khả năng mở bản nháp Pico hiện có."
+    },
+    {
+      "id": "raspberry-pi-pico-w",
+      "revision": "Pico W · thiết kế tham chiếu chính hãng",
+      "pcbRevision": "Pico W R3 · rpi-picow-r3-2.brd",
+      "fixtureId": "a5-pico-w-button-led",
+      "sdkBoard": "pico_w",
+      "flashBytes": 2097152,
+      "headerLocations": 40,
+      "pinout": "https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf",
+      "pcb": {
+        "path": "assets/boards/vendor/raspberry-pi/official-allegro/rpi-picow-r3-2.brd",
+        "sha256": "574c6112a3418dff77717f87e62839f5205cf9fd1899350f4ce16610dee731a5"
+      },
+      "step": {
+        "path": "public/cad/raspberry-pi-pico-w.stp",
+        "sha256": "fa3af83ac3163504264fac1d60aaf2d5bb25ea3df44e302771e905576a718f21"
+      },
+      "constraints": "LED onboard nằm trên CYW43439 WL_GPIO0. Fixture sử dụng LED ngoài ở GP15 và firmware không link hoặc khởi tạo CYW43. Model giữ đúng revision và vị trí SWD của Pico W."
+    }
+  ],
+  "pins": {
+    "button": {
+      "pinId": "j0-19",
+      "pad": "J0:19",
+      "label": "GP14",
+      "gpio": 14
+    },
+    "led": {
+      "pinId": "j0-20",
+      "pad": "J0:20",
+      "label": "GP15",
+      "gpio": 15
+    },
+    "power": {
+      "pinId": "j0-36",
+      "pad": "J0:36",
+      "label": "3V3(OUT)"
+    },
+    "ground": {
+      "pinId": "j0-18",
+      "pad": "J0:18",
+      "label": "GND"
+    },
+    "serialTx": {
+      "pinId": "j0-1",
+      "pad": "J0:1",
+      "label": "GP0",
+      "gpio": 0,
+      "baud": 115200
+    },
+    "geometry": "Từng board dùng 40 tâm pad J0 và neo 3D từ nguồn Allegro của chính revision đó. Giữ partId/pinId của bản lưu. UART0 là quan sát emulator, GP0 không cần dây trong fixture."
+  },
+  "runtime": {
+    "engine": {
+      "name": "rp2040js",
+      "version": "1.4.1",
+      "packageIntegrity": "sha512-Yzr5xG7ZwbtA50IYAU1k/oSoSyDAhPtT5qC/Q2eFApoLuAYE8DQbPIMPs/0kh4Ietd4P0OpKk3CIkfNqjcr56g==",
+      "license": "MIT",
+      "source": "https://github.com/wokwi/rp2040js",
+      "availability": "dependency đã khóa trong package-lock.json"
+    },
+    "sdk": {
+      "name": "Raspberry Pi Pico SDK",
+      "version": "2.2.0",
+      "commit": "a1438dff1d38bd9c65dbd693f0e5db4b9ae91779",
+      "source": "https://github.com/raspberrypi/pico-sdk/releases/tag/2.2.0",
+      "boardHeaders": [
+        "https://raw.githubusercontent.com/raspberrypi/pico-sdk/2.2.0/src/boards/include/boards/pico.h",
+        "https://raw.githubusercontent.com/raspberrypi/pico-sdk/2.2.0/src/boards/include/boards/pico_w.h"
+      ]
+    },
+    "compiler": {
+      "name": "Arm GNU Toolchain 14.2.Rel1, arm-none-eabi",
+      "winArchive": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-mingw-w64-i686-arm-none-eabi.zip",
+      "checksumSource": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-mingw-w64-i686-arm-none-eabi.zip.sha256asc",
+      "sha256": "6facb152ce431ba9a4517e939ea46f057380f8f1e56b62e8712b3f3b87d994e1",
+      "cmake": "3.30.2",
+      "ninja": "1.12.1"
+    },
+    "target": {
+      "platform": "rp2040",
+      "architecture": "Arm Cortex-M0+ Thumb, core 0",
+      "clockHz": 125000000,
+      "bootrom": {
+        "revision": "RP2040 B2",
+        "bytes": 16384,
+        "sha256": "9c19b46f068c21f90d200c514faad4a0d5cecfc978f155b8c9d25cb6bc2efd81",
+        "local": ".tmp/firmware-cache/rp2040-bootrom-b2.bin"
+      }
+    },
+    "flash": {
+      "bytes": 2097152,
+      "xipBase": "0x10000000",
+      "boot2Bytes": 256,
+      "boot2": "Pico SDK W25Q080 · CLKDIV 2",
+      "vectorBase": "0x10000100",
+      "build": "C11 cùng nguồn, hai thư mục build với PICO_BOARD=pico và PICO_BOARD=pico_w, PICO_PLATFORM=rp2040, Release, PICO_NO_PICOTOOL=1. Dùng pico_add_bin_output để xuất ELF và BIN, không link USB, Wi-Fi hoặc BLE. Dùng image XIP đệm 0xff cho worker."
+    },
+    "validation": "Kiểm SDK commit, compiler archive SHA-256, ELF Thumb ARMv6-M và flash layout. Kiểm 256 byte boot2 từ ELF, SP thuộc SRAM và vector Thumb trong image. Manifest khóa board/revision/target/dung lượng/SHA-256 ảnh. Chỉ tải cặp manifest/ảnh mẫu cùng origin khi người học bấm chạy. Kiểm bootrom local bằng SHA-256 rồi nạp vào emulator, chạy boot2 từ đầu flash như luồng MicroPython hiện có.",
+    "firmware": "Vô hiệu pull nội ở GP14, đọc mỗi 10 ms bằng timer RP2040. Nút xuống LOW, chạy chống dội 40 ms, GP15 lên HIGH khi ổn định. GP15 tắt khi nhả ổn định. UART0 115200 ghi A5_READY=pico hoặc A5_READY=pico_w và A5_BUTTON=0/1 khi trạng thái thay đổi.",
+    "lifecycle": "Mở từ catalog bằng fixture riêng. Boot tối đa 10 giây, một worker mỗi tab, tối đa 60 giây chạy sau tín hiệu sẵn sàng. Trace đồng hồ mô phỏng, lấy mẫu tối đa 1 ms quanh chuyển trạng thái. Dừng, đổi board hoặc sửa mạch hủy worker/đo đang chạy và xóa kết quả hết hiệu lực. Khôi phục đúng revision. Dữ liệu lời giải và bản nháp lưu local theo cơ chế hiện có.",
+    "limits": "Phạm vi một lõi, GPIO ngoài, timer và UART0. Pico 2/Pico 2 H dùng RP2350 và cần runner riêng. Radio/CYW43439, LED onboard, USB, SWD và nạp thiết bị thật ngoài phạm vi."
+  },
+  "electrical": {
+    "nets": [
+      "3V3(OUT) — 10 kΩ — GP14 — nút thường hở — GND",
+      "GP15 — 1 kΩ — anode LED đỏ — cathode — GND"
+    ],
+    "engine": "ngspice 45.2 WASM",
+    "wasmSha256": "3096ce2c499c3062472b9d7953f5141d75a019296e22b0142f4979e5894008ec",
+    "model": "DC ở 27 °C. Nguồn 3,3 V, đầu vào trở kháng lý tưởng, nút đóng 1 Ω và nút nhả hở. GP15 là nguồn lý tưởng 0 V hoặc 3,3 V theo mẫu firmware. LED đỏ IS 1e-18 A, N 2.2, RS 20 Ω theo A4.",
+    "passCriteria": {
+      "ledOnMa": [
+        1.1,
+        1.5
+      ],
+      "maxLedOffAbsoluteMa": 0.001,
+      "releasedInputV": [
+        3.29,
+        3.31
+      ],
+      "maxPressedInputV": 0.001,
+      "maxKvlResidualV": 0.001
+    },
+    "limits": "Đo DC theo mẫu GPIO và model mạch ngoài. Không lấy kết quả này làm số đo board vật lý hoặc phản hồi analog liên tục vào firmware."
+  },
+  "acceptance": {
+    "pins": "Mỗi revision đúng 40 anchor. Kiểm 4 chân mạch và chân UART TX khớp nguồn, 2D/3D. Giá trị pad không nhập nhằng với VBUS, VSYS hay 3V3_EN.",
+    "firmware": "Kiểm hai ảnh đã biên dịch riêng. Xác nhận UART A5_READY đúng PICO_BOARD, GPIO GP14/GP15, 3 vòng nhấn/nhả, xung 20 ms bị loại và chuyển GP15 sau 39–60 ms mô phỏng. Khoảng dưới 40 ms dành cho sai số lấy mẫu. Giữ kiểm tra lỗi boot không có kết quả giả.",
+    "electrical": "Giải hai trạng thái trên cả 2 board theo ngưỡng. Từ chối mất GND, sai rail, thiếu điện trở, đảo LED, chập, sai pin/revision và dọn kết quả cũ sau đổi mạch.",
+    "browser": "Chrome desktop và khung 375 px cho từng board. Kiểm neo 2D/3D, bàn phím/nút nhấn, trace, hai phép đo, lỗi SHA/dung lượng/board/ROM/tệp thiếu, timeout, chạy lại, đổi Pico sang Pico W và giữ bản nháp cũ. Kiểm đường UF2 và MicroPython của Pico R3.",
+    "regression": "Chạy A1–A4 gồm 307 Node và 40 Chrome theo snapshot A4 cùng bộ A5. Chạy typecheck và build:local, ghi ca fail/skip, SHA-256 ảnh và log. Giữ cổng phân phối công khai hiện hành."
+  },
+  "remaining": "ESP32 cổ điển và ESP32-S2 chưa có target tương ứng trong ESP-EMU v1.2.0. Tài liệu QEMU của Espressif có target ESP32 nhưng chưa có GPIO matrix/IOMUX, và không liệt kê S2. RP2350 là đợt riêng sau khi chốt runner, hiện chưa có bằng chứng chạy trong Mạch Mở.",
+  "references": {
+    "espEmuTargets": "https://github.com/espressif/esp-emulator/blob/v1.2.0/docs/guides/BROWSER.md",
+    "espQemuFeatures": "https://github.com/espressif/esp-toolchain-docs/blob/main/qemu/README.md"
+  }
+}

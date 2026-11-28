@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import type { BoardSummary } from '../../data/boards'
+import type { BoardPin } from './boardSceneTypes'
 import { getBoardCapability, getBoardSupportSummary } from '../../data/boardCapabilityRegistry'
 
 /** Profile of one board; it stands on its own when no 3D viewer exists. */
-export function BoardProfile({ board }: { board: BoardSummary }) {
+export function BoardProfile({ board, headerPins }: { board: BoardSummary; headerPins?: readonly BoardPin[] }) {
   const support = getBoardSupportSummary(board.id)
   const pinout = Object.entries(getBoardCapability(board.id).pinMap)
     .filter(([key, pin]) => /^[da]\d+$/.test(key) && pin.sourceBacked)
@@ -15,6 +16,7 @@ export function BoardProfile({ board }: { board: BoardSummary }) {
     ...(board.sourceEvidenceUrl && board.sourceEvidenceUrl !== board.sourceUrl
       ? [{ label: 'Tài liệu dùng để đối chiếu', url: board.sourceEvidenceUrl }]
       : []),
+    ...(board.alternateModelUrl ? [{ label: board.alternateModelLabel ?? 'Model tham khảo bổ sung', url: board.alternateModelUrl }] : []),
   ].filter((link, index, links) => link.url && links.findIndex((candidate) => candidate.url === link.url) === index)
   const rows: Array<[string, string | undefined]> = [
     ['Vi điều khiển', board.mcu],
@@ -24,7 +26,7 @@ export function BoardProfile({ board }: { board: BoardSummary }) {
     ['Phù hợp khi', board.bestFor],
     ['Cần cân nhắc', board.tradeoffs],
     ['Mô hình trong web', support.model],
-    ['Pinout trong web', support.pinout],
+    ['Pinout trong web', headerPins?.length ? headerPins.length + ' vị trí chân trong tab Chân và linh kiện. ' + support.pinout : support.pinout],
     ['Phòng thử', support.simulation],
   ]
   return <>

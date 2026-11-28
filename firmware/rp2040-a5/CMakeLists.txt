@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.16)
+include("$ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake")
+project(machmo_rp2040_a5 C CXX ASM)
+
+if(NOT PICO_PLATFORM STREQUAL "rp2040" OR NOT PICO_BOARD MATCHES "^(pico|pico_w)$")
+    message(FATAL_ERROR "A5 requires RP2040 and PICO_BOARD=pico or pico_w")
+endif()
+
+pico_sdk_init()
+add_executable(machmo_rp2040_a5 button_led.c)
+set_target_properties(machmo_rp2040_a5 PROPERTIES C_STANDARD 11 C_STANDARD_REQUIRED ON)
+target_compile_definitions(machmo_rp2040_a5 PRIVATE A5_BOARD="${PICO_BOARD}")
+target_link_libraries(machmo_rp2040_a5 PRIVATE pico_stdlib hardware_uart)
+pico_enable_stdio_usb(machmo_rp2040_a5 0)
+pico_enable_stdio_uart(machmo_rp2040_a5 0)
+pico_add_bin_output(machmo_rp2040_a5)

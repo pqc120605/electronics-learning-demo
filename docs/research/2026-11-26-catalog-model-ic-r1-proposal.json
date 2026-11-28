@@ -1,0 +1,338 @@
+{
+  "revision": "MM-CATALOG-MODELS-IC-1",
+  "status": "proposed",
+  "testedArtifactTarget": "interactive 2D pin map, KiCad footprint and interactive 3D package with one shared numbered pad identity",
+  "sourceLibrary": "KiCad 10.0.7",
+  "sourceLibraryLicense": "https://www.kicad.org/libraries/license/",
+  "releaseScope": "local verification",
+  "parts": [
+    {
+      "catalogId": "logic-74hc00",
+      "mpn": "SN74HC00N",
+      "manufacturer": "Texas Instruments",
+      "package": "PDIP-14 (N)",
+      "datasheet": "https://www.ti.com/lit/ds/symlink/sn74hc00.pdf",
+      "datasheetRevision": "SCLS181H, page 3",
+      "numbering": "top view, pad 1 at the package mark",
+      "footprint": {
+        "path": "footprints/Package_DIP.pretty/DIP-14_W7.62mm.kicad_mod",
+        "sha256": "6e9fc056d23e88e219b9e20d58ff74e1d351ca9a77a7b3e6b633f5475d6040f1"
+      },
+      "step": {
+        "path": "3dmodels/Package_DIP.3dshapes/DIP-14_W7.62mm.step",
+        "sha256": "3dae072a95c64bee0d1e58be8e75383639f5017ab982de1749d05808a4eed058"
+      },
+      "pins": [
+        {
+          "pad": 1,
+          "label": "1A"
+        },
+        {
+          "pad": 2,
+          "label": "1B"
+        },
+        {
+          "pad": 3,
+          "label": "1Y"
+        },
+        {
+          "pad": 4,
+          "label": "2A"
+        },
+        {
+          "pad": 5,
+          "label": "2B"
+        },
+        {
+          "pad": 6,
+          "label": "2Y"
+        },
+        {
+          "pad": 7,
+          "label": "GND"
+        },
+        {
+          "pad": 8,
+          "label": "3Y"
+        },
+        {
+          "pad": 9,
+          "label": "3A"
+        },
+        {
+          "pad": 10,
+          "label": "3B"
+        },
+        {
+          "pad": 11,
+          "label": "4Y"
+        },
+        {
+          "pad": 12,
+          "label": "4A"
+        },
+        {
+          "pad": 13,
+          "label": "4B"
+        },
+        {
+          "pad": 14,
+          "label": "VCC"
+        }
+      ]
+    },
+    {
+      "catalogId": "logic-74hc4511",
+      "mpn": "CD74HC4511E",
+      "manufacturer": "Texas Instruments",
+      "package": "PDIP-16 (N)",
+      "datasheet": "https://www.ti.com/lit/ds/symlink/cd74hc4511.pdf",
+      "datasheetRevision": "SCHS279E, page 3",
+      "numbering": "top view, pad 1 at the package mark",
+      "footprint": {
+        "path": "footprints/Package_DIP.pretty/DIP-16_W7.62mm.kicad_mod",
+        "sha256": "08cec2c2fafeffb19d0c6d17db37b67017e6518147516b0b75e6a4719b235465"
+      },
+      "step": {
+        "path": "3dmodels/Package_DIP.3dshapes/DIP-16_W7.62mm.step",
+        "sha256": "17a30b1f0ab3fd5384a1231e3c63c394888d5b952c542a8c189e023ed3467464"
+      },
+      "pins": [
+        {
+          "pad": 1,
+          "label": "B",
+          "datasheetLabel": "D1"
+        },
+        {
+          "pad": 2,
+          "label": "C",
+          "datasheetLabel": "D2"
+        },
+        {
+          "pad": 3,
+          "label": "/LT"
+        },
+        {
+          "pad": 4,
+          "label": "/BL"
+        },
+        {
+          "pad": 5,
+          "label": "LE"
+        },
+        {
+          "pad": 6,
+          "label": "D",
+          "datasheetLabel": "D3"
+        },
+        {
+          "pad": 7,
+          "label": "A",
+          "datasheetLabel": "D0"
+        },
+        {
+          "pad": 8,
+          "label": "GND"
+        },
+        {
+          "pad": 9,
+          "label": "e"
+        },
+        {
+          "pad": 10,
+          "label": "d"
+        },
+        {
+          "pad": 11,
+          "label": "c"
+        },
+        {
+          "pad": 12,
+          "label": "b"
+        },
+        {
+          "pad": 13,
+          "label": "a"
+        },
+        {
+          "pad": 14,
+          "label": "g"
+        },
+        {
+          "pad": 15,
+          "label": "f"
+        },
+        {
+          "pad": 16,
+          "label": "VCC"
+        }
+      ]
+    },
+    {
+      "catalogId": "timer-ne555",
+      "mpn": "NE555P",
+      "manufacturer": "Texas Instruments",
+      "package": "PDIP-8 (P)",
+      "datasheet": "https://www.ti.com/lit/ds/symlink/ne555.pdf",
+      "datasheetRevision": "SLFS022K, page 3",
+      "numbering": "top view, pad 1 at the package mark",
+      "footprint": {
+        "path": "footprints/Package_DIP.pretty/DIP-8_W7.62mm.kicad_mod",
+        "sha256": "44500fc2989169a1ea877ba89e69cd60d0a77414af60fd2d1997de5569f2dee5"
+      },
+      "step": {
+        "path": "3dmodels/Package_DIP.3dshapes/DIP-8_W7.62mm.step",
+        "sha256": "4a377a56a8d9e9c0b86c095ef9ecc1869ac19e7f5069a3247b294250bf4f235d"
+      },
+      "pins": [
+        {
+          "pad": 1,
+          "label": "GND"
+        },
+        {
+          "pad": 2,
+          "label": "TRIG"
+        },
+        {
+          "pad": 3,
+          "label": "OUT"
+        },
+        {
+          "pad": 4,
+          "label": "/RESET"
+        },
+        {
+          "pad": 5,
+          "label": "CONT"
+        },
+        {
+          "pad": 6,
+          "label": "THRES"
+        },
+        {
+          "pad": 7,
+          "label": "DISCH"
+        },
+        {
+          "pad": 8,
+          "label": "VCC"
+        }
+      ]
+    },
+    {
+      "catalogId": "display-max7219",
+      "mpn": "MAX7219CNG+",
+      "manufacturer": "Analog Devices",
+      "package": "PDIP-24 narrow (0.3 in)",
+      "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/MAX7219-MAX7221.pdf",
+      "datasheetRevision": "19-4452 Rev 6, pages 1 and 5",
+      "numbering": "top view, pad 1 at the package mark",
+      "footprint": {
+        "path": "footprints/Package_DIP.pretty/DIP-24_W7.62mm.kicad_mod",
+        "sha256": "937c4c0eb95eeee3e9b5c3378d96acea5d96e59a605467b02a29994d42fdf7be"
+      },
+      "step": {
+        "path": "3dmodels/Package_DIP.3dshapes/DIP-24_W7.62mm.step",
+        "sha256": "305ecc33779421c4eaa38993d80432e50eb6e02cae0807055a4a07ffcb2f0d2b"
+      },
+      "pins": [
+        {
+          "pad": 1,
+          "label": "DIN"
+        },
+        {
+          "pad": 2,
+          "label": "DIG0"
+        },
+        {
+          "pad": 3,
+          "label": "DIG4"
+        },
+        {
+          "pad": 4,
+          "label": "GND"
+        },
+        {
+          "pad": 5,
+          "label": "DIG6"
+        },
+        {
+          "pad": 6,
+          "label": "DIG2"
+        },
+        {
+          "pad": 7,
+          "label": "DIG3"
+        },
+        {
+          "pad": 8,
+          "label": "DIG7"
+        },
+        {
+          "pad": 9,
+          "label": "GND"
+        },
+        {
+          "pad": 10,
+          "label": "DIG5"
+        },
+        {
+          "pad": 11,
+          "label": "DIG1"
+        },
+        {
+          "pad": 12,
+          "label": "LOAD"
+        },
+        {
+          "pad": 13,
+          "label": "CLK"
+        },
+        {
+          "pad": 14,
+          "label": "SEG A"
+        },
+        {
+          "pad": 15,
+          "label": "SEG F"
+        },
+        {
+          "pad": 16,
+          "label": "SEG B"
+        },
+        {
+          "pad": 17,
+          "label": "SEG G"
+        },
+        {
+          "pad": 18,
+          "label": "ISET"
+        },
+        {
+          "pad": 19,
+          "label": "V+"
+        },
+        {
+          "pad": 20,
+          "label": "SEG C"
+        },
+        {
+          "pad": 21,
+          "label": "SEG E"
+        },
+        {
+          "pad": 22,
+          "label": "SEG DP"
+        },
+        {
+          "pad": 23,
+          "label": "SEG D"
+        },
+        {
+          "pad": 24,
+          "label": "DOUT"
+        }
+      ]
+    }
+  ]
+}

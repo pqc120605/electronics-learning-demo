@@ -24,7 +24,28 @@ import { CatalogPartExplorer } from '../CatalogPartExplorer'
 import { R2bBusTrace, R2bCircuitControls } from './R2bCircuitControls'
 import { FreestyleSpiceControls } from './FreestyleSpiceControls'
 import { CoupledFirmwareControls, type CoupledHexRun } from './CoupledFirmwareControls'
+import { a1BoardId, buildA1UnoFixture, getA1UnoFixture } from '../../lib/freestyle/a1UnoFixtures'
+import { a2BoardId, a2ButtonId, a2FixtureId, a2LedId, buildA2C3Fixture } from '../../lib/freestyle/a2C3Fixture'
+import { isA2LocalHost, type A2Sample } from '../../lib/freestyle/a2C3Runtime'
+import { a3ButtonId, a3LedId, buildA3Fixture } from '../../lib/freestyle/a3EspFixture'
+import { getA3Board } from '../../lib/freestyle/a3EspProfiles'
+import { a4ButtonId, a4LedId, buildA4Fixture, getActiveA4Board } from '../../lib/freestyle/a4EspFixture'
+import { a5ButtonId, a5LedId, buildA5Fixture, getActiveA5Board } from '../../lib/freestyle/a5PicoFixture'
+import { a6ButtonId, a6LedId, buildA6Fixture, getActiveA6Board } from '../../lib/freestyle/a6PicoFixture'
+import { getA6Board } from '../../lib/freestyle/a6PicoProfiles'
+import { a7ButtonId, a7LedId, buildA7Fixture, getActiveA7Board } from '../../lib/freestyle/a7Stm32Fixture'
+import { getA7Board } from '../../lib/freestyle/a7Stm32Profiles'
+import { a8ButtonId, a8LedId, buildA8Fixture, getActiveA8Board } from '../../lib/freestyle/a8Ra4m1Fixture'
+import { getA8Board } from '../../lib/freestyle/a8Ra4m1Profiles'
+import { a9ButtonId, a9LedId, buildA9Fixture, getActiveA9Board } from '../../lib/freestyle/a9Stm32Fixture'
+import { a10ButtonId, a10LedId, buildA10Fixture, getActiveA10Board } from '../../lib/freestyle/a10AvrFixture'
+import { a11ButtonId, a11LedId, buildA11Fixture, getActiveA11Board } from '../../lib/freestyle/a11EspFixture'
+import { a12ButtonId, buildA12Fixture, getActiveA12Board } from '../../lib/freestyle/a12Fixture'
+import { getA12Board } from '../../lib/freestyle/a12Profiles'
+import A12CircuitControls from './A12CircuitControls'
+import A2C3Controls from './A2C3Controls'
 import type { CoupledFrame } from '../../simulation/coupledDigital'
+import { dhtStimulusLimits } from '../../simulation/dhtWire'
 import { getCatalogPart } from '../../data/catalogParts'
 import { getR3PartByType } from '../../data/catalogR3Parts'
 import { getR3CircuitFixture } from '../../simulation/catalogR3Fixtures'
@@ -122,7 +143,8 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   const { boardId, doc, pinMap, language, code } = workspace
   const board = getFreestyleBoard(boardId)
   const [step, setStep] = useState<Step>(readOnly ? 'code' : started ? 'parts' : 'board')
-  const activeSteps = readOnly ? steps.filter(item => item.id === 'code' || item.id === 'observe') : steps
+  const activeSteps = readOnly ? steps.filter(item => item.id === 'code' || item.id === 'observe')
+    : getA12Board(boardId) ? steps.filter(item => item.id !== 'code' && item.id !== 'observe') : steps
   const [tools, setTools] = useState<LocalTools | null>(null)
   const [toolsChecked, setToolsChecked] = useState(false)
   const [running, setRunning] = useState(false)
@@ -141,6 +163,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   const [bootromMessage, setBootromMessage] = useState('')
   const bootromRequest = useRef(0)
   const [notice, setNotice] = useState('')
+  const [a2Sample, setA2Sample] = useState<A2Sample>()
   const [shareUrl, setShareUrl] = useState('')
   const [shareOnline, setShareOnline] = useState(false)
   const [shareName, setShareName] = useState('')
@@ -203,7 +226,10 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
   }, [running])
 
   const usesPeripheralModel = language === 'cpp' && doc.parts.some(part => peripheralTypes.has(part.type))
-  const canRequestHostedCompiler = !usesPeripheralModel && !readOnly && Boolean(boardId) && board.realEngine === 'avr' && language === 'cpp'
+  const a10Board = getActiveA10Board(boardId, doc)
+  const a11Board = getActiveA11Board(boardId, doc)
+  const a12Board = getActiveA12Board(boardId, doc)
+  const canRequestHostedCompiler = !a10Board && !usesPeripheralModel && !readOnly && Boolean(boardId) && board.realEngine === 'avr' && language === 'cpp'
   const hostedActive = canRequestHostedCompiler && Boolean(hostedTools?.boards.includes(boardId))
   const engine = chooseEngine(boardId, language, usesPeripheralModel ? null : hostedActive ? hostedTools : useLocalRuntime ? tools : null, Boolean(importedBootrom))
 
@@ -409,10 +435,10 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     setSerialEntries(serialEventsRef.current.entries)
     if(frame.serial){const chunk=frame.serial;frame.serial='';setSerial(current=>(current+chunk).slice(-MAX_SERIAL))}
   }
-  function archiveBeforeReplace(previous = workspace): boolean {
+  function archiveBeforeReplace(previous = workspace, originalRaw?: string): boolean {
     if (!previous.doc.parts.length && !previous.doc.breadboards.length && !previous.code) return true
     try {
-      const archived = archiveFreestyleReplacement(getBrowserStorage('localStorage'), JSON.stringify(previous))
+      const archived = archiveFreestyleReplacement(getBrowserStorage('localStorage'), originalRaw ?? JSON.stringify(previous))
       if (archived.ok) return true
       if ('reason' in archived && archived.reason === 'archive-limit') {
         setDraftsOpen(true)
@@ -450,7 +476,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
 
   async function run(wired?: CoupledHexRun) {
     stop()
-    if(!boardId || (!wired && !code.trim()))return
+    if(!boardId || getA6Board(boardId) || getA7Board(boardId) || getA8Board(boardId) || boardId === 'stm32-nucleo-l476rg' || boardId === 'esp32-devkitm-1' || getActiveA9Board(boardId, doc) || getActiveA10Board(boardId, doc) || a11Board || getA12Board(boardId) || (!wired && !code.trim()))return
     setCoupledMode(Boolean(wired))
     setCoupledFrame(undefined)
     const runId=generation.current
@@ -512,18 +538,39 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     if (!boardParam && !partParam && !sampleParam && !breadboardParam && !fixtureParam) return
     intentApplied.current = true
     if (fixtureParam) {
+      const a1 = fixtureParam.startsWith('a1-') ? getA1UnoFixture(fixtureParam) : undefined
       const r4 = getR4CircuitFixture(fixtureParam)
       const r5 = getR5CircuitFixture(fixtureParam)
-      const chosen = r5 ?? r4 ?? getR3CircuitFixture(fixtureParam)
-      if (chosen && archiveBeforeReplace(started ? workspace : draft?.workspace ?? workspace)) {
+      const chosenA1 = a1 && buildA1UnoFixture(a1)
+      const chosenA2 = fixtureParam === a2FixtureId ? buildA2C3Fixture() : undefined
+      const chosenA3 = isA2LocalHost(window.location.hostname) ? buildA3Fixture(fixtureParam) : undefined
+      const chosenA4 = isA2LocalHost(window.location.hostname) ? buildA4Fixture(fixtureParam) : undefined
+      const chosenA5 = isA2LocalHost(window.location.hostname) ? buildA5Fixture(fixtureParam) : undefined
+      const chosenA6 = isA2LocalHost(window.location.hostname) ? buildA6Fixture(fixtureParam) : undefined
+      const chosenA7 = isA2LocalHost(window.location.hostname) ? buildA7Fixture(fixtureParam) : undefined
+      const chosenA8 = isA2LocalHost(window.location.hostname) ? buildA8Fixture(fixtureParam) : undefined
+      const chosenA9 = isA2LocalHost(window.location.hostname) ? buildA9Fixture(fixtureParam) : undefined
+      const chosenA10 = isA2LocalHost(window.location.hostname) ? buildA10Fixture(fixtureParam) : undefined
+      const chosenA11 = isA2LocalHost(window.location.hostname) ? buildA11Fixture(fixtureParam) : undefined
+      const chosenA12 = isA2LocalHost(window.location.hostname) ? buildA12Fixture(fixtureParam) : undefined
+      const fixedFirmware = chosenA12 ?? chosenA11 ?? chosenA10 ?? chosenA9 ?? chosenA8 ?? chosenA7 ?? chosenA6 ?? chosenA5 ?? chosenA4 ?? chosenA3 ?? chosenA2
+      const chosen = fixedFirmware ?? chosenA1 ?? r5 ?? r4 ?? getR3CircuitFixture(fixtureParam)
+      const originalDraft = chosenA12 && !started ? draft?.raw : undefined
+      if (chosen && archiveBeforeReplace(started ? workspace : draft?.workspace ?? workspace, originalDraft)) {
         stop()
-        setSelectedPartId('ic')
+        setSelectedPartId(chosenA12 ? a12ButtonId : chosenA11 ? a11ButtonId : chosenA10 ? a10ButtonId : chosenA9 ? a9ButtonId : chosenA8 ? a8ButtonId : chosenA7 ? a7ButtonId : chosenA6 ? a6ButtonId : chosenA5 ? a5ButtonId : chosenA4 ? a4ButtonId : chosenA3 ? a3ButtonId : chosenA2 ? a2ButtonId : chosenA1 ? 'a1-device' : 'ic')
         setSelectedWireId(null)
-        setControls({})
-        update({ doc: chosen.doc, boardId: '', code: '', wireLayout: undefined, sampleId: undefined })
+        setControls(chosenA1?.controls ?? {})
+        const firmwareFixture = fixedFirmware ?? chosenA1
+        update({ doc: chosen.doc, boardId: fixedFirmware?.boardId ?? (chosenA1 ? a1BoardId : ''), code: '', wireLayout: undefined, sampleId: undefined,
+          ...(firmwareFixture ? { pinMap: firmwareFixture.pinMap, language: 'cpp' as const } : {}) })
         revealMobileCircuit()
         setView('schematic')
-        setNotice(r5 ? 'Đã mở mạch thử R5. Chọn kích thích để đo trên mạch.' : r4 ? 'Đã mở mạch thử R4. Dùng bộ điều khiển ảo để xem giao dịch qua mạch đang lắp.' : 'Đã mở mạch thử R3. Chọn “Phân tích DC mạch đang lắp” để đo.')
+        if (chosenA12) setStep('parts')
+        if (chosenA1) setStep('code')
+        if (fixedFirmware) setPanelOpen(false)
+        setNotice(chosenA12 ? 'Đã mở mạch mẫu A12.' : chosenA11 ? 'Đã mở mạch firmware A11.' : chosenA10 ? 'Đã mở mạch firmware A10.' : chosenA9 ? 'Đã mở mạch firmware A9.' : chosenA8 ? 'Đã mở mạch firmware A8.' : chosenA7 ? 'Đã mở mạch firmware A7.' : chosenA6 ? 'Đã mở mạch firmware A6.' : chosenA5 ? 'Đã mở mạch firmware A5.' : chosenA4 ? 'Đã mở mạch firmware A4.' : chosenA3 ? 'Đã mở mạch firmware A3.' : chosenA2 ? 'Đã mở mạch ESP32-C3 A2.' : chosenA1 ? 'Đã mở mạch thử A1. Mở firmware Uno trong phần firmware HEX để chạy cùng mạch.'
+          : r5 ? 'Đã mở mạch thử R5. Chọn kích thích để đo trên mạch.' : r4 ? 'Đã mở mạch thử R4. Dùng bộ điều khiển ảo để xem giao dịch qua mạch đang lắp.' : 'Đã mở mạch thử R3. Chọn “Phân tích DC mạch đang lắp” để đo.')
       }
       const next = new URLSearchParams(searchParams)
       next.delete('fixture')
@@ -679,9 +726,24 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
 
   const [r4Leds, setR4Leds] = useState<{ doc: typeof doc; lit: string[] }>()
   const activeR4 = r4Leds?.doc===doc ? r4Leds.lit : undefined
-  const litOnStage = useMemo(() => new Set([...(coupledMode ? (coupledFrame?.litParts ?? []) : evaluation.litPartIds), ...(activeR4 ?? [])]),
-    [coupledMode, coupledFrame, evaluation.litPartIds, activeR4])
-  const r4ActiveKeys = useMemo(() => new Set(activeR4?.flatMap(id=>[id+':anode',id+':cathode'])), [activeR4])
+  const a3Board = getA3Board(boardId)
+  const a4Board = getActiveA4Board(boardId, doc)
+  const a5Board = getActiveA5Board(boardId, doc)
+  const a6Board = getActiveA6Board(boardId, doc)
+  const a7Board = getActiveA7Board(boardId, doc)
+  const a8Board = getActiveA8Board(boardId, doc)
+  const a9Board = getActiveA9Board(boardId, doc)
+  const localFixture = a3Board || a4Board || a5Board || a6Board || a7Board || a8Board || a9Board || a10Board || a11Board
+  const isFixedFirmwareFixture = boardId === a2BoardId || Boolean(localFixture || a12Board)
+  const a6OnlyBoard = Boolean(getA6Board(boardId))
+  const fixedFixtureStage = a11Board ? 'A11' : a10Board ? 'A10' : a9Board ? 'A9' : a8Board ? 'A8' : a7Board ? 'A7' : a6Board ? 'A6' : a5Board ? 'A5' : a4Board ? 'A4' : a3Board ? 'A3' : 'A2'
+  const fixtureButton = a11Board ? a11ButtonId : a10Board ? a10ButtonId : a9Board ? a9ButtonId : a8Board ? a8ButtonId : a7Board ? a7ButtonId : a6Board ? a6ButtonId : a5Board ? a5ButtonId : a4Board ? a4ButtonId : a3Board ? a3ButtonId : a2ButtonId
+  const fixtureLed = a2Sample?.outputHigh && isFixedFirmwareFixture
+    ? (a11Board ? a11LedId : a10Board ? a10LedId : a9Board ? a9LedId : a8Board ? a8LedId : a7Board ? a7LedId : a6Board ? a6LedId : a5Board ? a5LedId : a4Board ? a4LedId : a3Board ? a3LedId : a2LedId) : undefined
+  const litOnStage = useMemo(() => new Set([...(coupledMode ? (coupledFrame?.litParts ?? []) : evaluation.litPartIds), ...(activeR4 ?? []), ...(fixtureLed ? [fixtureLed] : [])]),
+    [coupledMode, coupledFrame, evaluation.litPartIds, activeR4, fixtureLed])
+  const r4ActiveKeys = useMemo(() => new Set([...(activeR4 ?? []), ...(fixtureLed ? [fixtureLed] : [])]
+    .flatMap(id => [id + ':anode', id + ':cathode'])), [activeR4, fixtureLed])
   const legend: FlowLegendEntry[] = useMemo(() => [...wireSignals.entries()].filter(([, label]) => label.tone === 'high' || label.tone === 'low').slice(0, 8).map(([wireId, label]) => ({ wireId, label: `${wireId} · ${label.text}`, signal: label.tone === 'high' ? 'high' : 'low', direction: 'none' })), [wireSignals])
   const outputPins = pins ? Object.entries(pins).filter(([, state]) => state.mode === 'output').map(([pin, state]) => ({ pin: Number(pin), ...state })).sort((a, b) => a.pin - b.pin) : []
   const lineCount = code.split('\n').length
@@ -701,12 +763,22 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     && (workspace.sampleId === 'button-led' || workspace.sampleId === 'keypad-five' || workspace.sampleId === 'dht-demo')
   const pythonAvailable = Boolean(importedBootrom || useLocalRuntime && tools?.rp2040Bootrom)
   const runBlockedReason = !boardId ? 'Chọn board trước khi chạy hoặc dựng mạch mẫu.'
+    : getA8Board(boardId) && !isA2LocalHost(window.location.hostname) ? 'Mạch UNO R4 A8 chạy trên bản local.'
+    : getA7Board(boardId) && !isA2LocalHost(window.location.hostname) ? 'Mạch STM32 A7 chạy trên bản local.'
+    : a6OnlyBoard && !isA2LocalHost(window.location.hostname) ? 'Mạch RP2350 A6 chạy trên bản local.'
+    : getA12Board(boardId) ? 'Dùng bảng đo DC của mạch mẫu A12 trên bản local.'
+    : isFixedFirmwareFixture ? `Dùng nút Chạy firmware trong mạch mẫu ${fixedFixtureStage}.`
+    : boardId === 'esp32-devkitm-1' ? 'Mở mạch mẫu A11 từ thư viện Board để chạy firmware ESP32.'
+    : boardId === 'stm32-nucleo-l476rg' ? 'Mở mạch mẫu A9 từ thư viện Board để chạy firmware STM32.'
+    : getA8Board(boardId) ? 'Mở mạch mẫu A8 từ thư viện Board để chạy firmware RA4M1.'
+    : getA7Board(boardId) ? 'Mở mạch mẫu A7 từ thư viện Board để chạy firmware STM32.'
+    : a6OnlyBoard ? 'Mở mạch mẫu A6 từ thư viện Board để chạy firmware RP2350.'
     : !code.trim() ? 'Viết code hoặc dựng mạch mẫu để chạy.'
     : checkingHosted && canRequestHostedCompiler ? 'Đang kiểm tra máy chủ biên dịch.'
     : language === 'micropython' && !pythonAvailable ? engine.note : ''
   const readyToRun = running || preparing || !runBlockedReason
 
-  const runtimeLabel = coupledMode ? 'AVR8js · HEX và mạch số' : boardId ? engine.label : 'Chưa chọn runtime'
+  const runtimeLabel = a12Board ? 'ngspice · A12' : a11Board ? 'ESP-EMU · Xtensa LX6 A11' : coupledMode || a10Board ? 'AVR8js · HEX và mạch số' : a9Board ? 'Renode · ELF STM32 A9' : boardId ? engine.label : 'Chưa chọn runtime'
   const serialPlotVisible = panelOpen && step === 'observe' && serialPlotOpen
   const showTracePopout = tracePopout && view !== 'wave' && trace.length > 0 && !serialPlotVisible
 
@@ -724,8 +796,8 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
         <label className="freestyle-sample">Mạch mẫu
           <select value={sampleId} onChange={event => setSampleId(event.target.value as FreestyleSampleId)}>{[...new Set(freestyleSamples.map(sample=>sample.level))].map(level=><optgroup label={level} key={level}>{freestyleSamples.filter(sample=>sample.level===level).map(sample => <option key={sample.id} value={sample.id}>{sample.title}</option>)}</optgroup>)}</select>
         </label>
-        <button type="button" className="freestyle-button" disabled={!boardId} title={!boardId ? runBlockedReason : undefined} onClick={() => loadSample(sampleId)}>Dựng mạch mẫu</button>
-        <button type="button" className="freestyle-button" aria-haspopup="dialog" onClick={() => setSamplesOpen(true)}>Khám phá mạch mẫu</button>
+        <button type="button" className="freestyle-button" disabled={!boardId || isFixedFirmwareFixture} title={!boardId || isFixedFirmwareFixture ? runBlockedReason : undefined} onClick={() => loadSample(sampleId)}>Dựng mạch mẫu</button>
+        <button type="button" className="freestyle-button" aria-haspopup="dialog" disabled={isFixedFirmwareFixture} onClick={() => setSamplesOpen(true)}>Khám phá mạch mẫu</button>
         <button type="button" className="freestyle-button freestyle-extra-trigger" aria-expanded={extraActionsOpen} onClick={() => setExtraActionsOpen(open => !open)}>Thao tác</button>
         <div className="freestyle-extra-actions" role="group" aria-label="Thao tác khác trên bàn mạch">
         <button type="button" className="freestyle-button" onClick={() => { if(!archiveBeforeReplace())return;setControls({});setSampleId('blink');setSelectedPartId(null);setSelectedWireId(null);update(blankFreestyleWorkspace());setStep('board');setView('breadboard');setPanelOpen(true);setNotice('Bàn mới trống. Chọn board hoặc thêm breadboard để bắt đầu.') }}>Bàn trống</button>
@@ -773,17 +845,20 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       <div className="freestyle-view-tabs" role="group" aria-label="Chế độ xem mạch">{([['breadboard','Lắp mạch 2D'],['schematic','Schematic'],['3d','Lắp mạch 3D'],['wave','Dạng sóng']] as const).map(([id,label])=><button key={id} aria-pressed={view===id} onClick={()=>{setTracePopout(false);setView(id);setPanelOpen(false)}}>{label}</button>)}</div>
       <div className="freestyle-work-actions"><button className="freestyle-button" aria-expanded={panelOpen} onClick={()=>setPanelOpen(!panelOpen)}>{panelOpen?'Ẩn bảng thao tác':'Mở bảng thao tác'}</button><button ref={expandButton} className="freestyle-button" aria-pressed={expanded} onClick={()=>setExpanded(!expanded)}>{expanded?'Thu gọn bàn':'Mở rộng bàn'}</button><button type="button" disabled={!readyToRun} aria-describedby={runBlockedReason ? "freestyle-run-help" : undefined} className={`freestyle-run-button ${running?'is-running':''}`} onClick={running||preparing?stop:() => void run()}>{running||preparing?'■ Dừng':'▶ Chạy'}</button></div>
         {usesPeripheralModel && <p className="freestyle-note">Ngoại vi chạy với Arduino C++ trong trình thông dịch. Kết quả lấy từ mô hình giáo dục.</p>}
-        {doc.parts.filter(part => part.type === 'dht22-bare' || part.type === 'ultrasonic').map(part => {
-          const fields = part.type === 'dht22-bare' ? ['temperature', 'humidity'] as const : ['distance'] as const
-          return <div className="freestyle-card freestyle-input-dock" role="group" key={part.id} aria-label={part.type === 'dht22-bare' ? 'Đầu vào DHT22' : 'Đầu vào HC-SR04'}>
+        {doc.parts.filter(part => ['dht11', 'dht22-bare', 'ultrasonic'].includes(part.type)).map(part => {
+          const fields = part.type === 'ultrasonic' ? ['distance'] as const : ['temperature', 'humidity'] as const
+          return <div className="freestyle-card freestyle-input-dock" role="group" key={part.id} aria-label={part.type === 'dht11' ? 'Đầu vào DHT11' : part.type === 'dht22-bare' ? 'Đầu vào DHT22' : 'Đầu vào HC-SR04'}>
             {fields.map(field => {
-              const { label, min, max, unit } = peripheralControls[field]
-              const value = peripheralValue(controls, part.id, field)
-              return <label key={field} className="freestyle-slider">{label} · {value} {unit}<input aria-label={label} type="range" min={min} max={max} value={value} onChange={event => setControls(current => ({ ...current, [part.id + ':' + field]: Number(event.target.value) }))} /></label>
+              const control = peripheralControls[field]
+              const { min, max, step } = field === 'distance'
+                ? { ...control, step: 1 }
+                : dhtStimulusLimits[part.type === 'dht11' ? 'dht11' : 'dht22'][field]
+              const value = Math.max(min, Math.min(max, peripheralValue(controls, part.id, field)))
+              return <label key={field} className="freestyle-slider">{control.label} · {value} {control.unit}<input aria-label={control.label} type="range" min={min} max={max} step={step} value={value} onChange={event => setControls(current => ({ ...current, [part.id + ':' + field]: Number(event.target.value) }))} /></label>
             })}
           </div>
         })}
-        {controlSpecs.length > 0 && <div className="freestyle-card freestyle-input-dock"><h3>Đầu vào</h3>{controlSpecs.map(spec => {
+        {!a12Board && controlSpecs.length > 0 && <div className="freestyle-card freestyle-input-dock"><h3>Đầu vào</h3>{controlSpecs.map(spec => {
           if (spec.kind === 'slider') {
             const value = typeof controls[spec.partId] === 'number' ? Number(controls[spec.partId]) : 0.5
             return <label key={spec.partId} className="freestyle-slider">{spec.label} · {Math.round(value * 100)} %<input type="range" min={0} max={100} value={Math.round(value * 100)} onChange={event => setControls(current => ({ ...current, [spec.partId]: Number(event.target.value) / 100 }))} /></label>
@@ -810,6 +885,16 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
         {step === 'board' && <div className="freestyle-board-step">
           <fieldset className="freestyle-board-list">
             <legend>Board / MCU</legend>
+            {boardId === a2BoardId && <p className="freestyle-note">ESP32-C3-DevKitM-1 · 3,3 V · Mạch A2</p>}
+            {a10Board && <p className="freestyle-note">{a10Board.name} · 5 V · Mạch A10</p>}
+            {a11Board && <p className="freestyle-note">{a11Board.name} · 3,3 V · Mạch A11</p>}
+            {a9Board && <p className="freestyle-note">{a9Board.name} · 3,3 V · Mạch A9</p>}
+            {a8Board && <p className="freestyle-note">{a8Board.name} · 5 V · Mạch A8</p>}
+            {a7Board && <p className="freestyle-note">{a7Board.name} · 3,3 V · Mạch A7</p>}
+            {a6Board && <p className="freestyle-note">{a6Board.name} · 3,3 V · Mạch A6</p>}
+            {a5Board && <p className="freestyle-note">{a5Board.name} · 3,3 V · Mạch A5</p>}
+            {a4Board && <p className="freestyle-note">{a4Board.name} · 3,3 V · Mạch A4</p>}
+            {a3Board && <p className="freestyle-note">{a3Board.name} · 3,3 V · Mạch A3</p>}
             {freestyleBoards.map(item => <label key={item.id} className={item.id === boardId ? 'is-selected' : ''}
               onPointerDown={() => { boardPointer.current = true }} onPointerCancel={() => { boardPointer.current = false }} onKeyDown={() => { boardPointer.current = false }}>
               <input type="radio" name="freestyle-board" value={item.id} checked={item.id === boardId} onChange={() => {
@@ -886,10 +971,16 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
           </div>}
         </div>}
 
-        {step === 'code' && <div className="freestyle-code-step">
+        {step === 'code' && a6Board && <p className="freestyle-note">A6 dùng ELF C có sẵn. Bấm “Chạy firmware” trong mạch mẫu để theo dõi UART0 và GPIO.</p>}
+        {step === 'code' && a7Board && <p className="freestyle-note">Bấm “Chạy firmware” trong mạch mẫu A7 để theo dõi USART2 và GPIO.</p>}
+        {step === 'code' && a8Board && <p className="freestyle-note">Bấm “Chạy firmware” trong mạch mẫu A8 để theo dõi SCI2 và GPIO.</p>}
+        {step === 'code' && a9Board && <p className="freestyle-note">Bấm “Chạy firmware” trong mạch mẫu A9 để theo dõi UART và GPIO.</p>}
+        {step === 'code' && a10Board && <p className="freestyle-note">Bấm “Chạy firmware” trong mạch mẫu A10 để theo dõi UART và GPIO.</p>}
+        {step === 'code' && a11Board && <p className="freestyle-note">Bấm “Chạy firmware” trong mạch mẫu A11 để theo dõi UART và GPIO.</p>}
+        {step === 'code' && !a6Board && !a7Board && !a8Board && !a9Board && !a10Board && !a11Board && !a12Board && <div className="freestyle-code-step">
           <div className="freestyle-code-toolbar">
-            {!readOnly && board.languages.length > 1 && <label>Ngôn ngữ<select value={language} onChange={event => chooseLanguage(event.target.value as FreestyleLanguage)}>{board.languages.map(item => <option key={item} value={item} disabled={item === 'micropython' && !pythonAvailable}>{item === 'micropython' ? pythonAvailable ? 'MicroPython' : 'MicroPython · cần boot ROM' : 'Arduino C++'}</option>)}</select></label>}
-            {board.languages.includes('micropython') && !tools?.rp2040Bootrom && <div className="freestyle-card">
+            {!readOnly && !a5Board && board.languages.length > 1 && <label>Ngôn ngữ<select value={language} onChange={event => chooseLanguage(event.target.value as FreestyleLanguage)}>{board.languages.map(item => <option key={item} value={item} disabled={item === 'micropython' && !pythonAvailable}>{item === 'micropython' ? pythonAvailable ? 'MicroPython' : 'MicroPython · cần boot ROM' : 'Arduino C++'}</option>)}</select></label>}
+            {!a5Board && board.languages.includes('micropython') && !tools?.rp2040Bootrom && <div className="freestyle-card">
               <label>Boot ROM RP2040 B2 <input type="file" accept=".elf,.bin" onChange={async event => {
                 const file = event.target.files?.[0]
                 event.target.value = ''
@@ -914,7 +1005,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
               Biên dịch trên máy chủ
             </label>}
             <span className="freestyle-code-board">{boardId?board.short:'Chưa chọn board'} · {language === 'micropython' ? 'MicroPython' : 'Arduino C++'}</span>
-            {!readOnly && isEsp32Target(boardId) && <button type="button" className="freestyle-button" onClick={() => setUsbOpen(true)}>Nạp mẫu qua USB</button>}
+            {!readOnly && !a4Board && isEsp32Target(boardId) && <button type="button" className="freestyle-button" onClick={() => setUsbOpen(true)}>Nạp mẫu qua USB</button>}
           </div>
           {canRequestHostedCompiler && <p className="freestyle-note" aria-live="polite">
             {checkingHosted ? 'Đang kiểm tra máy chủ…' : hostedMessage || 'Chọn biên dịch trên máy chủ để gửi sketch đến Mini PC khi bấm Chạy.'}
@@ -930,6 +1021,11 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       </div>
 
       <div className="freestyle-stage" ref={stageRef} tabIndex={-1} aria-label="Mạch đang lắp" onDragOver={event => { if (!readOnly && event.dataTransfer.types.includes('application/x-machmo-part')) event.preventDefault() }} onDrop={readOnly ? undefined : dropPart}>
+        {notice && doc.parts.length > 0 && view !== 'breadboard' && <p className="freestyle-notice" role="status">{notice}</p>}
+        {!readOnly && a12Board && isA2LocalHost(window.location.hostname) && <A12CircuitControls key={boardId} doc={doc} pinMap={pinMap} board={a12Board} />}
+        {!readOnly && !a12Board && isFixedFirmwareFixture && (!localFixture || isA2LocalHost(window.location.hostname)) && <A2C3Controls key={boardId}
+          doc={doc} boardId={boardId} pinMap={pinMap} a3={a3Board} a4={a4Board} a5={a5Board} a6={a6Board} a7={a7Board} a8={a8Board} a9={a9Board} a10={a10Board} a11={a11Board}
+          pressed={controls[fixtureButton] === true} onSample={setA2Sample} />}
         {oldEsp32Sample && <p className="freestyle-note" role="note">Mẫu lưu cũ dùng chân từ GPIO34 trở lên. Các chân này không có kéo lên nội và chỉ nhận tín hiệu. Chọn lại đúng mạch mẫu rồi bấm “Dựng mạch mẫu” để dùng GPIO19.</p>}
         {coupledMode && coupledFrame && <R2bBusTrace events={coupledFrame.bus} issues={coupledFrame.busIssues} />}
         {coupledMode && coupledFrame && <p className="freestyle-note" data-coupled-events={coupledFrame.events}>
@@ -961,10 +1057,10 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
           setPanelOpen(true)
           requestAnimationFrame(() => selectedPartRef.current?.focus())
         }}>Xem linh kiện {selectedDefinition?.label ?? selectedPart.type}</button>}
-        {!doc.parts.length&&!doc.breadboards.length&&view!=='wave' ? <div className="freestyle-blank"><span aria-hidden="true">＋</span><h3>Bàn của bạn, bắt đầu từ trống</h3><p>Chọn board, thêm breadboard và linh kiện; tự nối dây và viết code. Không có mạch nào được dựng sẵn.</p><button className="freestyle-run-button" onClick={()=>{setStep('board');setPanelOpen(true)}}>Chọn board</button><button className="freestyle-button" onClick={()=>{const bb=createEmptyFreestyleDoc();updateDoc({...doc,breadboards:bb.breadboards});setStep('parts');setPanelOpen(true)}}>Thêm breadboard</button></div> : view==='3d' ? <Suspense fallback={<p>Đang mở cảnh 3D…</p>}><FreestyleAssemblyView key={boardId} doc={doc} boardId={boardId} pinMap={pinMap} selectedPartId={selectedPartId} selectedEndpointKey={inspectedEndpointKey} onInspectEndpoint={setInspectedEndpointKey} wireSignals={wireSignals} litPartIds={litOnStage} onSelectPart={setSelectedPartId}/></Suspense> : view==='wave' ? <FreestyleWaveform captureKey={traceCapture.current} preferredPins={preferredTracePins} samples={trace} boardId={boardId} source={runtimeLabel} running={running}/> : view==='schematic' ? <><p className="freestyle-note">{boardId?board.name:'Chưa chọn board'} · {wiredSignals.map(role=>`${SIGNAL_PIN_LABELS[role]} = ${pinDisplayName(boardId,pinMap[role])}`).join(' · ')}</p><CircuitSchematicV2 doc={doc} activeKeys={r4ActiveKeys} boardLabel={boardId?board.short:undefined} boardPinLabels={boardId?freestylePresentation(boardId,pinMap).pinLabels:undefined} selectedKey={selectedPartId} selectedWireId={selectedWireId} selectedEndpointKey={inspectedEndpointKey} onSelectEndpoint={setInspectedEndpointKey} onSelectPart={setSelectedPartId} onSelectWire={setSelectedWireId}/></> : <BreadboardEditor
+        {!doc.parts.length&&!doc.breadboards.length&&view!=='wave' ? <div className="freestyle-blank"><span aria-hidden="true">＋</span><h3>Bàn của bạn, bắt đầu từ trống</h3><p>Chọn board, thêm breadboard và linh kiện; tự nối dây và viết code. Không có mạch nào được dựng sẵn.</p><button className="freestyle-run-button" onClick={()=>{setStep('board');setPanelOpen(true)}}>Chọn board</button><button className="freestyle-button" onClick={()=>{const bb=createEmptyFreestyleDoc();updateDoc({...doc,breadboards:bb.breadboards});setStep('parts');setPanelOpen(true)}}>Thêm breadboard</button></div> : view==='3d' ? <Suspense fallback={<p>Đang mở cảnh 3D…</p>}><FreestyleAssemblyView key={boardId} doc={doc} boardId={boardId} pinMap={pinMap} selectedPartId={selectedPartId} selectedEndpointKey={inspectedEndpointKey} onInspectEndpoint={setInspectedEndpointKey} wireSignals={wireSignals} litPartIds={litOnStage} onSelectPart={setSelectedPartId}/></Suspense> : view==='wave' ? <FreestyleWaveform captureKey={traceCapture.current} preferredPins={preferredTracePins} samples={trace} boardId={boardId} source={runtimeLabel} running={running}/> : view==='schematic' ? <><p className="freestyle-note">{boardId?board.name:'Chưa chọn board'} · {wiredSignals.map(role=>`${SIGNAL_PIN_LABELS[role]} = ${a7Board || a8Board || a9Board || a12Board ? freestylePresentation(boardId,pinMap,doc).pinLabels[role] : a6Board || a5Board ? 'GP' + pinMap[role] : a4Board ? (role === 'ledOut' ? a4Board.led.label : a4Board.button.label) + ' / GPIO' + pinMap[role] : pinDisplayName(boardId,pinMap[role])}`).join(' · ')}</p><CircuitSchematicV2 doc={doc} activeKeys={r4ActiveKeys} boardLabel={boardId?board.short:undefined} boardPinLabels={boardId?freestylePresentation(boardId,pinMap,doc).pinLabels:undefined} selectedKey={selectedPartId} selectedWireId={selectedWireId} selectedEndpointKey={inspectedEndpointKey} onSelectEndpoint={setInspectedEndpointKey} onSelectPart={setSelectedPartId} onSelectWire={setSelectedWireId}/></> : <BreadboardEditor
           compact
           readOnly={readOnly}
-          presentation={boardId?freestylePresentation(boardId,pinMap):undefined}
+          presentation={boardId?freestylePresentation(boardId,pinMap,doc):undefined}
           doc={doc}
           wireLayout={workspace.wireLayout}
           onWireBendChange={changeWireBend}
@@ -1012,7 +1108,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
         {view!=='wave' && trace.length>0 && !showTracePopout && <details className="freestyle-trace-dock"><summary>Dạng sóng đã thu · {trace.length} mẫu</summary><FreestyleWaveform captureKey={traceCapture.current} preferredPins={preferredTracePins} samples={trace} boardId={boardId} source={runtimeLabel} running={running}/></details>}
       </div>
 
-      <div id="freestyle-observe-panel" role="tabpanel" aria-labelledby="freestyle-step-observe" className="freestyle-observe" hidden={step!=='observe'} tabIndex={-1} aria-label="Chạy và quan sát">
+      <div id="freestyle-observe-panel" role="tabpanel" aria-labelledby="freestyle-step-observe" className="freestyle-observe" hidden={step!=='observe' || Boolean(a12Board)} tabIndex={-1} aria-label="Chạy và quan sát">
         <div className="freestyle-run">
           <button type="button" className={`freestyle-run-button ${running ? 'is-running' : ''}`} disabled={!readyToRun} onClick={running||preparing ? stop : () => void run()}>{running||preparing ? '■ Dừng' : '▶ Chạy'}</button>
           <div className="freestyle-engine">
@@ -1030,6 +1126,12 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
         <div className="freestyle-card">
           <h3>Kết quả trên mạch</h3>
           {!coupledMode && evaluation.outputs.length === 0 && <p className="freestyle-empty">Thêm LED, buzzer hoặc động cơ để thấy kết quả.</p>}
+          {coupledMode && coupledFrame?.dataEdges?.length ? <details>
+            <summary>Timeline DATA · {coupledFrame.dataEdges.length} mức logic gần nhất</summary>
+            <ol>{coupledFrame.dataEdges.slice(-12).map(edge => <li key={edge.partId + ':' + edge.timeUs}>
+              {edge.timeUs} µs · {edge.level ? 'HIGH' : 'LOW'}
+            </li>)}</ol>
+          </details> : null}
           <ul className="freestyle-outputs">{coupledMode ? doc.parts.filter(part => part.type === "led").map(part => {
             const on = coupledFrame?.litParts.includes(part.id) ?? false
             return <li key={part.id} data-part={part.id} className={on ? "is-on" : ""}><span className="freestyle-led" aria-hidden="true" />{part.id}: {on ? "sáng" : "tắt"}</li>
@@ -1041,6 +1143,9 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
             if (output.kind === 'servo') return <li key={output.partId}><span aria-hidden="true">⟳</span>{output.partId}: {output.angle === undefined ? 'chưa nhận xung servo' : `${output.angle}°`}</li>
             return <li key={output.partId}><span aria-hidden="true">▥</span>{output.partId}: đoạn sáng {output.lit.join(', ') || 'không'}</li>
           })}</ul>
+          {coupledMode && coupledFrame?.segments && <ul className="freestyle-outputs">
+            {Object.entries(coupledFrame.segments).map(([id, segments]) => <li key={id}>LED 7 đoạn · {segments.length ? segments.join(', ') : 'Tắt'}</li>)}
+          </ul>}
           {outputPins.length > 0 && <p className="freestyle-pins">Chân OUTPUT: {outputPins.map(pin => `${pinDisplayName(boardId, pin.pin)} ${pin.pwm !== undefined ? `PWM ${Math.round(pin.pwm * 100)}%` : pin.level ? 'HIGH' : 'LOW'}`).join(' · ')}</p>}
         </div>
 
@@ -1062,7 +1167,7 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       <div className="freestyle-wave-popout-bar"><strong>Tín hiệu vừa thu</strong><button className="freestyle-button" type="button" onClick={() => setTracePopout(false)}>Đóng dạng sóng</button></div>
       <FreestyleWaveform captureKey={traceCapture.current} preferredPins={preferredTracePins} samples={trace} boardId={boardId} source={runtimeLabel} running={running} />
     </aside>}
-    {usbOpen && isEsp32Target(boardId) && <Suspense fallback={<p role="status">Đang mở bảng USB…</p>}><Esp32UsbDialog board={boardId} code={code} lesson={workspace.sampleId} onClose={() => setUsbOpen(false)} /></Suspense>}
+    {usbOpen && !a4Board && isEsp32Target(boardId) && <Suspense fallback={<p role="status">Đang mở bảng USB…</p>}><Esp32UsbDialog board={boardId} code={code} lesson={workspace.sampleId} onClose={() => setUsbOpen(false)} /></Suspense>}
     <FreestyleDraftsDialog current={workspace} open={draftsOpen} onClose={()=>setDraftsOpen(false)} onRestore={restored=>{if(!archiveBeforeReplace())return;update(restored);setDraftsOpen(false);setView('breadboard');setStep('parts');setPanelOpen(false);setNotice('Đã khôi phục bản nháp; công việc trước đó được sao lưu.')}}
       drawing={view === 'breadboard' || view === 'schematic' ? {kind:view, get:()=>stageRef.current?.querySelector<SVGSVGElement>(view === 'breadboard' ? '.breadboard-diagram-svg' : '.circuit-schematic-svg') ?? null} : undefined} />
     {samplesOpen && <FreestyleSampleExplorer onSelect={setSampleId} onClose={() => setSamplesOpen(false)} />}

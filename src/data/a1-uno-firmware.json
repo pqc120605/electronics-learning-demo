@@ -1,0 +1,45 @@
+{
+  "approval": "63d5b0db7a420da9fbda0dc7beda4f92c606fb922cfe9db2d99b371ca8b66826",
+  "boardId": "arduino-uno-r3",
+  "compiler": {
+    "cli": "arduino-cli  Version: 1.5.1 Commit: 01f3d4f2b Date: 2026-06-05T10:22:12Z",
+    "sha256": "65daefba1423010575d0874275734cb4a917faf5293609f01e9db6ed1c1c7e79",
+    "core": "arduino:avr",
+    "coreVersion": "1.8.8",
+    "fqbn": "arduino:avr:uno"
+  },
+  "fixtures": {
+    "dht11": {
+      "file": "/firmware/uno-peripherals-a1/dht11.hex",
+      "source": "/firmware/uno-peripherals-a1/dht11.ino",
+      "sha256": "d23820529255eb81c544706ae5b4b0ce7f8a5facb29bc099ff17d325c56856f9",
+      "sourceSha256": "5d05b2cfccfa5514c380dd8b5973eddbf8e10a2d4d091c73e685d3630bcf01a1",
+      "bytes": 8110,
+      "log": "Sketch uses 2872 bytes (8%) of program storage space. Maximum is 32256 bytes.\nGlobal variables use 188 bytes (9%) of dynamic memory, leaving 1860 bytes for local variables. Maximum is 2048 bytes.\n"
+    },
+    "dht22-bare": {
+      "file": "/firmware/uno-peripherals-a1/dht22-bare.hex",
+      "source": "/firmware/uno-peripherals-a1/dht22-bare.ino",
+      "sha256": "2513e94ee8cdccd21a15640706f0499af898484f66266c8adb19bf157ced8f93",
+      "sourceSha256": "05716d6819bfdd5f41346814618ac874fa869b808a7d3b544d921bcaf241ee47",
+      "bytes": 8261,
+      "log": "Sketch uses 2928 bytes (9%) of program storage space. Maximum is 32256 bytes.\nGlobal variables use 188 bytes (9%) of dynamic memory, leaving 1860 bytes for local variables. Maximum is 2048 bytes.\n"
+    },
+    "keypad-4x4": {
+      "file": "/firmware/uno-peripherals-a1/keypad-4x4.hex",
+      "source": "/firmware/uno-peripherals-a1/keypad-4x4.ino",
+      "sha256": "ca98ec5b342f431837579453a8c4a6189653c0b66cd7262095222b9e66727056",
+      "sourceSha256": "2345b594fe876563bed8730b8c10ebc5b4b1a96eb8bd54ee2a0969db257eb153",
+      "bytes": 6530,
+      "log": "Sketch uses 2316 bytes (7%) of program storage space. Maximum is 32256 bytes.\nGlobal variables use 214 bytes (10%) of dynamic memory, leaving 1834 bytes for local variables. Maximum is 2048 bytes.\n"
+    },
+    "seven-segment-anode": {
+      "file": "/firmware/uno-peripherals-a1/seven-segment-anode.hex",
+      "source": "/firmware/uno-peripherals-a1/seven-segment-anode.ino",
+      "sha256": "6a053b9ccaccda284c4179f96edd34158c6620625d76962a34771e1fc552a204",
+      "sourceSha256": "0b0564e65347e9041acca8091b0d20f39e2af3ee5676f82ad00730124aa54a44",
+      "bytes": 6588,
+      "log": "Sketch uses 2332 bytes (7%) of program storage space. Maximum is 32256 bytes.\nGlobal variables use 207 bytes (10%) of dynamic memory, leaving 1841 bytes for local variables. Maximum is 2048 bytes.\n"
+    }
+  }
+}

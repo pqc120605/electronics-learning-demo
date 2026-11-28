@@ -20,6 +20,9 @@
 /docs/reviews/2026-11-19-full-web-audit/l6e-esp32-build-proposal.json -text
 
 # Catalog approvals and exported footprints are verified byte for byte.
+/docs/research/*-proposal.json -text whitespace=cr-at-eol
+/public/firmware/uno-peripherals-a1/* -text whitespace=cr-at-eol
+/scripts/a12-fw-r2/*.patch -text -whitespace
 /docs/research/*-catalog-fidelity-*-proposal.md -text whitespace=cr-at-eol,-blank-at-eof
 /public/models/components/catalog-*/*.kicad_mod -text whitespace=cr-at-eol,-blank-at-eof
 /public/models/components/catalog-r4/tlc5928.kicad_mod whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof

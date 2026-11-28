@@ -6,10 +6,12 @@ type BoardPinoutExplorerProps = {
   onSelectPin: (pinId: string) => void
   evidence?: BoardPinoutEvidence
   coordinatePicking?: boolean
+  standalone?: boolean
 }
 
-export function BoardPinoutExplorer({ pins, selectedPinId, onSelectPin, evidence, coordinatePicking }: BoardPinoutExplorerProps) {
+export function BoardPinoutExplorer({ pins, selectedPinId, onSelectPin, evidence, coordinatePicking, standalone = false }: BoardPinoutExplorerProps) {
   const hasCoordinatePicking = coordinatePicking === true
+  const canClickModel = hasCoordinatePicking && !standalone
   const selectedPin = pins.find((pin) => pin.id === selectedPinId)
   const groups = new Map<string, { side: BoardPin['side']; header: string; pins: BoardPin[] }>()
   for (const pin of [...pins].sort((a, b) => a.position - b.position)) {
@@ -23,13 +25,26 @@ export function BoardPinoutExplorer({ pins, selectedPinId, onSelectPin, evidence
   return <section className="board-pinout-explorer" aria-labelledby="board-pinout-heading">
     <div className="board-pinout-explorer-heading">
       <p className="eyebrow">PINOUT THAM CHIẾU · {pins.length} CHÂN</p>
-      <h4 id="board-pinout-heading">{hasCoordinatePicking ? 'Chọn chân header' : 'Tra cứu pinout theo tên'}</h4>
-      <p>{hasCoordinatePicking ? 'Chọn một chân trong danh sách hoặc bấm vào đúng vị trí trên mô hình 3D để xem chức năng và lưu ý.' : 'Chọn tên chân trong danh sách để tra chức năng và lưu ý. Vị trí pad chưa được xác nhận để chọn trực tiếp trên mô hình.'}</p>
+      <h4 id="board-pinout-heading">{canClickModel ? 'Chọn chân header' : 'Tra cứu pinout theo tên'}</h4>
+      <p>{standalone ? 'Chọn tên chân trong danh sách để tra chức năng và lưu ý.'
+        : canClickModel ? 'Chọn một chân trong danh sách hoặc bấm vào đúng vị trí trên mô hình 3D để xem chức năng và lưu ý.'
+        : 'Chọn tên chân trong danh sách để tra chức năng và lưu ý. Vị trí pad chưa được xác nhận để chọn trực tiếp trên mô hình.'}</p>
     </div>
     {selectedPin && <article className="board-selected-pin-details" aria-live="polite">
       <div><span>ĐANG XEM{selectedPin.headerReference ? ` · ${selectedPin.headerReference}` : ''}{selectedPin.padNumber ? ` · PAD ${selectedPin.padNumber}` : ''}</span><h5>{selectedPin.label}{selectedPin.gpio === undefined ? '' : ` · GPIO${selectedPin.gpio}`}</h5></div>
       <p>{selectedPin.plainDescription}</p>
-      <dl><dt>{hasCoordinatePicking ? 'Net / tên pad trong CAD' : 'Tên tín hiệu theo pinout hãng'}</dt><dd>{selectedPin.netName ?? (hasCoordinatePicking ? 'Chưa có trong hồ sơ chân này' : selectedPin.label)}</dd><dt>Vai trò</dt><dd>{selectedPin.technicalRole}</dd><dt>{hasCoordinatePicking ? 'Nối trên board' : 'Trạng thái đối chiếu CAD'}</dt><dd>{selectedPin.connection}</dd></dl>
+      <dl>
+        {selectedPin.catalog && <>
+          <dt>Phiên bản đối chiếu</dt><dd>{selectedPin.catalog.revision}</dd>
+          {selectedPin.catalog.status !== 'named' && <><dt>Trạng thái</dt><dd>
+            {{ nc: 'Không kết nối ở phiên bản này', reserved: 'Chân dành riêng', unresolved: 'Chưa đủ dữ liệu đối chiếu' }[selectedPin.catalog.status]}
+          </dd></>}
+        </>}
+        <dt>{hasCoordinatePicking || selectedPin.netName ? 'Net / tên pad trong CAD' : 'Tên chân tham chiếu'}</dt>
+        <dd>{selectedPin.netName ?? (hasCoordinatePicking ? 'Chưa có trong hồ sơ chân này' : selectedPin.label)}</dd>
+        <dt>Vai trò</dt><dd>{selectedPin.technicalRole}</dd>
+        <dt>{hasCoordinatePicking ? 'Nối trên board' : 'Trạng thái đối chiếu CAD'}</dt><dd>{selectedPin.connection}</dd>
+      </dl>
       <p className="board-pin-safety-note" role="note">Lưu ý: {selectedPin.safetyNote}</p>
       <div className="board-pin-functions">{selectedPin.functions.map((name) => <span key={name}>{name}</span>)}</div>
     </article>}

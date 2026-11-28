@@ -1,7 +1,13 @@
 import { boards } from './boards'
+import { getA9Board } from '../lib/freestyle/a9Stm32Profiles'
+import { getA10Board } from '../lib/freestyle/a10AvrRuntime'
+import { getA11Board } from '../lib/freestyle/a11EspRuntime'
+import { getA12Board } from '../lib/freestyle/a12Profiles'
 import { getAtmega328pFirmwareTarget } from '../lib/firmwareTarget'
 import { simulationTargets } from './simulationTargets'
 import { getBoardModelEvidence } from './boardModelSources'
+import { getRemainingBoardAsset } from './remainingCatalogBoardSources'
+import type { BoardPin } from '../components/board/boardSceneTypes'
 import { adafruitFeatherEsp32S3Pins, adafruitFeatherEsp32S3TftPins } from './adafruitFeatherEsp32S3Pinout'
 import { seeedXiaoEsp32S3Pins } from './seeedXiaoEsp32S3Pinout'
 import esp32S3PinAnchors from './esp32-s3-devkitc-1.pin-anchors.json'
@@ -73,13 +79,27 @@ export const boardCapabilityRegistry: BoardCapability[] = boards.map((board) => 
       input: { label: target.architecture.startsWith('AVR') ? 'D2 (alias học tập)' : target.architecture.startsWith('Arm') ? 'PA0 (alias học tập)' : 'GPIO input (alias học tập)', sourceBacked: false },
     } : ({} as BoardCapability['pinMap'])),
     lessonIds: target ? ['blink','button-led','ir-alert','ultrasonic-distance','seven-segment-counter','analog-potentiometer','analog-ldr'] : [],
-    modelStatus: modelEvidence?.published && modelEvidence.status !== 'preview-only' ? 'cad-reference' : 'preview-only',
+    modelStatus: getRemainingBoardAsset(board.id) || modelEvidence?.published && modelEvidence.status !== 'preview-only' ? 'cad-reference' : 'preview-only',
     sourceRefs: source ? [source] : [],
   }
 })
 
-export function getBoardCapability(boardId: string) {
-  return boardCapabilityRegistry.find((entry) => entry.boardId === boardId) ?? boardCapabilityRegistry.find((entry) => entry.boardId === 'esp32-devkit')!
+export function getBoardCapability(boardId: string, headerPins?: readonly BoardPin[]) {
+  const capability = boardCapabilityRegistry.find(entry => entry.boardId === boardId)
+  if (!capability) return boardCapabilityRegistry.find(entry => entry.boardId === 'esp32-devkit')!
+  if (!headerPins?.length) return capability
+  const pinMap = { ...capability.pinMap }
+  for (const pin of headerPins) {
+    const catalog = pin.catalog
+    if (!catalog) continue
+    pinMap[catalog.key] = { label: pin.label, sourceBacked: Boolean(catalog.sourceUrl && catalog.status !== 'unresolved') }
+    // Only an exact name from the board's own CAD can be used to join a net.
+    const net = pin.netName?.trim().toLowerCase()
+    if (net && catalog.sourceUrl && catalog.status === 'named' && !Object.hasOwn(pinMap, net)) {
+      pinMap[net] = { label: pin.label, sourceBacked: true }
+    }
+  }
+  return { ...capability, pinMap }
 }
 
 /** Plain statements for the board profile and comparison; each line reads its own evidence. */
@@ -90,9 +110,12 @@ export function getBoardSupportSummary(boardId: string) {
     pinout: 'Không có pin map để hiển thị.',
     simulation: 'Không có hồ sơ mô phỏng cho board này.',
   }
+  const remaining = getRemainingBoardAsset(boardId)
   return {
-    model: capability.modelStatus === 'cad-reference' ? 'Có mô hình CAD tham chiếu 3D; không đại diện mọi clone hay revision.' : 'Chưa có mô hình 3D; chỉ có thông tin tra cứu.',
-    pinout: boardId === 'esp32-s3-devkitc-1' ? '44 pad header J1/J3 chọn được trên model; tên/chức năng theo guide Espressif V1.1, vị trí pad từ PADS import. Chưa xác minh trên board vật lý; dữ liệu net CAD không thay schematic/netlist đã kiểm chứng.'
+    model: remaining ? 'Có mặt trên 2D và mô hình 3D tham chiếu cho ' + remaining.orderCode + '.'
+      : capability.modelStatus === 'cad-reference' ? 'Có mô hình CAD tham chiếu 3D; không đại diện mọi clone hay revision.' : 'Chưa có mô hình 3D; chỉ có thông tin tra cứu.',
+    pinout: remaining ? remaining.pins.length + ' chân header chọn được trên mô hình theo ' + (boardId.startsWith('stm32-') ? 'UM1724 Rev 17.' : 'tài liệu đúng phiên bản.')
+      : boardId === 'esp32-s3-devkitc-1' ? '44 pad header J1/J3 chọn được trên model; tên/chức năng theo guide Espressif V1.1, vị trí pad từ PADS import. Chưa xác minh trên board vật lý; dữ liệu net CAD không thay schematic/netlist đã kiểm chứng.'
       : raspberryPiPicoPinoutIds.has(boardId) ? boardId === 'raspberry-pi-pico-2' || boardId === 'raspberry-pi-pico-2-h'
       ? '40 chân J0 có thể chọn trên model; layout kế thừa Pico R3 theo tài liệu Raspberry Pi và căn theo STEP của biến thể. Chưa có Allegro riêng cho Pico 2 trong nguồn cục bộ.'
       : '40 chân J0 có thể chọn trên model; tâm pad và net từ CAD Allegro hãng, chức năng đối chiếu pinout Raspberry Pi. Chưa đo đối chiếu board vật lý.'
@@ -111,8 +134,13 @@ export function getBoardSupportSummary(boardId: string) {
 
 /** Firmware support comes from the runner's exact target list, never an MCU name match. */
 export function describeBoardSimulation(boardId: string): string {
+  if (getA9Board(boardId)) return 'Bản local chạy ELF Renode cho mạch mẫu nút nhấn và LED A9, kèm hai phép đo ngspice DC.'
   const lesson = targets.has(boardId) ? 'Có mô hình hành vi bài học trong phòng thử.' : 'Chưa có profile bài học trong phòng thử.'
-  return getAtmega328pFirmwareTarget(boardId)
-    ? `${lesson} Chạy HEX ATmega328P bằng AVR8js, quan sát D13/PB5 và UART0; cần xác nhận đúng target. Không mô phỏng toàn bộ mạch điện.`
-    : `${lesson} Chưa hỗ trợ chạy firmware cho board này.`
+  const legacyHex = getAtmega328pFirmwareTarget(boardId)
+    ? ' Chạy HEX ATmega328P bằng AVR8js, quan sát D13/PB5 và UART0; cần xác nhận đúng target. Không mô phỏng toàn bộ mạch điện.' : ''
+  const a10 = getA10Board(boardId)
+  if (a10) return `${lesson}${legacyHex} Bản local chạy HEX trên AVR8js cho mạch mẫu nút nhấn và LED A10, kèm hai phép đo ngspice DC.`
+  if (getA12Board(boardId)) return `${lesson} Mạch A12 trên local có hai điểm làm việc DC và sơ đồ chân 2D/3D.`
+  if (getA11Board(boardId)) return `${lesson} Bản local chạy ảnh ESP-IDF bằng ESP-EMU cho mạch mẫu A11, kèm hai phép đo ngspice DC.`
+  return lesson + (legacyHex || ' Chưa hỗ trợ chạy firmware cho board này.')
 }

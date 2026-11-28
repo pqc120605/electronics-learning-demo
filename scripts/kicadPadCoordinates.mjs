@@ -43,7 +43,7 @@ export function parseBoardFootprints(text) {
       const padEnd = sexprBlockEnd(block, padMatch.index)
       const padBlock = block.slice(padMatch.index, padEnd)
       const at = padBlock.match(/\(at\s+(-?[\d.]+)\s+(-?[\d.]+)(?:\s+(-?[\d.]+))?\)/)
-      const net = padBlock.match(/\(net\s+\d+\s+"([^"]*)"\)/)?.[1] ?? null
+      const net = padBlock.match(/\(net\s+(?:\d+\s+)?"([^"]*)"\)/)?.[1] ?? null
       if (!at) throw new Error(`Không đọc được tọa độ pad ${reference}.${padMatch[1]}`)
       pads.push({ number: padMatch[1], x: Number(at[1]), y: Number(at[2]), net })
       padPattern.lastIndex = padEnd

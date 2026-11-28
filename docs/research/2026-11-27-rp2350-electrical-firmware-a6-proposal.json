@@ -1,0 +1,264 @@
+{
+  "revision": "MM-RP2350-SIM-FW-A6",
+  "date": "2026-11-27",
+  "status": "proposal-for-approval",
+  "scope": "Bản thử local cho Raspberry Pi Pico 2 và Pico 2 H. Chạy một firmware C đã biên dịch cho RP2350A Cortex-M33, dùng GPIO của firmware điều khiển mạch nút nhấn và LED ngoài 3,3 V, đo hai điểm làm việc DC bằng ngspice.",
+  "capabilities": {
+    "ids": [
+      "CAT-01",
+      "CAT-02",
+      "CAT-03",
+      "FW-04",
+      "FW-07",
+      "FW-08",
+      "SIM-02",
+      "SIM-03",
+      "SIM-04"
+    ],
+    "contracts": [
+      "K-ID",
+      "K-CTX",
+      "K-RUN",
+      "K-TIME",
+      "K-STORE"
+    ],
+    "exitDepth": "D3 cho đúng mạch mẫu và hai revision. Chọn chân trên 2D và 3D, chạy ELF, quan sát GPIO/UART/thời gian mô phỏng rồi xác nhận hai điểm làm việc DC."
+  },
+  "baseline": {
+    "worktree": ".tmp/na",
+    "head": "357e8fc427565c76acec8ecc78fcaa4206bdd7c1",
+    "a5ApprovalSha256": "ad345e14d3cfa2e2d23b50bc23d0f6539ba944372a76ec5d280939df95687e65",
+    "regression": {
+      "a1ThroughA5Node": 315,
+      "a1ThroughA5Chrome": 47,
+      "legacyPicoChecks": 5
+    }
+  },
+  "boardEvidence": {
+    "series": "https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#non-wireless-raspberry-pi-pico-2-boards",
+    "pinout": "https://datasheets.raspberrypi.com/pico/Pico-2-Pinout.pdf",
+    "debugConnector": "https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#debug-connector-swd",
+    "socDatasheet": "https://pip-assets.raspberrypi.com/categories/1214-rp2350/documents/RP-008373-DS-4-rp2350-datasheet.pdf?disposition=inline",
+    "headerLayoutReference": {
+      "path": "assets/boards/vendor/raspberry-pi/official-allegro/RPI-PICO-R3a-PUBLIC.brd",
+      "sha256": "c9c6d1e95409b68b77501093ef42ea266d7f30025f907e4a962167e088bedebd"
+    },
+    "geometry": "Dùng vị trí hai hàng chân từ PCB Pico R3a và pinout Pico 2 theo bố cục chung do hãng công bố. Giữ biến đổi tọa độ riêng cho STEP và GLB của từng board. Đã kiểm tra 40 vị trí hữu hạn và phân biệt được trên 2D của mỗi mô hình. Chưa xác minh bằng tệp PCB gốc Pico 2 hoặc Pico 2 H. Tra cứu ba tín hiệu SWD theo nguồn hãng, giữ dữ liệu hình học hiện có."
+  },
+  "boards": [
+    {
+      "id": "raspberry-pi-pico-2",
+      "revision": "Pico 2 · thiết kế tham chiếu chính hãng · không header",
+      "fixtureId": "a6-pico-2-button-led",
+      "sdkBoard": "pico2",
+      "productSource": "https://pip.raspberrypi.com/categories/1005-raspberry-pi-pico-2",
+      "debug": "Ba pad SWCLK, GND và SWDIO ở đầu board, tra cứu theo tài liệu hãng.",
+      "headerLocations": 40,
+      "flashBytes": 4194304,
+      "step": {
+        "path": "public/cad/raspberry-pi-pico-2.step",
+        "sha256": "d49ada10d893cfcb07cb4abced0a0a0cadca4c4150f153d874268ca06171a24f"
+      },
+      "model": {
+        "path": "public/models/raspberry-pi-pico-2.glb",
+        "sha256": "38ba3e6ddefb82bc71a5cf7d610f799876bfc866022ee02e8a0ee44788992846"
+      },
+      "topView": {
+        "path": "public/board-reference/topview/raspberry-pi-pico-2.png",
+        "sha256": "b973292d2ab88a2a888fb766f505a46bcc9a75a6be59e4b7c098a9be10cd6766"
+      }
+    },
+    {
+      "id": "raspberry-pi-pico-2-h",
+      "revision": "Pico 2 H · SC1632 · with headers",
+      "fixtureId": "a6-pico-2-h-button-led",
+      "sdkBoard": "pico2",
+      "productSource": "https://pip.raspberrypi.com/categories/1264-raspberry-pi-pico-2-h",
+      "debug": "Đầu nối debug có khóa 3 chân SWCLK, GND và SWDIO, tra cứu theo tài liệu hãng.",
+      "headerLocations": 40,
+      "flashBytes": 4194304,
+      "step": {
+        "path": "public/cad/raspberry-pi-pico-2-h-step-source/rpi_pico2h.step",
+        "sha256": "e1d6614bd8e5bb94aae2eef9452be244da56d48f4f1c363e71f19eff1fe69d4f"
+      },
+      "model": {
+        "path": "public/models/raspberry-pi-pico-2-h.glb",
+        "sha256": "b3ce57f26b5267be6d64ff899846b8c6db2bccb4c5186434317870e48e94395a"
+      },
+      "topView": {
+        "path": "public/board-reference/topview/raspberry-pi-pico-2-h.png",
+        "sha256": "4913d5c3fa524822005874f4d65b5a30aac726a1f6f30d19e433639a49c1a6b8"
+      }
+    }
+  ],
+  "pins": {
+    "button": {
+      "pinId": "j0-19",
+      "pad": "J0:19",
+      "label": "GP14",
+      "gpio": 14
+    },
+    "led": {
+      "pinId": "j0-20",
+      "pad": "J0:20",
+      "label": "GP15",
+      "gpio": 15
+    },
+    "power": {
+      "pinId": "j0-36",
+      "pad": "J0:36",
+      "label": "3V3(OUT)"
+    },
+    "ground": {
+      "pinId": "j0-18",
+      "pad": "J0:18",
+      "label": "GND"
+    },
+    "serialTx": {
+      "pinId": "j0-1",
+      "pad": "J0:1",
+      "label": "GP0",
+      "gpio": 0,
+      "uart": 0,
+      "baud": 115200
+    }
+  },
+  "circuit": {
+    "supplyVolts": 3.3,
+    "button": "Nút nhấn thường mở nối GP14 với GND, nhấn đọc LOW. Điện trở 10 kΩ kéo GP14 lên 3V3(OUT). Tắt điện trở kéo nội.",
+    "led": "GP15 qua điện trở 1 kΩ đến anode LED đỏ. Cathode về GND. LED sáng khi firmware đưa GP15 lên HIGH.",
+    "boundaries": "GP25 và các nguồn VBUS, VSYS, EN nằm ngoài mạch mẫu. Không mô hình hóa dòng rò silicon RP2350 E9, quá độ nguồn hay đặc tính điện phần cứng thật."
+  },
+  "firmware": {
+    "mcu": "RP2350A",
+    "architecture": "Armv8-M.main Thumb-2",
+    "cpu": "Cortex-M33 Secure",
+    "cores": 1,
+    "clockMHz": 150,
+    "sdk": {
+      "version": "2.2.0",
+      "commit": "a1438dff1d38bd9c65dbd693f0e5db4b9ae91779",
+      "release": "https://github.com/raspberrypi/pico-sdk/releases/tag/2.2.0",
+      "boardHeader": "https://github.com/raspberrypi/pico-sdk/blob/2.2.0/src/boards/include/boards/pico2.h"
+    },
+    "toolchain": {
+      "version": "Arm GNU Toolchain 14.2.Rel1 for arm-none-eabi",
+      "url": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-mingw-w64-i686-arm-none-eabi.zip",
+      "sha256": "6facb152ce431ba9a4517e939ea46f057380f8f1e56b62e8712b3f3b87d994e1",
+      "cmake": "3.30.2",
+      "ninja": "1.12.1"
+    },
+    "build": {
+      "language": "C11",
+      "PICO_BOARD": "pico2",
+      "PICO_PLATFORM": "rp2350-arm-s",
+      "PICO_NO_PICOTOOL": 1,
+      "CMAKE_BUILD_TYPE": "Release"
+    },
+    "image": "Một ELF32 little-endian EM_ARM cho hai fixture, xác nhận thuộc tính Armv8-M.main, điểm vào và vùng nạp theo bản đồ RP2350A. Manifest ràng buộc hash ELF, target, revision, tài sản board và mã mạch mẫu riêng cho từng fixture. Giữ nạp RP2040 ở đường riêng.",
+    "behavior": {
+      "clock": "time_us_64",
+      "pollMs": 10,
+      "debounceMs": 40,
+      "initialLed": 0,
+      "readyLine": "A6_READY=rp2350-arm-s:pico2",
+      "transitionLines": [
+        "A6_BUTTON=0",
+        "A6_BUTTON=1"
+      ],
+      "uart": "UART0 TX GP0 115200 baud. Trạng thái LED lấy từ GPIO của CPU đã chạy ELF."
+    }
+  },
+  "runtime": {
+    "engine": "pico-emu",
+    "version": "1.0.6",
+    "license": "MIT",
+    "gitCommit": "8da4a0aa3db0c76beba376db4c0a6c7c6c2224f4",
+    "metadataUrl": "https://registry.npmjs.org/pico-emu/1.0.6",
+    "source": [
+      "https://github.com/danish9661/pico-emulator/blob/8da4a0aa3db0c76beba376db4c0a6c7c6c2224f4/src/picoemu_wasm.c",
+      "https://github.com/danish9661/pico-emulator/blob/8da4a0aa3db0c76beba376db4c0a6c7c6c2224f4/src/elf.c",
+      "https://github.com/danish9661/pico-emulator/blob/8da4a0aa3db0c76beba376db4c0a6c7c6c2224f4/build_wasm.sh",
+      "https://github.com/danish9661/pico-emulator/blob/8da4a0aa3db0c76beba376db4c0a6c7c6c2224f4/web/cli.js"
+    ],
+    "artifact": {
+      "url": "https://registry.npmjs.org/pico-emu/-/pico-emu-1.0.6.tgz",
+      "bytes": 3326701,
+      "sha256": "43a5ce995ce2b2c02bed8e04d20147cc2256030a2e9d4b3706ab60523179018b",
+      "integrity": "sha512-svTd4TjaqCdSJq0WE3bGO57WodFyfA/Vc1xb0u4UlAl5BbCmutIfOVb+UfUGHTLA9Es3Pt5Ti57PzPHraOBh6Q==",
+      "files": [
+        {
+          "path": "package/picoemu.wasm.js",
+          "sha256": "e0b992488bb67d3b673348900449e4aba23859df2cfead4d0dbd128586401c83",
+          "bytes": 97718
+        },
+        {
+          "path": "package/picoemu.wasm.wasm",
+          "sha256": "fddf3035e4999582b3041a76b8d906e100ea9aa6534949922a8110fa27cd5235",
+          "bytes": 365159
+        },
+        {
+          "path": "package/LICENSE",
+          "sha256": "84a438709d54092b97528e5ec7062a7d8a2cfca84e5a165a6821df8301c0a7a3",
+          "bytes": 1104
+        }
+      ]
+    },
+    "assetDelivery": "Chỉ đặt ba tệp đã khóa dưới .tmp/a6-local-assets, qua Vite local cùng origin. Lazy load trong worker riêng cho từng lượt, dùng Chrome có WASM SIMD. Không đóng gói vào build public.",
+    "init": [
+      "init(2)",
+      "set_clock(150)",
+      "set_cores(1)",
+      "load_elf",
+      "reset",
+      "set_gpio",
+      "step"
+    ],
+    "observation": "Lấy mức chân từ get_gpio, get_gpio_out và get_gpio_oe. Đọc UART từ read_uart_bulk. Lập lịch theo cycle_count chia 150 để ra µs mô phỏng, đối chiếu TIMER0 TIMERAWL tại 0x400b0028. Chia nhỏ lượt step để nhận tương tác và dừng được.",
+    "enabledAfter": "ELF đã xác nhận hash và ngữ cảnh. Worker phải phát đúng dòng UART khởi động từ firmware trước khi công bố trạng thái chạy. Lỗi tài sản, CPU, mạch, startup hay timeout phải có trạng thái và cho thử lại.",
+    "limits": {
+      "startupWallMs": 10000,
+      "runWallMs": 60000
+    },
+    "scopeLimit": "Nạp trực tiếp ELF chạy một nhân M33. BOOTSEL, boot ROM và secure boot vật lý, RISC-V Hazard3, nhân thứ hai, USB, SWD thực thi, Wi-Fi, tải firmware tùy ý và nạp board vật lý nằm ngoài phạm vi."
+  },
+  "electrical": {
+    "backend": "ngspice 45.2 WASM",
+    "engine": {
+      "path": "public/vendor/eecircuit-engine/spice.wasm",
+      "sha256": "3096ce2c499c3062472b9d7953f5141d75a019296e22b0142f4979e5894008ec"
+    },
+    "temperatureC": 27,
+    "switchOnOhms": 1,
+    "switchOff": "Mạch hở",
+    "redLedModel": {
+      "saturationCurrentA": 1e-18,
+      "ideality": 2.2,
+      "seriesOhms": 20
+    },
+    "coupling": "Chuyển trạng thái nút mạch mẫu vào GP14. Giải DC với GP15 lấy từ trạng thái GPIO ổn định của firmware. Điểm làm việc DC độc lập cho từng trạng thái, không có vòng lặp đồng mô phỏng analog liên tục.",
+    "acceptance": {
+      "releasedInputVolts": [
+        3.29,
+        3.31
+      ],
+      "pressedInputAbsoluteMaxVolts": 0.001,
+      "ledHighCurrentMilliAmps": [
+        1.1,
+        1.5
+      ],
+      "ledLowAbsoluteMaxMilliAmps": 0.001,
+      "kvlAbsoluteMaxVolts": 0.001
+    }
+  },
+  "localVerification": {
+    "firstGate": "Sau khi duyệt, build ELF từ C mẫu và ghi bằng chứng boot, UART, GPIO và thời gian timer trong runner đã khóa. Dừng tích hợp nếu các bằng chứng này chưa đạt, ghi rõ ca thất bại. Thay engine, target hoặc định dạng ảnh cần duyệt lại.",
+    "eachBoard": [
+      "Mở đúng board/revision/mạch mẫu trên lab. Kiểm tra 40 vị trí theo model, chọn chân nguồn, GND, GP0, GP14 và GP15 rồi chuyển 2D sang 3D. Kiểm tra mục tra cứu SWD.",
+      "Kiểm tra UART khởi động, output LOW lúc đầu. Thử xung nhấn 20 ms chưa đổi trạng thái. Nhấn/thả đủ ba chu kỳ, đạt phản hồi sau thời gian debounce 40 ms và trong cửa sổ 39–60 ms mô phỏng cho từng cạnh giữ ổn định. Kiểm GPIO, UART và LED đồng bộ.",
+      "Đo ngspice ở hai trạng thái và kiểm dải ngưỡng đã khóa. Thử sai ray VBUS/VSYS/EN, LED ngược, thiếu R hoặc thiếu GND. Chạy trên Chrome desktop và khung 375 px.",
+      "Thử sai board/revision/target/hash ELF, tài sản thiếu, timeout, dừng lặp và chạy lại. Kiểm tra lưu và mở lại mạch theo partId/pinId. Kiểm tra tương thích bản nháp Pico RP2040."
+    ],
+    "regression": "Chạy Node và Playwright hợp đồng A1–A5. Chạy lại luồng chọn UF2 và các luồng MicroPython Pico cũ gồm ROM local, ROM import, trình thông dịch và demo tích hợp. Chạy typecheck, build:local và kiểm đường phân phối public để giữ các gate tải tài sản."
+  }
+}

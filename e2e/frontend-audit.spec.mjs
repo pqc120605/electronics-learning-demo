@@ -42,13 +42,60 @@ test('mobile help does not cover the workbench and the launcher compacts on scro
   await expect(page.getByRole('dialog', { name: 'Mở — bạn đồng hành học điện tử' })).toBeVisible()
 })
 
-test('an out-of-list deep link shows the selected board in the collapsed catalog', async ({ page }) => {
+test('board library opens as a full gallery and uses the electrical overview first', async ({ page }) => {
   await page.goto('/boards')
   const list = page.locator('.board-list')
-  await expect(list.locator('article')).toHaveCount(8)
-  await page.goto('/boards?board=stm32-nucleo')
-  await expect(list.getByRole('heading', { name: /NUCLEO-F401RE/ })).toBeVisible()
-  await expect(list.locator('article')).toHaveCount(8)
+  await expect(list.locator('article')).toHaveCount(28)
+  await expect(list.locator('img')).toHaveCount(28)
+  const broken = await list.locator('img').evaluateAll(async (images) => {
+    const results = await Promise.all(images.map(async (image) => {
+      image.loading = 'eager'
+      try { await image.decode(); return null } catch { return image.src }
+    }))
+    return results.filter(Boolean)
+  })
+  expect(broken).toEqual([])
+  await expect(page.locator('.board-cad-viewer')).toHaveCount(0)
+  await list.getByRole('link', { name: 'STM32 NUCLEO-F401RE', exact: true }).click()
+  const detail = page.locator('.board-cad-viewer')
+  await expect(detail.getByRole('heading', { name: /NUCLEO-F401RE/ }).first()).toBeVisible()
+  await expect(detail.getByRole('button', { name: 'Tổng quan', exact: true })).toHaveAttribute('aria-pressed', 'true')
+  await expect(detail.locator('canvas')).toHaveCount(0)
+  await detail.getByRole('button', { name: 'Chân và linh kiện', exact: true }).click()
+  await expect(detail.getByRole('heading', { name: 'Tra cứu pinout theo tên' })).toBeVisible()
+  await detail.getByRole('button', { name: 'PCB 3D', exact: true }).click()
+  await expect(detail.locator('canvas')).toBeVisible()
+})
+
+test('a board without CAD opens its exact manufacturer pinout on a narrow screen', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 })
+  await page.goto('/boards?board=esp32-c3-devkitm-1&view=pins')
+  const detail = page.locator('.board-cad-viewer')
+  await expect(detail.getByRole('img', { name: /Pinout Espressif.*ESP32-C3-DevKitM-1/ }))
+    .toHaveAttribute('src', '/board-reference/catalog/esp32-c3-devkitm-1-diagram.webp')
+  await expect(detail.getByRole('link', { name: /Hướng dẫn của hãng/ })).toHaveAttribute('href', /espressif.*esp32-c3-devkitm-1/)
+  await expect(detail.getByRole('button', { name: 'PCB 3D', exact: true })).toHaveCount(0)
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375)
+
+  await page.goto('/boards?board=arduino-uno-r3&view=pins&pin=pin-1')
+  await expect(detail.locator('.board-selected-pin-details')).toContainText('Net / tên pad trong CAD')
+  await expect(detail.getByRole('heading', { name: 'Tra cứu pinout theo tên' })).toBeVisible()
+  await expect(detail.locator('canvas')).toHaveCount(0)
+})
+
+test('Pico 2 with headers keeps a selected pin between its model-derived 2D and 3D views', async ({ page }) => {
+  await page.goto('/boards?board=raspberry-pi-pico-2-h&view=top')
+  const top = page.getByRole('region', { name: 'Mặt board 2D' })
+  await expect(top.locator('image')).toHaveAttribute('href', '/board-reference/topview/raspberry-pi-pico-2-h.png')
+  const pins = top.getByLabel('Chân header')
+  await expect(pins.locator('option')).toHaveCount(41)
+  await pins.selectOption({ index: 1 })
+  const selected = await pins.inputValue()
+  await page.getByRole('button', { name: 'PCB 3D', exact: true }).click()
+  await expect(page.locator('.board-cad-viewer canvas')).toBeVisible()
+  await expect(page.locator('.board-selected-pin-details')).toBeVisible()
+  await page.getByRole('button', { name: 'Mặt board 2D', exact: true }).click()
+  await expect(pins).toHaveValue(selected)
 })
 
 for (const width of [375, 1440]) test(`guest audit routes use Vietnamese copy at ${width}px`, async ({ page }) => {

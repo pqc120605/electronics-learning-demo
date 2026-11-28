@@ -43,7 +43,39 @@ test('mobile gallery displays two columns, loads its thumbnails and keeps direct
     return failures
   })
   expect(broken).toEqual([])
+  await expect(page.locator('.parts-card .parts-package')).toHaveCount(0)
+  await page.goto('/components?component=arduino-uno')
+  await expect(page.getByRole('link', { name: 'Xem chân và linh kiện trên board' }))
+    .toHaveAttribute('href', '/boards?board=arduino-uno-r3&view=pins')
   await page.goto('/components?component=electrolytic')
   await expect(page.getByRole('link', { name: /Lắp thử trên bàn tự do/ }))
     .toHaveAttribute('href', '/build/freestyle?part=capacitor')
+})
+
+test('resistor has a real orthographic view and preserves its selected pin in 3D', async ({ page }) => {
+  await page.goto('/components?component=resistor')
+  await page.getByRole('button', { name: 'Mặt trên 2D', exact: true }).click()
+  const top = page.getByRole('region', { name: /Mặt trên 2D/ })
+  await expect(top.getByRole('img')).toHaveAttribute('src', /^\/component-reference\/topview\//)
+  await top.getByRole('button', { name: /Chọn chân .* trên hình/ }).first().click()
+  const selection = page.getByLabel('Chân trên mô hình tham chiếu')
+  const chosen = await selection.inputValue()
+  expect(chosen).not.toBe('')
+  await page.getByRole('button', { name: 'Xem mô hình 3D', exact: true }).click()
+  await expect(page.locator('.component-model-viewer canvas')).toBeVisible()
+  await expect(selection).toHaveValue(chosen)
+})
+
+test('component orthographic 2D loads without WebGL', async ({ page }) => {
+  await page.addInitScript(() => {
+    const getContext = HTMLCanvasElement.prototype.getContext
+    HTMLCanvasElement.prototype.getContext = function(type, ...args) {
+      return type.startsWith('webgl') ? null : getContext.call(this, type, ...args)
+    }
+  })
+  await page.goto('/components?component=hc-sr04')
+  await page.getByRole('button', { name: 'Mặt trên 2D', exact: true }).click()
+  const img = page.getByRole('img', { name: /Hình chiếu vuông góc/ })
+  await expect(img).toBeVisible()
+  await expect.poll(() => img.evaluate(element => element.naturalWidth)).toBeGreaterThan(0)
 })

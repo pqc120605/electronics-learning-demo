@@ -15,10 +15,10 @@ async function freshHome(page) {
   await expect(bench(page).getByRole('heading', { name: 'Tự lắp mạch, tự viết code, bấm Chạy' })).toBeVisible()
 }
 
-async function expectBlinking(page) {
+async function expectBlinking(page, transitionTimeout = 15_000) {
   await expect(litLeds(page)).toHaveCount(1, { timeout: 45_000 })
-  await expect(litLeds(page)).toHaveCount(0, { timeout: 15_000 })
-  await expect(litLeds(page)).toHaveCount(1, { timeout: 15_000 })
+  await expect(litLeds(page)).toHaveCount(0, { timeout: transitionTimeout })
+  await expect(litLeds(page)).toHaveCount(1, { timeout: transitionTimeout })
 }
 
 async function wire(page, from, to) {
@@ -97,8 +97,9 @@ test('Pico: MicroPython runs for real on rp2040js and blinks the LED wired to GP
   await page.getByRole('tab',{name:/Quan sát/}).click()
   await expect(page.locator('.freestyle-engine strong')).toHaveText('MicroPython thật · rp2040js')
   await page.locator('.freestyle-work-actions').getByRole('button', { name: '▶ Chạy' }).click()
-  await expectBlinking(page)
-  await expect(page.getByLabel('Đầu ra Serial')).toContainText('GP15 1')
+  // RP2040 emulation advances in simulated time. Allow more wall time per edge on slower hosts.
+  await expectBlinking(page, 45_000)
+  await expect(page.getByLabel('Đầu ra Serial')).toContainText(/GP15 1[\s\S]*GP15 0[\s\S]*GP15 1/)
   await bench(page).screenshot({ path: `${shots}/pico-micropython-blink.png` })
   await page.locator('.freestyle-work-actions').getByRole('button', { name: '■ Dừng' }).click()
 })

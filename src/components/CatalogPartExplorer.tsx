@@ -1,6 +1,9 @@
 import { lazy, Suspense, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getCatalogPart } from '../data/catalogParts'
+import { getApprovedCatalogIc } from '../data/approvedCatalogIcs'
+import { getApprovedRemainingPart } from '../data/approvedRemainingParts'
+import { getA1UnoFixture } from '../lib/freestyle/a1UnoFixtures'
 import { catalogPackageAssets, getComponentMesh } from '../data/componentModels'
 import { useProductRoute } from '../lib/useProductRoute'
 import { catalogR1Spice } from '../simulation/catalogR1Spice'
@@ -14,7 +17,8 @@ import { catalogR3Spice } from '../simulation/catalogR3Spice'
 import './CatalogR1Explorer.css'
 
 const ModelViewer = lazy(() => import('./ComponentModelViewer').then(module => ({ default: module.ComponentModelViewer })))
-type View = 'symbol' | 'footprint' | '3d'
+const TopView = lazy(() => import('./ComponentTopView'))
+type View = 'symbol' | 'footprint' | '3d' | 'top'
 type Props = {
   id: string
   pinId?: string
@@ -24,7 +28,7 @@ type Props = {
 }
 
 export function CatalogPartExplorer({ id, pinId, onPinSelect, describeNet, includePractice = true }: Props) {
-  const part = getCatalogPart(id)
+  const part = getCatalogPart(id) ?? getApprovedCatalogIc(id) ?? getApprovedRemainingPart(id)
   const route = useProductRoute()
   const [view, setView] = useState<View>('symbol')
   const [localPin, setLocalPin] = useState<string>()
@@ -34,6 +38,10 @@ export function CatalogPartExplorer({ id, pinId, onPinSelect, describeNet, inclu
   const { pads, maxOffsetMm, footprint } = catalogPackageAssets[part.packageKey]
   const selected = part.pins.find(pin => pin.id === (onPinSelect ? pinId : localPin))
   const pick = onPinSelect ?? setLocalPin
+  const tabs: Array<[View, string]> = [['symbol', 'Sơ đồ 2D'], ['footprint', 'Footprint'], ['3d', 'Mô hình 3D']]
+  const sensorFront = part.catalogId === 'dht11' || part.catalogId === 'dht22-bare'
+  if (part.revision === 'IC-1' || part.revision === 'KIT-1') tabs.splice(1, 0, ['top', sensorFront ? 'Mặt trước 2D' : 'Mặt trên 2D'])
+  const assetFolder = '/models/components/catalog-' + part.revision.toLowerCase() + '/'
   const surfaceMount = pads.every(pad => pad.drill === 0)
   const padTarget = surfaceMount ? 0 : pads.length > 24 ? 16 : 24
   const spiceLabs = [...catalogR1Spice, ...catalogR2bSpice, ...catalogR3Spice].filter(item => item.parts.includes(part.catalogId))
@@ -57,7 +65,7 @@ export function CatalogPartExplorer({ id, pinId, onPinSelect, describeNet, inclu
   return <section className="part-r1" aria-label={`Biến thể ${part.mpn}`}>
     <header><strong>{part.mpn}</strong><p>{part.manufacturer} · {part.packageName} · {part.revision}</p>{part.revision !== "R1" && <a href={part.source + "#page=" + part.pinoutPage} target="_blank" rel="noreferrer">Pinout {part.datasheet} · trang {part.pinoutPage} ↗</a>}</header>
     <div className="part-r1-tabs" role="group" aria-label="Biểu diễn linh kiện">
-      {([['symbol', 'Sơ đồ 2D'], ['footprint', 'Footprint'], ['3d', 'Mô hình 3D']] as const).map(([value, label]) =>
+      {tabs.map(([value, label]) =>
         <button key={value} type="button" aria-pressed={view === value} onClick={() => setView(value)}>{label}</button>)}
     </div>
     {view === 'symbol' && <div className="part-r1-symbol" aria-label="Ký hiệu và chân chức năng">
@@ -92,19 +100,27 @@ export function CatalogPartExplorer({ id, pinId, onPinSelect, describeNet, inclu
       </div>
       <p className="part-r1-caption">KiCad 10.0.7 · {pads.length} pad {surfaceMount ? "SMD" : "xuyên lỗ"} · nhìn từ mặt trên.</p>
       {new Set(pads.map(item => item.pad)).size < pads.length && <p className="part-r1-caption">Các vùng đồng cùng số pad về cùng một chân điện.</p>}
-      {part.revision !== 'R1' && <a href={'/models/components/catalog-' + part.revision.toLowerCase() + '/' + footprint.split('/').at(-1)} download>Tải footprint KiCad ↧</a>}
+      {part.revision !== 'R1' && <a href={assetFolder + footprint.split('/').at(-1)} download>Tải footprint KiCad ↧</a>}
     </>}
+    {view === 'top' && mesh && <Suspense fallback={<p role="status">Đang tải hình chiếu 2D…</p>}>
+      <TopView mesh={mesh} name={part.mpn} pins={part.pins} selectedPin={selected?.id} onPinSelect={pick}
+        sourceHref={assetFolder + 'NOTICE.txt'} />
+    </Suspense>}
     {view === '3d' && mesh && !failure && <Suspense fallback={<p role="status">Đang tải mô hình 3D…</p>}>
       <ModelViewer mesh={mesh} name={part.mpn} onError={() => setFailure(true)}
         pins={part.pins} selectedPin={selected?.id} onPinSelect={pick} />
     </Suspense>}
-    {view === '3d' && <p className="part-r1-caption">{failure ? 'WebGL không mở được. Vẫn có thể chọn pin từ footprint.' : (part.revision === 'R4' || part.revision === 'R5') ? mesh?.modelNote : surfaceMount ? 'STEP KiCad, chân SMD khớp vùng pad.' : `STEP KiCad, dạng lắp. Sai lệch tâm chân–pad ${maxOffsetMm} mm trong phép kiểm hình học.`}</p>}
+    {view === '3d' && <p className="part-r1-caption">{failure ? 'WebGL không mở được. Vẫn có thể chọn pin từ footprint.' : (part.revision === 'R4' || part.revision === 'R5' || part.revision === 'KIT-1') ? mesh?.modelNote : surfaceMount ? 'STEP KiCad, chân SMD khớp vùng pad.' : `STEP KiCad, dạng lắp. Sai lệch tâm chân–pad ${maxOffsetMm} mm trong phép kiểm hình học.`}</p>}
     <div className="part-r1-selection" role="status">
       {selected ? <><strong>Chân {selected.label} · pad {selected.pad}</strong>
         {describeNet && <span> · {describeNet(selected.id)}</span>}</> : 'Chọn một chân để đối chiếu giữa các chế độ xem.'}
     </div>
     {view !== 'symbol' && <details><summary>Danh sách chân</summary><div className="part-r1-pin-list">{part.pins.map(pinButton)}</div></details>}
-    {includePractice && <section className="part-r1-practice" aria-label="Bài thử điện theo datasheet">
+    {includePractice && part.revision === 'KIT-1' && getA1UnoFixture(part.catalogId) && <div className="part-r1-practice">
+      <Link to={route('/build/freestyle?fixture=a1-' + part.catalogId)}>Mở mạch thử firmware Uno R3</Link>
+      {part.catalogId === 'seven-segment-anode' && <Link to={route('/tools/spice?lab=a1-sa56-segment-dc')}>Đo dòng một đoạn bằng ngspice</Link>}
+    </div>}
+    {includePractice && part.revision !== 'IC-1' && part.revision !== 'KIT-1' && <section className="part-r1-practice" aria-label="Bài thử điện theo datasheet">
       <h2>Bài thử điện</h2><p>{part.scope}</p>
       {part.revision === 'R5' ? <CatalogR5Lab part={part} />
         : part.revision === 'R4' ? <CatalogR4Lab part={part} />

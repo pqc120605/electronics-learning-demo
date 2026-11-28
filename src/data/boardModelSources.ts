@@ -1,4 +1,6 @@
+import { getRemainingBoardEvidence } from './remainingCatalogBoardSources'
 import type { BoardModelEvidence } from '../components/board/boardSceneTypes'
+import arduinoApproval from '../../docs/research/2026-11-26-catalog-model-arduino-r1-proposal.json'
 
 /** Evidence and distribution status for each board shown or proposed in the catalog. */
 export const boardModelSources: Record<string, BoardModelEvidence> = {
@@ -197,6 +199,22 @@ export const boardModelSources: Record<string, BoardModelEvidence> = {
 }
 
 export function getBoardModelEvidence(boardId: string): BoardModelEvidence | undefined {
+  const remaining = getRemainingBoardEvidence(boardId)
+  if (remaining) return remaining
+  const arduino = arduinoApproval.variants.find(variant => variant.boardId === boardId)
+  if (arduino) return {
+    status: 'source-verified-cad',
+    revision: arduino.sku + ' · STEP và PCB Arduino chính hãng',
+    sourceUrl: arduino.documentation,
+    licenseName: 'Giấy phép phần cứng Arduino CC BY-SA 4.0 trong gói PCB.',
+    attribution: 'Arduino · STEP, PCB và pinout chính hãng.',
+    confidenceNote: 'Mặt 2D lấy từ cùng hình học STEP với trình xem 3D. Tọa độ chân header đối chiếu giữa PCB và chân STEP.',
+    unresolvedIssues: arduino.sku === 'ABX00083'
+      ? ['Cần xác minh phạm vi giấy phép của gói STEP tải riêng trước khi phát hành.', 'Chưa đối chiếu mẫu vật lý hoặc chạy firmware.']
+      : ['Chưa đối chiếu mẫu vật lý hoặc chạy firmware.'],
+    noticeUrl: '/models/arduino-catalog-1/' + arduino.sku + '.NOTICE.txt',
+    published: true,
+  }
   return boardModelSources[boardId === 'esp32-devkit-v1-30pin' ? 'esp32-devkit' : boardId]
 }
 

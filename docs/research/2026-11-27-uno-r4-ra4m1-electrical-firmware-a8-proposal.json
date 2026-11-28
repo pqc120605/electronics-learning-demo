@@ -1,0 +1,449 @@
+{
+  "revision": "MM-UNO-R4-SIM-FW-A8",
+  "date": "2026-11-27",
+  "status": "proposal-for-approval",
+  "scope": "Windows local của Mạch Mở. Mỗi UNO R4 có một mạch nút nhấn và LED chạy ELF riêng trên CPU RA4M1 mô phỏng. Hai board dùng cùng kết nối ở mức chân Arduino, với ánh xạ GPIO khác nhau theo SKU.",
+  "capabilities": {
+    "ids": [
+      "CAT-01",
+      "CAT-02",
+      "CAT-03",
+      "FW-04",
+      "FW-07",
+      "FW-08",
+      "SIM-02",
+      "SIM-03",
+      "SIM-04"
+    ],
+    "contracts": [
+      "K-ID",
+      "K-CTX",
+      "K-RUN",
+      "K-TIME",
+      "K-STORE"
+    ],
+    "exitDepth": "D3 cho từng mạch mẫu RA4M1 sau khi có bằng chứng về boot, GPIO, SysTick, SCI2, 2D/3D và hai điểm làm việc DC."
+  },
+  "baseline": {
+    "head": "357e8fc427565c76acec8ecc78fcaa4206bdd7c1",
+    "worktree": ".tmp/na",
+    "a7ApprovalSha256": "3e5d974d2bd3f6d70b19d1d7ea3617cd698d90b4ded524291b86961e47315c3e",
+    "arduinoAssetIndex": {
+      "path": "src/data/approved-arduino-assets.json",
+      "sha256": "52cd7e64b162ac968da10baf1104f3b00738da916da34da09292141a361599c0"
+    },
+    "auxConnectorEvidence": {
+      "path": "docs/research/2026-11-27-esp32-c3-electrical-firmware-a2-proposal.json",
+      "sha256": "452a965fe0028db65003a721abd6a9f253660501876949d2c1d8ede05c46b8a3",
+      "section": "connectorAudit.additions · ABX00080 và ABX00087"
+    }
+  },
+  "boards": [
+    {
+      "id": "arduino-uno-r4-minima",
+      "sku": "ABX00080",
+      "catalogRevision": "UNO R4 Minima · ABX00080",
+      "fixtureId": "a8-uno-r4-minima-button-led",
+      "readyLine": "A8_READY=ABX00080",
+      "source": {
+        "product": "https://docs.arduino.cc/hardware/uno-r4-minima/",
+        "pinout": "https://docs.arduino.cc/resources/pinouts/ABX00080-full-pinout.pdf",
+        "pinoutRevision": "2023-04-14",
+        "variant": "https://github.com/arduino/ArduinoCore-renesas/blob/1.6.0/variants/MINIMA/variant.cpp"
+      },
+      "model": {
+        "path": "public/models/arduino-catalog-1/arduino-uno-r4-minima.glb",
+        "sha256": "e95cc50ab51524c6a699d5590065b6cd8772a7fd85ae73850fbb01cb1cecd15e"
+      },
+      "topView": {
+        "path": "public/board-reference/topview/arduino-uno-r4-minima.png",
+        "sha256": "0151419bda44da8a4bf38cbb0b41a4c08b8dc5dfc3495b16d38b2b6138c3c33b"
+      },
+      "headerLocations": 32,
+      "button": {
+        "gpio": "P105",
+        "port": 1,
+        "bit": 5,
+        "pfs": "0x40040854"
+      },
+      "led": {
+        "gpio": "P103",
+        "port": 1,
+        "bit": 3,
+        "pfs": "0x4004084C"
+      },
+      "auxiliaryLookup": [
+        {
+          "id": "J2",
+          "kind": "RA4M1 SWD",
+          "padCount": 10
+        },
+        {
+          "id": "J1",
+          "kind": "RA4M1 ICSP",
+          "padCount": 6
+        }
+      ]
+    },
+    {
+      "id": "arduino-uno-r4-wifi",
+      "sku": "ABX00087",
+      "catalogRevision": "UNO R4 WiFi · ABX00087",
+      "fixtureId": "a8-uno-r4-wifi-button-led",
+      "readyLine": "A8_READY=ABX00087",
+      "source": {
+        "product": "https://docs.arduino.cc/hardware/uno-r4-wifi/",
+        "pinout": "https://docs.arduino.cc/resources/pinouts/ABX00087-full-pinout.pdf",
+        "pinoutRevision": "2025-04-23",
+        "variant": "https://github.com/arduino/ArduinoCore-renesas/blob/1.6.0/variants/UNOWIFIR4/variant.cpp"
+      },
+      "model": {
+        "path": "public/models/arduino-catalog-1/arduino-uno-r4-wifi.glb",
+        "sha256": "ec2299601bf417a4ac1d981e6a087785f54117819de6caded64cfe580e95a576"
+      },
+      "topView": {
+        "path": "public/board-reference/topview/arduino-uno-r4-wifi.png",
+        "sha256": "5760f60cc8a01cb1c21e71b51986eede3c3ba7388b07aa94ac216ef8c4bdec5b"
+      },
+      "headerLocations": 32,
+      "button": {
+        "gpio": "P104",
+        "port": 1,
+        "bit": 4,
+        "pfs": "0x40040850"
+      },
+      "led": {
+        "gpio": "P106",
+        "port": 1,
+        "bit": 6,
+        "pfs": "0x40040858"
+      },
+      "auxiliaryLookup": [
+        {
+          "id": "J2",
+          "kind": "Qwiic 3,3 V",
+          "padCount": 4
+        },
+        {
+          "id": "J6",
+          "kind": "ESP Header 3,3 V",
+          "padCount": 6
+        },
+        {
+          "id": "J3",
+          "kind": "RA4M1 ICSP",
+          "padCount": 6
+        },
+        {
+          "id": "JOFF",
+          "kind": "Nguồn/RTC",
+          "padCount": 3
+        }
+      ]
+    }
+  ],
+  "commonHeader": {
+    "button": {
+      "pinId": "jdigital-3",
+      "pad": "JDIGITAL.3",
+      "label": "D2",
+      "arduinoNumber": 2,
+      "mode": "GPIO input active LOW, kéo lên ngoài"
+    },
+    "led": {
+      "pinId": "jdigital-5",
+      "pad": "JDIGITAL.5",
+      "label": "D4",
+      "arduinoNumber": 4,
+      "mode": "GPIO output active HIGH, khởi động LOW"
+    },
+    "power": {
+      "pinId": "janalog-5",
+      "pad": "JANALOG.5",
+      "label": "5V",
+      "volts": 5
+    },
+    "ground": {
+      "pinId": "janalog-6",
+      "pad": "JANALOG.6",
+      "label": "GND"
+    },
+    "serialTx": {
+      "pinId": "jdigital-2",
+      "pad": "JDIGITAL.2",
+      "label": "D1/TX",
+      "gpio": "P302",
+      "pfs": "0x400408C8",
+      "peripheral": "SCI2",
+      "mode": "TX quan sát tại UART mô phỏng, không đấu vào mạch nút và LED"
+    }
+  },
+  "circuit": {
+    "supplyVolts": 5,
+    "pullupOhms": 10000,
+    "ledSeriesOhms": 1000,
+    "switchClosedOhms": 1,
+    "topology": "5V → 10 kΩ → D2. Nút thường mở nối D2 với GND khi nhấn. D4 → 1 kΩ → anode LED. Cathode LED nối GND. Chỉ dùng rail 5V/GND và hai pin D2/D4 đúng SKU. D1 chỉ dùng để giải thích cổng SCI2.",
+    "limitBasis": "Pinout Arduino giới hạn 8 mA tối đa trên một chân. Mô hình dự kiến D4 cấp 2,915 mA khi LED sáng. Qwiic và ESP Header trên ABX00087 là đầu 3,3 V để tra cứu.",
+    "identities": "Kết nối lưu bằng partId/pinId. A8 dùng hai fixture ID và nhãn revision riêng. Giữ các bản nháp đang có và dùng chung mặt trên cùng neo 3D của mỗi SKU."
+  },
+  "firmware": {
+    "mcu": "R7FA4M1AB3CFM",
+    "architecture": "Armv7E-M, Thumb, Cortex-M4, soft-float",
+    "format": "ELF32 little endian, bare-metal C, một ELF riêng từng SKU",
+    "memoryMap": {
+      "flash": {
+        "start": "0x00000000",
+        "endExclusive": "0x00040000",
+        "bytes": 262144
+      },
+      "sram": {
+        "start": "0x20000000",
+        "endExclusive": "0x20008000",
+        "bytes": 32768
+      },
+      "initialMsp": "0x20008000",
+      "vectorTable": "0x00000000",
+      "reset": "Thumb",
+      "systickVectorIndex": 15
+    },
+    "targetClock": {
+      "source": "RA4M1 MOCO",
+      "iclkHz": 8000000,
+      "pclkbHz": 8000000,
+      "dividers": "Sau reset, giữ MOCO được chọn và đặt chia 1 theo SCKDIVCR với cơ chế PRCR. Profile Renode cố định clocks này tại NVIC và SCI2, phạm vi chỉ clock của mạch mẫu.",
+      "systickReload": 7999,
+      "systickPeriodMs": 1
+    },
+    "behavior": {
+      "pollMs": 10,
+      "debounceMs": 40,
+      "bootButtonPressed": false,
+      "edgeAcceptanceMs": [
+        39,
+        60
+      ],
+      "rejectPulseMs": 20,
+      "verifiedCycles": 3,
+      "edgeLogs": [
+        "A8_BUTTON=1",
+        "A8_BUTTON=0"
+      ],
+      "bootLines": [
+        "A8_READY=<SKU>",
+        "A8_BUTTON=0"
+      ]
+    },
+    "gpioSetup": "Mở PWPR để đặt GPIO input không pull, output push-pull LOW ban đầu và P302 ở chức năng SCI2. Khóa lại PWPR. Dùng bit PIDR cho mức đọc, PDR cho hướng, PODR cho mức ghi. Giữ mapping riêng theo SKU.",
+    "serial": {
+      "instance": "SCI2",
+      "base": "0x40070040",
+      "nominalBaud": 9600,
+      "format": "8N1, TX",
+      "brr": 25,
+      "observed": "Kiểm byte do SCI2 phát qua file backend và thứ tự log. Công thức BaudRate của model Renode được ghi nhận riêng, phạm vi không đo baud hoặc dạng sóng thật.",
+      "moduleStop": "Giải module stop SCI2 theo MSTPCRB.MSTPB29",
+      "nominalActualBaudFromRegisterFormula": 9615.384615384615,
+      "registerSettings": {
+        "smr": "0x00",
+        "semr": "0x00",
+        "scrTXEnable": "0x20"
+      },
+      "pinFunction": {
+        "psel": 4,
+        "pmr": 1,
+        "source": "https://github.com/renesas/fsp/blob/master/ra/fsp/inc/instances/r_ioport.h"
+      }
+    },
+    "toolchain": {
+      "name": "Arm GNU Toolchain 14.2.Rel1",
+      "command": "arm-none-eabi-gcc",
+      "archive": {
+        "path": ".tmp/a5-vendor/arm-gnu-toolchain-14.2.rel1-mingw-w64-i686-arm-none-eabi.zip",
+        "sha256": "6facb152ce431ba9a4517e939ea46f057380f8f1e56b62e8712b3f3b87d994e1",
+        "bytes": 305393359,
+        "url": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-mingw-w64-i686-arm-none-eabi.zip"
+      },
+      "flags": [
+        "-mcpu=cortex-m4",
+        "-mthumb",
+        "-mfloat-abi=soft",
+        "-std=c11",
+        "-Os",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-nostdlib",
+        "-Wl,--gc-sections",
+        "-Wl,--build-id=none"
+      ]
+    },
+    "reference": {
+      "manual": "https://www.renesas.com/en/document/mah/renesas-ra4m1-group-users-manual-hardware",
+      "manualRevision": "R01UH0887EJ0110 Rev. 1.10",
+      "sections": [
+        "3 Single-chip mode",
+        "8.2.1–8.2.2 clocks",
+        "10.2.3 MSTPCRB",
+        "12.2.1 PRCR",
+        "19.2.5–19.3 PFS/PWPR and GPIO",
+        "28 SCI"
+      ]
+    }
+  },
+  "runtime": {
+    "version": "Renode 1.17.0",
+    "windowsBuild": "1.17.0+20260906gitf1dd1b4af",
+    "buildCommit": "f1dd1b4af7838b45a925c17603cdfed0a583844a",
+    "infrastructureCommit": "cd4b002aac2398994c4a61a34a8b31b5700facf2",
+    "release": "https://github.com/renode/renode/releases/tag/v1.17.0",
+    "archive": {
+      "path": ".tmp/a7-local-assets/renode-1.17.0.windows-portable.zip",
+      "sha256": "18bcf145422039e8702c3e5f9864c7787561bfd5deb7a3ee6e168ecf19e2b9db",
+      "bytes": 106735414
+    },
+    "launcher": {
+      "path": ".tmp/a7-local-assets/renode_1.17.0-portable/Renode.exe",
+      "sha256": "67c2c21eb977181a50a19acbf582c4204d8177d2b4ae0bac4c3d3d51da7a7b4e"
+    },
+    "archiveEvidence": [
+      {
+        "path": "platforms/boards/arduino_uno_r4_minima.repl",
+        "sha256": "3daac00f8ace389b9dd8ba04885407b42868f90650d6d8a13bc6b2ea50de76f7",
+        "role": "Platform upstream Minima dùng SoC RA4M1"
+      },
+      {
+        "path": "platforms/cpus/renesas-r7fa4m1a.repl",
+        "sha256": "1aa74c4654b43ce4f7565085ef8f3aa6188d6bc05540d1f0ab92a3c4afa512b9",
+        "role": "Bản đồ code flash/SRAM, GPIO và SCI2"
+      },
+      {
+        "path": "tests/platforms/Renesas_RA4M1.robot",
+        "sha256": "3bb6bbe1145c246f3ab2ffcec5b8bc757759d218d056c942b0774ae509dcaaae",
+        "role": "Bằng chứng upstream UART ở SCI2 Minima, dùng làm tham chiếu; không thực thi firmware tải từ xa"
+      }
+    ],
+    "sciSource": "https://github.com/renode/renode-infrastructure/blob/cd4b002aac2398994c4a61a34a8b31b5700facf2/src/Emulator/Peripherals/Peripherals/SCI/RenesasRA6M5_SCI.cs",
+    "profile": {
+      "approach": "Tạo REPL tối thiểu từ cấu hình RA4M1 đã khóa. Dùng chung phần cứng SoC cho hai mạch mẫu. WiFi ghép đúng pin RA4M1 của ABX00087. Kiểm riêng từng ELF trước khi nối giao diện.",
+      "cpu": {
+        "type": "CPU.CortexM",
+        "cpuType": "cortex-m4f",
+        "initVectorTableOffset": "0x00000000",
+        "nominalPerformanceMips": 8
+      },
+      "nvic": {
+        "class": "IRQControllers.NVIC",
+        "base": "0xE000E000",
+        "systickFrequency": 8000000
+      },
+      "icu": {
+        "class": "IRQControllers.RenesasRA_ICU",
+        "base": "0x40006000"
+      },
+      "portMisc": {
+        "class": "GPIOPort.RenesasRA_GPIOMisc",
+        "base": "0x40040D00"
+      },
+      "ports": [
+        {
+          "name": "port1",
+          "class": "GPIOPort.RenesasRA4_GPIO",
+          "base": "0x40040020",
+          "pfsBase": "0x40040840",
+          "pfsBytes": 64,
+          "portNumber": 1,
+          "pins": 16
+        },
+        {
+          "name": "port3",
+          "class": "GPIOPort.RenesasRA4_GPIO",
+          "base": "0x40040060",
+          "pfsBase": "0x400408C0",
+          "pfsBytes": 64,
+          "portNumber": 3,
+          "pins": 8
+        }
+      ],
+      "sci2": {
+        "class": "SCI.RenesasRA6M5_SCI",
+        "base": "0x40070040",
+        "frequencyHz": 8000000,
+        "enableManchesterMode": false,
+        "enableFIFO": false,
+        "fullModel": false,
+        "irqRoutes": [
+          163,
+          164,
+          165
+        ]
+      },
+      "clockAndPowerScope": "Mức clock danh định được đưa vào ngoại vi mô phỏng. Clock tree, module-stop, PLL, nguồn và mức chân theo thời gian của phần cứng ngoài phạm vi xác nhận."
+    },
+    "transport": {
+      "route": "/api/local-tools/a8-ra4m1/",
+      "runnerArguments": [
+        "--disable-gui",
+        "--console",
+        "--plain",
+        "--port",
+        "-1"
+      ],
+      "origin": "Vite dev/preview trên loopback, POST JSON cùng origin với schema cố định start/step/stop. Start chỉ nhận boardId đã duyệt. Step chỉ nhận mã phiên và boolean. Monitor đi qua stdin/stdout riêng.",
+      "limits": {
+        "startupWallMs": 30000,
+        "runWallMs": 60000,
+        "maxStepMs": 10,
+        "activeSessionsForA8": 1,
+        "serialTailBytes": 8000
+      },
+      "reasonForStartupLimit": "A7 có lượt Chrome song song chạm 20 giây. A8 khóa 30 giây sau khi đối chiếu giới hạn này; hồi quy tiếp tục chạy Chrome một worker.",
+      "capture": "Lấy input từ PmnPFS.PIDR sau khi kích thích ngoài bằng OnGPIO. Đọc PDR/PODR và đối chiếu mức output PmnPFS.PIDR, đọc bộ đếm SysTick do ELF cập nhật. Đọc byte SCI2 từ file backend đóng handle theo từng bước. Kết thúc phiên khi stop, sửa mạch, đổi board, rời trang hoặc timeout.",
+      "artifactDistribution": "Giữ Renode, REPL và ELF trong .tmp. Phạm vi chạy firmware gồm hai bài mẫu local với manifest xác minh board, revision và SHA-256.",
+      "capabilityLimit": "RA4M1 CPU, GPIO, SysTick và SCI2 TX. Đầu SWD/ICSP, Qwiic, ESP Header và nguồn/RTC dùng để tra cứu. Wi-Fi, BLE, LED matrix WiFi, USB, ADC, DAC, I²C, SPI và nạp board thật ngoài phạm vi A8."
+    }
+  },
+  "electrical": {
+    "engine": {
+      "name": "ngspice 45.2 WASM",
+      "path": "public/vendor/eecircuit-engine/spice.wasm",
+      "sha256": "3096ce2c499c3062472b9d7953f5141d75a019296e22b0142f4979e5894008ec"
+    },
+    "tempC": 27,
+    "diode": {
+      "saturationA": 1e-18,
+      "ideality": 2.2,
+      "seriesOhms": 20
+    },
+    "scope": "Hai điểm làm việc DC dùng trạng thái GPIO ổn định quan sát được. D4 là nguồn lý tưởng 0/5 V, nút mở là mạch hở. Các thông số diode là mô hình bài tập.",
+    "expectedDerived": {
+      "inputReleasedVolts": 5,
+      "inputPressedVolts": 0.00049995,
+      "ledHighCurrentMilliamps": 2.915,
+      "ledHighAnodeVolts": 2.085
+    },
+    "acceptance": {
+      "inputReleasedVolts": [
+        4.99,
+        5.01
+      ],
+      "inputPressedMaxAbsVolts": 0.001,
+      "ledHighCurrentMilliamps": [
+        2.8,
+        3.05
+      ],
+      "ledLowMaxAbsMilliamps": 0.001,
+      "kvlMaxAbsVolts": 0.001
+    }
+  },
+  "verification": {
+    "firstGate": "Sau khi duyệt đúng SHA, xác minh khóa gói và chứng minh hai ELF native trên Windows trước khi mở tính năng. Mỗi model phải vượt boot, CPU, SCI2, SysTick, mức chân và đúng SKU. Nếu một target chưa đạt, khoanh lỗi thực tế và giữ target đó ở trạng thái chưa xác minh.",
+    "eachBoard": [
+      "Đúng 32 vị trí header ở 2D/3D và các đầu cắm phụ nêu theo SKU. Kiểm neo D2/D4/5V/GND và link từ Thư viện Board. Không nhập nhằng P105/P103 với P104/P106.",
+      "ELF đúng hash và board, boot rõ A8_READY. Kiểm 20 ms không đổi LED, ba chu kỳ với mỗi cạnh 39–60 ms thời gian mô phỏng, và log SCI2 đúng thứ tự. Kiểm nhầm ELF giữa hai SKU.",
+      "Đo hai trạng thái ngspice, kiểm 5 V/GND đúng và chặn nhầm các đầu 3,3 V, LED đảo, thiếu dây GND và điện trở. Kiểm Chrome desktop và 375 px, điều khiển bàn phím, giữ bản nháp, dừng/thu hồi phiên khi rời trang, timeout và thử lại."
+    ],
+    "regression": "Chạy các test Node A1–A8 liên quan và hồi quy Chrome A1–A7 một worker gồm Pico cũ. Chạy typecheck, build:local và check:public-release. Dùng bản dựng để kiểm runtime/ELF/REPL A8 nằm ngoài đầu ra tĩnh."
+  }
+}

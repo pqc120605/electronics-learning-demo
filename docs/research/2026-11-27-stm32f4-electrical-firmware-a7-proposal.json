@@ -1,0 +1,461 @@
+{
+  "revision": "MM-STM32F4-SIM-FW-A7",
+  "date": "2026-11-27",
+  "status": "proposal-for-approval",
+  "scope": "Ba Nucleo-64 STM32F4 MB1136 C04 chạy từng ELF Cortex-M4 với mạch nút nhấn và LED ngoài 3,3 V. Renode chạy CPU, SysTick, GPIO và USART2. Ngspice đo DC tại hai trạng thái quan sát được. Bản thử local Windows.",
+  "capabilities": {
+    "ids": [
+      "CAT-01",
+      "CAT-02",
+      "CAT-03",
+      "FW-04",
+      "FW-07",
+      "FW-08",
+      "SIM-02",
+      "SIM-03",
+      "SIM-04"
+    ],
+    "contracts": [
+      "K-ID",
+      "K-CTX",
+      "K-RUN",
+      "K-TIME",
+      "K-STORE"
+    ],
+    "exitDepth": "D3 cho từng mạch mẫu đã định danh. Phạm vi nghiệm thu là ELF, GPIO, SysTick, UART, chọn chân 2D/3D và hai điểm làm việc DC."
+  },
+  "baseline": {
+    "worktree": ".tmp/na",
+    "head": "357e8fc427565c76acec8ecc78fcaa4206bdd7c1",
+    "a6": {
+      "path": "docs/research/2026-11-27-rp2350-electrical-firmware-a6-proposal.json",
+      "sha256": "0c66dcb5aaf2543791587d27f9b1e9f008848f6d752c1f89590d31d1ad2acf8e"
+    },
+    "regression": {
+      "a1ThroughA6Node": 319,
+      "a1ThroughA6Chrome": 54,
+      "additionalPicoChrome": 4
+    }
+  },
+  "boardEvidence": {
+    "userManual": {
+      "revision": "UM1724 Rev 17",
+      "date": "2025-09",
+      "url": "https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf",
+      "local": {
+        "path": "docs/research/downloads/2026-11-26-catalog-remaining/st-um1724.pdf",
+        "sha256": "576d9bee3bc32c8ee70bf0d77cf9494cec06ea7c1d9ff98eebf2738cb9314a14"
+      },
+      "evidence": "Bảng 16 F401RE/F411RE, bảng 19 F446RE, mục 7.4–7.6 cho CN4 và jumper."
+    },
+    "schematic": {
+      "path": "assets/boards/vendor/nucleo-f401re/source/mb1136-default-c04_schematic.pdf",
+      "sha256": "401f40ca598b008050e7749b5847e93ca8aa83e9a0bae4cbcbe7a016159e57c1"
+    },
+    "layoutReference": {
+      "path": "assets/boards/vendor/nucleo-f401re/work/bdp/MB1136C/Altium_Designer/MB1136.PcbDoc",
+      "sha256": "fdfa6424fbffa1bfc27863ed8dbf43429e9db81f2a39e10f18a8a18a5fb60e64"
+    },
+    "geometry": "Dùng model tham chiếu C04 và đúng manifest catalog cho từng board. Ba PNG mặt trên có cùng hash do dùng hình học MB1136 chung. Vị trí và marking linh kiện phụ là hình học tham chiếu. Đã kiểm qua catalog SSR hiện có: mỗi board có 108 vị trí hữu hạn, phân biệt được trên mặt 2D. Chân CN4 giữ riêng khỏi 108 vị trí header chính.",
+    "aux": "CN4 SWD phục vụ tra cứu và đối chiếu 2D/3D; ghi điều kiện CN2, SB12 và SB15 theo UM1724/C04. CN4.1 VDD_TARGET là tham chiếu, không dùng làm nguồn mạch A7. JP1/JP5/JP6 giữ vai trò tra cứu."
+  },
+  "boards": [
+    {
+      "id": "stm32-nucleo",
+      "orderCode": "NUCLEO-F401RE",
+      "revision": "MB1136-F401RE-C04 · project package v1.1",
+      "pcbRevision": "MB1136-F401RE-C04",
+      "target": "stm32f401re",
+      "mcu": "STM32F401RET6",
+      "fixtureId": "a7-nucleo-f401re-button-led",
+      "readyLine": "A7_READY=stm32f401re",
+      "flash": {
+        "base": "0x08000000",
+        "endExclusive": "0x08080000",
+        "bytes": 524288
+      },
+      "sram": {
+        "base": "0x20000000",
+        "endExclusive": "0x20018000",
+        "bytes": 98304
+      },
+      "sources": {
+        "product": "https://www.st.com/en/evaluation-tools/nucleo-f401re.html",
+        "mcu": "https://www.st.com/en/microcontrollers-microprocessors/stm32f401re.html",
+        "referenceManual": "https://www.st.com/resource/en/reference_manual/dm00096844-stm32f4-series-and-l4-series-reference-manual-stmicroelectronics.pdf",
+        "headerTable": 16
+      },
+      "model": {
+        "path": "public/models/board-catalog-a1/stm32-nucleo.glb",
+        "sha256": "d6b48bdaa9a396921ff68e7e640ab1ae90e1c90f5e3d247638ca93cb57b5e8c6"
+      },
+      "topView": {
+        "path": "public/board-reference/topview/stm32-nucleo.png",
+        "sha256": "ec36d13a06a74e907233c2bcd413b5d70a93663527c17b09ddbfa1327d114b31"
+      },
+      "headerManifest": {
+        "path": "src/data/a1-nucleo-board-assets.json",
+        "sha256": "9f79d6f5c1e338c53d153f3779b1088f35e465a269df2f1cacd0b56242eb3d4b"
+      },
+      "bom": {
+        "path": "assets/boards/vendor/nucleo-f401re/work/bom/MB1136-F401RE-C04_BOM.xlsx",
+        "sha256": "ca78e55b62b6cd889b6d4d7a7cb05636dd07acfe929d1bff68538aeb60c0eda7"
+      },
+      "headerLocations": 108
+    },
+    {
+      "id": "stm32-nucleo-f411re",
+      "orderCode": "NUCLEO-F411RE",
+      "revision": "NUCLEO-F411RE · MB1136-F411RE-C04",
+      "pcbRevision": "MB1136-F411RE-C04",
+      "target": "stm32f411re",
+      "mcu": "STM32F411RET6",
+      "fixtureId": "a7-nucleo-f411re-button-led",
+      "readyLine": "A7_READY=stm32f411re",
+      "flash": {
+        "base": "0x08000000",
+        "endExclusive": "0x08080000",
+        "bytes": 524288
+      },
+      "sram": {
+        "base": "0x20000000",
+        "endExclusive": "0x20020000",
+        "bytes": 131072
+      },
+      "sources": {
+        "product": "https://www.st.com/en/evaluation-tools/nucleo-f411re.html",
+        "mcu": "https://www.st.com/en/microcontrollers-microprocessors/stm32f411re.html",
+        "referenceManual": "https://www.st.com/resource/en/reference_manual/rm0383-stm32f411xce-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+        "headerTable": 16
+      },
+      "model": {
+        "path": "public/models/board-catalog-remaining-1/stm32-nucleo-f411re.glb",
+        "sha256": "de63773bd9b55f65c78b88902f3ed55c961f3f17c8add58afc23781278bff454"
+      },
+      "topView": {
+        "path": "public/board-reference/topview/stm32-nucleo-f411re.png",
+        "sha256": "ec36d13a06a74e907233c2bcd413b5d70a93663527c17b09ddbfa1327d114b31"
+      },
+      "headerManifest": {
+        "path": "src/data/remaining-catalog-board-assets.json",
+        "sha256": "f9d14256148ce567cc5f84c83d23bcc2e982df32fef9a119aeae0647dbf43874"
+      },
+      "bom": {
+        "path": "assets/boards/vendor/nucleo-f401re/work/bom/MB1136-F411RE-C04_BOM.xlsx",
+        "sha256": "3528394dcbc59ab069b7f473578e6bbe28d877ef2c6b1bf25ea8dc2e72e0d583"
+      },
+      "headerLocations": 108
+    },
+    {
+      "id": "stm32-nucleo-f446re",
+      "orderCode": "NUCLEO-F446RE",
+      "revision": "NUCLEO-F446RE · MB1136-F446RE-C04",
+      "pcbRevision": "MB1136-F446RE-C04",
+      "target": "stm32f446re",
+      "mcu": "STM32F446RET6",
+      "fixtureId": "a7-nucleo-f446re-button-led",
+      "readyLine": "A7_READY=stm32f446re",
+      "flash": {
+        "base": "0x08000000",
+        "endExclusive": "0x08080000",
+        "bytes": 524288
+      },
+      "sram": {
+        "base": "0x20000000",
+        "endExclusive": "0x20020000",
+        "bytes": 131072
+      },
+      "sources": {
+        "product": "https://www.st.com/en/evaluation-tools/nucleo-f446re.html",
+        "mcu": "https://www.st.com/en/microcontrollers-microprocessors/stm32f446re.html",
+        "referenceManual": "https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+        "headerTable": 19
+      },
+      "model": {
+        "path": "public/models/board-catalog-remaining-1/stm32-nucleo-f446re.glb",
+        "sha256": "b803c7ad4c20f31d0bc4b38278af31ed2ad2023eebdc1235392b9000b5f05db2"
+      },
+      "topView": {
+        "path": "public/board-reference/topview/stm32-nucleo-f446re.png",
+        "sha256": "ec36d13a06a74e907233c2bcd413b5d70a93663527c17b09ddbfa1327d114b31"
+      },
+      "headerManifest": {
+        "path": "src/data/remaining-catalog-board-assets.json",
+        "sha256": "f9d14256148ce567cc5f84c83d23bcc2e982df32fef9a119aeae0647dbf43874"
+      },
+      "bom": {
+        "path": "assets/boards/vendor/nucleo-f401re/work/bom/MB1136-F446RE-C04_BOM.xlsx",
+        "sha256": "756b759370503662615ab84c418b8039f1e54a80b110640afeb83ddb04c70b88"
+      },
+      "headerLocations": 108
+    }
+  ],
+  "pins": {
+    "button": {
+      "pinId": "cn9-3",
+      "pad": "CN9.3",
+      "label": "D2 / PA10",
+      "port": "A",
+      "bit": 10,
+      "mode": "input, active low, no internal pull"
+    },
+    "led": {
+      "pinId": "cn9-5",
+      "pad": "CN9.5",
+      "label": "D4 / PB5",
+      "port": "B",
+      "bit": 5,
+      "mode": "output, push-pull, active high"
+    },
+    "power": {
+      "pinId": "cn6-4",
+      "pad": "CN6.4",
+      "label": "3V3",
+      "volts": 3.3
+    },
+    "ground": {
+      "pinId": "cn6-6",
+      "pad": "CN6.6",
+      "label": "GND"
+    },
+    "serialTx": {
+      "pinId": "cn9-2",
+      "pad": "CN9.2",
+      "label": "D1 / PA2",
+      "port": "A",
+      "bit": 2,
+      "alternateFunction": 7,
+      "instance": "USART2",
+      "baudNominal": 115200
+    }
+  },
+  "circuit": {
+    "supplyVolts": 3.3,
+    "button": "CN6.4 3V3 qua 10 kΩ đến PA10. Nút thường mở nối PA10 với CN6.6 GND. Nhấn đọc LOW.",
+    "led": "PB5 qua 1 kΩ tới anode LED đỏ, cathode về CN6.6 GND. GPIO HIGH làm LED sáng.",
+    "choice": "D4/PB5 tách khỏi PA5 của LED LD2 trên board. D2/PA10 dành cho nút ngoài. USART2 chỉ xuất TX ở PA2. Chân PA2, USB ST-LINK, B1/PC13, LD2/PA5, IOREF, 5V, VIN và SWD không nối vào mạch điện mẫu."
+  },
+  "firmware": {
+    "architecture": "Armv7E-M, Cortex-M4, Thumb-2, soft-float, một lõi",
+    "language": "C11 bare-metal",
+    "clock": {
+      "source": "HSI",
+      "coreHz": 16000000,
+      "apb1Hz": 16000000,
+      "pll": false
+    },
+    "toolchain": {
+      "name": "Arm GNU Toolchain 14.2.Rel1 (arm-none-eabi)",
+      "windowsArchive": {
+        "url": "https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-mingw-w64-i686-arm-none-eabi.zip",
+        "sha256": "6facb152ce431ba9a4517e939ea46f057380f8f1e56b62e8712b3f3b87d994e1",
+        "bytes": 305393359,
+        "priorLocalPath": ".tmp/a5-vendor/arm-gnu-toolchain-14.2.rel1-mingw-w64-i686-arm-none-eabi.zip"
+      }
+    },
+    "flags": [
+      "-mcpu=cortex-m4",
+      "-mthumb",
+      "-mfloat-abi=soft",
+      "-std=c11",
+      "-Os",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-ffunction-sections",
+      "-fdata-sections",
+      "-nostdlib",
+      "-Wl,--gc-sections",
+      "-Wl,--build-id=none"
+    ],
+    "image": {
+      "format": "ELF32 little-endian EM_ARM ET_EXEC",
+      "count": 3,
+      "reset": "Vector table tại 0x08000000 với SP căn 8 byte, Reset_Handler Thumb, SysTick_Handler. Startup tự khởi tạo .data/.bss.",
+      "validation": "Kiểm readelf Armv7E-M, điểm vào Thumb và PT_LOAD theo từng profile. Gắn manifest riêng theo boardId, revision, target, fixture, profile Renode, compiler, model SHA, mã nguồn SHA và ELF SHA-256. Từ chối dùng ELF chéo dù CPU cùng họ."
+    },
+    "gpio": "Bật GPIOA/GPIOB qua RCC AHB1ENR, USART2 qua APB1ENR. PA10 input không pull, PB5 output push-pull ban đầu LOW, PA2 AF7 cho USART2 TX.",
+    "systick": {
+      "sourceHz": 16000000,
+      "reload": 15999,
+      "interruptPeriodUs": 1000,
+      "pollMs": 10,
+      "debounceMs": 40,
+      "initialLed": 0
+    },
+    "uart": {
+      "instance": "USART2",
+      "baudNominal": 115200,
+      "brr": "0x008B",
+      "mode": "TX 8N1",
+      "transitionLines": [
+        "A7_BUTTON=0",
+        "A7_BUTTON=1"
+      ]
+    },
+    "coreSource": "https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf"
+  },
+  "runtime": {
+    "name": "Renode",
+    "version": "1.17.0",
+    "license": "MIT, giữ thông báo kèm gói tiếp nhận",
+    "gitCommit": "ab721d88e135a1bcb8ed2ecc5a38f51cbe61fdd2",
+    "infrastructureCommit": "066a7f13c052215632d469c995c89aea37c573b1",
+    "release": "https://github.com/renode/renode/releases/tag/v1.17.0",
+    "archive": {
+      "url": "https://github.com/renode/renode/releases/download/v1.17.0/renode-1.17.0.windows-portable.zip",
+      "bytes": 106735414,
+      "sha256": "18bcf145422039e8702c3e5f9864c7787561bfd5deb7a3ee6e168ecf19e2b9db",
+      "evidence": "Kích thước và digest theo metadata bản phát hành chính thức. Xác minh byte tải về và phiên bản runner sau khi duyệt."
+    },
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/renode/renode/ab721d88e135a1bcb8ed2ecc5a38f51cbe61fdd2/platforms/cpus/stm32f4.repl",
+        "sha256": "a78bb20f3e594fffa9aec25d2ee85a7b165e8a381c603303ee237e7ce67d1194",
+        "role": "Tham chiếu lớp và địa chỉ ngoại vi STM32F4"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/renode/renode-infrastructure/066a7f13c052215632d469c995c89aea37c573b1/src/Emulator/Peripherals/Peripherals/GPIOPort/STM32_GPIOPort.cs",
+        "sha256": "16ffaed5d8f5fc7fd50750ae1b14ffba06582d8731195105d855f4b8e2f0fd38",
+        "role": "OnGPIO, GPIOx_IDR và GPIOx_ODR"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/renode/renode-infrastructure/066a7f13c052215632d469c995c89aea37c573b1/src/Emulator/Peripherals/Peripherals/UART/STM32_UART.cs",
+        "sha256": "bff69b707a9eedbe3676a4a6cf0ecfe7376cc2c7c61f9b0010842480f53a69f1",
+        "role": "Đặt frequency cho STM32_UART và đọc dữ liệu TX"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/renode/renode-infrastructure/066a7f13c052215632d469c995c89aea37c573b1/src/Emulator/Peripherals/Peripherals/Miscellaneous/STM32F4_RCC.cs",
+        "sha256": "ac5935ad06b4379fea8b3c9662e9447fe8a5b0aba7837795ad92e05d04a855c3",
+        "role": "Hành vi thanh ghi RCC và phụ thuộc RTC"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/renode/renode-infrastructure/066a7f13c052215632d469c995c89aea37c573b1/src/Emulator/Peripherals/Peripherals/Timers/STM32F4_RTC.cs",
+        "sha256": "eddbcb8a6d55e30e92ab75c206e69e2ed82681caf37e1d25536a5854e4c39f3d",
+        "role": "RTC thuộc phần phụ thuộc cấu hình RCC"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/renode/renode-infrastructure/066a7f13c052215632d469c995c89aea37c573b1/src/Emulator/Main/Core/Emulation.cs",
+        "sha256": "db32ebaef15f7d6caef5d2293d4d7e11b703f42413b13873a15dd00a33d556dc",
+        "role": "RunFor với thời gian ảo"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/renode/renode-infrastructure/066a7f13c052215632d469c995c89aea37c573b1/src/UI/ConsoleIOSource.cs",
+        "sha256": "499d92827090474311ea39bc52123a05d2f5cf503ff0151a736abf60c131f418",
+        "role": "Console hỗ trợ stdin chuyển hướng"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/renode/renode-infrastructure/066a7f13c052215632d469c995c89aea37c573b1/src/UI/Options.cs",
+        "sha256": "e88139314d5ac7999f3e629e4816f91af1ecfec2feb271b97ad20f7098f347d2",
+        "role": "Tùy chọn headless, console, plain và tắt cổng monitor"
+      }
+    ],
+    "profiling": {
+      "kind": "Ba platform .repl tối thiểu theo một cấu hình, mỗi máy giữ bản đồ flash và SRAM riêng",
+      "cpu": {
+        "type": "CPU.CortexM",
+        "cpuType": "cortex-m4",
+        "initVectorTableOffset": "0x08000000",
+        "nominalPerformanceMips": 16
+      },
+      "devices": {
+        "nvic": {
+          "class": "IRQControllers.NVIC",
+          "base": "0xE000E000",
+          "systickFrequency": 16000000,
+          "priorityMask": "0xF0"
+        },
+        "gpioA": {
+          "class": "GPIOPort.STM32_GPIOPort",
+          "base": "0x40020000",
+          "modeResetValue": "0xA8000000",
+          "numberOfAFs": 16
+        },
+        "gpioB": {
+          "class": "GPIOPort.STM32_GPIOPort",
+          "base": "0x40020400",
+          "modeResetValue": "0x00000280",
+          "numberOfAFs": 16
+        },
+        "usart2": {
+          "class": "UART.STM32_UART",
+          "base": "0x40004400",
+          "inputFrequencyHz": 16000000,
+          "nvicLine": 38
+        },
+        "rcc": {
+          "class": "Miscellaneous.STM32F4_RCC",
+          "base": "0x40023800",
+          "rtcPeripheral": "rtc"
+        },
+        "rtc": {
+          "class": "Timers.STM32F4_RTC",
+          "base": "0x40002800",
+          "scope": "Phụ thuộc nội bộ cho RCC"
+        }
+      },
+      "note": "Tái dùng lớp ngoại vi đã khóa, map tối thiểu đánh giá đúng mạch mẫu. Không dùng map STM32F40x nguyên bản hoặc SVD tải từ xa. Cấu hình NVIC/SysTick và USART2 đều ở 16 MHz."
+    },
+    "localTransport": {
+      "runnerArguments": [
+        "--disable-gui",
+        "--console",
+        "--plain",
+        "--port",
+        "-1"
+      ],
+      "delivery": "Node/Vite dev và preview loopback. Một phiên thiết bị mỗi lượt, Renode child process riêng. Truyền Monitor qua stdin/stdout đã chuyển hướng. Đọc file backend USART2 flush tại thư mục riêng của phiên. Runtime/ELF đặt ngoài web assets ở .tmp/a7-local-assets.",
+      "limits": {
+        "startupWallMs": 20000,
+        "runWallMs": 60000,
+        "maxStepMs": 10,
+        "activeSessions": 1,
+        "serialTailBytes": 8000
+      },
+      "interface": "Trình duyệt cùng origin chỉ gửi board A7 đã định danh và trạng thái nút boolean. Bridge có lệnh nội bộ cố định cho boot, input, bước thời gian và stop; xác thực host/origin loopback, session, manifest và kích thước yêu cầu. Đóng Renode khi dừng, đổi board, hết hạn hoặc thoát. Kiểm không có cổng Monitor, UART socket, dịch vụ ngoài hay đường nạp ảnh của người dùng.",
+      "observation": "Bơm tín hiệu ngoài bằng gpioPortA.OnGPIO(10, high), đọc PA10 từ IDR ở 0x40020010. Đọc MODER, ODR và IDR của PB5 trên GPIOB để xác nhận output. Timestamps lấy từ RunFor và thời gian ảo Renode; kiểm đối chiếu bộ đếm SysTick của firmware. UART chỉ công bố chạy sau đúng dòng A7_READY."
+    },
+    "scopeLimit": "Phạm vi chứng minh gồm Cortex-M4, RCC đủ để khởi động mạch mẫu, GPIO, SysTick và TX USART2 theo cấu hình. SWD/ST-LINK, USB, bus, ADC, PWM, các clock PLL và ngoại vi khác nằm ngoài đợt này."
+  },
+  "electrical": {
+    "engine": {
+      "name": "ngspice 45.2 WASM",
+      "path": "public/vendor/eecircuit-engine/spice.wasm",
+      "sha256": "3096ce2c499c3062472b9d7953f5141d75a019296e22b0142f4979e5894008ec"
+    },
+    "temperatureC": 27,
+    "supplyVolts": 3.3,
+    "switchClosedOhms": 1,
+    "switchOpen": "mạch hở",
+    "pullupOhms": 10000,
+    "ledSeriesOhms": 1000,
+    "diode": {
+      "saturationCurrentA": 1e-18,
+      "ideality": 2.2,
+      "seriesOhms": 20
+    },
+    "coupling": "Mức nút đưa vào GPIO mô phỏng. Điểm làm việc DC dùng PA10 và PB5 ổn định quan sát từ runner, GPIO output là nguồn lý tưởng 0/3,3 V. Hai phép giải rời rạc, không đồng mô phỏng analog liên tục.",
+    "acceptance": {
+      "releasedInputVolts": [
+        3.29,
+        3.31
+      ],
+      "pressedInputAbsoluteMaxVolts": 0.001,
+      "ledHighCurrentMilliAmps": [
+        1.1,
+        1.5
+      ],
+      "ledLowAbsoluteMaxMilliAmps": 0.001,
+      "kvlAbsoluteMaxVolts": 0.001
+    }
+  },
+  "verification": {
+    "firstGate": "Sau khi duyệt, dùng các artifact đúng hash để kiểm Renode headless/stdin trên Windows. Build và kiểm ELF F401RE trước, ghi boot vector, USART2, SysTick, PA10 và PB5. Sau đó chạy cùng tiêu chí với ELF riêng F411RE/F446RE trước khi nối UI. Chỉ mở target nếu CPU, input/output, timer và UART đều có bằng chứng. Nếu chưa đạt, ghi lỗi cụ thể và dừng phần khả năng đó. Đổi runner, target hoặc sơ đồ chân cần cấu hình và duyệt lại.",
+    "eachBoard": [
+      "Đối chiếu đủ 108 ID chính và tra cứu riêng CN4; kiểm chọn CN9.2, CN9.3, CN9.5, CN6.4 và CN6.6, chuyển 2D/3D đúng revision.",
+      "Test ELF và manifest theo board riêng. Chứng minh boot và UART khớp dòng nhận diện, PB5 ban đầu LOW, PA10 đổi đúng khi nhấn/thả. Dùng bước 1 ms mô phỏng trong phép thử, bỏ xung 20 ms, hoàn tất ba chu kỳ với độ trễ từng cạnh 39–60 ms.",
+      "Đo ngspice ở hai trạng thái đạt các ngưỡng đã khóa. Thử LED đảo chiều, nhầm 5V/VIN/IOREF/SWD, thiếu điện trở hoặc GND. Kiểm trên Chrome desktop và khung 375 px.",
+      "Thử manifest sai board, sai revision, ELF sai target/hash, thiếu runner, timeout, stop, retry và mất kết nối. Kiểm log/điểm đo cũ được xóa khi đổi mạch. Mở lại bản nháp theo partId/pinId trên cùng origin."
+    ],
+    "regression": "Chạy hồi quy Node và Chrome A1–A6, gồm AVR, ESP32, RP2040, RP2350 và các luồng Pico cũ. Chạy npm.cmd run typecheck, build:local và cổng kiểm tra phân phối ngspice. Kiểm build không mang theo Renode hay ELF A7."
+  }
+}

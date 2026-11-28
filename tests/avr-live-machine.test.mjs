@@ -51,7 +51,7 @@ function runCollect(machine, totalMs, onFrame) {
   return { levels, serial }
 }
 
-for (const board of ['arduino-uno-r3', 'arduino-mega-2560']) {
+for (const board of ['arduino-uno-r3', 'arduino-nano', 'arduino-mega-2560']) {
   test(`${board}: compiled blink toggles D13, prints Serial and reads button + A0 from the circuit`, liveToolchain, async () => {
     const machine = live.createAvrLiveMachine(await build(board), board)
     machine.setDigitalInput(2, true)

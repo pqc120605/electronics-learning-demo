@@ -1,5 +1,6 @@
 import type { LivePinState } from '../lib/avrLiveMachine'
-import type { CircuitStimuli, CoupledCircuit, CoupledPart } from '../lib/freestyle/coupledCircuit'
+import { coupledSegments, type CircuitStimuli, type CoupledCircuit, type CoupledPart } from '../lib/freestyle/coupledCircuit'
+import { createDhtWire } from './dhtWire'
 import { advanceFlipFlop, advanceMcp3008, advanceShiftRegister, andGate, initialFlipFlop, initialShiftRegister,
   resetAdc, schmittInverter, type Logic } from './catalogR1Digital'
 
@@ -17,6 +18,8 @@ export type CoupledFrame = {
   events: number
   bus?: R2bBusEvent[]
   busIssues?: string[]
+  segments?: Record<string, string[]>
+  dataEdges?: Array<{ partId: string; timeUs: number; level: 0 | 1 }>
 }
 type LogicPins = Readonly<Record<number, LivePinState>>
 
@@ -49,6 +52,13 @@ export function createCoupledDigital(graph: CoupledCircuit, initialStimuli: Circ
   let registerDrivers = new Map<string, Voltage>()
   const r2aState = new Map<string, R2aState>()
   const switches = graph.parts.filter(part => part.kind === 'button')
+  const keypads = graph.parts.filter(part => part.kind === 'keypad')
+  const displays = graph.parts.filter(part => part.kind === 'anode-display')
+  const sensors = graph.parts.flatMap(part => part.kind === 'dht11' || part.kind === 'dht22'
+    ? [{ part, wire: createDhtWire(part.kind), gpio: graph.gpios.find(pin => pin.net === part.pins.data)?.pin }] : [])
+  const dataEdges: NonNullable<CoupledFrame['dataEdges']> = []
+  const dataLevels = new Map<string, 0 | 1>()
+  let nextWakeMs = Infinity
   const pots = graph.parts.filter(part => part.kind === 'pot')
   const resistors = graph.parts.filter(part => part.kind === 'resistor')
   const leds = graph.parts.filter(part => part.kind === 'led')
@@ -70,6 +80,12 @@ export function createCoupledDigital(graph: CoupledCircuit, initialStimuli: Circ
     }))])
     const contacts: Array<readonly [string, string]> = switches.filter(part => stimuli[part.id] === true)
       .map(part => [part.pins.contactA,part.pins.contactB])
+    for (const part of keypads) {
+      const key = stimuli[part.id]
+      if (typeof key === 'number' && Number.isInteger(key) && key >= 0 && key < 16) {
+        contacts.push([part.pins['r' + (1 + Math.floor(key / 4))],part.pins['c' + (1 + key % 4)]])
+      }
+    }
     function joinContacts(target: Map<string, Voltage>) {
       for (let pass = 0; pass <= contacts.length; pass++) {
         for (const [a,b] of contacts) {
@@ -118,6 +134,7 @@ export function createCoupledDigital(graph: CoupledCircuit, initialStimuli: Circ
       if (!ignoreChip) interfaces.observeFinal(levels)
     } else {
       for (const [net, voltage] of resolveDrivers(weakPulls(levels))) levels.set(net, voltage)
+      joinContacts(levels)
     }
     return levels
   }
@@ -185,6 +202,19 @@ export function createCoupledDigital(graph: CoupledCircuit, initialStimuli: Circ
       const state = pins[entry.pin]
       if (state?.mode === 'output') drivers.push({ net: entry.net, voltage: state.level ? 5 : 0 })
     }
+    nextWakeMs = Infinity
+    for (const { part, wire, gpio } of sensors) {
+      if (gpio === undefined || !supply.has(part.pins.vcc) || part.pins.gnd !== graph.ground) continue
+      const pin = pins[gpio]
+      const temp = stimuli[part.id + ':temperature']
+      const humidity = stimuli[part.id + ':humidity']
+      const active = pin?.mode === 'output'
+      const signal = wire.step(time * 1000, active && !pin.level, active && pin.level,
+        typeof temp === 'number' ? temp : part.kind === 'dht11' ? 23 : -5.4,
+        typeof humidity === 'number' ? humidity : part.kind === 'dht11' ? 55 : 55.5)
+      if (signal.low) drivers.push({ net: part.pins.data, voltage: 0 })
+      nextWakeMs = Math.min(nextWakeMs, signal.nextMicroseconds / 1000)
+    }
     for (const part of pots) {
       if (!supply.has(part.pins.vcc) || part.pins.gnd !== graph.ground) continue
       const value = stimuli[part.id]
@@ -221,9 +251,21 @@ export function createCoupledDigital(graph: CoupledCircuit, initialStimuli: Circ
       r2aState.clear()
       levels = solve(drivers, outputs)
     }
+    for (const { part } of sensors) {
+      const level = toLogic(levels.get(part.pins.data) ?? 'Z')
+      if (level !== 0 && level !== 1 || dataLevels.get(part.id) === level) continue
+      dataLevels.set(part.id, level)
+      dataEdges.push({ partId: part.id, timeUs: Math.round(time * 1000), level })
+      if (dataEdges.length > 192) dataEdges.shift()
+    }
     frame = {
       levels: Object.fromEntries(levels), unstable, events,
+      ...(sensors.length ? { dataEdges: [...dataEdges] } : {}),
       ...(interfaces ? { bus:interfaces.busEvents(), busIssues:interfaces.issues() } : {}),
+      ...(displays.length ? { segments: Object.fromEntries(displays.map(part => [
+        part.id, supply.has(part.pins.com1) && supply.has(part.pins.com2)
+          ? coupledSegments.filter(segment => levels.get(part.pins[segment]) === 0) : [],
+      ])) } : {}),
       litParts: leds.filter(part => toLogic(levels.get(part.pins.anode) ?? 'Z') === 1 && toLogic(levels.get(part.pins.cathode) ?? 'Z') === 0)
         .map(part => part.id),
     }
@@ -236,5 +278,5 @@ export function createCoupledDigital(graph: CoupledCircuit, initialStimuli: Circ
     })
   }
 
-  return { step, interfaces, update: (values: CircuitStimuli) => { stimuli = values }, snapshot: () => frame }
+  return { step, interfaces, nextWakeMs: () => nextWakeMs, update: (values: CircuitStimuli) => { stimuli = values }, snapshot: () => frame }
 }

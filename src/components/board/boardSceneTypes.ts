@@ -53,6 +53,14 @@ export type BoardPin = {
   padNumber?: string
   netName?: string
   gpio?: number
+  /** Catalog identity, deliberately independent from stored CircuitDocV2 pin IDs. */
+  catalog?: {
+    key: string
+    revision: string
+    sourceUrl?: string
+    status: 'named' | 'nc' | 'reserved' | 'unresolved'
+    role: 'signal' | 'power' | 'ground' | 'control' | 'unresolved'
+  }
   /** Present only when a pad center has been derived from the matching board CAD. */
   anchor?: [number, number, number]
   plainDescription: string

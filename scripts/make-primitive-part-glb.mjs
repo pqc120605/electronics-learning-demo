@@ -4,10 +4,9 @@
 // Usage: node scripts/make-primitive-part-glb.mjs spec.json out.glb
 // spec: [{ name, type: 'box'|'cyl', center: [x,y,z], size: [w,h,d] | radius+height+axis, color: [r,g,b], metallic?, roughness?, segments? }]
 import { readFileSync, writeFileSync } from 'node:fs'
+import { pathToFileURL } from 'node:url'
 import { writeGlb } from './glb-writer.mjs'
 
-const [specPath, out] = process.argv.slice(2)
-const spec = JSON.parse(readFileSync(specPath, 'utf8'))
 const mm = (value) => value / 1000
 
 function box({ center: [cx, cy, cz], size: [w, h, d] }) {
@@ -52,9 +51,24 @@ function cylinder({ center, radius, height, axis = 'y', segments = 32, innerRadi
   return { positions, normals, indices }
 }
 
-const parts = spec.map((item) => {
-  const geometry = item.type === 'cyl' ? cylinder(item) : box(item)
-  return { name: item.name, primitives: [{ positions: new Float32Array(geometry.positions), normals: new Float32Array(geometry.normals), indices: new Uint16Array(geometry.indices), color: item.color, metallic: item.metallic ?? 0.05, roughness: item.roughness ?? 0.6 }] }
-})
-writeFileSync(out, writeGlb(parts, { rootName: 'primitives', generator: 'make-primitive-part-glb' }))
-console.log(`wrote ${out} (${parts.length} parts)`)
+export function primitiveParts(spec) {
+  const parts = new Map()
+  for (const item of spec) {
+    const geometry = item.type === 'cyl' ? cylinder(item) : box(item)
+    if (!parts.has(item.name)) parts.set(item.name, { name: item.name, primitives: [] })
+    parts.get(item.name).primitives.push({
+      positions: new Float32Array(geometry.positions), normals: new Float32Array(geometry.normals),
+      indices: new Uint16Array(geometry.indices), color: item.color,
+      metallic: item.metallic ?? 0.05, roughness: item.roughness ?? 0.6,
+    })
+  }
+  return [...parts.values()]
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const [specPath, out] = process.argv.slice(2)
+  const spec = JSON.parse(readFileSync(specPath, 'utf8'))
+  const parts = primitiveParts(spec)
+  writeFileSync(out, writeGlb(parts, { rootName: 'primitives', generator: 'make-primitive-part-glb' }))
+  console.log(`wrote ${out} (${parts.length} parts)`)
+}

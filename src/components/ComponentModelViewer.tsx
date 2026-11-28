@@ -4,7 +4,7 @@ import type { BoardModelManifest, BoardSceneDefinition } from './board/boardScen
 import type { ComponentMesh } from '../data/componentModels'
 
 type Props = { mesh: ComponentMesh; name: string; onError: () => void
-  pins?: readonly { id: string; label: string; pad: number }[]; selectedPin?: string; onPinSelect?: (id: string) => void }
+  pins?: readonly { id: string; label: string; pad?: number }[]; selectedPin?: string; onPinSelect?: (id: string) => void }
 
 const MODEL_LOAD_TIMEOUT_MS = 30_000
 
@@ -55,11 +55,11 @@ export function ComponentModelViewer({ mesh, name, onError, pins, selectedPin, o
     const assetVersion = mesh.sha256.slice(0, 8)
     const assetUrl = `${mesh.file}?v=${assetVersion}`
     const definition: BoardSceneDefinition = { id: 'pcb', label: mesh.id, assetUrl, assetVersion, hotspots: [], note: '' }
-    const mappedPins = (pins ?? []).flatMap(pin => {
+    const mappedPins = (pins ?? []).flatMap((pin, index) => {
       const anchor = mesh.pinsMm[pin.id]
       if (!anchor || anchor.length !== 3) return []
-      return [{ id: pin.id, position: pin.pad, label: pin.label, side: 'reference' as const,
-        padNumber: String(pin.pad), anchor: anchor.map(value => value / 1000) as [number, number, number],
+      return [{ id: pin.id, position: pin.pad ?? index + 1, label: pin.label, side: 'reference' as const,
+        padNumber: pin.pad === undefined ? undefined : String(pin.pad), anchor: anchor.map(value => value / 1000) as [number, number, number],
         plainDescription: '', technicalRole: '', connection: '', safetyNote: '', functions: [] }]
     })
     const manifest: BoardModelManifest = { id: mesh.id, assetUrl, assetVersion, features: [], hotspots: [], pins: mappedPins,

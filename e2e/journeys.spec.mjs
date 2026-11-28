@@ -992,6 +992,7 @@ test('XIAO S3 reference viewer has no duplicate React key or asset-load error', 
   page.on('console', msg=>{if(msg.type()==='error')errors.push(msg.text())})
   await page.goto('/boards?board=seeed-xiao-esp32-s3')
   await expect(page.getByRole('heading', { name: 'Khám phá Seeed Studio XIAO ESP32-S3', exact:true })).toBeVisible()
+  await page.getByRole('button', { name: 'PCB 3D', exact: true }).click()
   await expect(page.locator('.board-cad-viewer canvas')).toBeVisible()
   const urls=await page.locator('.board-cad-viewer-heading a').evaluateAll(nodes=>nodes.map(node=>node.href))
   expect(new Set(urls).size).toBe(urls.length)

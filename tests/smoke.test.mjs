@@ -124,8 +124,11 @@ test('lesson simulation board profiles remain distinct from CAD-only reference m
   }
   const aliasOnly = modules.boardCapabilityRegistry.filter((capability) => capability.confidence === 'teaching-alias')
   assert.ok(aliasOnly.length > 0, 'non-source-backed board profiles must remain marked as teaching aliases')
-  const modelSources = await server.ssrLoadModule('/src/data/boardModelSources.ts')
-  assert.ok(aliasOnly.every((capability) => capability.modelStatus === (modelSources.getBoardModelEvidence(capability.boardId)?.published ? 'cad-reference' : 'preview-only')))
+  const { boardCatalogModelIds } = await server.ssrLoadModule('/src/lib/boardCatalogModels.ts')
+  for (const capability of aliasOnly) {
+    assert.equal(capability.modelStatus, boardCatalogModelIds.has(capability.boardId) ? 'cad-reference' : 'preview-only')
+    assert.equal(capability.pinMap.input?.sourceBacked, false, capability.boardId)
+  }
 })
 
 test('board model publication is controlled by traceable source evidence', async () => {
@@ -143,7 +146,8 @@ test('board model publication is controlled by traceable source evidence', async
     assert.ok(record.confidenceNote.trim())
   }
   assert.equal(modelSources.getBoardModelEvidence('stm32-nucleo').status, 'educational-reconstruction')
-  assert.match(modelSources.getBoardModelEvidence('stm32-nucleo').revision, /không dùng CAD MB1136/)
+  assert.match(modelSources.getBoardModelEvidence('stm32-nucleo').revision, /MB1136-F401RE-C04/)
+  assert.equal(modelSources.getBoardModelEvidence('stm32-nucleo').published, false)
   assert.equal(modelSources.getBoardModelEvidence('adafruit-qtpy-esp32-c3-5405').published, true)
   assert.equal(modelSources.getBoardModelEvidence('seeed-xiao-esp32c3').status, 'educational-reconstruction')
   assert.equal(modelSources.getBoardModelEvidence('adafruit-feather-esp32-s3-tft-5483').published, true)
@@ -157,19 +161,20 @@ test('board model publication is controlled by traceable source evidence', async
 })
 
 test('the QT Py board model is discoverable from both board and component libraries', async () => {
-  const [componentData, componentRefs, componentPage, componentVisual, boardModels] = await Promise.all([
+  const [componentData, componentRefs, componentPage, partsGallery, boardModels] = await Promise.all([
     server.ssrLoadModule('/src/data/components.ts'),
     server.ssrLoadModule('/src/data/componentReferences.ts'),
     import('node:fs/promises').then(({ readFile }) => readFile(fileURLToPath(new URL('../src/pages/ComponentsPage.tsx', import.meta.url)), 'utf8')),
-    import('node:fs/promises').then(({ readFile }) => readFile(fileURLToPath(new URL('../src/components/ComponentVisual.tsx', import.meta.url)), 'utf8')),
+    server.ssrLoadModule('/src/data/partsGallery.ts'),
     server.ssrLoadModule('/src/data/adafruitBoardModels.ts'),
   ])
   const record = componentData.components.find((item) => item.id === 'adafruit-qtpy-esp32-c3-5405')
   assert.ok(record)
   assert.equal(record.boardViewerRoute, '/boards?board=adafruit-qtpy-esp32-c3-5405')
   assert.ok(componentRefs.getComponentReferences(record.id).length >= 3)
-  assert.match(componentPage, /boardModelHref=\{current\.boardViewerRoute/)
-  assert.match(componentVisual, /Xem mô hình 3D/)
+  assert.equal(partsGallery.partsGallery.find(({ part }) => part.id === record.id)?.board?.id, record.id)
+  assert.match(componentPage, /<BoardCatalogMedia[^>]*board=\{item\.board\}/)
+  assert.match(componentPage, /to=\{boardHref\}/)
   assert.ok(boardModels.adafruitBoardModels[0].features.some((feature) => feature.designator === 'U2'))
 })
 

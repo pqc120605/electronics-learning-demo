@@ -2,7 +2,9 @@ import { useEffect, useRef } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { CatalogBreadboardExplorer } from '../components/CatalogBreadboardExplorer'
 import { CatalogPartExplorer } from '../components/CatalogPartExplorer'
+import { CatalogPartArtwork } from '../components/CatalogPartArtwork'
 import { ComponentVisual } from '../components/ComponentVisual'
+import { BoardCatalogMedia } from '../components/board/BoardCatalogMedia'
 import { ComponentReferencePhotoGallery } from '../components/ComponentReferencePhotoGallery'
 import { componentSourceLevels, getComponentReferences, getComponentSourceLevel } from '../data/componentReferences'
 import { CapabilityBadge, CapabilityLegend } from '../components/CapabilityBadge'
@@ -15,15 +17,15 @@ import { spicePractices } from '../simulation/spicePractice'
 import { digitalLabLessons } from '../data/digitalLabLessons'
 import { GuideContextBridge } from '../components/guide/GuideContext'
 import { catalogGroups, groupLabel, partsGallery } from '../data/partsGallery'
+import './BoardCatalogPage.css'
 import './ComponentsPage.css'
 
 type Part = (typeof partsGallery)[number]
 
 function PartThumbnail({ item }: { item: Part }) {
+  if (item.board) return <BoardCatalogMedia board={item.board} thumbnail />
   if (item.preview) return <img className="parts-thumbnail-image" src={item.preview} alt="" loading="lazy" decoding="async" />
-  return <div className={'parts-package parts-package--' + (item.illustration?.family ?? 'chip')} aria-hidden="true">
-    <span className="parts-package-body">{item.illustration?.code}</span>
-  </div>
+  return <CatalogPartArtwork id={item.part.id} name={item.part.name} />
 }
 
 function PartDetail({ item, backHref }: { item: Part; backHref: string }) {
@@ -32,7 +34,7 @@ function PartDetail({ item, backHref }: { item: Part; backHref: string }) {
   const { variant, breadboard } = item
   const model = getCatalogModel(current.id)
   const capabilityId = model?.simulation === 'supported' ? 'present-in-sample'
-    : model || current.boardViewerRoute ? 'visual-reference' : 'catalog-only'
+    : model || item.board ? 'visual-reference' : 'catalog-only'
   const freestylePartId = getFreestylePartId(current.id)
   const practiceSamples = freestyleSamples.filter(sample => sample.parts.some(id => id === current.id))
   const analogPractices = spicePractices.filter(practice => practice.parts.includes(current.id))
@@ -41,6 +43,11 @@ function PartDetail({ item, backHref }: { item: Part; backHref: string }) {
   const source = componentSourceLevels[getComponentSourceLevel(current.id)]
   const references = getComponentReferences(current.id)
   const referencePhotos = references.flatMap((reference) => reference.photos ?? [])
+  const boardHref = item.board ? productRoute('/boards?' + new URLSearchParams({ board: item.board.id })) : undefined
+  const preview = <figure className="parts-detail-preview">
+    <div className="parts-thumbnail"><PartThumbnail item={item} /></div>
+    <figcaption>Hình tham khảo để nhận diện linh kiện. Xem tài liệu nguồn để tra đúng dạng vỏ và thứ tự chân.</figcaption>
+  </figure>
   const detailHeadingRef = useRef<HTMLHeadingElement>(null)
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -62,11 +69,12 @@ function PartDetail({ item, backHref }: { item: Part; backHref: string }) {
       </Link>}
       <div className="parts-detail-layout">
         <div>
-          {breadboard ? <CatalogBreadboardExplorer key={breadboard.spec} profile={breadboard} /> : variant ? <CatalogPartExplorer key={variant.id} id={variant.id} /> : item.isNewReference ? <figure className="parts-detail-preview">
-            <div className="parts-thumbnail"><PartThumbnail item={item} /></div>
-            <figcaption>Minh họa dạng linh kiện. Xem dạng vỏ và chân trong tài liệu hãng.</figcaption>
-          </figure> : <ComponentVisual key={current.id} illustrationId={current.id} modelId={model?.id}
-            name={current.name} showModelStatus boardModelHref={current.boardViewerRoute ? productRoute(current.boardViewerRoute) : undefined} />}
+          {item.board ? <BoardCatalogMedia key={item.board.id} board={item.board} />
+            : breadboard ? <CatalogBreadboardExplorer key={breadboard.spec} profile={breadboard} />
+            : variant ? <CatalogPartExplorer key={variant.id} id={variant.id} />
+            : item.isNewReference ? preview
+            : <ComponentVisual key={current.id} illustrationId={current.id} modelId={model?.id}
+              name={current.name} showModelStatus preview={preview} pins={model?.pins} />}
           <ComponentReferencePhotoGallery photos={referencePhotos} />
         </div>
         <div>
@@ -107,7 +115,12 @@ function PartDetail({ item, backHref }: { item: Part; backHref: string }) {
               <span>{reference.kind} · {reference.note}</span>
             </li>)}</ul> : <p>Hãy tra datasheet của đúng mã linh kiện hoặc module trước khi đấu phần cứng.</p>}
           </section>
-          {current.boardProfileRoute && <Link className="button-secondary" to={productRoute(current.boardProfileRoute)}>Xem hồ sơ board ↗</Link>}
+          {boardHref && <>
+            <div className="parts-board-links">
+              <Link className="button-secondary" to={boardHref + '&view=pins'}>Xem chân và linh kiện trên board</Link>
+              <Link to={boardHref}>Xem hồ sơ board ↗</Link>
+            </div>
+          </>}
         </div>
       </div>
     </article>
@@ -179,15 +192,18 @@ export function ComponentsPage() {
         if (!items.length) return null
         const titleId = 'parts-group-' + index
         return <section key={category} className="parts-group" aria-labelledby={titleId}>
-          <h2 id={titleId}>{groupLabel(category)} <span>{items.length}</span></h2>
+          <div className="parts-group-heading">
+            <h2 id={titleId}>{groupLabel(category)} <span>{items.length}</span></h2>
+            {category === 'MCU' && <Link to={productRoute('/boards')}>Xem toàn bộ thư viện board ↗</Link>}
+          </div>
           <ul>{items.map((item) => {
             const next = new URLSearchParams(filters)
             next.set('component', item.part.id)
             const availability = item.canBuild ? 'Lắp mạch'
-              : item.hasPractice ? 'Có bài thực hành' : item.part.boardViewerRoute ? 'Xem board' : 'Tra cứu'
+              : item.hasPractice ? 'Có bài thực hành' : item.board ? 'Xem board' : 'Tra cứu'
             return <li key={item.part.id}>
               <Link className="parts-card" to={productRoute('/components?' + next)}>
-                <div className="parts-thumbnail"><PartThumbnail item={item} /></div>
+                <div className="parts-thumbnail" aria-hidden="true"><PartThumbnail item={item} /></div>
                 <div className="parts-card-body">
                   <strong>{item.part.name}</strong>
                   <span className="parts-card-status" data-active={item.canBuild || item.hasPractice}>{availability}</span>
