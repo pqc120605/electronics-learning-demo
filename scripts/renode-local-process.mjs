@@ -71,7 +71,7 @@ async function serialTail(path, limit) {
   } finally { await file.close() }
 }
 
-export async function openRenodeMachine({ stage, assets, runner, runnerArguments, limits, elf, platform, lifetime, approvalSha256,
+export async function openRenodeMachine({ stage, assets, runner, runnerArguments, limits, elf, platform, lifetime, approvalSha256, launch,
   readyLine, uartDevice, inputDevice, inputBit, registers, observe }) {
   lifetime.throwIfAborted()
   const directory = await mkdtemp(resolve(assets, 'run-'))
@@ -80,6 +80,7 @@ export async function openRenodeMachine({ stage, assets, runner, runnerArguments
   const files = ['target.repl', 'firmware.elf', 'uart.log', 'renode.config', 'renode.config.lock', 'monitor.history']
   let child
   let closed
+  let cleanRunner
   let expiry
   let closing
   const processLifetime = new AbortController()
@@ -90,13 +91,14 @@ export async function openRenodeMachine({ stage, assets, runner, runnerArguments
       lifetime.removeEventListener('abort', stop)
       child?.kill()
       await closed
+      await cleanRunner?.()
       await Promise.all(files.map(name => unlink(path(name)).catch(() => {})))
       await rmdir(directory).catch(() => {})
     })
     return closing
   }
   try {
-    if (files.some(name => !/^@[a-z]:\/[a-z0-9_./-]+$/i.test(monitorPath(name)))) {
+    if (files.some(name => !/^@(?:[a-z]:)?\/[a-z0-9_./-]+$/i.test(monitorPath(name)))) {
       throw new Error('Renode ' + stage + ' yêu cầu thư mục local có đường dẫn không dấu và không có khoảng trắng.')
     }
     const config = path('renode.config')
@@ -107,7 +109,12 @@ export async function openRenodeMachine({ stage, assets, runner, runnerArguments
       writeFile(config, '[general]\nhistory-path = ' + history + '\n'),
     ])
     lifetime.throwIfAborted()
-    child = spawn(runner, [...runnerArguments, '--config', config], { cwd: directory, windowsHide: true, shell: false })
+    const args = [...runnerArguments, '--config', config]
+    if (launch) {
+      const started = launch(runner, args, directory)
+      child = started.child
+      cleanRunner = started.clean
+    } else child = spawn(runner, args, { cwd: directory, windowsHide: true, shell: false })
     closed = new Promise(resolve => child.once('close', resolve))
     lifetime.addEventListener('abort', stop, { once: true })
     expiry = setTimeout(stop, limits.startupWallMs).unref()

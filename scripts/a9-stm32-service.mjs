@@ -4,8 +4,8 @@ import { createRenodeLocalService } from './renode-local-service.mjs'
 
 const prefix = '/api/local-tools/a9-stm32/'
 
-export async function openA9Machine(root, boardId, lifetime) {
-  const { proposal, board, assets, runner, elf, platform, tickAddress } = await loadA9Target(root, boardId)
+export async function openA9Machine(root, boardId, lifetime, hosted) {
+  const { proposal, board, assets, runner, elf, platform, tickAddress } = await loadA9Target(root, boardId, hosted)
   const { route, runnerArguments, limits } = proposal.runtime.transport
   if (route !== prefix) throw new Error('Đường dẫn dịch vụ không khớp cấu hình A9.')
   const { uart, observation, readyLine, cpu } = board.firmware
@@ -13,7 +13,7 @@ export async function openA9Machine(root, boardId, lifetime) {
   const legacyGpio = cpu === 'cortex-m3'
   const expectedMode = legacyGpio ? { bits: 4, value: 2 } : { bits: 2, value: 1 }
   return openRenodeMachine({
-    stage: 'A9', assets, runner, runnerArguments, limits, elf, platform, lifetime,
+    stage: 'A9', assets, runner, runnerArguments, limits, elf, platform, lifetime, launch: hosted?.launch,
     approvalSha256: a9ApprovalSha256, readyLine,
     uartDevice: 'sysbus.' + uart.device, inputDevice: 'sysbus.' + inputPort.name, inputBit: inputPort.pin,
     registers: [tickAddress, ...[inputPort.idr, outputPort.mode, outputPort.odr, outputPort.idr].map(Number)],

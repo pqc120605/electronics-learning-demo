@@ -1,3 +1,4 @@
+import { firmwareAssetBase } from './firmwareDelivery'
 import { a3ApprovalSha256, a3TargetSettings, type A3Target } from './a3EspProfiles'
 
 export function assertA3Image(image: Uint8Array, target: A3Target) {
@@ -12,7 +13,7 @@ export function assertA3Image(image: Uint8Array, target: A3Target) {
 }
 
 export async function loadA3Firmware(target: A3Target, signal: AbortSignal) {
-  const base = `/api/local-tools/a3-esp/${target}/`
+  const base = firmwareAssetBase('A3', `/api/local-tools/a3-esp/${target}/`, target + '/')
   const response = await fetch(base + 'manifest.json', { signal })
   if (!response.ok || !response.headers.get('Content-Type')?.includes('application/json')) {
     throw new Error(`Firmware A3 cho ${target} chưa được chuẩn bị trên máy này.`)

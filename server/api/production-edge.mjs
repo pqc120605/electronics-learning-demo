@@ -12,6 +12,7 @@ const basePaths = [
 const aiPaths = ['/guide-ai/status', '/guide-ai/chat', '/guide-ai/feedback']
 const unavailableJson = '`{"state":"unavailable","model":"lookup"}`'
 const compilerPaths = ['/tools/arduino/status', '/tools/arduino/compile']
+const firmwarePaths = ['/tools/firmware-fixtures/r1/*', '/tools/firmware-sessions/r1/*']
 
 export function readProductionEdgeFeatures(config) {
   const apiLine = config.match(/^\s*path (\/health [^\r\n]*)$/m)?.[1]
@@ -19,15 +20,18 @@ export function readProductionEdgeFeatures(config) {
   const apiPaths = apiLine.split(/\s+/)
   const aiCount = aiPaths.filter(path => apiPaths.includes(path)).length
   const compiler = config.match(/^\s*@compiler path ([^\r\n]*)$/m)?.[1]?.split(/\s+/)
+  const firmware = config.match(/^\s*@firmware path ([^\r\n]*)$/m)?.[1]?.split(/\s+/)
   if ((aiCount !== 0 && aiCount !== aiPaths.length)
       || (compiler && (!compilerPaths.every(path => compiler.includes(path)) || !config.includes('reverse_proxy 127.0.0.1:8285')))
-      || (!compiler && compilerPaths.some(path => config.includes(path)))) {
-    throw new Error('The existing production edge has incomplete AI or compiler routing.')
+      || (!compiler && compilerPaths.some(path => config.includes(path)))
+      || (firmware && (!firmwarePaths.every(path => firmware.includes(path)) || !config.includes('reverse_proxy 127.0.0.1:8286')))
+      || (!firmware && firmwarePaths.some(path => config.includes(path)))) {
+    throw new Error('The existing production edge has incomplete AI, compiler or firmware routing.')
   }
-  return { aiEnabled: aiCount !== 0, compilerEnabled: Boolean(compiler) }
+  return { aiEnabled: aiCount !== 0, compilerEnabled: Boolean(compiler), firmwareEnabled: Boolean(firmware) }
 }
 
-export function renderProductionEdge({ aiEnabled = false, compilerEnabled = false } = {}) {
+export function renderProductionEdge({ aiEnabled = false, compilerEnabled = false, firmwareEnabled = false } = {}) {
   const paths = aiEnabled ? [...basePaths, ...aiPaths] : basePaths
   const unavailableAi = aiEnabled ? '' : `
 	@aiStatus {
@@ -47,6 +51,14 @@ export function renderProductionEdge({ aiEnabled = false, compilerEnabled = fals
 			header_up Host mach-mo.vercel.app
 		}
 	}` : ''
+  const firmware = firmwareEnabled ? `
+	@firmware path ${firmwarePaths.join(' ')}
+	handle @firmware {
+		rewrite * /api{uri}
+		reverse_proxy 127.0.0.1:8286 {
+			header_up Host mach-mo.vercel.app
+		}
+	}` : ''
   return `{
 	admin off
 	auto_https off
@@ -62,7 +74,7 @@ http://:8284 {
 	@api {
 		path ${paths.join(' ')}
 		not path /community/moderation/*
-	}${unavailableAi}${compiler}
+	}${unavailableAi}${compiler}${firmware}
 	@moderationQueue {
 		method GET
 		path /community/moderation/reports
@@ -90,14 +102,14 @@ http://:8284 {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const args = process.argv.slice(2)
   if (args.length === 2 && args[0] === '--read') {
-    const { aiEnabled, compilerEnabled } = readProductionEdgeFeatures(readFileSync(args[1], 'utf8'))
-    process.stdout.write(`${Number(aiEnabled)} ${Number(compilerEnabled)}\n`)
+    const { aiEnabled, compilerEnabled, firmwareEnabled } = readProductionEdgeFeatures(readFileSync(args[1], 'utf8'))
+    process.stdout.write(`${Number(aiEnabled)} ${Number(compilerEnabled)} ${Number(firmwareEnabled)}\n`)
     process.exit(0)
   }
-  if (new Set(args).size !== args.length || args.some(arg => !['--enable-ai', '--enable-compiler'].includes(arg))) {
-    throw new Error('Usage: node production-edge.mjs [--enable-ai] [--enable-compiler]')
+  if (new Set(args).size !== args.length || args.some(arg => !['--enable-ai', '--enable-compiler', '--enable-firmware'].includes(arg))) {
+    throw new Error('Usage: node production-edge.mjs [--enable-ai] [--enable-compiler] [--enable-firmware]')
   }
   process.stdout.write(renderProductionEdge({
-    aiEnabled: args.includes('--enable-ai'), compilerEnabled: args.includes('--enable-compiler'),
+    aiEnabled: args.includes('--enable-ai'), compilerEnabled: args.includes('--enable-compiler'), firmwareEnabled: args.includes('--enable-firmware'),
   }))
 }

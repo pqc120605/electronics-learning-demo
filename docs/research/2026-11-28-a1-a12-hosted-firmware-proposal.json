@@ -1,0 +1,404 @@
+{
+  "revision": "MM-A1-A12-HOSTED-FIRMWARE-R1",
+  "date": "2026-11-28",
+  "webCommit": "e3b52732da3126cfd52bf6e5d7d048e5bd868e60",
+  "capabilityIds": [
+    "FW-04",
+    "FW-07",
+    "FW-08",
+    "SIM-02",
+    "SIM-03",
+    "SIM-04"
+  ],
+  "scope": "Các mạch mẫu đã duyệt từ A1 đến A12. Giữ nguyên revision board, firmware, pad, sơ đồ nối, runner và phép đo của từng mẫu. Dùng web ở chế độ khách.",
+  "electricalProposals": {
+    "docs/research/2026-11-26-board-pin-electrical-firmware-a-proposal.json": "63d5b0db7a420da9fbda0dc7beda4f92c606fb922cfe9db2d99b371ca8b66826",
+    "docs/research/2026-11-27-avr-classic-electrical-firmware-a10-proposal.json": "ad4e9498355e8284f1e3d3beb4cb22970312a0d98424102f8d11702e30f4c1cd",
+    "docs/research/2026-11-27-esp32-c3-electrical-firmware-a2-proposal.json": "452a965fe0028db65003a721abd6a9f253660501876949d2c1d8ede05c46b8a3",
+    "docs/research/2026-11-27-esp32-lx6-electrical-firmware-a11-proposal.json": "44584deeb8f5472852ee6174c29907466cbfdf5c2e04a295343c006823e4a333",
+    "docs/research/2026-11-27-esp32-riscv-electrical-firmware-a3-proposal.json": "9518d9f6aad764021e448763534a185c098c37643e56d6f587e6cbf81a542dd5",
+    "docs/research/2026-11-27-esp32-s3-electrical-firmware-a4-proposal.json": "87ecccdc51aea68b8c75b0a8aa07623d146e5bea4b520827e86e77cff8066475",
+    "docs/research/2026-11-27-rp2040-electrical-firmware-a5-proposal.json": "ad345e14d3cfa2e2d23b50bc23d0f6539ba944372a76ec5d280939df95687e65",
+    "docs/research/2026-11-27-rp2350-electrical-firmware-a6-proposal.json": "0c66dcb5aaf2543791587d27f9b1e9f008848f6d752c1f89590d31d1ad2acf8e",
+    "docs/research/2026-11-27-stm32-f1-l4-electrical-firmware-a9-proposal.json": "954006616229f5045215e90c5b59ce1d313cfa65250670e8aa1fc26198856b99",
+    "docs/research/2026-11-27-stm32f4-electrical-firmware-a7-proposal.json": "3e5d974d2bd3f6d70b19d1d7ea3617cd698d90b4ded524291b86961e47315c3e",
+    "docs/research/2026-11-27-uno-r4-ra4m1-electrical-firmware-a8-proposal.json": "c49ab23aa1e01d91fa6f7e3b9e9abc63cd98ad42d9b743bd60510a3b0ba5cd2d",
+    "docs/research/2026-11-28-s2-nano-every-electrical-firmware-a12-proposal.json": "f558c56ab135bd4d4ad5912d7ae48c368b588d54a63f41542d567a3ec7674919"
+  },
+  "a1": "Đã xác nhận trên production. Firmware mẫu Uno chạy bằng AVR8js và phần DC bằng ngspice WASM ở trình duyệt.",
+  "browser": {
+    "stages": [
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A10",
+      "A11"
+    ],
+    "route": "/api/tools/firmware-fixtures/r1/<stage>/<target>/<file>",
+    "service": "Caddy chuyển các URL GET của danh sách cố định từ Vercel sang dịch vụ trên Mini PC. Trình duyệt kiểm manifest và SHA-256 khi nạp worker, ngspice WASM giữ cơ chế hiện có.",
+    "qualification": "Kiểm giấy phép ở đúng phiên bản phát hành, gồm ROM tích hợp của Espressif, RP2040 B2 và thông báo tái phân phối của thư viện liên kết trong HEX/ELF. Mẫu nào chưa xác minh được tài nguyên sẽ vẫn chỉ dùng local.",
+    "sources": [
+      "https://github.com/espressif/esp-emulator/releases",
+      "https://github.com/espressif/esp-rom-elfs/blob/master/README.md",
+      "https://github.com/raspberrypi/pico-bootrom-rp2040",
+      "https://registry.npmjs.org/pico-emu/1.0.6",
+      "https://github.com/arduino/ArduinoCore-avr"
+    ],
+    "assets": {
+      "A2": {
+        "a2-local-assets/manifest.json": {
+          "sha256": "cd9f30186e8dbb6c231fa5ed78f6a5f8ee3a0db9ab6d70291f1b6a2519adbf65",
+          "bytes": 647
+        },
+        "a2-local-assets/flash.bin": {
+          "sha256": "6319ba1034437d7c53f2cd392af10088e142cdba8c38f8b8d0c0bcc11f12a59f",
+          "bytes": 4194304
+        },
+        "a2-local-assets/esp_emu.js": {
+          "sha256": "693a81d2bd32d68bef108ff2b5e833950abfc5da4cc9feefecb94ac69130506d",
+          "bytes": 66559
+        },
+        "a2-local-assets/esp_emu_bg.wasm": {
+          "sha256": "aa821b374753aa967163956c3554309bb265621bc3eace8a94631058f7c67a94",
+          "bytes": 6090104
+        },
+        "a2-local-assets/cosim.js": {
+          "sha256": "cd317d4877e242684fcca7e1626c39f4940f2e619b931f16e2823fea7abd6e89",
+          "bytes": 12922
+        },
+        "a2-local-assets/LICENSE-ESP-EMU": {
+          "sha256": "2479c504896f5ab5ec061a0faf44ddb18411694ec69bb6294c01cc0d619db3ed",
+          "bytes": 11234
+        }
+      },
+      "A3": {
+        "a3-local-assets/esp32c3/manifest.json": {
+          "sha256": "b79ba06c51e4b30c3f1a37af7d6db1000fe9f25f14029d18b8e15b80cbaa4703",
+          "bytes": 656
+        },
+        "a3-local-assets/esp32c3/flash.bin": {
+          "sha256": "30260c6ee610e10e6823e9d9c845d1c6aab24f46773156980e80fba4fde53191",
+          "bytes": 4194304
+        },
+        "a3-local-assets/esp32c3/flash.bin.gz": {
+          "sha256": "8741d8ec84ae5e22df7d04767c12e1ee44b92d5d609696c56cb941da9147f225",
+          "bytes": 111333
+        },
+        "a3-local-assets/esp32c6/manifest.json": {
+          "sha256": "017bd382737630887853801c994d50823a036579bb69ebf33ad8e3be9943d980",
+          "bytes": 656
+        },
+        "a3-local-assets/esp32c6/flash.bin": {
+          "sha256": "2bb8c1c512741a8a82e1cab56ef0c5422b078c8d00ca66ace360abe0c5efb91b",
+          "bytes": 8388608
+        },
+        "a3-local-assets/esp32c6/flash.bin.gz": {
+          "sha256": "0009db387af0cee7058f6f75f65a10121401c2f3f30495b55e897c00d05ba905",
+          "bytes": 109399
+        },
+        "a3-local-assets/esp32h2/manifest.json": {
+          "sha256": "245c96ae82b80065d32625fac7bc1f809cd7e15918319bf6c498bd043199c971",
+          "bytes": 656
+        },
+        "a3-local-assets/esp32h2/flash.bin": {
+          "sha256": "3aaf18716c59ebd73c5a2d1923c23c2f1f6a96e068029a22e6bfe63db64e6676",
+          "bytes": 4194304
+        },
+        "a3-local-assets/esp32h2/flash.bin.gz": {
+          "sha256": "ac24983100cd8d2a0481fa781a88ecd02b34ffe19d45e5ffd92895717b4a3fee",
+          "bytes": 114115
+        }
+      },
+      "A4": {
+        "a4-local-assets/4m/manifest.json": {
+          "sha256": "c4a98a3210b4b29956b0439181280c0985701f3a50cbaeefc94d9e0600fb83b9",
+          "bytes": 669
+        },
+        "a4-local-assets/4m/flash.bin": {
+          "sha256": "ff96bcb7f47a27ba3526967524842603a1ffa5183406795f48d7da27ac41336a",
+          "bytes": 4194304
+        },
+        "a4-local-assets/4m/flash.bin.gz": {
+          "sha256": "cb81cb89c8959d2d87fe42e35d9edc50e5afdd947313c136b9044ea99310f590",
+          "bytes": 123806
+        },
+        "a4-local-assets/8m/manifest.json": {
+          "sha256": "f6aa662c8e7711809016309a9669b65f2554a8dc28cd6774ae44ae3a4d91b3f1",
+          "bytes": 669
+        },
+        "a4-local-assets/8m/flash.bin": {
+          "sha256": "b2e77cc014f60f7495cbc0db23c998f085d783eace36d4dbbc369b1f6e06da55",
+          "bytes": 8388608
+        },
+        "a4-local-assets/8m/flash.bin.gz": {
+          "sha256": "d2f75de3602dfdd4a3a8a3a2018035587e4791ffd1b970d447b3697ffd12477b",
+          "bytes": 127884
+        },
+        "a4-local-assets/16m/manifest.json": {
+          "sha256": "583671f71a0175334a450b82ae1bc43a48fd3938f6c7582017b4faa5c54d0f54",
+          "bytes": 671
+        },
+        "a4-local-assets/16m/flash.bin": {
+          "sha256": "46f7301e3d00a88fb6071ed38ab061b6ef293405f57305b4d5231beefc643119",
+          "bytes": 16777216
+        },
+        "a4-local-assets/16m/flash.bin.gz": {
+          "sha256": "56067e84a349ae30f4d68b4c1c820d1ce4407e2b1d61d1c054395115b3c0335f",
+          "bytes": 136044
+        }
+      },
+      "A5": {
+        "a5-local-assets/pico/manifest.json": {
+          "sha256": "787fc2af71472c85a36aa92c0bcdb35c607a390cf5cfb105deec127ac26a67cc",
+          "bytes": 920
+        },
+        "a5-local-assets/pico/flash.bin": {
+          "sha256": "edff80a06f2eb794c33439a695a6f665266664482284588a2bbd017638652fc2",
+          "bytes": 2097152
+        },
+        "a5-local-assets/pico/flash.bin.gz": {
+          "sha256": "4176f2b90be6a3f4f0d785c728c66543b50d641cd891f36055e6f82754f2f4b5",
+          "bytes": 9271
+        },
+        "a5-local-assets/pico/bootrom.bin": {
+          "sha256": "9c19b46f068c21f90d200c514faad4a0d5cecfc978f155b8c9d25cb6bc2efd81",
+          "bytes": 16384
+        },
+        "a5-local-assets/pico_w/manifest.json": {
+          "sha256": "fd5517e569b9b974ffef50489bae3d5dda2ad447f5b1d637600a3cf1be2f8521",
+          "bytes": 924
+        },
+        "a5-local-assets/pico_w/flash.bin": {
+          "sha256": "8dc950c94e6bad7a0b77352806761c4f0c8ce7a9c05596ca23781c6799621f87",
+          "bytes": 2097152
+        },
+        "a5-local-assets/pico_w/flash.bin.gz": {
+          "sha256": "c3f09b8e807a5790ce24ded75085def00637ac15d39186c2a19eba6e10342dec",
+          "bytes": 9319
+        },
+        "a5-local-assets/pico_w/bootrom.bin": {
+          "sha256": "9c19b46f068c21f90d200c514faad4a0d5cecfc978f155b8c9d25cb6bc2efd81",
+          "bytes": 16384
+        }
+      },
+      "A6": {
+        "a6-local-assets/raspberry-pi-pico-2/manifest.json": {
+          "sha256": "ffc31d214291da72a232c923b7096d0e0702101aa95d3b477ecd73e1ae95a3a2",
+          "bytes": 735
+        },
+        "a6-local-assets/raspberry-pi-pico-2/firmware.elf": {
+          "sha256": "92a6a424ebb4770ddd6264be9824c40b0b861128eeebfe32abb929dfc2405cbe",
+          "bytes": 381092
+        },
+        "a6-local-assets/raspberry-pi-pico-2-h/manifest.json": {
+          "sha256": "5a7114f2c23d4f41542f88200a91308df34e65d197f2da62477f5db1e4fb4620",
+          "bytes": 708
+        },
+        "a6-local-assets/raspberry-pi-pico-2-h/firmware.elf": {
+          "sha256": "92a6a424ebb4770ddd6264be9824c40b0b861128eeebfe32abb929dfc2405cbe",
+          "bytes": 381092
+        },
+        "a6-local-assets/engine/picoemu.wasm.js": {
+          "sha256": "e0b992488bb67d3b673348900449e4aba23859df2cfead4d0dbd128586401c83",
+          "bytes": 97718
+        },
+        "a6-local-assets/engine/picoemu.wasm.wasm": {
+          "sha256": "fddf3035e4999582b3041a76b8d906e100ea9aa6534949922a8110fa27cd5235",
+          "bytes": 365159
+        },
+        "a6-local-assets/engine/LICENSE": {
+          "sha256": "84a438709d54092b97528e5ec7062a7d8a2cfca84e5a165a6821df8301c0a7a3",
+          "bytes": 1104
+        }
+      },
+      "A10": {
+        "a10-local-assets/arduino-nano-classic/manifest.json": {
+          "sha256": "d0cb180797a38044f8c0fcd47b0fc54126715a0ef19a585ee257f4a3a4a7c546",
+          "bytes": 586
+        },
+        "a10-local-assets/arduino-nano-classic/firmware.hex": {
+          "sha256": "22cf4d32bc3dadb5a99b868b9187e438a86ac7967782ba7999eaa336d54ccdf9",
+          "bytes": 6400
+        },
+        "a10-local-assets/arduino-mega-2560-r3/manifest.json": {
+          "sha256": "e6f23b007b4c3c9c92c257cf9e11fdb1eea1622058c833880833bb5a5eadd2d7",
+          "bytes": 589
+        },
+        "a10-local-assets/arduino-mega-2560-r3/firmware.hex": {
+          "sha256": "2e1fb1941804aabd411d91164f4449bbb85e3b5b996c9b811fd496708d849fc1",
+          "bytes": 8437
+        }
+      },
+      "A11": {
+        "a11-local-assets/image/manifest.json": {
+          "sha256": "8f696faa9483f0295f2ec9a5daa0f8e98fd771b044fdf76d5cd629e7d49bd65a",
+          "bytes": 1699
+        },
+        "a11-local-assets/image/flash.bin": {
+          "sha256": "aa0482777300e67c33292bf6ccfd4457a58877a9e458df9571ed5601ceccb97c",
+          "bytes": 4194304
+        },
+        "a11-local-assets/image/flash.bin.gz": {
+          "sha256": "eefb952fe01f8d7df3dd4264837d91df1c033d248c324305d175db232dac6cf5",
+          "bytes": 108788
+        },
+        "a11-local-assets/engine/esp_emu.js": {
+          "sha256": "519469653e11ae54788c472774af6253c7c391e901754ee1ee923877dc4b58f2",
+          "bytes": 66559
+        },
+        "a11-local-assets/engine/esp_emu_bg.wasm": {
+          "sha256": "08f0af4a4b5e747543f05e0cd06fad9fbe18ff0a1d29fafdffabcd5d6a25aeb6",
+          "bytes": 7112321
+        },
+        "a11-local-assets/engine/cosim.js": {
+          "sha256": "cd317d4877e242684fcca7e1626c39f4940f2e619b931f16e2823fea7abd6e89",
+          "bytes": 12922
+        },
+        "a11-local-assets/engine/LICENSE": {
+          "sha256": "2479c504896f5ab5ec061a0faf44ddb18411694ec69bb6294c01cc0d619db3ed",
+          "bytes": 11234
+        }
+      }
+    }
+  },
+  "miniPc": {
+    "stages": [
+      "A7",
+      "A8",
+      "A9",
+      "A12"
+    ],
+    "platform": "Arch Linux amd64. Podman rootless và cgroup v2. Tái sử dụng image Linux đã đạt A12 Pilot R1.",
+    "baseImage": "sha256:c9cc630a6770413216cd5deeb7e6cda16eb5a1387bc070eaea7d5fa2933ef25c",
+    "renode": {
+      "version": "1.17.0",
+      "url": "https://github.com/renode/renode/releases/download/v1.17.0/renode-1.17.0.linux-portable.tar.gz",
+      "sha256": "4ba7c68b59e2447f188ef4b4b112fcccd2802582c460beedceb63b84e5605a5f",
+      "qualification": "Kiểm tính tương đương với runner Windows bằng từng ELF và model REPL nguyên bản. Giữ nguyên UART, bước thời gian, GPIO và phép đo ngspice."
+    },
+    "a12Pilot": {
+      "file": "docs/research/2026-11-28-a12-mini-pc-pilot-proposal.json",
+      "sha256": "e2aa8b9531608483cd0f8aa3c48c448e827ff7d0e93d4d3496085de64b1f3584"
+    },
+    "assets": {
+      "A7": {
+        "a7-local-assets/stm32f401re/manifest.json": {
+          "sha256": "54bbabb7159839e0e789e3751558c609e8adf931778ae91ae6e61d7e9020b129",
+          "bytes": 776
+        },
+        "a7-local-assets/stm32f401re/firmware.elf": {
+          "sha256": "aeaffe3042888375e237660b4420ddbba3eaf635ace2d486fdaef4df83d91346",
+          "bytes": 5828
+        },
+        "a7-local-assets/stm32f401re/target.repl": {
+          "sha256": "ff819069078ed222f80f0e143fb20d27c07a141f17127f58c1b106fa468040b2",
+          "bytes": 816
+        },
+        "a7-local-assets/stm32f411re/manifest.json": {
+          "sha256": "f16e2afe79c430909c49d63a436fdee61f2cb5d860af6f184e6da988c536299b",
+          "bytes": 776
+        },
+        "a7-local-assets/stm32f411re/firmware.elf": {
+          "sha256": "01d0cb612a391c502162973c85f152f7a41adb024c3c1da3508c7c1bd1a38e2e",
+          "bytes": 5828
+        },
+        "a7-local-assets/stm32f411re/target.repl": {
+          "sha256": "8698c8d0c234ad8df4456a44c139ae8393cc3325a427acf25442e985722a470e",
+          "bytes": 817
+        },
+        "a7-local-assets/stm32f446re/manifest.json": {
+          "sha256": "31d480845382d82bf8cef46f162041c956871861ee49687724e959684dcc3486",
+          "bytes": 776
+        },
+        "a7-local-assets/stm32f446re/firmware.elf": {
+          "sha256": "ff021b94a0e533ea289f00fb7f6243bc689dfaa40dc29d20cd046d741b6a3e09",
+          "bytes": 5828
+        },
+        "a7-local-assets/stm32f446re/target.repl": {
+          "sha256": "8698c8d0c234ad8df4456a44c139ae8393cc3325a427acf25442e985722a470e",
+          "bytes": 817
+        }
+      },
+      "A8": {
+        "a8-local-assets/ABX00080/manifest.json": {
+          "sha256": "caf38ed85b642a85b6dffd68809e44aa3910523528f36fe009ca9d6ec2d7a04c",
+          "bytes": 702
+        },
+        "a8-local-assets/ABX00080/firmware.elf": {
+          "sha256": "d2fdfc7193afff102ab9e8c5a414c22e968477e21edd7dbce22f0276d9d5cc6e",
+          "bytes": 5840
+        },
+        "a8-local-assets/ABX00080/target.repl": {
+          "sha256": "c12a81a480b70e533b38caccdd615732bc81ac97dd626b95b952a34112243dfb",
+          "bytes": 1170
+        },
+        "a8-local-assets/ABX00087/manifest.json": {
+          "sha256": "5decf072eca6ef99250e8aeb28cdb81200b9fc734dadc449b043d49e4b690a41",
+          "bytes": 696
+        },
+        "a8-local-assets/ABX00087/firmware.elf": {
+          "sha256": "4d10fcc1c67f476ef6b115cb4f3f40e8a0dbc5c3ae4efa9da7cb95a81f4d02db",
+          "bytes": 5840
+        },
+        "a8-local-assets/ABX00087/target.repl": {
+          "sha256": "c12a81a480b70e533b38caccdd615732bc81ac97dd626b95b952a34112243dfb",
+          "bytes": 1170
+        }
+      },
+      "A9": {
+        "a9-local-assets/stm32f103c8t6/manifest.json": {
+          "sha256": "1b12a15c81cce75fd2d2ce699ee259712a67cc357693c0f10aabd0f49a62b4d4",
+          "bytes": 761
+        },
+        "a9-local-assets/stm32f103c8t6/firmware.elf": {
+          "sha256": "b29330f41342b928ab192b3fddc5cc6d56ef8fe20886ebaafa2e78d37b6fdd52",
+          "bytes": 9416
+        },
+        "a9-local-assets/stm32f103c8t6/target.repl": {
+          "sha256": "17b96f857b938ac71d8edfe4d3edd737270975bb00bb87a865ca4ce3eda4352a",
+          "bytes": 662
+        },
+        "a9-local-assets/stm32l476rgt6/manifest.json": {
+          "sha256": "228998c3a61ae9e689266a205926f2399916e6e943755f366e997a770728c2dc",
+          "bytes": 717
+        },
+        "a9-local-assets/stm32l476rgt6/firmware.elf": {
+          "sha256": "817ce83fec90901cbfd009bcfee80f2c45eaed711247557e63d7d2e244ce5b48",
+          "bytes": 9384
+        },
+        "a9-local-assets/stm32l476rgt6/target.repl": {
+          "sha256": "6012f68da1bfa9c21422ea8f2578a980eaae95d5022d7ef089d7c73e8ad3813b",
+          "bytes": 709
+        }
+      }
+    },
+    "isolation": {
+      "network": "none",
+      "readOnly": true,
+      "caps": "drop all",
+      "noNewPrivileges": true,
+      "cpusPerSession": 1,
+      "memoryMiBPerSession": 384,
+      "pidsPerSession": 64,
+      "tmpfsMiBPerSession": 64
+    },
+    "sessions": {
+      "maxPerTab": 1,
+      "maxConcurrent": 2,
+      "startTimeoutS": 30,
+      "maxDurationS": 90,
+      "maxBodyBytes": 1024
+    },
+    "route": "/api/tools/firmware-sessions/r1/",
+    "interface": "Khởi tạo bằng ID fixture có trong manifest đã duyệt. Phiên có mã ngẫu nhiên và thời hạn, nhận thao tác nhấn/nhả, bước nhỏ hoặc dừng. Vercel đi qua Caddy hiện có và chỉ dùng route của dịch vụ trên loopback.",
+    "limits": "Giới hạn khởi tạo theo IP đã xác thực qua proxy hiện có. Yêu cầu không có danh tính proxy đáng tin dùng hạn mức chung. Hai ca chạy đồng thời phải qua kiểm thử cùng health API trước khi bật public."
+  },
+  "acceptance": [
+    "Kiểm SHA-256 của payload và quyền phân phối trước khi bật từng nhóm.",
+    "Chạy từng mạch từ web, kiểm đúng board, topology, UART, GPIO, thời gian và ngspice. Chạy Chrome desktop và 375 px.",
+    "Kiểm dừng, đổi board, hết hạn, tệp lỗi và hai phiên độc lập. Giữ bản nháp cũ theo origin.",
+    "Kiểm /release.json đúng commit GitHub và /api/health từ ngoài. Có thể quay lui bằng cách tắt route firmware riêng."
+  ]
+}

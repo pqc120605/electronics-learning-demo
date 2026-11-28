@@ -42,7 +42,7 @@ trap cleanup EXIT
 
 shift
 features=$(node "$checkout/server/api/production-edge.mjs" --read "$config")
-read -r enable_ai enable_compiler <<< "$features"
+read -r enable_ai enable_compiler enable_firmware <<< "$features"
 for option in "$@"; do
   case "$option" in
     --enable-ai) enable_ai=1 ;;
@@ -55,6 +55,7 @@ done
 edge_args=()
 if (( enable_ai )); then edge_args+=(--enable-ai); fi
 if (( enable_compiler )); then edge_args+=(--enable-compiler); fi
+if (( enable_firmware )); then edge_args+=(--enable-firmware); fi
 compiler_ready() {
   curl -fsS --max-time 5 -H 'Host: mach-mo.vercel.app' "$1" |
     node -e 'const h=JSON.parse(require("node:fs").readFileSync(0,"utf8")); if(!h.ok||!h.boards?.includes("arduino-uno-r3"))process.exit(1)'

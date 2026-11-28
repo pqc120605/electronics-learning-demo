@@ -1,6 +1,7 @@
+import { firmwareAssetBase } from './firmwareDelivery'
 import { fetchA2C3Image } from './a2C3Image'
 
-export const a2Assets = '/api/local-tools/a2-c3/'
+export const a2Assets = firmwareAssetBase('A2', '/api/local-tools/a2-c3/', 'default/')
 const approvalSha256 = '452a965fe0028db65003a721abd6a9f253660501876949d2c1d8ede05c46b8a3'
 export type A2Sample = { timeUs: number; inputHigh: boolean; outputHigh: boolean }
 export type A2WorkerEvent = { type: 'uart'; text: string } | { type: 'sample'; sample: A2Sample } | { type: 'error'; message: string }

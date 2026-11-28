@@ -1,3 +1,4 @@
+import { firmwareAssetBase } from './firmwareDelivery'
 import config from '../../../docs/research/2026-11-27-avr-classic-electrical-firmware-a10-proposal.json'
 import { inspectIntelHex } from '../intelHex'
 
@@ -42,7 +43,7 @@ export async function verifyA10Hex(board: A10Board, manifest: Manifest | null, h
 }
 
 export async function loadA10Hex(board: A10Board, fixtureJson: string, signal: AbortSignal) {
-  const base = `/api/local-tools/a10-avr/${board.id}/`
+  const base = firmwareAssetBase('A10', `/api/local-tools/a10-avr/${board.id}/`, board.id + '/')
   const response = await fetch(base + 'manifest.json', { signal })
   if (!response.ok || !response.headers.get('content-type')?.includes('application/json')) {
     throw new Error('Firmware A10 chưa được chuẩn bị trên máy này.')

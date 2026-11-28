@@ -26,7 +26,8 @@ import { FreestyleSpiceControls } from './FreestyleSpiceControls'
 import { CoupledFirmwareControls, type CoupledHexRun } from './CoupledFirmwareControls'
 import { a1BoardId, buildA1UnoFixture, getA1UnoFixture } from '../../lib/freestyle/a1UnoFixtures'
 import { a2BoardId, a2ButtonId, a2FixtureId, a2LedId, buildA2C3Fixture } from '../../lib/freestyle/a2C3Fixture'
-import { isA2LocalHost, type A2Sample } from '../../lib/freestyle/a2C3Runtime'
+import type { A2Sample } from '../../lib/freestyle/a2C3Runtime'
+import { canOpenFirmwareFixture } from '../../lib/freestyle/firmwareDelivery'
 import { a3ButtonId, a3LedId, buildA3Fixture } from '../../lib/freestyle/a3EspFixture'
 import { getA3Board } from '../../lib/freestyle/a3EspProfiles'
 import { a4ButtonId, a4LedId, buildA4Fixture, getActiveA4Board } from '../../lib/freestyle/a4EspFixture'
@@ -543,16 +544,16 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
       const r5 = getR5CircuitFixture(fixtureParam)
       const chosenA1 = a1 && buildA1UnoFixture(a1)
       const chosenA2 = fixtureParam === a2FixtureId ? buildA2C3Fixture() : undefined
-      const chosenA3 = isA2LocalHost(window.location.hostname) ? buildA3Fixture(fixtureParam) : undefined
-      const chosenA4 = isA2LocalHost(window.location.hostname) ? buildA4Fixture(fixtureParam) : undefined
-      const chosenA5 = isA2LocalHost(window.location.hostname) ? buildA5Fixture(fixtureParam) : undefined
-      const chosenA6 = isA2LocalHost(window.location.hostname) ? buildA6Fixture(fixtureParam) : undefined
-      const chosenA7 = isA2LocalHost(window.location.hostname) ? buildA7Fixture(fixtureParam) : undefined
-      const chosenA8 = isA2LocalHost(window.location.hostname) ? buildA8Fixture(fixtureParam) : undefined
-      const chosenA9 = isA2LocalHost(window.location.hostname) ? buildA9Fixture(fixtureParam) : undefined
-      const chosenA10 = isA2LocalHost(window.location.hostname) ? buildA10Fixture(fixtureParam) : undefined
-      const chosenA11 = isA2LocalHost(window.location.hostname) ? buildA11Fixture(fixtureParam) : undefined
-      const chosenA12 = isA2LocalHost(window.location.hostname) ? buildA12Fixture(fixtureParam) : undefined
+      const chosenA3 = canOpenFirmwareFixture() ? buildA3Fixture(fixtureParam) : undefined
+      const chosenA4 = canOpenFirmwareFixture() ? buildA4Fixture(fixtureParam) : undefined
+      const chosenA5 = canOpenFirmwareFixture() ? buildA5Fixture(fixtureParam) : undefined
+      const chosenA6 = canOpenFirmwareFixture() ? buildA6Fixture(fixtureParam) : undefined
+      const chosenA7 = canOpenFirmwareFixture() ? buildA7Fixture(fixtureParam) : undefined
+      const chosenA8 = canOpenFirmwareFixture() ? buildA8Fixture(fixtureParam) : undefined
+      const chosenA9 = canOpenFirmwareFixture() ? buildA9Fixture(fixtureParam) : undefined
+      const chosenA10 = canOpenFirmwareFixture() ? buildA10Fixture(fixtureParam) : undefined
+      const chosenA11 = canOpenFirmwareFixture() ? buildA11Fixture(fixtureParam) : undefined
+      const chosenA12 = canOpenFirmwareFixture() ? buildA12Fixture(fixtureParam) : undefined
       const fixedFirmware = chosenA12 ?? chosenA11 ?? chosenA10 ?? chosenA9 ?? chosenA8 ?? chosenA7 ?? chosenA6 ?? chosenA5 ?? chosenA4 ?? chosenA3 ?? chosenA2
       const chosen = fixedFirmware ?? chosenA1 ?? r5 ?? r4 ?? getR3CircuitFixture(fixtureParam)
       const originalDraft = chosenA12 && !started ? draft?.raw : undefined
@@ -763,9 +764,9 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
     && (workspace.sampleId === 'button-led' || workspace.sampleId === 'keypad-five' || workspace.sampleId === 'dht-demo')
   const pythonAvailable = Boolean(importedBootrom || useLocalRuntime && tools?.rp2040Bootrom)
   const runBlockedReason = !boardId ? 'Chọn board trước khi chạy hoặc dựng mạch mẫu.'
-    : getA8Board(boardId) && !isA2LocalHost(window.location.hostname) ? 'Mạch UNO R4 A8 chạy trên bản local.'
-    : getA7Board(boardId) && !isA2LocalHost(window.location.hostname) ? 'Mạch STM32 A7 chạy trên bản local.'
-    : a6OnlyBoard && !isA2LocalHost(window.location.hostname) ? 'Mạch RP2350 A6 chạy trên bản local.'
+    : getA8Board(boardId) && !canOpenFirmwareFixture() ? 'Mạch UNO R4 A8 chạy trên bản local.'
+    : getA7Board(boardId) && !canOpenFirmwareFixture() ? 'Mạch STM32 A7 chạy trên bản local.'
+    : a6OnlyBoard && !canOpenFirmwareFixture() ? 'Mạch RP2350 A6 chạy trên bản local.'
     : getA12Board(boardId) ? 'Dùng bảng đo DC của mạch mẫu A12 trên bản local.'
     : isFixedFirmwareFixture ? `Dùng nút Chạy firmware trong mạch mẫu ${fixedFixtureStage}.`
     : boardId === 'esp32-devkitm-1' ? 'Mở mạch mẫu A11 từ thư viện Board để chạy firmware ESP32.'
@@ -1022,8 +1023,8 @@ export function FreestyleBench({ variant = 'home', initialWorkspace, readOnly = 
 
       <div className="freestyle-stage" ref={stageRef} tabIndex={-1} aria-label="Mạch đang lắp" onDragOver={event => { if (!readOnly && event.dataTransfer.types.includes('application/x-machmo-part')) event.preventDefault() }} onDrop={readOnly ? undefined : dropPart}>
         {notice && doc.parts.length > 0 && view !== 'breadboard' && <p className="freestyle-notice" role="status">{notice}</p>}
-        {!readOnly && a12Board && isA2LocalHost(window.location.hostname) && <A12CircuitControls key={boardId} doc={doc} pinMap={pinMap} board={a12Board} />}
-        {!readOnly && !a12Board && isFixedFirmwareFixture && (!localFixture || isA2LocalHost(window.location.hostname)) && <A2C3Controls key={boardId}
+        {!readOnly && a12Board && canOpenFirmwareFixture() && <A12CircuitControls key={boardId} doc={doc} pinMap={pinMap} board={a12Board} />}
+        {!readOnly && !a12Board && isFixedFirmwareFixture && (!localFixture || canOpenFirmwareFixture()) && <A2C3Controls key={boardId}
           doc={doc} boardId={boardId} pinMap={pinMap} a3={a3Board} a4={a4Board} a5={a5Board} a6={a6Board} a7={a7Board} a8={a8Board} a9={a9Board} a10={a10Board} a11={a11Board}
           pressed={controls[fixtureButton] === true} onSample={setA2Sample} />}
         {oldEsp32Sample && <p className="freestyle-note" role="note">Mẫu lưu cũ dùng chân từ GPIO34 trở lên. Các chân này không có kéo lên nội và chỉ nhận tín hiệu. Chọn lại đúng mạch mẫu rồi bấm “Dựng mạch mẫu” để dùng GPIO19.</p>}

@@ -1,3 +1,4 @@
+import { firmwareAssetBase } from './firmwareDelivery'
 import { a4ApprovalSha256, a4Target } from './a4EspProfiles'
 
 const mib = 1024 * 1024
@@ -21,7 +22,7 @@ export function assertA4Image(image: Uint8Array, flashMiB: number) {
 }
 
 export async function loadA4Firmware(flashMiB: number, signal: AbortSignal) {
-  const base = `/api/local-tools/a4-esp/${flashMiB}m/`
+  const base = firmwareAssetBase('A4', `/api/local-tools/a4-esp/${flashMiB}m/`, flashMiB + 'm/')
   const response = await fetch(base + 'manifest.json', { signal })
   if (!response.ok || !response.headers.get('Content-Type')?.includes('application/json')) {
     throw new Error(`Firmware A4 ${flashMiB} MiB chưa được chuẩn bị trên máy này.`)

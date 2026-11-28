@@ -53,19 +53,20 @@ export function assertA9Image(elf, board) {
   if (!elf.includes(Buffer.from(board.firmware.readyLine + '\n'))) throw new Error('ELF A9 không đúng STM32 đã chọn.')
 }
 
-export async function loadA9Target(root, boardId) {
+export async function loadA9Target(root, boardId, hosted) {
   const proposal = await readA9Proposal(root)
   const board = proposal.boards.find(candidate => candidate.id === boardId)
   if (!board) throw new Error('Chọn một board đã duyệt cho A9.')
   const { runtime } = proposal
-  const assets = resolve(root, a9Assets)
-  const runner = resolve(root, runtime.launcher.path)
+  const assets = hosted ? resolve(hosted.assets, 'a9-local-assets') : resolve(root, a9Assets)
+  const runner = hosted?.runner ?? resolve(root, runtime.launcher.path)
   const file = name => resolve(assets, board.firmware.target, name)
   let manifest, elf, platform, engine, infrastructure, source
   try {
     [manifest, elf, platform, engine, infrastructure, source] = await Promise.all([
       readFile(file('manifest.json'), 'utf8').then(JSON.parse), readFile(file('firmware.elf')),
-      readFile(file('target.repl')), readFile(runner), readFile(resolve(root, runtime.evidence[0].path)), readFile(resolve(root, a9Source)),
+      readFile(file('target.repl')), hosted ? undefined : readFile(runner),
+      hosted ? undefined : readFile(resolve(root, runtime.evidence[0].path)), readFile(resolve(root, a9Source)),
     ])
   } catch {
     throw new Error('Renode và ELF A9 chưa được chuẩn bị trên máy này.')
@@ -81,7 +82,7 @@ export async function loadA9Target(root, boardId) {
   assertA9Image(elf, board)
   if (hash(elf) !== manifest.elfSha256 || hash(source) !== manifest.sourceSha256
     || hash(platform) !== manifest.platformSha256 || platform.toString() !== platformForA9(board)
-    || hash(engine) !== runtime.launcher.sha256 || hash(infrastructure) !== runtime.evidence[0].sha256) {
+    || !hosted && (hash(engine) !== runtime.launcher.sha256 || hash(infrastructure) !== runtime.evidence[0].sha256)) {
     throw new Error('Checksum Renode, cấu hình hoặc ELF A9 không khớp.')
   }
   return { proposal, board, assets, runner, elf, platform, tickAddress }

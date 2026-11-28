@@ -60,19 +60,19 @@ export function assertA8Image(elf, board, { flash, sram }) {
   if (!elf.includes(Buffer.from(board.readyLine + '\n'))) throw new Error('ELF A8 không đúng SKU board.')
 }
 
-export async function loadA8Target(root, boardId) {
+export async function loadA8Target(root, boardId, hosted) {
   const proposal = await readA8Proposal(root)
   const board = proposal.boards.find(candidate => candidate.id === boardId)
   if (!board) throw new Error('Chọn một board đã duyệt cho A8.')
   const { firmware, runtime } = proposal
-  const assets = resolve(root, a8Assets)
-  const runner = resolve(root, runtime.launcher.path)
+  const assets = hosted ? resolve(hosted.assets, 'a8-local-assets') : resolve(root, a8Assets)
+  const runner = hosted?.runner ?? resolve(root, runtime.launcher.path)
   const path = name => resolve(assets, board.sku, name)
   let manifest, elf, platform, engine, source
   try {
     [manifest, elf, platform, engine, source] = await Promise.all([
       readFile(path('manifest.json'), 'utf8').then(JSON.parse), readFile(path('firmware.elf')),
-      readFile(path('target.repl')), readFile(runner), readFile(resolve(root, sourceFile)),
+      readFile(path('target.repl')), hosted ? undefined : readFile(runner), readFile(resolve(root, sourceFile)),
     ])
   } catch {
     throw new Error('Renode và ELF A8 chưa được chuẩn bị trên máy này.')
@@ -88,6 +88,6 @@ export async function loadA8Target(root, boardId) {
   assertA8Image(elf, board, firmware.memoryMap)
   if (hash(elf) !== manifest.elfSha256 || hash(source) !== manifest.sourceSha256
     || hash(platform) !== manifest.platformSha256 || platform.toString() !== platformForA8(proposal)
-    || hash(engine) !== runtime.launcher.sha256) throw new Error('Checksum Renode, cấu hình hoặc ELF A8 không khớp.')
+    || !hosted && hash(engine) !== runtime.launcher.sha256) throw new Error('Checksum Renode, cấu hình hoặc ELF A8 không khớp.')
   return { proposal, board, assets, runner, elf, platform, tickAddress: manifest.tickAddress }
 }

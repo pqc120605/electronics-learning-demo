@@ -6,17 +6,17 @@ import { createRenodeLocalService } from './renode-local-service.mjs'
 
 const engineHash = '67c2c21eb977181a50a19acbf582c4204d8177d2b4ae0bac4c3d3d51da7a7b4e'
 
-export async function openA7Machine(root, boardId, lifetime) {
+export async function openA7Machine(root, boardId, lifetime, hosted) {
   const proposal = await readA7Proposal(root)
   const board = proposal.boards.find(item => item.id === boardId)
   if (!board) throw new Error('Chọn một board đã duyệt cho A7.')
-  const assets = resolve(root, assetDirectory)
+  const assets = hosted ? resolve(hosted.assets, 'a7-local-assets') : resolve(root, assetDirectory)
   const file = name => resolve(assets, board.target, name)
-  const runner = resolve(assets, renodeDirectory, 'Renode.exe')
+  const runner = hosted?.runner ?? resolve(assets, renodeDirectory, 'Renode.exe')
   let manifest, elf, platform, engine, source
   try {
     const [metadata, ...payloads] = await Promise.all([readFile(file('manifest.json'), 'utf8'), readFile(file('firmware.elf')),
-      readFile(file('target.repl')), readFile(runner), readFile(resolve(root, 'firmware/stm32f4-a7/button_led.c'))])
+      readFile(file('target.repl')), hosted ? undefined : readFile(runner), readFile(resolve(root, 'firmware/stm32f4-a7/button_led.c'))])
     manifest = JSON.parse(metadata)
     const [image, description, executable, firmware] = payloads
     elf = image
@@ -30,7 +30,7 @@ export async function openA7Machine(root, boardId, lifetime) {
   assertA7Image(elf, board)
   const { runtime } = proposal
   const { limits } = runtime.localTransport
-  if (manifest.runnerArchiveSha256 !== runtime.archive.sha256 || digest(engine) !== engineHash
+  if (manifest.runnerArchiveSha256 !== runtime.archive.sha256 || !hosted && digest(engine) !== engineHash
     || digest(elf) !== manifest.elfSha256 || !elf.includes(Buffer.from(board.readyLine + '\n'))
     || digest(source) !== manifest.sourceSha256 || digest(platform) !== manifest.platformSha256
     || platform.toString() !== platformFor(board, runtime.profiling)) {
@@ -38,7 +38,7 @@ export async function openA7Machine(root, boardId, lifetime) {
   }
 
   return openRenodeMachine({
-    stage: 'A7', assets, runner, runnerArguments: runtime.localTransport.runnerArguments, limits,
+    stage: 'A7', assets, runner, runnerArguments: runtime.localTransport.runnerArguments, limits, launch: hosted?.launch,
     elf, platform, lifetime, approvalSha256, readyLine: board.readyLine,
     uartDevice: 'sysbus.usart2', inputDevice: 'sysbus.gpioPortA', inputBit: 10,
     registers: [manifest.tickAddress, 0x40020010, 0x40020400, 0x40020414, 0x40020410],

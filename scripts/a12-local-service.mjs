@@ -28,15 +28,15 @@ const sha256 = bytes => createHash('sha256').update(bytes).digest('hex')
 const readyLine = target => 'A12_READY=' + target
 const limitError = 'Phiên firmware A12 đã hết thời gian hoặc dừng.'
 
-async function verifyAssets(root, target, requireEvidence) {
+async function verifyAssets(root, target, requireEvidence, hosted) {
   const profile = profiles[target]
   const planBytes = await readFile(resolve(root, planPath))
   if (sha256(planBytes) !== a12FirmwareApproval) throw new Error('SHA-256 cấu hình A12-FW-R2 không khớp.')
   const plan = JSON.parse(planBytes)
-  const directory = resolve(root, staged)
+  const directory = hosted?.assets ?? resolve(root, staged)
   let manifest
   try {
-    manifest = JSON.parse(await readFile(resolve(directory, 'manifest.json'), 'utf8'))
+    manifest = hosted?.manifest ?? JSON.parse(await readFile(resolve(directory, 'manifest.json'), 'utf8'))
   } catch {
     throw new Error('Chưa có runner A12-FW-R2 đã xác minh trên laptop.')
   }
@@ -117,14 +117,14 @@ function validateFrame(target, frame, previous, pressed, ms) {
   return frame
 }
 
-export async function openA12Machine(root, target, lifetime, requireEvidence = false) {
+export async function openA12Machine(root, target, lifetime, requireEvidence = false, hosted) {
   lifetime.throwIfAborted()
-  const { command } = await verifyAssets(root, target, requireEvidence)
+  const { command } = await verifyAssets(root, target, requireEvidence, hosted)
   lifetime.throwIfAborted()
   const control = new AbortController()
-  const child = spawn('wsl.exe', ['-d', 'podman-machine-default', '--', 'podman', 'exec', '-i',
-    container, 'timeout', '--kill-after=2s', '120s', ...command],
-  { cwd: root, windowsHide: true, shell: false })
+  const launched = hosted?.launch(command)
+  const child = launched?.child ?? spawn('wsl.exe', ['-d', 'podman-machine-default', '--', 'podman', 'exec', '-i',
+    container, 'timeout', '--kill-after=2s', '120s', ...command], { cwd: root, windowsHide: true, shell: false })
   const closed = new Promise(resolve => child.once('close', resolve))
   const next = transcript(child, control.signal)
   let expiry
@@ -137,6 +137,7 @@ export async function openA12Machine(root, target, lifetime, requireEvidence = f
       child.stdin.end()
       if (!await Promise.race([closed.then(() => true), delay(900, false, { ref: false })])) child.kill()
       await Promise.race([closed, delay(900, undefined, { ref: false })])
+      await launched?.clean()
     })()
   }
   lifetime.addEventListener('abort', stop, { once: true })

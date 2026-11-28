@@ -1,3 +1,4 @@
+import { firmwareSessionBase, firmwareTab, isHostedFirmware } from './firmwareDelivery'
 import type { A2Sample } from './a2C3Runtime'
 import { a7ApprovalSha256, a7Limits } from './a7Stm32Profiles'
 import { a8ApprovalSha256, a8Transport } from './a8Ra4m1Profiles'
@@ -10,11 +11,11 @@ export function createLocalFirmwareRuntime(stage: string, base: string, sha256: 
   limits: { startupWallMs: number; runWallMs: number }, provider = 'Renode', perTab = false) {
   let tab: string | undefined
   async function post(operation: string, body: object, signal?: AbortSignal, keepalive = false) {
-    const response = await fetch(base + operation, {
+    const response = await fetch(firmwareSessionBase(stage, base) + operation, {
       method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal, keepalive,
     })
     if (!response.headers.get('content-type')?.includes('application/json')) {
-      throw new Error('Cầu nối ' + provider + ' ' + stage + ' chỉ có ở bản local.')
+      throw new Error('Dịch vụ ' + provider + ' ' + stage + ' chưa khả dụng.')
     }
     const result = await response.json()
     if (!response.ok) throw new Error(result.message ?? 'Phiên ' + provider + ' ' + stage + ' đã mất kết nối.')
@@ -33,7 +34,7 @@ export function createLocalFirmwareRuntime(stage: string, base: string, sha256: 
     async start(board: { id: string; readyLine: string }, signal: AbortSignal): Promise<Boot> {
       await retirement
       signal.throwIfAborted()
-      if (perTab) tab ??= crypto.randomUUID()
+      if (perTab || isHostedFirmware()) tab ??= firmwareTab()
       const boot: Boot = await post('start', { boardId: board.id, ...(tab ? { tab } : {}) }, signal)
       if (boot.approvalSha256 !== sha256 || !boot.serial.split(/\r?\n/).includes(board.readyLine)) {
         void stop(boot.id)

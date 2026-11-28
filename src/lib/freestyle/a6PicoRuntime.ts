@@ -1,7 +1,8 @@
+import { firmwareAssetBase } from './firmwareDelivery'
 
 import { a6ApprovalSha256, a6Firmware, a6RuntimeAssets, type A6Board } from './a6PicoProfiles'
 
-const base = '/api/local-tools/a6-pico/'
+const base = firmwareAssetBase('A6', '/api/local-tools/a6-pico/')
 const maxElfBytes = 1024 * 1024
 const shaPattern = /^[a-f0-9]{64}$/
 const flash = [0x10000000, 0x10400000] as const

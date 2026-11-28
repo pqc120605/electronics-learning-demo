@@ -4,12 +4,12 @@ import { createRenodeLocalService } from './renode-local-service.mjs'
 
 const prefix = '/api/local-tools/a8-ra4m1/'
 
-export async function openA8Machine(root, boardId, lifetime) {
-  const { proposal, board, assets, runner, elf, platform, tickAddress } = await loadA8Target(root, boardId)
+export async function openA8Machine(root, boardId, lifetime, hosted) {
+  const { proposal, board, assets, runner, elf, platform, tickAddress } = await loadA8Target(root, boardId, hosted)
   const { route, runnerArguments, limits } = proposal.runtime.transport
   if (route !== prefix) throw new Error('Đường dẫn dịch vụ không khớp cấu hình A8.')
   return openRenodeMachine({
-    stage: 'A8', assets, runner, runnerArguments, limits, elf, platform, lifetime,
+    stage: 'A8', assets, runner, runnerArguments, limits, elf, platform, lifetime, launch: hosted?.launch,
     approvalSha256: a8ApprovalSha256, readyLine: board.readyLine,
     uartDevice: 'sysbus.sci2', inputDevice: 'sysbus.port' + board.button.port, inputBit: board.button.bit,
     registers: [tickAddress, Number(board.button.pfs), Number(board.led.pfs)],

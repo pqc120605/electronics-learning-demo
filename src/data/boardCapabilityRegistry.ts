@@ -3,6 +3,14 @@ import { getA9Board } from '../lib/freestyle/a9Stm32Profiles'
 import { getA10Board } from '../lib/freestyle/a10AvrRuntime'
 import { getA11Board } from '../lib/freestyle/a11EspRuntime'
 import { getA12Board } from '../lib/freestyle/a12Profiles'
+import { a2BoardId } from '../lib/freestyle/a2C3Fixture'
+import { getA3Board } from '../lib/freestyle/a3EspProfiles'
+import { getA4Board } from '../lib/freestyle/a4EspProfiles'
+import { getA5Board } from '../lib/freestyle/a5PicoProfiles'
+import { getA6Board } from '../lib/freestyle/a6PicoProfiles'
+import { getA7Board } from '../lib/freestyle/a7Stm32Profiles'
+import { getA8Board } from '../lib/freestyle/a8Ra4m1Profiles'
+import { isHostedFirmware } from '../lib/freestyle/firmwareDelivery'
 import { getAtmega328pFirmwareTarget } from '../lib/firmwareTarget'
 import { simulationTargets } from './simulationTargets'
 import { getBoardModelEvidence } from './boardModelSources'
@@ -134,6 +142,14 @@ export function getBoardSupportSummary(boardId: string) {
 
 /** Firmware support comes from the runner's exact target list, never an MCU name match. */
 export function describeBoardSimulation(boardId: string): string {
+  if (isHostedFirmware()) {
+    const stage = boardId === a2BoardId ? 'A2'
+      : getA3Board(boardId) ? 'A3' : getA4Board(boardId) ? 'A4'
+        : getA5Board(boardId) ? 'A5' : getA6Board(boardId) ? 'A6'
+          : getA7Board(boardId) ? 'A7' : getA8Board(boardId) ? 'A8' : getA9Board(boardId) ? 'A9'
+            : getA10Board(boardId) ? 'A10' : getA11Board(boardId) ? 'A11' : getA12Board(boardId) ? 'A12' : ''
+    if (stage) return `Mạch mẫu ${stage} chạy firmware nút nhấn và LED, hiển thị GPIO, UART và phép đo DC bằng ngspice.`
+  }
   if (getA9Board(boardId)) return 'Bản local chạy ELF Renode cho mạch mẫu nút nhấn và LED A9, kèm hai phép đo ngspice DC.'
   const lesson = targets.has(boardId) ? 'Có mô hình hành vi bài học trong phòng thử.' : 'Chưa có profile bài học trong phòng thử.'
   const legacyHex = getAtmega328pFirmwareTarget(boardId)

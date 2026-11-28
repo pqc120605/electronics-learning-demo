@@ -21,7 +21,7 @@ test('bare deployments preserve compiler and AI routing independently', async ()
   const { readProductionEdgeFeatures, renderProductionEdge } = await import('../server/api/production-edge.mjs')
   for (const aiEnabled of [false, true]) for (const compilerEnabled of [false, true]) {
     const expected = { aiEnabled, compilerEnabled }
-    assert.deepEqual(readProductionEdgeFeatures(renderProductionEdge(expected)), expected)
+    assert.deepEqual(readProductionEdgeFeatures(renderProductionEdge(expected)), { firmwareEnabled: false, ...expected })
   }
   assert.throws(() => readProductionEdgeFeatures('custom edge'), /indisponible|recognize|incomplete/i)
   assert.throws(() => readProductionEdgeFeatures(renderProductionEdge({ compilerEnabled: true }).replace(' /tools/arduino/compile', '')), /incomplete/i)

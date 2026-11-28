@@ -25,23 +25,28 @@ function reply(res, status, value) {
   res.end(JSON.stringify(value))
 }
 
-export function createRenodeLocalService(root, { stage, prefix, openMachine, perTab = false }) {
+export function createRenodeLocalService(root, { stage, prefix, openMachine, perTab = false,
+  authorize = req => isLocalRequest(req) && req.headers.origin === (req.socket.encrypted ? 'https://' : 'http://') + req.headers.host,
+  reserve = () => () => {},
+}) {
   const invalidSession = renodeInvalidSession(stage)
   const sessions = new Map()
   function release(session) {
     session.cancel.abort(new Error(invalidSession))
     return session.retirement ??= (async () => {
       const machine = await session.opened?.catch(() => undefined)
-      await machine?.stop()
-      sessions.delete(session.id)
+      try { await machine?.stop() }
+      finally {
+        sessions.delete(session.id)
+        session.free()
+      }
     })()
   }
 
   async function middleware(req, res, next) {
     if (!req.url?.startsWith(prefix)) return next()
     const fail = (status, message) => reply(res, status, { message })
-    const scheme = req.socket.encrypted ? 'https://' : 'http://'
-    if (!isLocalRequest(req) || req.headers.origin !== scheme + req.headers.host) return fail(403, stage + ' chỉ chạy cùng origin trên localhost.')
+    if (!authorize(req)) return fail(403, 'Origin không được phép chạy ' + stage + '.')
     if (req.method !== 'POST') return fail(405, stage + ' yêu cầu POST.')
     const operation = req.url.slice(prefix.length)
     if (operation !== 'start' && operation !== 'step' && operation !== 'stop') return fail(404, 'Không có thao tác ' + stage + ' này.')
@@ -54,11 +59,13 @@ export function createRenodeLocalService(root, { stage, prefix, openMachine, per
         return fail(400, 'Cần chọn board ' + stage + '.')
       }
       if ([...sessions.values()].some(session => session.tab === tab)) return fail(409, 'Đã có phiên firmware ' + stage + '.')
-      const session = { id: randomUUID(), tab, cancel: new AbortController(), pending: true }
+      const free = reserve(req, tab)
+      if (!free) return fail(429, 'Máy chủ đang bận. Thử lại sau.')
+      const session = { id: randomUUID(), tab, free, cancel: new AbortController(), pending: true }
       sessions.set(session.id, session)
       const disconnect = () => { if (!res.writableEnded) void release(session) }
       res.once('close', disconnect)
-      session.opened = openMachine(root, body.boardId, session.cancel.signal)
+      session.opened = Promise.resolve().then(() => openMachine(root, body.boardId, session.cancel.signal))
       try {
         const machine = await session.opened
         machine.signal.addEventListener('abort', () => { void release(session) }, { once: true })

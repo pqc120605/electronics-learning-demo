@@ -1,3 +1,4 @@
+import { firmwareAssetBase } from './firmwareDelivery'
 import { a5ApprovalSha256, a5FlashLayout, a5Target, type A5Board, type A5SdkBoard } from './a5PicoProfiles'
 
 const flashBase = Number(a5FlashLayout.xipBase)
@@ -25,7 +26,7 @@ async function sha256(buffer: ArrayBuffer) {
 }
 
 export async function loadA5Firmware(board: A5Board, signal: AbortSignal) {
-  const base = `/api/local-tools/a5-pico/${board.sdkBoard}/`
+  const base = firmwareAssetBase('A5', `/api/local-tools/a5-pico/${board.sdkBoard}/`, board.sdkBoard + '/')
   const response = await fetch(base + 'manifest.json', { signal })
   if (!response.ok || !response.headers.get('Content-Type')?.includes('application/json')) {
     throw new Error('Firmware A5 chưa được chuẩn bị trên máy này.')

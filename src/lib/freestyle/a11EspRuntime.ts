@@ -1,3 +1,4 @@
+import { firmwareAssetBase } from './firmwareDelivery'
 import config from '../../../docs/research/2026-11-27-esp32-lx6-electrical-firmware-a11-proposal.json'
 
 export const a11ApprovalSha256 = '44584deeb8f5472852ee6174c29907466cbfdf5c2e04a295343c006823e4a333'
@@ -42,7 +43,7 @@ export function sampleA11Gpio(machine: GpioMachine) {
   return { inputHigh: Boolean(read(gpioInputRegister) & (1 << inputGpio)), outputHigh: Boolean(read(gpioOutputRegister) & outputBit) }
 }
 
-export const a11Base = '/api/local-tools/a11-esp/'
+export const a11Base = firmwareAssetBase('A11', '/api/local-tools/a11-esp/')
 const digestPattern = /^[a-f0-9]{64}$/
 
 export function assertA11Source(image: Uint8Array, sourceSha256: string) {
